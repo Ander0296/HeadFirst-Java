@@ -7,3 +7,4 @@ paginas/
 # Basura del sistema
 .DS_Store
 Thumbs.db
+.atl/
