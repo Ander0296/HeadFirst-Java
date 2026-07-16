@@ -1,9 +1,0 @@
-# Pantallazos del libro (copyright — NUNCA subir, el repo es público)
-paginas/
-
-# Compilados de Java (el código fuente .java SÍ se sube)
-*.class
-
-# Basura del sistema
-.DS_Store
-Thumbs.db
