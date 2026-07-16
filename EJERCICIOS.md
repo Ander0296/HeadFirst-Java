@@ -87,7 +87,7 @@ Completado.
 
 ============================================================
 
-LIBRO — Sharpen your pencil: "DooBee" — completar el código faltante de un while + if para que coincida con la salida dada (Ubicación pág. 109, Sesión #13) — [~] en curso
+LIBRO — Sharpen your pencil: "DooBee" — completar el código faltante de un while + if para que coincida con la salida dada (Ubicación pág. 109, Sesión #13) — [x] completado (2026-07-16)
 
 Enunciado (tal cual lo plantea el libro): te dan la salida de un
 programa ya ejecutado, y tenés que completar los espacios en blanco
@@ -121,9 +121,8 @@ solo renglón, sin saltos de línea — eso te dice algo sobre si hay que
 usar `print` o `println` en los espacios en blanco de adentro del
 `while`.
 
-Entregá en: ejercicios/ej-libro-doobee/DooBee.java (es código Java
-real y compilable — mejor escribirlo, compilarlo y correrlo para
-confirmar vos mismo si la salida coincide con "DooBeeDooBeeDo").
+Entregá en: ejercicios/ej01-doobee/DooBee.java (archivo de arranque
+creado retroactivamente el 2026-07-16, ver nota más abajo).
 Si te trabás: revisá la Sesión #12 y #13 de GUIA-JAVA.md (ahí está
 todo lo de `while`, `if`/`else` y `print` vs `println`).
 Resultado y corrección de Claude (se llena al revisar):
@@ -136,7 +135,46 @@ vuelta arrancando en x=1, así que imprime "DooBee" una sola vez en vez
 de dos — la salida de su código sería "DooBeeDo", no "DooBeeDooBeeDo".
 Pista dada (sin solución completa): contar cuántas vueltas da el while
 con esa condición vs. cuántas veces aparece "DooBee" en la salida
-esperada. En curso, a la espera del reintento.
+esperada.
+
+Intento 2 (mismo archivo, ejercicios/DooBee.txt): ajustó a
+`while (x <= 2)` — ahora dos vueltas, "DooBee" dos veces. Pero el `if`
+quedó en `x == 2` (el valor viejo), y el valor real de `x` al salir
+del nuevo while es 3. Pista dada: recalcular cuánto vale `x` justo al
+salir del while con la nueva condición.
+
+Intento 3 (mismo archivo): corrigió a `if (x == 3)`. Traza completa:
+x=1→(1<=2 Doo Bee x=2)→(2<=2 Doo Bee x=3)→(3<=2 false, sale)→
+if(x==3) true → "Do". Salida: "DooBeeDooBeeDo", coincide exacto.
+COMPLETADO. Primer repaso agendado para 2026-07-20.
+
+NOTA sobre archivo de arranque (regla nueva de CLAUDE.md, 2026-07-16):
+este ejercicio se resolvió íntegramente en ejercicios/DooBee.txt,
+ANTES de que existiera la regla de archivo de arranque. Por pedido
+explícito del usuario, se creó retroactivamente
+ejercicios/ej01-doobee/DooBee.java como archivo de arranque formal
+(solo comentarios, sin código ejecutable) para dejar el registro
+consistente de cara a un futuro repaso. De acá en adelante, todo
+ejercicio y repaso NUEVO arranca directamente con su archivo de
+arranque ya creado por Claude, antes de que el usuario empiece a
+resolver.
+
+============================================================
+
+LIBRO — BottleSong: encontrá y arreglá la falla en el código dado (Ubicación pág. 111, Sesión #14) — [ ] pendiente
+
+Enunciado (tal cual lo plantea el libro): se da un programa completo
+(clase BottleSong, la canción "10 green bottles") que compila y corre
+sin errores, pero la salida no es 100% perfecta — tiene una falla
+lógica sutil. Encontrala y arreglala.
+
+Entregá en: ejercicios/ej02-bottlesong/BottleSong.java (archivo de
+arranque ya creado por Claude — código original en comentarios, solo
+falta que escribas tu versión corregida debajo).
+Si te trabás: revisá la Sesión #12, #13 y #14 de GUIA-JAVA.md (ahí
+está todo lo de `while`, `if`/`else` y variables).
+Resultado y corrección de Claude (se llena al revisar):
+...
 
 ============================================================
 
@@ -144,5 +182,10 @@ REPASOS
 
 REPASO — EJERCICIO Sharpen your pencil (pág. 80-81) (r1) — programado: 2026-07-20 — [ ] pendiente
 Entregá en: ejercicios/repasos/sharpen-your-pencil-r1/ (desde cero, sin mirar el original)
+Comparación de Claude (se llena al revisar):
+...
+
+REPASO — EJERCICIO DooBee (pág. 109) (r1) — programado: 2026-07-20 — [ ] pendiente
+Entregá en: ejercicios/repasos/ej01-doobee-r1/DooBee.java (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
 Comparación de Claude (se llena al revisar):
 ...

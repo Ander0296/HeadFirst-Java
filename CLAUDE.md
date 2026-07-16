@@ -22,6 +22,13 @@ en el otro.
   mensaje de error) debe ir acompañada AL LADO de su traducción al
   español entre paréntesis. Sin excepciones. Ejemplo: "File not found."
   (Archivo no encontrado.)
+- Si un ejercicio o ejemplo se apoya en una referencia cultural en
+  inglés (canción, dicho, juego de palabras, chiste) que el libro no
+  explica, traducir y explicar esa referencia COMPLETA (de qué se
+  trata, cuál es su estructura, qué dice) antes o junto con el código
+  — no alcanza con traducir frases sueltas si falta el contexto para
+  entender qué está simulando el programa. Ejemplo: la canción "Ten
+  Green Bottles" en el ejercicio BottleSong (Sesión #14).
 - Explicar paso a paso, con analogías de la vida real cuando ayuden.
 - Todo en español. Términos técnicos clave también en inglés entre
   paréntesis (los necesita para entrevistas laborales).
@@ -57,15 +64,43 @@ Exercise, crucigramas...). Política:
 
 ### Al proponer o registrar CUALQUIER ejercicio — REGLA PERMANENTE
 
-Claude cierra SIEMPRE con dos cosas listas para copiar:
-(a) la ruta exacta de entrega — ej: "resolvelo en la carpeta
-    ejercicios/ej02-nombre/" — o "contame la respuesta en el chat"
-    si es un ejercicio de papel/lectura; y
-(b) el mensaje exacto que el usuario debe pegar al terminarlo
-    (MENSAJE 4 del README si es de código, MENSAJE 6 si es del
-    libro), YA RELLENO con el número, el nombre y la página que
-    correspondan, dentro de un bloque de código para que el usuario
-    solo lo copie y lo pegue en su momento.
+Registro DOBLE + archivo de arranque creado por Claude:
+
+1. En EJERCICIOS.md se registra como siempre (es el índice general).
+2. ARCHIVO DE ARRANQUE (lo crea Claude; es el lugar de trabajo):
+   - Ejercicio de CÓDIGO → carpeta ejercicios/ejNN-nombre/ con un
+     archivo NombreClase.java que contiene ÚNICAMENTE comentarios
+     (bloque /* ... */ o líneas //; si el enunciado incluye código
+     con comentarios, usar //) con: el enunciado completo en español,
+     "Si te trabás: revisá la Sesión #Y de GUIA-JAVA.md", la
+     instrucción "escribí tu código DEBAJO de este bloque, todo a
+     mano" (recordando que la clase pública debe llamarse igual que
+     el archivo), y AL FINAL el PROMPT DE ENTREGA listo para copiar:
+     el MENSAJE 4 del README ya relleno con número, nombre y ruta.
+     PROHIBIDO incluir código Java ejecutable: ni el esqueleto de la
+     clase, ni el main, ni imports. El usuario escribe el 100% del
+     código; escribir el esqueleto de memoria es parte del músculo
+     que está entrenando.
+   - Ejercicio del LIBRO (papel/lectura) → archivo
+     ejercicios/libNN-nombre.md con: el enunciado completo, una
+     sección "## MI RESPUESTA" vacía donde el usuario escribe, y al
+     final el PROMPT DE ENTREGA listo para copiar: el MENSAJE 6 ya
+     relleno con nombre, página y la ruta de este mismo archivo.
+   - Criterio para decidir entre los dos formatos: lo que importa es
+     el TIPO DE ENTREGABLE, no el origen. Si resolverlo implica
+     escribir/completar código Java compilable (aunque el ejercicio
+     venga del libro, ej. "Sharpen your pencil" de completar código o
+     "encontrá el bug"), usar el formato CÓDIGO (ejNN-nombre/, .java,
+     MENSAJE 4). Si resolverlo es una frase, intuición o respuesta en
+     papel sin código para compilar, usar el formato LIBRO (libNN-
+     nombre.md, MENSAJE 6).
+3. En el chat, al proponerlo, basta con decir: "te dejé el enunciado
+   y el prompt de entrega en <ruta>". El usuario abre el archivo,
+   resuelve ahí mismo, y cuando termina copia el prompt del final
+   del archivo y lo pega en Claude.
+4. Claude NO vuelve a editar un archivo de arranque una vez que el
+   usuario empezó a resolverlo: las correcciones van al chat y a
+   EJERCICIOS.md, nunca sobre el trabajo del usuario.
 
 ### Sistema de repasos (repetición espaciada) — REGLA PERMANENTE
 
@@ -78,11 +113,14 @@ Claude cierra SIEMPRE con dos cosas listas para copiar:
   para no quitarle tiempo al material nuevo; si hay varios vencidos,
   primero el más antiguo.
 - El repaso se hace DESDE CERO: el usuario vuelve a resolver el
-  ejercicio en ejercicios/repasos/ejNN-rX/ (o en el chat, si el
-  original fue en el chat) SIN mirar su solución anterior. Claude
-  NUNCA muestra ni resume la solución original antes de un repaso:
-  solo repite el enunciado. Releer no fija el conocimiento; volver a
-  resolver sí.
+  ejercicio en ejercicios/repasos/ejNN-rX/ (o libNN-rX.md si fue del
+  libro) SIN mirar su solución anterior. Al arrancar un repaso
+  (MENSAJE 7), Claude crea su archivo de arranque con el mismo
+  formato de la regla de ejercicios (enunciado + prompt de entrega
+  en comentarios), cuidando de NO incluir nada de la solución
+  original ni pistas nuevas. Claude NUNCA muestra ni resume la
+  solución original antes de un repaso: solo repite el enunciado.
+  Releer no fija el conocimiento; volver a resolver sí.
 - Al corregir un repaso, Claude compara la versión nueva con la
   original: qué mejoró, qué error se repitió y por qué, y lo anota en
   EJERCICIOS.md. Si salió bien, agenda el siguiente repaso del ciclo;
@@ -158,9 +196,12 @@ Claude cierra SIEMPRE con dos cosas listas para copiar:
 
 ### Reglas de trabajo
 
-- El usuario escribe TODO el código Java a mano en ejercicios/ (está
-  aprendiendo). Claude NO crea ni edita archivos .java: solo muestra
-  ejemplos en el chat y corrige el código que el usuario escribió.
+- El usuario escribe TODO el código Java EJECUTABLE a mano en
+  ejercicios/ (está aprendiendo). Claude NO escribe ni edita código
+  Java: la ÚNICA excepción es crear el archivo de arranque de cada
+  ejercicio, que contiene solo comentarios (enunciado + prompt de
+  entrega, ver la regla de ejercicios). Claude muestra ejemplos en
+  el chat y corrige el código que el usuario escribió.
 - El usuario también COMPILA y EJECUTA su propio código (javac/java).
   Los errores de compilación o ejecución que pegue en el chat se
   explican con calma (y traducidos): entender los errores del

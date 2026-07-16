@@ -18,7 +18,9 @@ Cada paso dice dónde va. Los MENSAJES están al final del archivo.
 
 - paginas/ → acá dejo la tanda actual (3-8 pantallazos por vez)
 - paginas/leidas/ → Claude archiva acá los ya explicados (lo hace él)
-- ejercicios/ → mi código Java, una carpeta por ejercicio
+- ejercicios/ → mi código Java, una carpeta por ejercicio. Claude crea
+  el ARCHIVO DE ARRANQUE (enunciado + prompt de entrega adentro, solo
+  comentarios); yo escribo el 100% del código debajo
 - ejercicios/repasos/ → mis repasos de ejercicios ya resueltos
   (se hacen DESDE CERO, sin mirar la solución original)
 - diagramas/ → mis diagramas .puml (puente con el proyecto UML-Java)
@@ -183,13 +185,12 @@ FLUJO POR CADA TANDA DE PÁGINAS (máx. 3-8 pantallazos que dejo en paginas/)
    archivo, y sumá los términos nuevos a la tabla de vocabulario.
 6. EJERCICIOS: registrá en EJERCICIOS.md los ejercicios del libro que
    queden pendientes, y agregá ejercicios propios cuando el tema lo
-   amerite. Al proponer o registrar CUALQUIER ejercicio, cerrá SIEMPRE
-   con dos cosas listas para copiar: (a) la ruta exacta donde lo
-   entrego (ej: "resolvelo en ejercicios/ej02-nombre/", o "contame la
-   respuesta en el chat" si es de papel), y (b) el mensaje exacto que
-   te tengo que pegar al terminarlo (MENSAJE 4 si es de código,
-   MENSAJE 6 si es del libro), YA RELLENO con número, nombre y página,
-   para que yo solo lo copie y pegue.
+   amerite. Para CADA ejercicio creá además su ARCHIVO DE ARRANQUE
+   (según CLAUDE.md): un archivo en ejercicios/ con el enunciado
+   completo y, al final, el prompt de entrega (MENSAJE 4 o 6) YA
+   RELLENO con número, nombre y ruta — todo en comentarios, sin una
+   sola línea de código ejecutable. Yo abro ese archivo, resuelvo ahí
+   mismo, y copio el prompt del final para pegártelo al terminar.
 7. REPASOS: cuando un ejercicio pase a completado, agendale repasos en
    la sección REPASOS de EJERCICIOS.md (~3 días, ~2 semanas y ~1 mes
    después). Los hago desde cero en ejercicios/repasos/ y me avisás al
@@ -247,7 +248,7 @@ otra cosa, mové esas mismas imágenes a paginas/leidas/ para que la raíz
 quede vacía.
 ```
 
---- MENSAJE 4 — corregir un ejercicio de código ---
+--- MENSAJE 4 — corregir un ejercicio de código (la versión YA RELLENA está al final del archivo de arranque del ejercicio) ---
 
 ```
 Hice el ejercicio #NN, está en ejercicios/ejNN-nombre/.
@@ -263,20 +264,23 @@ completado, agendá sus repasos en la sección REPASOS.
 Cerramos acá:
 1. Verificá que GUIA-JAVA.md y EJERCICIOS.md quedaron actualizados con
    todo lo de hoy (incluida la sección REPASOS si completé algo).
-2. Guardá en Engram (project "HeadFirst-Java") el resumen y en qué
+2. Verificá que TODO ejercicio o repaso pendiente tenga su archivo de
+   arranque creado en ejercicios/ (si falta alguno, crealo ahora,
+   solo comentarios, sin código ejecutable).
+3. Guardá en Engram (project "HeadFirst-Java") el resumen y en qué
    página quedamos.
-3. Dame el resumen final de la sesión.
+4. Dame el resumen final de la sesión.
 ```
 
---- MENSAJE 6 — ejercicio del libro (papel / mental) ---
+--- MENSAJE 6 — ejercicio del libro (la versión YA RELLENA está al final del archivo del ejercicio) ---
 
 ```
 Hice el ejercicio del libro "[nombre del ejercicio]" (página X).
-Mi respuesta: [la escribo acá o pego una foto].
-Corregilo pero SIN darme la solución completa de entrada: decime qué
-tengo bien, qué tengo mal, y dame pistas para lo que falta. La solución
-completa solo si te la pido después. Registrá el resultado en
-EJERCICIOS.md y, si quedó completado, agendá sus repasos.
+Mi respuesta está en [ejercicios/libNN-nombre.md] (o la escribo acá:
+[...]). Corregilo pero SIN darme la solución completa de entrada:
+decime qué tengo bien, qué tengo mal, y dame pistas para lo que falta.
+La solución completa solo si te la pido después. Registrá el resultado
+en EJERCICIOS.md y, si quedó completado, agendá sus repasos.
 ```
 
 --- MENSAJE 7 — hacer un repaso (cuando el MENSAJE 2 avise que hay uno vencido) ---

@@ -6,9 +6,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 111 de 1629 (9%) — Capítulo 1, if/else + arranca "Coding a serious business application"
-- Última sesión: Sesión #13
-- Ejercicios pendientes: 1 (Sharpen your pencil "DooBee" de la Sesión #13 — ver EJERCICIOS.md); repaso r1 de "Sharpen your pencil" pág. 80-81 agendado para 2026-07-20
+- Última página estudiada: página 117 de 1629 (9%) — Capítulo 1, "The Java-Enabled House" + arranca sección nueva (phrase-o-matic, cortada)
+- Última sesión: Sesión #14
+- Ejercicios pendientes: 1 (BottleSong "encontrá la falla" de la Sesión #14 — ver EJERCICIOS.md); repasos r1 de "Sharpen your pencil" pág. 80-81 y de "DooBee" agendados para 2026-07-20
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 
@@ -49,6 +49,8 @@ Ejercicios: ver EJERCICIOS.md.
 | boolean                            | booleano | Tipo de dato con solo dos valores posibles: `true` o `false`. |
 | assignment operator (=) vs. equality operator (==) | operador de asignación (=) vs. operador de igualdad (==) | `=` asigna un valor; `==` compara si dos valores son iguales. Confundirlos es el error más común de principiante. |
 | branching (if/else)                | ramificación / bifurcación condicional | Ejecutar un bloque de código u otro según si una prueba condicional es verdadera o falsa. |
+| IoT (Internet of Things)           | Internet de las Cosas | Dispositivos embebidos (electrodomésticos, sensores, etc.) conectados y programables; Java es popular en este ámbito. |
+| embedded device                    | dispositivo embebido | Hardware chico (cajero automático, tarjeta, electrodoméstico) que corre solo una porción reducida de la plataforma Java. |
 
 ============================================================
 (ACÁ VAN LAS SESIONES — Claude agrega la SESIÓN #01 en la primera
@@ -832,12 +834,79 @@ NOTA DEL PROFE (cosas que el libro no dice pero importan)
 
 DUDAS QUE SURGIERON (y su respuesta corta)
 
-- Pendiente: falta la ronda de comprensión de esta sesión.
+- ¿Qué imprime `if (x==5) print("A") else print("B"); print("C");`
+  con x=5? Respuesta del usuario incompleta: dijo solo "imprime A".
+  Corrección: el `print("C")` está FUERA del if/else, así que corre
+  siempre — salida real "AC" (todo pegado, son `print`, no `println`).
 
 EJERCICIOS CREADOS: ninguno
 PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
 partir de la página 111, retomando "Coding a serious business
 application").
+
+SESIÓN #14 — 2026-07-16 — BottleSong (poniendo todo en práctica) + The Java-Enabled House (Ubicación pág. 111-117 de 1629, 9%)
+
+IDEAS CLAVE
+
+- Ejemplo integrador "BottleSong" (canción "10 green bottles"):
+  combina int, String, while e if/else en un programa completo y
+  realista. Trae un bug lógico sutil a propósito, para que el lector
+  lo encuentre y lo arregle (ejercicio "spot the flaw").
+- Narrativa "The Java-Enabled House": historia ilustrada (sin código)
+  de electrodomésticos comunicándose entre sí vía Java, usada como
+  gancho para el panorama real de Java en dispositivos embebidos.
+- Java realmente se usa en: celulares, cajeros automáticos, tarjetas
+  de crédito, sistemas de seguridad hogareños, parquímetros, consolas
+  de videojuegos, desarrollo IoT y gran parte de Android. Contexto de
+  panorama general, no para dominar en detalle.
+- Arranca una sección nueva en pág. 117 (ilustración "phrase-o-matic"
+  de jerga corporativa), cortada — sigue en la próxima tanda.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+```java
+public class BottleSong {
+  public static void main(String[] args) {
+    int bottlesNum = 10;
+    String word = "bottles";
+    while (bottlesNum > 0) {
+      if (bottlesNum == 1) {
+        word = "bottle";
+      }
+      System.out.println(bottlesNum + " green " + word + ", hanging on the wall");
+      // ... (ver ejercicios/ej02-bottlesong/BottleSong.java para el código completo)
+    }
+  }
+}
+```
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- "BottleSong: encontrá y arreglá la falla" (pág. 111) — pendiente,
+  ver EJERCICIOS.md. Archivo de arranque en
+  ejercicios/ej02-bottlesong/BottleSong.java. Clave de corrección
+  guardada en Engram, sin mostrar hasta que el usuario entregue su
+  intento.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- El panorama de "Java en dispositivos embebidos/IoT" es útil como
+  contexto de entrevista, pero es nicho para un junior backend — no
+  hace falta profundizar, solo tener presente que existe.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- En BottleSong, ¿el chequeo `if (bottlesNum == 1)` pasa antes o
+  después de restarle 1 a bottlesNum? Respuesta del usuario incorrecta
+  (dijo "después"). Corrección: en el código, la línea del chequeo
+  está ANTES de la línea de la resta — se evalúa con el valor VIEJO de
+  bottlesNum. Esa es justo la pista central del bug pendiente del
+  ejercicio.
+
+EJERCICIOS CREADOS: ninguno
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 117, retomando la sección cortada del
+"phrase-o-matic").
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
