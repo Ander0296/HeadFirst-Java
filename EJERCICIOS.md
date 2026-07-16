@@ -30,7 +30,7 @@ Resultado y corrección de Claude (se llena al revisar):
 
 ============================================================
 
-LIBRO — Sharpen your pencil: "Look how easy it is to write Java" — línea por línea, qué hace cada instrucción (Ubicación pág. 80-81, Sesión #09) — [ ] pendiente
+LIBRO — Sharpen your pencil: "Look how easy it is to write Java" — línea por línea, qué hace cada instrucción (Ubicación pág. 80-81, Sesión #09) — [x] completado (2026-07-16)
 
 Enunciado (tal cual lo plantea el libro): abajo tenés un fragmento de
 código Java. Todavía NO viste esta sintaxis en detalle (variables,
@@ -73,5 +73,76 @@ Entregá en: contame acá en el chat tus frases línea por línea (no
 hace falta archivo .java, es un ejercicio de lectura/intuición).
 Si te trabás: revisá la Sesión #09 de GUIA-JAVA.md (ahí está el
 contexto de "Speed and memory usage" y "Code structure in Java").
+
 Resultado y corrección de Claude (se llena al revisar):
+
+Entrega: ejercicios/SharpenYourPencil.txt — 12 de 12 líneas bien
+interpretadas en su intención (9 exactas, 3 con un detalle menor
+completado luego con la pista de Claude en el chat: método `bark()`
+como acción sobre el objeto, el término "concatenación" para el `+`
+entre strings, y la mecánica completa de `try/catch`). Muy buen nivel
+de intuición para no haber visto la sintaxis todavía — en varios casos
+(línea 3 y línea 4) fue más preciso que el propio ejemplo del libro.
+Completado.
+
+============================================================
+
+LIBRO — Sharpen your pencil: "DooBee" — completar el código faltante de un while + if para que coincida con la salida dada (Ubicación pág. 109, Sesión #13) — [~] en curso
+
+Enunciado (tal cual lo plantea el libro): te dan la salida de un
+programa ya ejecutado, y tenés que completar los espacios en blanco
+(`____`) del código para que produzca exactamente esa salida.
+
+Salida dada:
+```
+% java DooBee
+DooBeeDooBeeDo
+```
+
+Completá el código:
+```java
+public class DooBee {
+  public static void main(String[] args) {
+    int x = 1;
+    while (x < ____) {
+      System.out.____("Doo");
+      System.out.____("Bee");
+      x = x + 1;
+    }
+    if (x == ____) {
+      System.out.print("Do");
+    }
+  }
+}
+```
+
+Pista para arrancar: fijate que toda la salida queda pegada en un
+solo renglón, sin saltos de línea — eso te dice algo sobre si hay que
+usar `print` o `println` en los espacios en blanco de adentro del
+`while`.
+
+Entregá en: ejercicios/ej-libro-doobee/DooBee.java (es código Java
+real y compilable — mejor escribirlo, compilarlo y correrlo para
+confirmar vos mismo si la salida coincide con "DooBeeDooBeeDo").
+Si te trabás: revisá la Sesión #12 y #13 de GUIA-JAVA.md (ahí está
+todo lo de `while`, `if`/`else` y `print` vs `println`).
+Resultado y corrección de Claude (se llena al revisar):
+
+Intento 1 (ejercicios/DooBee.txt): usó `print` en los 3 espacios
+(correcto). Estructura consistente: el valor de `x` en el `if`
+coincide con el valor final de `x` al salir de su propio `while`
+(buena señal de comprensión). Error: `while (x < 2)` solo da UNA
+vuelta arrancando en x=1, así que imprime "DooBee" una sola vez en vez
+de dos — la salida de su código sería "DooBeeDo", no "DooBeeDooBeeDo".
+Pista dada (sin solución completa): contar cuántas vueltas da el while
+con esa condición vs. cuántas veces aparece "DooBee" en la salida
+esperada. En curso, a la espera del reintento.
+
+============================================================
+
+REPASOS
+
+REPASO — EJERCICIO Sharpen your pencil (pág. 80-81) (r1) — programado: 2026-07-20 — [ ] pendiente
+Entregá en: ejercicios/repasos/sharpen-your-pencil-r1/ (desde cero, sin mirar el original)
+Comparación de Claude (se llena al revisar):
 ...

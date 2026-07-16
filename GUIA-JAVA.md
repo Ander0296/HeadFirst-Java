@@ -6,9 +6,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 86 de 1629 (7%) — Capítulo 1, "Code structure in Java"
-- Última sesión: Sesión #09
-- Ejercicios pendientes: 1 (Sharpen your pencil de la Sesión #09 — ver EJERCICIOS.md)
+- Última página estudiada: página 111 de 1629 (9%) — Capítulo 1, if/else + arranca "Coding a serious business application"
+- Última sesión: Sesión #13
+- Ejercicios pendientes: 1 (Sharpen your pencil "DooBee" de la Sesión #13 — ver EJERCICIOS.md); repaso r1 de "Sharpen your pencil" pág. 80-81 agendado para 2026-07-20
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 
@@ -35,6 +35,20 @@ Ejercicios: ver EJERCICIOS.md.
 | JVM (Java Virtual Machine)        | máquina virtual de Java | Programa que traduce (interpreta) el bytecode a lo que el dispositivo real entiende; es la pieza que hace portable a Java. |
 | write-once/run-anywhere           | escribí una vez, corré donde sea | Lema histórico de Java: el mismo `.class` compilado corre sin cambios en cualquier dispositivo que tenga una JVM. |
 | backward compatibility            | compatibilidad hacia atrás | Código Java viejo sigue corriendo sin tocarlo en versiones nuevas de la JVM. |
+| class                              | clase | Representa "una pieza" del programa; un source file normalmente contiene una. |
+| method                             | método | Contiene instrucciones; se declara adentro de una clase. |
+| statement                          | instrucción | Una línea de código dentro de un método que hace algo puntual. |
+| curly braces                       | llaves ({ }) | Delimitan el cuerpo de una clase o de un método. |
+| main method                        | método main | Punto de entrada de la aplicación: `public static void main(String[] args)`. Uno solo por aplicación, no por clase. |
+| println vs. print                  | println vs. print | `print` no salta de línea después de imprimir; `println` sí. |
+| strongly typed language            | lenguaje fuertemente tipado | Java no deja mezclar tipos de datos incorrectos; el compilador lo controla. |
+| compile-time / runtime             | tiempo de compilación / tiempo de ejecución | El compilador atrapa errores ANTES de correr (sintaxis, tipos); la JVM atrapa los que solo aparecen DURANTE la ejecución. |
+| ClassCastException                 | excepción de conversión de clase | Error en tiempo de ejecución al intentar convertir un objeto a un tipo que no le corresponde. |
+| loop (while / for)                 | bucle | Repite todo lo que está en su bloque mientras la prueba condicional sea verdadera. |
+| conditional test                   | prueba condicional | Expresión que da como resultado un `boolean` (`true` o `false`); es lo que evalúa un `while` o un `if`. |
+| boolean                            | booleano | Tipo de dato con solo dos valores posibles: `true` o `false`. |
+| assignment operator (=) vs. equality operator (==) | operador de asignación (=) vs. operador de igualdad (==) | `=` asigna un valor; `==` compara si dos valores son iguales. Confundirlos es el error más común de principiante. |
+| branching (if/else)                | ramificación / bifurcación condicional | Ejecutar un bloque de código u otro según si una prueba condicional es verdadera o falsa. |
 
 ============================================================
 (ACÁ VAN LAS SESIONES — Claude agrega la SESIÓN #01 en la primera
@@ -577,12 +591,253 @@ NOTA DEL PROFE (cosas que el libro no dice pero importan)
 
 DUDAS QUE SURGIERON (y su respuesta corta)
 
+- ¿Una clase puede tener varios métodos, o solo uno (según el diagrama
+  "Code structure in Java")? Respondida correctamente: en el propio
+  diagrama del libro aparecen dos métodos dentro de la misma clase, lo
+  que confirma que una clase puede tener tantos métodos como haga
+  falta (method 1, method 2, ... method N).
+
+EJERCICIOS CREADOS: ninguno
+EJERCICIOS DEL LIBRO COMPLETADOS: "Sharpen your pencil" (pág. 80-81) —
+completado 2026-07-16, muy buen nivel de intuición (ver EJERCICIOS.md
+para el detalle y el primer repaso agendado el 2026-07-20).
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 87).
+
+SESIÓN #10 — 2026-07-16 — Anatomy of a class: de la clase al método main (Ubicación pág. 86-89 de 1629, 7%)
+
+IDEAS CLAVE
+
+- Construcción concreta (con código real, no solo cajas) de la
+  jerarquía vista en la Sesión #09: archivo fuente -> clase -> método(s)
+  -> instrucción(es). Un source file normalmente contiene UNA clase,
+  encerrada entre llaves { }.
+- Una clase tiene uno o más métodos, declarados DENTRO de las llaves
+  de la clase. Un método contiene instrucciones (statements), que van
+  dentro de las llaves del método.
+- Anatomy of a class: cuando la JVM arranca, busca la clase indicada
+  por línea de comandos y, adentro de ESA clase, un método con la
+  firma exacta `public static void main(String[] args) { }` — el
+  punto de entrada de la aplicación.
+- Toda aplicación Java necesita al menos una clase y al menos un
+  método main — pero es UN SOLO main POR APLICACIÓN, no uno por clase.
+  La JVM no "adivina" ni lee archivos en algún orden: vos le indicás
+  explícitamente qué clase ejecutar (ej. `java Dog`), y recién ahí
+  busca el main dentro de esa clase puntual.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+```java
+public class Dog {
+  void bark() {
+    statement1;
+    statement2;
+  }
+}
+```
+```java
+public static void main(String[] args) {
+  // your code goes here
+}
+```
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- Ninguno.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- La última captura de la pág. 89 llegó cortada (no se vio la línea
+  `public class ... {` que probablemente encabeza el bloque del main).
+  Contenido no verificado al 100%; revisar si aparece de nuevo esa
+  página completa más adelante.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- Si una app tiene 3 clases, ¿cuántos main como máximo? Respuesta:
+  uno solo en total (correcto en el usuario). Matiz corregido: el main
+  NO es "el primer archivo que se lee" (no hay orden ni lectura
+  secuencial de archivos) — es el método que la JVM busca DENTRO de
+  la clase que vos elegís explícitamente al ejecutar el programa
+  (ej. `java Dog`), no un archivo elegido automáticamente.
+
+EJERCICIOS CREADOS: ninguno
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 89-90, posiblemente repitiendo el final de la 89
+si la captura anterior estaba cortada).
+
+SESIÓN #11 — 2026-07-16 — De MyFirstApp al ciclo Save/Compile/Run + Fireside Chats (Ubicación pág. 90-96 de 1629, 8%)
+
+IDEAS CLAVE
+
+- Desglose anotado token por token del esqueleto completo de un
+  programa Java (`public class MyFirstApp { public static void main
+  (String[] args) { ... } }`), confirmando y completando lo visto en
+  la Sesión #10.
+- Correr un programa = decirle a la JVM "cargá esta clase y ejecutá su
+  main() hasta que termine". Ciclo de 3 pasos: Save (.java) -> Compile
+  (`javac` genera el .class) -> Run (`java NombreClase`).
+- Diferencia `print` vs `println`: println salta de línea después de
+  imprimir, print no.
+- "Fireside Chats": sección recurrente humorística del libro (diálogo
+  entre "personajes"); en esta, Compilador vs. JVM discuten sus roles.
+  Sustancia real: el compilador atrapa errores de sintaxis/tipos ANTES
+  de correr (compile-time); la JVM atrapa errores que solo aparecen
+  DURANTE la ejecución (runtime) — ej. ClassCastException, violaciones
+  de acceso a métodos privados. Java es un lenguaje fuertemente
+  tipado, controlado en gran parte por el compilador.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+```java
+public class MyFirstApp {
+  public static void main (String[] args) {
+    System.out.println("I Rule!");
+    System.out.println("The World");
+  }
+}
+```
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- Ninguno.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- La distinción compile-time vs. runtime (qué atrapa el compilador vs.
+  qué atrapa la JVM) es un clásico de entrevistas de Java/backend —
+  vale la pena tenerla clara más allá del tono humorístico de la
+  página.
+- La pág. 96 quedó cortada justo donde arranca la lista de "Your code
+  can tell the JVM to:" — pendiente de ver esa lista completa.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- Ejemplo de error de compilador vs. error de JVM (runtime). Respuesta
+  correcta: compilador → error de sintaxis (`it x = 10;` en vez de
+  `int`), se detecta antes de correr. JVM/runtime → un `Scanner` que
+  espera un entero (`nextInt()`) y recibe texto del usuario; no se
+  puede saber de antemano qué va a tipear, así que solo se detecta en
+  ejecución (excepción puntual: `InputMismatchException`).
+
+EJERCICIOS CREADOS: ninguno
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 96, retomando la lista cortada de "What can you
+say in the main method?").
+
+SESIÓN #12 — 2026-07-16 — Statements, loops y branching: las 3 cosas que decís en el main (Ubicación pág. 99-107 de 1629, 8%)
+
+IDEAS CLAVE
+
+- Las 3 cosas que se pueden decir dentro de un método: (1) hacer algo
+  (statements), (2) hacer algo repetidamente (loops), (3) hacer algo
+  bajo una condición (branching).
+- Reglas de sintaxis base: instrucción termina en `;`, comentario de
+  línea con `//`, la mayoría del espacio en blanco no importa, variable
+  se declara con tipo + nombre, clases/métodos van dentro de `{ }`.
+- Loops: `while` y `for`. Todo bucle depende de un conditional test
+  que DEBE dar un valor boolean (`true`/`false`) — un `int` no es
+  compatible con `boolean` en Java, a diferencia de otros lenguajes.
+- Operadores de comparación: `<`, `>`, `==` (igualdad, DOS signos).
+  Trampa clásica de principiante: confundir `=` (asignación) con `==`
+  (igualdad).
+- Branching con `if`/`else`: misma lógica de prueba booleana que el
+  `while`, pero ejecuta un bloque u otro en vez de repetir.
+- Ejemplo trazado completo (clase Loopy) mostrando la salida real en
+  consola de un `while` que corre 3 veces.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+```java
+public class Loopy {
+  public static void main(String[] args) {
+    int x = 1;
+    System.out.println("Before the Loop");
+    while (x < 4) {
+      System.out.println("In the loop");
+      System.out.println("Value of x is " + x);
+      x = x + 1;
+    }
+    System.out.println("This is after the loop");
+  }
+}
+```
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- Ninguno.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- La confusión `=` vs `==` no es solo un tip del libro: en la vida real
+  sigue siendo uno de los bugs más comunes incluso en devs con
+  experiencia, sobre todo dentro de un `if`.
+- La página 107 quedó cortada justo al arrancar "Conditional
+  branching" (if/else) — pendiente ver esa sección completa.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- ¿Por qué no se puede escribir `while (x)` con x de tipo int en Java?
+  Respondida correctamente: la prueba condicional debe ser boolean sí
+  o sí; int y boolean no son compatibles. Hace falta una comparación
+  que devuelva boolean (`x > n`, `x == n`, `x < n`, etc.).
+
+EJERCICIOS CREADOS: ninguno
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 107, retomando "Conditional branching" cortada).
+
+SESIÓN #13 — 2026-07-16 — if/else completo + arranca "serious business application" (Ubicación pág. 108-111 de 1629, 9%)
+
+IDEAS CLAVE
+
+- Nota: las capturas de esta tanda repitieron primero las páginas
+  103, 105 y 107 (ya vistas en la Sesión #12) antes de traer contenido
+  nuevo — no se re-explicaron.
+- `if` solo: el bloque corre solo si la condición es true; el código
+  fuera del bloque corre siempre, sin importar la condición.
+- `if`/`else`: con else, siempre corre exactamente UNA de las dos
+  ramas (nunca ninguna, nunca las dos).
+- Repaso reforzado `print` vs `println`: println = print + salto de
+  línea; print mantiene todo en el mismo renglón.
+- Arranca una sección nueva, "Coding a serious business application"
+  (pág. 111), con la ironía visual característica del libro (ilustrada
+  con botellas de cerveza) — contenido cortado, sigue en la próxima
+  tanda.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+```java
+class IfTest2 {
+  public static void main(String[] args) {
+    int x = 2;
+    if (x == 3) {
+      System.out.println("x must be 3");
+    } else {
+      System.out.println("x is NOT 3");
+    }
+    System.out.println("This runs no matter what");
+  }
+}
+```
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- "Sharpen your pencil: DooBee" (pág. 109) — pendiente, ver
+  EJERCICIOS.md. Clave de corrección guardada en Engram, sin mostrar
+  hasta que el usuario entregue su intento.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- Ninguna nueva esta tanda.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
 - Pendiente: falta la ronda de comprensión de esta sesión.
 
 EJERCICIOS CREADOS: ninguno
-PRÓXIMO PASO: el usuario resuelve a mano el "Sharpen your pencil" de
-EJERCICIOS.md; después seguimos con la siguiente tanda de páginas del
-libro (a partir de la página 87).
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 111, retomando "Coding a serious business
+application").
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

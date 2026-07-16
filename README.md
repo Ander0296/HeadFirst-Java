@@ -19,9 +19,13 @@ Cada paso dice dónde va. Los MENSAJES están al final del archivo.
 - paginas/ → acá dejo la tanda actual (3-8 pantallazos por vez)
 - paginas/leidas/ → Claude archiva acá los ya explicados (lo hace él)
 - ejercicios/ → mi código Java, una carpeta por ejercicio
+- ejercicios/repasos/ → mis repasos de ejercicios ya resueltos
+  (se hacen DESDE CERO, sin mirar la solución original)
 - diagramas/ → mis diagramas .puml (puente con el proyecto UML-Java)
 - GUIA-JAVA.md → la guía (la escribe Claude)
-- EJERCICIOS.md → los ejercicios (los escribe Claude)
+- EJERCICIOS.md → ejercicios y repasos (los escribe Claude)
+- RUTA.md → el plan por fases: libro → consolidación → herramientas
+  reales → portafolio y empleo (lo mantiene Claude)
 
 # ============================================================
 # PRIMERA VEZ EN LA VIDA (sesión java-s01)
@@ -48,23 +52,60 @@ Cada paso dice dónde va. Los MENSAJES están al final del archivo.
 # CADA DÍA DE ESTUDIO (java-s02, s03, ...)
 # ============================================================
 
-1. [TERMINAL] pasá la primera tanda (3-8 pantallazos) a paginas/
-2. [TERMINAL] cd ~/Proyectos/HeadFirst-Java
-3. [TERMINAL] claude
-4. [CLAUDE] /rename java-sNN ← el número que sigue (s02, s03...)
-5. [CLAUDE] /mcp → engram "connected"
-6. [CLAUDE] pegá el MENSAJE 2 → te dice dónde quedamos y qué toca
-7. [CLAUDE] si hay ejercicios pendientes y ya hiciste alguno:
-   pegá el MENSAJE 4 (ejercicio de código) o el MENSAJE 6
-   (ejercicio del libro) ANTES de pasar a páginas nuevas
-8. [CLAUDE] pegá el MENSAJE 3 → explica la tanda y la archiva solo
-9. ¿Querés seguir? → siguiente tanda de 3-8 a paginas/ y volvé al
-   paso 8. Cuántas veces lo repitas lo decidís vos cada día: puede
-   ser una tanda o pueden ser muchas. No hay número fijo.
-10. [CLAUDE] al terminar el día, pegá el MENSAJE 5
-11. [CLAUDE] Ctrl+D
-12. [TERMINAL] engram search "tema de hoy" --project HeadFirst-Java
-13. [TERMINAL] (opcional) git add . && git commit -m "sesión sNN"
+1. [TERMINAL] cd ~/Proyectos/HeadFirst-Java
+2. [TERMINAL] git pull ← traé lo último ANTES de tocar nada
+   (clave si usás más de un PC; con uno solo no hace daño)
+3. [TERMINAL] pasá la primera tanda (3-8 pantallazos) a paginas/
+4. [TERMINAL] claude
+5. [CLAUDE] /rename java-sNN ← el número que sigue (s02, s03...)
+6. [CLAUDE] /mcp → engram "connected"
+7. [CLAUDE] pegá el MENSAJE 2 → te dice dónde quedamos, qué
+   ejercicios tenés pendientes y si hay repasos vencidos
+8. [CLAUDE] si ya hiciste algo pendiente, entregalo ANTES de pasar
+   a páginas nuevas: MENSAJE 4 (ejercicio de código), MENSAJE 6
+   (ejercicio del libro) o MENSAJE 7 (repaso)
+9. [CLAUDE] pegá el MENSAJE 3 → explica la tanda y la archiva solo
+10. ¿Querés seguir? → siguiente tanda de 3-8 a paginas/ y volvé al
+    paso 9. Cuántas veces lo repitas lo decidís vos cada día: puede
+    ser una tanda o pueden ser muchas. No hay número fijo.
+11. [CLAUDE] al terminar el día, pegá el MENSAJE 5
+12. [CLAUDE] Ctrl+D
+13. [TERMINAL] engram search "tema de hoy" --project HeadFirst-Java
+14. [TERMINAL] git add . && git commit -m "sesión sNN" && git push
+    (con un solo PC es opcional; con DOS PCs es OBLIGATORIO — si no
+    hacés push, el otro PC no se entera de nada de lo de hoy)
+
+# ============================================================
+# SI USÁS OTRO COMPUTADOR (clonar y sincronizar)
+# ============================================================
+
+Primera vez en el PC nuevo:
+1. [TERMINAL] cd ~/Proyectos
+2. [TERMINAL] git clone git@github.com:Ander0296/HeadFirst-Java.git
+   ← SIEMPRE con la URL SSH (git@github.com:...), NUNCA con https://
+3. [TERMINAL] cd HeadFirst-Java && mkdir -p paginas/leidas
+   (paginas/ llega vacía a propósito: las imágenes no viajan por git)
+4. Listo: GUIA-JAVA.md, EJERCICIOS.md y ejercicios/ llegan solos con
+   todo el progreso. Seguí con el flujo de "CADA DÍA".
+
+La regla que evita desastres con dos PCs:
+- Al EMPEZAR el día: git pull (traé lo del otro PC antes de tocar nada)
+- Al TERMINAR el día: git add . && git commit -m "..." && git push
+- La memoria de Engram vive en cada PC por separado y puede estar
+  incompleta en uno de los dos. No pasa nada: GUIA-JAVA.md y
+  EJERCICIOS.md viajan por git y el MENSAJE 2 los lee siempre —
+  esos archivos son la fuente de verdad del progreso.
+
+Si git te pide usuario y contraseña al hacer push (ya me pasó una vez):
+- Causa: el remote quedó configurado en HTTPS, y con HTTPS git ignora
+  la llave SSH (la de 1Password) aunque esté cargada y funcionando.
+- Diagnóstico: git remote -v
+  → si muestra https://github.com/... , es exactamente este problema.
+- Arreglo (cambiar el remote a SSH):
+  git remote set-url origin git@github.com:Ander0296/HeadFirst-Java.git
+- Probá la llave: ssh -T git@github.com
+  → debe responder "Hi Ander0296!" (Hola Ander0296!). Después de eso,
+  git push funciona sin pedir usuario ni contraseña.
 
 # ============================================================
 # SI SE CERRÓ LA TERMINAL SIN QUERER (mismo día)
@@ -92,6 +133,9 @@ OJO: esto es SOLO para retomar el mismo día. Día nuevo = sesión nueva.
    mirar la solución del libro o pedírsela a Claude.
 6. paginas/ NUNCA se sube a git: el repo es público y los pantallazos
    del libro tienen copyright. Verificá que esté en .gitignore.
+7. Los repasos se hacen DESDE CERO, sin mirar mi solución original ni
+   pedírsela a Claude: releer no fija nada, volver a resolver sí.
+8. Con dos PCs: git pull al empezar, git push al terminar. SIEMPRE.
 
 # ============================================================
 # MENSAJES PARA COPIAR Y PEGAR
@@ -106,6 +150,9 @@ QUIÉN SOY
 - Novato en POO/Java. Vengo aprendiendo UML en un proyecto hermano
   (UML-Java, mismo sistema de estudio), pero de Java en sí sé muy poco.
   No asumas nada que no esté registrado en la guía o en Engram.
+- NO sé inglés: toda frase o palabra en inglés que cites (del libro,
+  de un enunciado, de la salida de un programa o de un error) va
+  acompañada AL LADO de su traducción entre paréntesis.
 - Objetivo: escribir código bien estructurado y conseguir mi primer
   empleo como desarrollador.
 - El libro es "Head First Java" (Kathy Sierra, Bert Bates y Trisha Gee,
@@ -113,11 +160,15 @@ QUIÉN SOY
   español.
 
 FLUJO POR CADA TANDA DE PÁGINAS (máx. 3-8 pantallazos que dejo en paginas/)
-1. TRADUCCIÓN EXPLICADA: contame en español TODO lo que dicen esas
-   páginas, con tus palabras, reordenado para un novato, sin saltarte
-   ningún concepto. No es traducción literal del libro: es una
-   explicación completa con tus propios ejemplos. Los términos técnicos
-   clave dejalos también en inglés entre paréntesis (los necesito para
+1. TRADUCCIÓN EXPLICADA, PÁGINA POR PÁGINA: andá anunciando siempre
+   cuál estás explicando — "PÁGINA 70:" con el número que se vea en el
+   pantallazo (página o Ubicación de Kindle), o "PANTALLAZO 2:" si no
+   se ve ninguno — así puedo ir siguiendo el libro con la vista aunque
+   no entienda el texto. De cada página contame en español TODO lo que
+   dice, con tus palabras, reordenado para un novato, sin saltarte
+   ningún concepto. No es traducción literal: es una explicación
+   completa con tus propios ejemplos. Los términos técnicos clave
+   dejalos también en inglés entre paréntesis (los necesito para
    entrevistas).
 2. CÓDIGO: mostrá el código clave de la tanda EN EL CHAT, con comentario
    // en cada línea relevante. Si aparece sintaxis o una base que no
@@ -132,10 +183,18 @@ FLUJO POR CADA TANDA DE PÁGINAS (máx. 3-8 pantallazos que dejo en paginas/)
    archivo, y sumá los términos nuevos a la tabla de vocabulario.
 6. EJERCICIOS: registrá en EJERCICIOS.md los ejercicios del libro que
    queden pendientes, y agregá ejercicios propios cuando el tema lo
-   amerite, con su formato (número, tema, tipo, enunciado claro, dónde
-   entrego, y "Si te trabás: revisá la Sesión #Y"). Los hago de a uno
-   por día.
-7. ENGRAM: guardá en Engram (project "HeadFirst-Java") los conceptos
+   amerite. Al proponer o registrar CUALQUIER ejercicio, cerrá SIEMPRE
+   con dos cosas listas para copiar: (a) la ruta exacta donde lo
+   entrego (ej: "resolvelo en ejercicios/ej02-nombre/", o "contame la
+   respuesta en el chat" si es de papel), y (b) el mensaje exacto que
+   te tengo que pegar al terminarlo (MENSAJE 4 si es de código,
+   MENSAJE 6 si es del libro), YA RELLENO con número, nombre y página,
+   para que yo solo lo copie y pegue.
+7. REPASOS: cuando un ejercicio pase a completado, agendale repasos en
+   la sección REPASOS de EJERCICIOS.md (~3 días, ~2 semanas y ~1 mes
+   después). Los hago desde cero en ejercicios/repasos/ y me avisás al
+   arrancar cada sesión si hay alguno vencido.
+8. ENGRAM: guardá en Engram (project "HeadFirst-Java") los conceptos
    clave, las decisiones y en qué página quedamos.
 
 NOTA: en un mismo día puedo pasarte varias tandas seguidas (yo decido
@@ -172,8 +231,10 @@ ARRANQUE DE HOY
 Nueva sesión de estudio. Leé CLAUDE.md, GUIA-JAVA.md y EJERCICIOS.md,
 buscá en Engram (project "HeadFirst-Java") dónde quedamos, y decime:
 (1) qué vimos la última vez en una línea, (2) qué ejercicios tengo
-pendientes, (3) qué toca hoy. Después decido si corregimos un ejercicio
-o te paso la siguiente tanda.
+pendientes, (3) si hay algún repaso vencido para hoy (mirá las fechas
+de la sección REPASOS de EJERCICIOS.md), (4) qué toca hoy. Después
+decido si corregimos un ejercicio, hacemos un repaso o te paso la
+siguiente tanda.
 ```
 
 --- MENSAJE 3 — tanda de páginas (repetible: una vez por cada tanda) ---
@@ -192,7 +253,8 @@ quede vacía.
 Hice el ejercicio #NN, está en ejercicios/ejNN-nombre/.
 Compiló: [sí / no]. Al ejecutarlo: [pego abajo la salida o el error].
 Revisalo línea por línea: qué está bien, qué está mal y POR QUÉ, y
-actualizá su estado y tu corrección en EJERCICIOS.md.
+actualizá su estado y tu corrección en EJERCICIOS.md. Si quedó
+completado, agendá sus repasos en la sección REPASOS.
 ```
 
 --- MENSAJE 5 — cierre (SIEMPRE antes de salir) ---
@@ -200,7 +262,7 @@ actualizá su estado y tu corrección en EJERCICIOS.md.
 ```
 Cerramos acá:
 1. Verificá que GUIA-JAVA.md y EJERCICIOS.md quedaron actualizados con
-   todo lo de hoy.
+   todo lo de hoy (incluida la sección REPASOS si completé algo).
 2. Guardá en Engram (project "HeadFirst-Java") el resumen y en qué
    página quedamos.
 3. Dame el resumen final de la sesión.
@@ -214,5 +276,18 @@ Mi respuesta: [la escribo acá o pego una foto].
 Corregilo pero SIN darme la solución completa de entrada: decime qué
 tengo bien, qué tengo mal, y dame pistas para lo que falta. La solución
 completa solo si te la pido después. Registrá el resultado en
-EJERCICIOS.md.
+EJERCICIOS.md y, si quedó completado, agendá sus repasos.
+```
+
+--- MENSAJE 7 — hacer un repaso (cuando el MENSAJE 2 avise que hay uno vencido) ---
+
+```
+Voy a hacer el repaso rX del ejercicio #NN. NO me muestres ni me
+resumas mi solución anterior: la idea es resolverlo desde cero. Pasame
+solo el enunciado original y esperá. Cuando termine te aviso: lo vas a
+encontrar en ejercicios/repasos/ejNN-rX/ (o te lo cuento acá en el
+chat si el original fue en el chat). Al revisarlo, comparalo con mi
+solución original: qué mejoré, qué error repetí y POR QUÉ, actualizá
+la sección REPASOS de EJERCICIOS.md y agendá el siguiente repaso si
+corresponde.
 ```
