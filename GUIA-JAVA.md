@@ -6,9 +6,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 63 de 1629 (6%) — fin de la intro (créditos)
-- Última sesión: Sesión #07
-- Ejercicios pendientes: ninguno todavía (ver EJERCICIOS.md)
+- Última página estudiada: página 86 de 1629 (7%) — Capítulo 1, "Code structure in Java"
+- Última sesión: Sesión #09
+- Ejercicios pendientes: 1 (Sharpen your pencil de la Sesión #09 — ver EJERCICIOS.md)
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 
@@ -31,6 +31,10 @@ Ejercicios: ver EJERCICIOS.md.
 | Exercise (icono zapatilla)        | Ejercicio | Obligatorio; practica lo aprendido. |
 | Puzzle (icono rompecabezas)       | Acertijo | Opcional; lógica/crucigramas para quien le guste ese desafío. |
 | faux-UML                          | UML simplificado/falso | Versión de UML adaptada para no chocar con la sintaxis real de Java. |
+| bytecode                          | bytecode | Código intermedio que genera el compilador a partir del `.java`; no es el código fuente ni instrucciones nativas del procesador, lo entiende la JVM. |
+| JVM (Java Virtual Machine)        | máquina virtual de Java | Programa que traduce (interpreta) el bytecode a lo que el dispositivo real entiende; es la pieza que hace portable a Java. |
+| write-once/run-anywhere           | escribí una vez, corré donde sea | Lema histórico de Java: el mismo `.class` compilado corre sin cambios en cualquier dispositivo que tenga una JVM. |
+| backward compatibility            | compatibilidad hacia atrás | Código Java viejo sigue corriendo sin tocarlo en versiones nuevas de la JVM. |
 
 ============================================================
 (ACÁ VAN LAS SESIONES — Claude agrega la SESIÓN #01 en la primera
@@ -397,6 +401,188 @@ EJERCICIOS CREADOS: ninguno
 PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
 partir de la página 64) — ahí sí debería arrancar el Capítulo 1 con
 contenido técnico real de Java.
+
+SESIÓN #08 — 2026-07-16 — Capítulo 1: cómo funciona Java por dentro (compilador, bytecode y JVM) (Ubicación pág. 75-77 de 1629, 7%)
+
+IDEAS CLAVE
+
+- Arranca el Capítulo 1: "Breaking the Surface". El libro anticipa que
+  se va a ver sintaxis, loops, branching (if/else) y qué hace a Java
+  particular frente a otros lenguajes.
+- El proceso de compilar y correr un programa Java tiene 4 pasos:
+  1. Source: escribís el código fuente en un archivo de texto plano,
+     siguiendo la sintaxis de Java (protocolo/lenguaje establecido).
+  2. Compiler: el comando `javac` (Java compiler) lee ese archivo,
+     revisa errores, y si está todo bien genera un archivo nuevo.
+  3. Output (bytecode): ese archivo nuevo NO es código fuente ni
+     instrucciones nativas del procesador — es bytecode, un código
+     intermedio "traducido", independiente de la plataforma.
+  4. Virtual Machines (JVM): cada dispositivo (laptop, celular,
+     tablet) corre su propia JVM (Java Virtual Machine), un programa
+     que traduce/interpreta ese bytecode a lo que ESE dispositivo en
+     particular entiende, y lo ejecuta.
+- Por qué importa (interview-ready): esto es lo que hace a Java
+  "write-once/run-anywhere" — el mismo `.class` compilado UNA vez
+  corre sin recompilar en cualquier equipo que tenga una JVM instalada
+  (a diferencia de lenguajes que compilan directo a código nativo de
+  UN sistema operativo/procesador específico).
+- Ejemplo ilustrativo del libro ("Party.java"): un programa de
+  invitación a una fiesta con ventana y botones. El libro aclara
+  EXPLÍCITAMENTE que ese código no es real ni completo — es solo para
+  mostrar el flujo Source → `javac` → bytecode → `java` (JVM) antes de
+  escribir código de verdad.
+- Historia breve de Java: salió el 23 de enero de 1996 (algunos dicen
+  que "se escapó", broma del libro). Tiene más de 25 años, evolucionó
+  muchísimo y se escribió una cantidad enorme de código Java desde
+  entonces (el libro dice "17 gazillion lines", un número inventado a
+  propósito, es un chiste, no un dato real). Java es conocido por su
+  compatibilidad hacia atrás: código viejo sigue corriendo en JVMs
+  nuevas sin tocarlo.
+- El libro avisa que va a mostrar primero estilos de código MÁS
+  VIEJOS (porque es lo que más se encuentra en el mundo real) y recién
+  después las alternativas modernas — mismo patrón que ya vimos con la
+  versión del libro (11) vs. la recomendada para instalar (17).
+- Última imagen de la tanda: un personaje dice "escuché que Java no es
+  muy rápido comparado con lenguajes compilados como C y Rust" — es un
+  mito que el libro claramente va a discutir en la página siguiente,
+  todavía no lo resuelve acá.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+- Ejemplo ilustrativo (el libro dice que NO es código real, no
+  intentes compilarlo — recién vamos a escribir código de verdad en
+  la próxima tanda):
+
+  ```java
+  import java.awt.*;       // trae clases de ventanas/botones "viejas" de Java (AWT)
+  import java.awt.event.*; // trae clases para manejar eventos (ej: clic de botón)
+
+  class Party {
+      public void buildInvite() {
+          Frame f = new Frame();                     // crea una ventana nueva
+          Label l = new Label("Party at Tim's");      // crea un texto fijo dentro de la ventana
+          Button b = new Button("You bet");           // crea un botón con el texto "You bet"
+          Button c = new Button("Shoot me");          // crea otro botón con el texto "Shoot me"
+          Panel p = new Panel();                      // crea un panel: contenedor para agrupar componentes
+          p.add(l);                                   // agrega el texto "l" adentro del panel "p"
+      } // acá seguiría más código (agregar los botones, mostrar la ventana...)
+  }
+  ```
+
+- Comandos reales (estos sí son de verdad, se van a usar en breve):
+  - `javac Party.java` → compila y genera `Party.class` (bytecode).
+  - `java Party` → la JVM traduce el bytecode y corre el programa.
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- Ninguno; todavía es contenido conceptual antes del primer programa
+  real del capítulo.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- El proceso Source → Compiler → Bytecode → JVM es EL concepto más
+  preguntado en entrevistas junior sobre Java ("¿por qué Java es
+  portable?", "¿qué es la JVM?", "¿qué es el bytecode?"). Vale la pena
+  tenerlo firme antes de seguir.
+- El "17 gazillion lines" es un chiste del libro (número inventado
+  para exagerar), no un dato real — no lo repitas como estadística en
+  una entrevista.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- Por qué el mismo `.class` corre igual en hardware distinto: porque
+  cada dispositivo tiene su propia JVM, que traduce/interpreta ese
+  mismo bytecode al "lenguaje" que entiende ESE equipo puntual — el
+  bytecode no cambia, lo que cambia es quién lo traduce. Respuesta
+  correcta y completa.
+- Por qué el libro muestra código de "Party.java" que dice no compilar:
+  la respuesta apuntó al principio general de impacto visual/textual
+  del libro (correcto, pero es la razón general). La razón puntual que
+  da el libro en su propia nota es separar dos aprendizajes: primero
+  dar una sensación del PROCESO completo (Source → Compiler → Bytecode
+  → JVM) sin la carga de la sintaxis exacta, y recién después meterse
+  de lleno en sintaxis real y compilable — si se mezclan las dos cosas
+  de entrada, se aprende peor ambas.
+
+EJERCICIOS CREADOS: ninguno
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 78) — probablemente ahí el libro responde el mito
+de "Java es lento" y arranca el primer programa real.
+
+SESIÓN #09 — 2026-07-16 — Velocidad de Java, versiones, primer ejercicio del libro y estructura del código (Ubicación pág. 80-86 de 1629, 7%)
+
+IDEAS CLAVE
+
+- Resuelve el mito de la sesión anterior ("¿Java es lento?"): cuando
+  salió, sí era lento, pero después apareció la HotSpot VM y otros
+  mejoradores de rendimiento. Hoy Java es considerado rápido — casi
+  tan rápido como C y Rust, y mucho más rápido que la mayoría de los
+  demás lenguajes. El "superpoder" es que la JVM puede optimizar el
+  código MIENTRAS SE EJECUTA (en tiempo real), así que se pueden
+  escribir apps rápidas sin necesidad de escribir vos mismo trucos
+  especiales de rendimiento. Contra (el libro es transparente): Java
+  usa bastante más memoria que C o Rust.
+- Q&A sobre la numeración de versiones de Java (históricamente
+  confusa): JDK 1.0 → 1.2 → 1.3 → 1.4 → J2SE 5.0 (que en realidad
+  era la versión 1.5) → Java 6 (1.6) → 7 (1.7) → 8 (1.8). Técnicamente
+  Java sigue en "1.x" porque todas las versiones son compatibles hacia
+  atrás desde la 1.0, pero desde Java 9 en adelante se usa el número
+  sin el prefijo "1." (Java 9 es la versión 9, no la 1.9). Desde
+  septiembre 2017 (cuando salió Java 9) hay un release nuevo cada 6
+  meses, cada uno con un número "mayor" nuevo — por eso se pasó rápido
+  de 9 a 18 (y el usuario hoy corre Java 26, mismo ritmo).
+- Primer ejercicio real del libro ("Sharpen your pencil"): un
+  fragmento de código Java con variables, un `if`, un `while`, un
+  array, prints y un `try/catch`. El libro pide escribir, línea por
+  línea, en una frase simple, qué hace cada instrucción — usando la
+  intuición, SIN haber visto esta sintaxis en detalle todavía (eso se
+  explica recién en las próximas ~40 páginas). Da 3 líneas ya resueltas
+  como ejemplo de formato. Queda registrado como pendiente en
+  EJERCICIOS.md — el usuario lo resuelve a mano antes de que Claude lo
+  corrija.
+- "Code structure in Java" (estructura de anidamiento, sin ejercicio,
+  solo conceptual): un archivo fuente (source file) contiene una
+  definición de clase (class definition); una clase contiene métodos
+  (method 1, method 2); cada método contiene instrucciones (statement).
+  Es la jerarquía básica de organización de CUALQUIER programa Java,
+  va a aparecer todo el tiempo de acá en adelante.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+- El código del ejercicio "Sharpen your pencil" está en EJERCICIOS.md
+  (no se repite acá para no adelantar la solución antes de que el
+  usuario lo intente).
+- Diagrama "Code structure in Java": source file → class definition →
+  method 1 (statement) → method 2 (statement, statement). Sin código
+  de ejemplo todavía, es solo la jerarquía visual.
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- "Sharpen your pencil" (pág. 80-81) — pendiente, ver EJERCICIOS.md.
+  Las respuestas oficiales del libro están en pág. 83-84, pero Claude
+  las tiene guardadas SIN mostrarlas todavía — se corrige recién
+  cuando el usuario entregue su intento.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- Lo que el libro describe como "la JVM optimiza el código mientras
+  se ejecuta" tiene nombre técnico real: JIT compilation (Just-In-Time
+  compilation). Es un término que sí conviene tener a mano para
+  entrevistas, aunque el libro en esta página no lo nombra así.
+- Para el mundo laboral real, lo que más importa de la numeración de
+  versiones no es la lista completa 9-18-26, sino identificar las
+  versiones LTS (Long-Term Support: 8, 11, 17, 21, y próximamente 25).
+  Son las que las empresas realmente usan en producción, a diferencia
+  de las versiones intermedias de 6 meses que casi nadie despliega.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- Pendiente: falta la ronda de comprensión de esta sesión.
+
+EJERCICIOS CREADOS: ninguno
+PRÓXIMO PASO: el usuario resuelve a mano el "Sharpen your pencil" de
+EJERCICIOS.md; después seguimos con la siguiente tanda de páginas del
+libro (a partir de la página 87).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

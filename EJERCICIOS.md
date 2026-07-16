@@ -30,4 +30,48 @@ Resultado y corrección de Claude (se llena al revisar):
 
 ============================================================
 
-(todavía no hay ejercicios — se agregan a partir de la sesión #01)
+LIBRO — Sharpen your pencil: "Look how easy it is to write Java" — línea por línea, qué hace cada instrucción (Ubicación pág. 80-81, Sesión #09) — [ ] pendiente
+
+Enunciado (tal cual lo plantea el libro): abajo tenés un fragmento de
+código Java. Todavía NO viste esta sintaxis en detalle (variables,
+if, while, arrays, try/catch) — el libro pide que uses la intuición,
+como si fuera casi inglés/pseudocódigo, y escribas en una frase simple
+qué hace CADA línea. No hace falta que la frase esté en inglés como
+pide el libro: la podés escribir en español.
+
+El libro ya te da 3 ejemplos resueltos como guía de formato:
+- Línea 1 → "declare an integer variable named 'size' and give it the value 27"
+- Línea con el `if` → "if x (value of 22) is less than 15, tell the dog to bark 8 times"
+- Una de las líneas con `print` → "print out 'Hello'... probably at the command line"
+
+Código completo:
+```java
+int size = 27;
+String name = "Fido";
+Dog myDog = new Dog(name, size);
+x = size - 5;
+if (x < 15) myDog.bark(8);
+
+while (x > 3) {
+  myDog.play();
+}
+
+int[] numList = {2, 4, 6, 8};
+System.out.print("Hello");
+System.out.print("Dog: " + name);
+String num = "8";
+int z = Integer.parseInt(num);
+
+try {
+  readTheFile("myFile.txt");
+} catch (FileNotFoundException ex) {
+  System.out.print("File not found.");
+}
+```
+
+Entregá en: contame acá en el chat tus frases línea por línea (no
+hace falta archivo .java, es un ejercicio de lectura/intuición).
+Si te trabás: revisá la Sesión #09 de GUIA-JAVA.md (ahí está el
+contexto de "Speed and memory usage" y "Code structure in Java").
+Resultado y corrección de Claude (se llena al revisar):
+...
