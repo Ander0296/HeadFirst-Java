@@ -26,57 +26,65 @@
 //
 // Enunciado (traducido): el libro da el siguiente código. Compila y
 // corre sin errores, pero la SALIDA no es 100% perfecta — en algún
-// verso, la palabra "bottle"/"bottles" queda mal (plural cuando debía
-// ser singular, o viceversa). Tu trabajo es encontrar en qué verso
-// pasa y arreglarlo.
+// verso, la parte "botella/botellas verde(s), colgada(s)" queda mal
+// (plural cuando debía ser singular, o viceversa). Tu trabajo es
+// encontrar en qué verso pasa y arreglarlo.
 //
-// Código original tal cual lo trae el libro (con la falla adentro):
+// NOTA: este código es una ADAPTACIÓN al español del original del
+// libro (que usa "bottle"/"bottles" en inglés) para que puedas
+// concentrarte en la LÓGICA (while, if, la resta) sin pelear encima
+// con el idioma. La falla lógica es exactamente la misma que trae el
+// libro, solo cambia el idioma de lo que se imprime. Los nombres de
+// variable (bottlesNum, word) se dejan en inglés a propósito: son
+// cortos, y así de una vez te vas acostumbrando a leer identificadores
+// en inglés, que es lo normal en cualquier código Java real.
 //
-//   public class BottleSong {
-//     public static void main(String[] args) {
-//       int bottlesNum = 10;
-//       String word = "bottles";
+// Código (con la falla adentro):
 //
-//       while (bottlesNum > 0) {
-//
-//         if (bottlesNum == 1) {
-//           word = "bottle"; // singular, as in ONE bottle.
-//         }
-//
-//         System.out.println(bottlesNum + " green " + word + ", hanging on the wall");
-//         System.out.println(bottlesNum + " green " + word + ", hanging on the wall");
-//         System.out.println("And if one green bottle should accidentally fall,");
-//         bottlesNum = bottlesNum - 1;
-//
-//         if (bottlesNum > 0) {
-//           System.out.println("There'll be " + bottlesNum +
-//                   " green " + word + ", hanging on the wall");
-//         } else {
-//           System.out.println("There'll be no green bottles, hanging on the wall");
-//         }
-//       } // end while loop
-//     } // end main method
-//   } // end class
-//
-// Pista para arrancar: el chequeo `if (bottlesNum == 1)` está ANTES
-// de `bottlesNum = bottlesNum - 1` en el código — se evalúa con el
-// valor de bottlesNum de ANTES de restar. Pero ese mismo "word" se
-// reutiliza más abajo, en la línea "There'll be", que ya usa el
-// bottlesNum de DESPUÉS de restar. Seguí la traza completa desde
-// bottlesNum=10 y fijate en qué verso puntual esos dos valores dejan
-// de estar sincronizados.
-//
-// Si te trabás: revisá la Sesión #12, #13 y #14 de GUIA-JAVA.md (ahí
-// está todo lo de while, if/else y variables).
-//
-// Escribí tu versión CORREGIDA debajo de este bloque, todo a mano.
-// Recordá que la clase pública debe llamarse igual que el archivo:
-// BottleSong.
-//
-// PROMPT DE ENTREGA (copiá y pegá esto cuando termines):
-// -------------------------------------------------------
-// Hice el ejercicio #02, está en ejercicios/ej02-bottlesong/BottleSong.java.
-// Compiló: [sí / no]. Al ejecutarlo: [pego abajo la salida o el error].
-// Revisalo línea por línea: qué está bien, qué está mal y POR QUÉ, y
-// actualizá su estado y tu corrección en EJERCICIOS.md. Si quedó
-// completado, agendá sus repasos en la sección REPASOS.
+public class BottleSong {
+    public static void main(String[] args) {
+        int bottlesNum = 10;
+        String word = "botellas verdes, colgadas de la pared";
+
+        while (bottlesNum > 0) {
+
+            if (bottlesNum == 1) {
+                word = "botella verde, colgada de la pared"; // singular, o sea UNA sola botella.
+            }
+
+            System.out.println(bottlesNum + " " + word);
+            System.out.println(bottlesNum + " " + word);
+            System.out.println("Y si una botella verde se cayera sin querer,");
+            bottlesNum = bottlesNum - 1;
+
+            if (bottlesNum > 0) {
+                System.out.println("Quedarán " + bottlesNum + " " + word);
+            } else {
+                System.out.println("No quedará ninguna botella verde, colgada de la pared");
+            }
+        } // end while loop
+    } // end main method
+} // end class
+  //
+  // Pista para arrancar: el chequeo `if (bottlesNum == 1)` está ANTES
+  // de `bottlesNum = bottlesNum - 1` en el código — se evalúa con el
+  // valor de bottlesNum de ANTES de restar. Pero ese mismo "word" se
+  // reutiliza más abajo, en la línea "Quedarán", que ya usa el
+  // bottlesNum de DESPUÉS de restar. Seguí la traza completa desde
+  // bottlesNum=10 y fijate en qué verso puntual esos dos valores dejan
+  // de estar sincronizados.
+  //
+  // Si te trabás: revisá la Sesión #12, #13 y #14 de GUIA-JAVA.md (ahí
+  // está todo lo de while, if/else y variables).
+  //
+  // Escribí tu versión CORREGIDA debajo de este bloque, todo a mano.
+  // Recordá que la clase pública debe llamarse igual que el archivo:
+  // BottleSong.
+  //
+  // PROMPT DE ENTREGA (copiá y pegá esto cuando termines):
+  // -------------------------------------------------------
+  // Hice el ejercicio #02, está en ejercicios/ej02-bottlesong/BottleSong.java.
+  // Compiló: [sí / no]. Al ejecutarlo: [pego abajo la salida o el error].
+  // Revisalo línea por línea: qué está bien, qué está mal y POR QUÉ, y
+  // actualizá su estado y tu corrección en EJERCICIOS.md. Si quedó
+  // completado, agendá sus repasos en la sección REPASOS.

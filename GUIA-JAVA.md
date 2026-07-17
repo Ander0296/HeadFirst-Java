@@ -6,9 +6,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 117 de 1629 (9%) — Capítulo 1, "The Java-Enabled House" + arranca sección nueva (phrase-o-matic, cortada)
-- Última sesión: Sesión #14
-- Ejercicios pendientes: 1 (BottleSong "encontrá la falla" de la Sesión #14 — ver EJERCICIOS.md); repasos r1 de "Sharpen your pencil" pág. 80-81 y de "DooBee" agendados para 2026-07-20
+- Última página estudiada: página 122 de 1629 (10%) — Capítulo 1, Phrase-O-Matic (arrays, java.util.Random) + arranca sección nueva ("BE the Compiler", cortada)
+- Última sesión: Sesión #15
+- Ejercicios pendientes: 1 — BottleSong "encontrá la falla" (Sesión #14, [~] en curso/pausado, ver EJERCICIOS.md). Code Magnets "Shuffle1" (Sesión #15) completado 2026-07-17. Repasos r1: "Sharpen your pencil" pág. 80-81 y "DooBee" agendados para 2026-07-20, "Shuffle1" agendado para 2026-07-21
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 
@@ -51,6 +51,12 @@ Ejercicios: ver EJERCICIOS.md.
 | branching (if/else)                | ramificación / bifurcación condicional | Ejecutar un bloque de código u otro según si una prueba condicional es verdadera o falsa. |
 | IoT (Internet of Things)           | Internet de las Cosas | Dispositivos embebidos (electrodomésticos, sensores, etc.) conectados y programables; Java es popular en este ámbito. |
 | embedded device                    | dispositivo embebido | Hardware chico (cajero automático, tarjeta, electrodoméstico) que corre solo una porción reducida de la plataforma Java. |
+| array                              | array / arreglo | Una sola variable que guarda VARIOS valores del mismo tipo, accedidos por posición numérica (índice). |
+| zero-based                         | indexado desde cero | En un array, la primera posición es el índice 0, no el 1; el último índice es `length - 1`. |
+| length (de un array)               | length (propiedad, no método) | Cantidad de elementos del array; se usa sin paréntesis: `array.length`. |
+| java.util.Random / nextInt()       | java.util.Random / nextInt() | Clase de Java para generar números al azar; `nextInt(n)` devuelve un entero entre 0 (incluido) y n (sin incluir). Primer uso real de un objeto en el libro (adelanto de POO). |
+| ArrayIndexOutOfBoundsException     | excepción de índice fuera de rango | Error en tiempo de ejecución al pedir una posición de un array que no existe (fuera de 0 a length-1). |
+| Code Magnets                       | Imanes de Código | Sección recurrente de ejercicio: reordenar pedazos de código desarmados (como imanes en una heladera) para armar un programa que compile y dé la salida pedida. |
 
 ============================================================
 (ACÁ VAN LAS SESIONES — Claude agrega la SESIÓN #01 en la primera
@@ -907,6 +913,94 @@ EJERCICIOS CREADOS: ninguno
 PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
 partir de la página 117, retomando la sección cortada del
 "phrase-o-matic").
+
+SESIÓN #15 — 2026-07-17 — Phrase-O-Matic: arrays, java.util.Random, y Code Magnets (Ubicación pág. 117-122 de 1629, 9-10%)
+
+IDEAS CLAVE
+
+- Programa nuevo "Phrase-O-Matic": generador de frases de jerga
+  corporativa/tech al azar (parodia del "buzzword bingo" — frases que
+  suenan sofisticadas pero no dicen nada concreto, ej. "agnostic
+  pub-sub DSL"). Primer uso real y explicado en detalle de ARRAYS.
+- Array (arreglo): una sola variable que guarda VARIOS valores del
+  mismo tipo, accedidos por posición numérica. Se declara
+  `Tipo[] nombre = {valor1, valor2, ...};`.
+- Los arrays son "zero-based" (indexado desde cero): la primera
+  posición es el índice 0, la última es `length - 1` (NO `length`).
+- `.length` da la cantidad de elementos del array — es una PROPIEDAD,
+  sin paréntesis (no es un método).
+- `java.util.Random`: clase de Java para generar números al azar.
+  `new java.util.Random()` crea un generador — es, técnicamente, el
+  primer OBJETO real que el libro usa en código (adelanto de POO, sin
+  explicarlo formalmente todavía). `randomGenerator.nextInt(n)`
+  devuelve un entero entre 0 (incluido) y n (sin incluir).
+- El rango de `nextInt(oneLength)` (0 a oneLength-1) coincide EXACTO
+  con el rango de índices válidos de un array de oneLength elementos
+  — por diseño, nunca da un índice inválido. Evita la
+  ArrayIndexOutOfBoundsException (excepción de índice fuera de rango).
+- Ejercicio nuevo: "Code Magnets" (Imanes de Código) — reordenar
+  pedazos de código desarmados para armar un programa Java que
+  compile y dé una salida exacta. Es una sección de tipo "Exercise"
+  (obligatoria).
+- Arranca sección nueva "BE the Compiler" (pág. 122), cortada — sigue
+  en la próxima tanda.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+```java
+public class PhraseOMatic {
+    public static void main(String[] args) {
+        String[] wordListOne = {"agnostic", "opinionated", ...};
+        String[] wordListTwo = {"loosely coupled", "six sigma", ...};
+        String[] wordListThree = {"framework", "library", ...};
+
+        int oneLength = wordListOne.length;
+        int twoLength = wordListTwo.length;
+        int threeLength = wordListThree.length;
+
+        java.util.Random randomGenerator = new java.util.Random();
+        int rand1 = randomGenerator.nextInt(oneLength);
+        int rand2 = randomGenerator.nextInt(twoLength);
+        int rand3 = randomGenerator.nextInt(threeLength);
+
+        String phrase = wordListOne[rand1] + " " + wordListTwo[rand2] + " " + wordListThree[rand3];
+        System.out.println("What we need is a " + phrase);
+    }
+}
+```
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- "Code Magnets: Shuffle1" (pág. 121-122) — pendiente, ver
+  EJERCICIOS.md. Archivo de arranque en
+  ejercicios/ej03-shuffle1/Shuffle1.java.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- `new java.util.Random()` es, sin que el libro lo diga todavía
+  explícitamente, la primera vez que el código "crea un objeto" —
+  vale la pena tenerlo presente para cuando el libro explique POO en
+  serio: ya veniste usando uno sin saberlo.
+- ArrayIndexOutOfBoundsException es un error de runtime muy común en
+  Java real (junto con NullPointerException); entender por qué
+  `nextInt(length)` lo evita acá es un buen ejemplo concreto de
+  "diseñar para que un error ni pueda pasar".
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- ¿Cuál es el índice del último elemento de un array de 8 elementos?
+  Respondida correctamente: 7 (índices desde 0, a diferencia de
+  "cuántos hay" que se cuenta desde 1).
+- ¿Por qué `nextInt(oneLength)` nunca da un índice inválido? Idea de
+  fondo correcta pero mecanismo impreciso al principio (dijo "toma un
+  número al azar entre el número de palabras" sin especificar el
+  rango exacto). Aclarado: `nextInt(n)` da de 0 a n-1, que es EXACTO
+  el rango de índices válidos de un array de n elementos — por eso
+  nunca falla.
+
+EJERCICIOS CREADOS: #03 (Code Magnets: Shuffle1, ver EJERCICIOS.md)
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 122, retomando "BE the Compiler" cortada).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

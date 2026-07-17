@@ -161,12 +161,18 @@ resolver.
 
 ============================================================
 
-LIBRO — BottleSong: encontrá y arreglá la falla en el código dado (Ubicación pág. 111, Sesión #14) — [ ] pendiente
+LIBRO — BottleSong: encontrá y arreglá la falla en el código dado (Ubicación pág. 111, Sesión #14) — [~] en curso, pausado (2026-07-17)
 
 Enunciado (tal cual lo plantea el libro): se da un programa completo
 (clase BottleSong, la canción "10 green bottles") que compila y corre
 sin errores, pero la salida no es 100% perfecta — tiene una falla
 lógica sutil. Encontrala y arreglala.
+
+NOTA: el archivo de arranque se tradujo al español (adaptación, no
+literal) a pedido del usuario, para que pudiera concentrarse en la
+lógica sin la barrera del inglés. La falla lógica es la misma que la
+del libro (singular/plural de "botella"/"botellas" vía la variable
+`word`), solo cambia el idioma de lo impreso.
 
 Entregá en: ejercicios/ej02-bottlesong/BottleSong.java (archivo de
 arranque ya creado por Claude — código original en comentarios, solo
@@ -174,7 +180,78 @@ falta que escribas tu versión corregida debajo).
 Si te trabás: revisá la Sesión #12, #13 y #14 de GUIA-JAVA.md (ahí
 está todo lo de `while`, `if`/`else` y variables).
 Resultado y corrección de Claude (se llena al revisar):
-...
+
+Varios intentos en curso, todavía sin cerrar (pausado por el usuario
+el 2026-07-17 para seguir con tandas nuevas; retomar más adelante):
+
+1. Cambió el segundo `if` de `bottlesNum > 0` a `bottlesNum > 1` —
+   no arregla la falla original y agrega una nueva (se salta el verso
+   de "1 botella").
+2. Volvió el segundo `if` a `> 0` y cambió el primer chequeo de
+   `bottlesNum == 1` a `bottlesNum == 2` — mejora parcial (el verso de
+   "Quedarán 1 botella..." queda bien) pero el verso de "2 botella(s)"
+   queda mal (singular en vez de plural).
+3. Reordenó el bloque entero `Quedarán/No quedará` para que quede
+   ANTES de la resta (en vez de mover solo el chequeo del singular) —
+   rompe la lógica: el `else` ("No quedará ninguna...") queda muerto
+   (nunca se ejecuta, porque ese chequeo usa el mismo valor que ya
+   garantizó el `while` para entrar al bucle) y aparece un verso
+   "Quedarán 10..." de más al principio que la canción no tiene.
+4. Detectó por su cuenta, sin que Claude lo señalara primero, que
+   "Quedarán" es un string fijo que nunca pasa a singular ("Quedará")
+   — observación correcta y aguda. Aclarado: ESO no es parte de la
+   falla original del libro (en inglés "There'll be" tampoco conjuga
+   por número); es un detalle que se le escapó a Claude al traducir.
+   Queda como nota aparte para cuando se retome el ejercicio, no es
+   requisito para completarlo.
+
+Pista pendiente de aplicar (todavía no la probó): el chequeo
+`if (bottlesNum == 1) { word = ...singular... }` tiene que volver a
+estar DESPUÉS de `bottlesNum = bottlesNum - 1` (no antes, y no
+moviendo el bloque entero de `Quedarán/No quedará`) — son 3 líneas
+nada más las que hay que reubicar, dejando todo el resto del `while`
+en su orden original.
+
+PRÓXIMO PASO al retomar: pedirle que mueva SOLO esas 3 líneas del
+chequeo `if (bottlesNum == 1)`, compile y corra de nuevo.
+
+============================================================
+
+LIBRO — Code Magnets: "Shuffle1" — reordenar los imanes de código para que el programa dé la salida pedida (Ubicación pág. 121-122, Sesión #15) — [x] completado (2026-07-17)
+
+Enunciado (tal cual lo plantea el libro): un programa Java completo
+está pegado con imanes en una heladera, pero alguien lo desarmó y los
+pedazos quedaron sueltos y desordenados. Además, "se cayeron al piso"
+algunas llaves `{ }` de cierre — podés (tenés que) agregar todas las
+que hagan falta, no vienen todas en los imanes. Reordená los imanes
+(sin cambiar lo que dice cada uno) para armar un programa que
+compile y que, al correr `java Shuffle1`, imprima EXACTAMENTE:
+
+    a-b c-d
+
+Los imanes (desordenados, ver el archivo de arranque para el detalle
+completo) incluyen: la declaración de la clase y el main, `int x = 3;`,
+un `while (x > 0)`, y tres `if` distintos (`x == 1`, `x == 2`, `x > 2`)
+más una línea que resta 1 a `x` y otra que imprime el guion "-".
+
+Entregá en: ejercicios/ej03-shuffle1/Shuffle1.java (archivo de
+arranque ya creado por Claude, con los imanes en comentarios — armá
+tu versión debajo).
+Si te trabás: revisá la Sesión #12 y #13 de GUIA-JAVA.md (while,
+if/else).
+Resultado y corrección de Claude (se llena al revisar):
+
+Entrega: ejercicios/ej03-shuffle1/Shuffle1.java. Compiló a la primera,
+sin errores. Salida verificada con traza a mano: `a-b c-d`, exacta.
+
+Armó un orden VÁLIDO pero distinto al de referencia interna: puso el
+`System.out.print("-")` y la resta `x = x - 1` justo después del
+`if (x > 2)`, ANTES de chequear `x == 2`, en vez de después. Funciona
+perfecto igual porque respetó lo esencial — el momento exacto de la
+resta respecto a cada impresión —, no memorizó un orden fijo. Buena
+señal de comprensión real del mecanismo (traza x=3→2→1→0, cada if
+evaluado con el valor correcto de x en cada vuelta). COMPLETADO.
+Primer repaso agendado para 2026-07-21.
 
 ============================================================
 
@@ -187,5 +264,10 @@ Comparación de Claude (se llena al revisar):
 
 REPASO — EJERCICIO DooBee (pág. 109) (r1) — programado: 2026-07-20 — [ ] pendiente
 Entregá en: ejercicios/repasos/ej01-doobee-r1/DooBee.java (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
+Comparación de Claude (se llena al revisar):
+...
+
+REPASO — EJERCICIO Code Magnets: Shuffle1 (pág. 121-122) (r1) — programado: 2026-07-21 — [ ] pendiente
+Entregá en: ejercicios/repasos/ej03-shuffle1-r1/Shuffle1.java (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
 Comparación de Claude (se llena al revisar):
 ...
