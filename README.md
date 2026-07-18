@@ -245,7 +245,9 @@ Tanda nueva: leé todas las imágenes que hay en la raíz de paginas/
 (sin entrar a paginas/leidas/), en orden de nombre, y arrancá el flujo.
 Cuando termines de explicarme esta tanda, antes de seguir con cualquier
 otra cosa, mové esas mismas imágenes a paginas/leidas/ para que la raíz
-quede vacía.
+quede vacía, agregá las frases de esta tanda a MECANOGRAFIA.md y volcá
+todas las frases aplanadas al archivo de ttyper (regla de mecanografía
+de CLAUDE.md).
 ```
 
 --- MENSAJE 4 — corregir un ejercicio de código (la versión YA RELLENA está al final del archivo de arranque del ejercicio) ---
@@ -262,8 +264,9 @@ completado, agendá sus repasos en la sección REPASOS.
 
 ```
 Cerramos acá:
-1. Verificá que GUIA-JAVA.md y EJERCICIOS.md quedaron actualizados con
-   todo lo de hoy (incluida la sección REPASOS si completé algo).
+1. Verificá que GUIA-JAVA.md, EJERCICIOS.md y MECANOGRAFIA.md quedaron
+   actualizados con todo lo de hoy (incluida la sección REPASOS si
+   completé algo, y que el archivo de ttyper tenga todas las frases).
 2. Verificá que TODO ejercicio o repaso pendiente tenga su archivo de
    arranque creado en ejercicios/ (si falta alguno, crealo ahora,
    solo comentarios, sin código ejecutable).

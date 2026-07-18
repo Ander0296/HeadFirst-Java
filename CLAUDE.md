@@ -147,6 +147,30 @@ Registro DOBLE + archivo de arranque creado por Claude:
   Comparación de Claude (se llena al revisar):
   ...
 
+### Mecanografía (ttyper) — REGLA PERMANENTE
+
+El usuario practica tipeo sin mirar el teclado con ttyper (atajo
+CTRL+SUPER+ALT+T en su sistema). Las frases de práctica salen de lo
+que estudia en este libro: repaso doble, dedos y memoria a la vez.
+- UN solo archivo por proyecto: MECANOGRAFIA.md (viaja por git, como
+  la guía; lo mantiene Claude). Una entrada por sesión, legible:
+  "sNN — tema:" seguido de la frase en forma natural (mismo número
+  que la sesión de GUIA-JAVA.md).
+- Al cerrar cada tanda, Claude agrega ahí 1-2 frases NUEVAS en
+  español (20-35 palabras, con los términos técnicos que conviene
+  fijar; sintaxis Java incluida cuando el tema es código: llaves,
+  paréntesis, corchetes también hay que tipearlos rápido) y después
+  vuelca TODAS las frases al archivo de configuración de ttyper:
+  ~/.config/ttyper/texts/headfirst-java.txt.
+- FORMATO OBLIGATORIO del archivo de ttyper: UNA palabra/token por
+  línea (ttyper trata cada línea como palabra indivisible y el
+  espacio salta a la siguiente palabra). En MECANOGRAFIA.md la frase
+  va natural; aplanada SOLO en el archivo de ttyper.
+- Si el archivo de ttyper no existe o quedó desactualizado (PC
+  nuevo, git pull), Claude lo regenera completo desde MECANOGRAFIA.md.
+- Las frases no se editan después (son material de repaso). Si un
+  concepto cambió o se corrigió, se agrega una frase nueva.
+
 ### Plan por fases — RUTA.md (REGLA PERMANENTE)
 
 - El proyecto NO termina con el libro. RUTA.md define las fases:
@@ -187,11 +211,13 @@ Registro DOBLE + archivo de arranque creado por Claude:
 5. Verificar comprensión con 1-2 preguntas cortas antes de cerrar.
 6. Actualizar GUIA-JAVA.md agregando la sesión (respetar el formato
    del archivo) y sumar términos nuevos a la tabla de vocabulario.
-7. Si el tema lo amerita, agregar ejercicios a EJERCICIOS.md con su
+7. Agregar 1-2 frases de la sesión a MECANOGRAFIA.md y volcar todas
+   aplanadas al archivo de ttyper (ver regla de mecanografía).
+8. Si el tema lo amerita, agregar ejercicios a EJERCICIOS.md con su
    formato, siempre con la referencia "Si te trabás: revisá la Sesión
    #Y de GUIA-JAVA.md" y aplicando la regla de cierre (ruta + mensaje
    relleno).
-8. Guardar en Engram los conceptos clave, decisiones y última página
+9. Guardar en Engram los conceptos clave, decisiones y última página
    vista.
 
 ### Reglas de trabajo
@@ -231,6 +257,8 @@ Registro DOBLE + archivo de arranque creado por Claude:
 - ejercicios/ → código Java del usuario, una carpeta por ejercicio
 - ejercicios/repasos/ → repasos del usuario (ejNN-rX/), desde cero
 - diagramas/ → diagramas PlantUML (.puml) del usuario para revisión
+- MECANOGRAFIA.md → frases de tipeo por sesión (mantiene Claude y
+  las vuelca al archivo de ttyper; las practica el usuario)
 
 ### Memoria y contexto
 
