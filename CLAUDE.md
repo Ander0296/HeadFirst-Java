@@ -171,6 +171,32 @@ que estudia en este libro: repaso doble, dedos y memoria a la vez.
 - Las frases no se editan después (son material de repaso). Si un
   concepto cambió o se corrigió, se agrega una frase nueva.
 
+### Tarjetas Anki — REGLA PERMANENTE
+
+El usuario repasa con Anki (app externa). Las tarjetas las crea
+Claude aplicando el Pareto 80/20: SOLO los conceptos que más valor
+aportan al objetivo (primer empleo Java), no todo el libro — pocas
+tarjetas buenas fijan más que un mazo exhaustivo.
+- UN solo archivo por proyecto: ANKI.txt (viaja por git; lo mantiene
+  Claude). El usuario lo importa en Anki cuando quiere: re-importar
+  ACTUALIZA las tarjetas existentes (Anki matchea por la pregunta,
+  el primer campo) y agrega las nuevas, sin duplicar.
+- Formato: cabeceras #separator:tab, #html:false,
+  #deck:HeadFirst-Java y #tags:headfirst-java; después una tarjeta
+  por línea: pregunta TAB respuesta.
+- Con tabulador como separador, las comillas dobles de los String y
+  de System.out.println("...") y los ; de Java van LITERALES, sin
+  escapar (jamás ""dobladas""). Regla dura: ni pregunta ni respuesta
+  contienen tabs ni saltos de línea, y ninguna empieza con comillas.
+- Cada tarjeta es AUTOCONTENIDA: prohibido "según el libro", "en la
+  página X", "como vimos en la sesión Y". Cualquier persona debe
+  poder estudiarla sin conocer Head First Java ni este proyecto.
+- Al cerrar cada tanda, Claude agrega las tarjetas 80/20 de la
+  sesión (2-5 por tanda: las mejores, no todas las posibles).
+- La PREGUNTA nunca se reformula después (es la clave de matcheo en
+  Anki). Si una respuesta quedó mal o vieja, se corrige la respuesta
+  dejando la pregunta idéntica.
+
 ### Plan por fases — RUTA.md (REGLA PERMANENTE)
 
 - El proyecto NO termina con el libro. RUTA.md define las fases:
@@ -213,12 +239,14 @@ que estudia en este libro: repaso doble, dedos y memoria a la vez.
    del archivo) y sumar términos nuevos a la tabla de vocabulario.
 7. Agregar 1-2 frases de la sesión a MECANOGRAFIA.md y volcar todas
    aplanadas al archivo de ttyper (ver regla de mecanografía).
-8. Si el tema lo amerita, agregar ejercicios a EJERCICIOS.md con su
+8. Agregar las tarjetas 80/20 de la sesión a ANKI.txt (ver regla de
+   tarjetas Anki: autocontenidas, tab, 2-5 por tanda).
+9. Si el tema lo amerita, agregar ejercicios a EJERCICIOS.md con su
    formato, siempre con la referencia "Si te trabás: revisá la Sesión
    #Y de GUIA-JAVA.md" y aplicando la regla de cierre (ruta + mensaje
    relleno).
-9. Guardar en Engram los conceptos clave, decisiones y última página
-   vista.
+10. Guardar en Engram los conceptos clave, decisiones y última página
+    vista.
 
 ### Reglas de trabajo
 
@@ -259,6 +287,8 @@ que estudia en este libro: repaso doble, dedos y memoria a la vez.
 - diagramas/ → diagramas PlantUML (.puml) del usuario para revisión
 - MECANOGRAFIA.md → frases de tipeo por sesión (mantiene Claude y
   las vuelca al archivo de ttyper; las practica el usuario)
+- ANKI.txt → tarjetas de repaso 80/20 (mantiene Claude; el usuario
+  las importa en Anki)
 
 ### Memoria y contexto
 

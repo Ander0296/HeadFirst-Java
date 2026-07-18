@@ -28,6 +28,27 @@ Cada paso dice dónde va. Los MENSAJES están al final del archivo.
 - EJERCICIOS.md → ejercicios y repasos (los escribe Claude)
 - RUTA.md → el plan por fases: libro → consolidación → herramientas
   reales → portafolio y empleo (lo mantiene Claude)
+- MECANOGRAFIA.md → frases de tipeo por sesión (las anota Claude y
+  las vuelca al archivo de ttyper; yo las practico)
+- ANKI.txt → tarjetas de repaso 80/20 (las crea Claude; yo las
+  importo en Anki)
+
+## Cómo uso la mecanografía y las tarjetas Anki
+
+Mecanografía (las frases salen de MECANOGRAFIA.md):
+- CTRL+SUPER+ALT+T (atajo de mis dotfiles) abre/oculta ttyper
+  flotante con una frase al azar de mis proyectos de estudio.
+- Al terminar una frase: q pasa a otra frase al azar, r repite la
+  misma. Claude vuelca las frases nuevas al cerrar cada tanda; yo
+  no toco esos archivos.
+
+Tarjetas Anki (ANKI.txt):
+- En Anki: Archivo → Importar → elegir el ANKI.txt de este repo. El
+  mazo (HeadFirst-Java), el separador tab y las etiquetas ya vienen
+  preconfigurados en las cabeceras del propio archivo.
+- Re-importar el MISMO archivo no duplica: actualiza las tarjetas
+  que cambiaron y agrega las nuevas (Anki matchea por la pregunta).
+- Rutina: después de cada git pull con tarjetas nuevas, re-importo.
 
 # ============================================================
 # PRIMERA VEZ EN LA VIDA (sesión java-s01)
@@ -247,7 +268,8 @@ Cuando termines de explicarme esta tanda, antes de seguir con cualquier
 otra cosa, mové esas mismas imágenes a paginas/leidas/ para que la raíz
 quede vacía, agregá las frases de esta tanda a MECANOGRAFIA.md y volcá
 todas las frases aplanadas al archivo de ttyper (regla de mecanografía
-de CLAUDE.md).
+de CLAUDE.md), y agregá las tarjetas 80/20 de esta tanda a ANKI.txt
+(regla de tarjetas Anki de CLAUDE.md).
 ```
 
 --- MENSAJE 4 — corregir un ejercicio de código (la versión YA RELLENA está al final del archivo de arranque del ejercicio) ---
@@ -264,9 +286,10 @@ completado, agendá sus repasos en la sección REPASOS.
 
 ```
 Cerramos acá:
-1. Verificá que GUIA-JAVA.md, EJERCICIOS.md y MECANOGRAFIA.md quedaron
-   actualizados con todo lo de hoy (incluida la sección REPASOS si
-   completé algo, y que el archivo de ttyper tenga todas las frases).
+1. Verificá que GUIA-JAVA.md, EJERCICIOS.md, MECANOGRAFIA.md y
+   ANKI.txt quedaron actualizados con todo lo de hoy (incluida la
+   sección REPASOS si completé algo, que el archivo de ttyper tenga
+   todas las frases, y que las tarjetas nuevas sean autocontenidas).
 2. Verificá que TODO ejercicio o repaso pendiente tenga su archivo de
    arranque creado en ejercicios/ (si falta alguno, crealo ahora,
    solo comentarios, sin código ejecutable).

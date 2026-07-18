@@ -1,0 +1,15 @@
+#separator:tab
+#html:false
+#deck:HeadFirst-Java
+#tags:headfirst-java
+¿Qué camino recorre un programa Java desde el archivo fuente hasta ejecutarse?	Se escribe el código en un archivo .java, el compilador javac lo traduce a bytecode (archivo .class), y la JVM (máquina virtual de Java) ejecuta ese bytecode. El bytecode es el mismo para todos los sistemas; lo que cambia es la JVM de cada plataforma.
+¿Por qué Java cumple "write once, run anywhere" (escribí una vez, corré en cualquier parte)?	Porque el compilador no genera código de máquina para un procesador concreto sino bytecode neutro, y cada sistema operativo tiene su propia JVM que sabe ejecutar ese mismo bytecode sin recompilar el programa.
+¿Cuál es la estructura mínima de una clase ejecutable en Java?	public class MiClase { public static void main(String[] args) { } } — todo el código vive dentro de una clase, la ejecución arranca en main, y el archivo debe llamarse igual que la clase pública: MiClase.java.
+¿Por qué el método main es obligatorio y cuál es su firma exacta?	Es el punto de entrada: la JVM busca exactamente public static void main(String[] args) y ejecuta sus sentencias en orden. Sin main, la clase compila pero no se puede ejecutar como programa.
+¿Cuáles son las tres cosas que se hacen dentro de un método en Java?	Statements (sentencias que hacen algo y terminan en punto y coma), loops (bucles como while que repiten un bloque), y branching (ramificaciones con if/else que eligen un camino según una condición).
+¿Cómo funciona un bucle while en Java?	while (condición) { } repite el bloque mientras la condición boolean sea true. La condición se evalúa ANTES de cada vuelta: si ya empieza en false, el bloque no se ejecuta ni una vez.
+¿Cómo funciona if / else en Java y de qué tipo debe ser la condición?	if (condición) { } ejecuta su bloque solo si la condición es true; else { } captura el caso contrario. La condición debe ser un boolean (en Java no vale un número como en otros lenguajes) y va siempre entre paréntesis.
+¿Cómo se declara un array en Java y cómo se accede a sus elementos?	int[] numeros = new int[4]; crea un array de 4 posiciones. Se accede con corchetes empezando en cero: numeros[0] es el primero y numeros[numeros.length - 1] el último. Salirse del rango lanza una excepción en ejecución.
+¿Cómo se genera un número entero al azar con java.util.Random?	Se importa con import java.util.Random; se crea el generador con Random r = new Random(); y r.nextInt(5) devuelve un entero entre 0 y 4: el límite que le pasás es exclusivo.
+¿Qué diferencia hay entre System.out.println() y System.out.print()?	Ambos imprimen en consola, pero println() agrega un salto de línea al final y print() deja el cursor en la misma línea, así lo siguiente que imprimas continúa a continuación.
+¿Cuál es el ciclo de trabajo para probar un programa Java desde la terminal?	Guardar el archivo fuente (MiClase.java), compilar con javac MiClase.java (genera MiClase.class con el bytecode), y ejecutar con java MiClase — sin extensión, porque le pasás el nombre de la clase, no del archivo.
