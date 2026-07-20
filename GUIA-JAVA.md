@@ -6,9 +6,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 122 de 1629 (10%) — Capítulo 1, Phrase-O-Matic (arrays, java.util.Random) + arranca sección nueva ("BE the Compiler", cortada)
-- Última sesión: Sesión #15
-- Ejercicios pendientes: 1 — BottleSong "encontrá la falla" (Sesión #14, [~] en curso/pausado, ver EJERCICIOS.md). Code Magnets "Shuffle1" (Sesión #15) completado 2026-07-17. Repasos r1: "Sharpen your pencil" pág. 80-81 y "DooBee" agendados para 2026-07-20, "Shuffle1" agendado para 2026-07-21
+- Última página estudiada: página 131 de 1629 (10%) — Capítulo 1, "Mixed Messages" completo y arranca "Pool Puzzle" (completo, sección cerrada)
+- Última sesión: Sesión #17
+- Ejercicios pendientes: 2 — BottleSong "encontrá la falla" (Sesión #14, [~] en curso/pausado, ver EJERCICIOS.md). "Pool Puzzle" (Sesión #17, [ ] pendiente, OPCIONAL). "Mixed Messages" (Sesión #17) completado 2026-07-19, 5/5 a la primera. "BE the Compiler" (Sesión #16) completado 2026-07-19. Code Magnets "Shuffle1" (Sesión #15) completado 2026-07-17. Repasos r1: "Sharpen your pencil" pág. 80-81 y "DooBee" agendados para 2026-07-20, "Shuffle1" agendado para 2026-07-21, "BE the Compiler" agendado para 2026-07-22, "Mixed Messages" agendado para 2026-07-23
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 
@@ -57,6 +57,9 @@ Ejercicios: ver EJERCICIOS.md.
 | java.util.Random / nextInt()       | java.util.Random / nextInt() | Clase de Java para generar números al azar; `nextInt(n)` devuelve un entero entre 0 (incluido) y n (sin incluir). Primer uso real de un objeto en el libro (adelanto de POO). |
 | ArrayIndexOutOfBoundsException     | excepción de índice fuera de rango | Error en tiempo de ejecución al pedir una posición de un array que no existe (fuera de 0 a length-1). |
 | Code Magnets                       | Imanes de Código | Sección recurrente de ejercicio: reordenar pedazos de código desarmados (como imanes en una heladera) para armar un programa que compile y dé la salida pedida. |
+| JavaCross                          | JavaCross | Crucigrama opcional (ícono Puzzle) con palabras del capítulo que se está viendo, para "el lado derecho del cerebro". |
+| Mixed Messages                     | Mensajes Mezclados | Puzzle: emparejar bloques de código candidatos con la salida que producirían si se insertaran en el programa dado. |
+| candidate block (of code)          | bloque candidato (de código) | Fragmento de código que podría ir en un espacio faltante de un programa; hay que emparejarlo con la salida correcta. |
 
 ============================================================
 (ACÁ VAN LAS SESIONES — Claude agrega la SESIÓN #01 en la primera
@@ -1001,6 +1004,174 @@ DUDAS QUE SURGIERON (y su respuesta corta)
 EJERCICIOS CREADOS: #03 (Code Magnets: Shuffle1, ver EJERCICIOS.md)
 PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
 partir de la página 122, retomando "BE the Compiler" cortada).
+
+SESIÓN #16 — 2026-07-19 — BE the Compiler + JavaCross + arranca Mixed Messages (Ubicación pág. 122-126 de 1629, 10%)
+
+IDEAS CLAVE
+
+- Cierre de la tanda anterior: la salida de "Shuffle1" (`a-b c-d`) queda
+  confirmada en el propio libro, coincide con lo ya resuelto y
+  completado en la Sesión #15.
+- Arranca "BE the Compiler" (Sé el Compilador, pág. 123): sección tipo
+  Exercise donde el lector tiene que actuar de compilador. Se dan 3
+  "archivos fuente" completos (A, B, C) y hay que decidir, para cada
+  uno, si compila o no — y si no compila, cómo arreglarlo. No es un
+  ejercicio de sintaxis nueva: usa exactamente la jerarquía vista en
+  las Sesiones #09 y #10 (archivo fuente → clase → método →
+  instrucción), pero puesta a prueba con casos donde algún nivel de esa
+  jerarquía falta o está mal ubicado.
+- Arranca "JavaCross" (pág. 124-125): crucigrama con ícono Puzzle
+  (opcional, no obligatorio) — la mayoría de las palabras salen del
+  Capítulo 1, con algunas del mundo tech en general. Es 100% repaso de
+  vocabulario ya visto; no aporta concepto nuevo, por eso queda como
+  opcional y NO se registra como ejercicio pendiente obligatorio (el
+  usuario puede resolverlo cuando quiera, avisando si lo hace).
+- Arranca una sección nueva, "Mixed Messages" (pág. 126): un tipo de
+  puzzle distinto — dado un programa con un bloque faltante, hay que
+  emparejar cada "bloque candidato" de código con la salida que
+  produciría si se insertara ahí (no todas las salidas se usan, y
+  alguna puede repetirse). El contenido concreto (el programa y los
+  bloques candidatos) todavía no apareció — la página quedó cortada,
+  sigue en la próxima tanda.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+- El código de "BE the Compiler" ES el enunciado del ejercicio — no se
+  repite acá para no adelantar la solución (ver
+  ejercicios/lib01-be-the-compiler.md para los 3 archivos completos).
+- Concepto de fondo (ya visto, acá se pone a prueba en la práctica):
+  una instrucción (`statement`), un `while` o un `if` NUNCA pueden
+  estar sueltos ni directamente dentro del cuerpo de una clase — tienen
+  que estar dentro de un método. Y un método NUNCA puede estar suelto
+  fuera de toda clase — tiene que estar dentro de un `class { }`.
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- "BE the Compiler" (pág. 123) — pendiente, ver EJERCICIOS.md. Archivo
+  de arranque en ejercicios/lib01-be-the-compiler.md.
+- "JavaCross" (pág. 124-125) — opcional (ícono Puzzle), no registrado
+  como pendiente obligatorio; queda a disposición del usuario si quiere
+  resolverlo más adelante.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- Las dos reglas estructurales que pone a prueba "BE the Compiler"
+  (todo método dentro de una clase, toda instrucción dentro de un
+  método) son, en la vida real, la causa de un error de compilador
+  clásico y muy común en principiantes: "class, interface, enum, or
+  record expected" o llaves de más/de menos — vale la pena tenerlas
+  automatizadas antes de seguir.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- ¿Por qué un método sin clase no compila? Respuesta inicial correcta
+  en esencia pero con un matiz a pulir: no es que "no se encuentra la
+  clase" (eso suena a búsqueda en tiempo de ejecución) — es un error de
+  SINTAXIS en tiempo de compilación: la gramática de Java solo permite
+  `package`, `import` y declaraciones de clase/interfaz/enum/record a
+  nivel de archivo; un método suelto ahí no es una construcción válida.
+- Confusión real y valiosa: "¿un `while` sería un método?" — Not, y fue
+  un lindo punto de partida para separar dos ideas que se pisaban: las
+  llaves `{ }` no son "de método", son de BLOQUE (las usa cualquier
+  cosa que agrupe instrucciones: clase, método, while, if). Lo que
+  hace a un método ser método es tener NOMBRE y poder ser LLAMADO desde
+  otro lado (`dog.bark();`); un `while` no tiene nombre, no se llama,
+  corre en el lugar exacto donde está escrito, como parte de las
+  instrucciones del método que lo contiene.
+- Ejercicio "BE the Compiler": primer intento de la C decía que sí
+  compilaba (por tener nombre de clase, aunque sin main). Se explicó
+  con la analogía del "menú de la clase" (solo puede listar qué TIENE
+  -variables- y qué SABE HACER -métodos con nombre-, nada más suelto).
+  Segundo intento, correcto: no compila porque al `while` le falta el
+  método que lo envuelva. Detalle en EJERCICIOS.md.
+
+EJERCICIOS DEL LIBRO COMPLETADOS: "BE the Compiler" (pág. 123) —
+completado 2026-07-19 tras dos intentos en la C, ver EJERCICIOS.md
+para el detalle y el primer repaso agendado el 2026-07-22.
+
+EJERCICIOS CREADOS: ninguno (BE the Compiler es del libro, registrado
+en EJERCICIOS.md)
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 126, retomando "Mixed Messages" cortada).
+
+SESIÓN #17 — 2026-07-19 — Mixed Messages completo + Pool Puzzle (Ubicación pág. 127-131 de 1629, 10%)
+
+IDEAS CLAVE
+
+- Se completa "Mixed Messages" (arrancada cortada en la Sesión #16):
+  un programa `Test` con un `while` que le falta un bloque de código.
+  Se dan 5 bloques candidatos y 8 salidas posibles de consola; hay que
+  emparejar cada candidato con la salida que produciría si se
+  insertara en el hueco (no todas las salidas se usan, y alguna se
+  puede repetir). Es un ejercicio de TRAZAR el programa a mano, vuelta
+  por vuelta del `while`, sin ejecutarlo en la compu.
+- Punto de sintaxis clave para no confundirse: `x + "" + y + " "` con
+  `x` e `y` enteros NO suma los números — los concatena como texto
+  (uno pegado al otro, sin espacio entre ellos, con un espacio
+  después). Si `x` vale 4 e `y` vale 10, imprime `410 ` (texto), no
+  `14` (la suma numérica). Es la misma idea de concatenación con `+`
+  que ya vimos con Strings, pero ahora mezclada con números — un punto
+  clásico de trampa/entrevista.
+- Arranca "Pool Puzzle" (pág. 129-131): un tipo de puzzle nuevo, con
+  ícono Puzzle (opcional). Se da una clase con VARIOS espacios en
+  blanco (condiciones dentro de `while`/`if`, asignaciones, y
+  `System.out.print(...)`), y una "pileta" (pool) de fragmentos sueltos
+  para completar esos espacios. Reglas: cada fragmento se usa como
+  máximo UNA vez, y no hace falta usarlos todos. El objetivo es que el
+  programa compile, corra, y produzca una salida EXACTA armada
+  letra por letra con varios `print()` seguidos (sin `println`, para
+  que todo quede pegado en la misma línea hasta el `System.out.println()`
+  final de cada vuelta).
+- El propio libro avisa que Pool Puzzle "es más difícil de lo que
+  parece" — necesita pensar en simultáneo la condición del `while`,
+  varios `if` anidados, y en qué orden se van pegando los `print()`
+  para armar la palabra final.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+- El código de ambos ejercicios ES el enunciado — no se repite acá
+  para no adelantar la solución (ver ejercicios/lib02-mixed-messages.md
+  y ejercicios/ej04-pool-puzzle/PoolPuzzleOne.java).
+- Concepto reforzado (ya visto, puesto a prueba en la práctica): un
+  `System.out.print(x + "" + y + " ")` con `x`/`y` `int` concatena
+  texto, no suma números — Java decide sumar o concatenar según el
+  tipo de los operandos y el orden en que aparece cada `+`.
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- "Mixed Messages" (pág. 127-129) — pendiente, ver EJERCICIOS.md.
+  Archivo de arranque en ejercicios/lib02-mixed-messages.md.
+- "Pool Puzzle" (pág. 129-131) — pendiente, OPCIONAL (ícono Puzzle),
+  ver EJERCICIOS.md. Archivo de arranque en
+  ejercicios/ej04-pool-puzzle/PoolPuzzleOne.java.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- La trampa de `x + "" + y` (concatenación vs. suma según el tipo) es
+  un clásico de entrevista de Java junior: preguntan qué imprime
+  `System.out.println(1 + 2 + "3")` (da "33", suma primero porque son
+  dos int, después concatena con el String) vs.
+  `System.out.println("1" + 2 + 3)` (da "123", concatena todo porque
+  arranca con String) — vale la pena tenerlo mentalmente afilado.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- ¿Qué imprime `System.out.print(x + "" + y + " ")` con x=12, y=3?
+  Respuesta correcta en lo esencial (concatena "12" y "3" sin sumar),
+  pero faltaba el espacio final literal del `" "` — se aclaró que ese
+  espacio es justo lo que separa cada vuelta del while en la salida
+  final (ej. el espacio en el medio de "22 46").
+  Segunda pregunta (qué corta la línea entre "annoys" y "an oyster" en
+  Pool Puzzle): respondida bien, `System.out.println();` vacío.
+
+EJERCICIOS CREADOS: ninguno (ambos son del libro, registrados en
+EJERCICIOS.md como #04 y LIBRO Mixed Messages)
+EJERCICIOS DEL LIBRO COMPLETADOS: "Mixed Messages" (pág. 127-129) —
+completado 2026-07-19, 5 de 5 candidatos correctos a la primera (ver
+EJERCICIOS.md para la traza completa y el repaso agendado el
+2026-07-23).
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 132).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

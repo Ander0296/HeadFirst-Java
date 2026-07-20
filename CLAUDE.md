@@ -157,17 +157,21 @@ que estudia en este libro: repaso doble, dedos y memoria a la vez.
   "sNN — tema:" seguido de la frase en forma natural (mismo número
   que la sesión de GUIA-JAVA.md).
 - Al cerrar cada tanda, Claude agrega ahí 1-2 frases NUEVAS en
-  español (20-35 palabras, con los términos técnicos que conviene
-  fijar; sintaxis Java incluida cuando el tema es código: llaves,
-  paréntesis, corchetes también hay que tipearlos rápido) y después
-  vuelca TODAS las frases al archivo de configuración de ttyper:
-  ~/.config/ttyper/texts/headfirst-java.txt.
-- FORMATO OBLIGATORIO del archivo de ttyper: UNA palabra/token por
-  línea (ttyper trata cada línea como palabra indivisible y el
-  espacio salta a la siguiente palabra). En MECANOGRAFIA.md la frase
-  va natural; aplanada SOLO en el archivo de ttyper.
-- Si el archivo de ttyper no existe o quedó desactualizado (PC
-  nuevo, git pull), Claude lo regenera completo desde MECANOGRAFIA.md.
+  español, CORTAS: 10-16 palabras máximo (un test de ttyper corre la
+  frase completa de una vez — más largo aburre y no entra en
+  pantalla). Sintaxis Java incluida cuando el tema es código:
+  llaves, paréntesis, corchetes también hay que tipearlos rápido.
+- Volcado: CADA frase va en SU PROPIO archivo (ttyper corre todo el
+  archivo como UN solo test): ~/.config/ttyper/texts/
+  headfirst-java-sNN.txt (si la sesión tiene dos frases:
+  -sNNa.txt y -sNNb.txt).
+- FORMATO OBLIGATORIO de esos archivos: UNA palabra/token por línea
+  (ttyper trata cada línea como palabra indivisible y el espacio
+  salta a la siguiente palabra). En MECANOGRAFIA.md la frase va
+  natural; aplanada SOLO en los archivos de ttyper.
+- Si los archivos de ttyper no existen o quedaron desactualizados
+  (PC nuevo, git pull), Claude borra los del proyecto y los regenera
+  todos desde MECANOGRAFIA.md.
 - Las frases no se editan después (son material de repaso). Si un
   concepto cambió o se corrigió, se agrega una frase nueva.
 
@@ -237,8 +241,9 @@ tarjetas buenas fijan más que un mazo exhaustivo.
 5. Verificar comprensión con 1-2 preguntas cortas antes de cerrar.
 6. Actualizar GUIA-JAVA.md agregando la sesión (respetar el formato
    del archivo) y sumar términos nuevos a la tabla de vocabulario.
-7. Agregar 1-2 frases de la sesión a MECANOGRAFIA.md y volcar todas
-   aplanadas al archivo de ttyper (ver regla de mecanografía).
+7. Agregar 1-2 frases CORTAS de la sesión a MECANOGRAFIA.md y volcar
+   cada una aplanada a su propio archivo de ttyper (ver regla de
+   mecanografía).
 8. Agregar las tarjetas 80/20 de la sesión a ANKI.txt (ver regla de
    tarjetas Anki: autocontenidas, tab, 2-5 por tanda).
 9. Si el tema lo amerita, agregar ejercicios a EJERCICIOS.md con su
@@ -286,7 +291,7 @@ tarjetas buenas fijan más que un mazo exhaustivo.
 - ejercicios/repasos/ → repasos del usuario (ejNN-rX/), desde cero
 - diagramas/ → diagramas PlantUML (.puml) del usuario para revisión
 - MECANOGRAFIA.md → frases de tipeo por sesión (mantiene Claude y
-  las vuelca al archivo de ttyper; las practica el usuario)
+  las vuelca a los archivos de ttyper; las practica el usuario)
 - ANKI.txt → tarjetas de repaso 80/20 (mantiene Claude; el usuario
   las importa en Anki)
 

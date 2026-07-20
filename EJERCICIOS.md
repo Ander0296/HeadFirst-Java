@@ -255,6 +255,122 @@ Primer repaso agendado para 2026-07-21.
 
 ============================================================
 
+LIBRO — BE the Compiler: decidir si tres archivos Java compilan y, si no, cómo arreglarlos (Ubicación pág. 123, Sesión #16) — [x] completado (2026-07-19)
+
+Enunciado (tal cual lo plantea el libro): se dan 3 "archivos fuente"
+completos (A, B, C). Hay que jugar a ser el compilador: decidir si
+cada uno compila, y si no, explicar cómo arreglarlo.
+
+Entregá en: ejercicios/lib01-be-the-compiler.md (archivo de arranque
+ya creado por Claude, con los 3 archivos y una sección "MI RESPUESTA").
+Si te trabás: revisá la Sesión #09 y #10 de GUIA-JAVA.md (jerarquía
+archivo fuente → clase → método → instrucción).
+Resultado y corrección de Claude (se llena al revisar):
+
+Intento 1 (2026-07-19):
+
+A: CORRECTO — compila (bien anidado: clase → main → while → if). Buena
+observación extra, no pedida por el enunciado: notó que x nunca se
+modifica dentro del while, así que corre para siempre. Matiz de
+vocabulario: no es "error de bucle" (no tira ninguna excepción ni se
+frena) — es un bucle infinito que además NUNCA llega a imprimir
+"big x", porque x se queda fijo en 1 y jamás supera 3.
+
+B: CORRECTO — no compila, y el motivo (falta la clase) es el correcto.
+Matiz: no es que "la sintaxis esté bien pero falte la clase" como si
+fueran dos cosas separadas — la ausencia del `class { }` que envuelva
+al método ES en sí misma la falla de sintaxis (un método no puede
+existir suelto a nivel de archivo).
+
+C: intento 1 incorrecto (dijo que compilaba por tener nombre de clase,
+sin ver el problema real). Se explicó en el chat, con analogía de
+"menú de la clase" (qué TIENE = variables, qué SABE HACER = métodos,
+nada más puede ir suelto ahí), la regla de que toda instrucción
+ejecutable (while, if) tiene que vivir dentro de un método.
+
+Intento 2 (mismo día): CORRECTO — no compila, y la causa es la
+correcta: al `while` le falta estar dentro de un método (le falta ese
+nivel de anidamiento entre la clase y la instrucción). Matiz de
+redacción pulido en el chat: no es "se rompe por estar dentro de una
+clase" (eso es obligatorio) sino "se rompe por estar SOLO dentro de la
+clase, sin el método intermedio que le falta".
+
+RESULTADO FINAL: A compila (bien anidado; detectó además, sin que se
+lo pidieran, que x nunca se incrementa y el while queda infinito). B
+no compila (falta el `class { }` que envuelva al método). C no compila
+(falta el método que envuelva al `while`). Las tres, correctas.
+COMPLETADO. Primer repaso agendado para 2026-07-22.
+
+NOTA: "JavaCross" (crucigrama, pág. 124-125) es opcional (ícono
+Puzzle) — no se registra como pendiente obligatorio; si el usuario
+quiere resolverlo, avisa y se corrige, pero no bloquea el avance.
+
+============================================================
+
+LIBRO — Mixed Messages: emparejar 5 bloques candidatos con la salida que producirían (Ubicación pág. 127-129, Sesión #17) — [x] completado (2026-07-19)
+
+Enunciado (tal cual lo plantea el libro): un programa (`Test`) tiene un
+bloque de código faltante dentro de un `while`. Se dan 5 bloques
+candidatos y 8 salidas posibles (no todas se usan, alguna se puede
+repetir). Hay que emparejar cada candidato con la salida que
+produciría si se insertara en el hueco.
+
+Entregá en: ejercicios/lib02-mixed-messages.md (archivo de arranque ya
+creado por Claude, con el programa completo, los 5 candidatos, las 8
+salidas posibles y una sección "MI RESPUESTA").
+Si te trabás: revisá la Sesión #12 y #13 de GUIA-JAVA.md (while, if) y
+practicá trazar el bucle a mano, vuelta por vuelta.
+Resultado y corrección de Claude (se llena al revisar):
+
+Entrega: 5 de 5 candidatos correctos a la primera. Verificado con
+traza propia de Claude, vuelta por vuelta:
+
+- Candidato 1 (y = x - y;) → E (00 11 21 32 42). CORRECTO.
+- Candidato 2 (y = y + x;) → G (00 11 23 36 410). CORRECTO. El salto a
+  3 dígitos en la última vuelta (y llega a 10) es justo la trampa que
+  el ejercicio quería que se detectara.
+- Candidato 3 (y = y + 2; if (y>4) y=y-1;) → H (02 14 25 36 47).
+  CORRECTO.
+- Candidato 4 (x=x+1; y=y+x;) → B (11 34 59). CORRECTO — el más
+  engañoso de los 5: x se incrementa DOS veces por vuelta (una en el
+  candidato, otra en la línea fija del while), así que el bucle corre
+  menos vueltas de las que parece a simple vista.
+- Candidato 5 (if(y<5){x=x+1; if(y<3)x=x-1;} y=y+2;) → D (02 14 36 48).
+  CORRECTO — el más largo de trazar, con if anidados que en las
+  primeras vueltas se cancelan entre sí (x sube y baja) hasta que la
+  condición interna deja de cumplirse.
+
+Las salidas A (22 46), C (02 14 26 38) y F (11 21 32 42 53) no se usan
+para ningún candidato — como avisaba el enunciado, no todas las
+salidas se usan. COMPLETADO. Primer repaso agendado para 2026-07-23.
+
+============================================================
+
+EJERCICIO #04 — Pool Puzzle: completar el código con fragmentos de una pileta para lograr una salida exacta (Ubicación pág. 129-131, Sesión #17) — [ ] pendiente — OPCIONAL (ícono Puzzle)
+Tipo: completar/corregir código
+Si te trabás: revisá la Sesión #12 y #13 de GUIA-JAVA.md (while, if,
+operadores de comparación).
+Enunciado:
+Clase `PoolPuzzleOne` con varios espacios en blanco (condiciones,
+asignaciones e impresiones) que hay que completar usando fragmentos de
+una lista dada ("la pileta"), cada uno usable una sola vez, sin usar
+todos necesariamente, para que compile, corra y produzca EXACTO:
+```
+a noise
+annoys
+an oyster
+```
+Este es opcional (ícono Puzzle del libro, no Exercise obligatorio) —
+se puede saltar sin culpa, pero es buena práctica de trazar bucles e
+`if` a mano y de armar salida con `print()` fragmento por fragmento.
+Entregá en: ejercicios/ej04-pool-puzzle/ (archivo de arranque ya
+creado por Claude, con el esqueleto completo y la lista de fragmentos
+disponibles, todo en comentarios)
+Corrección de Claude (se llena al revisar):
+...
+
+============================================================
+
 REPASOS
 
 REPASO — EJERCICIO Sharpen your pencil (pág. 80-81) (r1) — programado: 2026-07-20 — [ ] pendiente
@@ -269,5 +385,15 @@ Comparación de Claude (se llena al revisar):
 
 REPASO — EJERCICIO Code Magnets: Shuffle1 (pág. 121-122) (r1) — programado: 2026-07-21 — [ ] pendiente
 Entregá en: ejercicios/repasos/ej03-shuffle1-r1/Shuffle1.java (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
+Comparación de Claude (se llena al revisar):
+...
+
+REPASO — EJERCICIO BE the Compiler (pág. 123) (r1) — programado: 2026-07-22 — [ ] pendiente
+Entregá en: ejercicios/repasos/lib01-r1.md (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
+Comparación de Claude (se llena al revisar):
+...
+
+REPASO — EJERCICIO Mixed Messages (pág. 127-129) (r1) — programado: 2026-07-23 — [ ] pendiente
+Entregá en: ejercicios/repasos/lib02-r1.md (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
 Comparación de Claude (se llena al revisar):
 ...
