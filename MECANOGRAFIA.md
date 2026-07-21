@@ -43,3 +43,27 @@ variable por variable.
 
 s17b — concatenar números como texto:
 x + "" + y con enteros no suma, concatena como texto pegado.
+
+s18 — bucle infinito por falta de incremento:
+Sin x = x + 1 dentro del while, la condición nunca se vuelve falsa.
+
+s19 — fin del Capítulo 1, arranca el Capítulo 2:
+Termina Breaking the Surface y empieza Objectville: clases y objetos.
+
+s20a — Chair Wars, procedural vs objetos:
+Laura pensó en procedimientos, Brad pensó en objetos: rotate y playSound por forma.
+
+s20b — cada objeto sabe hacer lo suyo:
+Cada clase sabe hacer sus propias cosas: eso es orientado a objetos.
+
+s21a — el desenlace de Chair Wars:
+Brad solo tocó la clase Amoeba; Laura tuvo que re-testear todo de nuevo.
+
+s21b — qué es un atributo:
+Un atributo es un dato propio de cada objeto, adelanto de instance variable.
+
+s22a — herencia, superclase y subclases:
+Shape es superclase, Square y Circle son subclases que heredan de ella.
+
+s22b — qué es hacer override:
+Override significa que la subclase redefine un método heredado.

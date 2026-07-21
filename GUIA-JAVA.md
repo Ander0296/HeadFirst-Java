@@ -6,9 +6,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 131 de 1629 (10%) — Capítulo 1, "Mixed Messages" completo y arranca "Pool Puzzle" (completo, sección cerrada)
-- Última sesión: Sesión #17
-- Ejercicios pendientes: 2 — BottleSong "encontrá la falla" (Sesión #14, [~] en curso/pausado, ver EJERCICIOS.md). "Pool Puzzle" (Sesión #17, [ ] pendiente, OPCIONAL). "Mixed Messages" (Sesión #17) completado 2026-07-19, 5/5 a la primera. "BE the Compiler" (Sesión #16) completado 2026-07-19. Code Magnets "Shuffle1" (Sesión #15) completado 2026-07-17. Repasos r1: "Sharpen your pencil" pág. 80-81 y "DooBee" agendados para 2026-07-20, "Shuffle1" agendado para 2026-07-21, "BE the Compiler" agendado para 2026-07-22, "Mixed Messages" agendado para 2026-07-23
+- Última página estudiada: página 155 de 1629 (11%) — Capítulo 2, Brad introduce herencia (Shape como superclase) y override (Amoeba redefine rotate()/playSound()), ver Sesión #22
+- Última sesión: Sesión #22
+- Ejercicios pendientes: 1 — "Pool Puzzle" (Sesión #17, [ ] pendiente, OPCIONAL). BottleSong "encontrá la falla" (Sesión #14) completado 2026-07-21. "Mixed Messages" (Sesión #17) completado 2026-07-19, 5/5 a la primera. "BE the Compiler" (Sesión #16) completado 2026-07-19, validado por el libro en Sesión #18. Code Magnets "Shuffle1" (Sesión #15) completado 2026-07-17, validado por el libro en Sesión #18. Repasos: "Sharpen your pencil" r1 completado 2026-07-21 (r2 agendado 2026-08-04), "DooBee" r1 agendado 2026-07-20 (vencido), "Shuffle1" r1 agendado 2026-07-21, "BE the Compiler" r1 agendado 2026-07-22, "Mixed Messages" r1 agendado 2026-07-23, "BottleSong" r1 agendado 2026-07-25
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 
@@ -60,6 +60,15 @@ Ejercicios: ver EJERCICIOS.md.
 | JavaCross                          | JavaCross | Crucigrama opcional (ícono Puzzle) con palabras del capítulo que se está viendo, para "el lado derecho del cerebro". |
 | Mixed Messages                     | Mensajes Mezclados | Puzzle: emparejar bloques de código candidatos con la salida que producirían si se insertaran en el programa dado. |
 | candidate block (of code)          | bloque candidato (de código) | Fragmento de código que podría ir en un espacio faltante de un programa; hay que emparejarlo con la salida correcta. |
+| string concatenation                | concatenación de Strings | Lo que hace el operador `+` cuando al menos uno de los dos lados es un String: PEGA los dos valores en un texto nuevo (no suma números). Ej: `"Dog: " + name` con `name="Fido"` da `"Dog: Fido"`. |
+| spec (specification)               | especificación | Documento que describe QUÉ tiene que hacer un programa, sin decir CÓMO programarlo. |
+| attribute (adelanto)               | atributo | Dato propio que tiene cada objeto (ej. el punto de rotación de una Amoeba); adelanto informal de "instance variable" (variable de instancia), que se ve formal más adelante. |
+| encapsulation (adelanto, sin nombrar aún) | encapsulamiento | Que el comportamiento y los datos de una "cosa" vivan juntos y aislados dentro de su propia clase, así un cambio ahí no obliga a tocar el resto del programa. Visto en acción en "Chair Wars", nombre formal más adelante. |
+| inheritance                        | herencia | Relación donde una clase (subclase) recibe automáticamente los métodos y atributos de otra clase más general (superclase), sin volver a escribirlos. |
+| superclass                          | superclase | Clase más general/abstracta que define comportamiento común para sus subclases (ej. Shape). |
+| subclass                            | subclase | Clase más específica que hereda de una superclase (ej. Square, Circle, Triangle, Amoeba heredan de Shape). |
+| override (method overriding)       | hacer override / sobrescribir | Una subclase redefine un método que heredó, cuando necesita cambiar o extender su comportamiento. La JVM decide en runtime qué versión correr según el tipo real del objeto. |
+| invoke (a method)                   | invocar (un método) | Llamar a un método SOBRE un objeto puntual (ej. invocar rotate() sobre el objeto triángulo); el resto del programa no necesita saber cómo lo hace ese objeto por dentro. |
 
 ============================================================
 (ACÁ VAN LAS SESIONES — Claude agrega la SESIÓN #01 en la primera
@@ -1172,6 +1181,374 @@ EJERCICIOS.md para la traza completa y el repaso agendado el
 2026-07-23).
 PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
 partir de la página 132).
+
+SESIÓN #18 — 2026-07-21 — Exercise Solutions: confirmación oficial de DooBee, Shuffle1 y BE the Compiler (Ubicación pág. 131-135 de 1629, 10%)
+
+IDEAS CLAVE
+
+- Sección "Exercise Solutions" (Soluciones de los ejercicios): el
+  libro da las respuestas OFICIALES de varios ejercicios ya resueltos
+  en sesiones anteriores. No trae concepto nuevo — es una tanda de
+  CONFIRMACIÓN.
+- "Sharpen your pencil" (DooBee) y "Code Magnets" (Shuffle1): las
+  soluciones oficiales coinciden exacto con lo que el usuario ya había
+  resuelto y Claude ya había dado por completado (salida `a-b c-d`
+  confirmada con captura de terminal del propio libro).
+- "BE the Compiler" — las dos soluciones mostradas (Exercise1a y
+  Exercise1c) VALIDAN al 100%, con la misma causa, las correcciones
+  que el usuario ya había dado en la Sesión #16: Exercise1a compila y
+  corre pero queda en bucle infinito porque a `x` nunca se le suma 1
+  dentro del `while` (el libro lo marca con "Add this line to prevent
+  it running forever..." sobre `x = x + 1;`); Exercise1c no compila
+  porque el `while` está suelto directamente en el cuerpo de la clase,
+  sin un método que lo contenga ("The while loop code must be inside a
+  method").
+- Página 133 no llegó en la tanda (salto de 132 a 134) — probablemente
+  ahí seguía la explicación de "A" y arrancaba "B"; no bloquea nada,
+  se recupera si aparece en una tanda futura.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+- Sin código nuevo: son las mismas clases DooBee, Shuffle1 y
+  Exercise1a/1c ya vistas en ejercicios/ y en EJERCICIOS.md.
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- Ninguno nuevo; es confirmación de ejercicios ya completados.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- Que el libro confirme dos correcciones tuyas de forma independiente
+  y exacta (mismo diagnóstico, misma causa) es una señal fuerte de que
+  el concepto de "todo bucle/if dentro de un método, todo método
+  dentro de una clase" ya está bien afianzado.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- ¿Por qué `x = x + 1;` tiene que ir DENTRO del `while` y no después de
+  su llave de cierre `}`? Respondida correctamente: si queda afuera,
+  el `while` no la "toma" en cada vuelta — corre una sola vez recién
+  cuando el bucle YA terminó. Tiene que estar adentro para que `x`
+  cambie en CADA repetición, hasta que la condición se vuelva `false`
+  y el bucle pueda parar.
+
+EJERCICIOS CREADOS: ninguno
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 136, retomando después de "Exercise Solutions").
+
+SESIÓN #19 — 2026-07-21 — Cierre del Capítulo 1 (JavaCross, Mixed Messages confirmado) y arranca el Capítulo 2: Objectville (Ubicación pág. 136-141 de 1629, 10%)
+
+IDEAS CLAVE
+
+- Sigue la sección "Exercise Solutions": confirma la salida de "Pool
+  Puzzle" en terminal y trae la solución oficial resuelta de
+  "JavaCross" (el crucigrama opcional del Capítulo 1) — pura repaso de
+  vocabulario ya visto (JAVA, BRANCH, STRING, DECLARE, COMMAND...),
+  sin concepto nuevo.
+- "Mixed Messages" (completado 5/5 en la Sesión #17): el libro repite
+  el programa `Test` con el hueco y muestra la clave oficial
+  conectando cada candidato con su salida — VALIDADO al 100%, mismo
+  patrón de confirmación que "BE the Compiler" en la Sesión #18.
+- IMPORTANTE — decisión tomada con el usuario: la página 136 trae
+  también la solución COMPLETA y oficial de "Pool Puzzle" (ejercicio
+  opcional, todavía no intentado). El usuario eligió NO verla todavía:
+  Claude no mostró el código de esa solución en el chat ni la registró
+  en EJERCICIOS.md. Sigue [ ] pendiente sin spoilear — el usuario la
+  va a intentar por su cuenta primero.
+- CIERRE DEL CAPÍTULO 1 ("Breaking the Surface") y ARRANCA EL CAPÍTULO
+  2: "A Trip to Objectville: Classes and Objects" (Un viaje a
+  Objectville: clases y objetos) — pág. 141, todavía solo la portada
+  del capítulo, sin contenido. Es el tema central de POO: clases y
+  objetos "de verdad", más allá de un solo `main()` suelto.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+- Sin código nuevo para mostrar (confirmación de ejercicios ya vistos;
+  el código de Pool Puzzle queda deliberadamente sin mostrar, ver
+  arriba).
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- "Pool Puzzle" sigue [ ] pendiente, OPCIONAL — su solución oficial ya
+  está disponible en pág. 136 pero el usuario decidió no verla todavía
+  y resolverlo por su cuenta primero.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- Arranca el capítulo más importante de todo el libro para este
+  proyecto (ver CLAUDE.md, "Nivel del usuario"): clases y objetos son
+  el corazón de POO y el 80% del valor de cara al primer empleo. A
+  partir de acá conviene bajar el ritmo y dedicarle más profundidad,
+  más ejemplos y más preguntas de comprensión que a temas de nicho.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- Ninguna; tanda de confirmación + decisión sobre cómo tratar la
+  solución de Pool Puzzle (ver IDEAS CLAVE).
+
+EJERCICIOS CREADOS: ninguno
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 142, ya adentro del Capítulo 2).
+
+SESIÓN #20 — 2026-07-21 — Chair Wars: procedural vs. orientado a objetos, primer contraste real (Ubicación pág. 141-145 de 1629, 10%)
+
+IDEAS CLAVE
+
+- Arranca el Capítulo 2 de lleno con "Objectville" como metáfora: el
+  Capítulo 1 fue código "procedural" (todo metido en `main()`); de acá
+  en adelante se construyen objetos propios de verdad.
+- Sección "Chair Wars" (or How Objects Can Change Your Life): historia
+  narrativa central del capítulo. Dos programadores (Laura, procedural;
+  Brad, OO) reciben la MISMA especificación (spec: el documento que
+  dice QUÉ tiene que hacer el programa, no CÓMO) y compiten para
+  resolverla primero.
+- Spec original: formas (cuadrado, círculo, triángulo) en una GUI que
+  rotan 360° y reproducen un sonido `.AIF` propio al hacer clic.
+- CONTRASTE CENTRAL del capítulo:
+  - Laura (procedural) piensa primero en PROCEDIMIENTOS: escribe UN
+    solo `rotate(shapeNum)` y UN solo `playSound(shapeNum)` genéricos,
+    que reciben un número identificando qué forma es.
+  - Brad (OO) piensa primero en las COSAS del problema: escribe UNA
+    CLASE por cada forma (`Square`, `Circle`, `Triangle`), cada una
+    con SU PROPIO `rotate()` y `playSound()` — cada objeto sabe hacer
+    sus propias cosas, sin necesitar un número que le diga qué es.
+  - Es el corazón de la diferencia procedural vs. OO: procedimientos
+    genéricos operando sobre datos, vs. objetos que encapsulan su
+    propio comportamiento.
+- Giro de la historia (queda cortado, sigue en la próxima tanda): hay
+  un cambio de especificación — se agrega una forma "amoeba" nueva,
+  que además usa un formato de sonido distinto (`.mp3` en vez de
+  `.AIF`). El libro prepara el terreno para mostrar por qué ese cambio
+  le complica mucho más la vida a Laura que a Brad.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+- Pseudocódigo de Laura (procedural, un procedimiento genérico por
+  número de forma):
+  ```
+  rotate(shapeNum) { // hace que la forma rote 360° }
+  playSound(shapeNum) { // busca y reproduce el sonido AIF de esa forma }
+  ```
+- Pseudocódigo de Brad (OO, una clase por forma, cada una con su
+  propio comportamiento):
+  ```
+  Square { rotate() {...} playSound() {...} }
+  Circle { rotate() {...} playSound() {...} }
+  Triangle { rotate() {...} playSound() {...} }
+  ```
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- Ninguno; es narrativa/conceptual, sin ejercicio puntual todavía.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- Esto que "Chair Wars" cuenta con humor es, en la vida real, la razón
+  #1 por la que las empresas usan POO: cuando cambian los requisitos
+  (algo constante en cualquier trabajo real), agregar una clase nueva
+  (como haría Brad) suele ser mucho más barato que tocar un
+  procedimiento genérico lleno de `if` (como tendría que hacer Laura).
+  Esto tiene nombre técnico que se va a ver más adelante en el libro:
+  se relaciona con el principio de "abierto para extensión, cerrado
+  para modificación" (Open/Closed Principle).
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- ¿Cuál es la diferencia clave entre cómo pensó Laura el problema y
+  cómo lo pensó Brad? Respuesta correcta y con un plus: identificó
+  bien que Brad separó cada forma con su propio comportamiento y Laura
+  mezcló todo en procedimientos genéricos, e INFIRIÓ correctamente
+  (sin que el libro lo mostrara todavía) que un `rotate(shapeNum)`
+  único necesita `if`/`else` internos para distinguir formas — y por
+  eso mismo se adelantó al giro de la historia: predijo que a Brad no
+  le van a afectar los cambios porque cada `Shape` ya es independiente,
+  mientras que Laura va a tener que tocar su procedimiento compartido.
+
+EJERCICIOS CREADOS: ninguno
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 146, retomando el final de "Chair Wars" — cómo el
+cambio de spec afecta a cada programador).
+
+SESIÓN #21 — 2026-07-21 — Chair Wars: el desenlace (encapsulamiento en acción) (Ubicación pág. 146-150 de 1629, 11%)
+
+IDEAS CLAVE
+
+- Cierre de "Chair Wars", la escena más importante del capítulo hasta
+  ahora. Llega el cambio de spec (se agrega la forma "Amoeba", que usa
+  sonido `.mp3` en vez de `.AIF` y rota alrededor de un punto en un
+  EXTREMO, no desde el centro como las otras formas).
+- Brad (OO) solo escribe UNA clase nueva `Amoeba`, sin tocar el código
+  ya probado de `Square`/`Circle`/`Triangle`. Cuando la spec vuelve a
+  cambiar (el punto de rotación de la ameba), solo modifica el
+  `rotate()` DENTRO de la clase `Amoeba` — el resto del programa queda
+  intacto.
+- Laura (procedural) tiene que ir agregando `if/else` y parámetros
+  nuevos (`xPt`, `yPt`) a su procedimiento COMPARTIDO `rotate()`. Cada
+  cambio de spec le rompe código que antes andaba bien, obligándola a
+  testear y recompilar todo de nuevo ("the whole nine yards" —
+  modismo: "el paquete completo/todo el asunto").
+- LECCIÓN CENTRAL (encapsulamiento en acción, sin nombrarlo todavía
+  formal): cuando el comportamiento y los datos de una "cosa" viven
+  juntos y aislados dentro de SU PROPIA clase, un cambio en esa clase
+  no obliga a tocar ni re-testear las demás. Esto es lo que hace a OO
+  más resistente a cambios de requisitos que el enfoque procedural.
+- Aparece por primera vez la palabra "attribute" (atributo): un dato
+  propio que va a tener CADA objeto (acá, el punto de rotación de la
+  ameba) — adelanto informal de lo que el libro va a llamar más
+  adelante "instance variable" (variable de instancia).
+- Frase clave del libro, para recordar siempre: "the spec always
+  changes" (la especificación siempre cambia) — el diseño de un
+  programa tiene que anticipar que los requisitos van a cambiar.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+- Procedimiento de Laura, cada vez más cargado de `if/else` y
+  parámetros con cada cambio de spec:
+  ```
+  rotate(shapeNum, xPt, yPt) {
+    // si la forma no es una ameba, calcula el centro y rota
+    // si no, usa xPt/yPt como punto de rotación y rota
+  }
+  ```
+- Clase de Brad, aislada y con su propio atributo:
+  ```
+  Amoeba {
+    rotate() { // usa su propio punto de rotación }
+    playSound() { // reproduce su propio .mp3 }
+  }
+  ```
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- Ninguno; sigue siendo narrativa/conceptual.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- Lo que "Chair Wars" muestra en broma es, en la vida real, la razón
+  de fondo por la que casi toda la industria eligió POO para sistemas
+  grandes: los requisitos cambian todo el tiempo, y un buen diseño de
+  clases hace que esos cambios queden CONTENIDOS en un lugar chico en
+  vez de esparcirse por todo el programa. El nombre técnico formal de
+  esto (encapsulamiento) se ve más adelante en el libro.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- ¿Por qué a Brad le alcanzó con tocar solo la clase Amoeba, mientras
+  que Laura tuvo que romper y re-testear código de las OTRAS formas?
+  Respuesta correcta y precisa: identificó que es encapsulamiento —
+  usó el término técnico correcto por su cuenta, antes de que el libro
+  lo nombre formalmente. Explicó bien que el comportamiento de la
+  ameba vive aislado dentro de su propia clase (no afecta a las
+  demás), mientras que Laura comparte un único procedimiento entre
+  todas las formas, así que cualquier cambio obliga a tocar y
+  re-testear ese bloque completo.
+
+EJERCICIOS CREADOS: ninguno
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 151).
+
+SESIÓN #22 — 2026-07-21 — Herencia y override: Brad resuelve el código duplicado (Ubicación pág. 151-155 de 1629, 11%)
+
+IDEAS CLAVE
+
+- Continúa "Chair Wars": Laura señala un problema real en el diseño de
+  Brad — código duplicado, el mismo `rotate()`/`playSound()` repetido
+  en las 4 clases (Square, Circle, Triangle, Amoeba).
+- Brad resuelve esto con **HERENCIA (inheritance)**, presentada acá
+  por primera vez en el libro, en 4 pasos:
+  1. Identificar qué tienen en común las 4 clases (`rotate()` y
+     `playSound()`).
+  2. Abstraer eso común en una clase NUEVA: `Shape`.
+  3. Conectar las 4 clases originales a `Shape` con una relación de
+     herencia (diagrama UML con flechas de triángulo vacío apuntando
+     hacia la superclase).
+  4. La clase `Amoeba` hace **OVERRIDE** de `rotate()`/`playSound()`
+     de `Shape`, porque necesita un comportamiento distinto al de las
+     demás.
+- Vocabulario nuevo, central de acá en adelante:
+  - **superclase (superclass)**: la clase más general/abstracta que
+    define comportamiento común (`Shape`).
+  - **subclase (subclass)**: clase más específica que HEREDA de una
+    superclase (`Square`, `Circle`, `Triangle`, `Amoeba` heredan de
+    `Shape`). Si la superclase tiene una funcionalidad, la subclase la
+    recibe automáticamente sin volver a escribirla.
+  - **override (sobrescribir)**: una subclase REDEFINE un método que
+    heredó, cuando necesita cambiar o extender su comportamiento para
+    su caso particular. La JVM decide en tiempo de ejecución (runtime)
+    qué versión del método correr, según el tipo real del objeto.
+- Cierre conceptual (la gran revelación de Brad): el resto del
+  programa solo INVOCA (llama) un método como `rotate()` SOBRE un
+  objeto — no necesita saber CÓMO lo hace ese objeto por dentro. Por
+  eso agregar un tipo de objeto nuevo es simplemente escribir una
+  clase nueva, sin tocar el resto del programa.
+- Gag recurrente del libro: Laura sigue usando mal los términos
+  ("procedimiento", "cosas") y Brad la corrige cada vez ("método",
+  "clases") — refuerzo de vocabulario a propósito.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+- Clase `Amoeba` completa, con sus atributos y override:
+  ```
+  Amoeba {
+    int xPoint
+    int yPoint
+    rotate() {
+      // código de rotación específico de la ameba,
+      // usando xPoint e yPoint
+    }
+    playSound() {
+      // código de sonido específico de la ameba
+    }
+  }
+  ```
+- Jerarquía de herencia final:
+  ```
+  Shape (superclase)
+    rotate()
+    playSound()
+        ^
+        | (herencia)
+  Square, Circle, Triangle heredan rotate()/playSound() sin cambios
+  Amoeba hereda pero hace OVERRIDE de ambos métodos
+  ```
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- Ninguno; sigue siendo narrativa/conceptual, todavía sin pseudocódigo
+  Java real (llega en la próxima tanda, previsiblemente).
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- Herencia + override son, junto con encapsulamiento (Sesión #21) y
+  polimorfismo (que se ve más adelante), los 4 PILARES de POO. Esta
+  tanda es de las más importantes de todo el libro para una entrevista
+  laboral junior: "explicá la diferencia entre superclase y subclase"
+  y "qué es hacer override de un método" son preguntas clásicas.
+- El diagrama UML con flecha de triángulo vacío (subclase → superclase)
+  es notación estándar real, no inventada por el libro — se va a ver
+  igual en cualquier diagrama de clases UML formal (puente directo con
+  el proyecto UML-Java).
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- ¿Qué diferencia hay entre heredar un método y hacer override de un
+  método? Respuesta con un error conceptual importante, corregido en
+  el chat: dijo que heredar es "copiar" el método en cada subclase.
+  Es lo CONTRARIO de la lección de la tanda — Brad resolvió el
+  problema de Laura justo porque hay UNA sola copia de `rotate()`,
+  viviendo únicamente en la superclase `Shape`; las subclases no
+  tienen copia propia, solo ACCEDEN a ese método vía la jerarquía
+  (la JVM lo busca hacia arriba). Recién con `override` aparece una
+  copia nueva, y SOLO para esa subclase puntual. La parte de override
+  (que la ameba cambia su punto de rotación) la explicó bien.
+  Repregunta de verificación: explicó correctamente que Square no
+  tiene copia propia de rotate(), solo "accede"/"tiene permiso" para
+  usar el que vive en Shape, y que sin override el comportamiento es
+  idéntico al de la superclase — concepto ya consolidado.
+
+EJERCICIOS CREADOS: ninguno
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 156).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

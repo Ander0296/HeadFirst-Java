@@ -48,21 +48,22 @@ public class BottleSong {
 
         while (bottlesNum > 0) {
 
+            System.out.println(bottlesNum + " " + word);
+            System.out.println(bottlesNum + " " + word);
+            System.out.println("Y si una botella verde se cayera sin querer,");
+
             bottlesNum = bottlesNum - 1;
 
             if (bottlesNum == 1) {
                 word = "botella verde, colgada de la pared"; // singular, o sea UNA sola botella.
             }
 
-            System.out.println(bottlesNum + " " + word);
-            System.out.println(bottlesNum + " " + word);
-            System.out.println("Y si una botella verde se cayera sin querer,");
-
             if (bottlesNum > 0) {
                 System.out.println("Quedarán " + bottlesNum + " " + word);
             } else {
                 System.out.println("No quedará ninguna botella verde, colgada de la pared");
             }
+
         } // end while loop
     } // end main method
 } // end class

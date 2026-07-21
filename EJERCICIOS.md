@@ -85,7 +85,40 @@ de intuición para no haber visto la sintaxis todavía — en varios casos
 (línea 3 y línea 4) fue más preciso que el propio ejemplo del libro.
 Completado.
 
-============================================================
+REPASO r1 (2026-07-21) — entrega en
+ejercicios/repasos/sharpen-your-pencil-r1/sharpen-your-pencil-r1.md,
+resuelto desde cero. Comparación línea por línea contra el original:
+
+MEJORÓ (2 de los 3 puntos débiles del intento original quedaron
+resueltos):
+- Línea `if (x < 15) myDog.bark(8);` — el original decía "no sé qué es
+  bark la verdad" (no reconocía que era un método). Esta vez: "ejecuta
+  myDog.bark y tiene un parámetro que es 8" — entendió que `bark()` es
+  una ACCIÓN que se ejecuta sobre el objeto `myDog`, con un argumento.
+  Punto débil cerrado.
+- Bloque `try/catch` — el original solo anotó la línea de
+  `readTheFile`, sin explicar el mecanismo de la excepción. Esta vez
+  anotó las 4 líneas por separado, incluyendo el catch: "si no existe
+  o tenemos un error, imprime el mensaje de abajo" — mecánica completa
+  entendida. Punto débil cerrado.
+- Bonus: en `x = size - 5;` esta vez calculó el valor final (22), algo
+  que el original no hacía.
+
+ERROR QUE SE REPITIÓ (parcialmente):
+- Línea `System.out.print("Dog: " + name);` — el original decía "no
+  recuerdo cómo se llama ese concepto" (el operador `+` uniendo
+  strings). Esta vez el resultado que dio ("imprime en consola Dog:
+  'Fido'") es CORRECTO, pero otra vez sin nombrar ni explicar el
+  mecanismo: que `+` entre un String y una variable String hace
+  CONCATENACIÓN (pegar un string con otro, no una suma numérica). Es
+  un progreso parcial (ahora intuye bien el resultado) pero el
+  concepto de fondo todalabía no está verbalizado — se retoma en el
+  chat de esta sesión.
+
+RESULTADO: repaso salió BIEN (11/12 líneas sólidas, mejora clara en 2
+de los 3 puntos débiles originales; el punto de concatenación quedó
+parcial, no repetido dos veces desde cero como para requerir
+re-estudio formal). Se agenda repaso r2 (~2 semanas después de r1).
 
 LIBRO — Sharpen your pencil: "DooBee" — completar el código faltante de un while + if para que coincida con la salida dada (Ubicación pág. 109, Sesión #13) — [x] completado (2026-07-16)
 
@@ -161,7 +194,7 @@ resolver.
 
 ============================================================
 
-LIBRO — BottleSong: encontrá y arreglá la falla en el código dado (Ubicación pág. 111, Sesión #14) — [~] en curso, pausado (2026-07-17)
+LIBRO — BottleSong: encontrá y arreglá la falla en el código dado (Ubicación pág. 111, Sesión #14) — [x] completado (2026-07-21)
 
 Enunciado (tal cual lo plantea el libro): se da un programa completo
 (clase BottleSong, la canción "10 green bottles") que compila y corre
@@ -205,15 +238,28 @@ el 2026-07-17 para seguir con tandas nuevas; retomar más adelante):
    Queda como nota aparte para cuando se retome el ejercicio, no es
    requisito para completarlo.
 
-Pista pendiente de aplicar (todavía no la probó): el chequeo
-`if (bottlesNum == 1) { word = ...singular... }` tiene que volver a
-estar DESPUÉS de `bottlesNum = bottlesNum - 1` (no antes, y no
-moviendo el bloque entero de `Quedarán/No quedará`) — son 3 líneas
-nada más las que hay que reubicar, dejando todo el resto del `while`
-en su orden original.
+5. (2026-07-21) Retomó el ejercicio y aplicó un enfoque distinto al de
+   la pista: en vez de mover el chequeo `if (bottlesNum == 1)`, movió
+   las 3 líneas de los dos `System.out.println(bottlesNum + " " + word)`
+   + `System.out.println("Y si...")` para que queden ANTES de
+   `bottlesNum = bottlesNum - 1`, dejando el resto del bloque
+   (decremento, chequeo singular, `Quedarán`/`No quedará`) en su orden
+   original. Es una solución válida y distinta a la sugerida — mismo
+   resultado por otro camino: ahora los dos primeros `println` de cada
+   verso usan el valor de `bottlesNum` ANTES de restar (el conteo
+   "actual"), y la línea `Quedarán`/`No quedará` sigue usando el valor
+   YA restado, con `word` ya actualizado a singular cuando corresponde.
+   Compiló sí. Salida real pegada por el usuario confirmada línea por
+   línea contra la traza manual: coincide 100% con la letra de la
+   canción, de "10 botellas..." hasta "No quedará ninguna botella
+   verde, colgada de la pared." — EJERCICIO COMPLETADO.
 
-PRÓXIMO PASO al retomar: pedirle que mueva SOLO esas 3 líneas del
-chequeo `if (bottlesNum == 1)`, compile y corra de nuevo.
+Nota aparte (no bloquea, ver punto 4): "Quedarán" queda fijo en plural
+incluso en el verso de la última botella ("Quedarán 1 botella verde"),
+detalle que el propio usuario detectó y que también existe en el
+original en inglés del libro ("There'll be" no conjuga por número) —
+queda solo como observación, no es parte de la falla que había que
+arreglar.
 
 ============================================================
 
@@ -373,8 +419,19 @@ Corrección de Claude (se llena al revisar):
 
 REPASOS
 
-REPASO — EJERCICIO Sharpen your pencil (pág. 80-81) (r1) — programado: 2026-07-20 — [ ] pendiente
-Entregá en: ejercicios/repasos/sharpen-your-pencil-r1/ (desde cero, sin mirar el original)
+REPASO — EJERCICIO BottleSong (pág. 111) (r1) — programado: 2026-07-25 — [ ] pendiente
+Entregá en: ejercicios/repasos/ej02-bottlesong-r1/BottleSong.java (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
+Comparación de Claude (se llena al revisar):
+...
+
+REPASO — EJERCICIO Sharpen your pencil (pág. 80-81) (r1) — programado: 2026-07-20 — [x] completado (2026-07-21)
+Entregá en: ejercicios/repasos/sharpen-your-pencil-r1/sharpen-your-pencil-r1.md (desde cero, sin mirar el original)
+Comparación de Claude: salió bien — ver detalle en la sección del
+ejercicio original más arriba. Punto pendiente: concatenación de
+Strings con `+` (resultado correcto, mecanismo aún no verbalizado).
+
+REPASO — EJERCICIO Sharpen your pencil (pág. 80-81) (r2) — programado: 2026-08-04 — [ ] pendiente
+Entregá en: ejercicios/repasos/sharpen-your-pencil-r2.md (desde cero, sin mirar el original ni el r1; archivo de arranque nuevo, solo comentarios, sin código)
 Comparación de Claude (se llena al revisar):
 ...
 
