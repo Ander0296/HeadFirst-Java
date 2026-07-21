@@ -56,28 +56,21 @@ FRAGMENTOS DISPONIBLES EN LA PILETA (cada uno se puede usar UNA sola
 vez; no hace falta usarlos todos):
 
   Condiciones:
-    x > 0
-    x < 1
     x > 1
     x > 3
-    x < 4
 
   Asignaciones:
     x = x + 1;
     x = x + 2;
     x = x - 2;
-    x = x - 1;
 
   Impresiones (System.out.print, todas SIN salto de línea):
-    System.out.print(" ");
-    System.out.print("a");
     System.out.print("n");
     System.out.print("an");
     System.out.print("noys ");
     System.out.print("oise ");
     System.out.print(" oyster ");
     System.out.print("annoys");
-    System.out.print("noise");
 
 Si te trabás: revisá la Sesión #12 y #13 de GUIA-JAVA.md (while, if,
 operadores de comparación) y pensá en construir la salida letra por
@@ -96,33 +89,33 @@ completado, agendá sus repasos.
 */
 
 class PoolPuzzleOne {
-  public static void main(String [] args) {
-    int x = 0;
+    public static void main(String[] args) {
+        int x = 0;
 
-    while ( x < 4 ) {
+        while (x < 4) {
 
-            x = x-1;
-      if ( x < 1 ) {
+            x = x - 1;
+            if (x < 1) {
                 System.out.print("a");
-      }
-      __________
+            }
 
-      if ( __________ ) {
-        __________
+            System.out.print(" ");
 
-        __________
-      }
-      if ( x == 1 ) {
+            if (x > 0) {
+                System.out.print("noise");
+                // __________
+            }
+            if (x == 1) {
 
-        __________
-      }
-      if ( __________ ) {
+                // __________
+            }
+            if (__________) {
 
-        __________
-      }
-      System.out.println();
+                // __________
+            }
+            System.out.println();
 
-      __________
+            // __________
+        }
     }
-  }
 }
