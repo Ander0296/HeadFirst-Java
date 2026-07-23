@@ -1704,10 +1704,117 @@ DUDAS QUE SURGIERON (y su respuesta corta)
   se le recuerde esto al empezar).
 
 EJERCICIOS CREADOS: #Sharpen your pencil: Television (lib03)
-PRÓXIMO PASO: retomar la explicación de sustantivo (dato/instance
-variable) vs. verbo (acción/method) con un enfoque distinto antes de
-seguir con "Television"; después seguir con la siguiente tanda de
-páginas del libro (a partir de la página 164).
+PRÓXIMO PASO: "Television" se retomó y se completó el 2026-07-23 (ver
+EJERCICIOS.md, 6 intentos hasta cerrar instance variables/methods
+coherentes). Seguir con la siguiente tanda de páginas del libro (a
+partir de la página 164).
+
+SESIÓN #25 — 2026-07-23 — Creando objetos: new, el operador punto y la clase TestDrive (Ubicación pág. 164-169 de 1629, 11%)
+
+IDEAS CLAVE
+
+- Diferencia CLASE vs. OBJETO: la clase es UN molde/plano (blueprint),
+  pero de esa misma clase se pueden crear MUCHOS objetos distintos,
+  cada uno con sus propios valores de instance variables. Ejemplo del
+  libro: la clase Dog define size/breed/name/bark(), pero un perro
+  normal, un caniche y un perro robot son tres objetos DISTINTOS
+  hechos con esa misma clase.
+- Analogía del plano de construcción: la clase es el plano (blueprint)
+  que le dice a la JVM CÓMO construir un objeto de ese tipo. La clase
+  en sí NO es un objeto usable — es la instrucción para crear objetos.
+  Ejemplo del libro: la clase Button podría usarse para fabricar
+  docenas de botones distintos, cada uno con su propio color, tamaño,
+  forma y etiqueta.
+- Analogía de la lista de contactos: cada contacto de tu agenda es un
+  objeto, todos definidos por la misma clase Contact (mismos campos =
+  instance variables, mismos methods = getName()/setName()/
+  changeName()), pero cada contacto SABE datos únicos suyos (su
+  estado).
+- Para crear y probar un objeto hacen falta DOS clases: la clase REAL
+  (ej. Dog) y una clase TESTER (probadora) que tiene el main() y
+  prueba la clase real. Convención de nombres: `<NombreClase>TestDrive`
+  (ej. DogTestDrive, BungeeTestDrive). Solo la clase TestDrive tiene
+  main(); su único trabajo es crear objetos de la clase nueva y
+  probar sus methods y variables.
+- Operador `new`: crea un objeto nuevo en memoria siguiendo el plano
+  de una clase. Patrón: `Tipo variable = new Tipo();` — el nombre de
+  la clase se repite dos veces (a la izquierda define el TIPO de la
+  variable, a la derecha de `new` dice qué clase instanciar). Ejemplo:
+  `Dog d = new Dog();`.
+- Operador punto `.` ("dot operator"): da acceso al ESTADO y
+  COMPORTAMIENTO de un objeto ESPECÍFICO — instance variables
+  (`d.size = 40;`) y methods (`d.bark();`). El punto conecta un objeto
+  particular con el dato o la acción que le pedís a ÉL, no a
+  cualquier objeto de esa clase.
+- NOTA IMPORTANTE DEL LIBRO (pág. 169): estos primeros ejemplos
+  (`d.size = 40;` accediendo directo a una instance variable) NO usan
+  encapsulamiento a propósito — el libro lo aclara explícitamente y
+  promete resolverlo en el Capítulo 4 ("How Objects Behave"). No
+  contradice lo aprendido en Chair Wars (Capítulo 2, Sesiones #20-22):
+  es una simplificación pedagógica temporal para enfocarse solo en
+  `new` y el operador punto, sin la complejidad de private/get/set
+  todavía.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+```java
+// PASO 1 — la clase real
+class Dog {
+  int size;              // instance variable: tamaño del perro
+  String breed;          // instance variable: raza del perro
+  String name;           // instance variable: nombre del perro
+
+  void bark() {                          // method: la acción de ladrar
+    System.out.println("Ruff! Ruff!");   // imprime el ladrido
+  }
+}
+
+// PASO 2 y 3 — la clase tester (TestDrive)
+class DogTestDrive {
+  public static void main(String[] args) {
+    Dog d = new Dog();   // crea un objeto Dog nuevo, guardado en d
+    d.size = 40;          // operador punto: ESCRIBE la instance variable size de d
+    d.bark();              // operador punto: LLAMA al method bark() de d
+  }
+}
+```
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- Ninguno — tanda puramente conceptual (sin "Sharpen your pencil" ni
+  similares en estas páginas). Se creó el EJERCICIO #05 del profe
+  (Robot + RobotTestDrive) para practicar `new` y el operador punto
+  con una clase propia, sin copiar el ejemplo Dog.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- "Polly Morfism" (pág. 166, nombre de contacto de ejemplo) es un
+  juego de palabras del libro: suena a "polymorphism" (polimorfismo).
+  Es un chiste visual recurrente de Head First (nombres de persona que
+  imitan términos técnicos) — no tiene relevancia para el contenido de
+  la página, solo humor.
+- Las capturas de esta tanda saltan de la página 167 a la 169 (no hay
+  pantallazo de la 168) — avisado al usuario; el contenido de la 169
+  retoma el mismo tema (operador punto) de forma coherente, no parece
+  faltar nada bloqueante para la comprensión.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- Ronda de comprensión (`Cat c = new Cat();`, `c.name = "Michi";`,
+  `c.meow();`): P1 (qué hace `new Cat()` y dónde queda guardado)
+  respondida CORRECTA y completa, con buen vocabulario ("coger el
+  plano y crear el objeto"). P2 tuvo un error de concepto: dijo que
+  `c.meow()` es "geteando" (un getter) porque no es un set — pero
+  `meow()` no lee ni escribe ningún dato, es un method de ACCIÓN puro
+  (verbo, igual que `bark()` de Dog o `saludar()`/`cargar()` del
+  ejercicio Robot). Un getter real sería algo como `getName()`, que
+  SÍ devuelve un dato (`c.name`). Se aclaró en el chat, conectándolo
+  con la distinción sustantivo/verbo ya trabajada en el ejercicio
+  Television.
+
+EJERCICIOS CREADOS: #05 Robot (crear un objeto propio con new + operador punto)
+PRÓXIMO PASO: seguir con "Making and testing Movie objects" (arranca
+alrededor de la pág. 170), título con el que corta esta tanda.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

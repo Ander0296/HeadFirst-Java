@@ -56,3 +56,32 @@
 // recuerdo) y decime qué mejoré, qué error se repitió y por qué.
 // Actualizá EJERCICIOS.md: si salió bien, agendá el siguiente repaso
 // del ciclo; si salió mal, acortá el intervalo a ~3 días.
+//
+
+class Shuffle1 {
+    public static void main(String[] args) {
+
+        int x = 3;
+
+        while (x > 0) {
+
+            if (x > 2) {
+                System.out.print("a");
+            } // end if x>2
+
+            if (x == 2) {
+                System.out.print("b c");
+            }
+
+            System.out.print("-");
+
+            x = x - 1;
+
+            if (x == 1) {
+                System.out.print("d");
+                x = x - 1;
+            }
+
+        } // end while x>0
+    } // end main
+} // end class

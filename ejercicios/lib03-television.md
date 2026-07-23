@@ -41,26 +41,26 @@ Marca
 Dimensiones
 Resolución
 Entradas (HDMI, DVI)
+Canal
+Volumen
+Encendido
 -
 
 Methods (lo que la tele SABE HACER):
 
 Methods ( Cosas que hace)
-Prenderse
-Apagarse
-cambiar canal
-subir volumen
-bajar volumen
-getSubirVolumen()
-getSubirVolumen()
-getBajarVolumen()
-setBajarVolumen()
-getPrenderse()
-setPrenderse()
-getApagarse()
-setApagarse()
-getCambiarCanal()
-setCambiarCanal()
+getMarca
+getDimensiones
+getResolución
+getEntradas()
+encender()
+apagar()
+getCanal()
+setCanal()
+getVolumen()
+setVolumen()
+
+
 -
 
 ---

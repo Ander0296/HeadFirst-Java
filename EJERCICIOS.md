@@ -417,7 +417,27 @@ Corrección de Claude (se llena al revisar):
 
 ============================================================
 
-LIBRO — Sharpen your pencil: "Television" — completar qué instance variables y qué methods necesitaría una clase Television (Ubicación pág. 162-163, Sesión #24) — [~] en curso
+EJERCICIO #05 — Robot: tu primer objeto propio con new y el operador punto (Sesión #25) — [ ] pendiente
+Tipo: programa desde cero
+Si te trabás: revisá la Sesión #25 de GUIA-JAVA.md (ejemplo Dog/
+DogTestDrive del libro: new, operador punto, clase TestDrive).
+Enunciado:
+Escribí una clase `Robot` con dos instance variables (`nombre` String,
+`bateria` int) y dos methods (`saludar()` y `cargar()`, que imprimen
+por consola). Después escribí `RobotTestDrive`, la clase con el main()
+que crea un objeto Robot con `new`, le pone nombre y batería con el
+operador punto, y llama a sus dos methods. Mismo patrón que
+`Dog d = new Dog(); d.size = 40; d.bark();` de la Sesión #25, pero con
+tu propia clase, para practicar `new` y el operador punto de cero (sin
+copiar Dog).
+Entregá en: ejercicios/ej05-robot/ (dos archivos de arranque ya
+creados por Claude, Robot.java y RobotTestDrive.java, solo comentarios)
+Corrección de Claude (se llena al revisar):
+...
+
+============================================================
+
+LIBRO — Sharpen your pencil: "Television" — completar qué instance variables y qué methods necesitaría una clase Television (Ubicación pág. 162-163, Sesión #24) — [x] completado (2026-07-23)
 
 Enunciado (tal cual lo plantea el libro): se muestra el dibujo de una
 tele y una tabla vacía de una clase "Television", dividida en dos
@@ -463,9 +483,83 @@ sustantivo es la instance variable que falta agregar. También hay una
 línea duplicada (getSubirVolumen() aparece dos veces), detalle menor
 de tipeo. Pendiente de revisión del usuario.
 
+Intento 3 (2026-07-23), después de retomar la explicación sustantivo
+vs. verbo con la analogía del auto (acelerar=verbo/method,
+velocidad=sustantivo/instance variable): reemplazó los methods por
+getMarca()/setMarca(), getDimensiones()/setDimensiones(),
+getResolución()/setResolucion() — CORRECTO, ahora el get/set está bien
+aplicado sobre sustantivos (datos), no sobre verbos. El concepto de la
+sesión pasada quedó claro.
+
+Lo que falta (pista, no solución): al pasar a este formato,
+desaparecieron los methods de ACCIÓN que tenía el intento 1
+(prenderse, apagarse, cambiar canal, subir/bajar volumen) — una tele
+real no solo describe sus características fijas (marca, dimensiones),
+también HACE cosas cuando la usás. Esos methods de acción no
+compiten con get/set: son otro tipo de method (verbo puro, sin
+get/set) y siguen haciendo falta. Además "Entradas (HDMI, DVI)" quedó
+sin su par get/set, a diferencia de las otras tres instance variables.
+Y sigue pendiente la pieza de la sesión anterior: si esos methods de
+acción vuelven, cada uno modifica ALGO dentro de la tele — ¿qué
+instance variable nueva falta para guardar ese "algo" (ej. el volumen
+actual, el canal actual, si está prendida)? Pendiente de revisión del
+usuario.
+
+Intento 4 (2026-07-23): agregó methods de acción de vuelta —
+cambiarVolumen(), cambiarCanal(), encendido() — más getCanal() y
+getVolumen(). Buena señal: reconoció que canal y volumen son datos
+(sustantivos) que la tele necesita poder leer. Pero la sección
+"instance variables" (lo que la tele SABE, arriba) sigue sin cambios —
+Marca, Dimensiones, Resolución, Entradas — sin `canal` ni `volumen`
+declarados ahí. Pista dada: un method get no tiene de dónde leer un
+dato que nunca se declaró como algo que la tele "sabe". Falta también
+la contraparte de `encendido()` (¿la tele solo puede prenderse y
+después queda prendida para siempre?) y su instance variable de
+estado. Sobre Entradas (HDMI, DVI): el usuario preguntó si necesita
+get/set, con la duda de que confunde el cable físico con el dato — se
+aclaró en el chat que el dato es "qué entradas soporta esta tele"
+(mismo tipo de sustantivo que Marca), y se introdujo la noción de que
+no todo dato necesita AMBOS get y set (un dato fijo como Entradas
+puede llevar solo get). Pendiente de revisión del usuario.
+
+Intento 5 (2026-07-23): sacó setMarca()/setDimensiones()/setResolucion()
+y dejó solo los get — internalizó la idea de "dato fijo, solo get".
+Agregó apagar() como contraparte de encender() — resuelto. Agregó
+getCanal()/setCanal(), getVolumen(), getEntradas() — reconoce canal,
+volumen y entradas como datos. Sigue pendiente lo mismo de los
+intentos 3 y 4: la sección "instance variables" de arriba (lo que la
+tele SABE) sigue sin cambios — Marca, Dimensiones, Resolución,
+Entradas — sin declarar `canal`, `volumen` ni un dato de "si está
+prendida" ahí arriba, aunque los methods ya los usan. Notas menores
+(no bloquean): cambiarCanal() y setCanal() hacen básicamente lo mismo
+con nombres distintos (duplicado); volumen tiene get + cambiarVolumen()
+pero canal tiene get/set completo — inconsistencia de estilo entre los
+dos, no un error. Pendiente de revisión del usuario.
+
+Intento 6 (2026-07-23) — FINAL: agregó Canal, Volumen y Encendido a la
+sección de instance variables (ahora 7 en total: Marca, Dimensiones,
+Resolución, Entradas, Canal, Volumen, Encendido). Además ordenó los
+methods para que queden consistentes: solo get para los datos fijos
+(Marca, Dimensiones, Resolución, Entradas) y get/set completo para los
+datos que cambian en uso (Canal, Volumen) — resolvió también la
+inconsistencia y el duplicado cambiarCanal()/setCanal() señalados en
+el intento 5, dejando solo setCanal(). RESULTADO FINAL: instance
+variables y methods quedan coherentes entre sí (todo method get/set
+tiene su dato declarado arriba). Único detalle opcional (no bloquea,
+diseño real futuro): a `Encendido` le faltaría un method para
+CONSULTAR el estado (ej. `estaEncendida()`), ya que `encender()`/
+`apagar()` solo lo modifican pero nada lo lee — queda como nota, no
+como pendiente. EJERCICIO COMPLETADO. Primer repaso agendado para
+2026-07-27.
+
 ============================================================
 
 REPASOS
+
+REPASO — EJERCICIO Sharpen your pencil: Television (pág. 162-163) (r1) — programado: 2026-07-27 — [ ] pendiente
+Entregá en: ejercicios/repasos/lib03-television-r1.md (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
+Comparación de Claude (se llena al revisar):
+...
 
 REPASO — EJERCICIO BottleSong (pág. 111) (r1) — programado: 2026-07-25 — [ ] pendiente
 Entregá en: ejercicios/repasos/ej02-bottlesong-r1/BottleSong.java (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
@@ -500,8 +594,30 @@ Entregá en: ejercicios/repasos/ej01-doobee-r2/DooBee.java (desde cero, sin mira
 Comparación de Claude (se llena al revisar):
 ...
 
-REPASO — EJERCICIO Code Magnets: Shuffle1 (pág. 121-122) (r1) — programado: 2026-07-21 — [ ] pendiente
+REPASO — EJERCICIO Code Magnets: Shuffle1 (pág. 121-122) (r1) — programado: 2026-07-21 — [x] completado (2026-07-23)
 Entregá en: ejercicios/repasos/ej03-shuffle1-r1/Shuffle1.java (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
+Comparación de Claude: compiló a la primera y salida exacta "a-b c-d",
+igual que en el intento original — dos de dos aciertos a la primera,
+sin errores de compilación ni de lógica en ninguna de las dos rondas.
+
+Traza verificada vuelta por vuelta: x=3→(a, "-", x=2)→(b c, "-", x=1→d,
+x=0)→sale del while (x=0, no cumple x>0). Coincide letra por letra con
+"a-b c-d".
+
+Detalle interesante: NO repitió el orden exacto del original. La
+primera vez había puesto `print("-")` y `x = x - 1` justo después del
+`if (x > 2)`, antes de chequear `x == 2`. Esta vez los movió a DESPUÉS
+del `if (x == 2)`. Es un orden distinto pero igual de válido — ambos
+respetan lo esencial (el guion y la resta ocurren una vez por vuelta,
+en un punto donde no rompen ningún `if`). Que haya llegado a una
+solución diferente y también correcta, en vez de memorizar el orden
+anterior, es buena señal: entendió el MECANISMO (qué tiene que pasar
+en cada vuelta), no una secuencia fija de memoria.
+
+RESULTADO: repaso salió BIEN. Se agenda r2.
+
+REPASO — EJERCICIO Code Magnets: Shuffle1 (pág. 121-122) (r2) — programado: 2026-08-06 — [ ] pendiente
+Entregá en: ejercicios/repasos/ej03-shuffle1-r2/Shuffle1.java (desde cero, sin mirar el original ni el r1; archivo de arranque nuevo, solo comentarios, sin código)
 Comparación de Claude (se llena al revisar):
 ...
 

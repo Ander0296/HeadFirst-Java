@@ -79,3 +79,9 @@ Instance variable es lo que el objeto sabe, método es lo que sabe hacer.
 
 s24b — instancia es sinónimo de objeto:
 Pensá en instancia como otra forma de decir objeto en POO.
+
+s25a — new y el operador punto:
+Con new creo un objeto y con el punto accedo a sus datos y métodos.
+
+s25b — escribir un dato vs. ejecutar un método:
+d.size = 40 escribe el dato; d.bark() ejecuta el método.
