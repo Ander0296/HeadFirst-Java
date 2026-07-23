@@ -67,3 +67,15 @@ Shape es superclase, Square y Circle son subclases que heredan de ella.
 
 s22b — qué es hacer override:
 Override significa que la subclase redefine un método heredado.
+
+s23a — diseñar una clase, checklist básico:
+Al diseñar una clase pensá qué sabe el objeto y qué sabe hacer.
+
+s23b — interfaz vs implementación:
+El objeto sabe cómo hacerlo, el resto del programa solo dice qué hacer.
+
+s24a — instance variable vs método:
+Instance variable es lo que el objeto sabe, método es lo que sabe hacer.
+
+s24b — instancia es sinónimo de objeto:
+Pensá en instancia como otra forma de decir objeto en POO.

@@ -47,3 +47,17 @@
 // recuerdo) y decime qué mejoré, qué error se repitió y por qué.
 // Actualizá EJERCICIOS.md: si salió bien, agendá el siguiente repaso
 // del ciclo; si salió mal, acortá el intervalo a ~3 días.
+
+public class DooBee {
+    public static void main(String[] args) {
+        int x = 1;
+        while (x < 3) {
+            System.out.print("Doo");
+            System.out.print("Bee");
+            x = x + 1;
+        }
+        if (x == 3) {
+            System.out.print("Do");
+        }
+    }
+}

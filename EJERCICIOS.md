@@ -417,6 +417,54 @@ Corrección de Claude (se llena al revisar):
 
 ============================================================
 
+LIBRO — Sharpen your pencil: "Television" — completar qué instance variables y qué methods necesitaría una clase Television (Ubicación pág. 162-163, Sesión #24) — [~] en curso
+
+Enunciado (tal cual lo plantea el libro): se muestra el dibujo de una
+tele y una tabla vacía de una clase "Television", dividida en dos
+secciones: arriba "instance variables" (lo que el objeto SABE) y abajo
+"methods" (lo que el objeto SABE HACER). Completá la tabla pensando
+qué necesitaría saber y hacer un objeto Televisión. El libro aclara
+"Yours to solve" (es tuyo para resolver): no hay una única respuesta
+correcta, es un ejercicio abierto de diseño.
+
+Entregá en: ejercicios/lib03-television.md (archivo de arranque ya
+creado por Claude, con el enunciado y una sección "MI RESPUESTA").
+Si te trabás: revisá la Sesión #23 y #24 de GUIA-JAVA.md (instance
+variables vs. methods, "sabe" vs. "sabe hacer").
+Resultado y corrección de Claude (se llena al revisar):
+
+Intento 1 (2026-07-22): instance variables Marca, Dimensiones,
+Resolución, Entradas (HDMI, DVI) — CORRECTAS, son datos que describen
+el estado de la tele y cada tele real puede tener un valor distinto.
+Methods Prenderse, Apagarse, cambiar canal, subir volumen, bajar
+volumen — CORRECTOS, son acciones reales que una tele puede hacer.
+
+Falta una pieza (pista, no solución): en el ejemplo de Alarm de la
+página 160, la instance variable `alarmTime` tenía DOS métodos que la
+leían/escribían (`getAlarmTime()`/`setAlarmTime()`). Mirá tus propios
+methods: cambiar canal, subir volumen, bajar volumen, prenderse y
+apagarse TODOS cambian algo dentro de la tele. Pregunta para pensar:
+¿en qué instance variable queda GUARDADO ese "algo" que cada uno de
+esos métodos cambia? (Ej.: si subís el volumen, ¿dónde vive el número
+que subió?) Faltan instance variables para el estado que esos métodos
+modifican. Pendiente de revisión del usuario.
+
+Intento 2 (2026-07-22): agregó getSubirVolumen(), setBajarVolumen(),
+getPrenderse()/setPrenderse(), getApagarse()/setApagarse(),
+getCambiarCanal()/setCambiarCanal() — pero como get/set de los MÉTODOS
+DE ACCIÓN (verbos), no de una instance variable nueva. Instance
+variables sigue sin cambios (Marca, Dimensiones, Resolución,
+Entradas). Malentendido a corregir: get/set aplica sobre un DATO
+(sustantivo, ej. `alarmTime`), no sobre una ACCIÓN (verbo, ej. "subir
+volumen"). "getSubirVolumen()" no tiene sentido porque "subir volumen"
+no es un dato que se pueda leer. Pista dada en el chat: pensar qué
+SUSTANTIVO (pieza de dato) se esconde detrás de cada acción — ese
+sustantivo es la instance variable que falta agregar. También hay una
+línea duplicada (getSubirVolumen() aparece dos veces), detalle menor
+de tipeo. Pendiente de revisión del usuario.
+
+============================================================
+
 REPASOS
 
 REPASO — EJERCICIO BottleSong (pág. 111) (r1) — programado: 2026-07-25 — [ ] pendiente
@@ -435,8 +483,20 @@ Entregá en: ejercicios/repasos/sharpen-your-pencil-r2.md (desde cero, sin mirar
 Comparación de Claude (se llena al revisar):
 ...
 
-REPASO — EJERCICIO DooBee (pág. 109) (r1) — programado: 2026-07-20 — [ ] pendiente
-Entregá en: ejercicios/repasos/ej01-doobee-r1/DooBee.java (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
+REPASO — EJERCICIO DooBee (pág. 109) (r1) — programado: 2026-07-20 — [x] completado (2026-07-22)
+Entregá en: ejercicios/repasos/ej01-doobee-r1/DooBee.java (desde cero, sin mirar el original)
+Comparación de Claude: salió MEJOR que el intento original. La primera
+vez costó 3 intentos (mal conteo de vueltas con `x < 2`, después
+`if (x == 2)` con el valor viejo). Esta vez llegó DIRECTO a la
+solución correcta: `while (x < 3)`, `print`/`print` en los dos
+espacios de adentro, `if (x == 3)` — sin repetir ninguno de los dos
+errores anteriores. Traza verificada: x=1→(Doo Bee x=2)→(Doo Bee
+x=3)→sale del while→if(x==3) true→"Do". Salida "DooBeeDooBeeDo",
+exacta, coincide con la pegada por el usuario. COMPLETADO. Se agenda
+r2.
+
+REPASO — EJERCICIO DooBee (pág. 109) (r2) — programado: 2026-08-05 — [ ] pendiente
+Entregá en: ejercicios/repasos/ej01-doobee-r2/DooBee.java (desde cero, sin mirar el original ni el r1; archivo de arranque nuevo, solo comentarios, sin código)
 Comparación de Claude (se llena al revisar):
 ...
 

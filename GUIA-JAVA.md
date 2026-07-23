@@ -6,9 +6,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 155 de 1629 (11%) — Capítulo 2, Brad introduce herencia (Shape como superclase) y override (Amoeba redefine rotate()/playSound()), ver Sesión #22
-- Última sesión: Sesión #22
-- Ejercicios pendientes: 1 — "Pool Puzzle" (Sesión #17, [ ] pendiente, OPCIONAL). BottleSong "encontrá la falla" (Sesión #14) completado 2026-07-21. "Mixed Messages" (Sesión #17) completado 2026-07-19, 5/5 a la primera. "BE the Compiler" (Sesión #16) completado 2026-07-19, validado por el libro en Sesión #18. Code Magnets "Shuffle1" (Sesión #15) completado 2026-07-17, validado por el libro en Sesión #18. Repasos: "Sharpen your pencil" r1 completado 2026-07-21 (r2 agendado 2026-08-04), "DooBee" r1 agendado 2026-07-20 (vencido), "Shuffle1" r1 agendado 2026-07-21, "BE the Compiler" r1 agendado 2026-07-22, "Mixed Messages" r1 agendado 2026-07-23, "BottleSong" r1 agendado 2026-07-25
+- Última página estudiada: página 163 de 1629 (11%) — Capítulo 2, instance variables y methods ya con nombre formal ("Sharpen your pencil: Television" pendiente), ver Sesión #24
+- Última sesión: Sesión #24
+- Ejercicios pendientes: 2 — "Pool Puzzle" (Sesión #17, [ ] pendiente, OPCIONAL). "Sharpen your pencil: Television" (Sesión #24, [~] en curso — IMPORTANTE: retomar la explicación de sustantivo/dato/instance-variable vs. verbo/acción/method con OTRO enfoque antes de seguir corrigiendo, el usuario lo pidió explícitamente porque no le quedó claro con los dos intentos de esta sesión). BottleSong "encontrá la falla" (Sesión #14) completado 2026-07-21. "Mixed Messages" (Sesión #17) completado 2026-07-19, 5/5 a la primera. "BE the Compiler" (Sesión #16) completado 2026-07-19, validado por el libro en Sesión #18. Code Magnets "Shuffle1" (Sesión #15) completado 2026-07-17, validado por el libro en Sesión #18. Repasos: "Sharpen your pencil" r1 completado 2026-07-21 (r2 agendado 2026-08-04), "DooBee" r1 completado 2026-07-22 (r2 agendado 2026-08-05), "Shuffle1" r1 agendado 2026-07-21 (vencido), "BE the Compiler" r1 agendado 2026-07-22 (vencido), "Mixed Messages" r1 agendado 2026-07-23, "BottleSong" r1 agendado 2026-07-25
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 
@@ -69,6 +69,10 @@ Ejercicios: ver EJERCICIOS.md.
 | subclass                            | subclase | Clase más específica que hereda de una superclase (ej. Square, Circle, Triangle, Amoeba heredan de Shape). |
 | override (method overriding)       | hacer override / sobrescribir | Una subclase redefine un método que heredó, cuando necesita cambiar o extender su comportamiento. La JVM decide en runtime qué versión correr según el tipo real del objeto. |
 | invoke (a method)                   | invocar (un método) | Llamar a un método SOBRE un objeto puntual (ej. invocar rotate() sobre el objeto triángulo); el resto del programa no necesita saber cómo lo hace ese objeto por dentro. |
+| polymorphism (adelanto)             | polimorfismo | Cuarto pilar de POO (junto a encapsulamiento, herencia y abstracción); mencionado de pasada en un chiste, se ve formal más adelante. |
+| instance variable                   | variable de instancia | Dato que un objeto SABE sobre sí mismo (su estado); cada objeto de la misma clase puede tener un valor distinto. Nombre formal de lo que veníamos llamando "atributo". |
+| instance                            | instancia | Otra forma de decir "objeto": un objeto ES una instancia de su clase. |
+| getter / setter                     | método getter / setter | Método que LEE (get) o ESCRIBE (set) el valor de una instance variable, ej. `getAlarmTime()` / `setAlarmTime()`. |
 
 ============================================================
 (ACÁ VAN LAS SESIONES — Claude agrega la SESIÓN #01 en la primera
@@ -1549,6 +1553,161 @@ DUDAS QUE SURGIERON (y su respuesta corta)
 EJERCICIOS CREADOS: ninguno
 PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
 partir de la página 156).
+
+SESIÓN #23 — 2026-07-22 — Qué sabe / qué hace un objeto: cierre de Chair Wars y arranca el checklist de diseño de clases (Ubicación pág. 155-159 de 1629, 11%)
+
+IDEAS CLAVE
+
+- Cartoon de cierre conceptual: el Triangle le dice al programador "vos
+  decime QUÉ hacer, yo me encargo de CÓMO lo hago" ("Don't you worry
+  your little programmer head about how I do it."); la Amoeba dice
+  "yo me las arreglo sola, sé cómo rotar y reproducir mi sonido" ("I
+  can take care of myself."). Refuerza en imágenes la idea de la
+  sesión anterior: quien usa un objeto solo conoce su INTERFAZ (qué
+  hace), nunca necesita saber su IMPLEMENTACIÓN (cómo lo hace por
+  dentro).
+- Desenlace de "Chair Wars": sin que nadie lo supiera, el Project
+  Manager le había dado la MISMA especificación a 3 programadores en
+  secreto. Amy se ganó la silla y el escritorio porque, al programar
+  orientado a objetos desde el principio, terminó más rápido y sin
+  discutir con sus compañeros — la moraleja es que POO no es solo
+  "más prolijo": hace más rápidos a los EQUIPOS porque separa
+  responsabilidades con claridad.
+- "What do you like about OO?" ("¿Qué te gusta de POO?") — testimonios
+  ficticios que resumen, en una frase cada uno, ventajas reales de
+  POO (muy útiles como respuestas de entrevista):
+  1. Diseñar de forma más natural, mapeando el código a "cosas" del
+     mundo real (Joy, arquitecta de software).
+  2. No tocar ni re-testear código YA PROBADO para agregar una
+     funcionalidad nueva (Brad, programador).
+  3. Los datos y los métodos que operan sobre ellos viven juntos en
+     una misma clase — esto es directamente ENCAPSULAMIENTO (Jess).
+  4. Reutilización: una clase bien diseñada se puede usar después en
+     otro programa (Chris, project manager).
+  Cierre humorístico: Amy responde "¿Aparte de la silla?" ("Besides
+  the chair?") — callback al chiste de "Chair Wars".
+- "Brain Power" (pág. 158): el libro invita a pensar, ANTES de seguir
+  leyendo, qué preguntas básicas hay que hacerse al diseñar una clase
+  Java — qué checklist armaría el lector.
+- Respuesta/adelanto en la página siguiente: "cuando diseñás una
+  clase, pensá en los objetos que va a crear: qué SABE el objeto
+  (atributos) y qué SABE HACER el objeto (métodos)" — arranque formal
+  del checklist de diseño de clases que el libro va a desarrollar en
+  el resto del capítulo.
+- Chiste de "Metacognitive Tip": hablar en voz alta ayuda a resolver
+  ejercicios trabados (activa otra parte del cerebro; hasta las
+  mascotas sirven de oyente). El chiste final menciona de pasada la
+  palabra "polymorphism" (polimorfismo) — cuarto pilar de POO, todavía
+  sin explicar formalmente.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+- Ninguno nuevo; tanda 100% narrativa/conceptual (cierre de "Chair
+  Wars" y arranque del checklist de diseño de clases).
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- "Brain Power" (pág. 158): no es un ejercicio formal con ícono (no es
+  Sharpen your pencil, BE the Compiler, Code Magnets ni Pool Puzzle) —
+  es una pregunta de reflexión, se usó como verificación de
+  comprensión en el chat, no se registra en EJERCICIOS.md.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- Las 4 respuestas de "What do you like about OO?" son casi textuales
+  a preguntas típicas de entrevista junior ("¿por qué te gusta POO?",
+  "¿qué ventajas tiene sobre programación procedural?") — vale la pena
+  tenerlas internalizadas con ejemplos propios, no de memoria.
+- El checklist "qué sabe / qué hace" es el músculo mental que se va a
+  usar en TODOS los diseños de clases de acá en adelante (y en el
+  proyecto UML-Java: mapea directo a atributos y métodos de un
+  diagrama de clases).
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- Pendiente: se agrega según la respuesta del usuario a la pregunta de
+  comprensión de cierre de esta sesión.
+
+EJERCICIOS CREADOS: ninguno
+PRÓXIMO PASO: seguir con la siguiente tanda de páginas del libro (a
+partir de la página 160).
+
+SESIÓN #24 — 2026-07-22 — Instance variables y methods: el vocabulario formal de "sabe" y "sabe hacer" (Ubicación pág. 160-163 de 1629, 11%)
+
+IDEAS CLAVE
+
+- Tres clases de ejemplo (ShoppingCart, Button, Alarm), cada una con su
+  lado "knows" (sabe) arriba y "does" (hace) abajo, formalizan el
+  vocabulario Java:
+  - **instance variable** (variable de instancia): las cosas que un
+    objeto SABE sobre sí mismo. Ej: Alarm sabe `alarmTime`,
+    `alarmMode`.
+  - **method** (método): las cosas que un objeto SABE HACER. Ej: Alarm
+    sabe hacer `setAlarmTime()`, `getAlarmTime()`, `isAlarmSet()`,
+    `snooze()`.
+- Ejemplo `Song` (title, artist | setTitle(), setArtist(), play()):
+  las instance variables representan el ESTADO del objeto (los datos)
+  y pueden tener un valor DISTINTO para cada objeto de esa clase (cada
+  canción tiene su propio título y artista).
+- Aclaración de vocabulario clave: **"instance" es otra forma de decir
+  "object"** — un objeto ES una instancia de su clase. Por eso
+  "instance variable" = "una variable propia de cada objeto".
+- Patrón getter/setter (todavía sin nombrarlo formal así): es común
+  que un objeto tenga métodos que LEEN o ESCRIBEN sus instance
+  variables — ej. `Alarm` tiene `alarmTime` y dos métodos,
+  `getAlarmTime()` (leer) y `setAlarmTime()` (escribir).
+- Cierre conceptual de la tanda: "los objetos tienen instance
+  variables y methods, pero esas instance variables y methods se
+  DISEÑAN COMO PARTE DE LA CLASE." La clase es el plano: cada objeto
+  creado a partir de ella tiene su PROPIA copia de los valores de las
+  instance variables, pero todos comparten las mismas definiciones de
+  métodos.
+
+CÓDIGO CLAVE (el Java esencial de la tanda, ya explicado en el chat)
+
+- Ninguno ejecutable nuevo; son diagramas de clase (estilo UML
+  simplificado) con nombres de instance variables y methods, sin
+  cuerpo de código todavía.
+
+EJERCICIOS DEL LIBRO EN ESTA TANDA (nombre + hecho/pendiente)
+
+- "Sharpen your pencil: Television" (pág. 162-163) — [ ] pendiente.
+  Completar qué instance variables y qué methods necesitaría una
+  clase Television. El libro aclara "Yours to solve" (es tuyo para
+  resolver): no hay una única respuesta correcta. Registrado en
+  EJERCICIOS.md, archivo de arranque en ejercicios/lib03-television.md.
+
+NOTA DEL PROFE (cosas que el libro no dice pero importan)
+
+- El patrón getter/setter (`getX()`/`setX()`) que acá aparece sin
+  nombre formal es EL patrón más usado en Java real — casi todo
+  atributo privado de una clase tiene su par get/set. Vale la pena
+  automatizar este nombre desde ya.
+- "instance" = "object": son sinónimos que se usan indistintamente en
+  el mundo Java (instance variable = variable de un objeto,
+  "creating an instance" = crear un objeto). Vocabulario que aparece
+  todo el tiempo en entrevistas y en la documentación oficial.
+
+DUDAS QUE SURGIERON (y su respuesta corta)
+
+- Al corregir el ejercicio "Television" (intento 2), el usuario agregó
+  get/set sobre los METHODS de acción (getSubirVolumen(),
+  setPrenderse(), etc.) en vez de sobre una instance variable nueva.
+  Se explicó la distinción SUSTANTIVO (dato, lo que el objeto TIENE —
+  ahí va la instance variable) vs. VERBO (acción, lo que el objeto
+  HACE — ahí va el method), con analogías ajenas al ejercicio (Runner
+  que corre pero tiene la instance variable velocidad; una planta que
+  crece pero tiene la instance variable altura) para no darle la
+  respuesta directa. El usuario cerró la sesión cansado, sin
+  terminar de internalizarlo — PENDIENTE RETOMAR la próxima sesión,
+  probablemente con otro enfoque/analogía (pidió explícitamente que
+  se le recuerde esto al empezar).
+
+EJERCICIOS CREADOS: #Sharpen your pencil: Television (lib03)
+PRÓXIMO PASO: retomar la explicación de sustantivo (dato/instance
+variable) vs. verbo (acción/method) con un enfoque distinto antes de
+seguir con "Television"; después seguir con la siguiente tanda de
+páginas del libro (a partir de la página 164).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
