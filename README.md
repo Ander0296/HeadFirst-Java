@@ -250,7 +250,8 @@ ARRANQUE DE HOY
 --- MENSAJE 2 — arranque del día (s02 en adelante) ---
 
 ```
-Nueva sesión de estudio. Leé CLAUDE.md, GUIA-JAVA.md y EJERCICIOS.md,
+Nueva sesión de estudio. Leé CLAUDE.md, el INICIO RÁPIDO de
+GUIA-JAVA.md (solo esa sección, no toda la guía) y EJERCICIOS.md,
 buscá en Engram (project "HeadFirst-Java") dónde quedamos, y decime:
 (1) qué vimos la última vez en una línea, (2) qué ejercicios tengo
 pendientes, (3) si hay algún repaso vencido para hoy (mirá las fechas

@@ -85,3 +85,27 @@ Con new creo un objeto y con el punto accedo a sus datos y métodos.
 
 s25b — escribir un dato vs. ejecutar un método:
 d.size = 40 escribe el dato; d.bark() ejecuta el método.
+
+s26a — varios objetos de la misma clase:
+Cada objeto Movie guarda sus propios valores de title, genre y rating.
+
+s26b — Objectville, objetos que hablan entre sí:
+En una app real los objetos se llaman métodos entre sí, no todo lo hace main.
+
+s27a — heap y garbage collection:
+Los objetos viven en el heap y Java los borra solo cuando ya no se usan.
+
+s27b — while(true) y break:
+Un while(true) repite para siempre hasta que un break lo corta.
+
+s28a — clase como receta, objeto como galletita:
+Una clase es como una receta y cada objeto es una galletita distinta hecha con ella.
+
+s28b — static es la excepción, no la regla:
+Lo estático es la excepción en POO, casi todo sigue viviendo dentro de un objeto.
+
+s29a — Code Magnets, otra vuelta:
+Armar código con imanes sueltos entrena reconocer qué va en cada clase.
+
+s29b — Pool Puzzle, fragmentos reutilizables:
+En un Pool Puzzle un mismo fragmento de la pileta se puede usar varias veces.

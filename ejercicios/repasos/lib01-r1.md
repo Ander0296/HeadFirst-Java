@@ -22,10 +22,10 @@ class Exercise1a {
     while (x < 10) {
       if (x > 3) {
         System.out.println("big x");
-      }
-    }
-  }
-}
+      } // end if
+    } // end while
+  } // end main
+} // end class
 ```
 
 ### B
@@ -60,11 +60,11 @@ Si te trabás: revisá la Sesión #09 y #10 de GUIA-JAVA.md.
 
 ## MI RESPUESTA
 
-A:
+A: No compila porque entra en un bucle infinito.
 
-B:
+B: No compila porque falta declarar el nombre de la clase
 
-C:
+C: no compila porque falta declarar el main
 
 ---
 

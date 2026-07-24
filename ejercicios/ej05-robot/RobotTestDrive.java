@@ -32,6 +32,13 @@
 
 public class RobotTestDrive {
     public static void main(String[] args) {
+
         Robot r = new Robot();
+
+        r.setNombre("Anderson");
+        r.setBateria(50);
+
+        r.saludar();
+        r.cargar();
     }
 }

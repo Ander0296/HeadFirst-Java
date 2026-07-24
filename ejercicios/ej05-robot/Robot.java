@@ -29,11 +29,19 @@ public class Robot {
     private String nombre;
     private int bateria;
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setBateria(int bateria) {
+        this.bateria = bateria;
+    }
+
     public void saludar() {
         System.out.println("Hola, soy :" + nombre);
     }
 
     public void cargar() {
-        System.out.println("Cargando, batería en: " + bateria + "%");
+        System.out.println("Cargando, batería: " + bateria + "%");
     }
 }

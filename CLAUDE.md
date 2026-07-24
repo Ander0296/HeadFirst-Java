@@ -131,7 +131,8 @@ Registro DOBLE + archivo de arranque creado por Claude:
   al final de la sección REPASOS de EJERCICIOS.md; Claude la crea si
   no existe).
 - Si un repaso sale mal DOS veces seguidas, el concepto se marca para
-  RE-ESTUDIO: releer la sesión de la guía donde se explicó + un
+  RE-ESTUDIO: releer la sesión de la guía donde se explicó (en
+  GUIA-JAVA.md, o en GUIA-ARCHIVO.md si es una sesión #01-#29) + un
   ejercicio nuevo del profe sobre ese mismo tema.
 - REPASOS INTEGRADORES: cuando CONCEPTOS DOMINADOS tenga 3 o más
   entradas, Claude puede proponer (máximo 1 por semana) un ejercicio
@@ -239,8 +240,11 @@ tarjetas buenas fijan más que un mazo exhaustivo.
    que el usuario los intente a mano (o registrarlos como pendientes),
    aplicando la regla de cierre (ruta + mensaje relleno).
 5. Verificar comprensión con 1-2 preguntas cortas antes de cerrar.
-6. Actualizar GUIA-JAVA.md agregando la sesión (respetar el formato
-   del archivo) y sumar términos nuevos a la tabla de vocabulario.
+6. Actualizar GUIA-JAVA.md agregando la sesión en FORMATO CORTO
+   (5-8 bullets, SIN bloques de código, máx ~15 líneas — el código ya
+   vive en el chat, el libro y los ejercicios; ver el formato de
+   referencia al final de la guía) y sumar términos nuevos a la tabla
+   de vocabulario.
 7. Agregar 1-2 frases CORTAS de la sesión a MECANOGRAFIA.md y volcar
    cada una aplanada a su propio archivo de ttyper (ver regla de
    mecanografía).
@@ -283,7 +287,11 @@ tarjetas buenas fijan más que un mazo exhaustivo.
 
 ### Estructura del proyecto
 
-- GUIA-JAVA.md → guía por sesiones (mantiene Claude)
+- GUIA-JAVA.md → guía activa: INICIO RÁPIDO + vocabulario + sesiones
+  nuevas en formato corto (mantiene Claude)
+- GUIA-ARCHIVO.md → sesiones históricas #01-#29 en formato largo.
+  NO se lee al inicio de sesión: solo consulta puntual para
+  RE-ESTUDIO o si el usuario pide releer una sesión vieja
 - EJERCICIOS.md → ejercicios y repasos con estado (mantiene Claude)
 - paginas/ → pantallazos del libro (input del usuario, NO subir a git:
   el repo es público y el libro tiene copyright)
@@ -300,8 +308,10 @@ tarjetas buenas fijan más que un mazo exhaustivo.
 - Engram: el project es "HeadFirst-Java" (basename de esta carpeta,
   NO inventar otro nombre).
 - Al inicio de cada sesión nueva: buscar en Engram el progreso previo
-  y leer GUIA-JAVA.md + EJERCICIOS.md antes de avanzar, incluyendo la
-  revisión de repasos vencidos.
+  y leer SOLO el INICIO RÁPIDO de GUIA-JAVA.md (primeras ~40 líneas,
+  con Read limit) + EJERCICIOS.md antes de avanzar, incluyendo la
+  revisión de repasos vencidos. NUNCA leer GUIA-JAVA.md completa ni
+  GUIA-ARCHIVO.md al inicio — regla de ahorro de contexto/créditos.
 - Al final de cada sesión: resumen de lo aprendido + guardar en Engram.
 - El usuario trabaja desde MÁS DE UN PC: GUIA-JAVA.md y EJERCICIOS.md
   (que viajan por git) son la FUENTE DE VERDAD del progreso; la

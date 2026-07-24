@@ -417,7 +417,105 @@ Corrección de Claude (se llena al revisar):
 
 ============================================================
 
-EJERCICIO #05 — Robot: tu primer objeto propio con new y el operador punto (Sesión #25) — [ ] pendiente
+LIBRO — BE the Compiler, parte 2 — decidir si dos archivos Java compilan y, si no, cómo arreglarlos (Ubicación pág. 183-184, Sesión #28) — [x] completado (2026-07-24)
+Entregá en: ejercicios/lib05-be-the-compiler-2.md (archivo de arranque
+ya creado por Claude, con los 2 archivos y una sección "MI RESPUESTA").
+Si te trabás: revisá la Sesión #25 (new, operador punto) y la Sesión
+#16/#18 de GUIA-JAVA.md (mismo formato de ejercicio, ya resuelto antes).
+Resultado y corrección de Claude:
+
+Intento 1: diagnóstico de ambos archivos CORRECTO a la primera —
+A: no compila porque `song` nunca se declaró ni se creó con `new`. B:
+no compila porque `Episode` no tiene ningún method `play()`. Faltaba
+la otra mitad del enunciado ("¿cómo lo arreglarías?"), pedida en el
+chat.
+
+Intento 2: arregló A perfecto (`StreamingSong song = new
+StreamingSong();` declarado antes de usarla). En el arreglo de B se
+colaron dos errores nuevos de sintaxis: `system.out.println(...)` con
+minúscula (Java es case-sensitive, `System` va con mayúscula) y sin
+punto y coma al final. Señalado en el chat.
+
+Intento 3: corrigió los dos detalles de B (`System.out.println("Play
+song");`, mayúscula y `;`). RESULTADO: los dos archivos, diagnóstico Y
+arreglo, quedaron correctos. EJERCICIO COMPLETADO. Primer repaso
+agendado para 2026-07-28.
+
+============================================================
+
+LIBRO — Sharpen your pencil: "Movie objects" — completar la tabla con los valores finales de tres objetos Movie al terminar main() (Ubicación pág. 170-173, Sesión #26) — [x] completado (2026-07-24)
+Entregá en: ejercicios/lib04-movie-objects.md (archivo de arranque ya
+creado por Claude, con el código completo y una sección "MI RESPUESTA").
+Si te trabás: revisá la Sesión #25 y #26 de GUIA-JAVA.md (new, operador
+punto, cada objeto tiene su propia copia de las instance variables).
+Resultado y corrección de Claude:
+
+Entrega:
+- object 1: "Gone with the Stock" / Tragic / -2 — CORRECTO, exacto.
+- object 2: "Lost in Cubicle Space" / Comedy / 5 — CORRECTO, exacto.
+- object 3: "byte club" / "Tragic but ultimately uplifting" / 127 —
+  valores correctos. Único detalle cosmético (no bloquea): el título
+  real en el código es "Byte Club" con mayúsculas — en Java un String
+  es sensible a mayúsculas/minúsculas, así que si este valor se
+  comparara con `.equals()` en código real, "byte club" y "Byte Club"
+  serían dos Strings DISTINTOS. Acá es solo una tabla de lectura, no
+  afecta el resultado del ejercicio.
+
+RESULTADO: 3 de 3 objetos correctos, trazó bien que cada objeto
+mantiene sus propios valores incluso con `playIt()` llamado solo sobre
+`two`. EJERCICIO COMPLETADO. Primer repaso agendado para 2026-07-28.
+
+============================================================
+
+EJERCICIO #07 — Pool Puzzle: "Echo" — completar dos clases con fragmentos de una pileta para lograr una salida exacta (Ubicación pág. 187-190, Sesión #29) — [ ] pendiente — OPCIONAL (ícono Puzzle)
+Tipo: completar/corregir código
+Si te trabás: revisá la Sesión #25/#26 (new, operador punto) y la
+Sesión #17 (EJERCICIO #04, mismo tipo de acertijo) de GUIA-JAVA.md.
+Enunciado:
+Clases `Echo` y `EchoTestDrive` con varios espacios en blanco
+(nombres, condiciones, asignaciones) que hay que completar usando
+fragmentos de una lista dada ("la pileta", reutilizables), para que
+compile, corra y produzca EXACTO:
+```
+helloooo...
+helloooo...
+helloooo...
+helloooo...
+10
+```
+Bonus del libro: si la última línea fuera 24 en vez de 10, ¿cómo
+completarías el acertijo?
+Entregá en: ejercicios/ej07-pool-puzzle-echo/EchoTestDrive.java
+(archivo de arranque ya creado por Claude, con el esqueleto completo
+de las dos clases y la pileta de fragmentos, todo en comentarios)
+Corrección de Claude (se llena al revisar):
+...
+
+============================================================
+
+EJERCICIO #06 — Code Magnets: "DrumKit" — reordenar imanes para armar un programa que dé la salida pedida (Ubicación pág. 186, Sesión #29) — [ ] pendiente
+Tipo: completar/corregir código
+Si te trabás: revisá la Sesión #12/#13 (if, boolean) y la Sesión #25
+(new, operador punto) de GUIA-JAVA.md.
+Enunciado:
+Un programa completo (clases `DrumKit` y `DrumKitTestDrive`, una
+batería simulada) está desarmado en imanes sueltos — reordenalos (sin
+cambiar lo que dice cada uno), agregando las llaves `{ }` que hagan
+falta, para que compile y, al correr `java DrumKitTestDrive`, imprima
+EXACTO:
+```
+bang bang ba-bang
+ding ding da-ding
+```
+Entregá en: ejercicios/ej06-drumkit/ (dos archivos de arranque ya
+creados por Claude, DrumKit.java y DrumKitTestDrive.java, con los
+imanes completos en comentarios)
+Corrección de Claude (se llena al revisar):
+...
+
+============================================================
+
+EJERCICIO #05 — Robot: tu primer objeto propio con new y el operador punto (Sesión #25) — [x] completado (2026-07-24)
 Tipo: programa desde cero
 Si te trabás: revisá la Sesión #25 de GUIA-JAVA.md (ejemplo Dog/
 DogTestDrive del libro: new, operador punto, clase TestDrive).
@@ -433,7 +531,41 @@ copiar Dog).
 Entregá en: ejercicios/ej05-robot/ (dos archivos de arranque ya
 creados por Claude, Robot.java y RobotTestDrive.java, solo comentarios)
 Corrección de Claude (se llena al revisar):
-...
+
+Entrega: ejercicios/ej05-robot/Robot.java + RobotTestDrive.java.
+Compiló a la primera. Salida:
+```
+Hola, soy :Anderson
+Cargando, batería: 50%
+```
+Exacta a lo esperado según su propio código.
+
+Robot.java: `nombre` y `bateria` declaradas `private`, con
+`setNombre()`/`setBateria()`. `saludar()` imprime "Hola, soy :" + nombre
+(concatenación correcta) y `cargar()` imprime "Cargando, batería: " +
+bateria + "%" (correcto). Detalle cosmético, no bloquea: falta un
+espacio después de los dos puntos ("soy :Anderson" en vez de "soy:
+Anderson"), es solo estética del string.
+
+RobotTestDrive.java: `Robot r = new Robot();` — uso correcto de `new`,
+mismo patrón que `Dog d = new Dog();`. `r.setNombre("Anderson");` /
+`r.setBateria(50);` / `r.saludar();` / `r.cargar();` — cuatro usos
+correctos del operador punto para invocar methods sobre el objeto `r`.
+
+OBSERVACIÓN IMPORTANTE (no es error, es una diferencia de enfoque):
+el ejercicio pedía practicar el mismo patrón que `d.size = 40;`
+(ESCRIBIR una instance variable directo con el operador punto). Acá,
+en cambio, `nombre` y `bateria` son `private`, así que `r.nombre = ...`
+directo ni siquiera compilaría — por eso se usó `setNombre()`/
+`setBateria()` en su lugar. Es una solución VÁLIDA y más prolija (ya
+usa encapsulamiento, el tema que el libro recién formaliza en el
+Capítulo 4), pero practica el operador punto solo para LLAMAR methods,
+no para leer/escribir una instance variable directo — matiz para tener
+en cuenta, no resta puntos. Buena señal: antepuso una buena práctica
+sin que se la pidieran.
+
+RESULTADO: EJERCICIO COMPLETADO. Primer repaso agendado para
+2026-07-28.
 
 ============================================================
 
@@ -556,6 +688,21 @@ como pendiente. EJERCICIO COMPLETADO. Primer repaso agendado para
 
 REPASOS
 
+REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r1) — programado: 2026-07-28 — [ ] pendiente
+Entregá en: ejercicios/repasos/lib05-r1.md (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
+Comparación de Claude (se llena al revisar):
+...
+
+REPASO — LIBRO Movie objects (pág. 170-173) (r1) — programado: 2026-07-28 — [ ] pendiente
+Entregá en: ejercicios/repasos/lib04-r1.md (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
+Comparación de Claude (se llena al revisar):
+...
+
+REPASO — EJERCICIO #05 Robot (Sesión #25) (r1) — programado: 2026-07-28 — [ ] pendiente
+Entregá en: ejercicios/repasos/ej05-robot-r1/ (desde cero, sin mirar el original; dos archivos de arranque nuevos, Robot.java y RobotTestDrive.java, solo comentarios, sin código)
+Comparación de Claude (se llena al revisar):
+...
+
 REPASO — EJERCICIO Sharpen your pencil: Television (pág. 162-163) (r1) — programado: 2026-07-27 — [ ] pendiente
 Entregá en: ejercicios/repasos/lib03-television-r1.md (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
 Comparación de Claude (se llena al revisar):
@@ -621,8 +768,44 @@ Entregá en: ejercicios/repasos/ej03-shuffle1-r2/Shuffle1.java (desde cero, sin 
 Comparación de Claude (se llena al revisar):
 ...
 
-REPASO — EJERCICIO BE the Compiler (pág. 123) (r1) — programado: 2026-07-22 — [ ] pendiente
+REPASO — EJERCICIO BE the Compiler (pág. 123) (r1) — programado: 2026-07-22 — [x] completado (2026-07-24)
 Entregá en: ejercicios/repasos/lib01-r1.md (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
+Comparación de Claude:
+
+A: "No compila porque entra en un bucle infinito" — INCORRECTO, y es un
+ERROR NUEVO (en el intento original de 2026-07-19 este archivo lo
+había resuelto BIEN a la primera). Confunde runtime con compile-time:
+un bucle infinito no es un error de compilación, el compilador no
+"corre" el programa para saber si termina o no — solo revisa que la
+sintaxis y el anidamiento (clase → main → while → if) estén bien
+formados, y acá lo están. A SÍ COMPILA. Lo que tiene de especial es
+que, al ejecutarlo, nunca termina (x se queda fijo en 1 para siempre,
+nunca supera 3) y por lo tanto tampoco llega a imprimir "big x" — pero
+eso es un problema de EJECUCIÓN, no de compilación.
+
+B: "No compila porque falta declarar el nombre de la clase" —
+CORRECTO, coincide con el resultado original (le falta el `class { }`
+que envuelva al método). Sin repetir errores acá.
+
+C: "no compila porque falta declarar el main" — PARCIALMENTE correcto.
+Detectó bien que algo falta entre la clase y el `while`, pero el
+`while` no compila por faltarle específicamente un `main` — le falta
+CUALQUIER método que lo envuelva (podría llamarse de cualquier forma).
+La regla de fondo (Sesión #09/#10): una instrucción ejecutable como
+`while` no puede vivir suelta directo dentro de una clase, necesita
+estar dentro de algún método. Mismo tipo de imprecisión que en el
+intento 2 del original, que sí lo dijo genérico ("le falta el método
+que lo envuelva").
+
+RESULTADO: salió MAL — el punto más flojo es A, un error NUEVO
+(retrocedió respecto al intento original) por confundir bucle
+infinito con error de compilación; la distinción compile-time vs.
+runtime (ya vista en Sesión #08 y #11) necesita repaso. Se acorta el
+intervalo: repaso r2 agendado para 2026-07-27 (no se marca RE-ESTUDIO
+todavía porque es la primera vez que falla, no dos seguidas).
+
+REPASO — EJERCICIO BE the Compiler (pág. 123) (r2) — programado: 2026-07-27 — [ ] pendiente
+Entregá en: ejercicios/repasos/lib01-r2.md (desde cero, sin mirar el original ni el r1; archivo de arranque nuevo, solo comentarios, sin código)
 Comparación de Claude (se llena al revisar):
 ...
 
