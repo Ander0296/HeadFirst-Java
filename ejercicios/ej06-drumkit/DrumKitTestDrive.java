@@ -32,3 +32,18 @@
  * corrección en EJERCICIOS.md. Si quedó completado, agendá sus
  * repasos.
  */
+
+class DrumKitTestDrive {
+    public static void main(String[] args) {
+
+        DrumKit d = new DrumKit();
+
+        if (d.snare == true) {
+            d.playSnare();
+        } // end if
+
+        d.snare = false;
+        d.playSnare();
+        d.playTopHat();
+    } // end main
+} // end class

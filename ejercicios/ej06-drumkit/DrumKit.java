@@ -44,3 +44,17 @@
  * Recordá que la clase pública debe llamarse igual que el archivo:
  * DrumKit. Escribí tu código DEBAJO de este bloque, todo a mano.
  */
+
+class DrumKit {
+    boolean topHat = true;
+    boolean snare = true;
+
+    void playSnare() {
+        System.out.println("bang bang ba-bang");
+    } // end playSnare
+
+    void playTopHat() {
+        System.out.println("ding ding da-ding");
+    } // end playTopHat
+
+} // end class

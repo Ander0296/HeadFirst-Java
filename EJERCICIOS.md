@@ -441,6 +441,14 @@ song");`, mayúscula y `;`). RESULTADO: los dos archivos, diagnóstico Y
 arreglo, quedaron correctos. EJERCICIO COMPLETADO. Primer repaso
 agendado para 2026-07-28.
 
+VALIDADO POR EL LIBRO (Sesión #30, pág. 193-195): solución oficial de
+A = agregar `StreamingSong song = new StreamingSong();` (idéntico al
+arreglo del usuario). Solución oficial de B = agregar un method
+`play()` a la clase Episode (el del libro imprime "Playing episode " +
+episodeNumber; el del usuario imprimía un texto fijo — ambos válidos,
+lo esencial era que el method exista para que `episode.play()`
+compile).
+
 ============================================================
 
 LIBRO — Sharpen your pencil: "Movie objects" — completar la tabla con los valores finales de tres objetos Movie al terminar main() (Ubicación pág. 170-173, Sesión #26) — [x] completado (2026-07-24)
@@ -464,6 +472,16 @@ Entrega:
 RESULTADO: 3 de 3 objetos correctos, trazó bien que cada objeto
 mantiene sus propios valores incluso con `playIt()` llamado solo sobre
 `two`. EJERCICIO COMPLETADO. Primer repaso agendado para 2026-07-28.
+
+============================================================
+
+LIBRO — Who Am I? ("¿Quién soy?") — identificar si cada frase la dice una clase, un objeto, un method o una instance variable (Ubicación pág. 191, Sesión #30) — [ ] pendiente
+Entregá en: ejercicios/lib06-who-am-i.md (archivo de arranque ya
+creado por Claude, con las 13 frases traducidas y la sección
+"MI RESPUESTA").
+Si te trabás: revisá la Sesión #23/#24, #25 y #27 (en GUIA-ARCHIVO.md).
+Resultado y corrección de Claude (se llena al revisar):
+...
 
 ============================================================
 
@@ -493,7 +511,7 @@ Corrección de Claude (se llena al revisar):
 
 ============================================================
 
-EJERCICIO #06 — Code Magnets: "DrumKit" — reordenar imanes para armar un programa que dé la salida pedida (Ubicación pág. 186, Sesión #29) — [ ] pendiente
+EJERCICIO #06 — Code Magnets: "DrumKit" — reordenar imanes para armar un programa que dé la salida pedida (Ubicación pág. 186, Sesión #29) — [x] completado (2026-07-24)
 Tipo: completar/corregir código
 Si te trabás: revisá la Sesión #12/#13 (if, boolean) y la Sesión #25
 (new, operador punto) de GUIA-JAVA.md.
@@ -510,8 +528,37 @@ ding ding da-ding
 Entregá en: ejercicios/ej06-drumkit/ (dos archivos de arranque ya
 creados por Claude, DrumKit.java y DrumKitTestDrive.java, con los
 imanes completos en comentarios)
-Corrección de Claude (se llena al revisar):
-...
+Corrección de Claude:
+
+Compiló y la salida fue EXACTA a la primera ("bang bang ba-bang" /
+"ding ding da-ding"). DrumKit.java perfecto: instance variables
+topHat/snare en true, methods playSnare()/playTopHat() bien armados.
+Usó todos los imanes.
+
+OBSERVACIÓN CONCEPTUAL: su `if (d.snare == true)` quedó como CÓDIGO
+MUERTO (puso `d.snare = false;` antes, así que nunca dispara) y el
+primer "bang" sale del `d.playSnare();` suelto. CORRECCIÓN DEL PROFE
+SOBRE SU PROPIA CORRECCIÓN: en el primer análisis Claude dijo que la
+solución del libro "usa el if de verdad" — FALSO. Prueba: si el if
+disparara (snare true al chequear) imprimiría un "bang", y el imán
+suelto `d.playSnare();` (que también hay que ubicar, es incondicional)
+imprimiría OTRO — dos "bang" rompen la salida. Con todos los imanes en
+juego, el if no puede dispararse: el código muerto es forzado por el
+acertijo, no un defecto de la solución del usuario. El usuario defendió
+su decisión con este mismo argumento (usar todos los imanes y respetar
+la salida) ANTES de que Claude lo verificara — criterio correcto.
+
+Trazado bonus verificado en el chat: el usuario respondió bien que
+mover `d.snare = false;` después del if imprimiría "bang" DOS veces.
+
+RESULTADO: EJERCICIO COMPLETADO a la primera, solución equivalente a
+la oficial. Primer repaso agendado para 2026-07-29.
+
+VALIDADO POR EL LIBRO (Sesión #30, pág. 191-193): la solución oficial
+es new → d.playSnare() → d.snare=false → d.playTopHat() → if al FINAL
+(muerto, no dispara). Confirma el análisis: con todos los imanes, el
+if no puede dispararse. La solución del usuario (mismo conjunto,
+distinto orden, misma salida) es 100% equivalente a la oficial.
 
 ============================================================
 
@@ -687,6 +734,11 @@ como pendiente. EJERCICIO COMPLETADO. Primer repaso agendado para
 ============================================================
 
 REPASOS
+
+REPASO — EJERCICIO #06 DrumKit (pág. 186) (r1) — programado: 2026-07-29 — [ ] pendiente
+Entregá en: ejercicios/repasos/ej06-r1/ (desde cero, sin mirar el original; archivos de arranque nuevos con los imanes, solo comentarios)
+Comparación de Claude (se llena al revisar):
+...
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r1) — programado: 2026-07-28 — [ ] pendiente
 Entregá en: ejercicios/repasos/lib05-r1.md (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)

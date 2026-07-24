@@ -6,9 +6,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 190 de 1629 (13%) — cierre del Capítulo 2, Code Magnets "DrumKit" (EJERCICIO #06) y Pool Puzzle "Echo" (EJERCICIO #07, enunciado completo ya registrado). Falta ver el código de la clase Player (se salteó la pág. 177). Ver Sesión #29 (en GUIA-ARCHIVO.md).
-- Última sesión: Sesión #29
-- Ejercicios pendientes: 3 — Pool Puzzle original (Sesión #17, OPCIONAL), Code Magnets "DrumKit" (EJERCICIO #06), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL). Estados completos, fechas y repasos: ver EJERCICIOS.md (fuente de verdad; esta línea solo lista lo pendiente).
+- Última página estudiada: página 195 de 1629 (13%) — "Who Am I?" y soluciones oficiales del Capítulo 2 (DrumKit y BE the Compiler validados). Falta ver el código de la clase Player (se salteó la pág. 177). Ver Sesión #30.
+- Última sesión: Sesión #30
+- Ejercicios pendientes: 3 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06). Estados completos, fechas y repasos: ver EJERCICIOS.md (fuente de verdad; esta línea solo lista lo pendiente).
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 
@@ -91,6 +91,16 @@ Ejercicios: ver EJERCICIOS.md.
 de código, máximo ~15 líneas por sesión. Las sesiones #01 a #29, en
 el formato largo original, están en GUIA-ARCHIVO.md.)
 ============================================================
+
+SESIÓN #30 — 2026-07-24 — Who Am I? + soluciones oficiales del Capítulo 2 (pág. 191-195, 13%)
+- Ejercicio nuevo "Who Am I?": 13 frases para identificar quién habla (clase, objeto, method o instance variable).
+- Soluciones oficiales del libro: DrumKit valida la solución del usuario (el if oficial también queda muerto, forzado por los imanes).
+- BE the Compiler A y B validados: arreglo A idéntico al oficial; en B el libro imprime episodeNumber pero cualquier play() válido sirve.
+- Concepto nuevo: el compilador chequea que objeto.metodo() exista declarado en la clase — error de compilación si falta.
+- Concepto nuevo: un archivo .java puede tener varias clases; solo la pública debe llamarse como el archivo.
+- Ejercicios de la tanda: "Who Am I?" (lib06, pendiente).
+- Dudas: pregunta de comprensión (¿method inexistente falla al compilar o al ejecutar?) respondida MAL — dijo "al ejecutar". Segunda confusión compile-time vs. runtime de la semana (la primera fue el repaso r1 de BE the Compiler). Regla enseñada: si el compilador puede saberlo leyendo el código quieto → compilación; si depende de algo que pasa en vivo → ejecución. La contrapregunta (input del usuario → runtime) la respondió BIEN. Vigilar en el r2 del 2026-07-27.
+- PRÓXIMO PASO: seguir con el resto de las soluciones (falta la del Pool Puzzle Echo, no mirarla hasta resolver el EJERCICIO #07) y arrancar el Capítulo 3.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

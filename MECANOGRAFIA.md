@@ -109,3 +109,9 @@ Armar código con imanes sueltos entrena reconocer qué va en cada clase.
 
 s29b — Pool Puzzle, fragmentos reutilizables:
 En un Pool Puzzle un mismo fragmento de la pileta se puede usar varias veces.
+
+s30a — el compilador chequea los methods:
+objeto.metodo() solo compila si la clase declara ese método.
+
+s30b — varias clases por archivo:
+Un archivo .java puede tener varias clases, solo la pública se llama como el archivo.
