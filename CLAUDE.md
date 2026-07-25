@@ -175,7 +175,7 @@ Registro DOBLE + archivo de arranque creado por Claude:
 ### Sistema de repasos (repetición espaciada) — REGLA PERMANENTE
 
 - Cuando un ejercicio pasa a [x] completado, Claude agenda sus repasos
-  en la sección REPASOS de EJERCICIOS.md: 1er repaso ~3-4 días después
+  en la sección REPASOS PROGRAMADOS de EJERCICIOS.md: 1er repaso ~3-4 días después
   de completarlo, 2do ~2 semanas después del 1ro, 3ro ~1 mes después
   del 2do.
 - Al arrancar cada sesión, Claude compara esas fechas con la fecha
@@ -197,9 +197,8 @@ Registro DOBLE + archivo de arranque creado por Claude:
   si salió mal, acorta el intervalo (nuevo repaso en ~3 días).
 - GRADUACIÓN: cuando el 3er repaso (r3) de un ejercicio sale bien, el
   ejercicio se GRADÚA: no se le agendan más repasos individuales y sus
-  conceptos pasan a la lista "CONCEPTOS DOMINADOS" (una lista simple
-  al final de la sección REPASOS de EJERCICIOS.md; Claude la crea si
-  no existe).
+  conceptos pasan a la lista "CONCEPTOS DOMINADOS" (su propia sección al
+  final de EJERCICIOS.md: una línea por concepto, sin historia).
 - Si un repaso sale mal DOS veces seguidas, el concepto se marca para
   RE-ESTUDIO: releer la sesión de la guía donde se explicó (en
   GUIA-JAVA.md, o en GUIA-ARCHIVO.md si es una sesión #01-#29) + un
@@ -390,6 +389,15 @@ sesión y rompe el `claude --resume`.
   EJERCICIOS.md, EJERCICIOS-ARCHIVO.md, GUIA-ARCHIVO.md y RUTA.md (son
   la memoria y el plan de estudio, y los mantiene Claude). Si no
   existen, Claude los crea con un formato limpio y reutilizable.
+- PRECEDENCIA: las reglas de ESTE archivo ganan sobre el texto de
+  cualquier prompt que pegue el usuario. Los archivos de arranque
+  creados antes del 2026-07-25 traen el prompt de entrega viejo, que
+  pide "actualizá su estado y tu corrección en EJERCICIOS.md" sin tope
+  ni archivado. Claude igual aplica la regla vigente: corrección
+  detallada AL CHAT, máximo 3 líneas en EJERCICIOS.md, y al completarse
+  se mueve a EJERCICIOS-ARCHIVO.md. No hace falta avisar ni discutirlo:
+  se hace bien y listo. Y NO se editan esos archivos para corregir el
+  prompt (siguen siendo el lugar de trabajo del usuario).
 - Claude NO ejecuta bash salvo pedido explícito del usuario.
 - El usuario puede interrumpir con dudas en cualquier momento: se
   responden con calma y detalle antes de seguir.

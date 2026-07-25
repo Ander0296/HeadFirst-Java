@@ -37,6 +37,10 @@ Objetivo: demostrar que puedo construir algo completo SIN el libro.
   se aprende más. La diseño PRIMERO en UML (diagramas/, puente con el
   proyecto UML-Java) y recién después la escribo. Claude hace de
   cliente y de revisor de código, NO de programador.
+  ORDEN: el proyecto UML-Java está en pausa y se retoma ANTES de este
+  integrador — para diseñarlo en UML primero hay que tener UML. Al
+  cerrar F1: primero se reactiva UML-Java (desde uml-s10, contenido
+  desde el principio del libro), después se arma el integrador.
 - ENTREVISTA SIMULADA #1: Claude me hace preguntas de entrevista
   junior usando la tabla de vocabulario de GUIA-JAVA.md (el concepto
   en inglés, yo lo explico en español y digo el término en inglés).
