@@ -33,18 +33,20 @@ objeto), #25 (clase como plano) y #27 (el heap) — en GUIA-ARCHIVO.md.
 
 (escribí acá el número y tu respuesta, ej. "2: objeto")
 
-2:
-3:
-4:
-5:
-6:
-7:
-8:
-9:
-10:
-11:
-12:
-13:
+una. Respondé cada frase con: **clase**, **objeto**, **method** o
+**instance variable** (alguna puede tener más de una respuesta
+2: objeto
+3: clase
+4: objeto
+5: clase, objeto
+6: instance variable
+7: metodos
+8: instance variables
+9: objeto
+10: clase, instance variable
+11: clase
+12: clase
+13: objeto
 
 ---
 

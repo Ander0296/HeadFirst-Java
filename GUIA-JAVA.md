@@ -6,9 +6,10 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 195 de 1629 (13%) — "Who Am I?" y soluciones oficiales del Capítulo 2 (DrumKit y BE the Compiler validados). Falta ver el código de la clase Player (se salteó la pág. 177). Ver Sesión #30.
-- Última sesión: Sesión #30
-- Ejercicios pendientes: 3 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06). Estados completos, fechas y repasos: ver EJERCICIOS.md (fuente de verdad; esta línea solo lista lo pendiente).
+- Última página estudiada: página 206 de 1629 (13%) — las 8 primitivas de Java (byte/short/int/long/float/double/boolean/char), la analogía del vaso (cup), y declaraciones con asignación. Faltan por ver: el código de la clase Player (se salteó la pág. 177) y la página 201 (también salteada). Ver Sesión #32.
+- Última sesión: Sesión #32
+- Ejercicios pendientes: 3 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho). Estados completos, fechas y repasos: ver EJERCICIOS.md (fuente de verdad; esta línea solo lista lo pendiente).
+- IMPORTANTE — spoiler pendiente: las páginas 197-199 (soluciones oficiales de Pool Puzzle "Echo" y de "Who Am I?") ya fueron leídas por Claude pero NO explicadas al usuario a propósito, para no arruinar esos dos ejercicios en curso. Retomarlas recién cuando el usuario termine ambos.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 
@@ -85,6 +86,11 @@ Ejercicios: ver EJERCICIOS.md.
 | JAR file (.jar)                        | archivo JAR (Java ARchive) | Formato para empaquetar todas las clases compiladas de una app Java en un solo archivo (basado en pkzip), para no entregar cientos de archivos sueltos. |
 | manifest (del jar)                      | manifiesto (del JAR) | Archivo de texto simple dentro de un JAR que indica cuál clase de ese JAR contiene el `main()` que hay que ejecutar. |
 | constant (public static final)          | constante (`public static final`) | Patrón para declarar un valor "global" real en Java: `public` lo hace accesible desde cualquier código, `static` lo liga a la clase (no a un objeto), `final` impide que cambie de valor. Se profundiza en el Capítulo 10. |
+| primitive (primitive type)              | primitiva (tipo primitivo) | Tipo de dato que guarda el VALOR real directo (no una referencia): `byte`, `short`, `int`, `long`, `float`, `double`, `boolean`, `char`. Cada uno tiene un tamaño fijo en bits. |
+| object reference (reference variable)   | referencia a objeto | Variable que en vez de guardar el valor directo, guarda la dirección de un objeto que vive en el heap. Se profundiza en las próximas páginas del Capítulo 3. |
+| char                                     | char (carácter) | Primitiva de 16 bits que guarda UN SOLO carácter, con comillas SIMPLES (`'f'`) — distinto de `String`, que usa comillas dobles y guarda una secuencia de caracteres. |
+| signed (numeric types)                   | con signo | Que un tipo numérico admite valores negativos y positivos (todos los enteros y decimales de Java lo son). |
+| literal suffix (L, f)                    | sufijo de literal (`L`, `f`) | Letra al final de un número literal para decirle al compilador de qué tipo es exactamente, ej. `3456789L` (long) o `32.5f` (float), evitando que lo confunda con `int` o `double`. Puede ir en mayúscula o minúscula. |
 
 ============================================================
 (SESIONES — desde la #30 en formato CORTO: 5-8 bullets, sin bloques
@@ -101,6 +107,24 @@ SESIÓN #30 — 2026-07-24 — Who Am I? + soluciones oficiales del Capítulo 2 
 - Ejercicios de la tanda: "Who Am I?" (lib06, pendiente).
 - Dudas: pregunta de comprensión (¿method inexistente falla al compilar o al ejecutar?) respondida MAL — dijo "al ejecutar". Segunda confusión compile-time vs. runtime de la semana (la primera fue el repaso r1 de BE the Compiler). Regla enseñada: si el compilador puede saberlo leyendo el código quieto → compilación; si depende de algo que pasa en vivo → ejecución. La contrapregunta (input del usuario → runtime) la respondió BIEN. Vigilar en el r2 del 2026-07-27.
 - PRÓXIMO PASO: seguir con el resto de las soluciones (falta la del Pool Puzzle Echo, no mirarla hasta resolver el EJERCICIO #07) y arrancar el Capítulo 3.
+
+SESIÓN #31 — 2026-07-24 — Arranque del Capítulo 3: Primitives and References (pág. 200, 13%)
+- Portada del Capítulo 3, "Know Your Variables: Primitives and References" (Conocé tus variables: primitivas y referencias).
+- Idea clave adelantada (se profundiza en próximas páginas): en Java hay dos familias de tipos — primitivos (`int`, `float`, `long`...) que guardan el valor directo, y referencias, que guardan la dirección de un objeto que vive en el heap.
+- Limpieza de paginas/: se detectaron y borraron 12 capturas sueltas de una sesión de Vim/terminal ajenas al libro, mezcladas por error con las páginas reales.
+- Ejercicios de la tanda: ninguno nuevo. "Who Am I?" (lib06) sigue en curso, intento 2 corregido en el chat.
+- Dudas: ninguna.
+- PRÓXIMO PASO: seguir el Capítulo 3 desde la pág. 201. Las páginas 197-199 (soluciones de Pool Puzzle Echo y Who Am I) quedan pendientes de explicar hasta que el usuario termine esos dos ejercicios.
+
+SESIÓN #32 — 2026-07-24 — Las 8 primitivas de Java y la analogía del vaso (pág. 200-206, salteada la 201, 13%)
+- Analogía central: una variable es un vaso (cup) — tiene un tamaño (bits) y un tipo, y contiene un valor.
+- Las 8 primitivas con su tamaño: byte(8), short(16), int(32), long(64), float(32), double(64), boolean(tamaño según la JVM), char(16, valor 0-65535).
+- Concepto nuevo: `char` usa comillas SIMPLES (`'f'`) y guarda un solo carácter; distinto de `String` (comillas dobles).
+- Concepto nuevo: sufijos de literal `L` (long) y `f` (float), para que el compilador no confunda tipos numéricos parecidos.
+- Confirmado con el usuario (2/2 bien): en `int z = x;`, `z` copia el VALOR de `x` en ese momento — si `x` cambia después, `z` no se entera.
+- Se saltó la página 201 (pendiente, junto con la pág. 177 de la clase Player).
+- Ejercicios de la tanda: ninguno.
+- PRÓXIMO PASO: seguir el Capítulo 3 desde la página 207.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

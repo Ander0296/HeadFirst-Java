@@ -115,3 +115,12 @@ objeto.metodo() solo compila si la clase declara ese método.
 
 s30b — varias clases por archivo:
 Un archivo .java puede tener varias clases, solo la pública se llama como el archivo.
+
+s31 — primitivos vs referencias:
+Un primitivo guarda el valor directo, una referencia guarda la dirección de un objeto.
+
+s32a — las 8 primitivas:
+Java tiene ocho primitivas: byte, short, int, long, float, double, boolean y char.
+
+s32b — copia por valor:
+z copia el valor de x en ese momento; después x puede cambiar sin afectarlo.

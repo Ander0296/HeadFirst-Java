@@ -475,13 +475,54 @@ mantiene sus propios valores incluso con `playIt()` llamado solo sobre
 
 ============================================================
 
-LIBRO — Who Am I? ("¿Quién soy?") — identificar si cada frase la dice una clase, un objeto, un method o una instance variable (Ubicación pág. 191, Sesión #30) — [ ] pendiente
+LIBRO — Who Am I? ("¿Quién soy?") — identificar si cada frase la dice una clase, un objeto, un method o una instance variable (Ubicación pág. 191, Sesión #30) — [~] en curso
 Entregá en: ejercicios/lib06-who-am-i.md (archivo de arranque ya
 creado por Claude, con las 13 frases traducidas y la sección
 "MI RESPUESTA").
 Si te trabás: revisá la Sesión #23/#24, #25 y #27 (en GUIA-ARCHIVO.md).
 Resultado y corrección de Claude (se llena al revisar):
-...
+
+Intento 1 (2026-07-24):
+
+Correctas (3/13): #2 objeto, #3 clase, #5 clase.
+
+Cerca pero imprecisa (1/13): #13 respondió "variable" — el enunciado
+pide una de 4 categorías puntuales y hay una más específica que
+"variable" a secas (la misma idea del #2, pero aplicada al dato en
+vez de al objeto que lo contiene).
+
+Error sistemático (8/13): #4, #6, #7, #8, #9, #10, #11, #12 — en vez
+de elegir una de las 4 categorías del enunciado (clase, objeto,
+method, instance variable), respondió con palabras clave o sintaxis
+de Java relacionadas de refilón con cada frase (`main`, `punto y
+coma`, `metodos`, `instancias`, `new`, `condicion`, `void`). Se le
+explicó en el chat que el ejercicio pide identificar CUÁL DE LOS 4
+PERSONAJES habla en cada frase, no qué palabra de Java se asocia a
+la idea. Pistas dadas sin solución: #4 (la acción en general = el
+"sabe hacer" de la Sesión #23/24), #9 (ya tiene anotado en su
+vocabulario que "instance" = sinónimo de "object" — aplicarlo acá).
+Pendiente de revisión del usuario: reintentar #4, #6, #7, #8, #10,
+#11, #12 con esa aclaración.
+
+Intento 2 (2026-07-24): mejoró de 3 a 6 correctas claras: #2 objeto,
+#3 clase, #5 clase+objeto (completó la doble respuesta), #6 instance
+variable (corrigió desde "punto y coma"), #9 objeto (corrigió desde
+"instancias", aplicando la equivalencia instance=object), #12 clase
+(corrigió desde "void").
+
+Parcial, falta ajuste (2): #8 "instance variables" (correcto pero
+incompleto, falta la otra categoría que también vive dentro de un
+objeto); #10 "clase, instance variable" (clase correcta por `new`,
+pero "instance variable" sobra, no tiene sentido para crear objetos).
+
+Todavía no llegan (4): #4 "objeto" (sigue sin ver que "hacer cosas" es
+la acción/verbo = method, no quién la ejecuta); #7 "metodos" (mismo
+error que el #4 pero invertido: un method no "tiene" comportamiento,
+ES el comportamiento — falta identificar quién lo posee); #11 "clase"
+(una clase es un plano fijo que no cambia en runtime, no aplica);
+#13 "objeto" (RETROCESO respecto al intento 1, que tenía "variable" —
+más cerca de la respuesta que "objeto"). Pistas dadas en el chat sin
+solución completa. Pendiente de revisión del usuario: intento 3.
 
 ============================================================
 
