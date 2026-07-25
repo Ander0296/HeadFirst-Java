@@ -82,15 +82,15 @@ practicá trazar el bucle a mano, vuelta por vuelta.
 
 ## MI RESPUESTA
 
-Candidato 1:
+Candidato 1: E
 
-Candidato 2:
+Candidato 2: G
 
-Candidato 3:
+Candidato 3: H
 
-Candidato 4:
+Candidato 4: B
 
-Candidato 5:
+Candidato 5: D
 
 ---
 

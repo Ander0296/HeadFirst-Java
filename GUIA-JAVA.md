@@ -7,10 +7,10 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 214 de 1629 (14%) — reglas para nombrar variables/métodos/clases y palabras reservadas. Ver Sesión #34. Páginas salteadas pendientes: código de la clase Player (177), 201, 209 y 213.
-- Última sesión: Sesión #34
-- Última sesión de Claude: java-s07 (cubrió la #34) → la próxima es
-  java-s08. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Última página estudiada: página 220 de 1629 (14%) — la variable de referencia a objeto es un "control remoto" del objeto, nunca el objeto en sí (vive en el heap). Ver Sesión #35. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213 y 215-217.
+- Última sesión: Sesión #35
+- Última sesión de Claude: java-s07 (cubrió las Sesiones #34-#35) → la
+  próxima es java-s08. Contador distinto al de arriba; el /rename sale de ACÁ.
 - Ejercicios pendientes: 4 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho), "¿legal o no?" (lib07). Estados completos, fechas y repasos: ver EJERCICIOS.md.
 - IMPORTANTE — spoiler pendiente: las páginas 197-199 (soluciones oficiales de Pool Puzzle "Echo" y de "Who Am I?") ya fueron leídas por Claude pero NO explicadas al usuario a propósito, para no arruinar esos dos ejercicios en curso. Retomarlas recién cuando el usuario termine ambos.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
@@ -100,6 +100,7 @@ Ejercicios: ver EJERCICIOS.md.
 | spillage                                 | derrame | Lo que pasaría si se intentara meter un valor de un tipo grande en una variable de un tipo más chico. El compilador lo previene mirando los TIPOS, no los valores: `int x = 24; byte b = x;` no compila. |
 | literal (literal value)                  | literal (valor literal) | Valor escrito directamente en el código, no calculado ni tomado de otra variable: el `12` de `x = 12;`, el `true` de `isGood = true;`, el `'j'` de `char initial = 'j';`. |
 | assignment                               | asignación | Acto de poner un valor dentro de una variable con `=`. Es SEPARABLE de la declaración: se puede declarar primero (`boolean listo;`) y asignar después (`listo = true;`). |
+| dot operator (.)                         | operador punto (`.`) | "Usá lo de antes del punto para conseguir lo de después del punto": `myDog.bark();` = con el objeto referenciado por `myDog`, invocá `bark()`. Como apretar un botón del control remoto de ESE objeto. |
 
 ============================================================
 (SESIONES — desde la #30 en formato CORTO: 5-8 bullets, sin bloques
@@ -158,6 +159,16 @@ SESIÓN #34 — 2026-07-25 — Reglas para nombrar y palabras reservadas (pág. 
 - Ejercicios de la tanda: LIBRO "¿legal o no?" (lib07, pág. 210) — pendiente.
 - Dudas: invirtió la nota del `_` (creyó que fallaba `_total`) — corregido: falla `int _ = 7;` porque el `_` SOLO es palabra reservada, igual que `int int = 5;`. La regla del primer carácter no cambió.
 - PRÓXIMO PASO: página 215 (y quedaron salteadas la 209 y la 213).
+
+SESIÓN #35 — 2026-07-25 — Referencias: el control remoto del objeto (pág. 214 resto, 218-220, 14%)
+- Pág. 214 (resto, tras la tabla de reservadas): "Controlling your Dog object" — analogía CLAVE del capítulo: una variable de referencia a objeto es como un CONTROL REMOTO del objeto, no el objeto en sí. `d.bark()` es apretar el botón `bark` de ESE control remoto.
+- Pág. 218: no existe "variable de objeto", solo variable de REFERENCIA a objeto. Sus bits representan una MANERA de acceder al objeto (como un puntero/dirección que administra sola la JVM), nunca el objeto en sí. Los objetos viven SOLO en el heap (Sesión #27/#31).
+- Pág. 218: operador punto (dot operator) formalizado: "usá lo de antes del punto para conseguir lo de después del punto" — `myDog.bark();` = con `myDog`, invocá `bark()`.
+- Pág. 219-220: retoma la analogía del vaso (Sesión #32): el vaso `reference` tiene el mismo formato que `byte`/`short`/`int`/`long`, pero adentro guarda un control remoto, no un número. Frase clave del libro en negrita: "el objeto Dog en sí NO va a la variable".
+- Ejercicios de la tanda: ninguno nuevo (tramo puramente conceptual).
+- Salteadas: 215, 216 y 217 (se suman a 177, 201, 209 y 213 pendientes).
+- Dudas: pregunta de comprensión respondida MAL — dijo que `Auto a = new Auto();` guarda el objeto Auto completo en `a`. Corregido: `a` guarda la referencia (el control remoto); el objeto vive solo en el heap. La segunda pregunta (qué hace el operador punto) SÍ salió bien.
+- PRÓXIMO PASO: página 221.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

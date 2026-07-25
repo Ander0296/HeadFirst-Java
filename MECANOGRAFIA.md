@@ -136,3 +136,9 @@ Un nombre empieza con letra, guion bajo o signo peso, nunca con un número.
 
 s34b — palabras reservadas:
 No podés llamar a tu variable public, static, void, int ni boolean: son reservadas.
+
+s35a — la referencia como control remoto:
+Una variable de referencia es como un control remoto: no es el objeto, lo maneja.
+
+s35b — el objeto nunca va a la variable:
+El objeto nunca entra en la variable; solo entra la manera de llegar a él.

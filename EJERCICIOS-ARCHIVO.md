@@ -907,7 +907,10 @@ Entregá en: ejercicios/repasos/lib01-r2.md (desde cero, sin mirar el original n
 Comparación de Claude (se llena al revisar):
 ...
 
-REPASO — EJERCICIO Mixed Messages (pág. 127-129) (r1) — programado: 2026-07-23 — [ ] pendiente
-Entregá en: ejercicios/repasos/lib02-r1.md (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
-Comparación de Claude (se llena al revisar):
-...
+REPASO — LIBRO Mixed Messages (pág. 127-129) (r1) — programado: 2026-07-23 — [x] completado (2026-07-25)
+Entregado en: ejercicios/repasos/lib02-r1.md (desde cero, sin mirar el original)
+
+Comparación de Claude: 5 de 5 candidatos correctos, igual que el intento
+original (2026-07-19, también 5/5). Candidato 1→E, 2→G, 3→H, 4→B, 5→D,
+verificado con traza propia vuelta por vuelta. Sin errores nuevos ni
+repetidos: repaso limpio. Se agenda r2 para 2026-08-08.

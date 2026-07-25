@@ -65,9 +65,6 @@ Si te trabás: Sesión #12 y #13 (while, if, operadores de comparación)
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
 
-REPASO — LIBRO Mixed Messages (pág. 127-129) (r1) — programado: 2026-07-23 — [ ] pendiente ← VENCIDO
-Arranque: ejercicios/repasos/lib02-r1.md
-
 REPASO — EJERCICIO BottleSong (pág. 111) (r1) — programado: 2026-07-25 — [ ] pendiente
 Arranque: ejercicios/repasos/ej02-bottlesong-r1/BottleSong.java
 
@@ -102,6 +99,9 @@ Arranque: ejercicios/repasos/ej01-doobee-r2/DooBee.java
 
 REPASO — EJERCICIO Code Magnets: Shuffle1 (pág. 121-122) (r2) — programado: 2026-08-06 — [ ] pendiente
 Arranque: ejercicios/repasos/ej03-shuffle1-r2/Shuffle1.java
+
+REPASO — LIBRO Mixed Messages (pág. 127-129) (r2) — programado: 2026-08-08 — [ ] pendiente
+Arranque: ejercicios/repasos/lib02-r2.md
 
 # ============================================================
 # CONCEPTOS DOMINADOS (entran al graduarse un ejercicio con r3 bien)
