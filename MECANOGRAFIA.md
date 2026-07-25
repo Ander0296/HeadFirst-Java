@@ -124,3 +124,9 @@ Java tiene ocho primitivas: byte, short, int, long, float, double, boolean y cha
 
 s32b — copia por valor:
 z copia el valor de x en ese momento; después x puede cambiar sin afectarlo.
+
+s33a — el compilador mira el tipo:
+El compilador mira el tipo, no el valor: byte b = x; no compila.
+
+s33b — declarar y asignar son dos actos:
+boolean isLearning; declara el vaso vacío, isLearning = true; le pone el valor.

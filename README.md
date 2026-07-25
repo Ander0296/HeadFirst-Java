@@ -214,11 +214,14 @@ Cerramos esta sesión para arrancar una limpia. Sin resumen largo:
    creado.
 2. Guardá en Engram (project "HeadFirst-Java") la última página vista y
    qué sigue.
-3. Decime en UNA línea con qué arranca la próxima sesión.
+3. TERMINÁ con estas dos líneas exactas, para que las copie sin pensar:
+   - el comando listo: /rename java-sNN  (el número de la sesión que
+     acabamos de cerrar + 1)
+   - y en UNA línea con qué arranca esa sesión.
 ```
 
-Después: Ctrl+D → armá la tanda nueva en paginas/ → `claude` →
-`/rename java-sNN` (número siguiente) → MENSAJE 2 → MENSAJE 3.
+Después: Ctrl+D → armá la tanda nueva en paginas/ → `claude` → pegás el
+`/rename java-sNN` que te di → MENSAJE 2 → MENSAJE 3.
 
 --- MENSAJE 2 — arranque del día (o de una sesión nueva) ---
 

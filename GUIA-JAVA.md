@@ -7,8 +7,8 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 206 de 1629 (13%) — las 8 primitivas de Java (byte/short/int/long/float/double/boolean/char), la analogía del vaso (cup), y declaraciones con asignación. Faltan por ver: el código de la clase Player (se salteó la pág. 177) y la página 201 (también salteada). Ver Sesión #32.
-- Última sesión: Sesión #32
+- Última página estudiada: página 208 de 1629 (14%) — spillage (derrame): el compilador chequea el TIPO, no el valor, y las 3 formas de asignar. Faltan por ver: el código de la clase Player (se salteó la pág. 177) y la página 201 (también salteada). Ver Sesión #33.
+- Última sesión: Sesión #33
 - Ejercicios pendientes: 3 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho). Estados completos, fechas y repasos: ver EJERCICIOS.md (fuente de verdad; esta línea solo lista lo pendiente).
 - IMPORTANTE — spoiler pendiente: las páginas 197-199 (soluciones oficiales de Pool Puzzle "Echo" y de "Who Am I?") ya fueron leídas por Claude pero NO explicadas al usuario a propósito, para no arruinar esos dos ejercicios en curso. Retomarlas recién cuando el usuario termine ambos.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
@@ -92,6 +92,9 @@ Ejercicios: ver EJERCICIOS.md.
 | char                                     | char (carácter) | Primitiva de 16 bits que guarda UN SOLO carácter, con comillas SIMPLES (`'f'`) — distinto de `String`, que usa comillas dobles y guarda una secuencia de caracteres. |
 | signed (numeric types)                   | con signo | Que un tipo numérico admite valores negativos y positivos (todos los enteros y decimales de Java lo son). |
 | literal suffix (L, f)                    | sufijo de literal (`L`, `f`) | Letra al final de un número literal para decirle al compilador de qué tipo es exactamente, ej. `3456789L` (long) o `32.5f` (float), evitando que lo confunda con `int` o `double`. Puede ir en mayúscula o minúscula. |
+| spillage                                 | derrame | Lo que pasaría si se intentara meter un valor de un tipo grande en una variable de un tipo más chico. El compilador lo previene mirando los TIPOS, no los valores: `int x = 24; byte b = x;` no compila. |
+| literal (literal value)                  | literal (valor literal) | Valor escrito directamente en el código, no calculado ni tomado de otra variable: el `12` de `x = 12;`, el `true` de `isGood = true;`, el `'j'` de `char initial = 'j';`. |
+| assignment                               | asignación | Acto de poner un valor dentro de una variable con `=`. Es SEPARABLE de la declaración: se puede declarar primero (`boolean listo;`) y asignar después (`listo = true;`). |
 
 ============================================================
 (SESIONES — desde la #30 en formato CORTO: 5-8 bullets, sin bloques
@@ -126,6 +129,18 @@ SESIÓN #32 — 2026-07-24 — Las 8 primitivas de Java y la analogía del vaso 
 - Se saltó la página 201 (pendiente, junto con la pág. 177 de la clase Player).
 - Ejercicios de la tanda: ninguno.
 - PRÓXIMO PASO: seguir el Capítulo 3 desde la página 207.
+
+SESIÓN #33 — 2026-07-25 — Spillage: el compilador mira el tipo, no el valor (pág. 207-208, 14%)
+- Página 207 es solo la foto del té desbordando un vaso chico: refuerzo visual de la analogía de la pág. 206, sin contenido nuevo.
+- Concepto central: **spillage** (derrame). `int x = 24; byte b = x;` NO compila, aunque 24 entre de sobra en un byte.
+- El porqué: el compilador razona sobre TIPOS declarados, no sobre valores. Ve int (32 bits) → byte (8 bits) y frena por la POSIBILIDAD de derrame. Conecta con compile-time vs. runtime (Sesión #08/#11).
+- Nota del profe: `byte b = 24;` SÍ compila (literal, el compilador lo verifica); `byte b = x;` no (variable, solo ve el tipo). Para forzarlo existe el cast `(byte) x` — el libro lo ve más adelante, todavía no usarlo.
+- Las 3 formas de asignar: literal (`x = 12;`), otra variable (`x = y;`), expresión (`x = y + 43;`).
+- Declarar y asignar son actos SEPARABLES: `boolean isLearning;` crea el vaso vacío, `isLearning = true;` le pone el contenido.
+- Erratum del libro: en la tabla de la pág. 208 el código dice `isLearning` y la descripción de al lado dice `isCrazy`. No cambia el concepto.
+- Ejercicios de la tanda: ninguno todavía — al pie de la pág. 208 arranca un "Sharpen your pencil" cuyo enunciado está en la página siguiente.
+- Dudas: ninguna.
+- PRÓXIMO PASO: página 209, el "Sharpen your pencil" que quedó abierto.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
