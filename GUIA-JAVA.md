@@ -9,6 +9,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 - Última página estudiada: página 208 de 1629 (14%) — spillage (derrame): el compilador chequea el TIPO, no el valor, y las 3 formas de asignar. Faltan por ver: el código de la clase Player (se salteó la pág. 177) y la página 201 (también salteada). Ver Sesión #33.
 - Última sesión: Sesión #33
+- Última sesión de Claude: java-s06 (cubrió la Sesión #33; java-s05
+  había cubierto las #30-#32). OJO: este contador NO es el mismo que
+  "Sesión #NN" — ese cuenta tandas del libro, este cuenta sesiones de
+  Claude, y una sesión puede cubrir 2-3 tandas. El /rename sale de ACÁ:
+  la próxima es java-s07.
 - Ejercicios pendientes: 3 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho). Estados completos, fechas y repasos: ver EJERCICIOS.md (fuente de verdad; esta línea solo lista lo pendiente).
 - IMPORTANTE — spoiler pendiente: las páginas 197-199 (soluciones oficiales de Pool Puzzle "Echo" y de "Who Am I?") ya fueron leídas por Claude pero NO explicadas al usuario a propósito, para no arruinar esos dos ejercicios en curso. Retomarlas recién cuando el usuario termine ambos.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
