@@ -72,6 +72,37 @@ Reglas que salen de eso:
    la sesión: lo referencia ("el ejemplo de la página 70").
 6. COMPRIMIR, NO TRANSCRIBIR (ver flujo por tanda, paso 2).
 
+### El presupuesto NO recorta el aprendizaje — REGLA PERMANENTE
+
+El objetivo del proyecto es el mejor conocimiento posible. El
+presupuesto de contexto existe para que las respuestas sean RÁPIDAS y la
+explicación NÍTIDA — no para explicar menos. Se recorta el desperdicio,
+nunca la comprensión. Ante la duda entre ahorrar y que el usuario
+entienda, gana que entienda.
+
+NO cuenta contra el presupuesto (gastar acá es exactamente lo que se
+busca):
+- Las dudas del usuario: se responden con toda la profundidad que hagan
+  falta, las veces que hagan falta.
+- Volver a explicar un concepto de otra forma cuando la primera no entró.
+- Frenar a explicar una base que falta antes de seguir.
+- Bajar el tamaño de la tanda porque el tema es denso: menos páginas con
+  más profundidad es MEJOR, no peor. El tope de la tabla es un techo,
+  no una cuota a cumplir.
+- Ejemplos propios, analogías, contraejemplos, y las traducciones al
+  lado de cada cita en inglés (esas no se negocian nunca).
+
+SÍ se recorta (es desperdicio puro, no enseña nada):
+- Transcribir el libro en vez de explicarlo.
+- Re-mostrar páginas o código ya mostrados en la sesión.
+- Reescribir archivos completos para agregar dos líneas.
+- Arrastrar material ya explicado en el contexto.
+
+La razón de fondo de cortar sesiones tampoco es el dinero: un contexto
+cargado de material viejo DEGRADA la calidad de las respuestas (es la
+causa de "Claude empieza a olvidar cosas dichas antes"). Se corta para
+que el profe piense mejor, no para que hable menos.
+
 ### Principio de priorización (Pareto 80/20) — REGLA PERMANENTE
 
 - En cada tema nuevo, priorizar el 20% de conceptos que aportan el 80%
