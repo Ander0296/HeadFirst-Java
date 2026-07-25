@@ -10,8 +10,12 @@ final: escribir código bien estructurado y conseguir su primer empleo
 como desarrollador.
 
 Proyecto hermano: UML-Java (mismo sistema de estudio, libro "UML
-Distilled" de Fowler). Lo aprendido en un proyecto puede referenciarse
-en el otro.
+Distilled" de Fowler). EN PAUSA desde 2026-07-24 por decisión del
+usuario: se retoma DE CERO al terminar este libro, porque los diagramas
+de clases necesitan herencia, interfaces y composición. Mientras esté en
+pausa, Claude NO propone diagramas ni ejercicios de UML acá; sí puede
+mencionar en UNA línea que un tema reaparecerá en el diseño (semilla de
+la Fase 2).
 
 ### Nivel del usuario (IMPORTANTE)
 
@@ -32,6 +36,41 @@ en el otro.
 - Explicar paso a paso, con analogías de la vida real cuando ayuden.
 - Todo en español. Términos técnicos clave también en inglés entre
   paréntesis (los necesita para entrevistas laborales).
+
+### Presupuesto de contexto — REGLA PERMANENTE
+
+Lo que hace lenta y costosa una sesión NO son los archivos de memoria:
+es el material acumulado en el contexto, que se re-envía completo en
+CADA turno posterior. Costo aproximado por página del libro:
+
+- IMAGEN (pantallazo de Kindle): ~1.500-2.500 tokens. Caro, y queda
+  pesando el resto de la sesión aunque ya esté explicada.
+- TEXTO (copiado a paginas/ como .md, o pegado en el chat):
+  ~400-800 tokens. Hasta 3-4 veces más barato, y sin ambigüedad de
+  lectura.
+
+Reglas que salen de eso:
+
+1. SI LA PÁGINA TIENE TEXTO SELECCIONABLE EN KINDLE, VA COMO TEXTO
+   (paginas/tanda-NN.md, con una línea `## PÁGINA X` antes de cada
+   pedazo para poder anunciarla). El pantallazo se reserva para lo que
+   SOLO existe como imagen: diagramas, tablas dibujadas, Code Magnets,
+   crucigramas, viñetas con dibujos.
+2. Tamaño de tanda SEGÚN FORMATO (no hay un número único):
+   - imágenes: 3-5 pantallazos
+   - texto: 6-10 páginas (5-8 si la tanda trae mucho código)
+   - tanda MIXTA: si incluye una sola imagen, cuenta como tanda de
+     imágenes.
+3. UNA tanda de IMÁGENES por sesión de Claude. Al terminar de
+   explicarla, Claude AVISA al usuario que conviene cambiar de sesión
+   antes de la siguiente tanda (MENSAJE 1 → Ctrl+D → sesión nueva).
+   Con tandas de TEXTO se pueden hacer 2-3 antes de cambiar.
+4. Claude NO re-lee con Read archivos que ya están en el contexto.
+   Este archivo (CLAUDE.md) lo carga Claude Code solo al abrir la
+   sesión: leerlo otra vez lo duplica y no aporta nada.
+5. Claude NO re-muestra páginas ya explicadas ni código ya mostrado en
+   la sesión: lo referencia ("el ejemplo de la página 70").
+6. COMPRIMIR, NO TRANSCRIBIR (ver flujo por tanda, paso 2).
 
 ### Principio de priorización (Pareto 80/20) — REGLA PERMANENTE
 
@@ -140,13 +179,30 @@ Registro DOBLE + archivo de arranque creado por Claude:
   como cualquier ejercicio del profe (con ruta exacta + mensaje ya
   relleno). Resolver lo mismo en un contexto nuevo fija más que
   repetir el ejercicio idéntico.
-- Si EJERCICIOS.md todavía no tiene la sección REPASOS, Claude la crea
-  al final del archivo, con este formato por entrada:
+- Los formatos de entrada (ejercicio del profe, del libro, repaso) están
+  al principio de EJERCICIOS.md: se copian de ahí, no se duplican acá.
 
-  REPASO — EJERCICIO #NN (r1) — programado: AAAA-MM-DD — [ ] pendiente
-  Entregá en: ejercicios/repasos/ejNN-r1/ (desde cero, sin mirar el original)
-  Comparación de Claude (se llena al revisar):
-  ...
+### EJERCICIOS.md solo guarda lo VIVO — REGLA PERMANENTE
+
+EJERCICIOS.md se lee ENTERO al inicio de cada sesión, así que solo
+puede contener estado accionable:
+
+- VIVO (se queda): ejercicios [ ] pendientes y [~] en curso, repasos
+  programados no cumplidos (ORDENADOS POR FECHA, el más viejo arriba),
+  y la lista CONCEPTOS DOMINADOS (una línea por concepto, sin historia).
+- CERRADO (se va a EJERCICIOS-ARCHIVO.md): ejercicios [x] completados
+  con su corrección completa, y repasos ya cumplidos. Ese archivo viaja
+  por git y NO se lee al inicio: solo consulta puntual para comparar
+  contra un repaso o para un RE-ESTUDIO.
+- Al completarse un ejercicio, su entrada + corrección se MUEVEN a
+  EJERCICIOS-ARCHIVO.md en el mismo movimiento; en EJERCICIOS.md queda
+  solo su repaso programado.
+- TOPE DE CORRECCIÓN escrita en EJERCICIOS.md: 3 líneas (qué estuvo
+  bien, qué mal, por qué). El detalle largo va al CHAT, que es donde el
+  usuario lo lee. Escribirlo en el archivo lo hace pagar de nuevo en
+  cada sesión futura.
+- Si EJERCICIOS.md pasa de ~150 líneas, Claude archiva en el cierre del
+  día sin preguntar.
 
 ### Mecanografía (ttyper) — REGLA PERMANENTE
 
@@ -162,17 +218,18 @@ que estudia en este libro: repaso doble, dedos y memoria a la vez.
   frase completa de una vez — más largo aburre y no entra en
   pantalla). Sintaxis Java incluida cuando el tema es código:
   llaves, paréntesis, corchetes también hay que tipearlos rápido.
-- Volcado: CADA frase va en SU PROPIO archivo (ttyper corre todo el
-  archivo como UN solo test): ~/.config/ttyper/texts/
+- Volcado APPEND-ONLY: CADA frase va en SU PROPIO archivo (ttyper corre
+  todo el archivo como UN solo test): ~/.config/ttyper/texts/
   headfirst-java-sNN.txt (si la sesión tiene dos frases:
-  -sNNa.txt y -sNNb.txt).
+  -sNNa.txt y -sNNb.txt). Claude crea SOLO los archivos de las frases
+  NUEVAS y NUNCA reescribe ni vuelve a generar los anteriores.
 - FORMATO OBLIGATORIO de esos archivos: UNA palabra/token por línea
   (ttyper trata cada línea como palabra indivisible y el espacio
   salta a la siguiente palabra). En MECANOGRAFIA.md la frase va
   natural; aplanada SOLO en los archivos de ttyper.
-- Si los archivos de ttyper no existen o quedaron desactualizados
-  (PC nuevo, git pull), Claude borra los del proyecto y los regenera
-  todos desde MECANOGRAFIA.md.
+- Regeneración completa desde MECANOGRAFIA.md SOLO si el usuario la
+  pide (PC nuevo, o los archivos se perdieron). Nunca como parte del
+  cierre de tanda: reescribir todo cada vez cuesta más en cada sesión.
 - Las frases no se editan después (son material de repaso). Si un
   concepto cambió o se corrigió, se agrega una frase nueva.
 
@@ -221,9 +278,10 @@ tarjetas buenas fijan más que un mazo exhaustivo.
 - Cuando una fase termina, Claude mueve la marca (⬅ FASE ACTUAL) en
   RUTA.md y lo anota en Engram.
 
-### Flujo por cada tanda de páginas (3-8 pantallazos en paginas/)
+### Flujo por cada tanda de páginas (tamaño según formato — ver Presupuesto de contexto)
 
-1. Leer las imágenes que el usuario indique.
+1. Leer el material de la tanda: los .md de paginas/ si vino como
+   texto, o los pantallazos que el usuario indique.
 2. "Traducción explicada" PÁGINA POR PÁGINA: anunciar SIEMPRE qué
    página se está explicando — "PÁGINA 70:" usando el número visible
    en el pantallazo (número de página o Ubicación de Kindle), o
@@ -233,8 +291,18 @@ tarjetas buenas fijan más que un mazo exhaustivo.
    propias, reordenado para un novato, sin saltarse ningún concepto.
    NO es traducción literal palabra por palabra: es una explicación
    completa con ejemplos propios.
-3. Mostrar el código clave EN EL CHAT con comentario // en CADA línea
-   relevante. Si aparece sintaxis o una base no vista, FRENAR y
+   COMPRIMIR, NO TRANSCRIBIR: Head First repite la misma idea a
+   propósito, con chistes, viñetas, recaps y "there are no dumb
+   questions" (no hay preguntas tontas). Claude explica cada concepto
+   UNA vez y bien, y cuando una página repite algo ya explicado lo dice
+   en una línea ("esta página vuelve sobre lo mismo con otro ejemplo").
+   El libro sigue estando ahí para leerlo: el valor que agrega Claude es
+   entenderlo, no reescribirlo.
+3. Mostrar el código clave EN EL CHAT con comentario // en las líneas
+   que ENSEÑAN algo: sintaxis nueva, una decisión, un lugar donde se
+   suele equivocar. No comentar lo obvio ni lo ya explicado en sesiones
+   anteriores (`public static void main` no necesita comentario en la
+   sesión #30). Si aparece sintaxis o una base no vista, FRENAR y
    explicarla primero.
 4. Si la tanda trae ejercicios del libro: avisar cuáles son y dejar
    que el usuario los intente a mano (o registrarlos como pendientes),
@@ -246,16 +314,18 @@ tarjetas buenas fijan más que un mazo exhaustivo.
    referencia al final de la guía) y sumar términos nuevos a la tabla
    de vocabulario.
 7. Agregar 1-2 frases CORTAS de la sesión a MECANOGRAFIA.md y volcar
-   cada una aplanada a su propio archivo de ttyper (ver regla de
-   mecanografía).
-8. Agregar las tarjetas 80/20 de la sesión a ANKI.txt (ver regla de
-   tarjetas Anki: autocontenidas, tab, 2-5 por tanda).
+   cada frase NUEVA aplanada a su propio archivo de ttyper (append-only:
+   no tocar los anteriores).
+8. Agregar (al final, sin reescribir el archivo) las tarjetas 80/20 de
+   la sesión a ANKI.txt (autocontenidas, tab, 2-5 por tanda).
 9. Si el tema lo amerita, agregar ejercicios a EJERCICIOS.md con su
    formato, siempre con la referencia "Si te trabás: revisá la Sesión
    #Y de GUIA-JAVA.md" y aplicando la regla de cierre (ruta + mensaje
    relleno).
 10. Guardar en Engram los conceptos clave, decisiones y última página
     vista.
+11. Si la tanda fue de IMÁGENES, avisar al usuario: "tanda cerrada —
+    conviene cambiar de sesión antes de la próxima (MENSAJE 1)".
 
 ### Reglas de trabajo
 
@@ -270,9 +340,9 @@ tarjetas buenas fijan más que un mazo exhaustivo.
   explican con calma (y traducidos): entender los errores del
   compilador es parte del método de este libro.
 - EXCEPCIÓN explícita: Claude SÍ puede editar directamente GUIA-JAVA.md,
-  EJERCICIOS.md y RUTA.md (son la memoria y el plan de estudio, y los
-  mantiene Claude). Si no existen, Claude los crea con un formato
-  limpio y reutilizable.
+  EJERCICIOS.md, EJERCICIOS-ARCHIVO.md, GUIA-ARCHIVO.md y RUTA.md (son
+  la memoria y el plan de estudio, y los mantiene Claude). Si no
+  existen, Claude los crea con un formato limpio y reutilizable.
 - Claude NO ejecuta bash salvo pedido explícito del usuario.
 - El usuario puede interrumpir con dudas en cualquier momento: se
   responden con calma y detalle antes de seguir.
@@ -280,10 +350,9 @@ tarjetas buenas fijan más que un mazo exhaustivo.
   moderna en el Java actual, decirlo y anotarlo en la guía como
   "NOTA DEL PROFE". Lo mismo para buenas prácticas o uso real en el
   trabajo que el libro no mencione.
-- Puente con UML: cuando un ejercicio quede terminado y tenga 2 o más
-  clases relacionadas, proponer (opcional) que el usuario dibuje su
-  diagrama de clases en diagramas/ para practicar lo del proyecto
-  UML-Java. Claude revisa el .puml pero no lo escribe.
+- Puente con UML: SUSPENDIDO mientras UML-Java esté en pausa. No
+  proponer diagramas de clases. Se reactiva cuando el usuario retome
+  ese proyecto (al terminar este libro).
 
 ### Estructura del proyecto
 
@@ -292,9 +361,15 @@ tarjetas buenas fijan más que un mazo exhaustivo.
 - GUIA-ARCHIVO.md → sesiones históricas #01-#29 en formato largo.
   NO se lee al inicio de sesión: solo consulta puntual para
   RE-ESTUDIO o si el usuario pide releer una sesión vieja
-- EJERCICIOS.md → ejercicios y repasos con estado (mantiene Claude)
-- paginas/ → pantallazos del libro (input del usuario, NO subir a git:
-  el repo es público y el libro tiene copyright)
+- EJERCICIOS.md → SOLO lo vivo: pendientes, en curso, repasos
+  programados y conceptos dominados (mantiene Claude). Se lee entero
+  cada sesión, así que va corto
+- EJERCICIOS-ARCHIVO.md → ejercicios completados y repasos cumplidos con
+  su corrección completa. NO se lee al inicio: solo consulta puntual
+- paginas/ → material del libro de la tanda actual: .md con el texto
+  copiado (formato preferido) o pantallazos cuando no hay texto. Input
+  del usuario, NO subir a git: el repo es público y el libro tiene
+  copyright
 - ejercicios/ → código Java del usuario, una carpeta por ejercicio
 - ejercicios/repasos/ → repasos del usuario (ejNN-rX/), desde cero
 - diagramas/ → diagramas PlantUML (.puml) del usuario para revisión
@@ -307,11 +382,16 @@ tarjetas buenas fijan más que un mazo exhaustivo.
 
 - Engram: el project es "HeadFirst-Java" (basename de esta carpeta,
   NO inventar otro nombre).
-- Al inicio de cada sesión nueva: buscar en Engram el progreso previo
-  y leer SOLO el INICIO RÁPIDO de GUIA-JAVA.md (primeras ~40 líneas,
-  con Read limit) + EJERCICIOS.md antes de avanzar, incluyendo la
-  revisión de repasos vencidos. NUNCA leer GUIA-JAVA.md completa ni
-  GUIA-ARCHIVO.md al inicio — regla de ahorro de contexto/créditos.
+- Al inicio de cada sesión nueva, leer SOLO esto y en este orden:
+  1. Engram (dónde quedamos).
+  2. El INICIO RÁPIDO de GUIA-JAVA.md (primeras ~15 líneas, con Read
+     limit — NO la tabla de vocabulario que viene después: esa se
+     consulta puntualmente con Grep cuando reaparece un término).
+  3. EJERCICIOS.md completo (es corto por diseño: solo lo vivo),
+     revisando qué repasos están vencidos.
+  NUNCA leer al inicio: GUIA-JAVA.md completa, GUIA-ARCHIVO.md ni
+  EJERCICIOS-ARCHIVO.md. Y NUNCA leer CLAUDE.md con Read: Claude Code
+  ya lo carga al abrir la sesión, y leerlo lo duplica.
 - Al final de cada sesión: resumen de lo aprendido + guardar en Engram.
 - El usuario trabaja desde MÁS DE UN PC: GUIA-JAVA.md y EJERCICIOS.md
   (que viajan por git) son la FUENTE DE VERDAD del progreso; la

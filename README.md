@@ -6,7 +6,9 @@ los ejercicios (EJERCICIOS.md). Yo escribo TODO el código Java a mano,
 lo compilo y lo ejecuto yo mismo.
 
 Proyecto hermano: UML-Java (mismo sistema, libro "UML Distilled").
-Lo que aprendo acá alimenta ese proyecto y viceversa.
+EN PAUSA hasta que termine este libro: los diagramas de clases necesitan
+herencia, interfaces y composición, que todavía no vi en Java. Lo
+retomo de cero cuando cierre Head First Java.
 
 ## Los dos lugares donde se escriben cosas
 
@@ -16,7 +18,9 @@ Cada paso dice dónde va. Los MENSAJES están al final del archivo.
 
 ## Carpetas
 
-- paginas/ → acá dejo la tanda actual (3-8 pantallazos por vez)
+- paginas/ → acá dejo la tanda actual: el TEXTO copiado del libro en un
+  .md (formato preferido, ver "Cómo armar una tanda") o pantallazos
+  cuando la página no se puede copiar
 - paginas/leidas/ → Claude archiva acá los ya explicados (lo hace él)
 - ejercicios/ → mi código Java, una carpeta por ejercicio. Claude crea
   el ARCHIVO DE ARRANQUE (enunciado + prompt de entrega adentro, solo
@@ -25,7 +29,11 @@ Cada paso dice dónde va. Los MENSAJES están al final del archivo.
   (se hacen DESDE CERO, sin mirar la solución original)
 - diagramas/ → mis diagramas .puml (puente con el proyecto UML-Java)
 - GUIA-JAVA.md → la guía (la escribe Claude)
-- EJERCICIOS.md → ejercicios y repasos (los escribe Claude)
+- EJERCICIOS.md → SOLO lo vivo: pendientes, repasos programados y
+  conceptos dominados (lo escribe Claude). Se lee entero cada sesión,
+  así que se mantiene corto
+- EJERCICIOS-ARCHIVO.md → ejercicios ya completados con su corrección
+  completa (lo escribe Claude). No se lee al inicio: solo consulta
 - RUTA.md → el plan por fases: libro → consolidación → herramientas
   reales → portafolio y empleo (lo mantiene Claude)
 - MECANOGRAFIA.md → frases de tipeo por sesión (las anota Claude y
@@ -51,25 +59,41 @@ Tarjetas Anki (ANKI.txt):
 - Rutina: después de cada git pull con tarjetas nuevas, re-importo.
 
 # ============================================================
-# PRIMERA VEZ EN LA VIDA (sesión java-s01)
+# CÓMO ARMAR UNA TANDA (esto define si la sesión vuela o se arrastra)
 # ============================================================
 
-1. [TERMINAL] cd ~/Proyectos/HeadFirst-Java
-2. [TERMINAL] mkdir -p paginas/leidas ejercicios diagramas
-3. [TERMINAL] pasá la primera tanda (3-8 pantallazos) a paginas/
-4. [TERMINAL] claude
-5. [CLAUDE] /rename java-s01
-6. [CLAUDE] /mcp → engram tiene que decir "connected"
-7. [CLAUDE] pegá el MENSAJE 1
-8. [CLAUDE] cuando responda "listo", pegá el MENSAJE 3
-   (la primera vez pide permiso para mover imágenes → aceptá)
-9. ¿Querés seguir estudiando? → pasá la siguiente tanda de 3-8 a
-   paginas/ (desde el explorador, sin cerrar Claude) y pegá el
-   MENSAJE 3 otra vez. Repetí las veces que quieras.
-10. [CLAUDE] al terminar el día, pegá el MENSAJE 5
-11. [CLAUDE] salí con Ctrl+D
-12. [TERMINAL] engram search "tema de hoy" --project HeadFirst-Java
-    → si aparece algo, se guardó bien. Fin del día.
+Una tanda es el pedazo de libro que le paso a Claude de una vez.
+Lo que hace lenta y cara una sesión es el material acumulado en el
+contexto: TODO lo que le pasé antes se le vuelve a enviar en cada
+respuesta que escribe. Por eso el tamaño de la tanda depende del
+FORMATO en que le paso las páginas.
+
+REGLA MADRE: si la página tiene texto que puedo seleccionar y copiar
+en Kindle, va como TEXTO. Un pantallazo cuesta 3 o 4 veces más que la
+misma página en texto, y encima Claude lo lee con menos precisión.
+
+| Formato de la tanda            | Tamaño       | Tandas por sesión |
+| ------------------------------ | ------------ | ----------------- |
+| TEXTO (copiado a paginas/*.md) | 6-10 páginas | 2-3               |
+| TEXTO con mucho código         | 5-8 páginas  | 2                 |
+| IMÁGENES (pantallazos)         | 3-5 imágenes | 1                 |
+| MIXTA (aunque sea 1 imagen)    | como imágenes| 1                 |
+
+Cómo paso una tanda de TEXTO (lo preferido):
+- Selecciono el texto en Kindle, lo copio y lo pego en un archivo
+  nuevo: paginas/tanda-01.md (después tanda-02.md, etc.).
+- Antes de cada pedazo pongo una línea con la referencia:
+  `## PÁGINA 207` (o la Ubicación de Kindle). Con eso Claude puede
+  anunciar "PÁGINA 207:" y yo sigo el libro con la vista.
+- Si en esas páginas hay una figura, un Code Magnets, un crucigrama o
+  una viñeta con dibujos que NO se puede copiar, agrego ESE pantallazo
+  suelto y el resto va en texto. Eso ya hace la tanda mixta: una sola
+  tanda en esa sesión.
+
+Cómo paso una tanda de IMÁGENES (solo cuando no hay texto copiable):
+- Dejo 3-5 pantallazos en paginas/ y listo. Después de esa tanda
+  cambio de sesión (MENSAJE 1): las imágenes ya explicadas no tienen
+  por qué seguir pesando el resto del día.
 
 # ============================================================
 # CADA DÍA DE ESTUDIO (java-s02, s03, ...)
@@ -78,9 +102,9 @@ Tarjetas Anki (ANKI.txt):
 1. [TERMINAL] cd ~/Proyectos/HeadFirst-Java
 2. [TERMINAL] git pull ← traé lo último ANTES de tocar nada
    (clave si usás más de un PC; con uno solo no hace daño)
-3. [TERMINAL] pasá la primera tanda (3-8 pantallazos) a paginas/
+3. [TERMINAL] armá la tanda en paginas/ (ver "Cómo armar una tanda")
 4. [TERMINAL] claude
-5. [CLAUDE] /rename java-sNN ← el número que sigue (s02, s03...)
+5. [CLAUDE] /rename java-sNN ← el número que sigue (s31, s32...)
 6. [CLAUDE] /mcp → engram "connected"
 7. [CLAUDE] pegá el MENSAJE 2 → te dice dónde quedamos, qué
    ejercicios tenés pendientes y si hay repasos vencidos
@@ -88,9 +112,12 @@ Tarjetas Anki (ANKI.txt):
    a páginas nuevas: MENSAJE 4 (ejercicio de código), MENSAJE 6
    (ejercicio del libro) o MENSAJE 7 (repaso)
 9. [CLAUDE] pegá el MENSAJE 3 → explica la tanda y la archiva solo
-10. ¿Querés seguir? → siguiente tanda de 3-8 a paginas/ y volvé al
-    paso 9. Cuántas veces lo repitas lo decidís vos cada día: puede
-    ser una tanda o pueden ser muchas. No hay número fijo.
+10. ¿Querés seguir estudiando? Depende del formato de la tanda:
+    - fue de TEXTO y la próxima también → armá la tanda nueva en
+      paginas/ y volvé al paso 9 (hasta 2-3 tandas por sesión)
+    - fue de IMÁGENES, o Claude ya te avisó que conviene cortar →
+      MENSAJE 1, Ctrl+D, y volvé al paso 3 con sesión NUEVA
+      (/rename con el número siguiente, MENSAJE 2, y seguís)
 11. [CLAUDE] al terminar el día, pegá el MENSAJE 5
 12. [CLAUDE] Ctrl+D
 13. [TERMINAL] engram search "tema de hoy" --project HeadFirst-Java
@@ -142,135 +169,74 @@ OJO: esto es SOLO para retomar el mismo día. Día nuevo = sesión nueva.
 # REGLAS DE ORO
 # ============================================================
 
-1. Normalmente una sesión por día. El número solo avanza: si un día
-   abrís dos sesiones, no pasa nada.
-2. Cada tanda: 3-8 pantallazos MÁXIMO. Este libro es muy visual (hay
-   páginas casi sin texto): ajustá la cantidad según la densidad, pero
-   nunca más de 8. La cantidad de tandas por día es libre.
-3. NUNCA salir sin pegar el MENSAJE 5: es lo que guarda todo.
-4. En días largos: si Claude empieza a olvidar cosas dichas antes o
-   se pone lento, terminá la tanda en curso, pegá el MENSAJE 5, Ctrl+D,
-   y seguí en una sesión nueva (número siguiente, mismo día).
-5. Los ejercicios del libro (Sharpen your pencil, BE the compiler,
+1. El número de sesión SOLO AVANZA. Varias sesiones en un mismo día es
+   lo NORMAL, no un problema: cada tanda de imágenes abre una nueva.
+2. Si la página se puede copiar como texto, va como texto. Siempre.
+3. Tamaño de tanda según formato (tabla de arriba). Nunca más de 5
+   pantallazos ni más de 10 páginas de texto por tanda.
+4. NUNCA salir sin pegar el MENSAJE 5: es lo que guarda el día.
+5. Al cambiar de sesión a mitad del día, MENSAJE 1 primero: sin eso la
+   tanda no queda registrada en la guía y se pierde. Si además Claude
+   empieza a olvidar cosas dichas antes o se pone lento, eso es la
+   señal de que la sesión ya está demasiado cargada: cortá igual.
+6. Los ejercicios del libro (Sharpen your pencil, BE the compiler,
    Code Magnets, Pool Puzzle...) SIEMPRE los intento a mano ANTES de
    mirar la solución del libro o pedírsela a Claude.
-6. paginas/ NUNCA se sube a git: el repo es público y los pantallazos
-   del libro tienen copyright. Verificá que esté en .gitignore.
-7. Los repasos se hacen DESDE CERO, sin mirar mi solución original ni
+7. paginas/ NUNCA se sube a git: el repo es público y el contenido del
+   libro tiene copyright. Verificá que esté en .gitignore.
+8. Los repasos se hacen DESDE CERO, sin mirar mi solución original ni
    pedírsela a Claude: releer no fija nada, volver a resolver sí.
-8. Con dos PCs: git pull al empezar, git push al terminar. SIEMPRE.
+9. Con dos PCs: git pull al empezar, git push al terminar. SIEMPRE.
 
 # ============================================================
 # MENSAJES PARA COPIAR Y PEGAR
 # ============================================================
 
---- MENSAJE 1 — inicial (solo en java-s01) ---
+--- MENSAJE 1 — cambio de sesión (mitad del día, antes de Ctrl+D) ---
 
 ```
-Este es un proyecto de estudio y vos sos mi profesor particular.
-
-QUIÉN SOY
-- Novato en POO/Java. Vengo aprendiendo UML en un proyecto hermano
-  (UML-Java, mismo sistema de estudio), pero de Java en sí sé muy poco.
-  No asumas nada que no esté registrado en la guía o en Engram.
-- NO sé inglés: toda frase o palabra en inglés que cites (del libro,
-  de un enunciado, de la salida de un programa o de un error) va
-  acompañada AL LADO de su traducción entre paréntesis.
-- Objetivo: escribir código bien estructurado y conseguir mi primer
-  empleo como desarrollador.
-- El libro es "Head First Java" (Kathy Sierra, Bert Bates y Trisha Gee,
-  3ra edición, O'Reilly), en inglés, cubre Java 8-17; yo leo mejor en
-  español.
-
-FLUJO POR CADA TANDA DE PÁGINAS (máx. 3-8 pantallazos que dejo en paginas/)
-1. TRADUCCIÓN EXPLICADA, PÁGINA POR PÁGINA: andá anunciando siempre
-   cuál estás explicando — "PÁGINA 70:" con el número que se vea en el
-   pantallazo (página o Ubicación de Kindle), o "PANTALLAZO 2:" si no
-   se ve ninguno — así puedo ir siguiendo el libro con la vista aunque
-   no entienda el texto. De cada página contame en español TODO lo que
-   dice, con tus palabras, reordenado para un novato, sin saltarte
-   ningún concepto. No es traducción literal: es una explicación
-   completa con tus propios ejemplos. Los términos técnicos clave
-   dejalos también en inglés entre paréntesis (los necesito para
-   entrevistas).
-2. CÓDIGO: mostrá el código clave de la tanda EN EL CHAT, con comentario
-   // en cada línea relevante. Si aparece sintaxis o una base que no
-   vimos, frená y explicala primero, con analogías.
-3. EJERCICIOS DEL LIBRO: si la tanda trae ejercicios propios del libro
-   (Sharpen your pencil, BE the compiler, Code Magnets, Pool Puzzle,
-   crucigramas...), avisame cuáles son para que los intente a mano.
-   NO me des la solución de entrada: primero pistas.
-4. COMPRENSIÓN: antes de cerrar, haceme 1-2 preguntas cortas para
-   verificar que entendí. Si respondo mal, explicalo de otra forma.
-5. GUÍA: actualizá GUIA-JAVA.md agregando la sesión con el formato del
-   archivo, y sumá los términos nuevos a la tabla de vocabulario.
-6. EJERCICIOS: registrá en EJERCICIOS.md los ejercicios del libro que
-   queden pendientes, y agregá ejercicios propios cuando el tema lo
-   amerite. Para CADA ejercicio creá además su ARCHIVO DE ARRANQUE
-   (según CLAUDE.md): un archivo en ejercicios/ con el enunciado
-   completo y, al final, el prompt de entrega (MENSAJE 4 o 6) YA
-   RELLENO con número, nombre y ruta — todo en comentarios, sin una
-   sola línea de código ejecutable. Yo abro ese archivo, resuelvo ahí
-   mismo, y copio el prompt del final para pegártelo al terminar.
-7. REPASOS: cuando un ejercicio pase a completado, agendale repasos en
-   la sección REPASOS de EJERCICIOS.md (~3 días, ~2 semanas y ~1 mes
-   después). Los hago desde cero en ejercicios/repasos/ y me avisás al
-   arrancar cada sesión si hay alguno vencido.
-8. ENGRAM: guardá en Engram (project "HeadFirst-Java") los conceptos
-   clave, las decisiones y en qué página quedamos.
-
-NOTA: en un mismo día puedo pasarte varias tandas seguidas (yo decido
-cuántas). Cada tanda repite este flujo completo desde el paso 1.
-
-REGLAS FIJAS
-- Yo escribo TODO el código Java a mano en ejercicios/, y yo mismo lo
-  compilo y lo ejecuto (javac / java). Vos no creás ni editás archivos
-  .java: mostrás ejemplos en el chat y corregís lo mío. Si me sale un
-  error de compilación o ejecución, te lo pego y me explicás qué
-  significa y cómo pensarlo.
-- SÍ podés editar directamente GUIA-JAVA.md y EJERCICIOS.md. Si todavía
-  no existen, crealos vos con un formato limpio y reutilizable.
-- No ejecutes bash salvo que te lo pida explícitamente.
-- Puedo frenarte en cualquier momento con una duda: resolvela con calma
-  y detalle antes de seguir.
-- El libro cubre hasta Java 17: si algo cambió o hoy tiene una forma
-  más moderna en Java, decímelo y anotalo en la guía como
-  "NOTA DEL PROFE".
-- Cuando un ejercicio quede terminado y tenga 2 o más clases
-  relacionadas, proponeme (opcional) dibujar su diagrama de clases en
-  diagramas/ para practicar lo del proyecto UML-Java.
-
-ARRANQUE DE HOY
-1. Leé CLAUDE.md y, si existen, GUIA-JAVA.md y EJERCICIOS.md.
-2. Buscá en Engram (project "HeadFirst-Java") si hay progreso previo.
-3. Confirmame en una línea qué encontraste y decime "listo para la
-   primera tanda".
+Cerramos esta sesión para arrancar una limpia. Sin resumen largo:
+1. Confirmá en una línea que la tanda quedó registrada en GUIA-JAVA.md,
+   MECANOGRAFIA.md (+ el archivo de ttyper de cada frase nueva) y
+   ANKI.txt, y que los ejercicios nuevos tienen su archivo de arranque
+   creado.
+2. Guardá en Engram (project "HeadFirst-Java") la última página vista y
+   qué sigue.
+3. Decime en UNA línea con qué arranca la próxima sesión.
 ```
 
---- MENSAJE 2 — arranque del día (s02 en adelante) ---
+Después: Ctrl+D → armá la tanda nueva en paginas/ → `claude` →
+`/rename java-sNN` (número siguiente) → MENSAJE 2 → MENSAJE 3.
+
+--- MENSAJE 2 — arranque del día (o de una sesión nueva) ---
 
 ```
-Nueva sesión de estudio. Leé CLAUDE.md, el INICIO RÁPIDO de
-GUIA-JAVA.md (solo esa sección, no toda la guía) y EJERCICIOS.md,
-buscá en Engram (project "HeadFirst-Java") dónde quedamos, y decime:
-(1) qué vimos la última vez en una línea, (2) qué ejercicios tengo
-pendientes, (3) si hay algún repaso vencido para hoy (mirá las fechas
-de la sección REPASOS de EJERCICIOS.md), (4) qué toca hoy. Después
-decido si corregimos un ejercicio, hacemos un repaso o te paso la
-siguiente tanda.
+Nueva sesión de estudio. Sin leer CLAUDE.md con Read (ya lo tenés
+cargado): leé el INICIO RÁPIDO de GUIA-JAVA.md (solo esa sección, con
+limit) y EJERCICIOS.md, buscá en Engram (project "HeadFirst-Java")
+dónde quedamos, y decime corto: (1) qué vimos la última vez en una
+línea, (2) qué ejercicios tengo pendientes, (3) si hay algún repaso
+vencido (las fechas están ordenadas en REPASOS PROGRAMADOS, el de
+arriba es el que toca), (4) qué toca hoy. Después decido si corregimos
+un ejercicio, hacemos un repaso o te paso la tanda.
 ```
 
 --- MENSAJE 3 — tanda de páginas (repetible: una vez por cada tanda) ---
 
 ```
-Tanda nueva: leé todas las imágenes que hay en la raíz de paginas/
-(sin entrar a paginas/leidas/), en orden de nombre, y arrancá el flujo.
+Tanda nueva: está en paginas/ (si la pasé como texto, en los .md; si
+hay pantallazos, en la raíz, sin entrar a paginas/leidas/). Leela en
+orden de nombre y arrancá el flujo completo de CLAUDE.md, respetando el
+presupuesto de contexto: explicás COMPRIMIENDO, no transcribiendo —
+cuando el libro repite una idea ya explicada, decilo en una línea y
+seguí.
 Cuando termines de explicarme esta tanda, antes de seguir con cualquier
-otra cosa, mové esas mismas imágenes a paginas/leidas/ para que la raíz
-quede vacía, agregá las frases de esta tanda a MECANOGRAFIA.md y volcá
-cada frase aplanada a su propio archivo de ttyper (regla de mecanografía
-de CLAUDE.md), y agregá las tarjetas 80/20 de esta tanda a ANKI.txt
-(regla de tarjetas Anki de CLAUDE.md).
+otra cosa: mové ese material a paginas/leidas/ para que la raíz quede
+vacía, agregá las frases de esta tanda a MECANOGRAFIA.md y volcá cada
+frase NUEVA a su propio archivo de ttyper (append-only, sin reescribir
+los viejos), y agregá las tarjetas 80/20 de esta tanda a ANKI.txt.
+Si la tanda fue de imágenes, recordame al final que conviene cambiar de
+sesión.
 ```
 
 --- MENSAJE 4 — corregir un ejercicio de código (la versión YA RELLENA está al final del archivo de arranque del ejercicio) ---
@@ -278,25 +244,30 @@ de CLAUDE.md), y agregá las tarjetas 80/20 de esta tanda a ANKI.txt
 ```
 Hice el ejercicio #NN, está en ejercicios/ejNN-nombre/.
 Compiló: [sí / no]. Al ejecutarlo: [pego abajo la salida o el error].
-Revisalo línea por línea: qué está bien, qué está mal y POR QUÉ, y
-actualizá su estado y tu corrección en EJERCICIOS.md. Si quedó
-completado, agendá sus repasos en la sección REPASOS.
+Revisalo línea por línea EN EL CHAT: qué está bien, qué está mal y POR
+QUÉ. En EJERCICIOS.md actualizá el estado con una corrección de 3
+líneas como máximo; si quedó completado, movelo con su corrección a
+EJERCICIOS-ARCHIVO.md y agendá sus repasos.
 ```
 
---- MENSAJE 5 — cierre (SIEMPRE antes de salir) ---
+--- MENSAJE 5 — cierre del día (SIEMPRE antes de salir) ---
 
 ```
-Cerramos acá:
+Cerramos el día:
 1. Verificá que GUIA-JAVA.md, EJERCICIOS.md, MECANOGRAFIA.md y
-   ANKI.txt quedaron actualizados con todo lo de hoy (incluida la
-   sección REPASOS si completé algo, que cada frase tenga su archivo
-   de ttyper, y que las tarjetas nuevas sean autocontenidas).
+   ANKI.txt quedaron actualizados con todo lo de hoy (incluidos los
+   repasos agendados, el archivo de ttyper de cada frase nueva, y que
+   las tarjetas nuevas sean autocontenidas).
 2. Verificá que TODO ejercicio o repaso pendiente tenga su archivo de
    arranque creado en ejercicios/ (si falta alguno, crealo ahora,
    solo comentarios, sin código ejecutable).
-3. Guardá en Engram (project "HeadFirst-Java") el resumen y en qué
+3. Archivá lo cerrado: si EJERCICIOS.md pasa de ~150 líneas, mové los
+   ejercicios completados y los repasos cumplidos a
+   EJERCICIOS-ARCHIVO.md. Si GUIA-JAVA.md pasa de ~500, mové las
+   sesiones viejas a GUIA-ARCHIVO.md.
+4. Guardá en Engram (project "HeadFirst-Java") el resumen y en qué
    página quedamos.
-4. Dame el resumen final de la sesión.
+5. Dame el resumen final del día.
 ```
 
 --- MENSAJE 6 — ejercicio del libro (la versión YA RELLENA está al final del archivo del ejercicio) ---
@@ -304,21 +275,23 @@ Cerramos acá:
 ```
 Hice el ejercicio del libro "[nombre del ejercicio]" (página X).
 Mi respuesta está en [ejercicios/libNN-nombre.md] (o la escribo acá:
-[...]). Corregilo pero SIN darme la solución completa de entrada:
-decime qué tengo bien, qué tengo mal, y dame pistas para lo que falta.
-La solución completa solo si te la pido después. Registrá el resultado
-en EJERCICIOS.md y, si quedó completado, agendá sus repasos.
+[...]). Corregilo EN EL CHAT pero SIN darme la solución completa de
+entrada: decime qué tengo bien, qué tengo mal, y dame pistas para lo
+que falta. La solución completa solo si te la pido después. En
+EJERCICIOS.md registrá el resultado en 3 líneas como máximo; si quedó
+completado, movelo con su corrección a EJERCICIOS-ARCHIVO.md y agendá
+sus repasos.
 ```
 
 --- MENSAJE 7 — hacer un repaso (cuando el MENSAJE 2 avise que hay uno vencido) ---
 
 ```
 Voy a hacer el repaso rX del ejercicio #NN. NO me muestres ni me
-resumas mi solución anterior: la idea es resolverlo desde cero. Pasame
-solo el enunciado original y esperá. Cuando termine te aviso: lo vas a
-encontrar en ejercicios/repasos/ejNN-rX/ (o te lo cuento acá en el
-chat si el original fue en el chat). Al revisarlo, comparalo con mi
-solución original: qué mejoré, qué error repetí y POR QUÉ, actualizá
-la sección REPASOS de EJERCICIOS.md y agendá el siguiente repaso si
-corresponde.
+resumas mi solución anterior: la idea es resolverlo desde cero. Creá el
+archivo de arranque en ejercicios/repasos/ (solo enunciado + prompt de
+entrega, en comentarios, sin código) y esperá a que lo entregue. Al
+revisarlo, buscá mi solución original en EJERCICIOS-ARCHIVO.md y
+comparala con la nueva: qué mejoré, qué error repetí y POR QUÉ.
+Actualizá REPASOS PROGRAMADOS en EJERCICIOS.md, agendá el siguiente si
+corresponde, y mové el repaso cumplido a EJERCICIOS-ARCHIVO.md.
 ```

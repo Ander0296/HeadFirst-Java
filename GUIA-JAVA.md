@@ -1,7 +1,8 @@
 # GUÍA: HEAD FIRST JAVA (Sierra, Bates y Gee, 3ra ed.) + POO EN JAVA
 No asume conocimiento previo — la mantiene Claude Code sesión a sesión.
-Cada sesión cubre una tanda de 3-8 pantallazos del libro, explicados en
-español y conectados con código Java que el usuario escribe a mano.
+Cada sesión cubre una tanda del libro (tamaño según formato: 6-10
+páginas si vino como texto, 3-5 si vino como pantallazos), explicada en
+español y conectada con código Java que el usuario escribe a mano.
 Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
