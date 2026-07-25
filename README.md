@@ -192,6 +192,18 @@ OJO: esto es SOLO para retomar el mismo día. Día nuevo = sesión nueva.
 # MENSAJES PARA COPIAR Y PEGAR
 # ============================================================
 
+Acá NO hay MENSAJE 0. El mensaje de configuración inicial (el que
+adapta el proyecto a un tema nuevo) se usa UNA sola vez en la vida de
+un proyecto, y en este ya se usó en la sesión s01. Vive en la
+plantilla-profesor, para cuando arranque un tema NUEVO.
+
+Los que uso en el día a día:
+- MENSAJE 2 → arranca el día (siempre el primero)
+- MENSAJE 3 → cada tanda de páginas (el que más repito)
+- MENSAJE 1 → cambiar de sesión a mitad del día (tanda de imágenes)
+- MENSAJE 4 / 6 / 7 → entregar código / entregar del libro / repaso
+- MENSAJE 5 → cerrar el día (el último, siempre)
+
 --- MENSAJE 1 — cambio de sesión (mitad del día, antes de Ctrl+D) ---
 
 ```
