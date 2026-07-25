@@ -7,14 +7,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 208 de 1629 (14%) — spillage (derrame): el compilador chequea el TIPO, no el valor, y las 3 formas de asignar. Faltan por ver: el código de la clase Player (se salteó la pág. 177) y la página 201 (también salteada). Ver Sesión #33.
-- Última sesión: Sesión #33
-- Última sesión de Claude: java-s06 (cubrió la Sesión #33; java-s05
-  había cubierto las #30-#32). OJO: este contador NO es el mismo que
-  "Sesión #NN" — ese cuenta tandas del libro, este cuenta sesiones de
-  Claude, y una sesión puede cubrir 2-3 tandas. El /rename sale de ACÁ:
-  la próxima es java-s07.
-- Ejercicios pendientes: 3 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho). Estados completos, fechas y repasos: ver EJERCICIOS.md (fuente de verdad; esta línea solo lista lo pendiente).
+- Última página estudiada: página 214 de 1629 (14%) — reglas para nombrar variables/métodos/clases y palabras reservadas. Ver Sesión #34. Páginas salteadas pendientes: código de la clase Player (177), 201, 209 y 213.
+- Última sesión: Sesión #34
+- Última sesión de Claude: java-s07 (cubrió la #34) → la próxima es
+  java-s08. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Ejercicios pendientes: 4 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho), "¿legal o no?" (lib07). Estados completos, fechas y repasos: ver EJERCICIOS.md.
 - IMPORTANTE — spoiler pendiente: las páginas 197-199 (soluciones oficiales de Pool Puzzle "Echo" y de "Who Am I?") ya fueron leídas por Claude pero NO explicadas al usuario a propósito, para no arruinar esos dos ejercicios en curso. Retomarlas recién cuando el usuario termine ambos.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
@@ -29,6 +26,9 @@ Ejercicios: ver EJERCICIOS.md.
 | IS-A / HAS-A (adelanto)           | relación ES-UN / TIENE-UN | Relaciones entre clases (herencia vs. composición); se ven en detalle más adelante. |
 | metacognition                     | metacognición | Pensar sobre cómo uno piensa/aprende; prestar atención a cómo prestás atención. |
 | object (adelanto)                 | objeto | Contenedor que agrupa datos propios de una "cosa"; se ve en detalle con clases y objetos. |
+| reserved word / keyword           | palabra reservada | Palabra que el compilador ya tiene tomada con un significado del lenguaje; no se puede usar como nombre propio (public, static, void, int...). |
+| Sharpen your pencil               | Afilá el lápiz | Sección recurrente del libro con ejercicios de papel (sin compilar nada). |
+| Make it Stick                     | Hacé que se te pegue | Recuadro del libro con trucos de memoria (mnemotecnias) para fijar una lista. |
 | BE the Compiler                   | Sé el Compilador | Ejercicio recurrente del libro donde el lector actúa como si fuera el compilador de Java. |
 | Puzzleville / Pool Puzzle         | Puzzleville / Pool Puzzle | Sección recurrente de acertijos del libro (ya la teníamos anotada en EJERCICIOS.md). |
 | IDE                               | entorno de desarrollo integrado | Herramienta (ej. IntelliJ) que automatiza compilar/correr; el libro recomienda NO usarla al principio. |
@@ -146,6 +146,18 @@ SESIÓN #33 — 2026-07-25 — Spillage: el compilador mira el tipo, no el valor
 - Ejercicios de la tanda: ninguno todavía — al pie de la pág. 208 arranca un "Sharpen your pencil" cuyo enunciado está en la página siguiente.
 - Dudas: ninguna.
 - PRÓXIMO PASO: página 209, el "Sharpen your pencil" que quedó abierto.
+
+SESIÓN #34 — 2026-07-25 — Reglas para nombrar y palabras reservadas (pág. 210-214, 14%)
+- Pág. 210: enunciado del "Sharpen your pencil" — 12 líneas de asignación entre primitivas, marcar cuáles compilan. Regla que da el libro: de vaso CHICO a vaso GRANDE se puede; al revés no (spillage, Sesión #33).
+- Pág. 211: mnemotecnia "Be Careful! Bears Shouldn't Ingest Large Furry Dogs" para las 8 primitivas (B C B S I L F D). Es un recurso de memoria en inglés; el libro invita a inventar la propia.
+- Pág. 212 (el 80% de la tanda): un nombre (clase, método o variable) debe empezar con letra, `_` o `$`; nunca con número. Del segundo carácter en adelante sí van números. Y no puede ser una palabra reservada.
+- Palabra reservada (reserved word / keyword): palabra que el compilador ya tiene tomada. `public`, `static`, `void` y las 8 primitivas son reservadas.
+- El libro dice EXPLÍCITAMENTE que no hay que memorizar la lista de reservadas ahora: se aprenden usándolas.
+- Nota del profe: `$` es legal pero NUNCA se usa (se reserva para código generado); `_` solo, desde Java 9, es palabra reservada y ya NO compila como nombre. Convención real: camelCase para variables/métodos, PascalCase para clases, MAYUS_CON_GUION_BAJO para constantes.
+- Pág. 214: viñeta del oso repitiendo la mnemotecnia. Sin contenido nuevo.
+- Ejercicios de la tanda: LIBRO "¿legal o no?" (lib07, pág. 210) — pendiente.
+- Dudas: invirtió la nota del `_` (creyó que fallaba `_total`) — corregido: falla `int _ = 7;` porque el `_` SOLO es palabra reservada, igual que `int int = 5;`. La regla del primer carácter no cambió.
+- PRÓXIMO PASO: página 215 (y quedaron salteadas la 209 y la 213).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

@@ -130,3 +130,9 @@ El compilador mira el tipo, no el valor: byte b = x; no compila.
 
 s33b — declarar y asignar son dos actos:
 boolean isLearning; declara el vaso vacío, isLearning = true; le pone el valor.
+
+s34a — reglas para nombrar:
+Un nombre empieza con letra, guion bajo o signo peso, nunca con un número.
+
+s34b — palabras reservadas:
+No podés llamar a tu variable public, static, void, int ni boolean: son reservadas.

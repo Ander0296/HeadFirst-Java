@@ -201,7 +201,7 @@ Registro DOBLE + archivo de arranque creado por Claude:
   final de EJERCICIOS.md: una línea por concepto, sin historia).
 - Si un repaso sale mal DOS veces seguidas, el concepto se marca para
   RE-ESTUDIO: releer la sesión de la guía donde se explicó (en
-  GUIA-JAVA.md, o en GUIA-ARCHIVO.md si es una sesión #01-#29) + un
+  GUIA-JAVA.md; si no está ahí, está en GUIA-ARCHIVO.md) + un
   ejercicio nuevo del profe sobre ese mismo tema.
 - REPASOS INTEGRADORES: cuando CONCEPTOS DOMINADOS tenga 3 o más
   entradas, Claude puede proponer (máximo 1 por semana) un ejercicio
@@ -436,7 +436,9 @@ rompe el `claude --resume`.
 
 - GUIA-JAVA.md → guía activa: INICIO RÁPIDO + vocabulario + sesiones
   nuevas en formato corto (mantiene Claude)
-- GUIA-ARCHIVO.md → sesiones históricas #01-#29 en formato largo.
+- GUIA-ARCHIVO.md → sesiones ya archivadas (las que no están en
+  GUIA-JAVA.md; hoy van de la #01 en adelante, el corte se mueve solo
+  cada vez que Claude archiva).
   NO se lee al inicio de sesión: solo consulta puntual para
   RE-ESTUDIO o si el usuario pide releer una sesión vieja
 - EJERCICIOS.md → SOLO lo vivo: pendientes, en curso, repasos
@@ -462,9 +464,15 @@ rompe el `claude --resume`.
   NO inventar otro nombre).
 - Al inicio de cada sesión nueva, leer SOLO esto y en este orden:
   1. Engram (dónde quedamos).
-  2. El INICIO RÁPIDO de GUIA-JAVA.md (primeras ~15 líneas, con Read
-     limit — NO la tabla de vocabulario que viene después: esa se
-     consulta puntualmente con Grep cuando reaparece un término).
+  2. El INICIO RÁPIDO de GUIA-JAVA.md. El límite NO es un número de
+     líneas fijo: es SEMÁNTICO — desde el principio del archivo hasta el
+     encabezado `## VOCABULARIO` (sin incluirlo). Leer con `limit 30` y
+     cortar ahí. Nunca la tabla de vocabulario: esa se consulta con Grep
+     cuando reaparece un término.
+     Y AL REVÉS: el INICIO RÁPIDO se mantiene en ~12 líneas o menos. Si
+     al agregar algo pasa de ahí, Claude comprime las líneas viejas en
+     el mismo movimiento. Un resumen que crece deja de ser un resumen —
+     y con un limit fijo se cortaría justo lo último que se agregó.
   3. EJERCICIOS.md completo (es corto por diseño: solo lo vivo),
      revisando qué repasos están vencidos.
   NUNCA leer al inicio: GUIA-JAVA.md completa, GUIA-ARCHIVO.md ni

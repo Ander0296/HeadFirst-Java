@@ -23,10 +23,15 @@ FORMATOS (referencia para Claude — copiar y llenar):
 
 EJERCICIO #NN — [tema] (Ubicación pág. X, Sesión #Y) — [ ] pendiente
 Tipo: programa desde cero | completar/corregir código | conceptual | mini-diseño
-Arranque: ejercicios/ejNN-nombre/ | Si te trabás: Sesión #Y de GUIA-JAVA.md
-
+Arranque: ejercicios/ejNN-nombre/ | Si te trabás: Sesión #Y de la guía
 LIBRO — [nombre] (Ubicación pág. X, Sesión #Y) — [ ] pendiente
-Arranque: ejercicios/libNN-nombre.md | Si te trabás: Sesión #Y de GUIA-JAVA.md
+Arranque: ejercicios/libNN-nombre.md | Si te trabás: Sesión #Y de la guía
+
+OJO con los punteros "Si te trabás": decir "de la guía", no
+"de GUIA-JAVA.md". Las sesiones viejas se van moviendo a
+GUIA-ARCHIVO.md, así que un puntero que nombra el archivo concreto
+queda mentiroso solo. Regla: si la sesión no está en GUIA-JAVA.md,
+está en GUIA-ARCHIVO.md.
 
 REPASO — [nombre] (rX) — programado: AAAA-MM-DD — [ ] pendiente
 Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
@@ -34,6 +39,9 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # ============================================================
 # EJERCICIOS ABIERTOS
 # ============================================================
+
+LIBRO — Sharpen your pencil: ¿legal o no? — marcar cuáles de 12 líneas de asignación entre primitivas compilan y cuáles no (Ubicación pág. 210, Sesión #34) — [ ] pendiente
+Arranque: ejercicios/lib07-legal-o-no.md | Si te trabás: Sesión #32 y #33 de GUIA-JAVA.md
 
 LIBRO — Who Am I? ("¿Quién soy?") — identificar si cada frase la dice una clase, un objeto, un method o una instance variable (Ubicación pág. 191, Sesión #30) — [~] en curso
 Arranque: ejercicios/lib06-who-am-i.md (13 frases traducidas + "MI RESPUESTA")
