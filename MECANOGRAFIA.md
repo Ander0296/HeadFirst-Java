@@ -142,3 +142,46 @@ Una variable de referencia es como un control remoto: no es el objeto, lo maneja
 
 s35b — el objeto nunca va a la variable:
 El objeto nunca entra en la variable; solo entra la manera de llegar a él.
+
+s36a — los 3 pasos de new:
+Declarar, crear y vincular: los 3 pasos que arma new Dog() en una sola línea.
+
+s36b — Java no es C:
+En Java no existe la aritmética de referencias: myDog++ nunca compila.
+
+s37a — null, el control remoto sin tele:
+Una variable de referencia en null no apunta a ningún objeto: existe
+pero no controla nada.
+
+s37b — copiar una referencia no copia el objeto:
+Book d = c; copia los bits de c en d: dos referencias, un solo objeto.
+
+s38a — reasignar suelta el objeto viejo:
+c = b; hace que c suelte su objeto viejo y controle el objeto de b.
+
+s38b — objeto alcanzable:
+Un objeto es alcanzable si al menos una referencia activa todavía lo apunta.
+
+s39a — objeto abandonado:
+Si b = c; deja al objeto 1 sin referencias, ese objeto queda abandonado y es basura.
+
+s39b — el arreglo es un objeto:
+int[] nums; declara la referencia; nums = new int[7]; crea el objeto en el heap.
+
+s40a — índices de un arreglo:
+Un arreglo de 7 elementos usa los índices 0 a 6; el último es siempre longitud menos uno.
+
+s40b — arreglo de objetos:
+pets = new Dog[7]; crea la bandeja; pets[0] = new Dog(); crea el primer perro.
+
+s41a — notación de arreglo:
+myDogs[0].bark(); llama al método sobre el objeto guardado en la posición cero.
+
+s41b — Java chequea el tipo:
+El compilador rechaza un Cat en un arreglo Dog[]; un byte sí entra en int[].
+
+s42a — length de un arreglo:
+while (x < myDogs.length) recorre bien; con <= te pasás del último índice.
+
+s42b — referencias y null:
+Una variable de referencia sin objeto vale null y se imprime como el texto null.

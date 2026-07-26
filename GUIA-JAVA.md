@@ -7,11 +7,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 220 de 1629 (14%) — la variable de referencia a objeto es un "control remoto" del objeto, nunca el objeto en sí (vive en el heap). Ver Sesión #35. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213 y 215-217.
-- Última sesión: Sesión #35
-- Última sesión de Claude: java-s07 (cubrió las Sesiones #34-#35) → la
-  próxima es java-s08. Contador distinto al de arriba; el /rename sale de ACÁ.
-- Ejercicios pendientes: 4 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho), "¿legal o no?" (lib07). Estados completos, fechas y repasos: ver EJERCICIOS.md.
+- Última página estudiada: página 246 de 1629 (16%) — cierre de arrays: el arreglo SIEMPRE es un objeto (aunque guarde primitivas), `array.length` es variable y no método (por eso `<` y nunca `<=`), a un objeto en un arreglo se lo nombra por su posición (`myDogs[0].bark()`), asignar una referencia a un casillero NO crea nada, y una referencia sin asignar vale `null` e imprime "null". Ver Sesiones #40 a #42. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238 y 241.
+- Última sesión: Sesión #42
+- Última sesión de Claude: java-s14 (cubrió la Sesión #42) → la
+  próxima es java-s15. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Ejercicios pendientes: 5 — BE the Compiler arrays (EJERCICIO #08, nuevo), Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho), "¿legal o no?" (lib07). Estados completos, fechas y repasos: ver EJERCICIOS.md.
 - IMPORTANTE — spoiler pendiente: las páginas 197-199 (soluciones oficiales de Pool Puzzle "Echo" y de "Who Am I?") ya fueron leídas por Claude pero NO explicadas al usuario a propósito, para no arruinar esos dos ejercicios en curso. Retomarlas recién cuando el usuario termine ambos.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
@@ -63,6 +63,8 @@ Ejercicios: ver EJERCICIOS.md.
 | length (de un array)               | length (propiedad, no método) | Cantidad de elementos del array; se usa sin paréntesis: `array.length`. |
 | java.util.Random / nextInt()       | java.util.Random / nextInt() | Clase de Java para generar números al azar; `nextInt(n)` devuelve un entero entre 0 (incluido) y n (sin incluir). Primer uso real de un objeto en el libro (adelanto de POO). |
 | ArrayIndexOutOfBoundsException     | excepción de índice fuera de rango | Error en tiempo de ejecución al pedir una posición de un array que no existe (fuera de 0 a length-1). |
+| BULLET POINTS                      | Puntos clave | Recuadro de resumen al final de cada capítulo del libro: la lista de ideas que hay que llevarse. |
+| compile and run without exception  | compilar y ejecutarse sin excepción | Dos condiciones distintas: que el compilador acepte el código, Y que además no reviente en tiempo de ejecución. |
 | Code Magnets                       | Imanes de Código | Sección recurrente de ejercicio: reordenar pedazos de código desarmados (como imanes en una heladera) para armar un programa que compile y dé la salida pedida. |
 | JavaCross                          | JavaCross | Crucigrama opcional (ícono Puzzle) con palabras del capítulo que se está viendo, para "el lado derecho del cerebro". |
 | Mixed Messages                     | Mensajes Mezclados | Puzzle: emparejar bloques de código candidatos con la salida que producirían si se insertaran en el programa dado. |
@@ -101,6 +103,25 @@ Ejercicios: ver EJERCICIOS.md.
 | literal (literal value)                  | literal (valor literal) | Valor escrito directamente en el código, no calculado ni tomado de otra variable: el `12` de `x = 12;`, el `true` de `isGood = true;`, el `'j'` de `char initial = 'j';`. |
 | assignment                               | asignación | Acto de poner un valor dentro de una variable con `=`. Es SEPARABLE de la declaración: se puede declarar primero (`boolean listo;`) y asignar después (`listo = true;`). |
 | dot operator (.)                         | operador punto (`.`) | "Usá lo de antes del punto para conseguir lo de después del punto": `myDog.bark();` = con el objeto referenciado por `myDog`, invocá `bark()`. Como apretar un botón del control remoto de ESE objeto. |
+| There are no dumb questions           | No hay preguntas tontas | Sección recurrente del libro con preguntas y respuestas cortas sobre dudas típicas del tema recién visto. |
+| Java Exposed                          | Java al descubierto (nombre de broma) | Sección de humor recurrente que parodia una entrevista de revista, personificando un concepto de Java (esta vez, una Object Reference) para explicarlo desde su "punto de vista". |
+| null                                  | nulo (palabra reservada) | Valor de una variable de referencia que no se refiere a ningún objeto: el "control remoto" existe pero no está programado a ninguna tele. Solo aplica a referencias, nunca a primitivas. |
+| final (en una referencia)             | final | Modificador que impide REASIGNAR la variable: una vez que apunta a un objeto, no puede apuntar a otro. Lo que queda fijo es a cuál se refiere, no el contenido del objeto. |
+| NullPointerException (NPE)            | excepción de puntero nulo | Error de EJECUCIÓN que salta al invocar un método o leer un dato sobre una referencia que vale `null`. Compila igual: el compilador no ve valores. El error más común de Java. |
+| to be redirected / reprogrammed       | ser redirigida / reprogramada | Que una variable de referencia pase a referirse a OTRO objeto del mismo tipo, como reprogramar el control remoto a otra tele. |
+| active reference                      | referencia activa | Variable de referencia que efectivamente apunta a un objeto. Una que vale `null` NO cuenta como activa: existe, pero no controla nada. |
+| reachable object                      | objeto alcanzable | Objeto del heap al que todavía se puede llegar desde al menos una referencia activa. Es la única pregunta que hace el garbage collector: si no es alcanzable, es basura. |
+| Life and death on the heap            | Vida y muerte en el heap | Sección del Capítulo 3 que recorre paso a paso cuándo un objeto deja de ser alcanzable y pasa a ser recolectable. |
+| abandoned object                      | objeto abandonado | Objeto del heap que perdió su última referencia activa: nadie puede llegar a él y queda a la espera del garbage collector. |
+| null reference                        | referencia nula | Variable de referencia cuyo valor es `null`. Sigue existiendo y se le puede asignar otro objeto después; simplemente ahora no controla ninguno. |
+| toast (jerga) / garbage-collector bait | frito, liquidado / carnada del recolector | Forma informal del libro para decir que un objeto ya es basura: está condenado, solo falta que el GC pase a buscarlo. |
+| array                                 | arreglo (o vector) | Objeto que guarda una lista ordenada de elementos del mismo tipo, con acceso directo por posición. |
+| array element                         | elemento del arreglo | Cada casillero del arreglo. Es una variable común: guarda una primitiva o una referencia, según el tipo del arreglo. |
+| index (position)                      | índice (posición) | Número que identifica un casillero del arreglo y permite llegar a él de forma directa, sin recorrer los anteriores. |
+| array notation                        | notación de arreglo | Escribir `arreglo[índice]` para nombrar un elemento. Donde iría el nombre de una variable, va eso: `myDogs[0].bark()`. |
+| implicit widening                     | ensanchamiento implícito | Java acepta sin pedir permiso un valor de tipo chico donde va uno más grande (un `byte` en un arreglo de `int`), porque no se puede perder nada. |
+| spillage (jerga)                      | derrame | Forma del libro de decir que un valor no entra en una variable más chica (un `double` en un `int`); por eso el compilador lo rechaza. |
+| lurking                               | agazapado, al acecho | Del chiste del libro: un `Cat` escondido dentro de un arreglo de `Dog`. Java lo impide chequeando el tipo en compilación. |
 
 ============================================================
 (SESIONES — desde la #30 en formato CORTO: 5-8 bullets, sin bloques
@@ -169,6 +190,85 @@ SESIÓN #35 — 2026-07-25 — Referencias: el control remoto del objeto (pág. 
 - Salteadas: 215, 216 y 217 (se suman a 177, 201, 209 y 213 pendientes).
 - Dudas: pregunta de comprensión respondida MAL — dijo que `Auto a = new Auto();` guarda el objeto Auto completo en `a`. Corregido: `a` guarda la referencia (el control remoto); el objeto vive solo en el heap. La segunda pregunta (qué hace el operador punto) SÍ salió bien.
 - PRÓXIMO PASO: página 221.
+
+SESIÓN #36 — 2026-07-26 — Los 3 pasos de `new` + Java no es C (pág. 221-224, 14%)
+- Formaliza `Dog myDog = new Dog();` en 3 pasos: (1) declarar la variable de referencia (el control remoto, tipeado para siempre a `Dog`), (2) crear el objeto en el heap (adelanto al Cap. 9, "Life and Death of an Object"), (3) vincular ambos con `=` ("programa el control remoto").
+- Dato nuevo: todas las referencias de una misma JVM pesan lo mismo entre sí, sin importar el tamaño del objeto al que apuntan; lo que varía en tamaño son los objetos, no las referencias.
+- Regla dura: no existe aritmética sobre referencias (nada de `myDog++` tipo puntero de C). Mantra del libro: "Java is not C".
+- Sección de humor "Java Exposed": entrevista a una Object Reference, que confirma que una vez declarada con un tipo, nunca puede referirse a otro tipo de objeto.
+- Sin ejercicios del libro en esta tanda (tramo puramente conceptual).
+- Dudas: las 2 preguntas de comprensión salieron bien (qué paso reserva el heap; por qué no hay aritmética de referencias), con una ronda extra para profundizar el POR QUÉ de la segunda en vez de quedarse con la regla de memoria.
+- PRÓXIMO PASO: página 225.
+
+SESIÓN #37 — 2026-07-26 — `null` y la vida en el heap recolectable (pág. 225, 227-228, 14%)
+- Pág. 225 (entrevista de humor a una Object Reference): una referencia se puede REPROGRAMAR a otro objeto del mismo tipo las veces que haga falta; la excepción es marcarla `final`, y ahí queda atada a ese único objeto para siempre.
+- `null` es un VALOR, no la ausencia de valor: la variable existe pero no controla ningún objeto. Analogía del libro: un control remoto universal en una casa sin tele — se le pueden apretar los botones todo el día y no pasa nada.
+- Consecuencia clave: si esa era la ÚNICA referencia a un objeto y se la pone en `null`, nadie puede volver a llegar a ese objeto → queda elegible para el garbage collector (recolector de basura).
+- Nota del profe: invocar un método sobre una referencia en `null` explota en RUNTIME con `NullPointerException` (el error más común de Java); desde Java 14 el mensaje dice exactamente qué variable era null. Compila igual: el compilador no ve valores (Sesión #33).
+- Pág. 227 "Life on the garbage-collectible heap": `Book b = new Book(); Book c = new Book();` → el libro arranca un contador Referencias/Objetos: 2 y 2.
+- Pág. 228: `Book d = c;` NO crea un tercer objeto — copia los bits de `c` dentro de `d`. Dos controles remotos programados a la misma tele → 3 referencias, 2 objetos.
+- Ejercicios de la tanda: ninguno nuevo (tramo conceptual).
+- Salteadas: 226 (se suma a 177, 201, 209, 213 y 215-217 pendientes).
+- Dudas: 1ra pregunta (3 referencias / 2 objetos) BIEN y con la analogía correcta. 2da MAL y corregida: creyó que `c = null;` deja el objeto elegible para el GC, olvidando que `d` sigue apuntándolo. Fondo del error: razonar desde la variable ("c no apunta a nada") en vez de desde el objeto ("¿queda ALGUIEN que pueda llegar a mí?"). La palabra clave de la pág. 225 es "the ONLY reference". Repregunta de cierre (`d = null;`) respondida BIEN y razonando ya desde el objeto: concepto recuperado en la misma sesión.
+- PRÓXIMO PASO: página 226 (salteada) y 229.
+
+SESIÓN #38 — 2026-07-26 — reprogramar una referencia ya asignada + "Life and death on the heap" (pág. 229-230, 15%)
+- Pág. 229 `c = b;`: el mecanismo (copiar bits) es el mismo de `Book d = c;` (Sesión #37), pero acá `c` YA apuntaba a algo. La asignación hace dos cosas de un saque: `c` toma el objeto 1 y SUELTA el objeto 2 (la X sobre la flecha punteada del diagrama).
+- Resultado: `b` y `c` al objeto 1, `d` al objeto 2 → 3 referencias, 2 objetos. El objeto 2 NO es basura: `d` todavía lo apunta. Soltar UNA referencia no mata al objeto; solo la ÚLTIMA lo hace.
+- Pág. 230 arranca la sección "Life and death on the heap" reseteando el ejemplo: `Book b = new Book(); Book c = new Book();` → 2 y 2.
+- Cambio de vocabulario deliberado del libro en esa página: "References/Objects" pasa a ser "ACTIVE References / REACHABLE Objects" — la precisión que hace falta antes de hablar de muerte de objetos.
+- Concepto central: `reachable` (alcanzable) es LA palabra del garbage collector. No pregunta si el objeto le importa a alguien, pregunta si se puede LLEGAR hasta él.
+- Ejercicios de la tanda: ninguno nuevo (tramo conceptual).
+- Dudas: 1ra (`d = b;` → 1 objeto alcanzable) BIEN y razonando desde el objeto, justo el músculo que falló en la #37. 2da a medias: sabe que sin referencias activas el objeto es basura, pero al preguntarle qué referencia deja de ser activa contestó DESDE EL OBJETO ("el objeto queda sin variables") en vez de desde la variable. Respuesta correcta: una variable que vale `null` no es referencia activa. Patrón de fondo a vigilar: confunde los dos contadores (active references cuenta VARIABLES, reachable objects cuenta OBJETOS) y se mueven por separado — contraejemplo dado: `Book c = b; c = null;` baja las referencias activas sin tocar los objetos alcanzables.
+- PRÓXIMO PASO: página 226 (salteada) y 231.
+
+SESIÓN #39 — 2026-07-26 — muerte de un objeto paso a paso + arranca arrays (pág. 231-232, 15%)
+- Pág. 231 `b = c;`: mismo mecanismo ya visto, pero acá el objeto que `b` suelta NO tenía otra referencia → queda ABANDONADO ("this dude is toast" / este está frito). Primera muerte real de un objeto en el libro.
+- El contador se hace de TRES columnas: Active References 2, Reachable Objects 1, Abandoned Objects 1. Dos referencias apuntando al mismo objeto no suman dos objetos alcanzables.
+- Pág. 232 `c = null;`: aparece la cuarta columna, `null` References 1. El objeto 2 sigue vivo porque `b` lo apunta: poner una variable en null solo mata al objeto si era la ÚLTIMA.
+- Regla que resume las dos páginas: las referencias activas cuentan VARIABLES; los objetos alcanzables cuentan OBJETOS. Se mueven por separado.
+- Pág. 232 abre "An array is like a tray of cups" (un arreglo es como una bandeja de vasos): acceso directo por índice, y cada elemento es una variable común del tipo declarado.
+- Clave del tramo: EL ARREGLO ES UN OBJETO, aunque sea de primitivas. Por eso `int[] nums;` es una referencia y hace falta `nums = new int[7];` para crear el objeto en el heap.
+- En un arreglo de objetos (`Dog[]`) cada casillero guarda un CONTROL REMOTO a un Dog, no el Dog: crear el arreglo no crea ni un solo Dog.
+- Ejercicios de la tanda: ninguno nuevo (tramo conceptual).
+- Dudas: 1ra (`b = null;` → 0 objetos alcanzables) BIEN y razonando desde el objeto, con el historial completo de por qué el objeto 1 ya estaba abandonado. Único matiz corregido: el GC lo hace ELEGIBLE, no lo borra en el acto. 2da MAL y re-explicada: ante `Dog[] perros = new Dog[3];` contestó "no se crea ningún objeto". Se corrigió: el arreglo ES un objeto (la bandeja vive en el heap), y sus 3 casilleros son variables de referencia en `null` esperando Dogs. Fondo del error: asocia "objeto" solo a las clases que él escribe, no al arreglo mismo. Repregunta de cierre (`String[] nombres = new String[4];`) respondida BIEN y completa (1 objeto, 4 referencias en null, imprime null): concepto recuperado en la misma sesión.
+- PRÓXIMO PASO: página 226 (salteada) y 233 (paso 3 de los arrays, cortado a mitad).
+
+SESIÓN #40 — 2026-07-26 — llenar un arreglo de primitivas y armar uno de objetos (pág. 234-236, 15%)
+- Pág. 234 cierra el paso 3: `nums[0] = 6;` hasta `nums[6] = 1;`. Cada casillero es una variable `int` común y corriente; el corchete con el índice es solo su nombre.
+- Un arreglo de 7 elementos usa los índices 0 a 6: el último índice SIEMPRE es longitud menos uno. Es el error clásico de todo principiante (off-by-one).
+- Pág. 235 lo dice sin vueltas: "Arrays are always objects" (los arreglos siempre son objetos), guarden primitivas o referencias. La bandeja es un objeto del heap; los 7 vasos con ints adentro no lo son.
+- Pág. 235-236 "Make an array of Dogs": mismos 3 pasos pero con objetos. `Dog[] pets;` declara, `pets = new Dog[7];` crea la bandeja... y el libro pregunta "What's missing?" (¿qué falta?): no hay NI UN Dog.
+- La diferencia que lo explica todo: en `int[]` cada casillero GUARDA el valor; en `Dog[]` cada casillero guarda un CONTROL REMOTO, y arranca en `null`.
+- Paso 3 de un arreglo de objetos: `pets[0] = new Dog();` — un `new` por cada elemento que quieras usar.
+- Nota del profe: hoy se escribe todo junto (`int[] nums = new int[7];`), existe el atajo `int[] nums = {6, 19, 44};` que declara-crea-llena en una línea, y en el trabajo real se usa mucho más `ArrayList<Dog>` que el arreglo crudo (Cap. 6). Pasarse del último índice explota en runtime con `ArrayIndexOutOfBoundsException`.
+- Ejercicios de la tanda: ninguno nuevo (tramo conceptual).
+- Dudas: 1ra (`new String[5]` + imprimir el casillero 4) BIEN y bien justificada: el casillero existe desde que se creó el arreglo, con `null` adentro. 2da a medias y REINCIDENTE: al contar los `new` de `Dog[] pets = new Dog[3];` + los 3 perros contestó 3, se olvidó del `new` de la bandeja (son 4). Es el MISMO fondo que la duda 2 de la #39: asocia "objeto" solo a las clases que él escribe, no al arreglo. Regla que se le dio: un `new`, un objeto — contá los `new` y sabés cuántos objetos hay.
+- PRÓXIMO PASO: página 226 (salteada) y 237.
+
+SESIÓN #41 — 2026-07-26 — el punto sobre un elemento del arreglo + Java chequea el tipo (pág. 239-240 y 242, 15%)
+- Pág. 239: repaso del operador punto (`fido.name`, `fido.bark()`). Lo único a subrayar: las instance variables son tazas que viven DENTRO del objeto; por eso hay que pasar por la referencia para llegar a ellas.
+- Pág. 240 "Java cares about type": el compilador no deja meter en un arreglo nada que no sea del tipo declarado (ni un `Cat` en un `Dog[]`, ni un `double` en un `int[]`). Chequeo en COMPILE-TIME.
+- Excepción: un `byte` SÍ entra en un `int[]` — implicit widening (ensanchamiento implícito): de taza chica a taza grande no se pierde nada, y Java lo acepta sin pedir permiso. Al revés hace falta cast (más adelante).
+- Idea central de la tanda: cuando el objeto está en un arreglo NO tiene nombre propio, así que se lo nombra por su posición. `myDogs[0]` ocupa exactamente el lugar donde antes iba `fido`, y de ahí en más todo igual: `myDogs[0].name = "Fido";`, `myDogs[0].bark();`.
+- Error clásico a evitar: `myDogs.bark()` no compila — le estarías pidiendo a la BANDEJA que ladre. Ladran los perros de adentro.
+- Nota al pie del libro (importante): `fido.name = "Fido"` es mala práctica en Java real; lo correcto es un `setName(...)`. Lo hacen así para simplificar y lo arreglan en el Cap. 4 con encapsulation (encapsulamiento) — tema 80/20 fuerte, cae en entrevistas.
+- Pág. 242: diagrama de la clase Dog (nombre / `name` / `bark()`, `eat()`, `chaseCat()`), formato ya conocido.
+- Ejercicios de la tanda: ninguno nuevo (tramo conceptual y corto).
+- Dudas: 1ra (llamar bark() sobre un casillero vacío) BIEN, con la analogía correcta ("hay control pero no tele"); se le dio el nombre técnico, NullPointerException en runtime. 2da A MEDIAS: explicó byte→int y double→int como dos reglas separadas en vez de ver la única razón de fondo — Java convierte solo cuando es IMPOSIBLE perder información; de grande a chico hay que firmar con un cast.
+- PRÓXIMO PASO: página 243. OJO material faltante: el 1er pantallazo de esta tanda salió en negro (archivo roto), así que quedaron sin ver las pág. 237-238 y 241 (el código de "A Dog example", que el diagrama de la 242 acompaña).
+
+SESIÓN #42 — 2026-07-26 — El programa completo del arreglo de Dogs, bullet points del Cap. 3 y BE the Compiler (pág. 243-246, 16%)
+- Pág. 243: el ejemplo entero junto. Novedad de forma: el `main` puede vivir DENTRO de la propia clase `Dog`, sin una clase TestDrive aparte.
+- `myDogs.length` = cantidad de elementos, es una VARIABLE (sin paréntesis), no un método. Por eso la condición del while va con `<` y nunca con `<=`: length vale 3 y los índices son 0, 1 y 2.
+- Los String son objetos disfrazados: se crean y asignan como primitivas (`String name = "Bart";`, sin `new`), pero son variables de referencia. La sintaxis corta es un regalo de Java, no un cambio de naturaleza.
+- `myDogs[2] = dog1;` NO crea nada: copia una referencia. Dos controles remotos, un solo perro; por eso la salida termina con "Bart says Ruff!".
+- La salida arranca con `null says Ruff!` porque `dog1.bark()` corre ANTES de `dog1.name = "Bart"`. Una referencia sin asignar vale `null` y se imprime literalmente como texto — no revienta nada.
+- Bullet points (pág. 244): repaso del capítulo. El único que hay que fijar: un arreglo SIEMPRE es un objeto, incluso declarado para primitivas — no existe el "arreglo primitivo", solo un arreglo que CONTIENE primitivas.
+- Ejercicios de la tanda: EJERCICIO #08 "BE the Compiler" (pág. 245-246, programas A `Books` y B `Hobbits`) — pendiente. El ícono de zapatillas marca la sección Exercise del libro.
+- Nota del profe: la consigna pide dos cosas distintas, "compile AND run without exception" (compile Y se ejecute sin excepción). Compilar bien y reventar en runtime es un resultado posible, no un caso raro.
+- Dudas: (pendientes de la ronda de comprensión de esta tanda).
+- PRÓXIMO PASO: página 247. Sigue pendiente el material faltante de pág. 237-238 y 241.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

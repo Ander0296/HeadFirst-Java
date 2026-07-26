@@ -806,10 +806,27 @@ Entregá en: ejercicios/repasos/lib03-television-r1.md (desde cero, sin mirar el
 Comparación de Claude (se llena al revisar):
 ...
 
-REPASO — EJERCICIO BottleSong (pág. 111) (r1) — programado: 2026-07-25 — [ ] pendiente
+REPASO — EJERCICIO BottleSong (pág. 111) (r1) — programado: 2026-07-25 — [x] completado (2026-07-26)
 Entregá en: ejercicios/repasos/ej02-bottlesong-r1/BottleSong.java (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)
-Comparación de Claude (se llena al revisar):
-...
+Comparación de Claude: SALIÓ BIEN, y con una mejora grande de proceso.
+El original (2026-07-21) le llevó 5 intentos: 4 caminos equivocados
+(cambiar `> 0` por `> 1`, cambiar `== 1` por `== 2`, mover el bloque
+`Quedarán`/`No quedará` arriba de la resta) antes de dar con el fix.
+En el r1 dio con el MISMO fix a la PRIMERA: mover las 3 líneas de los
+dos `println(bottlesNum + " " + word)` + `println("Y si...")` para que
+queden ANTES de `bottlesNum = bottlesNum - 1`, dejando el decremento,
+el chequeo del singular y el `Quedarán`/`No quedará` en su orden.
+Salida verificada línea por línea contra la letra: 100% correcta, de
+"10 botellas..." hasta "No quedará ninguna botella verde, colgada de
+la pared". Ningún error del original se repitió.
+Nota (no es error de lógica, sí de convención): resolvió en un archivo
+nuevo `BottleSongTestDrive.java` en vez de en `BottleSong.java` como
+pedía el enunciado. Compila igual (nombre de clase = nombre de
+archivo), pero el sufijo TestDrive en este libro significa "clase con
+main que INSTANCIA y prueba a OTRA clase" (Robot/RobotTestDrive,
+DrumKit/DrumKitTestDrive). Acá no hay otra clase que probar: es un
+programa de una sola clase, así que el nombre correcto es BottleSong.
+Se agendó r2 para 2026-08-09.
 
 REPASO — EJERCICIO Sharpen your pencil (pág. 80-81) (r1) — programado: 2026-07-20 — [x] completado (2026-07-21)
 Entregá en: ejercicios/repasos/sharpen-your-pencil-r1/sharpen-your-pencil-r1.md (desde cero, sin mirar el original)

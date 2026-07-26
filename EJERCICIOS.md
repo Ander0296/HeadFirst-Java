@@ -40,6 +40,13 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # EJERCICIOS ABIERTOS
 # ============================================================
 
+EJERCICIO #08 — BE the Compiler: dos programas con arreglos (A: Books/BooksTestDrive, B: Hobbits) — decir si compilan, si se ejecutan sin excepción, y escribir la versión corregida (Ubicación pág. 245-246, Sesión #42) — [ ] pendiente
+Tipo: completar/corregir código
+Arranque: ejercicios/ej08-be-the-compiler-arrays/ (BooksTestDrive.java y Hobbits.java)
+Si te trabás: Sesión #40 y #42 de la guía
+OJO: son DOS preguntas distintas (compila / se ejecuta sin excepción).
+Los dos BE the Compiler anteriores fallaron justo ahí.
+
 LIBRO — Sharpen your pencil: ¿legal o no? — marcar cuáles de 12 líneas de asignación entre primitivas compilan y cuáles no (Ubicación pág. 210, Sesión #34) — [ ] pendiente
 Arranque: ejercicios/lib07-legal-o-no.md | Si te trabás: Sesión #32 y #33 de GUIA-JAVA.md
 
@@ -64,9 +71,6 @@ Si te trabás: Sesión #12 y #13 (while, if, operadores de comparación)
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
-
-REPASO — EJERCICIO BottleSong (pág. 111) (r1) — programado: 2026-07-25 — [ ] pendiente
-Arranque: ejercicios/repasos/ej02-bottlesong-r1/BottleSong.java
 
 REPASO — LIBRO Sharpen your pencil: Television (pág. 162-163) (r1) — programado: 2026-07-27 — [ ] pendiente
 Arranque: ejercicios/repasos/lib03-television-r1.md
@@ -102,6 +106,12 @@ Arranque: ejercicios/repasos/ej03-shuffle1-r2/Shuffle1.java
 
 REPASO — LIBRO Mixed Messages (pág. 127-129) (r2) — programado: 2026-08-08 — [ ] pendiente
 Arranque: ejercicios/repasos/lib02-r2.md
+
+REPASO — EJERCICIO BottleSong (pág. 111) (r2) — programado: 2026-08-09 — [ ] pendiente
+Arranque: ejercicios/repasos/ej02-bottlesong-r2/BottleSong.java
+El r1 salió BIEN y a la primera (el original había llevado 5 intentos).
+Punto a mirar: que resuelva en BottleSong.java, no en un archivo
+"TestDrive" (en el r1 usó ese nombre sin haber otra clase que probar).
 
 # ============================================================
 # CONCEPTOS DOMINADOS (entran al graduarse un ejercicio con r3 bien)
