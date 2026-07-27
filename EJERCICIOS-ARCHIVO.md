@@ -931,3 +931,34 @@ Comparación de Claude: 5 de 5 candidatos correctos, igual que el intento
 original (2026-07-19, también 5/5). Candidato 1→E, 2→G, 3→H, 4→B, 5→D,
 verificado con traza propia vuelta por vuelta. Sin errores nuevos ni
 repetidos: repaso limpio. Se agenda r2 para 2026-08-08.
+
+EJERCICIO #08 — BE the Compiler: dos programas con arreglos (A: Books/BooksTestDrive, B: Hobbits) — decir si compilan, si se ejecutan sin excepción, y escribir la versión corregida (Ubicación pág. 245-246, Sesión #42) — [x] completado (2026-07-27)
+Entregado en: ejercicios/ej08-be-the-compiler-arrays/ (BooksTestDrive.java y Hobbits.java)
+
+Corrección de Claude: los DOS programas quedaron correctos y la salida
+coincide exacto con la del libro. A: agregó los tres `new Books()` que
+faltaban, y por primera vez contó bien los objetos (4 en total: el
+arreglo + los 3 Books) — la confusión reincidente de las Sesiones #39
+y #40 quedó saldada. B: movió el `z = z + 1` al FINAL del while y bajó
+la condición a `z < 3`; diagnosticó bien las dos fallas (se salteaba
+h[0] y se pasaba de índice).
+
+Lo que falta afinar (no invalida el ejercicio, salió bien):
+1. "Compila pero no se ejecuta" es impreciso. Los dos programas SÍ
+   arrancan; revientan a mitad de camino. En A la excepción salta en la
+   primerísima instrucción y no se imprime nada; en B se imprimen
+   "frodo" y "sam" y RECIÉN AHÍ revienta. Salida parcial + excepción es
+   la firma de un error de runtime.
+2. Nombres de las excepciones (los va a ver escritos en la terminal):
+   A → NullPointerException; B → ArrayIndexOutOfBoundsException.
+   Dijo "error de desbordamiento": la idea es correcta, le falta el
+   nombre.
+3. En B contó "3 objetos que debemos crear": son 4 con el arreglo,
+   igual que en A. La regla la aplicó bien en un programa y no en el
+   otro.
+4. NOTA DEL PROFE: en los dos `while` hardcodeó el 3 (`x < 3`,
+   `z < 3`). Con `x < myBooks.length` y `z < h.length` el bucle se
+   adapta solo si mañana el arreglo cambia de tamaño. Es lo que se usa
+   en código real.
+
+RESULTADO: salió BIEN. Repaso r1 agendado para 2026-07-31.

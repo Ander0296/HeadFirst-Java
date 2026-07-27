@@ -9,9 +9,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 - Última página estudiada: página 246 de 1629 (16%) — cierre de arrays: el arreglo SIEMPRE es un objeto (aunque guarde primitivas), `array.length` es variable y no método (por eso `<` y nunca `<=`), a un objeto en un arreglo se lo nombra por su posición (`myDogs[0].bark()`), asignar una referencia a un casillero NO crea nada, y una referencia sin asignar vale `null` e imprime "null". Ver Sesiones #40 a #42. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238 y 241.
 - Última sesión: Sesión #42
-- Última sesión de Claude: java-s14 (cubrió la Sesión #42) → la
-  próxima es java-s15. Contador distinto al de arriba; el /rename sale de ACÁ.
-- Ejercicios pendientes: 5 — BE the Compiler arrays (EJERCICIO #08, nuevo), Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho), "¿legal o no?" (lib07). Estados completos, fechas y repasos: ver EJERCICIOS.md.
+- Última sesión de Claude: java-s15 (sin tanda: solo corrección del EJERCICIO #08) → la
+  próxima es java-s16. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Ejercicios pendientes: 4 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho), "¿legal o no?" (lib07). Estados completos, fechas y repasos: ver EJERCICIOS.md.
 - IMPORTANTE — spoiler pendiente: las páginas 197-199 (soluciones oficiales de Pool Puzzle "Echo" y de "Who Am I?") ya fueron leídas por Claude pero NO explicadas al usuario a propósito, para no arruinar esos dos ejercicios en curso. Retomarlas recién cuando el usuario termine ambos.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).

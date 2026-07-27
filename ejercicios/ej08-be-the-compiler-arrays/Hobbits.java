@@ -74,3 +74,33 @@
 // EJERCICIOS-ARCHIVO.md y agendá sus repasos.
 //
 // ============================================================
+
+class Hobbits {
+    String name;
+
+    public static void main(String[] args) {
+        Hobbits[] h = new Hobbits[3];
+        int z = 0;
+
+        while (z < 3) {
+            h[z] = new Hobbits();
+            h[z].name = "bilbo";
+            if (z == 1) {
+                h[z].name = "frodo";
+            }
+            if (z == 2) {
+                h[z].name = "sam";
+            }
+            System.out.print(h[z].name + " is a ");
+            System.out.println("good Hobbit name");
+            z = z + 1;
+        }
+    }
+}
+
+// Compila pero no ejecuta, el problema viene que empezamos la variable z en 1
+// sin tener en cuenta el objeto al que apunta h[0],
+// También hay un error de desbordamiento ya que tenemos 3 objetos que debemos
+// crear, pero estamos dando 4 vueltas al while.
+// Con mover el aumentador y bajar a z<3 nos va compilar y ejecutar sin
+// problemas.

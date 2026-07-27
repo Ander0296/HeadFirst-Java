@@ -74,3 +74,40 @@
 // EJERCICIOS-ARCHIVO.md y agendá sus repasos.
 //
 // ============================================================
+//
+
+class Books {
+    String title;
+    String author;
+}
+
+class BooksTestDrive {
+    public static void main(String[] args) {
+        Books[] myBooks = new Books[3];
+        int x = 0;
+
+        myBooks[0] = new Books();
+        myBooks[1] = new Books();
+        myBooks[2] = new Books();
+
+        myBooks[0].title = "The Grapes of Java";
+        myBooks[1].title = "The Java Gatsby";
+        myBooks[2].title = "The Java Cookbook";
+        myBooks[0].author = "bob";
+        myBooks[1].author = "sue";
+        myBooks[2].author = "ian";
+
+        while (x < 3) {
+            System.out.print(myBooks[x].title);
+            System.out.print(" by ");
+            System.out.println(myBooks[x].author);
+            x = x + 1;
+        }
+    }
+}
+
+// Compila pero no se ejecuta, por null pointer exeption, ya que le estamos
+// diciendo
+// que nos muestre los titulos y los autores sin crear los objetos.
+// no están apuntando a nungin objeto entonces es un error de ejecución
+// Deberían quedar en total 4 objetos y solo hábia 1

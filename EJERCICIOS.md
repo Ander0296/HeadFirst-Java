@@ -40,13 +40,6 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # EJERCICIOS ABIERTOS
 # ============================================================
 
-EJERCICIO #08 — BE the Compiler: dos programas con arreglos (A: Books/BooksTestDrive, B: Hobbits) — decir si compilan, si se ejecutan sin excepción, y escribir la versión corregida (Ubicación pág. 245-246, Sesión #42) — [ ] pendiente
-Tipo: completar/corregir código
-Arranque: ejercicios/ej08-be-the-compiler-arrays/ (BooksTestDrive.java y Hobbits.java)
-Si te trabás: Sesión #40 y #42 de la guía
-OJO: son DOS preguntas distintas (compila / se ejecuta sin excepción).
-Los dos BE the Compiler anteriores fallaron justo ahí.
-
 LIBRO — Sharpen your pencil: ¿legal o no? — marcar cuáles de 12 líneas de asignación entre primitivas compilan y cuáles no (Ubicación pág. 210, Sesión #34) — [ ] pendiente
 Arranque: ejercicios/lib07-legal-o-no.md | Si te trabás: Sesión #32 y #33 de GUIA-JAVA.md
 
@@ -92,6 +85,11 @@ Arranque: ejercicios/repasos/ej05-robot-r1/ (Robot.java y RobotTestDrive.java)
 
 REPASO — EJERCICIO #06 DrumKit (pág. 186) (r1) — programado: 2026-07-29 — [ ] pendiente
 Arranque: ejercicios/repasos/ej06-r1/
+
+REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r1) — programado: 2026-07-31 — [ ] pendiente
+Arranque: ejercicios/repasos/ej08-r1/ (BooksTestDrive.java y Hobbits.java)
+Punto a mirar: que diga "compila SÍ, revienta en ejecución" con el
+nombre de la excepción, y que cuente el arreglo como objeto (4, no 3).
 
 REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r2) — programado: 2026-08-04 — [ ] pendiente
 Arranque: ejercicios/repasos/sharpen-your-pencil-r2.md
