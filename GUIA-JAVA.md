@@ -7,12 +7,12 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 252 de 1629 (16%) — cerró el Pool Puzzle "Triangle" con su pileta de fragmentos, y arrancó "A Heap o' Trouble" (unir referencias `hq[x]` con objetos HeapQuiz tras reasignaciones). Ver Sesión #44. Próximo: "The case of the pilfered references" (pág. 253, sin abrir todavía). Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238 y 241.
-- Última sesión: Sesión #44
-- Última sesión de Claude: java-s17 (cubrió la Sesión #44) → la
-  próxima es java-s18. Contador distinto al de arriba; el /rename sale de ACÁ.
-- Ejercicios pendientes: 7 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), Pool Puzzle "Triangle" (EJERCICIO #10, nuevo, OPCIONAL), "A Heap o' Trouble" (lib08, nuevo, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho), "¿legal o no?" (lib07), Code Magnets "TestArrays" (EJERCICIO #09). Estados completos, fechas y repasos: ver EJERCICIOS.md.
-- IMPORTANTE — spoiler pendiente: las páginas 197-199 (soluciones oficiales de Pool Puzzle "Echo" y de "Who Am I?") ya fueron leídas por Claude pero NO explicadas al usuario a propósito, para no arruinar esos dos ejercicios en curso. Retomarlas recién cuando el usuario termine ambos.
+- Última página estudiada: página 277 de 1629 (17%) — métodos que devuelven un valor de verdad, métodos con varios parámetros, y "Java is pass-by-value" (pasaje por copia). Ver Sesión #49. Próximo: pág. 278 en adelante. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269 y 271.
+- Última sesión: Sesión #49
+- Última sesión de Claude: java-s23 (cubrió la Sesión #49) → la
+  próxima es java-s24. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Ejercicios pendientes: 5 — "¿legal o no?" (lib07) es el único NO opcional; los otros 4 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10) y "A Heap o' Trouble" (lib08). El 2026-07-28 se completaron EJ #09 "TestArrays" y lib09 "Five-Minute Mystery", y se dio de baja "Who Am I?" (lib06). Fechas y repasos: ver EJERCICIOS.md.
+- IMPORTANTE — spoilers leídos por Claude y NO explicados a propósito: pág. 197-199 (solución del Pool Puzzle "Echo", EJ #07), pág. 257 mitad de arriba (solución de "¿legal o no?", lib07), pág. 260 + 262 mitad de arriba (solución y salida del Pool Puzzle "Triangle", EJ #10) y pág. 262 mitad de abajo + 263 (solución de "A Heap o' Trouble", lib08). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 
@@ -122,6 +122,18 @@ Ejercicios: ver EJERCICIOS.md.
 | implicit widening                     | ensanchamiento implícito | Java acepta sin pedir permiso un valor de tipo chico donde va uno más grande (un `byte` en un arreglo de `int`), porque no se puede perder nada. |
 | spillage (jerga)                      | derrame | Forma del libro de decir que un valor no entra en una variable más chica (un `double` en un `int`); por eso el compilador lo rechaza. |
 | lurking                               | agazapado, al acecho | Del chiste del libro: un `Cat` escondido dentro de un arreglo de `Dog`. Java lo impide chequeando el tipo en compilación. |
+| state                                 | estado | Lo que un objeto SABE: el conjunto de valores que tienen sus instance variables en un momento dado. |
+| behavior                              | comportamiento | Lo que un objeto SABE HACER: sus methods. Actúa sobre el estado y también puede modificarlo. |
+| blueprint                             | plano, molde | La clase es el "blueprint" del objeto: describe cómo la JVM debe fabricar cada objeto de ese tipo. |
+| argument                              | argumento | El VALOR concreto que quien llama pone entre paréntesis: el 3 de `d.bark(3);`. |
+| parameter                             | parámetro | La VARIABLE LOCAL declarada entre los paréntesis del método, donde aterriza el argumento: el `int numOfBarks` de `void bark(int numOfBarks)`. |
+| to pass / to take                     | pasar / tomar | Convención del libro: "A caller passes arguments. A method takes parameters." (Quien llama pasa argumentos. Un método toma parámetros.) |
+| return type                           | tipo de retorno | Lo que un método devuelve, declarado ANTES de su nombre. `void` significa "no devuelve nada". |
+| return (palabra reservada)            | devolver | Termina el método y manda el valor de vuelta a quien lo llamó: `return 42;`. |
+| pass-by-value / pass-by-copy          | pasaje por valor / por copia | Java SIEMPRE pasa una COPIA del valor al método: el original de quien llamó no se toca. |
+| These types must match                | Estos tipos tienen que coincidir | El tipo de la variable que recibe y el tipo de retorno del método tienen que ser el mismo. |
+| foo / bar                             | (nombres de relleno) | Metasyntactic variables: nombres genéricos sin significado, tipo "fulano y mengano". Nunca usarlos en código real. |
+| return                                | devolver, retornar | Mandar un valor de vuelta a quien llamó al método. |
 
 ============================================================
 (SESIONES — desde la #30 en formato CORTO: 5-8 bullets, sin bloques
@@ -287,6 +299,64 @@ SESIÓN #44 — 2026-07-27 — Pileta del Pool Puzzle "Triangle" + arranque de "
 - Ejercicios de la tanda: EJERCICIO #10 "Pool Puzzle: Triangle" (pendiente, opcional) y LIBRO "A Heap o' Trouble" (pendiente, opcional).
 - Teaser sin abrir: "The case of the pilfered references" (pág. 253) — título de la próxima sección, no leído todavía.
 - PRÓXIMO PASO: página 253 ("The case of the pilfered references", sin abrir).
+
+SESIÓN #45 — 2026-07-28 — Five-Minute Mystery "The case of the pilfered references" + soluciones oficiales del capítulo (pág. 254-255, 257-258, 16%)
+- Pág. 254-255: el misterio. Dos formas de crear 10 objetos Contact en un celular con poca memoria: Bob usa un arreglo `Contact[] contacts` y guarda cada objeto en `contacts[x]`; Kate usa UNA sola variable `Contact contactRef` que reasigna en cada vuelta. Kate ahorra memoria en variables de referencia, y aun así Tawny elige a Bob. Registrado como lib09 (sin resolver en el chat).
+- Concepto de fondo (ya visto, no es nuevo): reasignar una referencia no mueve ni copia el objeto; el objeto anterior queda sin quien lo apunte. Conecta la Sesión #37 (garbage collection) con la #43 (arreglo de referencias).
+- Pág. 257 (mitad de abajo): solución oficial del Code Magnets "TestArrays" — confirma el EJERCICIO #09 del usuario y muestra las asignaciones de `index[0..3]` FUERA del `while`, tal como se le corrigió.
+- Pág. 258: la pantalla de salida esperada de TestArrays (4 líneas, coincide exacto con la del usuario) y arranca la sección de soluciones de "BE the Compiler" (contenido no incluido en la tanda).
+- SPOILER EVITADO A PROPÓSITO: la mitad de arriba de la pág. 257 es la solución del "Sharpen your pencil: ¿legal o no?" (pág. 210) que el usuario tiene PENDIENTE como lib07. No se explicó ni se comentó ninguna de las 12 líneas. Retomarla cuando entregue ese ejercicio.
+- Ejercicios de la tanda: LIBRO lib09 "Five-Minute Mystery" (pendiente).
+- PRÓXIMO PASO: página 256 (salteada en esta tanda, es parte de la solución de lib07) y 259 en adelante.
+
+SESIÓN #46 — 2026-07-28 — soluciones oficiales del capítulo: BE the Compiler y Five-Minute Mystery (pág. 259, 262, 16%)
+- Pág. 259 (A): solución oficial de "BE the Compiler" parte Books — los 3 `new Books()` que faltaban, exactamente lo que el usuario había agregado en el EJERCICIO #08. Nota al margen del libro: "Remember: We have to actually make the Book objects!" (Acordate: hay que crear de verdad los objetos Book.)
+- Pág. 259 (B): solución oficial de la parte Hobbits — el libro arregla con `int z = -1;` y el `z = z + 1;` como PRIMERA línea del cuerpo; el usuario lo había arreglado con `z = 0`, el incremento al FINAL y `z < 3`. Las dos son correctas: visitan los mismos índices 0, 1 y 2. Nota al margen: "Remember: arrays start with element 0!" (Acordate: los arreglos empiezan en el elemento 0.)
+- Nota del profe: un mismo bug de bucle admite varias correcciones válidas. Lo que se compara no es la forma sino QUÉ ÍNDICES termina visitando; si la salida es idéntica, las dos versiones son correctas.
+- Pág. 262 (mitad del medio): solución del Five-Minute Mystery — Kate sí crea los 10 objetos Contact, pero al reasignar la MISMA variable en cada vuelta deja 9 abandonados en el heap ("unreachable", inalcanzables) y solo el último queda accesible. Confirma la corrección del lib09.
+- SPOILERS EVITADOS A PROPÓSITO: la pág. 260 y la mitad de arriba de la 262 son la solución y la salida del Pool Puzzle "Triangle" (EJERCICIO #10, pendiente); la mitad de abajo de la 262 y toda la pág. 263 son la solución de "A Heap o' Trouble" (lib08, pendiente). No se explicó ni se comentó nada de las dos.
+- Ejercicios de la tanda: ninguno nuevo (todo eran soluciones).
+- Dudas: con `int z = 0;` y el incremento como primera línea, contestó que igual visitaría 0, 1 y 2 — CORREGIDO con traza: visita 1 y 2, `h[0]` queda en null y falta una línea de salida. Confundía "el valor con el que el bucle ENTRA" con "el valor con el que z se USA como índice".
+- PRÓXIMO PASO: pág. 261 (no vino en esta tanda) y 264 en adelante.
+
+SESIÓN #47 — 2026-07-28 — arranca el Capítulo 4: el estado afecta al comportamiento (pág. 264-267, 17%)
+- Pág. 264: portada del Cap. 4 "How Objects Behave: Methods Use Instance Variables" (Cómo se comportan los objetos: los métodos usan variables de instancia). La viñeta "Let's keep those little variables private, OK?" es anticipo de `private` y del encapsulamiento, que llegan más adelante en el capítulo.
+- Pág. 265: la idea madre del capítulo — "State affects behavior, behavior affects state" (el estado afecta al comportamiento y viceversa). State = instance variables; behavior = methods. Un `makeNoise()` que mira `weight` para decidir el ladrido es estado→comportamiento; un método que hace `weight = weight + 5` es comportamiento→estado.
+- Pág. 265: la clase como "blueprint" (plano/molde) que le dice a la JVM cómo fabricar objetos de ese tipo. Diagrama de la clase `Song`: knows = title, artist; does = setTitle(), setArtist(), play().
+- Pág. 266-267: respuesta al "¿pueden dos objetos tener métodos distintos?" — NO. Toda instancia de una clase tiene EXACTAMENTE los mismos métodos; lo que cambia es el valor de las instance variables sobre las que ese código trabaja. Mismo código, distintos datos, distinto resultado.
+- Pág. 267: dentro de un método, nombrar `title` a secas significa "la instance variable del objeto sobre el que me llamaron" — no hace falta `s1.title`. Por eso `void play() { soundPlayer.playSound(title, artist); }` suena distinto en cada instancia.
+- Referencias culturales explicadas: "My Way" de Sinatra (1969, melódico) vs. la versión punk de los Sex Pistols (1978), misma canción y resultado opuesto — por eso el libro la usa para dos objetos `Song`; y "Bark Different." como parodia del "Think Different." de Apple.
+- Ejercicios de la tanda: ninguno nuevo.
+- Nota del profe: este capítulo es la explicación formal del error de fondo del repaso de Television — métodos de acción que no tocan la instance variable de estado que deberían modificar.
+- Dudas: dijo que `song1.play()` y `song2.play()` ejecutan "código diferente" — CORREGIDO: el método vive UNA sola vez en la clase y corre idéntico; lo único que cambia son los datos que va a buscar. Advertido de no mezclarlo con polimorfismo (Cap. 7-8). La pregunta del `bark()` ciego al estado la contestó perfecta.
+- PRÓXIMO PASO: pág. 268 en adelante (el código concreto del `bark()` según el tamaño).
+
+SESIÓN #48 — 2026-07-28 — el bark() según el size + argumentos y parámetros (pág. 270, 272-273, 17%)
+- Pág. 270: `bark()` lee la instance variable `size` con un if/else if/else y elige entre "Wooof! Wooof!" (perro grande), "Ruff! Ruff!" (mediano) y "Yip! Yip!" (chico). El método no recibe nada: llega a `size` porque vive en el mismo objeto.
+- Pág. 270: `DogTestDrive` crea tres Dogs con size 70, 8 y 35 y llama `one.bark()`, `two.bark()`, `three.bark()`. Es la Sesión #47 hecha código: mismas líneas ejecutadas, distinto estado, distinta salida.
+- Pág. 270: se pueden mandar valores a un método — `d.bark(3);`. Convención del libro: "A caller passes arguments. A method takes parameters." (Quien llama pasa argumentos; un método toma parámetros.)
+- Pág. 272: el argumento es el VALOR del lado de quien llama; el parámetro es una VARIABLE LOCAL del método (tipo + nombre). Viajan los bits del valor y aterrizan en la "taza" del parámetro.
+- Pág. 272: regla dura — si un método toma un parámetro, hay que pasarle algo SÍ o SÍ, y del tipo apropiado. Faltar un argumento o mandarlo de otro tipo es error de COMPILACIÓN (mismo principio de "Java cares about type" de la Sesión #41).
+- Pág. 272: el parámetro se usa como cualquier variable adentro del método y se puede modificar (`numOfBarks = numOfBarks - 1`), porque es local: nace y muere con la llamada.
+- Pág. 273: arranca el tema espejo, el retorno. TODO método se declara con un tipo de retorno; `void` (vacío) significa "no devuelve nada". Queda explicado por fin el `void` de `public static void main`.
+- Referencias culturales explicadas: Wooof/Ruff/Yip son las tres formas en que el inglés escribe el ladrido según el tamaño del perro (grave, normal, agudo); y la foto del cajero que devuelve un patito de goma ("Cute... but not exactly what I was expecting.") es un chiste sobre el tipo de retorno.
+- Ejercicios de la tanda: ninguno nuevo.
+- Dudas: contestó bien las dos de la ronda (llamar sin argumento es error de COMPILE-TIME, y en `main` el `void` es el tipo de retorno y `String[] args` el parámetro). Ajuste 1: `void` no es una variable sino palabra reservada en el lugar del tipo. Ajuste 2 (explicación extra sobre qué es el estado): dijo que `bark()` no es estado "porque desaparece cuando termina" — veredicto bien, razón mal: el método NO desaparece, vive una sola vez en la clase; lo que muere es el stack frame de la llamada. El criterio real es DATOS vs. CÓDIGO, no persiste vs. no persiste.
+- PRÓXIMO PASO: pág. 274 en adelante (métodos que devuelven valores de verdad).
+
+SESIÓN #49 — 2026-07-28 — tipo de retorno de verdad, varios parámetros y pass-by-value (pág. 274-277, 17%)
+- Pág. 274: un método puede devolver un valor (`int giveSecret() { return 42; }`). El tipo declarado antes del nombre manda: "Whatever you say you'll give back, you better give back!" (Lo que decís que vas a devolver, más te vale devolverlo). Devolver otro tipo es error de COMPILACIÓN.
+- Pág. 274: en `int theSecret = life.giveSecret();` los dos tipos tienen que coincidir — el de la variable que recibe y el de retorno del método. Viajan los bits del valor devuelto y aterrizan en la variable.
+- Pág. 274: el libro deja abierta la excepción "o un valor COMPATIBLE con el tipo declarado" y la posterga a polimorfismo (caps. 7 y 8). Por ahora: tipo declarado = tipo devuelto.
+- Pág. 275: varios parámetros se separan con comas y CADA UNO lleva su tipo (`void takeTwo(int x, int y)`, nunca `int x, y`). Los argumentos aterrizan por POSICIÓN, no por nombre.
+- Pág. 275: peligro real — si dos parámetros son del mismo tipo e invertís el orden, compila igual y el resultado sale mal en silencio. Con tipos distintos te frena el compilador.
+- Pág. 276: se pueden pasar variables además de literales, si el tipo coincide. Los nombres de la variable y del parámetro NO tienen que coincidir (`t.takeTwo(foo, bar)` → `takeTwo(int x, int y)`).
+- Pág. 276: la anotación clave dice que los bits de `x` son IDÉNTICOS a los de `foo` — o sea otros bits iguales, no los mismos bits. Se copia el valor que la variable tenía en ESE momento.
+- Pág. 277: título solo + viñeta de una fotocopiadora — "Java is pass-by-value. That means pass-by-copy." (Java es pasaje por valor, o sea pasaje por copia). El método recibe una fotocopia; el original no se toca. 80/20 fuerte: es pregunta clásica de entrevista junior, y la respuesta es SIEMPRE pass-by-value.
+- Referencias culturales explicadas: `foo` y `bar` son metasyntactic variables, nombres genéricos de relleno tipo "fulano y mengano" (el libro los usa sin aclararlo); y la viñeta de la fotocopiadora es la metáfora entera del pass-by-copy.
+- Ejercicios de la tanda: ninguno nuevo.
+- Dudas: acertó los dos veredictos de la ronda (ni `takeTwo(3)` ni `takeTwo(3,4,5)` compilan; `foo` sigue valiendo 7). Ajuste 1: dijo "espera 3 argumentos" — espera DOS; confundió el valor 3 con la cantidad. Ajuste 2: creyó que del lado de quien llama hay que indicar el tipo — NO, el tipo vive solo en la declaración del método. Ajuste 3 (el importante): el veredicto de `foo` salió bien pero con razón vaga ("las instrucciones no cambian"); no nombró pass-by-value. Se le corrigió con la contradicción (`x = 100` SÍ cambia un valor, el de `x`) y con la idea de que `x` no ES `foo` sino una fotocopia. Volver a chequear este punto en la pág. 278.
+- PRÓXIMO PASO: pág. 278 en adelante (la demostración con código de que la copia no afecta al original).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

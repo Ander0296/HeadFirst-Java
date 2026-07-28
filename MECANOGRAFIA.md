@@ -197,3 +197,33 @@ Ahora aparece el pool de fragmentos para completar los huecos.
 
 s44b — A Heap o' Trouble:
 Unir cada hq[x] con el objeto HeapQuiz correcto.
+
+s45a — referencias robadas:
+Reasignar la misma referencia en cada vuelta deja sin dueño al objeto anterior.
+
+s45b — arreglo de referencias:
+Un arreglo guarda diez referencias; una sola variable guarda apenas la última.
+
+s46a — más de una solución válida:
+Hay más de una forma correcta de arreglar un bucle: el libro elige una.
+
+s46b — referencias perdidas:
+Kate creó diez objetos Contact pero solo el último quedó accesible.
+
+s47a — el estado afecta al comportamiento:
+Todos los objetos de una clase tienen los mismos métodos, pero el estado cambia su comportamiento.
+
+s47b — los métodos usan instance variables:
+void play() { soundPlayer.playSound(title, artist); } usa las instance variables del objeto.
+
+s48a — argumentos y parámetros:
+Quien llama pasa argumentos; un método toma parámetros, que son variables locales.
+
+s48b — tipo de retorno:
+void bark(int numOfBarks) { } declara un parámetro y un tipo de retorno vacío.
+
+s49a — un método que devuelve un valor:
+Si declarás int giveSecret() tenés que devolver un int: return 42; y los tipos coinciden.
+
+s49b — pass-by-value:
+Java pasa una copia del valor: takeTwo(foo, bar) no modifica foo ni bar afuera del método.

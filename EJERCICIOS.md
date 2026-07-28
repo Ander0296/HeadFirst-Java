@@ -47,20 +47,8 @@ EJERCICIO #10 — Pool Puzzle: Triangle — completar los huecos de una clase Tr
 Tipo: completar/corregir código
 Arranque: ejercicios/ej10-pool-puzzle-triangle/Triangle.java | Si te trabás: Sesión #40 a #43 de la guía
 
-EJERCICIO #09 — Code Magnets: TestArrays — reconstruir un programa desordenado que recorre un arreglo de islas (islands[]) en un orden salteado usando un segundo arreglo (index[]) como mapa de posiciones (Ubicación pág. 247-249, Sesión #43) — [ ] pendiente
-Tipo: completar/corregir código
-Arranque: ejercicios/ej09-code-magnets-testarrays/TestArrays.java | Si te trabás: Sesión #40 a #43 de la guía
-
 LIBRO — Sharpen your pencil: ¿legal o no? — marcar cuáles de 12 líneas de asignación entre primitivas compilan y cuáles no (Ubicación pág. 210, Sesión #34) — [ ] pendiente
 Arranque: ejercicios/lib07-legal-o-no.md | Si te trabás: Sesión #32 y #33 de GUIA-JAVA.md
-
-LIBRO — Who Am I? ("¿Quién soy?") — identificar si cada frase la dice una clase, un objeto, un method o una instance variable (Ubicación pág. 191, Sesión #30) — [~] en curso
-Arranque: ejercicios/lib06-who-am-i.md (13 frases traducidas + "MI RESPUESTA")
-Si te trabás: Sesión #23/#24, #25 y #27 (en GUIA-ARCHIVO.md)
-Estado: intento 2 dio 6/13 claras. Falta intento 3 sobre #4, #7, #8,
-#10, #11, #13. Error de fondo: responde con sintaxis de Java en vez de
-elegir uno de los 4 personajes del enunciado. (Detalle de los dos
-intentos: EJERCICIOS-ARCHIVO.md)
 
 EJERCICIO #07 — Pool Puzzle: "Echo" — completar dos clases con fragmentos de una pileta para lograr una salida exacta (Ubicación pág. 187-190, Sesión #29) — [ ] pendiente — OPCIONAL (ícono Puzzle)
 Tipo: completar/corregir código
@@ -75,9 +63,6 @@ Si te trabás: Sesión #12 y #13 (while, if, operadores de comparación)
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
-
-REPASO — LIBRO Sharpen your pencil: Television (pág. 162-163) (r1) — programado: 2026-07-27 — [ ] pendiente
-Arranque: ejercicios/repasos/lib03-television-r1.md
 
 REPASO — LIBRO BE the Compiler (pág. 123) (r2) — programado: 2026-07-27 — [ ] pendiente
 Arranque: ejercicios/repasos/lib01-r2.md
@@ -97,10 +82,28 @@ Arranque: ejercicios/repasos/ej05-robot-r1/ (Robot.java y RobotTestDrive.java)
 REPASO — EJERCICIO #06 DrumKit (pág. 186) (r1) — programado: 2026-07-29 — [ ] pendiente
 Arranque: ejercicios/repasos/ej06-r1/
 
+REPASO — LIBRO Sharpen your pencil: Television (pág. 162-163) (r1 bis) — programado: 2026-07-31 — [ ] pendiente
+Arranque: ejercicios/repasos/lib03-television-r1bis.md
+El r1 salió MAL: se repitió el error de fondo del original (methods de
+acción sin la instance variable de estado que modifican). Si vuelve a
+fallar → RE-ESTUDIO de "lo que el objeto SABE vs. lo que SABE HACER"
+(Sesión #23/#24 y #25, en GUIA-ARCHIVO.md).
+
 REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r1) — programado: 2026-07-31 — [ ] pendiente
 Arranque: ejercicios/repasos/ej08-r1/ (BooksTestDrive.java y Hobbits.java)
 Punto a mirar: que diga "compila SÍ, revienta en ejecución" con el
 nombre de la excepción, y que cuente el arreglo como objeto (4, no 3).
+
+REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r1) — programado: 2026-08-01 — [ ] pendiente
+Arranque: ejercicios/repasos/ej09-r1/TestArrays.java
+Punto a mirar: que las asignaciones de `index[0..3]` queden AFUERA del
+`while` (en el original quedaron adentro, ejecutándose 4 veces de más).
+
+REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pág. 253-255) (r1) — programado: 2026-08-02 — [ ] pendiente
+Arranque: ejercicios/repasos/lib09-r1.md
+Punto a mirar: que cierre la conclusión (después del bucle de Kate
+queda accesible UN solo Contact, el de la última vuelta) y que no
+confunda el conteo de OBJETOS con el de REFERENCIAS a Contact.
 
 REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r2) — programado: 2026-08-04 — [ ] pendiente
 Arranque: ejercicios/repasos/sharpen-your-pencil-r2.md

@@ -39,9 +39,28 @@ verbos/acciones).
 ## MI RESPUESTA
 
 Instance variables (lo que la tele SABE):
+marca
+tamanio
+resolucion
+peso
+color
+canal
+encendida
+volumen
 
 Methods (lo que la tele SABE HACER):
-
+getMarca()
+getTamanio()
+getResolucion()
+getPeso()
+getColor()
+getCanal()
+setCanal()
+isEncendida()
+encender()
+apagar()
+getVolumen()
+setVolumen()
 ---
 
 ## PROMPT DE ENTREGA (copiá y pegá esto cuando termines)

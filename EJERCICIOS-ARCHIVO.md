@@ -962,3 +962,126 @@ Lo que falta afinar (no invalida el ejercicio, salió bien):
    en código real.
 
 RESULTADO: salió BIEN. Repaso r1 agendado para 2026-07-31.
+
+============================================================
+
+REPASO — LIBRO Sharpen your pencil: Television (pág. 162-163) (r1) — programado: 2026-07-27 — [x] cumplido (2026-07-28)
+Entregado en: ejercicios/repasos/lib03-television-r1.md
+Respuesta del r1 — instance variables: marca, tamaño, resolucion,
+peso, color. Methods: cambiarCanal(), encender(), apagar().
+
+Comparación de Claude: RESULTADO — salió MAL (se repitió el error de
+fondo del original). Nuevo repaso agendado a ~3 días (2026-07-31).
+
+MEJORÓ (real, y vale):
+1. Notación Java desde el arranque: escribió los methods como
+   `cambiarCanal()`, `encender()`, `apagar()` (camelCase + paréntesis).
+   En el original arrancó con prosa en español ("Prenderse", "cambiar
+   canal") y tardó varios intentos en llegar a esa forma.
+2. NO repitió el error del intento 2 (get/set sobre verbos:
+   `getSubirVolumen()`, `setPrenderse()`). Ese concepto —get/set van
+   sobre sustantivos/datos, no sobre acciones— quedó internalizado.
+3. `encender()` y `apagar()` aparecieron juntos de entrada; en el
+   original la contraparte de encender() llegó recién en el intento 5.
+4. Sumó instance variables nuevas y válidas (peso, color): son datos
+   que describen el estado de la tele, cada tele real tiene el suyo.
+
+ERROR QUE SE REPITIÓ (el mismo de los intentos 3, 4 y 5 del original):
+la sección "instance variables" no declara el estado que sus propios
+methods modifican. Tiene `cambiarCanal()`, `encender()` y `apagar()`,
+pero arriba no hay `canal` ni un dato de "si está prendida". Un method
+de acción siempre cambia ALGO que vive dentro del objeto; si ese algo
+no está declarado como instance variable, el method no tiene dónde
+escribir. Marca, tamaño, resolución, peso y color son todos datos
+FIJOS (la tele nace con ellos y no cambian): falta el estado VARIABLE.
+Nota menor: desapareció el volumen por completo (ni method ni variable),
+que en el original sí había aparecido.
+
+PARA EL PRÓXIMO REPASO — punto a mirar: que por cada method de acción
+que escriba, exista arriba la instance variable que ese method
+modifica. Es exactamente la pieza que costó 6 intentos en el original.
+
+============================================================
+
+EJERCICIO #09 — Code Magnets: TestArrays — reconstruir un programa desordenado que recorre un arreglo de islas (islands[]) en un orden salteado usando un segundo arreglo (index[]) como mapa de posiciones (Ubicación pág. 247-249, Sesión #43) — [x] completado (2026-07-28)
+Resuelto en: ejercicios/ej09-code-magnets-testarrays/TestArrays.java
+Compiló a la primera. Salida verificada contra la esperada del libro:
+"island = Fiji / island = Cozumel / island = Bermuda / island = Azores"
+— exacta, las 4 líneas en orden.
+
+Corrección de Claude: RESULTADO — salió BIEN (salida exacta, un solo
+punto a mejorar, de diseño y no de resultado).
+
+BIEN:
+1. Las dos declaraciones (`new int[4]`, `new String[4]`) y el uso de
+   dos arreglos de tipos distintos conviviendo.
+2. `int ref;` declarado sin valor y asignado antes de leerse —
+   correcto por la regla de definite assignment de las variables
+   locales. Se explicó en el chat el contraste con las instance
+   variables (esas sí arrancan con valor por defecto).
+3. Bucle sin off-by-one: `y = 0`, `y < 4`, `y = y + 1` al final del
+   cuerpo. Cuatro vueltas exactas.
+4. Entendió el concepto central del ejercicio: `index[]` usado como
+   MAPA de posiciones para recorrer `islands[]` salteado
+   (index = {1,3,0,2} → Fiji, Cozumel, Bermuda, Azores).
+5. `print` vs `println` bien usados para armar la línea completa.
+
+A MEJORAR (único punto):
+Las cuatro asignaciones de `index[0..3]` quedaron DENTRO del `while`,
+así que se ejecutan en cada vuelta: 16 asignaciones para llenar un
+arreglo de 4. La salida sale igual porque los valores son constantes —
+error tramposo: el programa anda y aun así está mal. Es código de
+PREPARACIÓN y va antes del bucle, como sí hizo (bien) con
+`islands[0..3]`. Aplicó la regla en un arreglo y no en el otro.
+Regla dada en el chat: adentro del bucle va solo lo que tiene que
+pasar en cada vuelta.
+
+NOTA DEL PROFE: escribió `String[] islands` (corchetes pegados al
+tipo) donde el libro pone `String [] islands`. Las dos compilan; la
+suya es la convención actual (los corchetes son parte del TIPO).
+
+RESULTADO: salió BIEN. Repaso r1 agendado para 2026-08-01.
+
+============================================================
+
+LIBRO — Five-Minute Mystery: "The case of the pilfered references" ("El caso de las referencias robadas") — explicar por qué Tawny elige la versión de Bob (arreglo de 10 referencias) sobre la de Kate (una sola referencia reasignada), aunque la de Kate use menos memoria (Ubicación pág. 253-255, Sesión #45) — [x] completado (2026-07-28)
+Resuelto en: ejercicios/lib09-five-minute-mystery.md
+
+Corrección de Claude: RESULTADO — salió BIEN, a la primera y con el
+mecanismo correcto, no con una intuición vaga.
+
+BIEN (el núcleo del misterio):
+1. Identificó que Kate SÍ crea los 10 objetos: el problema no es la
+   creación, es el acceso posterior.
+2. Explicó el mecanismo completo con sus palabras: "un solo control
+   remoto que va a estar apuntando a un objeto diferente en cada
+   vuelta, esto hace que pierdan la referencia y queden [candidatos]
+   para el garbage collector". Es exactamente la respuesta del libro.
+3. Reusó por su cuenta la analogía del control remoto (Sesión #27/#31)
+   y el concepto de garbage collection (Sesión #37) sin que se los
+   nombraran en la corrección.
+4. Ató el veredicto a la especificación de Tawny (poder acceder a la
+   información de cada uno de los diez contactos).
+
+A AFINAR (no invalidan la respuesta):
+1. No cerró el remate explícito: al terminar el bucle de Kate queda
+   accesible UN solo Contact (el de la última vuelta), así que la
+   línea "do complicated Contact list updating with contactRef" no
+   tiene sobre qué trabajar. El razonamiento estaba, faltó la
+   conclusión escrita.
+2. Vocabulario: se dice "elegible/candidato" para el garbage
+   collector, no "seleccionable".
+3. La ironía del cuento, que conviene tener a mano: una variable de
+   referencia ocupa muchísimo menos que un objeto. Kate se ahorró 9
+   referencias (poquísimo) y perdió el acceso a 9 objetos (todo). Por
+   eso Tawny dice "you've saved a LITTLE memory".
+
+CONTEO DE REFERENCIAS (pregunta de verificación de la tanda): dijo que
+después del bucle de Bob hay 11 referencias vivas apuntando a objetos
+Contact. Son 10 (contacts[0..9]). La 11ª referencia, `contacts`,
+apunta al ARREGLO, no a un Contact. Sí hay 11 OBJETOS en juego (10
+Contact + el objeto arreglo) — el error es cruzar el conteo de objetos
+con el de referencias a Contact. Es el mismo matiz del EJ #08 (el
+arreglo cuenta como objeto), aplicado ahora del otro lado.
+
+RESULTADO: salió BIEN. Repaso r1 agendado para 2026-08-02.
