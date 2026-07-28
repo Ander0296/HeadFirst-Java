@@ -7,11 +7,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 246 de 1629 (16%) — cierre de arrays: el arreglo SIEMPRE es un objeto (aunque guarde primitivas), `array.length` es variable y no método (por eso `<` y nunca `<=`), a un objeto en un arreglo se lo nombra por su posición (`myDogs[0].bark()`), asignar una referencia a un casillero NO crea nada, y una referencia sin asignar vale `null` e imprime "null". Ver Sesiones #40 a #42. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238 y 241.
-- Última sesión: Sesión #42
-- Última sesión de Claude: java-s15 (sin tanda: solo corrección del EJERCICIO #08) → la
-  próxima es java-s16. Contador distinto al de arriba; el /rename sale de ACÁ.
-- Ejercicios pendientes: 4 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho), "¿legal o no?" (lib07). Estados completos, fechas y repasos: ver EJERCICIOS.md.
+- Última página estudiada: página 252 de 1629 (16%) — cerró el Pool Puzzle "Triangle" con su pileta de fragmentos, y arrancó "A Heap o' Trouble" (unir referencias `hq[x]` con objetos HeapQuiz tras reasignaciones). Ver Sesión #44. Próximo: "The case of the pilfered references" (pág. 253, sin abrir todavía). Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238 y 241.
+- Última sesión: Sesión #44
+- Última sesión de Claude: java-s17 (cubrió la Sesión #44) → la
+  próxima es java-s18. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Ejercicios pendientes: 7 — Pool Puzzle original (Sesión #17, OPCIONAL), Pool Puzzle "Echo" (EJERCICIO #07, OPCIONAL), Pool Puzzle "Triangle" (EJERCICIO #10, nuevo, OPCIONAL), "A Heap o' Trouble" (lib08, nuevo, OPCIONAL), "Who Am I?" (lib06, EN CURSO, intento 2 hecho), "¿legal o no?" (lib07), Code Magnets "TestArrays" (EJERCICIO #09). Estados completos, fechas y repasos: ver EJERCICIOS.md.
 - IMPORTANTE — spoiler pendiente: las páginas 197-199 (soluciones oficiales de Pool Puzzle "Echo" y de "Who Am I?") ya fueron leídas por Claude pero NO explicadas al usuario a propósito, para no arruinar esos dos ejercicios en curso. Retomarlas recién cuando el usuario termine ambos.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
@@ -269,6 +269,24 @@ SESIÓN #42 — 2026-07-26 — El programa completo del arreglo de Dogs, bullet 
 - Nota del profe: la consigna pide dos cosas distintas, "compile AND run without exception" (compile Y se ejecute sin excepción). Compilar bien y reventar en runtime es un resultado posible, no un caso raro.
 - Dudas: (pendientes de la ronda de comprensión de esta tanda).
 - PRÓXIMO PASO: página 247. Sigue pendiente el material faltante de pág. 237-238 y 241.
+
+SESIÓN #43 — 2026-07-27 — Code Magnets: TestArrays + arranque de Pool Puzzle "Triangle" (pág. 247-250, 16%)
+- Pág. 247: nueva ronda de "Code Magnets" (Imanes de Código): un programa desordenado como imanes en la heladera, hay que reconstruirlo a mano para que compile y dé la salida pedida. Se pueden repetir imanes, no hace falta usarlos todos, y las llaves `{ }` que falten se agregan donde corresponda.
+- Pág. 248: los imanes de `TestArrays` — dos arreglos, `String[] islands` con 4 nombres y `int[] index` con 4 números — y un `while (y < 4)` que imprime `islands[ref]` usando `ref = index[y]` como intermediario.
+- Idea clave del rompecabezas: `index[]` NO son datos a mostrar, son un MAPA de posiciones: para cada vuelta del bucle dice qué casillero de `islands[]` mostrar. Reordenando el `index[]` cambia el orden de salida sin tocar `islands[]`.
+- Pág. 249: salida esperada (`island = Fiji / Cozumel / Bermuda / Azores`) y puntero a la solución en la sección "Code Magnets" del apéndice (NO consultada, es el ejercicio del usuario). Arranca un "Pool Puzzle" nuevo: completar huecos en una clase con fragmentos de un pool.
+- Pág. 250: la salida objetivo de ese Pool Puzzle nuevo (`Triangle`, área de triángulos) — quedó con dos huecos por completar y sin el pool de fragmentos: falta la página siguiente para poder resolverlo.
+- Ejercicios de la tanda: EJERCICIO #09 "Code Magnets: TestArrays" — pendiente.
+- Dudas: `ref = index[y]` MAL al toque, corregida: dijo que creaba un "control remoto" a `islands[0]`; en realidad `ref` e `index` son primitivas (`int`), es una copia de valor, no una referencia. Recién `islands[ref]` usa ese número como posición. Corregido en el mismo mensaje, con la analogía del índice de un libro.
+- PRÓXIMO PASO: página 251 (pool de fragmentos del Pool Puzzle "Triangle", sin resolver todavía).
+
+SESIÓN #44 — 2026-07-27 — Pileta del Pool Puzzle "Triangle" + arranque de "A Heap o' Trouble" (pág. 251-252, 16%)
+- Pág. 251: la pileta de fragmentos para el Pool Puzzle "Triangle" (arrancado pág. 250, Sesión #43) — identificadores, declaraciones de arreglo, condiciones y asignaciones sueltas, con la aclaración de que un fragmento se puede repetir. Registrado como EJERCICIO #10.
+- Pág. 251-252: nuevo ejercicio "A Heap o' Trouble" ("Un montón de problemas" — juego de palabras con "heap", la zona de memoria, y el dicho "a heap of trouble" = muchísimos problemas): una clase `HeapQuiz` con un arreglo `hq[]` de 5 referencias y una serie de reasignaciones (`hq[3] = hq[1]; hq[3] = null; hq[0] = hq[3];`...); hay que unir cada `hq[x]` final con el objeto `HeapQuiz` (id 0, 1 o 2) que le corresponde. Registrado como lib08.
+- Repaso del tramo (sin enseñar nada nuevo): reusa "referencia = control remoto" (Sesión #27/#31) y "Life on the garbage-collectible heap" (Sesión #37) — acá el arreglo `hq[]` guarda referencias, no valores, como ya se vio con `index[]` en la Sesión #43.
+- Ejercicios de la tanda: EJERCICIO #10 "Pool Puzzle: Triangle" (pendiente, opcional) y LIBRO "A Heap o' Trouble" (pendiente, opcional).
+- Teaser sin abrir: "The case of the pilfered references" (pág. 253) — título de la próxima sección, no leído todavía.
+- PRÓXIMO PASO: página 253 ("The case of the pilfered references", sin abrir).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

@@ -185,3 +185,15 @@ while (x < myDogs.length) recorre bien; con <= te pasás del último índice.
 
 s42b — referencias y null:
 Una variable de referencia sin objeto vale null y se imprime como el texto null.
+
+s43a — Code Magnets:
+Un programa desordenado en imanes; lo armás vos para que compile y corra bien.
+
+s43b — arreglo como mapa:
+El arreglo index guarda posiciones, no datos; apunta a otro arreglo.
+
+s44a — Pool Puzzle Triangle:
+Ahora aparece el pool de fragmentos para completar los huecos.
+
+s44b — A Heap o' Trouble:
+Unir cada hq[x] con el objeto HeapQuiz correcto.

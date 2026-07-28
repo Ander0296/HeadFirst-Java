@@ -40,6 +40,17 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # EJERCICIOS ABIERTOS
 # ============================================================
 
+LIBRO — "A Heap o' Trouble" ("Un montón de problemas") — unir cada referencia hq[x] de un arreglo con el objeto HeapQuiz que le corresponde, tras una serie de reasignaciones (Ubicación pág. 251-252, Sesión #44) — [ ] pendiente — OPCIONAL (ícono Puzzle)
+Arranque: ejercicios/lib08-heap-o-trouble.md | Si te trabás: Sesión #37, #38 y #43 de la guía
+
+EJERCICIO #10 — Pool Puzzle: Triangle — completar los huecos de una clase Triangle con fragmentos de una pileta, para un arreglo de 4 triángulos (Ubicación pág. 250-251, Sesión #44) — [ ] pendiente — OPCIONAL (ícono Puzzle)
+Tipo: completar/corregir código
+Arranque: ejercicios/ej10-pool-puzzle-triangle/Triangle.java | Si te trabás: Sesión #40 a #43 de la guía
+
+EJERCICIO #09 — Code Magnets: TestArrays — reconstruir un programa desordenado que recorre un arreglo de islas (islands[]) en un orden salteado usando un segundo arreglo (index[]) como mapa de posiciones (Ubicación pág. 247-249, Sesión #43) — [ ] pendiente
+Tipo: completar/corregir código
+Arranque: ejercicios/ej09-code-magnets-testarrays/TestArrays.java | Si te trabás: Sesión #40 a #43 de la guía
+
 LIBRO — Sharpen your pencil: ¿legal o no? — marcar cuáles de 12 líneas de asignación entre primitivas compilan y cuáles no (Ubicación pág. 210, Sesión #34) — [ ] pendiente
 Arranque: ejercicios/lib07-legal-o-no.md | Si te trabás: Sesión #32 y #33 de GUIA-JAVA.md
 
