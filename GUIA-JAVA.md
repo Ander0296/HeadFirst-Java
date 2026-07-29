@@ -7,10 +7,10 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 286 de 1629 (17%) — getters y setters (convención get/set + nombre), y arranque de encapsulación: por qué dejar una instance variable expuesta al operador punto es peligroso. Ver Sesión #51. Próximo: pág. 287 en adelante. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271 y 285.
-- Última sesión: Sesión #51
-- Última sesión de Claude: java-s25 (cubrió la Sesión #51) → la
-  próxima es java-s26. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Última página estudiada: página 302 de 1629 (19%) — `==` SIEMPRE compara el patrón de BITS (con primitivos, el valor; con referencias, si apuntan al MISMO objeto del heap); `.equals()` es para saber si dos objetos DISTINTOS son iguales en contenido. `Foo c = a;` copia la referencia, no crea objeto nuevo. Ver Sesión #55. Próximo: pág. 303 en adelante. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287 y 300.
+- Última sesión: Sesión #55
+- Última sesión de Claude: java-s28 (cubrió la Sesión #55) → la
+  próxima es java-s29. Contador distinto al de arriba; el /rename sale de ACÁ.
 - Ejercicios pendientes: 5 — "¿legal o no?" (lib07) es el único NO opcional; los otros 4 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10) y "A Heap o' Trouble" (lib08). El 2026-07-28 se completaron EJ #09 "TestArrays" y lib09 "Five-Minute Mystery", y se dio de baja "Who Am I?" (lib06). Fechas y repasos: ver EJERCICIOS.md.
 - IMPORTANTE — spoilers leídos por Claude y NO explicados a propósito: pág. 197-199 (solución del Pool Puzzle "Echo", EJ #07), pág. 257 mitad de arriba (solución de "¿legal o no?", lib07), pág. 260 + 262 mitad de arriba (solución y salida del Pool Puzzle "Triangle", EJ #10) y pág. 262 mitad de abajo + 263 (solución de "A Heap o' Trouble", lib08). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
@@ -84,6 +84,7 @@ Ejercicios: ver EJERCICIOS.md.
 | getter / setter                     | método getter / setter | Método que LEE (get) o ESCRIBE (set) el valor de una instance variable, ej. `getAlarmTime()` / `setAlarmTime()`. |
 | Objectville                          | Objectville (nombre de broma) | Nombre humorístico e inventado del libro para el mundo real de la POO, donde los objetos hablan entre sí (se llaman methods unos a otros) en vez de que todo lo haga un único main(). No es un término técnico real de Java. |
 | default value                        | valor por defecto | Valor que Java le asigna automáticamente a una instance variable que nunca recibió un valor explícito: `0` para numéricos, `false` para boolean, `null` para tipos de referencia (objetos, String) — nunca queda "vacía". |
+| bit pattern                           | patrón de bits | Lo único que compara el operador `==`; no le importa qué representan esos bits (un valor primitivo o la dirección de un objeto). |
 | the heap                              | el heap (montón) | Área de memoria donde viven TODOS los objetos creados con `new` en Java; se libera automáticamente vía garbage collection, nunca a mano. |
 | garbage collection                    | recolección de basura | Proceso automático de la JVM que libera la memoria de objetos que ya no se pueden usar (nada los referencia), para poder reusar ese espacio. |
 | eligible for garbage collection       | elegible para recolección de basura | Estado de un objeto cuando la JVM detecta que ya no puede usarse nunca más; recién ahí el Garbage Collector puede liberar su espacio. |
@@ -141,6 +142,14 @@ Ejercicios: ver EJERCICIOS.md.
 | encapsulation                         | encapsulación, encapsulamiento | Esconder las instance variables de un objeto y forzar que se lean/modifiquen solo vía getters/setters. |
 | faux pas                              | metida de pata | Error o torpeza social (término francés); el libro lo usa en broma para "dejar los datos expuestos". |
 | this (adelanto)                       | this | Palabra reservada que dentro de un método/constructor se refiere al objeto actual; se usa para distinguir un parámetro de una instance variable con el mismo nombre (`this.size = size;`). Se formaliza más adelante. |
+| access modifier                       | modificador de acceso | Palabra reservada que define quién puede tocar algo: `public` (cualquiera) o `private` (solo la propia clase). |
+| private                               | privado | Modificador que restringe el acceso a la propia clase: nadie de afuera puede leer ni asignar esa variable con el operador punto. |
+| rule of thumb                         | regla práctica | Guía general que funciona en la mayoría de los casos, sin ser una ley exacta. |
+| throw an Exception (adelanto)         | lanzar una excepción | Que un método avise a los gritos que algo salió mal en vez de seguir en silencio; una de las salidas posibles de un setter. Capítulo propio más adelante. |
+| overhead                              | costo/sobrecarga | Trabajo extra que agrega una solución; el libro aclara que el de un setter es minúsculo y casi nunca justifica exponer la variable. |
+| water cooler                          | dispensador de agua | Rincón de oficina donde se charla y se chusmea; "overheard at the water cooler" = chisme de oficina. |
+| default / package-private access      | acceso por defecto / de paquete | Nivel de acceso de un método o variable declarado SIN modificador; visible solo desde clases del mismo paquete (ni public ni private). |
+| local variable                        | variable local | Variable declarada DENTRO de un método (no en la clase); a diferencia de las instance variables, Java no le pone valor por defecto: hay que inicializarla antes de usarla o el compilador la rechaza. |
 
 ============================================================
 (SESIONES — desde la #30 en formato CORTO: 5-8 bullets, sin bloques
@@ -386,6 +395,51 @@ SESIÓN #51 — 2026-07-28 — getters, setters y arranque de encapsulación (p�
 - Nota del profe: el usuario resolvió el setter con `this.size = size` (técnica válida y muy usada en el mundo real para no tener que renombrar el parámetro como hace el libro) antes de que `this` se explique formalmente — anotado en vocabulario como adelanto.
 - Dudas: ambas bien conceptualmente (getSize()/setSize(int) correctos; supo explicar el riesgo de datos expuestos). Ajuste menor: faltaron los `;` de cierre en las dos instrucciones — no es grave (fue una respuesta de chat, no código compilado), pero repetirlo en un ejercicio real sí cuenta como error de compilación.
 - PRÓXIMO PASO: pág. 287 en adelante.
+
+SESIÓN #52 — 2026-07-29 — encapsulación: private, public y por qué de verdad importa (pág. 288-291, 18%)
+- Pág. 288: el setter con GUARDIA — `setHeight(int ht)` con `if (ht > 9)` adentro: si el valor no pasa el control, no asigna nada y `height` queda como estaba. El setter no es un pasamanos: es un portero con criterio.
+- Pág. 288: sección "Hide the data" — encapsular protege DOS cosas: los datos (nadie mete un valor inválido) y tu derecho a cambiar la implementación después. Se hace con los access modifiers `public` y `private` (`private` = solo se toca desde adentro de la propia clase).
+- Pág. 289: LA REGLA (recuadro del libro): "Mark instance variables private. Mark getters and setters public." El libro la llama *starter* rule of thumb (regla inicial): con más experiencia se hacen cosas distintas, pero hoy es ley.
+- Pág. 290: el tipo de dato NO alcanza — `int` acepta negativos, pero "-5 baños" o velocidad negativa no existen. El compilador solo sabe de tipos, no de sentido común; ese sentido común solo entra en el setter.
+- Pág. 290: las 4 salidas de un setter — aceptar, rechazar sin hacer nada, lanzar una excepción (`throw an Exception`, se ve mucho más adelante), o corregir/redondear al valor aceptable más cercano.
+- Pág. 290: LA RAZÓN DE FONDO (respuesta a "¿el setter no es overhead?"): "you can change your mind later, without breaking anybody else's code". Si 40 personas escribieron `theCat.height = 27;` y un día hacés la variable private, les rompés el código a las 40. Con setter desde el día uno, el cambio es invisible. La ganancia de rendimiento de ir directo es "miniscule".
+- Pág. 291: diagrama de `GoodDog` (size / getSize(), setSize(), bark()) — anticipo de la versión encapsulada; el código con `private` viene en la página siguiente.
+- Páginas salteadas: 287 (la tanda arrancó en 288).
+- Referencias culturales explicadas: chiste del "water cooler" (dispensador de agua = chisme de oficina) con el "flat cat"; sección "Java Exposed" (entrevista falsa a un Objeto) y el sueño de estar desnudo en público; "Social Security number" = documento de identidad de EE.UU.
+- Ejercicios de la tanda: ninguno nuevo.
+- PRÓXIMO PASO: pág. 292 en adelante (código de GoodDog con `private`).
+
+SESIÓN #53 — 2026-07-29 — GoodDog encapsulado, la llamada COMO valor y objetos dentro de un arreglo (pág. 292-293, 18%)
+- Pág. 292: `GoodDog` completo y encapsulado — `private int size`, `getSize()`/`setSize(int)` public, y el TestDrive que ya no escribe `one.size = 70` sino `one.setSize(70)` / `one.getSize()`.
+- Pág. 292 (clave): `bark()` lee `size` DIRECTO, sin pasar por `getSize()`, y está bien: `private` es una pared hacia AFUERA, no hacia adentro. Cualquier método de la propia clase ve sus instance variables private.
+- Pág. 292: nota del margen — los getters/setters "no agregan funcionalidad nueva", pero te dejan volver después y hacer el método "safer, faster, better" (más seguro, rápido, mejor) sin tocar a nadie.
+- Pág. 293: LA REGLA del retorno — "en cualquier lugar donde se pueda usar un valor de cierto tipo, se puede usar una llamada a un método que devuelva ese tipo": `int x = 3 + one.getSize();` es legal porque la llamada SE CONVIERTE en el int que devuelve.
+- Pág. 293: "How do objects in an array behave?" → igual que cualquier objeto; lo único distinto es CÓMO llegás a ellos. `pets[0].setSize(30)` es lo mismo que `one.setSize(30)`: `[0]` reemplaza al nombre de la variable.
+- Pág. 293: repaso del Cap. 3 en 3 pasos — `pets = new Dog[7]` crea SOLO el arreglo (7 tazas vacías, cero Dogs); `pets[0] = new Dog()` recién ahí crea el objeto; después el operador punto sobre `pets[0]`.
+- Ejercicios de la tanda: ninguno nuevo.
+- Nota del profe: `void bark()` va SIN modificador = nivel *default* (package-private), visible solo dentro del mismo paquete. Funciona por simplificación del libro; en código profesional lo que se usa desde afuera se marca `public` explícito.
+- PRÓXIMO PASO: pág. 294 en adelante.
+
+SESIÓN #54 — 2026-07-29 — valores por defecto de instance variables + instance vs. variable local (pág. 295-298, 18%)
+- Pág. 295-296: `PoorDog` declara `size` y `name` SIN asignarles valor, y `PoorDogTestDrive` igual compila y corre: sale "Dog size is 0" / "Dog name is null". Toda instance variable no inicializada recibe un valor por defecto automático.
+- Pág. 296: tabla de defaults — enteros → `0`, decimales → `0.0`, `boolean` → `false`, referencias (`String`, cualquier objeto) → `null`. `null` = "un control remoto que no está programado a nada: una referencia, pero sin objeto real" (misma analogía de la taza del Cap. 3).
+- Pág. 297 (clave): instance variable = declarada DENTRO de la clase, FUERA de cualquier método (recibe default). Variable LOCAL = declarada DENTRO de un método; Java NO le pone ningún default y DEBE inicializarse antes de usarse.
+- Pág. 298: la prueba — `int x;` local seguida de `int z = x + 3;` NO COMPILA (`variable x might not have been initialized`), a diferencia de una instance variable en la misma situación. Error de compile-time, no de runtime.
+- Ejercicios de la tanda: ninguno nuevo.
+- Nota del profe: el mensaje dice "might not have been initialized" (no "wasn't") porque el compilador rechaza CUALQUIER camino posible sin valor, aunque en la práctica nunca se ejecute — regla conservadora a propósito.
+- Dudas: ninguna (tanda expositiva, sin ronda de comprensión todavía).
+- PRÓXIMO PASO: pág. 299 en adelante.
+
+SESIÓN #55 — 2026-07-29 — comparar variables: == (bits) vs. equals() (contenido) (pág. 299-302, 19%)
+- Pág. 299: recuadro "no hay preguntas tontas" — los parámetros de método nunca quedan sin inicializar, porque el compilador exige un argumento para cada uno al llamar al método.
+- Pág. 299-301: `==` SIEMPRE compara el patrón de BITS de la variable: con primitivos compara el valor (`int a = 3; byte b = 3; a == b` es `true`); con referencias, compara si apuntan al MISMO objeto del heap.
+- Pág. 301: `.equals()` se usa para saber si dos objetos DISTINTOS son iguales en contenido (ej: dos `String` con "Fred" son iguales aunque sean dos objetos separados); qué significa "igual" depende del tipo de objeto, se retoma más adelante.
+- Pág. 302: diagrama y código de `Foo` — `Foo c = a;` copia la REFERENCIA, no crea un objeto nuevo: `a == c` da `true`, `a == b` da `false` (son dos `new Foo()` distintos).
+- Página salteada: 300.
+- Referencias culturales explicadas: viñeta "I always keep my variables private. If you want to see them, you have to talk to my methods." (chiste de encapsulamiento, ya visto en Sesión #52).
+- Ejercicios de la tanda: ninguno nuevo.
+- Dudas: ambas bien — distinguió == (identidad de referencia) de .equals() (contenido) sin dudar.
+- PRÓXIMO PASO: pág. 303 en adelante.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

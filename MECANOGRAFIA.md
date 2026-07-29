@@ -143,6 +143,12 @@ Una variable de referencia es como un control remoto: no es el objeto, lo maneja
 s35b — el objeto nunca va a la variable:
 El objeto nunca entra en la variable; solo entra la manera de llegar a él.
 
+s55a — comparar bits con ==:
+El operador == compara bits: sirve para primitivos y para ver si dos referencias son iguales.
+
+s55b — equals() versus ==:
+Dos objetos distintos pueden ser iguales en contenido; para eso existe el método equals().
+
 s36a — los 3 pasos de new:
 Declarar, crear y vincular: los 3 pasos que arma new Dog() en una sola línea.
 
@@ -239,3 +245,21 @@ El getter de numOfPickups se llama getNumOfPickups() y el setter setNumOfPickups
 
 s51b — encapsulamiento:
 La encapsulación evita que código externo asigne theCat.height = 0; directamente.
+
+s52a — el setter como portero:
+El setter valida antes de asignar: if (ht > 9) { height = ht; }
+
+s52b — la regla de oro de la encapsulación:
+Marcá las instance variables private y los getters y setters public.
+
+s53a — private frena hacia afuera:
+El private frena a los de afuera: bark() lee size directo sin llamar a getSize().
+
+s53b — la llamada vale por su retorno:
+Donde entra un int entra una llamada: int x = 3 + pets[0].getSize();
+
+s54a — el valor por defecto:
+Una instance variable sin valor no queda vacía, Java le pone un default.
+
+s54b — la variable local no perdona:
+La variable local debe inicializarse antes de usarse o el compilador la frena.
