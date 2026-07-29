@@ -227,3 +227,15 @@ Si declarás int giveSecret() tenés que devolver un int: return 42; y los tipos
 
 s49b — pass-by-value:
 Java pasa una copia del valor: takeTwo(foo, bar) no modifica foo ni bar afuera del método.
+
+s50a — pasar objetos también es por valor:
+Pasar un objeto también es pass-by-value: se copia la referencia, no el objeto.
+
+s50b — promoción de retorno:
+Un método puede devolver un byte donde declaró int, pero no un double.
+
+s51a — getters y setters:
+El getter de numOfPickups se llama getNumOfPickups() y el setter setNumOfPickups(int).
+
+s51b — encapsulamiento:
+La encapsulación evita que código externo asigne theCat.height = 0; directamente.

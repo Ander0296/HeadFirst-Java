@@ -7,10 +7,10 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 277 de 1629 (17%) — métodos que devuelven un valor de verdad, métodos con varios parámetros, y "Java is pass-by-value" (pasaje por copia). Ver Sesión #49. Próximo: pág. 278 en adelante. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269 y 271.
-- Última sesión: Sesión #49
-- Última sesión de Claude: java-s23 (cubrió la Sesión #49) → la
-  próxima es java-s24. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Última página estudiada: página 286 de 1629 (17%) — getters y setters (convención get/set + nombre), y arranque de encapsulación: por qué dejar una instance variable expuesta al operador punto es peligroso. Ver Sesión #51. Próximo: pág. 287 en adelante. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271 y 285.
+- Última sesión: Sesión #51
+- Última sesión de Claude: java-s25 (cubrió la Sesión #51) → la
+  próxima es java-s26. Contador distinto al de arriba; el /rename sale de ACÁ.
 - Ejercicios pendientes: 5 — "¿legal o no?" (lib07) es el único NO opcional; los otros 4 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10) y "A Heap o' Trouble" (lib08). El 2026-07-28 se completaron EJ #09 "TestArrays" y lib09 "Five-Minute Mystery", y se dio de baja "Who Am I?" (lib06). Fechas y repasos: ver EJERCICIOS.md.
 - IMPORTANTE — spoilers leídos por Claude y NO explicados a propósito: pág. 197-199 (solución del Pool Puzzle "Echo", EJ #07), pág. 257 mitad de arriba (solución de "¿legal o no?", lib07), pág. 260 + 262 mitad de arriba (solución y salida del Pool Puzzle "Triangle", EJ #10) y pág. 262 mitad de abajo + 263 (solución de "A Heap o' Trouble", lib08). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
@@ -134,6 +134,13 @@ Ejercicios: ver EJERCICIOS.md.
 | These types must match                | Estos tipos tienen que coincidir | El tipo de la variable que recibe y el tipo de retorno del método tienen que ser el mismo. |
 | foo / bar                             | (nombres de relleno) | Metasyntactic variables: nombres genéricos sin significado, tipo "fulano y mengano". Nunca usarlos en código real. |
 | return                                | devolver, retornar | Mandar un valor de vuelta a quien llamó al método. |
+| getter                                | getter | Método que devuelve el valor de una instance variable; convención: `get` + nombre con mayúscula inicial, sin parámetros. |
+| setter                                | setter | Método que asigna el valor de una instance variable; convención: `set` + nombre con mayúscula inicial, un parámetro, `void`. |
+| accessor                              | accesor | Nombre formal alternativo de "getter". |
+| mutator                               | mutador | Nombre formal alternativo de "setter". |
+| encapsulation                         | encapsulación, encapsulamiento | Esconder las instance variables de un objeto y forzar que se lean/modifiquen solo vía getters/setters. |
+| faux pas                              | metida de pata | Error o torpeza social (término francés); el libro lo usa en broma para "dejar los datos expuestos". |
+| this (adelanto)                       | this | Palabra reservada que dentro de un método/constructor se refiere al objeto actual; se usa para distinguir un parámetro de una instance variable con el mismo nombre (`this.size = size;`). Se formaliza más adelante. |
 
 ============================================================
 (SESIONES — desde la #30 en formato CORTO: 5-8 bullets, sin bloques
@@ -357,6 +364,28 @@ SESIÓN #49 — 2026-07-28 — tipo de retorno de verdad, varios parámetros y p
 - Ejercicios de la tanda: ninguno nuevo.
 - Dudas: acertó los dos veredictos de la ronda (ni `takeTwo(3)` ni `takeTwo(3,4,5)` compilan; `foo` sigue valiendo 7). Ajuste 1: dijo "espera 3 argumentos" — espera DOS; confundió el valor 3 con la cantidad. Ajuste 2: creyó que del lado de quien llama hay que indicar el tipo — NO, el tipo vive solo en la declaración del método. Ajuste 3 (el importante): el veredicto de `foo` salió bien pero con razón vaga ("las instrucciones no cambian"); no nombró pass-by-value. Se le corrigió con la contradicción (`x = 100` SÍ cambia un valor, el de `x`) y con la idea de que `x` no ES `foo` sino una fotocopia. Volver a chequear este punto en la pág. 278.
 - PRÓXIMO PASO: pág. 278 en adelante (la demostración con código de que la copia no afecta al original).
+
+SESIÓN #50 — 2026-07-28 — pass-by-value con objetos, retorno múltiple y promoción de tipos (pág. 278-282, 17%)
+- Pág. 278: poema "Make it Stick" refuerza pass-by-value = pass-by-copy (nada nuevo); post-its con adelantos (threads/wait()/notify(), mucho más adelante) y un chiste suelto sin contenido técnico.
+- Pág. 279 (arriba): el mismo mecanismo de la Sesión #49 pero dibujado paso a paso con los "vasos" de bits: `x` y `z` son vasos distintos y sin conexión, cambiar `z` adentro del método no toca `x`.
+- Pág. 279 (abajo), "There are no dumb questions": pasar un OBJETO también es pass-by-value — se copia la referencia (el control remoto), no el objeto. Por eso mutar un atributo del objeto adentro del método SÍ se ve reflejado afuera (misma referencia al mismo objeto en el heap), pero reasignar la variable parámetro a otro objeto NO se ve afuera.
+- Misma página: un método solo declara UN tipo de retorno; para devolver varios valores se usa un arreglo. Al hacer `return` se puede promover implícitamente a un tipo más grande (`byte`→`int`), pero ir a uno más chico (`double`→`int`) no compila por pérdida de decimales. Tampoco es obligatorio usar el valor que devuelve un método.
+- Pág. 281: viñeta Jirafa/Conejo — lo que entra o sale de un método tiene que ser del tipo declarado o compatible; semilla de IS-A/herencia (todavía adelanto, ver vocabulario).
+- Pág. 282: "Bullet Points", cierre y repaso de todo el tramo de clases, parámetros y retorno — sin conceptos nuevos.
+- Ejercicios de la tanda: ninguno nuevo.
+- Dudas: ambas preguntas bien. La del objeto con matiz correcto (identidad del objeto no cambia, pero SÍ se ve el cambio de estado porque la copia de referencia apunta al mismo objeto); la de promoción de retorno también bien (byte→int compila, double→int no por pérdida de decimales).
+- PRÓXIMO PASO: pág. 283 en adelante.
+
+SESIÓN #51 — 2026-07-28 — getters, setters y arranque de encapsulación (pág. 283-284 y 286, 17%)
+- Pág. 283: Getters y Setters (formal: Accessor/Mutator) — convención de Java: `getNombre()` devuelve el valor, `setNombre(valor)` lo asigna. Diagrama de `ElectricGuitar` con 3 instance variables y sus 6 getters/setters.
+- Pág. 284: código completo de `ElectricGuitar`; arranca "Encapsulation" con el chiste "Do it or risk humiliation and ridicule".
+- Pág. 286: por qué exponer una instance variable con el operador punto (`theCat.height = 27;`) es peligroso — cualquier código externo puede asignarle un valor inválido (`theCat.height = 0;`) sin control. Solución que viene: forzar el acceso solo vía setters.
+- Página salteada: 285.
+- Referencias culturales explicadas: chiste "Do it or risk humiliation and ridicule"; viñeta "Jen says you're well-encapsulated..." (piropo romántico con el término técnico).
+- Ejercicios de la tanda: ninguno nuevo.
+- Nota del profe: el usuario resolvió el setter con `this.size = size` (técnica válida y muy usada en el mundo real para no tener que renombrar el parámetro como hace el libro) antes de que `this` se explique formalmente — anotado en vocabulario como adelanto.
+- Dudas: ambas bien conceptualmente (getSize()/setSize(int) correctos; supo explicar el riesgo de datos expuestos). Ajuste menor: faltaron los `;` de cierre en las dos instrucciones — no es grave (fue una respuesta de chat, no código compilado), pero repetirlo en un ejercicio real sí cuenta como error de compilación.
+- PRÓXIMO PASO: pág. 287 en adelante.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
