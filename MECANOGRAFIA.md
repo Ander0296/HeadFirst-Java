@@ -263,3 +263,30 @@ Una instance variable sin valor no queda vacía, Java le pone un default.
 
 s54b — la variable local no perdona:
 La variable local debe inicializarse antes de usarse o el compilador la frena.
+
+s56a — ensanchamiento implícito en argumentos:
+Un short entra donde se pide un int, pero un long necesita un cast.
+
+s56b — void no puede devolver valor:
+Un método void no puede tener un return con valor, revienta al compilar.
+
+s57a — Mixed Messages, dos huecos que interactúan:
+La condición del while define las vueltas y la del if cuándo suma extra.
+
+s57b — Pool Puzzle sin repetir fragmentos:
+En este Pool Puzzle no podés repetir fragmentos, a diferencia de Triangle.
+
+s58 — Five-Minute Mystery, la pista vive en la historia:
+Un misterio de cinco minutos esconde el error de diseño en el propio relato.
+
+s59a — diseñar antes de programar:
+Diseñá el flujo del juego con un diagrama de flujo antes de escribir código.
+
+s59b — un método, tres resultados posibles:
+El método devuelve hit, miss o kill según el resultado del intento.
+
+s60a — empezar por la clase sin dependencias:
+Programá primero la clase que no depende de ninguna otra clase.
+
+s60b — la fila virtual no existe en el código:
+Guardá solo las celdas que importan, nunca la fila entera.

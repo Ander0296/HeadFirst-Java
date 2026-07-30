@@ -7,12 +7,12 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 302 de 1629 (19%) — `==` SIEMPRE compara el patrón de BITS (con primitivos, el valor; con referencias, si apuntan al MISMO objeto del heap); `.equals()` es para saber si dos objetos DISTINTOS son iguales en contenido. `Foo c = a;` copia la referencia, no crea objeto nuevo. Ver Sesión #55. Próximo: pág. 303 en adelante. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287 y 300.
-- Última sesión: Sesión #55
-- Última sesión de Claude: java-s28 (cubrió la Sesión #55) → la
-  próxima es java-s29. Contador distinto al de arriba; el /rename sale de ACÁ.
-- Ejercicios pendientes: 5 — "¿legal o no?" (lib07) es el único NO opcional; los otros 4 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10) y "A Heap o' Trouble" (lib08). El 2026-07-28 se completaron EJ #09 "TestArrays" y lib09 "Five-Minute Mystery", y se dio de baja "Who Am I?" (lib06). Fechas y repasos: ver EJERCICIOS.md.
-- IMPORTANTE — spoilers leídos por Claude y NO explicados a propósito: pág. 197-199 (solución del Pool Puzzle "Echo", EJ #07), pág. 257 mitad de arriba (solución de "¿legal o no?", lib07), pág. 260 + 262 mitad de arriba (solución y salida del Pool Puzzle "Triangle", EJ #10) y pág. 262 mitad de abajo + 263 (solución de "A Heap o' Trouble", lib08). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
+- Última página estudiada: página 337 de 1629 (21%) — Capítulo 5, flowchart completo de "Sink a Startup" + diseño de la versión simplificada "Simple Startup Game" (una Startup, fila virtual de 7 celdas) + metodología de 8 pasos para desarrollar una clase. Ver Sesión #60. Próximo: pág. 338 en adelante. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334 y 336.
+- Última sesión: Sesión #60
+- Última sesión de Claude: java-s33 (cubrió la Sesión #60) → la
+  próxima es java-s34. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Ejercicios pendientes: 7 — "¿legal o no?" (lib07) y "Five-Minute Mystery" (lib12, nuevo) son los únicos NO opcionales; los otros 5 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08) y Pool Puzzle "Puzzle4" (EJ #12). El 2026-07-30 se completaron lib10, EJ#11 y lib11. Fechas y repasos: ver EJERCICIOS.md.
+- SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido), pág. 319-321 (solución y salida completas de Puzzle4, EJ#12) y pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 
@@ -150,6 +150,7 @@ Ejercicios: ver EJERCICIOS.md.
 | water cooler                          | dispensador de agua | Rincón de oficina donde se charla y se chusmea; "overheard at the water cooler" = chisme de oficina. |
 | default / package-private access      | acceso por defecto / de paquete | Nivel de acceso de un método o variable declarado SIN modificador; visible solo desde clases del mismo paquete (ni public ni private). |
 | local variable                        | variable local | Variable declarada DENTRO de un método (no en la clase); a diferencia de las instance variables, Java no le pone valor por defecto: hay que inicializarla antes de usarla o el compilador la rechaza. |
+| prep code                             | código de preparación | Borrador mínimo de una clase/método (esqueleto sin lógica real) que se escribe antes del test code, solo para probar que la sintaxis compila. |
 
 ============================================================
 (SESIONES — desde la #30 en formato CORTO: 5-8 bullets, sin bloques
@@ -440,6 +441,54 @@ SESIÓN #55 — 2026-07-29 — comparar variables: == (bits) vs. equals() (conte
 - Ejercicios de la tanda: ninguno nuevo.
 - Dudas: ambas bien — distinguió == (identidad de referencia) de .equals() (contenido) sin dudar.
 - PRÓXIMO PASO: pág. 303 en adelante.
+
+SESIÓN #56 — 2026-07-30 — cierre de encapsulamiento + ensanchamiento implícito en argumentos de métodos (pág. 304-307, 19%)
+- Pág. 304: bullet points de cierre del capítulo de encapsulamiento — repite lo visto en Sesiones #52-55 (private+setter, valores por defecto, == vs. equals()), sin nada nuevo.
+- Pág. 305-306: Sharpen your pencil "What's legal?" — aplica el ensanchamiento implícito (Sesión #41, antes visto con arreglos) a ARGUMENTOS de métodos: `byte`/`short` entran donde se pide `int` sin permiso; `long` a `int` NO (haría falta cast, tema futuro). También importa que la cantidad de argumentos calce con la firma. Registrado como lib10.
+- Pág. 306: arranca sección "Exercise" (ícono zapatillas) pero el pantallazo no trae su cuerpo — posible pantallazo salteado por el usuario, pendiente de confirmar.
+- Pág. 307: "BE the Compiler" con dos clases (A: XCopy, reusa pass-by-value de la Sesión #49; B: Clock/ClockTestDrive, con un `getTime()` declarado `void` que igual hace `return time;`). Registrado como EJ #11. Arranca además la intro de un "Who Am I?" nuevo (juego de adivinanzas con clases disfrazadas) — DISTINTO del lib06 dado de baja, pero sin las pistas todavía (pantallazo cortado).
+- Ejercicios de la tanda: EJ #11 (BE the Compiler) y lib10 ("What's legal?"), ambos NO opcionales.
+- Dudas: sin ronda de comprensión todavía (pendiente para el cierre de esta tanda).
+- PRÓXIMO PASO: pág. 308 en adelante, más confirmar el hueco de pág. 306 y completar el "Who Am I?" de pág. 307.
+
+SESIÓN #57 — 2026-07-30 — cierre de ejercicios integrados del capítulo de encapsulamiento (pág. 309-314, 19%)
+- Pág. 309: arranca "Who Am I?" (juego de adivinanzas con clases disfrazadas de pistas) — DIFERIDO a pedido explícito del usuario, se retoma más adelante.
+- Pág. 309-312: Pool Puzzle "Mixed Messages" con la clase `Mix4` — dos huecos a completar (condición del `while` y del `if`) y matchear con la salida. Registrado y COMPLETADO como lib11 (4/4 correcto en esta misma sesión).
+- Pág. 312-314: Pool Puzzle "Puzzle4" / "Fast Times in Stim-City" — completar una clase con fragmentos de una pileta para imprimir "result 543345". Registrado como EJ #12, PENDIENTE.
+- Ejercicios de la tanda: lib11 (completado 4/4) y EJ #12 (pendiente).
+- Dudas: ninguna ronda nueva (tanda de cierre de ejercicios).
+- PRÓXIMO PASO: pág. 315 en adelante (ojo: ahí están las respuestas de estos ejercicios).
+
+SESIÓN #58 — 2026-07-30 — "Exercise Solutions": nuevo Five-Minute Mystery + confirmación de ejercicios cerrados (pág. 315-323, 20%)
+- Pág. 315-316: nuevo "Five-Minute Mystery" (ficción policial/ciberpunk) — a Jai lo interceptan y lo llevan ante Leveler, que sospecha una filtración en su base de datos por un hacker; Buchanan describe cómo dejó sus métodos. Pregunta del libro: "¿qué sospechó Jai?". Registrado como lib12 (conceptual, NO opcional) — conecta con la regla de oro de encapsulamiento (Sesión #52).
+- Pág. 317-318: soluciones oficiales de "What's legal?" (lib10) y "BE the Compiler: XCopy/Clock" (EJ#11) — ambos YA COMPLETADOS, coinciden con lo entregado, sin novedades.
+- Pág. 319-321: respuestas de "Who Am I?" (diferido) y del Pool Puzzle "Puzzle4" (EJ#12, PENDIENTE) — NO explicadas a propósito, son spoilers de ejercicios sin resolver.
+- Pág. 321: respuesta del Five-Minute Mystery de esta misma tanda — tampoco explicada, se guarda para cuando el usuario entregue lib12.
+- Pág. 323: diagrama de solución de "Mixed Messages" (lib11) — confirma que las 4 respuestas del usuario fueron EXACTAS, incluso que dos candidatos comparten la salida "14 1".
+- Ejercicios de la tanda: lib12 "Five-Minute Mystery" (nuevo, NO opcional).
+- Dudas: sin ronda de comprensión (tanda de confirmación + 1 ejercicio nuevo).
+- PRÓXIMO PASO: pág. 324 en adelante.
+
+SESIÓN #59 — 2026-07-30 — Capítulo 5: intro a "Sink a Startup" + diseño con diagrama de flujo (pág. 324-330, 20%)
+- Pág. 324: arranca el Capítulo 5, "Extra-Strength Methods" (métodos de fuerza extra) — viñeta de humor, sin contenido técnico nuevo.
+- Pág. 325: mapa del capítulo — van a sumar operadores, bucle `for` y números aleatorios construyendo el juego "Sink a Startup" (parodia de Battleship: hundís startups de Silicon Valley en vez de barcos) en una grilla 7x7 por línea de comandos; versión simple acá, "deluxe" en el Cap. 6.
+- Pág. 327: transcripción de una partida real (`java StartupBust`) — "hit"/"miss" por intento; al completar una startup el mensaje amigable ("You sunk poniez") va acompañado del valor CRUDO que devuelve el método ("kill") — mismo método, un String con 3 resultados posibles (hit/miss/kill).
+- Pág. 329-330: "First, a high-level design" — ANTES de programar se mapea el flujo con un diagrama de flujo (flowchart): círculo = inicio/fin, rectángulo = acción, rombo = punto de decisión. Recorre todo el ciclo: setup → pedir intento → hit/miss/kill → ¿quedan startups? → mostrar rating → fin.
+- Ejercicios de la tanda: ninguno (tanda de intro y diseño).
+- Nota del profe: hoy un flowchart a mano se usa menos en la industria (se prefiere pseudocódigo o el Activity Diagram de UML), pero diseñar el flujo antes de tocar el teclado es una práctica universal. Semilla UML (en pausa): este diagrama es el ancestro directo del Activity Diagram.
+- Páginas salteadas: 326 y 328.
+- Dudas: 2/2 — P1 (hit sin completar la startup) perfecta; P2 (por qué la grilla arranca en 0) intuyó que es una convención pero sin conectarla con la razón real: anticipa que el juego se va a implementar con un arreglo, y los arrays de Java arrancan en 0.
+- PRÓXIMO PASO: pág. 331 en adelante.
+
+SESIÓN #60 — 2026-07-30 — flowchart completo de "Sink a Startup" + diseño de "Simple Startup Game" (pág. 331-337, 21%)
+- Pág. 331: Figure 5-1, el flowchart COMPLETO del juego real (crear 3 Startups → grilla → repetir intento/chequeo/acción hasta que no queden → calificar al usuario).
+- Pág. 331: antes de la versión completa, construyen "Simple Startup Game" (1 sola Startup, fila virtual de 7 celdas en vez de grilla 2D); diseño de 2 clases: `SimpleStartupGame` (solo `main`, sin instance variables) y `SimpleStartup` (`int[] locationCells`, `int numOfHits`, `checkYourself(int)`, `setLocationCells(int[])`).
+- Pág. 333: pseudocódigo de `main()` + ejemplo de ejecución completo (4 intentos: hit, hit, miss, kill → "You took 4 guesses").
+- Pág. 335: metodología de 8 pasos para desarrollar una clase (definir qué hace → listar variables/métodos → prep code → test code → implementar → probar → depurar → chiste final). Término nuevo: prep code.
+- Pág. 337: checklist aplicado — a `SimpleStartupGame` se le tacha "test code" porque su propio `main()` ya sirve de prueba para `SimpleStartup`.
+- Ejercicios de la tanda: ninguno (tanda de diseño, sin código propio del usuario todavía).
+- Dudas: 2/2 — P1 (por qué clase empezar primero) contestó "la que mejor define lo que se crea", corregido: es por DEPENDENCIAS, se empieza por la clase que no depende de otras (SimpleStartup) para poder confiar en ella antes de construir la que la usa. P2 (por qué la fila virtual no necesita array de 7) no la tenía clara, explicada con ejemplo: solo se guardan las 3 celdas que importan, nunca las 7.
+- PRÓXIMO PASO: pág. 338 en adelante.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

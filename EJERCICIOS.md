@@ -40,6 +40,13 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # EJERCICIOS ABIERTOS
 # ============================================================
 
+LIBRO — "Five-Minute Mystery" (misterio ciberpunk: Jai, Buchanan y Leveler) — descubrir qué sospechó Jai sobre el código de Buchanan (Ubicación pág. 315-316, Sesión #58) — [ ] pendiente
+Arranque: ejercicios/lib12-five-minute-mystery-jai.md | Si te trabás: Sesión #52 y #53 de la guía
+
+EJERCICIO #12 — Pool Puzzle: "Puzzle4" — completar una clase con fragmentos de una pileta (sin repetir ninguno) para que un programa imprima "result 543345" (Ubicación pág. 312-314, Sesión #57) — [ ] pendiente — OPCIONAL (ícono Puzzle)
+Tipo: completar/corregir código
+Arranque: ejercicios/ej12-pool-puzzle-puzzle4/Puzzle4.java | Si te trabás: Sesión #40 a #43 de la guía
+
 LIBRO — "A Heap o' Trouble" ("Un montón de problemas") — unir cada referencia hq[x] de un arreglo con el objeto HeapQuiz que le corresponde, tras una serie de reasignaciones (Ubicación pág. 251-252, Sesión #44) — [ ] pendiente — OPCIONAL (ícono Puzzle)
 Arranque: ejercicios/lib08-heap-o-trouble.md | Si te trabás: Sesión #37, #38 y #43 de la guía
 
@@ -104,6 +111,21 @@ Arranque: ejercicios/repasos/lib09-r1.md
 Punto a mirar: que cierre la conclusión (después del bucle de Kate
 queda accesible UN solo Contact, el de la última vuelta) y que no
 confunda el conteo de OBJETOS con el de REFERENCIAS a Contact.
+
+REPASO — LIBRO "Mixed Messages" (pág. 309-312) (r1) — programado: 2026-08-02 — [ ] pendiente
+Arranque: ejercicios/repasos/lib11-r1.md
+Punto a mirar: que no cuente mal el número de vueltas del bucle (ej.
+i<9 son 9 objetos, índices 0 a 8 — el desliz del intento original).
+
+REPASO — LIBRO "What's legal?" (pág. 305-306) (r1) — programado: 2026-08-03 — [ ] pendiente
+Arranque: ejercicios/repasos/lib10-r1.md
+Punto a mirar: la trampa del byte h = calcArea(4, 20) — la llamada es
+legal, lo ilegal es el int de retorno sin cast entrando en un byte.
+
+REPASO — EJERCICIO #11 BE the Compiler: XCopy/Clock (pág. 307) (r1) — programado: 2026-08-03 — [ ] pendiente
+Arranque: ejercicios/repasos/ej11-r1/ (XCopy.java y ClockTestDrive.java)
+Punto a mirar: leer bien el valor exacto que pasa setTime() antes de
+anotar el output (la primera vez se equivocó de dígitos: 1234 vs. 1245).
 
 REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r2) — programado: 2026-08-04 — [ ] pendiente
 Arranque: ejercicios/repasos/sharpen-your-pencil-r2.md

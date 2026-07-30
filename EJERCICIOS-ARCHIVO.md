@@ -1085,3 +1085,34 @@ con el de referencias a Contact. Es el mismo matiz del EJ #08 (el
 arreglo cuenta como objeto), aplicado ahora del otro lado.
 
 RESULTADO: salió BIEN. Repaso r1 agendado para 2026-08-02.
+
+LIBRO — Sharpen your pencil: "What's legal?" — marcar qué llamados a un método con dos parámetros int son legales, con ensanchamiento implícito de byte/short/long (Ubicación pág. 305-306, Sesión #56) — [x] completado (2026-07-30)
+Arranque: ejercicios/lib10-legal-argumentos.md
+
+CORRECCIÓN: 9 de 9 líneas correctas, incluida la trampa fina del
+ejercicio (byte h = calcArea(4, 20): la LLAMADA es legal, lo ilegal
+es el int de retorno entrando sin cast en un byte). Las dos únicas
+sin razón escrita (short→int y descartar el retorno) las explicó bien
+al preguntarle.
+
+RESULTADO: salió BIEN, 9/9. Repaso r1 agendado para 2026-08-03.
+
+EJERCICIO #11 — BE the Compiler: XCopy (pass-by-value) y Clock/ClockTestDrive (return sin tipo) — decir si compilan, y si compilan, qué imprimen (Ubicación pág. 307, Sesión #56) — [x] completado (2026-07-30)
+Arranque: ejercicios/ej11-be-compiler-xcopy-clock/XCopy.java y ClockTestDrive.java
+
+CORRECCIÓN: Parte A perfecta (compila, output "42 84", explicó bien
+el pass-by-value). Parte B diagnóstico y arreglo correctos (void con
+return valor no compila, se arregla a String); primer output anotado
+tenía un error de dígitos (1234 en vez de 1245), corregido al toque.
+
+RESULTADO: salió BIEN. Repaso r1 agendado para 2026-08-03.
+
+LIBRO — "Mixed Messages" — unir cada par de condiciones candidatas (while/if) de la clase Mix4 con la salida que produce (Ubicación pág. 309-312, Sesión #57) — [x] completado (2026-07-30) — OPCIONAL (ícono Puzzle)
+Arranque: ejercicios/lib11-mixed-messages.md
+
+CORRECCIÓN: 4/4 correctos (14 1, 25 1, 14 1, 20 1 — dos candidatos
+comparten salida, el enunciado lo permitía). El razonamiento del
+candidato 1 tuvo un desliz de conteo (dijo "8 objetos" con `i < 9`,
+son 9: índices 0 a 8) que no afectó el resultado final.
+
+RESULTADO: salió BIEN, 4/4. Repaso r1 agendado para 2026-08-02.
