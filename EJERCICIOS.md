@@ -40,6 +40,9 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # EJERCICIOS ABIERTOS
 # ============================================================
 
+LIBRO — Sharpen your pencil: "¿qué más testear?" — mirando el test code de SimpleStartupTestDrive, qué falta probar del método checkYourself() (Ubicación pág. 346, Sesión #62) — [ ] pendiente
+Arranque: ejercicios/lib13-que-mas-testear.md | Si te trabás: Sesión #62 de la guía
+
 LIBRO — "Five-Minute Mystery" (misterio ciberpunk: Jai, Buchanan y Leveler) — descubrir qué sospechó Jai sobre el código de Buchanan (Ubicación pág. 315-316, Sesión #58) — [ ] pendiente
 Arranque: ejercicios/lib12-five-minute-mystery-jai.md | Si te trabás: Sesión #52 y #53 de la guía
 

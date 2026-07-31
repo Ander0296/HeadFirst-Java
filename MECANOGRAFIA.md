@@ -290,3 +290,15 @@ Programá primero la clase que no depende de ninguna otra clase.
 
 s60b — la fila virtual no existe en el código:
 Guardá solo las celdas que importan, nunca la fila entera.
+
+s61a — prep code es lógica, no sintaxis:
+El prep code es pseudocódigo enfocado en la lógica, no en la sintaxis.
+
+s61b — escribí el test code antes del real code:
+Escribí siempre el código de prueba antes de escribir el código real.
+
+s62a — TDD, escribir el test antes del método:
+En TDD escribís el código de prueba antes de que exista el método real.
+
+s62b — stub code, un placeholder que compila y falla:
+Un stub es código truncado que compila pero siempre falla el test.

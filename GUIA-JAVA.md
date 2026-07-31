@@ -7,11 +7,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 337 de 1629 (21%) — Capítulo 5, flowchart completo de "Sink a Startup" + diseño de la versión simplificada "Simple Startup Game" (una Startup, fila virtual de 7 celdas) + metodología de 8 pasos para desarrollar una clase. Ver Sesión #60. Próximo: pág. 338 en adelante. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334 y 336.
-- Última sesión: Sesión #60
-- Última sesión de Claude: java-s33 (cubrió la Sesión #60) → la
-  próxima es java-s34. Contador distinto al de arriba; el /rename sale de ACÁ.
-- Ejercicios pendientes: 7 — "¿legal o no?" (lib07) y "Five-Minute Mystery" (lib12, nuevo) son los únicos NO opcionales; los otros 5 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08) y Pool Puzzle "Puzzle4" (EJ #12). El 2026-07-30 se completaron lib10, EJ#11 y lib11. Fechas y repasos: ver EJERCICIOS.md.
+- Última página estudiada: página 346 de 1629 (21%) — Capítulo 5, TDD (Test-Driven Development) aplicado a SimpleStartup: test code completo de checkYourself() en SimpleStartupTestDrive + arranque de "The checkYourself() method" (conversión de prep code a Java real). Ver Sesión #62. Próximo: pág. 347 en adelante (el mapeo de prep code a Java real). Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342 y 344.
+- Última sesión: Sesión #62
+- Última sesión de Claude: java-s35 (cubrió la Sesión #62) → la
+  próxima es java-s36. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Ejercicios pendientes: 8 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12) y "¿qué más testear?" (lib13, nuevo) son los únicos NO opcionales; los otros 5 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08) y Pool Puzzle "Puzzle4" (EJ #12). Fechas y repasos: ver EJERCICIOS.md.
 - SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido), pág. 319-321 (solución y salida completas de Puzzle4, EJ#12) y pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
@@ -150,7 +150,11 @@ Ejercicios: ver EJERCICIOS.md.
 | water cooler                          | dispensador de agua | Rincón de oficina donde se charla y se chusmea; "overheard at the water cooler" = chisme de oficina. |
 | default / package-private access      | acceso por defecto / de paquete | Nivel de acceso de un método o variable declarado SIN modificador; visible solo desde clases del mismo paquete (ni public ni private). |
 | local variable                        | variable local | Variable declarada DENTRO de un método (no en la clase); a diferencia de las instance variables, Java no le pone valor por defecto: hay que inicializarla antes de usarla o el compilador la rechaza. |
-| prep code                             | código de preparación | Borrador mínimo de una clase/método (esqueleto sin lógica real) que se escribe antes del test code, solo para probar que la sintaxis compila. |
+| prep code                             | código de preparación | Forma de pseudocódigo para enfocarse en la LÓGICA de una clase/método sin preocuparse por la sintaxis; se escribe antes del test code. (Corregido en Sesión #61: la definición anterior tenía el foco al revés.) |
+| test code                             | código de prueba | Clase o métodos que prueban el real code y validan que hace lo correcto; se escribe después del prep code y antes del real code. |
+| real code                             | código real | La implementación real de la clase, ya en sintaxis Java de verdad — el último de los 3 pasos (prep code → test code → real code). |
+| Test-Driven Development (TDD)         | desarrollo guiado por pruebas | Práctica de escribir el test code ANTES de que exista el método a probar; obliga a pensar qué debe hacer el método antes de programarlo. |
+| stub code                             | código truncado / placeholder | Código mínimo que compila pero siempre falla (ej: `return null`), escrito solo para que un test recién creado pueda ejecutarse aunque el método real todavía no esté implementado. |
 
 ============================================================
 (SESIONES — desde la #30 en formato CORTO: 5-8 bullets, sin bloques
@@ -489,6 +493,23 @@ SESIÓN #60 — 2026-07-30 — flowchart completo de "Sink a Startup" + diseño 
 - Ejercicios de la tanda: ninguno (tanda de diseño, sin código propio del usuario todavía).
 - Dudas: 2/2 — P1 (por qué clase empezar primero) contestó "la que mejor define lo que se crea", corregido: es por DEPENDENCIAS, se empieza por la clase que no depende de otras (SimpleStartup) para poder confiar en ella antes de construir la que la usa. P2 (por qué la fila virtual no necesita array de 7) no la tenía clara, explicada con ejemplo: solo se guardan las 3 celdas que importan, nunca las 7.
 - PRÓXIMO PASO: pág. 338 en adelante.
+
+SESIÓN #61 — 2026-07-30 — prep code completo de SimpleStartup (pág. 338-340, 21%)
+- Pág. 338: definición precisa de las 3 partes de cada clase (prep code = pseudocódigo enfocado en lógica, test code = prueba del real code, real code = Java de verdad). Corrección: la definición de "prep code" que había quedado anotada en la Sesión #60 tenía el foco al revés (decía que era sobre sintaxis, no sobre lógica); ya corregida en el vocabulario.
+- Pág. 339: prep code completo de `checkYourself(int)` (compara el intento contra cada celda de `locationCells`, cuenta hits, devuelve "hit"/"miss"/"kill") y de `setLocationCells(int[])` (setter simple).
+- Pág. 340: arranca "Writing the method implementations" — viñeta de humor reforzando escribir test code antes que el real code.
+- Ejercicios de la tanda: ninguno (sigue siendo diseño).
+- Dudas: pendiente de corregir en el chat (por qué prep code va primero; trace manual de checkYourself con locationCells={2,4,6} y guess=6).
+- PRÓXIMO PASO: pág. 341 en adelante.
+
+SESIÓN #62 — 2026-07-30 — TDD y test code de SimpleStartup (pág. 341-346, 21%)
+- Pág. 341: Test-Driven Development (TDD) — escribir el test code ANTES de que exista el método a probar. Arranca "Writing test code for the SimpleStartup class": para checkYourself() sí interesa el test; setLocationCells() es un setter trivial, no hace falta.
+- Pág. 343: mismo prep code de checkYourself ya visto en Sesión #61 (no se repite); lista de 5 pasos de qué probar (instanciar, asignar ubicación, fabricar un guess falso, invocar checkYourself, imprimir resultado).
+- Pág. 345: "There are no dumb questions" — cómo se corre un test sobre algo que no existe (con stub code, no se corre, se ESCRIBE primero) y por qué conviene escribir el test antes en vez de esperar al código real (aclara qué debe hacer el método, y si no se hace ahora nunca se hace).
+- Pág. 346: código real de `SimpleStartupTestDrive` (test code completo, con guess falso = 2 comparado contra "hit"). Ejercicio "Sharpen your pencil": qué falta testear — registrado como lib13. Arranca "The checkYourself() method" (conversión de prep code a Java real, con marcas de sintaxis nueva para páginas siguientes).
+- Ejercicios de la tanda: lib13 (nuevo, ver EJERCICIOS.md).
+- Dudas: pendiente de corregir en el chat (por qué escribir el test antes si no compila; qué tendría que pasar para que el test de SimpleStartupTestDrive imprima "passed").
+- PRÓXIMO PASO: pág. 347 en adelante.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
