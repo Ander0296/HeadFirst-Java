@@ -7,10 +7,10 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 346 de 1629 (21%) — Capítulo 5, TDD (Test-Driven Development) aplicado a SimpleStartup: test code completo de checkYourself() en SimpleStartupTestDrive + arranque de "The checkYourself() method" (conversión de prep code a Java real). Ver Sesión #62. Próximo: pág. 347 en adelante (el mapeo de prep code a Java real). Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342 y 344.
-- Última sesión: Sesión #62
-- Última sesión de Claude: java-s35 (cubrió la Sesión #62) → la
-  próxima es java-s36. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Última página estudiada: página 351 de 1629 (22%) — Capítulo 5, implementación completa de checkYourself() (bucle for-each, operador ++, break) + código final de SimpleStartupTestDrive/SimpleStartup + salida esperada (hit/passed); el libro anticipa un bug sin spoilearlo, pendiente de enfrentar más adelante. Ver Sesión #63. Próximo: pág. 352 en adelante. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347 y 349.
+- Última sesión: Sesión #63
+- Última sesión de Claude: java-s36 (cubrió la Sesión #63) → la
+  próxima es java-s37. Contador distinto al de arriba; el /rename sale de ACÁ.
 - Ejercicios pendientes: 8 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12) y "¿qué más testear?" (lib13, nuevo) son los únicos NO opcionales; los otros 5 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08) y Pool Puzzle "Puzzle4" (EJ #12). Fechas y repasos: ver EJERCICIOS.md.
 - SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido), pág. 319-321 (solución y salida completas de Puzzle4, EJ#12) y pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
@@ -155,6 +155,9 @@ Ejercicios: ver EJERCICIOS.md.
 | real code                             | código real | La implementación real de la clase, ya en sintaxis Java de verdad — el último de los 3 pasos (prep code → test code → real code). |
 | Test-Driven Development (TDD)         | desarrollo guiado por pruebas | Práctica de escribir el test code ANTES de que exista el método a probar; obliga a pensar qué debe hacer el método antes de programarlo. |
 | stub code                             | código truncado / placeholder | Código mínimo que compila pero siempre falla (ej: `return null`), escrito solo para que un test recién creado pueda ejecutarse aunque el método real todavía no esté implementado. |
+| enhanced for loop / for-each loop     | bucle for mejorado | `for (int x : arr)` recorre cada elemento de `arr` sin índice manual; existe desde Java 5. El `for` clásico sigue siendo válido. |
+| increment/decrement operator          | operador de incremento/decremento | `x++` equivale a `x = x + 1`; `x--` equivale a `x = x - 1`. |
+| break (statement)                     | corte de bucle | Corta la ejecución del bucle de inmediato, sin evaluar la condición ni las vueltas que faltan. |
 
 ============================================================
 (SESIONES — desde la #30 en formato CORTO: 5-8 bullets, sin bloques

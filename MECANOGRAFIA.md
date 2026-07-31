@@ -302,3 +302,9 @@ En TDD escribís el código de prueba antes de que exista el método real.
 
 s62b — stub code, un placeholder que compila y falla:
 Un stub es código truncado que compila pero siempre falla el test.
+
+s63a — el bucle for-each recorre sin índice:
+El for each recorre el arreglo entero sin necesitar un índice manual.
+
+s63b — incrementar y cortar el bucle:
+El operador ++ suma uno y break corta el bucle de inmediato.

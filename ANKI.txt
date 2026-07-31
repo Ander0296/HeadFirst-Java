@@ -187,3 +187,7 @@ Si en TDD el test se escribe antes de que el método exista, ¿cómo hace ese te
 En TDD, ¿por qué conviene escribir el test antes en vez de esperar a que el código real esté terminado?	Porque el acto de pensar y escribir el test aclara qué tiene que hacer el método; además, apenas se termina de implementar ya se cuenta con un test listo para validarlo, en vez de dejarlo para después (y nunca hacerlo).
 
 En un juego tipo Battleship donde una ficha ocupa unas pocas celdas de una fila más grande, ¿hace falta guardar en el código el estado de TODAS las celdas de la fila?	No: alcanza con guardar en un array las pocas celdas que realmente ocupa la ficha; el resto de la fila es una idea compartida entre el programa y el usuario, pero no necesita existir como estructura de datos.
+¿Qué hace en Java el bucle mejorado for (int x : arr) { ... }?	Recorre cada elemento del arreglo arr uno por uno, asignándolo a la variable x en cada vuelta; no usa índice ni condición manual (existe desde Java 5).
+¿Qué significa el operador ++ en Java, como en contador++;?	Es el operador de post-incremento: suma 1 al valor actual de la variable; equivale a contador = contador + 1.
+¿Qué operador de Java resta 1 a una variable, análogo a ++?	El operador -- (doble guion), por ejemplo contador--; resta 1 al valor actual de la variable.
+¿Qué hace la instrucción break dentro de un bucle en Java?	Corta la ejecución del bucle de inmediato, sin evaluar la condición ni recorrer las vueltas que faltan.
