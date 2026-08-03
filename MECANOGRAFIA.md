@@ -308,3 +308,6 @@ El for each recorre el arreglo entero sin necesitar un índice manual.
 
 s63b — incrementar y cortar el bucle:
 El operador ++ suma uno y break corta el bucle de inmediato.
+
+s64 — prep code antes de la clase completa:
+Antes de escribir el juego real, primero planifico su lógica en prep code.

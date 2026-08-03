@@ -191,3 +191,4 @@ En un juego tipo Battleship donde una ficha ocupa unas pocas celdas de una fila 
 ¿Qué significa el operador ++ en Java, como en contador++;?	Es el operador de post-incremento: suma 1 al valor actual de la variable; equivale a contador = contador + 1.
 ¿Qué operador de Java resta 1 a una variable, análogo a ++?	El operador -- (doble guion), por ejemplo contador--; resta 1 al valor actual de la variable.
 ¿Qué hace la instrucción break dentro de un bucle en Java?	Corta la ejecución del bucle de inmediato, sin evaluar la condición ni recorrer las vueltas que faltan.
+¿Por qué conviene escribir el prep code de una clase completa (no solo de un método) antes de tocar la sintaxis real de Java?	Porque permite planificar toda la lógica del flujo (qué declarar, qué repetir, qué condiciones) sin trabarse todavía con errores de sintaxis, dejando la implementación real como el último paso.

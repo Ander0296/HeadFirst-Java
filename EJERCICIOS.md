@@ -135,6 +135,12 @@ Arranque: ejercicios/repasos/sharpen-your-pencil-r2.md
 Punto a mirar: concatenación de Strings con `+` (el r1 dio el
 resultado correcto sin poder explicar el mecanismo).
 
+REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1) — programado: 2026-08-04 — [ ] pendiente
+Arranque: ejercicios/repasos/lib14-r1.md
+El original necesitó 3 intentos y solución dada por Claude. Punto a
+mirar: el SI de corte pregunta directo por "kill" (uno solo, sin
+anidar) y setLocationCells se ejecuta una sola vez, afuera del while.
+
 REPASO — EJERCICIO DooBee (pág. 109) (r2) — programado: 2026-08-05 — [ ] pendiente
 Arranque: ejercicios/repasos/ej01-doobee-r2/DooBee.java
 

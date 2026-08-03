@@ -7,12 +7,12 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 351 de 1629 (22%) — Capítulo 5, implementación completa de checkYourself() (bucle for-each, operador ++, break) + código final de SimpleStartupTestDrive/SimpleStartup + salida esperada (hit/passed); el libro anticipa un bug sin spoilearlo, pendiente de enfrentar más adelante. Ver Sesión #63. Próximo: pág. 352 en adelante. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347 y 349.
-- Última sesión: Sesión #63
-- Última sesión de Claude: java-s36 (cubrió la Sesión #63) → la
-  próxima es java-s37. Contador distinto al de arriba; el /rename sale de ACÁ.
-- Ejercicios pendientes: 8 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12) y "¿qué más testear?" (lib13, nuevo) son los únicos NO opcionales; los otros 5 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08) y Pool Puzzle "Puzzle4" (EJ #12). Fechas y repasos: ver EJERCICIOS.md.
-- SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido), pág. 319-321 (solución y salida completas de Puzzle4, EJ#12) y pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
+- Última página estudiada: página 354 de 1629 (22%) — Capítulo 5, repaso de checkYourself()/for-each/++/break (pág. 349-352, ya visto en Sesión #63) y ejercicio "Sharpen your pencil": prep code de SimpleStartupGame (pág. 353-354), completado (lib14, con ayuda). Ver Sesión #64. Próximo: pág. 354 en adelante — "Prep code for the SimpleStartupGame class" (la solución del libro, ya sin spoiler pendiente) y seguir. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347.
+- Última sesión: Sesión #64
+- Última sesión de Claude: java-s37 (cubrió la Sesión #64) → la
+  próxima es java-s38. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Ejercicios pendientes: 8 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12) y "¿qué más testear?" (lib13) son los únicos NO opcionales; los otros 5 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08) y Pool Puzzle "Puzzle4" (EJ #12). Fechas y repasos: ver EJERCICIOS.md.
+- SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido) y pág. 319-321 (solución y salida completas de Puzzle4, EJ#12) y pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 

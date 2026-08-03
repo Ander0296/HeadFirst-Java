@@ -1116,3 +1116,69 @@ candidato 1 tuvo un desliz de conteo (dijo "8 objetos" con `i < 9`,
 son 9: índices 0 a 8) que no afectó el resultado final.
 
 RESULTADO: salió BIEN, 4/4. Repaso r1 agendado para 2026-08-02.
+
+============================================================
+
+LIBRO — Sharpen your pencil: prep code para SimpleStartupGame — escribir el pseudocódigo (GET/DECLARE/COMPUTE/WHILE) de la clase del juego real, antes de ver la solución del libro (Ubicación pág. 353-354, Sesión #64) — [x] completado (2026-07-31)
+Arranque: ejercicios/lib14-prep-code-simplestartupgame.md
+
+Corrección de Claude: RESULTADO — NO llegó a pasar solo; se dio la
+solución completa a pedido explícito del usuario después del intento 3
+("se me fue de las manos").
+
+BIEN (lo que sí resolvió sin ayuda extra):
+1. Creación del objeto SimpleStartup (faltaba en el intento 1).
+2. setLocationCells sacado de adentro del while — se ejecuta una sola
+   vez antes de arrancar la partida (mal ubicado en el intento 1).
+3. Sacó el array "respuestas" innecesario y la variable respuestaResult
+   ("failed"/"passed"), que era el patrón de SimpleStartupTestDrive
+   (clase de TEST que compara contra un resultado esperado) mal
+   aplicado acá, donde un humano juega en vivo por consola.
+4. Buena intuición de construir el array de 3 celdas a partir del
+   número al azar (nadie se lo pidió explícitamente, lo dedujo del
+   enunciado).
+
+A CORREGIR (no llegó a resolverlos en 3 intentos):
+1. El SI de corte del bucle terminó rompiendo en AMBOS casos (hit Y
+   "si no"), en vez de cortar solo cuando result es "kill". El error
+   de fondo se repitió en 3 formas distintas: primero anidado de forma
+   contradictoria (chequeaba "kill" adentro de una rama que ya exigía
+   "diferente de kill"), después el mismo anidado sin la exclusión
+   explícita (seguía siendo código muerto), y por último un SI/SI NO
+   que corta en cualquier resultado.
+2. El array de 3 celdas quedó con nombre pisado (declaró `locs` pero
+   usó `dot`, el nombre del objeto SimpleStartup, como si fuera el
+   array) y el bucle interno no usaba `i` para separar las celdas
+   (`numero al azar + 1` siempre, en vez de `numero al azar + i`), así
+   que las 3 celdas no quedaban consecutivas y distintas.
+3. La condición del mini-bucle ("MIENTRAS i sea = 3") no funciona como
+   condición de "seguir repitiendo": con i arrancando en 1, un bucle
+   que exige i==3 para seguir no arranca nunca. Necesitaba "i < 3" (o
+   equivalente), como el for clásico ya visto.
+
+SOLUCIÓN DADA (prep code):
+```
+MÉTODO public static void main(String[] args)
+DECLARAR SimpleStartup dot, y CREAR el objeto ahí
+DECLARAR int numOfGuesses, inicializado en 0
+DECLARAR un array de 3 posiciones, locs
+DECLARAR String result
+
+CALCULAR un número al azar entre 0 y 4 → startPos
+GUARDAR en locs[0] el valor startPos
+PARA i desde 1 hasta 2:
+  GUARDAR en locs[i] el valor startPos + i
+LLAMAR dot.setLocationCells(locs)
+
+MIENTRAS el Startup siga vivo:
+  PEDIR un número al usuario por línea de comandos → guardarlo en guess
+  result = LLAMAR dot.checkYourself(guess)
+  INCREMENTAR numOfGuesses en 1
+  SI result es igual a "kill":
+    PARAR el bucle con break
+
+ESCRIBIR "You took " + numOfGuesses + " guesses"
+```
+
+RESULTADO: NO PASÓ solo, se le dio la solución completa. Repaso r1
+agendado para 2026-08-04.
