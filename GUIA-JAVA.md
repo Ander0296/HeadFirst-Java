@@ -7,10 +7,10 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 354 de 1629 (22%) — Capítulo 5, repaso de checkYourself()/for-each/++/break (pág. 349-352, ya visto en Sesión #63) y ejercicio "Sharpen your pencil": prep code de SimpleStartupGame (pág. 353-354), completado (lib14, con ayuda). Ver Sesión #64. Próximo: pág. 354 en adelante — "Prep code for the SimpleStartupGame class" (la solución del libro, ya sin spoiler pendiente) y seguir. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347.
-- Última sesión: Sesión #64
-- Última sesión de Claude: java-s37 (cubrió la Sesión #64) → la
-  próxima es java-s38. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Última página estudiada: página 360 de 1629 (22%) — Capítulo 5, main() completo del juego (`SimpleStartupGame`, con `GameHelper` como clase auxiliar todavía sin código) y explicación de `Math.random()`+cast. Ver Sesión #66. Próximo: pág. 361 en adelante (código de GameHelper). Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355.
+- Última sesión: Sesión #66
+- Última sesión de Claude: java-s39 (cubrió la Sesión #66) → la
+  próxima es java-s40. Contador distinto al de arriba; el /rename sale de ACÁ.
 - Ejercicios pendientes: 8 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12) y "¿qué más testear?" (lib13) son los únicos NO opcionales; los otros 5 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08) y Pool Puzzle "Puzzle4" (EJ #12). Fechas y repasos: ver EJERCICIOS.md.
 - SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido) y pág. 319-321 (solución y salida completas de Puzzle4, EJ#12) y pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
@@ -513,6 +513,40 @@ SESIÓN #62 — 2026-07-30 — TDD y test code de SimpleStartup (pág. 341-346, 
 - Ejercicios de la tanda: lib13 (nuevo, ver EJERCICIOS.md).
 - Dudas: pendiente de corregir en el chat (por qué escribir el test antes si no compila; qué tendría que pasar para que el test de SimpleStartupTestDrive imprima "passed").
 - PRÓXIMO PASO: pág. 347 en adelante.
+
+SESIÓN #63 — 2026-07-31 — for-each, ++, break + código final de SimpleStartup (pág. 346[repetida]/348/350/351, 22%)
+- Tres sintaxis nuevas antes del código completo: bucle for-each (`for (int cell : locationCells)`), operador `++` (post-incremento) y `break` (corta el bucle de inmediato).
+- Código final completo de `SimpleStartup` (checkYourself con for-each+break) y `SimpleStartupTestDrive` (guess=2 sobre {2,3,4}) — salida esperada "hit"/"passed".
+- El libro deja un foreshadowing sin explicar ("a little bug lurking here") — no spoileado, para más adelante.
+- Ejercicios de la tanda: ninguno.
+- Dudas: ninguna registrada.
+- PRÓXIMO PASO: pág. 353 en adelante (Sesión #64).
+
+SESIÓN #64 — 2026-07-31 — repaso + ejercicio prep code de SimpleStartupGame (pág. 349-354, 22%)
+- Pág. 349-352: repaso de checkYourself()/for-each/++/break ya visto en Sesión #63 (comprimido, no repetido).
+- Pág. 353-354: ejercicio "Sharpen your pencil" — prep code de la clase `SimpleStartupGame` (el `main()` completo del juego).
+- Ejercicios de la tanda: lib14 (completado, con ayuda — ver EJERCICIOS-ARCHIVO.md).
+- Dudas: ninguna registrada.
+- PRÓXIMO PASO: pág. 354 en adelante — "Prep code for the SimpleStartupGame class" (solución del libro).
+
+SESIÓN #65 — 2026-08-03 — cierre de SimpleStartupGame + Metacognitive Tip (pág. 353[repetida]/354/356, 22%)
+- Pág. 353: mismo enunciado de "Sharpen your pencil" ya visto en Sesión #64 (lib14) — no se repite.
+- Pág. 354: salida de ejemplo del juego terminado (4 intentos: hit, hit, miss, kill → "You took 4 guesses") y la solución oficial del libro ("Prep code for the SimpleStartupGame class"): usa una bandera booleana `isAlive` para cortar el `while`, en vez de `break`.
+- Comparación break vs. bandera booleana: `break` sale del bucle en el instante exacto en que se ejecuta; la bandera recién corta en la próxima evaluación de la condición del `while` — en este ejercicio no cambia el resultado (nada sigue al `if` dentro del bucle), pero es una diferencia real de flujo de control.
+- Pág. 356: "Metacognitive Tip" — alternar entre el lado lógico y el creativo del cerebro cada ~30 min evita el cansancio de uno solo.
+- Ejercicios de la tanda: ninguno (cierre/repaso de lib14, ya archivado).
+- Dudas: 2/2 — variable de control declarada afuera del while (bien, con matiz de scope) y break vs. bandera booleana (bien, con matiz de flujo de control).
+- PRÓXIMO PASO: pág. 357 en adelante.
+
+SESIÓN #66 — 2026-08-03 — main() completo del juego + Math.random() con cast (pág. 357-360, 22%)
+- Pág. 357: bullet points de cierre — repaso de prep/test/real code, for vs. while, for-each, `++`/`--` y `break` (todo ya visto, sin novedad).
+- Pág. 358: cómic "Howdy from Ghost Town" (parodia de pueblos fantasma con carteles "Pets.com"/"beyond.com", empresas reales quebradas en la burbuja punto-com) — conecta el chiste del capítulo con el tema de "Sink a Startup".
+- Pág. 358: `main()` completo de `SimpleStartupGame` — arma `theStartup`, genera `locations` con `Math.random()`, declara `isAlive` y corre `while(isAlive)` pidiendo un guess vía `helper.getUserInput(...)`, llama `checkYourself()` y corta con `isAlive = false` (mismo patrón de Sesión #65, ahora con el helper real).
+- Pág. 359: `Math.random()` devuelve un `double` entre 0.0 (incluido) y 1.0 (no incluido); `(int) (Math.random() * 5)` trunca la parte decimal y deja un entero de 0 a 4. NOTA DEL PROFE (el libro mismo lo dice): hoy se prefiere `java.util.Random` y su método `nextInt(int)`, que no necesita cast.
+- Pág. 360: `getUserInput(String)` de la clase auxiliar (helper class) `GameHelper` — muestra el mensaje pasado por parámetro y devuelve un `int` leído por consola. Se anuncia `GameHelper` como la última clase que falta armar; el libro pospone el detalle de leer datos al Capítulo 16 y promete el código en la próxima página.
+- Ejercicios de la tanda: ninguno.
+- Dudas: pendiente de corregir en el chat (por qué hace falta el cast `(int)` en `Math.random() * 5`).
+- PRÓXIMO PASO: pág. 361 en adelante (código de GameHelper).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

@@ -311,3 +311,15 @@ El operador ++ suma uno y break corta el bucle de inmediato.
 
 s64 — prep code antes de la clase completa:
 Antes de escribir el juego real, primero planifico su lógica en prep code.
+
+s65a — bandera booleana en vez de break:
+El booleano isAlive arranca en true y se apaga con set false al matar la startup.
+
+s65b — Metacognitive Tip del libro:
+Cambiar de tema cada rato descansa un lado del cerebro mientras trabaja el otro.
+
+s66a — Math.random() y el cast a int:
+Math.random() devuelve un double, hay que castear a int para quedarse con un entero.
+
+s66b — GameHelper como clase auxiliar:
+La clase GameHelper agrupa el código auxiliar para leer los datos que ingresa el usuario.
