@@ -7,11 +7,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 360 de 1629 (22%) — Capítulo 5, main() completo del juego (`SimpleStartupGame`, con `GameHelper` como clase auxiliar todavía sin código) y explicación de `Math.random()`+cast. Ver Sesión #66. Próximo: pág. 361 en adelante (código de GameHelper). Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355.
-- Última sesión: Sesión #66
-- Última sesión de Claude: java-s39 (cubrió la Sesión #66) → la
-  próxima es java-s40. Contador distinto al de arriba; el /rename sale de ACÁ.
-- Ejercicios pendientes: 8 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12) y "¿qué más testear?" (lib13) son los únicos NO opcionales; los otros 5 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08) y Pool Puzzle "Puzzle4" (EJ #12). Fechas y repasos: ver EJERCICIOS.md.
+- Última página estudiada: página 367 de 1629 (22%) — Capítulo 5, código completo de `getUserInput()` en `GameHelper`, corrida de ejemplo del juego funcionando bien, y un bug expuesto a propósito ("yours to solve": entrar 1,1,1 da hit-hit-kill) que el libro deja sin resolver para el próximo capítulo. Ver Sesión #67. Próximo: pág. 368 en adelante ("More about for loops"). Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355, 364, 366.
+- Última sesión: Sesión #67
+- Última sesión de Claude: java-s40 (cubrió la Sesión #67) → la
+  próxima es java-s41. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Ejercicios pendientes: 9 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12), "¿qué más testear?" (lib13) y "Yours to solve" (lib15, el bug de SimpleStartupGame) son los NO opcionales; los otros 5 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08) y Pool Puzzle "Puzzle4" (EJ #12). Fechas y repasos: ver EJERCICIOS.md.
 - SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido) y pág. 319-321 (solución y salida completas de Puzzle4, EJ#12) y pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
@@ -158,6 +158,10 @@ Ejercicios: ver EJERCICIOS.md.
 | enhanced for loop / for-each loop     | bucle for mejorado | `for (int x : arr)` recorre cada elemento de `arr` sin índice manual; existe desde Java 5. El `for` clásico sigue siendo válido. |
 | increment/decrement operator          | operador de incremento/decremento | `x++` equivale a `x = x + 1`; `x--` equivale a `x = x - 1`. |
 | break (statement)                     | corte de bucle | Corta la ejecución del bucle de inmediato, sin evaluar la condición ni las vueltas que faltan. |
+| Ready-Bake Code                       | código listo para hornear | Código que el libro pide tipear tal cual (sin haberlo diseñado vos); se entiende en detalle más adelante. |
+| Scanner                               | Scanner (clase) | Clase de `java.util` que envuelve una fuente de datos (como el teclado) para poder leerla con métodos como `nextInt()`. |
+| System.in                             | System.in | El flujo de entrada estándar de Java: por defecto, representa el teclado. |
+| cliffhanger                           | final en suspenso | Recurso narrativo: corta la historia en el momento de mayor tensión para enganchar con el próximo capítulo. |
 
 ============================================================
 (SESIONES — desde la #30 en formato CORTO: 5-8 bullets, sin bloques
@@ -547,6 +551,16 @@ SESIÓN #66 — 2026-08-03 — main() completo del juego + Math.random() con cas
 - Ejercicios de la tanda: ninguno.
 - Dudas: pendiente de corregir en el chat (por qué hace falta el cast `(int)` en `Math.random() * 5`).
 - PRÓXIMO PASO: pág. 361 en adelante (código de GameHelper).
+
+SESIÓN #67 — 2026-08-03 — GameHelper completo + bug expuesto a propósito (pág. 361-367, 22%)
+- Pág. 361: convención "Ready-Bake Code" (código para tipear tal cual, se entiende después); arranca el código de `GameHelper` (import Scanner, inicio de `getUserInput`).
+- Pág. 362: se completa `getUserInput()` — `Scanner` envuelve `System.in` (el teclado) y `nextInt()` devuelve lo tipeado; remate de chiste visual sin contenido técnico.
+- Pág. 363: corrida de ejemplo funcionando bien (1,2,3 miss, 4,5 hit, 6 kill → "You took 6 guesses").
+- Pág. 365: "What's this? A bug?" — misma corrida pero tipeando 1,1,1 tres veces da hit, hit, kill → "You took 3 guesses"; algo no cierra.
+- Pág. 367: "Sharpen your pencil" tipo cliffhanger — el libro NO revela el bug todavía, se lo deja "yours to solve" para antes del próximo capítulo. Arranca (solo título) "More about for loops".
+- Ejercicios de la tanda: lib15 (nuevo — hipótesis sobre el bug, ver EJERCICIOS.md).
+- Dudas: pendiente de corregir en el chat.
+- PRÓXIMO PASO: pág. 368 en adelante ("More about for loops").
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

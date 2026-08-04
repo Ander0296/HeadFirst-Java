@@ -323,3 +323,9 @@ Math.random() devuelve un double, hay que castear a int para quedarse con un ent
 
 s66b — GameHelper como clase auxiliar:
 La clase GameHelper agrupa el código auxiliar para leer los datos que ingresa el usuario.
+
+s67a — Scanner para leer teclado:
+Scanner envuelve System.in para leer con nextInt() lo que el usuario tipea.
+
+s67b — el bug queda como desafío:
+El libro deja un bug sin resolver a propósito: hay que descubrirlo antes del próximo capítulo.

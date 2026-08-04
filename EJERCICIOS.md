@@ -40,6 +40,9 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # EJERCICIOS ABIERTOS
 # ============================================================
 
+LIBRO — "Yours to solve": el bug de SimpleStartupGame — entrar 1,1,1 da hit-hit-kill, hay que pensar qué salió mal (Ubicación pág. 365-367, Sesión #67) — [ ] pendiente
+Arranque: ejercicios/lib15-bug-simplestartupgame.md | Si te trabás: Sesión #61 a #66 de la guía
+
 LIBRO — Sharpen your pencil: "¿qué más testear?" — mirando el test code de SimpleStartupTestDrive, qué falta probar del método checkYourself() (Ubicación pág. 346, Sesión #62) — [ ] pendiente
 Arranque: ejercicios/lib13-que-mas-testear.md | Si te trabás: Sesión #62 de la guía
 

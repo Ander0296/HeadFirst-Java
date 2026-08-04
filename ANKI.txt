@@ -199,3 +199,8 @@ Según el "Metacognitive Tip" de Head First Java, ¿por qué conviene alternar d
 Según Head First Java, ¿qué alternativa moderna a Math.random() evita tener que hacer un cast a int?	java.util.Random y su método nextInt(int bound), que devuelve directamente un int aleatorio sin necesitar conversión de tipo.
 ¿Qué es una helper class (clase auxiliar) en un programa Java?	Una clase que agrupa código de apoyo (por ejemplo, leer datos ingresados por el usuario) para que la clase principal del programa no se mezcle con esa lógica secundaria.
 En un método como getUserInput(String mensaje), ¿qué hace normalmente el parámetro String?	Sirve como el texto que se muestra en pantalla para pedirle un dato al usuario antes de leer lo que escribe.
+
+¿Para qué sirve la clase Scanner en Java?	Envuelve una fuente de datos (por ejemplo, el teclado vía System.in) para poder leer valores tipados con métodos como nextInt() o nextLine().
+¿Qué representa System.in en Java?	El flujo de entrada estándar: por defecto, el teclado.
+Al pedir un dato por consola con un mensaje antes, ¿por qué conviene usar System.out.print() en vez de println()?	Porque print() no salta de línea, así el cursor queda al lado del mensaje esperando que el usuario tipee la respuesta en la misma línea.
+¿Qué es el "Ready-Bake Code" en Head First Java?	Código que el libro pide tipear tal cual, sin haberlo diseñado el lector; su funcionamiento se explica en detalle más adelante.
