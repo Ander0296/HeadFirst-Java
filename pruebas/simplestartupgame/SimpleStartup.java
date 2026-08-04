@@ -1,6 +1,7 @@
 public class SimpleStartup {
 
     int[] locationCells;
+    boolean[] repeated;
     int numOfHits;
 
     public String checkYourself(int guess) {
@@ -10,8 +11,13 @@ public class SimpleStartup {
             if (guess == cell) {
 
                 result = "hit";
-                numOfHits++;
-                break;
+                for (int i = 0; i < locationCells.length; i++) {
+                    if (guess == i) {
+                        repeated[i] = true;
+                        numOfHits++;
+                        break;
+                    }
+                }
             } // end if
         } // end for
 

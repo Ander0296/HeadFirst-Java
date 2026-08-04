@@ -9,8 +9,13 @@ Ejercicios: ver EJERCICIOS.md.
 
 - Última página estudiada: página 367 de 1629 (22%) — Capítulo 5, código completo de `getUserInput()` en `GameHelper`, corrida de ejemplo del juego funcionando bien, y un bug expuesto a propósito ("yours to solve": entrar 1,1,1 da hit-hit-kill) que el libro deja sin resolver para el próximo capítulo. Ver Sesión #67. Próximo: pág. 368 en adelante ("More about for loops"). Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355, 364, 366.
 - Última sesión: Sesión #67
-- Última sesión de Claude: java-s40 (cubrió la Sesión #67) → la
-  próxima es java-s41. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Última sesión de Claude: java-s41 (sin tanda nueva — debugging en
+  curso del ejercicio lib15) → la próxima es java-s42. Contador
+  distinto al de arriba; el /rename sale de ACÁ.
+- OJO 2026-08-04: esta sesión arrancó con un /rename equivocado a
+  "java-s40" (nombre que ya tenía la sesión anterior). Contenido-wise
+  ES la java-s41. Si seguís viendo dos sesiones "java-s40" en la lista,
+  renombrá la más nueva a mano.
 - Ejercicios pendientes: 9 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12), "¿qué más testear?" (lib13) y "Yours to solve" (lib15, el bug de SimpleStartupGame) son los NO opcionales; los otros 5 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08) y Pool Puzzle "Puzzle4" (EJ #12). Fechas y repasos: ver EJERCICIOS.md.
 - SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido) y pág. 319-321 (solución y salida completas de Puzzle4, EJ#12) y pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
