@@ -8,43 +8,19 @@ public class SimpleStartup {
     public String checkYourself(int guess) {
         String result = "miss";
 
-        // for (int cell : locationCells) {
-        // if (guess == cell) {
-        //
-        // result = "hit";
-        // numOfHits++;
-        // break;
-        // } // end if
-        // } // end for
-        //
-
         for (int i = 0; i < locationCells.length; i++) {
-
-            if (posiciones[i] == true) {
-                System.out.println("Numero repetido");
-            } else if (guess == locationCells[i] && posiciones[i] == false) {
-
-                result = "hit";
-                numOfHits++;
-                posiciones[i] = true;
+            if (guess == locationCells[i]) {
+                if (posiciones[i] == true) {
+                    System.out.println("Numero repetido");
+                } else {
+                    result = "hit";
+                    numOfHits++;
+                    posiciones[i] = true;
+                }
                 break;
             }
-
         }
 
-        // for (int i = 0; i < locationCells.length; i++) {
-        // if (guess == locationCells[i]) {
-        // if (posiciones[i] == true) {
-        // System.out.println("Numero repetido");
-        // } else {
-        // result = "hit";
-        // numOfHits++;
-        // posiciones[i] = true;
-        // }
-        // break;
-        // }
-        // }
-        //
         if (numOfHits == locationCells.length) {
             result = "kill";
         } // end if
