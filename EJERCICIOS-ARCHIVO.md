@@ -1182,3 +1182,157 @@ ESCRIBIR "You took " + numOfGuesses + " guesses"
 
 RESULTADO: NO PASÓ solo, se le dio la solución completa. Repaso r1
 agendado para 2026-08-04.
+
+============================================================
+
+LIBRO — "Yours to solve": el bug de SimpleStartupGame — entrar 1,1,1 daba hit-hit-kill en vez de sostenerse en miss (Ubicación pág. 365-367, Sesión #67) — [x] completado (2026-08-07)
+Arranque: ejercicios/lib15-bug-simplestartupgame.md
+
+Corrección de Claude: el usuario resolvió el bug directo en código
+(pruebas/simplestartupgame/) en vez de escribir la hipótesis en prosa
+en el archivo de arranque — la solución funcionando demuestra el
+diagnóstico igual.
+
+DIAGNÓSTICO CORRECTO: checkYourself() sumaba a numOfHits cada vez que
+guess coincidía con locationCells[i], SIN registrar si esa celda YA
+había sido contada antes. Por eso repetir el mismo número 3 veces
+seguidas se contaba como 3 hits distintos y mataba el Startup con una
+sola celda real acertada.
+
+SOLUCIÓN: arreglo paralelo `boolean[] posiciones` que marca cada celda
+ya contabilizada, chequeado ANTES de sumar a numOfHits (si ya estaba
+marcada, no vuelve a sumar). Es el mismo enfoque que usa la solución
+oficial del libro (el usuario llegó solo, sin haberla leído todavía).
+Los 3 bugs de intentos anteriores (NPE por no inicializar el arreglo,
+comparar guess==i en vez de guess==locationCells[i], sumar sin chequear
+el arreglo) quedaron los tres resueltos en esta versión.
+
+Detalles menores señalados (no bloquean, quedan a criterio del
+usuario): el print "Numero repetido" duplica la salida del turno
+(imprime esa línea Y "miss" en la misma jugada, cuando el libro
+espera una sola palabra por turno) y la instance variable `int
+posicion;` quedó sin usar (código muerto).
+
+RESULTADO: PASÓ — diagnóstico y arreglo correctos, sin ayuda de
+Claude. Repaso r1 agendado para 2026-08-11.
+
+============================================================
+
+LIBRO — BE the JVM: elegir cuál de 3 salidas imprime realmente la clase Output, con un for que mezcla pre y post-incremento (Ubicación pág. 378-380, Sesión #70) — [x] completado (2026-08-07)
+
+Enunciado (tal cual lo plantea el libro): se da una clase Java completa
+(Output) y 3 ventanas de terminal con posibles salidas ("12 14" / "12
+14 x = 6" / "13 15 x = 6"), separadas por "-or-". Hay que jugar a ser
+la JVM y determinar cuál de las 3 es la salida real.
+
+Entregá en: ejercicios/lib16-be-the-jvm.md (archivo de arranque ya
+creado por Claude, con el código completo y las 3 opciones).
+Si te trabás: revisá la Sesión #69 de GUIA-JAVA.md (trampa `++x` vs.
+`x++` dentro de una expresión mayor).
+Resultado y corrección de Claude:
+
+Intento 1: "13 14 15" — no coincidía con ninguna de las 3 opciones del
+libro (buen instinto al no forzar un match), pero tampoco era correcto.
+No estaba contando que `++value` (pre-incremento dentro del `print`)
+MUTA la variable de verdad, aparte de la `value++;` de arriba: en las
+vueltas donde `i > 4` hay DOS incrementos separados, no uno. Pista
+dada: contar las dos mutaciones por vuelta.
+
+Duda genuina intermedia (buena pregunta, no error): si `++value` dentro
+de una expresión como un `print` solo calculaba un valor "para
+imprimir" o si también modificaba la variable real. Se aclaró con
+ejemplo comparando `x = value + 1` (cálculo, no muta `value`) contra
+`x = ++value` (muta `value` de verdad Y usa ese valor ya actualizado).
+
+Intento 2: "13 15 i = 6" — CORRECTO. Confirmado además corriendo el
+código él mismo (la traza a mano coincide con la ejecución real).
+
+NOTA: ninguna de las 3 opciones que da el libro coincide EXACTAMENTE
+con este resultado — la más cercana en números ("13 15 x = 6") tiene
+los dos números bien pero el texto final dice "x = 6" en vez de "i =
+6" (el código imprime `"i = " + i`, no una variable `x`). No se pudo
+confirmar si es una particularidad de la transcripción del pantallazo
+o una trampa a propósito del libro; el resultado del usuario queda
+validado porque coincide con la ejecución real del programa, que es la
+fuente de verdad más confiable disponible acá.
+
+RESULTADO: PASÓ, con 2 pistas (contar las dos mutaciones por vuelta;
+diferencia entre `++value` como mutación real vs. un cálculo tipo
+`value + 1`). EJERCICIO COMPLETADO. Repaso r1 agendado para 2026-08-10.
+
+============================================================
+
+LIBRO — Sharpen your pencil: "ArrayList vs. arreglo común" — traducir 6 líneas de código con ArrayList a su equivalente con un arreglo común (Ubicación pág. 407, Sesión #75) — [x] completado (2026-08-07)
+
+Enunciado: la tabla de la pág. 407 con dos columnas. A la izquierda, 9
+líneas de código usando `ArrayList<String>`; a la derecha, el
+equivalente con un arreglo común `String[]`. El libro regala 3 celdas
+(filas 1, 2 y 4) y pide completar las filas 3, 5, 6, 7, 8 y 9. Aclara:
+"We don't expect you to get all of them exactly right, so just make
+your best guess." (No esperamos que las aciertes todas exactamente,
+así que hacé tu mejor intento.)
+Arranque: ejercicios/lib19-arraylist-vs-array.md
+Si te trabás: Sesión #37, #38 y #75 de la guía.
+Resultado y corrección de Claude:
+
+Intento 1 — 4 de 6 filas bien:
+- Fila 3 `myList[0] = a;` BIEN.
+- Fila 5 `myList[1] = b;` BIEN.
+- Fila 7 `String str = myList[1];` BIEN.
+- Fila 8 `myList[1] = null;` BIEN, y fue la mejor de todas: es la
+  respuesta exacta del libro para `myList.remove(1)`. Entendió el
+  concepto de fondo — un arreglo no se puede achicar, así que "quitar"
+  no es quitar: es dejar el cajón vacío, y el cajón sigue existiendo.
+- Fila 6 `int theSize = myList.size();` MAL por SOBREPENSAR: escribió
+  un bucle que cuenta posiciones no-null. El razonamiento venía de la
+  Sesión #75 (`length` = capacidad, `size()` = ocupados), que había
+  respondido perfecto — pero el libro pedía la traducción directa de
+  una línea a una línea.
+- Fila 9 `contains` — concepto correcto (recorrer y comparar con
+  `.equals()`), sintaxis rota.
+
+Errores de sintaxis del intento 1 (pistas dadas, sin solución):
+1. Llaves y paréntesis INVERTIDOS, dos veces: `if{size != null}` y
+   `for{(contain : myList)...}`. Regla: la condición va entre `()`, el
+   bloque entre `{}`.
+2. Enhanced for sin el TIPO de la variable: `for(size : myList)`.
+3. `== true` redundante sobre algo que ya devuelve boolean.
+4. Comparó contra el literal `"Frog"` en vez de contra la variable `b`.
+5. Imprimió el resultado en vez de asignarlo a `boolean isIn`.
+
+El usuario entregó con la aclaración "de pronto sintácticamente esté
+mal pero creo que se entiende". Se le señaló que el compilador no
+interpreta intenciones: la sintaxis es parte del ejercicio, no un
+detalle cosmético.
+
+Intento 2 — las 6 filas con el concepto correcto. EJERCICIO COMPLETADO.
+- Fila 6 `int TheSize = myList.length;` — CORRECTO. Corrigió el
+  sobrepensamiento a la primera pista.
+- Fila 9 — arregló 3 de los 5 errores señalados sin ayuda extra:
+  llaves/paréntesis en su lugar, `.equals(b)` contra la variable, y el
+  `== true` eliminado.
+
+Detalles de sintaxis que quedaron abiertos en el intento 2 (explicados
+en el chat, son los puntos a mirar en el repaso):
+a. `boolean isIn;` sin inicializar + uso posterior → error de
+   COMPILACIÓN real ("variable isIn might not have been initialized").
+   Java exige que una variable local esté asignada con certeza antes de
+   leerse; el compilador no asume `false`. Va `boolean isIn = false;`.
+b. El enhanced for SIGUE sin el tipo: `for (contain : myList)`. Es el
+   único punto de la lista que se repitió del intento 1 → es el que hay
+   que vigilar.
+c. `System.Out.Print(isIn)` — Java es case-sensitive: `Out` y `Print`
+   con mayúscula no existen. Va `System.out.println(isIn);`. Faltaba
+   además el punto y coma.
+d. El `print` quedó DENTRO del for por posición de las llaves: imprime
+   una vez por vuelta en vez de una vez al final.
+e. Bonus conceptual que conecta la fila 8 con la fila 9: como la fila 8
+   dejó un `null` en el arreglo, `contain.equals(b)` revienta con
+   NullPointerException al llegar a esa posición. `ArrayList.contains()`
+   ya maneja ese caso solo; con arreglo hay que chequear el null a mano.
+   Es exactamente el trabajo que ArrayList te ahorra, que es la moraleja
+   completa de la tabla.
+
+RESULTADO: PASÓ en 2 intentos, con pistas (nunca la solución completa).
+Lo más valioso: acertó la fila 8 de una y entendió por qué. Repaso r1
+agendado para 2026-08-12.

@@ -40,9 +40,15 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # EJERCICIOS ABIERTOS
 # ============================================================
 
-LIBRO — "Yours to solve": el bug de SimpleStartupGame — entrar 1,1,1 da hit-hit-kill, hay que pensar qué salió mal (Ubicación pág. 365-367, Sesión #67) — [~] en curso
-Arranque: ejercicios/lib15-bug-simplestartupgame.md | Si te trabás: Sesión #61 a #66 de la guía
-Progreso (java-s41): 3er intento en pruebas/, ya movido a checkYourself() (dirección correcta) con arreglo paralelo boolean[] repeated, pero con 3 bugs: repeated nunca se crea con new (NullPointerException), compara guess==i (índice) en vez de guess==locationCells[i], y nunca lee repeated[i] antes de sumar numOfHits.
+EJERCICIO #13 — Code Magnets: "MultiFor" — reconstruir un programa desordenado con dos for anidados e incremento/decremento para que dé la salida pedida (Ubicación pág. 380-382, Sesión #71) — [ ] pendiente
+Tipo: completar/corregir código
+Arranque: ejercicios/ej13-code-magnets-multifor/MultiFor.java | Si te trabás: Sesión #68 y #69 de la guía
+
+LIBRO — Crucigrama "JavaCross" — 32 pistas de vocabulario Java (Ubicación pág. 383-384, Sesión #71) — [ ] pendiente
+Arranque: ejercicios/lib17-javacross.md | Si te trabás: Sesión #56 a #70 de la guía
+
+LIBRO — "Mixed Messages" #3 — matchear 6 candidatos (x++/x--/x=x+N) con la salida de un for anidado con break (Ubicación pág. 386-387, Sesión #72) — [ ] pendiente — OPCIONAL (ícono Puzzle)
+Arranque: ejercicios/lib18-mixed-messages-3.md | Si te trabás: Sesión #68 y #69 de la guía
 
 LIBRO — Sharpen your pencil: "¿qué más testear?" — mirando el test code de SimpleStartupTestDrive, qué falta probar del método checkYourself() (Ubicación pág. 346, Sesión #62) — [ ] pendiente
 Arranque: ejercicios/lib13-que-mas-testear.md | Si te trabás: Sesión #62 de la guía
@@ -159,6 +165,28 @@ Arranque: ejercicios/repasos/ej02-bottlesong-r2/BottleSong.java
 El r1 salió BIEN y a la primera (el original había llevado 5 intentos).
 Punto a mirar: que resuelva en BottleSong.java, no en un archivo
 "TestDrive" (en el r1 usó ese nombre sin haber otra clase que probar).
+
+REPASO — LIBRO "BE the JVM" (pág. 378-380) (r1) — programado: 2026-08-10 — [ ] pendiente
+Arranque: ejercicios/repasos/lib16-r1.md
+El original necesitó 2 pistas: no contaba que `++value` muta la
+variable aparte de la `value++` de arriba (2 incrementos por vuelta,
+no 1), y dudaba si `++value` en un print era una mutación real o solo
+un cálculo para imprimir. Punto a mirar: que arme la tabla vuelta por
+vuelta sin ayuda y llegue a "13 15 i = 6" solo.
+
+REPASO — LIBRO "Yours to solve" bug SimpleStartupGame (pág. 365-367) (r1) — programado: 2026-08-11 — [ ] pendiente
+Arranque: ejercicios/repasos/lib15-r1.md
+El original necesitó varios intentos (NPE, comparación por índice,
+sumar sin chequear repetidos). Punto a mirar: el arreglo paralelo de
+"ya contado" y chequearlo ANTES de sumar a numOfHits.
+
+REPASO — LIBRO Sharpen your pencil: "ArrayList vs. arreglo común" (pág. 407) (r1) — programado: 2026-08-12 — [ ] pendiente
+Arranque: ejercicios/repasos/lib19-r1.md
+El original salió en 2 intentos. Puntos a mirar: (1) el enhanced for
+CON el tipo de la variable — fue el único error que se repitió entre
+los dos intentos; (2) `boolean isIn = false;` inicializado, si no es
+error de compilación; (3) que traduzca size() a `length` de una línea,
+sin armar un bucle contador.
 
 # ============================================================
 # CONCEPTOS DOMINADOS (entran al graduarse un ejercicio con r3 bien)

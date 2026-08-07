@@ -1,10 +1,10 @@
-public class SimpleStartupTestDrive {
+public class StartupGame {
     public static void main(String[] args) {
 
         int numOfGuesses = 0;
         GameHelper helper = new GameHelper();
 
-        SimpleStartup theStartup = new SimpleStartup();
+        Startup theStartup = new Startup();
         int randomNum = (int) (Math.random() * 5);
 
         int[] locations = { randomNum, randomNum + 1, randomNum + 2 };

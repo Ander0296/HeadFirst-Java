@@ -329,3 +329,60 @@ Scanner envuelve System.in para leer con nextInt() lo que el usuario tipea.
 
 s67b — el bug queda como desafío:
 El libro deja un bug sin resolver a propósito: hay que descubrirlo antes del próximo capítulo.
+
+s68a — las 3 partes del for clásico:
+El for tiene inicialización, prueba booleana y expresión de iteración separadas por punto y coma.
+
+s68b — cuándo corre la iteration expression:
+for (int i = 0; i < 8; i++) { println(i); } imprime 8 valores, del 0 al 7.
+
+s69a — pre vs. post-incremento:
+El post-incremento x++ usa el valor actual y recién después lo incrementa.
+
+s69b — casting reductor (narrowing):
+Castear de long a short puede perder bits: por eso Java exige el cast explícito.
+
+s70a — overflow al castear a short:
+Castear un long grande a short puede dar un número negativo inesperado.
+
+s70b — Be the JVM:
+En Be the JVM el lector predice qué imprime un programa antes de ejecutarlo.
+
+s71a — Code Magnets:
+Reordenar imanes con dos for(i) y for(j) anidados hasta acertar la salida.
+
+s71b — crucigrama JavaCross:
+Un crucigrama de Java repasa vocabulario técnico con pistas en inglés.
+
+s72a — Mixed Messages con break:
+Un bloque candidato puede cambiar en qué vuelta corta el break del bucle.
+
+s73a — arranca la Java API:
+La Java API trae miles de clases prediseñadas para no reinventar la rueda.
+
+s73b — recap del bug de SimpleStartupGame:
+Un segundo arreglo guarda qué celdas ya fueron acertadas antes de sumar hits.
+
+s74a — el arreglo no se achica:
+El tamaño de un arreglo no se puede cambiar: hay que crear otro y copiar los valores.
+
+s74b — aparece ArrayList:
+Un ArrayList crece y se achica solo con add(), remove(), contains() y size().
+
+s75a — length contra size():
+Un arreglo usa length sin paréntesis; un ArrayList usa size() con paréntesis.
+
+s75b — leer no saca nada:
+Leer dogArray[1] solo copia la referencia: el objeto sigue adentro del arreglo.
+
+s76a — el arreglo es un objeto raro:
+Un arreglo es un objeto, pero no acepta métodos: solo la variable length.
+
+s76b — parámetro de tipo:
+ArrayList<String> significa una lista de Strings; los ángulos <> son un parámetro de tipo.
+
+s77a — el estado vive en la lista:
+remove(index) achica la lista de verdad: el contador numOfHits ya no hace falta.
+
+s77b — indexOf devuelve -1:
+indexOf devuelve -1 cuando no encuentra nada; por eso el if pregunta index >= 0.

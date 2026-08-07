@@ -7,17 +7,13 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 367 de 1629 (22%) — Capítulo 5, código completo de `getUserInput()` en `GameHelper`, corrida de ejemplo del juego funcionando bien, y un bug expuesto a propósito ("yours to solve": entrar 1,1,1 da hit-hit-kill) que el libro deja sin resolver para el próximo capítulo. Ver Sesión #67. Próximo: pág. 368 en adelante ("More about for loops"). Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355, 364, 366.
-- Última sesión: Sesión #67
-- Última sesión de Claude: java-s41 (sin tanda nueva — debugging en
-  curso del ejercicio lib15) → la próxima es java-s42. Contador
-  distinto al de arriba; el /rename sale de ACÁ.
-- OJO 2026-08-04: esta sesión arrancó con un /rename equivocado a
-  "java-s40" (nombre que ya tenía la sesión anterior). Contenido-wise
-  ES la java-s41. Si seguís viendo dos sesiones "java-s40" en la lista,
-  renombrá la más nueva a mano.
-- Ejercicios pendientes: 9 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12), "¿qué más testear?" (lib13) y "Yours to solve" (lib15, el bug de SimpleStartupGame) son los NO opcionales; los otros 5 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08) y Pool Puzzle "Puzzle4" (EJ #12). Fechas y repasos: ver EJERCICIOS.md.
-- SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido) y pág. 319-321 (solución y salida completas de Puzzle4, EJ#12) y pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
+- Última página estudiada: página 423 de 1629 (25%) — la clase Startup ya reescrita con ArrayList y la planificación del juego real "Sink a Startup" (3 clases, 5 objetos). Ver Sesión #77. Próximo: pág. 424 en adelante. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355, 364, 366, 385, 399, 404, 406, 409, 411 y 421 (tramos intermedios).
+- Última sesión: Sesión #77
+- Última sesión de Claude: java-s50 (pág. 418-423, Startup con
+  ArrayList + planificación de "Sink a Startup") → la próxima es
+  java-s51. Contador distinto al de arriba; el /rename sale de ACÁ.
+- Ejercicios pendientes: 11 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12), "¿qué más testear?" (lib13), "MultiFor" (ej13) y "JavaCross" (lib17) son los NO opcionales; los otros 6 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08), Pool Puzzle "Puzzle4" (EJ #12) y "Mixed Messages" #3 (lib18). Fechas y repasos: ver EJERCICIOS.md.
+- SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido), pág. 319-321 (solución y salida completas de Puzzle4, EJ#12), pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12), pág. 388-389 (solución oficial de Code Magnets "MultiFor", ej13) y pág. 390-391 (solución de JavaCross, lib17, y de Mixed Messages #3, lib18). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
 
@@ -25,7 +21,29 @@ Ejercicios: ver EJERCICIOS.md.
 
 | Inglés                            | Español | En una frase |
 | --------------------------------- | ------- | ------------ |
+| grid                              | grilla / cuadrícula | Tablero de filas por columnas. El de "Sink a Startup" es 7x7: filas A-G, columnas 0-6 (numeradas desde cero, como los arreglos). |
+| cell                              | celda | Cada casilla de la grilla. Se nombra juntando fila y columna: "A3", "C5". |
+| guess                             | intento / adivinanza | Lo que el jugador escribe en cada turno. El juego responde "hit", "miss" o "kill". |
+| Ready-Bake Code                   | código ya horneado | Código que el libro te da hecho y que NO hace falta entender todavía (acá: el algoritmo que ubica las Startups al azar, dentro de GameHelper). |
+| type parameter                    | parámetro de tipo | El `<String>` de `ArrayList<String>`: le dice al compilador qué tipo de objeto acepta esa lista. |
+| parameterized type                | tipo parametrizado | Un tipo que se completa con otro tipo entre ángulos. Existen desde Java 5; el detalle está en el Cap. 11. |
+| array brackets                    | corchetes de arreglo | Los `[]`: sintaxis especial que en Java NO se usa en ningún otro lado que no sea un arreglo. |
+| boundaries                        | límites | Los índices válidos de un arreglo: de 0 a `length - 1`. Salirse revienta en ejecución. |
+| plain old Java object             | objeto Java común y corriente | Un objeto sin nada especial: se le piden cosas con el operador punto y listo. Así es un ArrayList, no un arreglo. |
+| autoboxing                        | autoempaquetado | Conversión automática de una primitiva a su clase envoltorio al meterla en una colección (y de vuelta al sacarla). Desde Java 5. |
+| primitive wrapper class           | clase envoltorio de primitiva | Clase que envuelve una primitiva para poder tratarla como objeto (int → Integer). Necesaria porque un ArrayList solo guarda objetos. |
+| diamond operator                  | operador diamante | Los ángulos vacíos `<>` de `new ArrayList<>()`: desde Java 7 evitan repetir el tipo del lado derecho. |
+| zero-based                        | de base cero | Que empieza a contar desde 0: el primer elemento está en el índice 0 (arreglos y ArrayList por igual). |
+| poser                             | chanta / aparentador | Alguien que aparenta ser algo que no es. En el libro, cómo ArrayList trata al arreglo. |
+| wrapper                           | envoltorio | Objeto que envuelve a otra cosa y le agrega métodos por encima; por dentro sigue estando lo envuelto. |
+| dynamically                       | dinámicamente | En tiempo de ejecución, mientras el programa corre — no fijado de antemano al escribir el código. |
+| ArrayList                         | lista de arreglo | Clase de la Java API que guarda objetos como un arreglo pero crece y se achica sola. |
+| clunky                            | torpe / aparatoso | Una solución que funciona pero es incómoda y da más trabajo del necesario. |
+| to shrink                         | achicarse / encoger | Reducir su tamaño; lo que un arreglo NO puede hacer y un ArrayList sí. |
+| prebuilt classes                  | clases prediseñadas | Clases que ya vienen escritas y compiladas en la biblioteca; se usan sin escribirlas. |
+| Java SE (Standard Edition)        | Java Edición Estándar | La plataforma Java base que trae el núcleo de la API (miles de clases listas). |
 | reference book                    | libro de referencia | Se consulta puntualmente por un dato específico, no se lee de corrido (ej: una enciclopedia). |
+| Java API                          | API de Java | Biblioteca de clases prediseñadas que trae el JDK, lista para usar en vez de reinventar la rueda. |
 | novelty                           | novedad | Lo que el cerebro busca constantemente; lo rutinario se filtra como "no importante". |
 | abstract method (adelanto)        | método abstracto | Método sin cuerpo, declarado pero no implementado; se ve en detalle con herencia. |
 | IS-A / HAS-A (adelanto)           | relación ES-UN / TIENE-UN | Relaciones entre clases (herencia vs. composición); se ven en detalle más adelante. |
@@ -35,6 +53,7 @@ Ejercicios: ver EJERCICIOS.md.
 | Sharpen your pencil               | Afilá el lápiz | Sección recurrente del libro con ejercicios de papel (sin compilar nada). |
 | Make it Stick                     | Hacé que se te pegue | Recuadro del libro con trucos de memoria (mnemotecnias) para fijar una lista. |
 | BE the Compiler                   | Sé el Compilador | Ejercicio recurrente del libro donde el lector actúa como si fuera el compilador de Java. |
+| BE the JVM                        | Sé la JVM | Variante de "BE the Compiler": el lector predice qué imprime en consola un programa ya compilado, actuando como la máquina virtual. |
 | Puzzleville / Pool Puzzle         | Puzzleville / Pool Puzzle | Sección recurrente de acertijos del libro (ya la teníamos anotada en EJERCICIOS.md). |
 | IDE                               | entorno de desarrollo integrado | Herramienta (ej. IntelliJ) que automatiza compilar/correr; el libro recomienda NO usarla al principio. |
 | JDK                               | kit de desarrollo de Java | Trae todo para compilar/correr Java, pero NO incluye la documentación de la API. |
@@ -167,6 +186,10 @@ Ejercicios: ver EJERCICIOS.md.
 | Scanner                               | Scanner (clase) | Clase de `java.util` que envuelve una fuente de datos (como el teclado) para poder leerla con métodos como `nextInt()`. |
 | System.in                             | System.in | El flujo de entrada estándar de Java: por defecto, representa el teclado. |
 | cliffhanger                           | final en suspenso | Recurso narrativo: corta la historia en el momento de mayor tensión para enganchar con el próximo capítulo. |
+| boolean test                          | prueba booleana | La condición del `for`/`while`: debe resolver siempre a `true` o `false`. |
+| iteration expression                  | expresión de iteración | La 3ra parte del `for` clásico (ej. `i++`); se ejecuta al FINAL de cada vuelta, no al principio. |
+| pre-increment vs. post-increment      | pre-incremento vs. post-incremento | Solo importa cuando `++x`/`x++` es PARTE de una expresión mayor: `++x` incrementa y DESPUÉS usa el valor nuevo; `x++` usa el valor actual y DESPUÉS incrementa. |
+| narrowing conversion                  | conversión reductora (narrowing) | Cast de un tipo primitivo grande a uno chico (ej. `long` a `short`); puede perder datos (los bits de más se cortan), por eso Java exige el cast explícito. Es lo inverso del ensanchamiento implícito. |
 
 ============================================================
 (SESIONES — desde la #30 en formato CORTO: 5-8 bullets, sin bloques
@@ -566,6 +589,104 @@ SESIÓN #67 — 2026-08-03 — GameHelper completo + bug expuesto a propósito (
 - Ejercicios de la tanda: lib15 (nuevo — hipótesis sobre el bug, ver EJERCICIOS.md).
 - Dudas: pendiente de corregir en el chat.
 - PRÓXIMO PASO: pág. 368 en adelante ("More about for loops").
+
+SESIÓN #68 — 2026-08-07 — for clásico: sus 3 partes + flowchart (pág. 367[repetida]/368/369/370/371, 22%)
+- Pág. 367: chiste visual (foto colgado de una soga, "It's a cliff-hanger!") reforzando el pun ya visto — sin novedad técnica.
+- Pág. 368: arranca "More about for loops" — se distingue el `for` clásico (regular/non-enhanced) del for-each ya usado; diagrama con sus 3 partes: initialization, boolean test, iteration expression (+ el operador `++`).
+- Pág. 369: chiste visual (flexiones), pun con "reps" (repeticiones) — sin novedad técnica.
+- Pág. 370: traducción mental "repeat 100 times" y cómo lo ve el compilador (3 pasos); explica cada parte del `for` por separado. Dato clave: la iteration expression corre al FINAL de cada vuelta, no al principio. Ejemplo `for (int i=0;i<8;i++) { println(i); }`.
+- Pág. 371: flowchart formal del mecanismo interno del `for` (declare→test→body→increment→vuelve a test; false→sigue después del bucle).
+- Ejercicios de la tanda: ninguno.
+- Dudas: 2/2 bien (cuenta de vueltas del for y qué parte corre una sola vez).
+- PRÓXIMO PASO: pág. 372 en adelante (quedan 2 pantallazos sin procesar en paginas/, ya tomados después de esta tanda: seguir por ahí).
+
+SESIÓN #69 — 2026-08-07 — cierre del capítulo: for vs. while, pre/post-incremento, for-each del compilador, casting reductor (pág. 371-375, 23%)
+- Pág. 371: mismo bucle reescrito con `while` en vez de `for` — muestra que `while` no trae init/incremento incorporados, hay que ponerlos a mano.
+- Pág. 372: salida de consola confirmando que da lo mismo que la versión con `for` — sin novedad.
+- Pág. 373: trampa `++x` (pre-incremento) vs. `x++` (post-incremento) cuando forman parte de una expresión mayor — mismo valor final de `x`, pero distinto valor asignado a la otra variable.
+- Pág. 374: `enhanced for` (ya usado en Sesión #63) explicado paso a paso desde el punto de vista del compilador (crea variable en null → asigna primer elemento → corre cuerpo → repite).
+- Pág. 375: casting reductor (narrowing) entre primitivos — de tipo grande a chico se pueden perder bits, por eso Java exige cast explícito; es lo inverso del ensanchamiento implícito (Sesión #56).
+- Ejercicios de la tanda: ninguno.
+- Dudas: 1/2 — casting reductor bien; post-decremento (x--) calculó bien los valores (x=4, y=5) pero invirtió el orden de impresión del println (dijo "5 4", era "4 5").
+- PRÓXIMO PASO: pág. 376 en adelante (queda 1 pantallazo sin procesar en paginas/).
+
+SESIÓN #70 — 2026-08-07 — cierre de narrowing con overflow/truncamiento + arranque de "BE the JVM" (pág. 376-380, 23%)
+- Pág. 376: cierra narrowing con más ejemplos — long→int con cast (ok), long→short donde el valor no entra (40002 excede el límite de 16 bits: el resultado envuelve a -25534, dato raro pero calculable), float→int con truncamiento puro (3.14f → 3, sin redondear). Remata: nunca castear boolean con ningún otro tipo (ni con cast explícito).
+- Pág. 378: arranca "BE the JVM" (variante de "BE the Compiler": predecir la salida real de un programa ya compilado) — clase `Output` con un `for` de 1 a 7 que mezcla post-incremento (`value++`) fuera del `if` y pre-incremento (`++value`) dentro de un `System.out.print`, más un corte con `break` cuando `value` supera 14.
+- Pág. 379-380: 3 ventanas de terminal con posibles salidas para elegir ("12 14" / "12 14 x = 6" / "13 15 x = 6"), cierran el ejercicio.
+- Ejercicios de la tanda: "BE the JVM" nuevo, registrado como lib16 (no opcional).
+- Dudas: pendiente de verificar en el chat (narrowing con overflow y truncamiento).
+- PRÓXIMO PASO: pág. 381 en adelante (Code Magnets "MultiFor", crucigrama "JavaCross" y un "Mixed Messages" nuevo — ya tomados, quedan para la próxima sesión de Claude).
+
+SESIÓN #71 — 2026-08-07 — "Code Magnets" MultiFor + crucigrama "JavaCross" (pág. 380-384, 23%)
+- Pág. 380-382: "Code Magnets" — reconstruir 7 imanes de código (dos `for` anidados, `i++` e `if`) para que `MultiFor` imprima "0 4 / 0 3 / 1 4 / 1 3 / 3 4 / 3 3"; repasa las 3 partes del for (Sesión #68) y pre/post-incremento (Sesión #69).
+- Pág. 383-384: crucigrama "JavaCross" — 32 pistas (16 horizontales, 16 verticales) de vocabulario Java visto hasta ahora, cada palabra respuesta queda en inglés (término técnico real).
+- Pág. 384: arranca (solo título + consigna, sin contenido) un "Mixed Messages" nuevo — queda para la próxima tanda.
+- Ejercicios de la tanda: "MultiFor" nuevo (ej13, no opcional) y "JavaCross" nuevo (lib17, no opcional).
+- Dudas: ninguna (tanda 100% de ejercicios, sin explicación de concepto nuevo).
+- PRÓXIMO PASO: pág. 385 en adelante (contenido real del "Mixed Messages" nuevo).
+
+SESIÓN #72 — 2026-08-07 — "Mixed Messages" #3 nuevo + cierre del capítulo con soluciones (pág. 386-391, 23%)
+- Pág. 386-387: enunciado completo de un "Mixed Messages" nuevo — programa con dos `for` anidados (outer 0-2, inner de 4 a 2) más un `if (x == 6) { break; }`, un bloque candidato a insertar y `x`/`y` que se actualizan cada vuelta. 6 candidatos (`x=x+3`, `x=x+6`, `x=x+2`, `x++`, `x--`, `x=x+0`) contra 7 posibles salidas.
+- Pág. 387-391: "Exercise Solutions" / "Puzzle Solutions" — cierre del capítulo con las soluciones oficiales de BE the JVM (ya cerrado, coincide con lo resuelto), Code Magnets "MultiFor" y JavaCross (ambos AÚN PENDIENTES para el usuario) y de este "Mixed Messages" nuevo (recién registrado). Las 3 pendientes quedan como SPOILER, no se explicaron.
+- Nota del profe: esta tanda fue una EXCEPCIÓN a la regla de "una tanda de imágenes por sesión de Claude" — el usuario pidió seguir en la misma sesión porque era el cierre del capítulo con soluciones, decisión suya explícita.
+- Ejercicios de la tanda: "Mixed Messages" #3 nuevo, registrado como lib18 (opcional).
+- Dudas: ninguna (tanda de enunciado + spoilers diferidos, sin pregunta de comprensión).
+- PRÓXIMO PASO: pág. 392 en adelante.
+
+SESIÓN #73 — 2026-08-07 — arranca Capítulo 6: Java API + recap del bug de SimpleStartupGame (pág. 393-398, 23%)
+- Pág. 393: título del Capítulo 6 "Using the Java Library: Get to Know the Java API" — cómic de apertura.
+- Pág. 394: intro a la Java API (biblioteca de clases prediseñadas del JDK); retoma el cliffhanger del capítulo anterior mostrando el juego funcionando bien (1-6 → 6 intentos).
+- Pág. 396-398: recap oficial del libro sobre el bug que el usuario ya resolvió en lib15 — mismo diagnóstico (contaba hits repetidos sin chequear celdas ya acertadas) y misma solución propuesta (Opción uno: segundo arreglo para trackear celdas ya acertadas).
+- Ejercicios de la tanda: ninguno nuevo (puro recap + introducción de tema).
+- Dudas: ninguna.
+- PRÓXIMO PASO: pág. 399 en adelante (contenido nuevo de Java API, probablemente ArrayList).
+
+SESIÓN #74 — 2026-08-07 — por qué el arreglo se queda corto y aparece ArrayList (pág. 400-403, 24%)
+- Pág. 400: Opción dos para el bug — un solo arreglo, marcando con -1 las celdas ya acertadas. Menos torpe que dos arreglos, pero sigue obligando a recorrer las 3 posiciones aunque ya estén muertas.
+- Pág. 401: Opción tres — "borrar" la celda acertada achicando el arreglo. Imposible directo: EL TAMAÑO DE UN ARREGLO NO SE PUEDE CAMBIAR. Hay que crear un arreglo nuevo más chico, copiar lo que queda y reasignar la referencia.
+- Pág. 402: prep code real vs. prep code soñado, lado a lado — "recorré las celdas restantes", "QUITÁ esta celda", "SI el arreglo quedó vacío → kill". Toda la lógica de contar hits desaparece si la colección se achica sola.
+- Pág. 403: "Wake up and smell the library" — eso existe y se llama ArrayList, una clase del núcleo de la Java API, ya compilada. Métodos clave: add, remove(int index), remove(Object o), contains, isEmpty, indexOf, size, get.
+- Nota del profe: `add(E e)` con esa E rara es genéricos (Capítulo 11); por ahora leerlo como "add() recibe el objeto que querés meter".
+- Ejercicios de la tanda: ninguno nuevo.
+- Dudas: ninguna.
+- PRÓXIMO PASO: pág. 404 en adelante (ArrayList en código: declararla, importarla, usarla).
+
+SESIÓN #75 — 2026-08-07 — las ocho operaciones de ArrayList + entrevista ArrayList vs. arreglo (pág. 405-410, 24%)
+- Pág. 405: las 8 operaciones básicas — crear con `<Tipo>` (genéricos, Cap. 11), add, size, contains, indexOf, isEmpty, remove. La lista crece sola con cada add: no se declara tamaño.
+- Diferencia que se pregunta en entrevistas: arreglo usa `length` (VARIABLE, sin paréntesis) y cuenta cajones existan o no; ArrayList usa `size()` (MÉTODO) y cuenta lo que hay adentro de verdad.
+- ArrayList es zero-based igual que el arreglo: `indexOf()` del segundo elemento devuelve 1.
+- Pág. 408-410 ("Java Exposed", entrevista a ArrayList): leer `dogArray[1]` NO saca nada del arreglo, solo copia la referencia; el objeto y la posición siguen ahí. `remove()` de ArrayList sí quita de verdad.
+- Por dentro un ArrayList ES un arreglo que se recrea más grande al llenarse (la "Opción tres" de la Sesión #74, pero ya escrita por otro): esa es la idea de usar la API.
+- ArrayList NO guarda primitivas: van envueltas en su primitive wrapper class (Integer, etc.), automático desde Java 5 (autoboxing, Cap. 10).
+- Nota del profe: desde Java 7 se escribe `new ArrayList<>()` con diamond operator (ángulos vacíos); el libro usa la forma larga, el trabajo real usa la corta.
+- Ejercicios de la tanda: lib19 "Sharpen your pencil: ArrayList vs. arreglo común" (pág. 407) — pendiente.
+- Dudas: `length` vs `size()` bien; CORREGIDO un error de fondo — creía que `new Dog[5]` crea 5 objetos Dog con valores por defecto y que faltan las referencias. Es al revés: crea 5 REFERENCIAS en null y faltan los objetos (5 `new`). Solo los arreglos de primitivas se llenan con valores por defecto reales.
+- PRÓXIMO PASO: pág. 411 en adelante (arreglar el juego con ArrayList).
+
+SESIÓN #76 — 2026-08-07 — solución de la tabla ArrayList vs. arreglo + las 4 diferencias de fondo (pág. 412-416, 24%)
+- Pág. 412: solución oficial de lib19. El detalle fino: el libro escribe `b.equals(item)` (la variable que NO es null va primero) y corta con `break` al encontrarlo.
+- Pág. 413: un arreglo ES un objeto, pero vive en un mundo aparte — NO se le puede invocar ningún método; lo único accesible es su única instance variable, `length`. Por eso va sin paréntesis. Un ArrayList es un objeto común y corriente: todo se le pide con el operador punto.
+- Diferencia 1 — el arreglo EXIGE su tamaño al crearse (`new String[2]`) y ese tamaño queda fijo; `new ArrayList<String>()` no pide tamaño y crece/se achica solo.
+- Diferencia 2 — en un arreglo hay que asignar a una posición EXACTA (`myList[1] = b`), y un índice fuera de rango revienta en tiempo de ejecución (ArrayIndexOutOfBoundsException). En ArrayList, `add(objeto)` sin índice va agregando y la lista hace lugar sola.
+- Pág. 414-415: Diferencia 3 — los corchetes `[]` son sintaxis especial que no se usa en ningún otro lado de Java; ArrayList no tiene sintaxis propia. Diferencia 4 — pero sí usa tipos parametrizados: el `<String>` es un "parámetro de tipo" que fuerza al compilador a aceptar solo ese tipo (detalle completo en el Cap. 11, existen desde Java 5).
+- Pág. 416: arranca "Let's fix the Startup code" — la clase pasa a llamarse `Startup` (antes `SimpleStartup`) y se re-muestra la versión con el bug ya diagnosticado en lib15: contaba cada guess como hit sin chequear si esa celda ya había sido acertada.
+- Nota del profe: el orden `b.equals(item)` vs. `item.equals(b)` no es un capricho — evita el NullPointerException cuando el arreglo tiene posiciones en null. En Java moderno también existe `Objects.equals(a, b)`, que aguanta null de los dos lados.
+- Ejercicios de la tanda: ninguno nuevo (la pág. 412 cerró lib19, completado en esta misma sesión).
+- Dudas: ninguna nueva; se cerró lib19 con las 6 filas correctas en el 2do intento.
+- PRÓXIMO PASO: pág. 417 en adelante (reescribir Startup con ArrayList). Pág. 411 quedó salteada.
+
+SESIÓN #77 — 2026-08-07 — Startup reescrita con ArrayList + planificación del juego real "Sink a Startup" (pág. 418-423, 25%)
+- Pág. 418: la clase Startup con ArrayList<String>. Desapareció `numOfHits`: el estado vive en la lista misma, que se achica de verdad con `remove(index)`. La lógica de checkYourself pasó de un for + contador a tres líneas.
+- `indexOf(userInput)` devuelve el índice o -1 si no está: por eso el if pregunta `index >= 0` (el índice 0 es un acierto válido). `isEmpty()` da true cuando la lista quedó vacía = "kill". checkYourself ahora recibe un String ("A3"), no un int.
+- Lección de fondo del capítulo: cada variable de estado llevada en paralelo (un contador manual) es un bug esperando a nacer — el bug de lib15 era exactamente eso. Si la estructura de datos puede representar el estado sola, dejala.
+- Pág. 419-420: el juego real "Sink a Startup" (clon de Batalla Naval con startups punto-com falsas: poniez, cabista, hacqi). Grilla 7x7, filas A-G y columnas 0-6 (desde cero, como los arreglos); 3 Startups de 3 celdas cada una, colocadas al azar. Corre por línea de comandos: se escribe una celda ("A3") y responde hit / miss / kill.
+- Pág. 422: qué cambia. `SimpleStartup` → `Startup` (se le agrega una variable `name`), `SimpleStartupGame` → `StartupBust` (crea 3 Startups, les pone nombre con un setter, chequea cada intento contra las tres y juega hasta que no quede ninguna viva), `GameHelper` sin cambios. El algoritmo de ubicación al azar va en GameHelper como Ready-Bake Code.
+- Pág. 423: 3 clases y 5 objetos (1 StartupBust + 3 Startup + 1 GameHelper), más cuatro ArrayLists (una del juego y una por cada Startup). StartupBust "crea y juega con" Startup, y "usa" GameHelper para la entrada del usuario y las ubicaciones.
+- Nota del profe: "get out of main" — main no es donde va la lógica, es la puerta de entrada: crea un objeto y le pide que arranque. Un main de 200 líneas es señal de alarma en cualquier revisión de código.
+- Ejercicios de la tanda: ninguno nuevo.
+- Dudas: ninguna.
+- PRÓXIMO PASO: pág. 424 en adelante (el diagrama de los 5 objetos y el prep code de StartupBust). Pág. 421 quedó salteada.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
