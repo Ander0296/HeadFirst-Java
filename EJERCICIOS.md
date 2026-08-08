@@ -40,6 +40,9 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # EJERCICIOS ABIERTOS
 # ============================================================
 
+LIBRO — Sharpen your pencil: "Annotate the code yourself!" — emparejar 21 números del código real de StartupBust con sus 21 anotaciones (dos bloques independientes: 1-10 y 11-21) (Ubicación pág. 430-433, Sesión #79) — [ ] pendiente
+Arranque: ejercicios/lib20-anotar-startupbust.md | Si te trabás: Sesión #78 y #79 de la guía
+
 EJERCICIO #13 — Code Magnets: "MultiFor" — reconstruir un programa desordenado con dos for anidados e incremento/decremento para que dé la salida pedida (Ubicación pág. 380-382, Sesión #71) — [ ] pendiente
 Tipo: completar/corregir código
 Arranque: ejercicios/ej13-code-magnets-multifor/MultiFor.java | Si te trabás: Sesión #68 y #69 de la guía

@@ -386,3 +386,15 @@ remove(index) achica la lista de verdad: el contador numOfHits ya no hace falta.
 
 s77b — indexOf devuelve -1:
 indexOf devuelve -1 cuando no encuentra nada; por eso el if pregunta index >= 0.
+
+s78a — main solo enciende:
+El main de StartupBust solo instancia el objeto que después juega todo el juego.
+
+s78b — delegar:
+El objeto del juego delega: pide la ubicación al helper y el chequeo a cada Startup.
+
+s79a — private esconde la cocina:
+Los métodos internos del juego van private; solo main queda public.
+
+s79b — comparar Strings:
+Para comparar Strings usá result.equals("hit"); el operador == compara referencias.

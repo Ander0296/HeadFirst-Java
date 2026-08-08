@@ -7,12 +7,12 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 423 de 1629 (25%) — la clase Startup ya reescrita con ArrayList y la planificación del juego real "Sink a Startup" (3 clases, 5 objetos). Ver Sesión #77. Próximo: pág. 424 en adelante. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355, 364, 366, 385, 399, 404, 406, 409, 411 y 421 (tramos intermedios).
-- Última sesión: Sesión #77
-- Última sesión de Claude: java-s50 (pág. 418-423, Startup con
-  ArrayList + planificación de "Sink a Startup") → la próxima es
-  java-s51. Contador distinto al de arriba; el /rename sale de ACÁ.
-- Ejercicios pendientes: 11 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12), "¿qué más testear?" (lib13), "MultiFor" (ej13) y "JavaCross" (lib17) son los NO opcionales; los otros 6 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08), Pool Puzzle "Puzzle4" (EJ #12) y "Mixed Messages" #3 (lib18). Fechas y repasos: ver EJERCICIOS.md.
+- Última página estudiada: página 433 de 1629 (25%) — StartupBust del prep code al código real: 4 métodos private + main public, `!isEmpty()`, result="miss" pesimista, `.equals()` para Strings, `break` tras hit/kill. Ver Sesión #79. Próximo: pág. 434 (la versión anotada del libro), recién DESPUÉS de entregar lib20. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355, 364, 366, 385, 399, 404, 406, 409, 411, 421, 428 y 431 (tramos intermedios).
+- Última sesión: Sesión #79
+- Última sesión de Claude: java-s52 (pág. 427-433, el código real de
+  StartupBust) → la próxima es java-s53. Contador distinto al de
+  arriba; el /rename sale de ACÁ.
+- Ejercicios pendientes: 12 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12), "¿qué más testear?" (lib13), "MultiFor" (ej13), "JavaCross" (lib17) y "Annotate the code yourself!" (lib20) son los NO opcionales; los otros 6 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08), Pool Puzzle "Puzzle4" (EJ #12) y "Mixed Messages" #3 (lib18). Fechas y repasos: ver EJERCICIOS.md.
 - SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido), pág. 319-321 (solución y salida completas de Puzzle4, EJ#12), pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12), pág. 388-389 (solución oficial de Code Magnets "MultiFor", ej13) y pág. 390-391 (solución de JavaCross, lib17, y de Mixed Messages #3, lib18). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
@@ -21,8 +21,18 @@ Ejercicios: ver EJERCICIOS.md.
 
 | Inglés                            | Español | En una frase |
 | --------------------------------- | ------- | ------------ |
+| instantiate                       | instanciar | Crear un objeto con `new`. "El main instancia el objeto StartupBust" = lo fabrica en memoria. |
+| delegate                          | delegar | Que un objeto le pida a otro que haga un trabajo en vez de hacerlo él. StartupBust delega la entrada del usuario en GameHelper. |
+| loop through                      | recorrer | Pasar uno por uno por todos los elementos de una lista o arreglo con un bucle. |
+| prompt (the user)                 | pedirle datos al usuario | Mostrar un mensaje y quedarse esperando a que el usuario escriba algo. |
+| command line                      | línea de comandos | La terminal, sin ventanas ni botones: el programa escribe texto y el usuario responde escribiendo. |
 | grid                              | grilla / cuadrícula | Tablero de filas por columnas. El de "Sink a Startup" es 7x7: filas A-G, columnas 0-6 (numeradas desde cero, como los arreglos). |
 | cell                              | celda | Cada casilla de la grilla. Se nombra juntando fila y columna: "A3", "C5". |
+| granularity                       | granularidad | Qué tan chicos son los pedazos en que se parte un trabajo. Métodos de granularidad chica = métodos cortos, fáciles de testear y cambiar. |
+| annotate                          | anotar | Escribir al margen qué hace cada línea de código. Ejercicio típico de Head First. |
+| magic number                      | número mágico | Un valor literal suelto en el código (`<= 18`) sin nombre que explique de dónde salió. Se reemplaza por una constante con nombre. |
+| get out of the loop (early)       | salir del bucle (temprano) | Cortar el bucle antes de recorrer todo, con `break`, porque ya se consiguió lo que se buscaba. |
+| slot                              | espacio / casillero | El renglón en blanco donde se escribe la respuesta en un ejercicio de papel. |
 | guess                             | intento / adivinanza | Lo que el jugador escribe en cada turno. El juego responde "hit", "miss" o "kill". |
 | Ready-Bake Code                   | código ya horneado | Código que el libro te da hecho y que NO hace falta entender todavía (acá: el algoritmo que ubica las Startups al azar, dentro de GameHelper). |
 | type parameter                    | parámetro de tipo | El `<String>` de `ArrayList<String>`: le dice al compilador qué tipo de objeto acepta esa lista. |
@@ -687,6 +697,33 @@ SESIÓN #77 — 2026-08-07 — Startup reescrita con ArrayList + planificación 
 - Ejercicios de la tanda: ninguno nuevo.
 - Dudas: ninguna.
 - PRÓXIMO PASO: pág. 424 en adelante (el diagrama de los 5 objetos y el prep code de StartupBust). Pág. 421 quedó salteada.
+
+SESIÓN #78 — 2026-08-08 — "Quién hace qué en el juego StartupBust (y cuándo)": los 6 pasos (pág. 423-426, 25%)
+- Pág. 423, paso 1: el `main()` de la clase StartupBust instancia UN objeto StartupBust, y ese objeto hace todo el juego. La clase que tiene main solo enciende la máquina; no es el juego.
+- Pág. 424, paso 2: el objeto StartupBust instancia un GameHelper y lo guarda en su variable de instancia `helper`.
+- Pág. 425, pasos 3 y 4: instancia el ArrayList que va a guardar las tres Startups (variable `startups`), y después crea los tres objetos Startup y los mete adentro.
+- Pág. 426, paso 5: le pide al helper una ubicación (tres veces, una por Startup) y se la pasa a cada Startup; cada Startup guarda SUS tres celdas en SU PROPIO ArrayList.
+- Pág. 426, paso 6: le pide al helper el intento del usuario, recorre la lista de Startups y le pide a cada una que lo chequee; cada una responde "hit" / "miss" / "kill". El ciclo sigue hasta que no queda ninguna viva.
+- Conteo real de objetos vivos: 9 — 1 StartupBust + 1 GameHelper + 1 ArrayList de Startups + 3 Startup + 3 ArrayList de celdas (uno por cada Startup). Las 3 clases del diagrama de la Sesión #77 producen 9 objetos, no 5.
+- Idea de fondo: ningún objeto hace todo. StartupBust COORDINA y DELEGA — ubicaciones e input al helper, el chequeo del intento a cada Startup. Cada objeto sabe solo lo suyo.
+- Nota del profe: esta secuencia numerada es, dibujada a mano, lo que en el trabajo real se llama diagrama de secuencia (quién le habla a quién y en qué orden). Reaparece en la Fase 2 con UML.
+- Ejercicios de la tanda: ninguno nuevo.
+- Dudas: ninguna.
+- PRÓXIMO PASO: pág. 427 en adelante (el prep code / código de StartupBust).
+
+SESIÓN #79 — 2026-08-08 — StartupBust: del prep code al código real (pág. 427-433, 25%)
+- Granularidad: 3 trabajos (preparar / jugar / terminar) se parten en 4 métodos, porque métodos chicos se testean, se depuran y se cambian más fácil.
+- Los 4 métodos del juego son `private` y solo `main` es `public`: encapsulamiento aplicado a métodos — se expone la puerta de entrada y se esconde la cocina, para que nadie de afuera llame un paso interno fuera de orden.
+- `while (!startups.isEmpty())` en vez de `size() > 0`: hace lo mismo pero dice la intención en voz alta. El `!` invierte el booleano.
+- Patrón del caso pesimista: `String result = "miss";` y que la evidencia lo cambie. Ahorra el `else` de "no pasó nada".
+- Comparación de Strings con `.equals()`, nunca con `==`: `==` pregunta si son el MISMO objeto, `.equals()` si dicen lo mismo. Error clásico de entrevista junior.
+- `break` tras un hit/kill: no tiene sentido preguntarle a las otras Startups, cada una ocupa celdas distintas.
+- El `main` son 3 líneas: crea el objeto juego, `setUpGame()`, `startPlaying()`. `finishGame()` lo llama `startPlaying()` al salir del while — el main arranca, no dirige.
+- Nota del profe (1): `startups.remove(...)` dentro de un enhanced for normalmente lanza `ConcurrentModificationException`; acá solo funciona porque el `break` de abajo corta el bucle y nunca hay vuelta siguiente. Lo robusto es `Iterator.remove()` o `removeIf()`.
+- Nota del profe (2): el `18` de `numOfGuesses <= 18` es un magic number; en código profesional va como `private static final int GOOD_SCORE = 18;`.
+- Ejercicios de la tanda: lib20 "Annotate the code yourself!" (21 números vs. 21 anotaciones, pág. 430-433) — PENDIENTE. El Sharpen your pencil de test code de la pág. 430 es el mismo pedido que lib13, se resuelven juntos.
+- Dudas: ninguna.
+- PRÓXIMO PASO: pág. 434 en adelante (la versión anotada del libro — recién después de entregar lib20).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
