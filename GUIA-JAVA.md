@@ -7,12 +7,13 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 433 de 1629 (25%) — StartupBust del prep code al código real: 4 métodos private + main public, `!isEmpty()`, result="miss" pesimista, `.equals()` para Strings, `break` tras hit/kill. Ver Sesión #79. Próximo: pág. 434 (la versión anotada del libro), recién DESPUÉS de entregar lib20. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355, 364, 366, 385, 399, 404, 406, 409, 411, 421, 428 y 431 (tramos intermedios).
+- Última página estudiada: página 433 de 1629 (25%) — StartupBust del prep code al código real: 4 métodos private + main public, `!isEmpty()`, result="miss" pesimista, `.equals()` para Strings, `break` tras hit/kill. Ver Sesión #79. Próximo: pág. 434 (la versión anotada del libro) — DESBLOQUEADA: lib20 entregado 21/21 el 2026-08-12. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355, 364, 366, 385, 399, 404, 406, 409, 411, 421, 428 y 431 (tramos intermedios).
 - Última sesión: Sesión #79
-- Última sesión de Claude: java-s52 (pág. 427-433, el código real de
-  StartupBust) → la próxima es java-s53. Contador distinto al de
-  arriba; el /rename sale de ACÁ.
-- Ejercicios pendientes: 12 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12), "¿qué más testear?" (lib13), "MultiFor" (ej13), "JavaCross" (lib17) y "Annotate the code yourself!" (lib20) son los NO opcionales; los otros 6 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08), Pool Puzzle "Puzzle4" (EJ #12) y "Mixed Messages" #3 (lib18). Fechas y repasos: ver EJERCICIOS.md.
+- Última sesión de Claude: java-s53 (SIN tanda de páginas: corrección de
+  lib20 21/21, repaso lib01-r2 → RE-ESTUDIO de anidamiento + ej14, y
+  creación del sistema ToDo/ de checklists) → la próxima es java-s54.
+  Contador distinto al de arriba; el /rename sale de ACÁ.
+- Ejercicios pendientes: 12 — "¿dónde vive cada cosa?" (ej14, RE-ESTUDIO de anidamiento, PRIORIDAD), "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12), "¿qué más testear?" (lib13), "MultiFor" (ej13) y "JavaCross" (lib17) son los NO opcionales; los otros 6 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08), Pool Puzzle "Puzzle4" (EJ #12) y "Mixed Messages" #3 (lib18). Fechas y repasos: ver EJERCICIOS.md.
 - SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido), pág. 319-321 (solución y salida completas de Puzzle4, EJ#12), pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12), pág. 388-389 (solución oficial de Code Magnets "MultiFor", ej13) y pág. 390-391 (solución de JavaCross, lib17, y de Mixed Messages #3, lib18). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).

@@ -60,11 +60,12 @@ Si te trabás: revisá la Sesión #09 y #10 de GUIA-ARCHIVO.md.
 
 ## MI RESPUESTA
 
-A:
+A: Esta clase si compila y ejecuta, no tiene errores, o por lo menos no los tiene en sintaxis
+el error que tiene es lógico, para el programa está bien pero entra en un bucle infinito
 
-B:
+B: Esta clase va da error de compilación ya que no se tiene el nombre de la  clase.
 
-C:
+C: Esta clase da error de compilación ya que no tiene una clase main y Java no la va encontrar ya que todas los programas necesitan un main.
 
 ---
 

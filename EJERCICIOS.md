@@ -40,8 +40,9 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # EJERCICIOS ABIERTOS
 # ============================================================
 
-LIBRO — Sharpen your pencil: "Annotate the code yourself!" — emparejar 21 números del código real de StartupBust con sus 21 anotaciones (dos bloques independientes: 1-10 y 11-21) (Ubicación pág. 430-433, Sesión #79) — [ ] pendiente
-Arranque: ejercicios/lib20-anotar-startupbust.md | Si te trabás: Sesión #78 y #79 de la guía
+EJERCICIO #14 — RE-ESTUDIO "¿dónde vive cada cosa?" — escribir una clase SIN main que compile + una clase con main que la use, para desarmar el mito de que todo programa necesita un main (Sesión #09 y #10) — [ ] pendiente — PRIORIDAD (habilita el repaso r3 del 2026-08-16)
+Tipo: programa desde cero
+Arranque: ejercicios/ej14-anidamiento/Termometro.java | Si te trabás: Sesión #09 y #10 de la guía | Checklist: ToDo/crear-una-clase-java.md
 
 EJERCICIO #13 — Code Magnets: "MultiFor" — reconstruir un programa desordenado con dos for anidados e incremento/decremento para que dé la salida pedida (Ubicación pág. 380-382, Sesión #71) — [ ] pendiente
 Tipo: completar/corregir código
@@ -86,12 +87,6 @@ Si te trabás: Sesión #12 y #13 (while, if, operadores de comparación)
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
-
-REPASO — LIBRO BE the Compiler (pág. 123) (r2) — programado: 2026-07-27 — [ ] pendiente
-Arranque: ejercicios/repasos/lib01-r2.md
-OJO: el r1 salió MAL (confundió bucle infinito con error de
-compilación). Si vuelve a fallar → RE-ESTUDIO de compile-time vs.
-runtime (Sesión #08 y #11).
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r1) — programado: 2026-07-28 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r1.md
@@ -190,6 +185,20 @@ CON el tipo de la variable — fue el único error que se repitió entre
 los dos intentos; (2) `boolean isIn = false;` inicializado, si no es
 error de compilación; (3) que traduzca size() a `length` de una línea,
 sin armar un bucle contador.
+
+REPASO — LIBRO "Annotate the code yourself!" StartupBust (pág. 430-433) (r1) — programado: 2026-08-15 — [ ] pendiente
+Arranque: ejercicios/repasos/lib20-r1.md
+El original salió PERFECTO (21/21, sin pistas). Puntos a mirar: los dos
+break (15 = salir tras un hit; 16 = remove + salir tras un kill) y el
+par 5/6 (pedirle la ubicación al helper vs. pasársela a la Startup).
+
+REPASO — LIBRO BE the Compiler (pág. 123) (r3) — programado: 2026-08-16 — [ ] pendiente
+Arranque: ejercicios/repasos/lib01-r3.md
+RE-ESTUDIO ACTIVO (el archivo C falló en el r1 y en el r2). Hacerlo
+DESPUÉS de releer la Sesión #09/#10 de la guía y de entregar el
+EJERCICIO #14. Punto a mirar: que la causa de C sea "el while está
+suelto dentro de la clase, le falta ALGÚN método que lo envuelva" —
+NO "le falta el main". Una clase sin main compila.
 
 # ============================================================
 # CONCEPTOS DOMINADOS (entran al graduarse un ejercicio con r3 bien)

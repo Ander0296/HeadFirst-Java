@@ -289,6 +289,54 @@ tarjetas buenas fijan más que un mazo exhaustivo.
   Anki). Si una respuesta quedó mal o vieja, se corrige la respuesta
   dejando la pregunta idéntica.
 
+### Carpeta ToDo/ — checklists de verificación (REGLA PERMANENTE)
+
+ToDo/ guarda checklists REUTILIZABLES: listas de "qué verificar antes
+de dar algo por terminado". No son apuntes (eso es la guía) ni
+memorización (eso es Anki): son listas que el usuario recorre MIENTRAS
+trabaja, tachando puntos.
+
+Los mantiene Claude. Un archivo .md por tema, más ToDo/README.md con el
+índice (Claude agrega la línea al índice cada vez que crea uno).
+
+CUÁNDO CREAR UNO (Claude lo propone solo, sin esperar el pedido):
+- Cuando un error se repite en DOS entregas del usuario (ejercicio o
+  repaso): ese error ya demostró que no se arregla explicándolo otra
+  vez, necesita una lista que se pueda recorrer.
+- Cuando se marca un RE-ESTUDIO: el checklist es parte del remedio,
+  junto con releer la sesión y el ejercicio nuevo.
+- Cuando un tema tiene varios pasos mecánicos fáciles de olvidar
+  (crear una clase, escribir un método, recorrer una colección,
+  manejar excepciones).
+- Cuando el usuario lo pide.
+
+CUÁNDO ACTUALIZAR UNO (más importante que crearlos):
+- Cada vez que el usuario comete un error que el checklist YA cubría:
+  no se agrega nada, se le avisa qué punto se salteó. Si el checklist
+  se hubiera usado, el error no pasaba.
+- Cada vez que comete un error que el checklist NO cubría: se le agrega
+  un punto nuevo, en el nivel que corresponda. Los checklists crecen
+  con los errores reales del usuario, no con lo que el libro enumera.
+- Claude avisa en el chat, en UNA línea, cuando toca un checklist.
+
+CÓMO SE ESCRIBEN:
+- AUTOCONTENIDOS: se entienden sin haber leído el libro ni la guía.
+  Prohibido "como vimos en la Sesión #X" o "según el libro".
+- ACCIONABLES: cada punto se verifica MIRANDO el código, no
+  reflexionando. "Contá que cada { tenga su }" sirve; "entendé el
+  encapsulamiento" no.
+- Con casillas `- [ ]` para poder recorrerlos de arriba a abajo.
+- Ordenados por el orden real de trabajo (en Java: archivo → clase →
+  método → instrucción → compilar), no por importancia teórica.
+- Cuando un punto es contraintuitivo o ya causó un error, se explica
+  POR QUÉ en una línea. El resto va seco.
+- Cierran con las trampas conocidas del tema (tablas comparativas,
+  confusiones típicas) cuando las hay.
+
+DÓNDE APUNTARLOS: cuando un ejercicio o un repaso toca un tema que ya
+tiene checklist, el archivo de arranque lo menciona al lado del
+puntero "Si te trabás" (ej: "Checklist: ToDo/crear-una-clase-java.md").
+
 ### Plan por fases — RUTA.md (REGLA PERMANENTE)
 
 - El proyecto NO termina con el libro. RUTA.md define las fases:
@@ -352,6 +400,9 @@ tarjetas buenas fijan más que un mazo exhaustivo.
    formato, siempre con la referencia "Si te trabás: revisá la Sesión
    #Y de GUIA-JAVA.md" y aplicando la regla de cierre (ruta + mensaje
    relleno).
+9-bis. Revisar si la tanda o la corrección de un ejercicio dispara un
+   checklist de ToDo/ (crear uno nuevo, o agregarle un punto porque
+   apareció un error que no cubría). Ver la regla de la carpeta ToDo/.
 10. Guardar en Engram los conceptos clave, decisiones y última página
     vista.
 11. Si la tanda fue de IMÁGENES, avisar al usuario: "tanda cerrada —
@@ -457,6 +508,10 @@ rompe el `claude --resume`.
   las vuelca a los archivos de ttyper; las practica el usuario)
 - ANKI.txt → tarjetas de repaso 80/20 (mantiene Claude; el usuario
   las importa en Anki)
+- ToDo/ → checklists de verificación reutilizables, uno por tema, más
+  README.md con el índice (mantiene Claude; el usuario los recorre
+  mientras escribe código). NO se leen al inicio de sesión: se abren
+  cuando el tema aparece
 
 ### Memoria y contexto
 

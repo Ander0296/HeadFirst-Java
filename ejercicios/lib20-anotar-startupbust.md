@@ -65,7 +65,7 @@ public class StartupBust {
 ### Anotaciones del BLOQUE A (escribí el número delante de cada una)
 
 ```
-___  Declarar e inicializar las variables que vamos a necesitar
+___  Declarar e inicializar las variables que vamos a necesitar 
 ___  Obtener la entrada del usuario
 ___  Pedirle al helper una ubicación de Startup
 ___  Repetir con cada Startup de la lista
@@ -145,9 +145,33 @@ llenar los guiones de arriba.)
 
 ### Bloque A
 
+1  Declarar e inicializar las variables que vamos a necesitar 
+8  Obtener la entrada del usuario
+5  Pedirle al helper una ubicación de Startup
+4  Repetir con cada Startup de la lista
+3  Imprimir instrucciones breves para el usuario
+6  Llamar al método setter de esta Startup para darle la ubicación que
+     acabás de conseguir del helper
+9  Llamar a nuestro propio método checkUserGuess
+2  Crear tres objetos Startup, darles nombres y meterlos en el ArrayList
+7  Mientras la lista de Startups NO esté vacía
+10  Llamar a nuestro propio método finishGame
 
 ### Bloque B
 
+13   Repetir con todas las Startups de la lista
+16  Esta está muerta, así que sacala de la lista de Startups y salí del bucle
+18  Imprimir un mensaje diciéndole al usuario cómo le fue en el juego
+17  Imprimir el resultado para el usuario
+11  Incrementar la cantidad de intentos que hizo el usuario
+20  Decirle al objeto juego que prepare el juego
+12  Asumir que es un 'miss', salvo que te digan lo contrario
+15  Salir del bucle temprano, no tiene sentido probar las otras
+21 Decirle al objeto juego que arranque el bucle principal de juego
+     (sigue pidiendo entrada del usuario y chequeando el intento)
+14  Pedirle a la Startup que chequee el intento del usuario, buscando un
+     hit (o kill)
+19  Crear el objeto juego
 
 ## Pistas si te trabás
 

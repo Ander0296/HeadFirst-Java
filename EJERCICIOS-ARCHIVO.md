@@ -919,10 +919,54 @@ runtime (ya vista en Sesión #08 y #11) necesita repaso. Se acorta el
 intervalo: repaso r2 agendado para 2026-07-27 (no se marca RE-ESTUDIO
 todavía porque es la primera vez que falla, no dos seguidas).
 
-REPASO — EJERCICIO BE the Compiler (pág. 123) (r2) — programado: 2026-07-27 — [ ] pendiente
+REPASO — EJERCICIO BE the Compiler (pág. 123) (r2) — programado: 2026-07-27 — [x] completado (2026-08-12, con atraso)
 Entregá en: ejercicios/repasos/lib01-r2.md (desde cero, sin mirar el original ni el r1; archivo de arranque nuevo, solo comentarios, sin código)
-Comparación de Claude (se llena al revisar):
-...
+Comparación de Claude:
+
+A: "Sí compila y ejecuta, no tiene errores de sintaxis; el error que
+tiene es lógico, entra en un bucle infinito" — CORRECTO, y es la
+MEJORA GRANDE de este repaso. En el r1 había dicho "no compila porque
+entra en un bucle infinito", confundiendo runtime con compile-time.
+Acá separó los dos planos explícitamente y con vocabulario propio
+("no los tiene en sintaxis... el error es lógico"). El concepto
+compile-time vs. runtime, que era el punto marcado a vigilar, quedó
+RECUPERADO. Único matiz menor, no pedido por el enunciado: además de
+no terminar nunca, el programa jamás llega a imprimir "big x" (x se
+queda fijo en 1 y nunca supera 3).
+
+B: "Da error de compilación ya que no se tiene el nombre de la clase" —
+CORRECTO. Tercera vez consecutiva que lo resuelve bien (original, r1 y
+r2). Es el archivo más sólido de los tres.
+
+C: "Da error de compilación ya que no tiene una clase main y Java no la
+va encontrar ya que todos los programas necesitan un main" —
+INCORRECTO en la causa, y es el ERROR REPETIDO por segunda vez
+seguida. En el r1 había dicho "no compila porque falta declarar el
+main"; acá repite la misma idea y además la justifica con una regla
+que es FALSA: "todos los programas necesitan un main". Dos problemas
+distintos apilados:
+  (1) Vocabulario: `main` es un MÉTODO, no una clase. "Una clase main"
+      no existe.
+  (2) Concepto de fondo: una clase sin `main` COMPILA perfectamente
+      (la mayoría de las clases de cualquier programa real no tienen
+      main — Startup, GameHelper y Dog no lo tienen). `main` solo hace
+      falta para ARRANCAR un programa, y eso es ejecución, no
+      compilación. Lo que rompe a Exercise1c es otra cosa: el `while`
+      está suelto directamente dentro de la clase, y una instrucción
+      ejecutable necesita vivir dentro de ALGÚN método — con cualquier
+      nombre, no necesariamente main.
+Ojo con la ironía: en A separó bien compilación de ejecución, y en C
+volvió a mezclarlas (usó una razón de ejecución, "Java no lo va a
+encontrar para arrancarlo", para explicar un error de compilación).
+
+RESULTADO: MEJORÓ mucho (A recuperado, B firme), pero C falló por
+SEGUNDA VEZ SEGUIDA (r1 y r2) con la misma imprecisión, agravada por
+la regla falsa del main obligatorio. Se aplica la regla de RE-ESTUDIO:
+releer Sesión #09 y #10 de GUIA-ARCHIVO.md (jerarquía archivo fuente →
+clase → método → instrucción) + ejercicio nuevo del profe
+(EJERCICIO #14, Termometro/TermometroTestDrive) que ataca directo el
+malentendido "todo programa necesita un main". Intervalo acortado:
+r3 agendado para 2026-08-16.
 
 REPASO — LIBRO Mixed Messages (pág. 127-129) (r1) — programado: 2026-07-23 — [x] completado (2026-07-25)
 Entregado en: ejercicios/repasos/lib02-r1.md (desde cero, sin mirar el original)
@@ -1336,3 +1380,60 @@ e. Bonus conceptual que conecta la fila 8 con la fila 9: como la fila 8
 RESULTADO: PASÓ en 2 intentos, con pistas (nunca la solución completa).
 Lo más valioso: acertó la fila 8 de una y entendió por qué. Repaso r1
 agendado para 2026-08-12.
+
+============================================================
+
+LIBRO — Sharpen your pencil: "Annotate the code yourself!" — emparejar
+21 números del código real de StartupBust con sus 21 anotaciones (dos
+bloques independientes: 1-10 y 11-21) (Ubicación pág. 430-433,
+Sesión #79) — [x] completado (2026-08-12)
+
+Enunciado: el libro numera las líneas del código real de StartupBust
+(`-- 1` a `-- 21`) y pone al pie de cada página las anotaciones en
+prosa, desordenadas y con un guión vacío adelante. Hay que escribir el
+número delante de cada anotación. Cada una se usa exactamente una vez y
+no sobra ninguna. Los números 1-10 (pág. 430: instance variables,
+setUpGame, startPlaying) van con el BLOQUE A; los 11-21 (pág. 433:
+checkUserGuess, finishGame, main) con el BLOQUE B. El libro cierra con
+"DON'T turn the page!" porque la 434 es la solución oficial.
+
+Entregado en: ejercicios/lib20-anotar-startupbust.md
+
+RESULTADO: 21 de 21. PERFECTO, sin una sola pista.
+Se entregó en dos tiempos el mismo día: primero el Bloque A solo (el
+Bloque B no se había guardado por un problema del editor), y a
+continuación el archivo completo. No fueron dos intentos: el Bloque B
+llegó bien a la primera, igual que el A.
+
+BLOQUE A — 10/10:
+- Separó bien el par 5 / 6, que es la trampa del bloque: dos líneas
+  consecutivas dentro del mismo for donde 5 es PEDIRLE la ubicación al
+  helper (`helper.placeStartup(3)`) y 6 es PASÁRSELA a la Startup con
+  el setter (`startup.setLocationCells(newLocation)`). Aplicó el
+  criterio correcto: ¿a qué objeto le habla esta línea?
+- Distinguió el par 9 / 10 pese a la redacción casi idéntica ("llamar a
+  nuestro propio método"): 9 = checkUserGuess, adentro del while;
+  10 = finishGame, afuera. Lo resolvió por POSICIÓN en el flujo.
+
+BLOQUE B — 11/11:
+- Resolvió el punto más difícil del bloque: los DOS break no son lo
+  mismo. 15 es el break tras un "hit" (salir temprano, no tiene sentido
+  seguir probando las otras Startups) y 16 es el remove + break tras un
+  "kill" (esta murió: sacala de la lista Y salí). Entendió que uno solo
+  corta y el otro hace un trabajo extra antes de cortar.
+- 12 = `String result = "miss"` con la anotación "asumir que es un miss
+  salvo que te digan lo contrario": captó el valor pesimista por
+  defecto, que es el patrón de diseño real de esa línea.
+- 11 (numOfGuesses++), 13 (for sobre startups), 14 (checkYourself),
+  17 (println del result), 18 (todo el bloque de finishGame),
+  19/20/21 (las tres líneas del main: crear el objeto juego, prepararlo,
+  arrancar el bucle) — todas correctas.
+
+Lo que este ejercicio demuestra: no reconoció el código, lo ENTENDIÓ.
+Poner en palabras propias qué hace cada línea es la prueba real de
+comprensión, y la pasó sin ayuda en las 21.
+
+Este ejercicio destraba la pág. 434 (la versión anotada del libro), que
+hasta ahora estaba marcada como spoiler.
+
+Repaso r1 agendado para 2026-08-15.
