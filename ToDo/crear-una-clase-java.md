@@ -82,6 +82,15 @@ void setWatts(int w) { }       // recibe un int, no devuelve nada
 - [ ] Cada instrucción termina en `;`
 - [ ] Pero `while (x > 1) { }` y `if (...) { }` **no** llevan `;`
       después del cierre de llave.
+- [ ] **Al dividir, mirá el tipo de los DOS lados.** `9 / 5` no da 1.8:
+      da **1**. Cuando los dos operandos son `int`, Java tira los
+      decimales (no redondea, los tira). Para que dé decimales, al menos
+      uno tiene que ser `double`: `9.0 / 5`.
+- [ ] **Cuidado con los paréntesis que aíslan una división entera.**
+      `celsius * 9 / 5` está bien (el primer paso ya arrastra un
+      `double`), pero `celsius * (9 / 5)` obliga a resolver `9 / 5`
+      solo y primero → la cuenta queda arruinada y el compilador no se
+      queja, porque el error no es de gramática sino de aritmética.
 - [ ] Las variables locales están **declaradas antes** de usarse, y con
       un valor asignado antes de leerse. Java no asume un valor por
       defecto en las variables locales: da error de compilación
@@ -119,6 +128,25 @@ Tres cosas que conviene tener clarísimas:
 Si al ejecutar te aparece un mensaje sobre un "main method not found"
 (no se encontró el método main), eso es un error de **ejecución**, no
 de compilación. La clase estaba bien: lo que faltaba era la puerta.
+
+### Dos mensajes que se parecen y NO son lo mismo
+
+| Mensaje al ejecutar | Qué significa de verdad |
+| --- | --- |
+| `Main method not found in class X`<br>(no se encontró el método main en la clase X) | Encontró la clase y la cargó. Le falta la **puerta de entrada**. |
+| `Could not find or load main class X`<br>`ClassNotFoundException`<br>(no se pudo encontrar o cargar la clase principal X) | Ni siquiera encontró el archivo **`X.class`**. No es un problema del `main`: o no compilaste, o estás parado en otra carpeta. |
+
+El segundo confunde muchísimo porque dice "main class" (clase
+principal), y uno lee "main" y piensa en el método. No: ahí `main`
+es solo un adjetivo. El problema es el `.class` que no aparece.
+
+- [ ] Antes de correr `java NombreClase`, comprobá que el archivo
+      `NombreClase.class` está **en la carpeta donde estás parado**.
+      `java` no lee `.java`: lee `.class`.
+- [ ] Si compilás desde un IDE (IntelliJ), los `.class` no van al lado
+      del `.java`: van a una carpeta aparte (`out/`). Por eso `javac` y
+      `java` a mano, en la misma carpeta, es lo que te conviene mientras
+      estás aprendiendo: ves los dos archivos juntos.
 
 ---
 

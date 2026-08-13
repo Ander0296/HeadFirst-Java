@@ -40,10 +40,6 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # EJERCICIOS ABIERTOS
 # ============================================================
 
-EJERCICIO #14 — RE-ESTUDIO "¿dónde vive cada cosa?" — escribir una clase SIN main que compile + una clase con main que la use, para desarmar el mito de que todo programa necesita un main (Sesión #09 y #10) — [ ] pendiente — PRIORIDAD (habilita el repaso r3 del 2026-08-16)
-Tipo: programa desde cero
-Arranque: ejercicios/ej14-anidamiento/Termometro.java | Si te trabás: Sesión #09 y #10 de la guía | Checklist: ToDo/crear-una-clase-java.md
-
 EJERCICIO #13 — Code Magnets: "MultiFor" — reconstruir un programa desordenado con dos for anidados e incremento/decremento para que dé la salida pedida (Ubicación pág. 380-382, Sesión #71) — [ ] pendiente
 Tipo: completar/corregir código
 Arranque: ejercicios/ej13-code-magnets-multifor/MultiFor.java | Si te trabás: Sesión #68 y #69 de la guía
@@ -194,11 +190,22 @@ par 5/6 (pedirle la ubicación al helper vs. pasársela a la Startup).
 
 REPASO — LIBRO BE the Compiler (pág. 123) (r3) — programado: 2026-08-16 — [ ] pendiente
 Arranque: ejercicios/repasos/lib01-r3.md
-RE-ESTUDIO ACTIVO (el archivo C falló en el r1 y en el r2). Hacerlo
-DESPUÉS de releer la Sesión #09/#10 de la guía y de entregar el
-EJERCICIO #14. Punto a mirar: que la causa de C sea "el while está
-suelto dentro de la clase, le falta ALGÚN método que lo envuelva" —
-NO "le falta el main". Una clase sin main compila.
+RE-ESTUDIO ACTIVO (el archivo C falló en el r1 y en el r2). El
+EJERCICIO #14 ya está entregado (2026-08-13) y salió bien: DESBLOQUEADO.
+Antes de hacerlo, releer la Sesión #09/#10 de la guía. Punto a mirar:
+que la causa de C sea "el while está suelto dentro de la clase, le
+falta ALGÚN método que lo envuelva" — NO "le falta el main". Una clase
+sin main compila.
+
+REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r1) — programado: 2026-08-17 — [ ] pendiente
+Arranque: ejercicios/repasos/ej14-r1/ (Termometro.java y TermometroTestDrive.java)
+El original salió bien en 2 entregas. Puntos a mirar: (1) la variable de
+instancia en `private`, que en el original quedó `public`; (2) que el
+método que imprime NO se llame `getEstado()` — `get` promete devolver
+algo y ese método es `void`; (3) la división: `celsius * 9 / 5 + 32` sin
+paréntesis alrededor del `9 / 5` (con paréntesis da 1 y arruina la
+cuenta); (4) el límite: menor a 15 → frío, si no → calor (el original
+dejó los 15 exactos del lado equivocado).
 
 # ============================================================
 # CONCEPTOS DOMINADOS (entran al graduarse un ejercicio con r3 bien)

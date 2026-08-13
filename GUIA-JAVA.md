@@ -7,13 +7,12 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página estudiada: página 433 de 1629 (25%) — StartupBust del prep code al código real: 4 métodos private + main public, `!isEmpty()`, result="miss" pesimista, `.equals()` para Strings, `break` tras hit/kill. Ver Sesión #79. Próximo: pág. 434 (la versión anotada del libro) — DESBLOQUEADA: lib20 entregado 21/21 el 2026-08-12. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355, 364, 366, 385, 399, 404, 406, 409, 411, 421, 428 y 431 (tramos intermedios).
-- Última sesión: Sesión #79
-- Última sesión de Claude: java-s53 (SIN tanda de páginas: corrección de
-  lib20 21/21, repaso lib01-r2 → RE-ESTUDIO de anidamiento + ej14, y
-  creación del sistema ToDo/ de checklists) → la próxima es java-s54.
+- Última página estudiada: página 445 de 1629 (26%) — la biblioteca de Java (Java API) está dividida en PAQUETES; el nombre completo de una clase es paquete + clase (`java.util.ArrayList`) y se le da a Java con `import` o escribiéndolo entero; `java.lang` (String, System, Math) es el único que se importa solo; `static final` = constante en MAYÚSCULAS. Ver Sesión #81. Próximo: pág. 446. Páginas salteadas pendientes: código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355, 364, 366, 385, 399, 404, 406, 409, 411, 421, 428, 431, 434-435, 440 y 444 (tramos intermedios). PENDIENTE APARTE: falta el resto del Ready-Bake de GameHelper (sus 5 métodos privados) — sin ellos StartupBust no compila.
+- Última sesión: Sesión #81
+- Última sesión de Claude: java-s55 (cubrió la Sesión #81) → la
+  próxima es java-s56.
   Contador distinto al de arriba; el /rename sale de ACÁ.
-- Ejercicios pendientes: 12 — "¿dónde vive cada cosa?" (ej14, RE-ESTUDIO de anidamiento, PRIORIDAD), "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12), "¿qué más testear?" (lib13), "MultiFor" (ej13) y "JavaCross" (lib17) son los NO opcionales; los otros 6 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08), Pool Puzzle "Puzzle4" (EJ #12) y "Mixed Messages" #3 (lib18). Fechas y repasos: ver EJERCICIOS.md.
+- Ejercicios pendientes: 11 — "¿legal o no?" (lib07), "Five-Minute Mystery" (lib12), "¿qué más testear?" (lib13), "MultiFor" (ej13) y "JavaCross" (lib17) son los NO opcionales; los otros 6 son OPCIONALES: Pool Puzzle original (Sesión #17), "Echo" (EJ #07), "Triangle" (EJ #10), "A Heap o' Trouble" (lib08), Pool Puzzle "Puzzle4" (EJ #12) y "Mixed Messages" #3 (lib18). Fechas y repasos: ver EJERCICIOS.md.
 - SPOILERS leídos por Claude y NO explicados a propósito: pág. 197-199 (Echo, EJ#07), pág. 257 (lib07), pág. 260+262 (Triangle, EJ#10), pág. 262-263 (Heap, lib08), pág. 319 (respuestas de "Who Am I?", diferido), pág. 319-321 (solución y salida completas de Puzzle4, EJ#12), pág. 321 (respuesta del Five-Minute Mystery nuevo, lib12), pág. 388-389 (solución oficial de Code Magnets "MultiFor", ej13) y pág. 390-391 (solución de JavaCross, lib17, y de Mixed Messages #3, lib18). Retomarlas recién cuando el usuario entregue cada ejercicio, o si los da de baja.
 - Entorno verificado: OpenJDK 26.0.1, javac/java en PATH sin configuración
   extra necesaria (Arch Linux, JVM default del sistema).
@@ -22,6 +21,16 @@ Ejercicios: ver EJERCICIOS.md.
 
 | Inglés                            | Español | En una frase |
 | --------------------------------- | ------- | ------------ |
+| package                           | paquete | Agrupación con nombre de clases relacionadas de la biblioteca. `ArrayList` vive en el paquete `java.util`; las clases de ventanas, en `javax.swing`. |
+| full name (fully qualified name)  | nombre completo (nombre calificado) | Paquete + clase: `java.util.ArrayList`. Es como Java identifica una clase sin ambigüedad. `ArrayList` a secas es el nombre corto. |
+| import                            | importar | Línea al principio del archivo que le dice al compilador el nombre completo de una clase, para poder escribirla corta el resto del archivo. |
+| Java API / Java library           | biblioteca de Java | Las miles de clases que vienen con Java listas para usar: String, ArrayList, Math, Scanner, Random... No se instalan, ya están. |
+| name collision / name-scoping     | choque de nombres / ámbito de nombres | Dos clases distintas llamadas igual. Los paquetes lo resuelven: `java.util.Set` y `com.miempresa.Set` conviven sin pisarse. |
+| constant                          | constante | Variable que no puede cambiar de valor: se declara `static final` y por convención se escribe `EN_MAYUSCULAS_CON_GUIONES`. |
+| short-circuit (operator)          | (operador de) cortocircuito | `&&` y `||` cortan la evaluación apenas saben la respuesta: si la izquierda de un `&&` es false, la derecha ni se ejecuta. Es lo que hace seguro a `if (x != null && x.metodo())`. |
+| Ready-Bake Code                   | código listo para usar | Sección donde el libro te regala código ya escrito (ej. GameHelper) para no perder tiempo tipeando algo que no enseña nada nuevo. |
+| precedence                        | precedencia | El orden en que Java evalúa los operadores de una expresión. El libro recomienda no memorizarla: poner paréntesis. |
+| Boolean expression                | expresión booleana | Cualquier pregunta que da `true` o `false`. Es lo que va adentro de un `if` o un `while`. |
 | instantiate                       | instanciar | Crear un objeto con `new`. "El main instancia el objeto StartupBust" = lo fabrica en memoria. |
 | delegate                          | delegar | Que un objeto le pida a otro que haga un trabajo en vez de hacerlo él. StartupBust delega la entrada del usuario en GameHelper. |
 | loop through                      | recorrer | Pasar uno por uno por todos los elementos de una lista o arreglo con un bucle. |
@@ -725,6 +734,34 @@ SESIÓN #79 — 2026-08-08 — StartupBust: del prep code al código real (pág.
 - Ejercicios de la tanda: lib20 "Annotate the code yourself!" (21 números vs. 21 anotaciones, pág. 430-433) — PENDIENTE. El Sharpen your pencil de test code de la pág. 430 es el mismo pedido que lib13, se resuelven juntos.
 - Dudas: ninguna.
 - PRÓXIMO PASO: pág. 434 en adelante (la versión anotada del libro — recién después de entregar lib20).
+
+SESIÓN #80 — 2026-08-13 — Operadores booleanos y cortocircuito (pág. 436-439, 25%)
+- Pág. 436-437 fueron recap: la solución oficial del lib20 (coincidió con las 21 anotaciones del usuario) y la versión final de la clase Startup, con sus dos variables de instancia `private` y `indexOf()` devolviendo -1 cuando no encuentra.
+- `&&` es Y (exigente: pide que TODO sea true), `||` es O (generoso: le alcanza con uno). Dos símbolos, no uno.
+- No existe `if (300 <= price < 400)`: en Java no se encadenan comparaciones. Cada lado del `&&` tiene que ser una pregunta completa que dé true o false sola — hay que repetir la variable.
+- Negar: `!=` para primitivas, `!` adelante del `.equals()` para objetos. `!brand.equals("X")` se lee "no es cierto que brand sea X".
+- CORTOCIRCUITO (short-circuit): si el lado izquierdo de un `&&` es false, la JVM corta ahí y ni mira el derecho; con `||`, si el izquierdo es true tampoco sigue. No es una optimización invisible: cambia lo que se ejecuta.
+- De ahí sale el guard más escrito de Java: `if (refVar != null && refVar.metodo())`. El orden NO es negociable — al revés explota con NullPointerException.
+- `&` y `|` (un solo símbolo) son los NO cortocircuito: siempre miran los dos lados. Contexto, no para dominar (su uso real es manipular bits), pero escribir `&` donde iba `&&` rompe el guard del null.
+- El libro recomienda usar paréntesis en vez de memorizar precedencia. Contracara vista el mismo día en el ej14: en aritmética los paréntesis no aclaran, MANDAN (`celsius * (9 / 5)` fuerza división entera y arruina la cuenta).
+- Ejercicios de la tanda: ninguno (estas 4 páginas no traen Sharpen your pencil ni puzzles).
+- Nota del profe: `"hit".equals(result)` (condición Yoda) evita el NPE sin guard; desde Java 14 la NPE dice exactamente qué fue null; `Objects.equals(a, b)` aguanta nulls de los dos lados.
+- Dudas: ninguna.
+- PRÓXIMO PASO: pág. 440 en adelante (Ready-Bake Code: la clase GameHelper, sin la cual StartupBust no compila).
+
+SESIÓN #81 — 2026-08-13 — Ready-Bake GameHelper + paquetes e import (pág. 441-445, 26%)
+- Pág. 441, Ready-Bake Code ("código listo para usar"): el libro REGALA la clase GameHelper. No hay que entenderla línea por línea, pero sin ella StartupBust no compila.
+- `static final` = CONSTANTE: `static` la hace única para toda la clase (no una por objeto), `final` prohíbe cambiarla. Convención MAYÚSCULAS_CON_GUIONES. Es el antídoto al magic number de la Sesión #79.
+- El `while (!success & attempts++ < MAX_ATTEMPTS)` del libro usa `&` de un solo símbolo: el NO cortocircuito de la Sesión #80. Acá no rompe nada, pero es exactamente lo que ayer se marcó como riesgoso.
+- Pág. 442-443: la biblioteca de Java (Java API) está partida en PAQUETES. `ArrayList` está en `java.util`, las clases de ventanas en `javax.swing`. El chiste del dibujo son paquetes postales atados con piolín.
+- NOMBRE COMPLETO = paquete + clase (`java.util.ArrayList`). Java siempre lo necesita; dos formas de dárselo: `import` arriba del archivo, o escribirlo entero en CADA uso (declaración, argumento y tipo de retorno).
+- Ya usabas paquetes sin saberlo: `System`, `String` y `Math` viven en `java.lang`, el ÚNICO que Java importa solo. Por eso nunca importaste `String`.
+- Pág. 445: los paquetes existen por tres razones — organizar la biblioteca, evitar choques de nombres (tu clase `Set` vs. la `Set` del API) y restringir accesos.
+- Nota del profe: `import` no copia código ni agranda el programa, es un atajo de escritura con cero costo en ejecución; la convención que el libro calla es el dominio al revés (`com.miempresa.proyecto`); y desde Java 9 hay una capa por encima, los MÓDULOS (`module-info.java`) — contexto, no para dominar.
+- Ejercicios de la tanda: ninguno (estas páginas no traen Sharpen your pencil ni puzzles).
+- Chequeo: `static final` PERFECTO (separó los dos efectos solo). En el import detectó bien el error, pero como "las dos formas" dio `import` específico vs. `import` con `*` — que son la MISMA opción A. La opción B del libro es escribir el nombre completo en cada uso. Corregido.
+- Dudas: ninguna.
+- PRÓXIMO PASO: pág. 446 en adelante. Salteadas nuevas: 440 y 444. FALTA además el resto del Ready-Bake de GameHelper: los 5 métodos privados que llama `placeStartup` (`getIncrement`, `startupFits`, `coordsAvailable`, `savePositionToGrid`, `convertCoordsToAlphaFormat`) — sin ellos la clase no compila.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

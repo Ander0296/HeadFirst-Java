@@ -1437,3 +1437,74 @@ Este ejercicio destraba la pág. 434 (la versión anotada del libro), que
 hasta ahora estaba marcada como spoiler.
 
 Repaso r1 agendado para 2026-08-15.
+
+# ------------------------------------------------------------
+EJERCICIO #14 — RE-ESTUDIO "¿dónde vive cada cosa?" — clase Termometro
+SIN main + TermometroTestDrive con main (ejercicio del profe, Sesión
+#09 y #10) — [x] completado (2026-08-13, 2 entregas)
+
+CONTEXTO: ejercicio creado como remedio del RE-ESTUDIO, después de que
+el archivo C de "BE the Compiler" (lib01) fallara en el r1 y en el r2
+con la misma idea equivocada: "no compila porque le falta el main".
+
+OBJETIVO CUMPLIDO — el corazón del ejercicio salió bien:
+- Compiló Termometro.java SIN main: compiló sin un solo mensaje.
+- Al ejecutarla obtuvo, de la propia JVM:
+  "Error: Main method not found in class Termometro, please define the
+  main method as: public static void main(String[] args)"
+  (Error: no se encontró el método main en la clase Termometro...)
+- Contrastó ese mensaje con el que había obtenido en el 1er intento
+  ("Could not find or load main class Termometro" /
+  ClassNotFoundException), que NO es lo mismo: ese decía que la JVM ni
+  siquiera encontró el archivo .class. Había compilado desde IntelliJ
+  (que deja los .class en out/) y corrido `java` parado en src/. Al
+  rehacerlo con javac + java en la misma carpeta apareció el mensaje
+  correcto. El desvío terminó enseñando más que el camino directo: son
+  dos fallas de EJECUCIÓN distintas y ahora las distingue.
+
+BIEN DESDE EL 1ER INTENTO:
+- Anidamiento IMPECABLE: variable de instancia y métodos dentro de la
+  clase, instrucciones dentro de los métodos, nada suelto. Ese era el
+  error de fondo del RE-ESTUDIO y no reapareció ni una vez.
+- `this.temperaturaActual = temperaturaActual;` en el setter, para
+  desambiguar el parámetro de la variable de instancia. No se lo pidió
+  nadie.
+- `double` bien elegido como tipo (la temperatura lleva decimales).
+- TermometroTestDrive correcto: new, operador punto, main bien formado.
+
+CORREGIDO EN LA 2DA ENTREGA:
+- DIVISIÓN ENTERA. Había escrito `temperaturaActual * (9 / 5) + 32`.
+  Los paréntesis aislaban una división entre dos int, así que 9/5 daba
+  1 y el Fahrenheit salía mal. Lo arregló sacando los paréntesis:
+  `temperaturaActual * 9 / 5 + 32` resuelve de izquierda a derecha y el
+  primer paso ya arrastra un double, que se propaga al resto. Verificado
+  con 20 °C = 68.0 °F.
+- EL MÉTODO QUE IMPRIME. Al principio getEstado() devolvía un String con
+  un operador ternario y el print vivía en el main. Lo reescribió como
+  `void` con if/else y System.out.println adentro, como pedía el
+  enunciado.
+
+QUEDÓ SIN CORREGIR (anotado para el repaso, no bloqueó el cierre):
+- `public double temperaturaActual;` sigue pública: debería ser
+  `private`. Tiene el setter escrito pero no protege nada, porque
+  cualquiera puede hacer `term.temperaturaActual = -9999;`.
+- El nombre `getEstado()` quedó mintiendo: es `void`, y en Java `get`
+  es una convención que promete un valor de retorno. Debería llamarse
+  imprimirEstado() o mostrarEstado().
+- El límite quedó corrido: `> 15` deja los 15 exactos en "frío", y el
+  enunciado los ponía del otro lado ("menor a 15 → un mensaje, si no →
+  el otro").
+- PARTE 4 (la pregunta conceptual sobre cuántas de Startup/GameHelper/
+  Dog/Song/Movie tienen main) OMITIDA por decisión del usuario, que
+  prefirió avanzar. Defendible: la JVM ya le había demostrado el
+  concepto en vivo.
+
+CHECKLIST TOCADO: ToDo/crear-una-clase-java.md ganó dos bloques nuevos
+por errores que no cubría — (1) la división entre dos int y la trampa
+de los paréntesis que la aíslan; (2) la tabla que separa "Main method
+not found" (encontró la clase, falta la puerta) de "Could not find or
+load main class" (no encontró el .class), más los puntos sobre
+verificar dónde está el .class y sobre que los IDE lo mandan a out/.
+
+Este ejercicio destraba el repaso r3 de lib01 (2026-08-16).
+Repaso r1 agendado para 2026-08-17.

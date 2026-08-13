@@ -398,3 +398,15 @@ Los métodos internos del juego van private; solo main queda public.
 
 s79b — comparar Strings:
 Para comparar Strings usá result.equals("hit"); el operador == compara referencias.
+
+s80a — cortocircuito:
+Si la izquierda del && es false, la JVM corta y ni mira la derecha.
+
+s80b — el guard del null:
+Escribí if (refVar != null && refVar.isValidType()) y nunca al revés.
+
+s81a — constantes:
+private static final int GRID_SIZE = 49; declara una constante que ningún objeto puede cambiar.
+
+s81b — el import:
+Escribí import java.util.ArrayList; arriba de todo y después usá el nombre corto.
