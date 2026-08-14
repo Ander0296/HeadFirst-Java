@@ -34,13 +34,24 @@ HeadFirst-Java/
 ├── GUIA-JAVA.md   ★ lo que ENTENDÍ, sesión a sesión + vocabulario
 ├── EJERCICIOS.md  ★ SOLO lo vivo: pendientes, repasos y conceptos
 │                    dominados. Se lee entero cada sesión: va corto
+├── PENDIENTES.md    la deuda que NO es un ejercicio: páginas que no
+│                    llegaron y contenido diferido. Lo triagea
+│                    /pendientes, no se lee al empezar
 ├── RUTA.md          el plan por fases: libro → consolidación →
 │                    herramientas reales → portafolio y empleo
 ├── MECANOGRAFIA.md  frases de tipeo de cada sesión (ttyper)
 ├── ANKI.txt         tarjetas de repaso 80/20 para importar en Anki
 ├── CLAUDE.md        las reglas del profe
-└── .claude/commands/  los comandos (acá se editan si hace falta)
+└── .claude/          los comandos (commands/) y los dos automatismos
+                      (hooks/): pull al abrir, y el candado
 ```
+
+**Los dos automatismos que corren solos:**
+- al abrir cualquier sesión se hace `git pull`, aunque me olvide de
+  `/arranque`;
+- Claude tiene **prohibido por el harness** editar o pisar cualquier archivo
+  que ya exista en `ejercicios/`, `diagramas/` o `pruebas/`. Solo puede CREAR
+  el archivo de arranque. Si algún día necesito desactivarlo: `/hooks`.
 
 Archivos que crecen aparte y NO se leen al empezar:
 `GUIA-ARCHIVO.md` (sesiones viejas) y `EJERCICIOS-ARCHIVO.md`
@@ -89,6 +100,8 @@ Los prompts completos viven en `.claude/commands/`.
 | `/tanda` | me explica las páginas que dejé en `paginas/` | por cada tanda |
 | `/entrega` | corrige el ejercicio que terminé (código o del libro) | cuando termino uno |
 | `/repaso` | repaso vencido, desde cero | cuando el profe avisa |
+| `/pendientes` | triage: qué se pudre, qué se salda, qué doy de baja | domingo, 5 minutos |
+| `/examen` | me toma examen en frío, sin material al lado | cuando quiera probarme |
 | `/cambio` | cierra esta sesión y abre una limpia | mitad del día |
 | `/cierre` | guarda todo y sube a git | antes de salir, siempre |
 

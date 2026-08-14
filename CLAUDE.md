@@ -362,6 +362,15 @@ puntero "Si te trabás" (ej: "Checklist: ToDo/crear-una-clase-java.md").
 
 1. Leer el material de la tanda: los .md de paginas/ si vino como
    texto, o los pantallazos que el usuario indique.
+   Si falta un tramo, CLASIFICARLO EN EL MOMENTO (regla de PENDIENTES.md)
+   y decirlo en UNA línea: "cubierto igual" (se descarta y no se anota
+   en ningún lado), "hueco de formato" (Kindle web no lo dejó copiar y
+   el concepto no quedó cubierto → va a PENDIENTES.md y se pide ESE
+   pantallazo en la próxima tanda) o "diferido a propósito" (va a
+   PENDIENTES.md con su condición de rescate).
+   PROHIBIDO acumular números de página sueltos sin decir QUÉ falta: un
+   número sin contenido no se puede triagear nunca, y termina siendo
+   deuda falsa que se relee en cada sesión.
 2. "Traducción explicada" PÁGINA POR PÁGINA: anunciar SIEMPRE qué
    página se está explicando — "PÁGINA 70:" usando el número visible
    en el pantallazo (número de página o Ubicación de Kindle), o
@@ -454,10 +463,12 @@ Es lo primero de CADA sesión. Claude:
 
 4. Reporta en MENOS DE 10 LÍNEAS: dónde quedamos (página exacta),
    ejercicios pendientes, repasos vencidos y qué toca hoy con su porqué.
-5. Cierra con el bloque `▶ SIGUE`, que empieza SIEMPRE con el
+5. Si la línea "Último triage" del INICIO RÁPIDO tiene más de 7 días
+   (o dice "nunca"), lo avisa en UNA línea sugiriendo `/pendientes`.
+6. Cierra con el bloque `▶ SIGUE`, que empieza SIEMPRE con el
    `/rename` de ESTA sesión, copiado tal cual de la línea PRÓXIMA
    SESIÓN del INICIO RÁPIDO.
-6. **Se detiene.** No arranca el trabajo hasta que el usuario responda.
+7. **Se detiene.** No arranca el trabajo hasta que el usuario responda.
 
 ### Los comandos
 
@@ -471,6 +482,8 @@ Viven en `.claude/commands/`. Claude los nombra por su nombre exacto:
 | `/repaso` | hacer un repaso vencido, desde cero |
 | `/cambio` | cerrar esta sesión y abrir una limpia (mitad del día) |
 | `/cierre` | cerrar el día, guardar todo y subir a git |
+| `/pendientes` | triage semanal: qué se pudre, qué se salda, qué se da de baja |
+| `/examen` | examen en frío, sin material al lado |
 
 # ============================================================
 # LOS DOS CONTADORES — no confundirlos (REGLA PERMANENTE)
@@ -554,6 +567,13 @@ Si algo de eso hace falta, se explica y se espera la decisión.
   ejercicio, que contiene solo comentarios (enunciado + prompt de
   entrega, ver la regla de ejercicios). Claude muestra ejemplos en
   el chat y corrige el código que el usuario escribió.
+- EL CANDADO (hook `proteger-mi-trabajo.sh`): el harness BLOQUEA
+  mecánicamente todo Edit dentro de ejercicios/, diagramas/ y pruebas/,
+  y todo Write que pise un archivo que ya existe ahí. Solo pasa la
+  CREACIÓN de un archivo nuevo (el de arranque). Si un Write o un Edit
+  vuelve denegado con ese motivo, NO es un error del sistema ni algo
+  para esquivar: es la regla de arriba aplicada. La corrección va al
+  chat; el archivo lo cambia el usuario.
 - El usuario también COMPILA y EJECUTA su propio código (javac/java).
   Los errores de compilación o ejecución que pegue en el chat se
   explican con calma (y traducidos): entender los errores del
@@ -587,8 +607,14 @@ Si algo de eso hace falta, se explica y se espera la decisión.
 ### Estructura del proyecto
 
 - .claude/commands/ → los comandos del sistema (`/arranque`, `/tanda`,
-  `/entrega`, `/repaso`, `/cambio`, `/cierre`). Viajan por git: sin
-  esta carpeta el sistema no funciona
+  `/entrega`, `/repaso`, `/pendientes`, `/examen`, `/cambio`,
+  `/cierre`). Viajan por git: sin esta carpeta el sistema no funciona
+- .claude/hooks/ + .claude/settings.json → los dos automatismos del
+  harness: `git-al-abrir.sh` (pull al abrir la sesión) y
+  `proteger-mi-trabajo.sh` (el candado, ver Reglas de trabajo)
+- PENDIENTES.md → la deuda que NO es un ejercicio: huecos de formato,
+  contenido diferido y el backlog viejo de páginas. NO se lee al
+  inicio: lo lee `/pendientes`
 - GUIA-JAVA.md → guía activa: INICIO RÁPIDO + vocabulario + sesiones
   nuevas en formato corto (mantiene Claude)
 - GUIA-ARCHIVO.md → sesiones ya archivadas (las que no están en
