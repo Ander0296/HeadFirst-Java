@@ -144,33 +144,151 @@ Cómo paso una tanda de TEXTO (lo preferido):
   tanda en esa sesión.
 
 Cómo paso una tanda de IMÁGENES (solo cuando no hay texto copiable):
-- Dejo 3-5 pantallazos en `paginas/` y listo. Después de esa tanda,
-  `/cambio`: las imágenes ya explicadas no tienen por qué seguir
-  pesando el resto del día.
+- Dejo 3-5 pantallazos en `paginas/` y listo. Después de una tanda así el
+  profe me va a decir que cortemos (`/cambio`): las imágenes ya explicadas
+  no tienen por qué seguir pesando el resto del día.
 
 Cuando termina de explicar, Claude mueve solo la tanda a
 `paginas/leidas/`. Yo no muevo nada.
 
 # ============================================================
-# UN DÍA DE ESTUDIO, ENTERO
+# CÓMO ES UNA SESIÓN, PASO A PASO (como si no supiera nada)
 # ============================================================
 
+Dos palabras que uso todo el tiempo, y no son lo mismo:
+
+- **SESIÓN** = una conversación con Claude, de punta a punta. Empieza cuando
+  escribo `claude` en la terminal y termina cuando aprieto `Ctrl+D`.
+- **TANDA** = el pedazo de libro que le paso de una vez.
+
+**En una sesión puede entrar más de una tanda.** Cuántas, no lo calculo yo:
+me lo dice el profe (ver "quién decide qué", más abajo).
+
+### PASO 1 — preparo el material `[TERMINAL]`
+
 ```
-[TERMINAL]  cd ~/Proyectos/HeadFirst-Java
-[TERMINAL]  armo la tanda en paginas/
-[TERMINAL]  claude
-[CLAUDE]    /arranque          → me dice el /rename y qué toca
-[CLAUDE]    /rename java-sNN
-[CLAUDE]    /entrega ...       → si traigo algo hecho, PRIMERO esto
-[CLAUDE]    /tanda             → me explica las páginas
-            ¿sigo? tanda de TEXTO → armo otra en paginas/ y /tanda
-                   tanda de IMÁGENES → /cambio, Ctrl+D, sesión nueva
-[CLAUDE]    /cierre            → guarda todo, commitea y pushea
-[TERMINAL]  Ctrl+D
+cd ~/Proyectos/HeadFirst-Java
 ```
 
-Todo lo de git lo hace el profe: `pull` al abrir, y `commit` + `push`
-al cerrar (me muestra qué cambió y me pide el OK antes de subir).
+Y dejo la tanda en `paginas/`: el texto copiado de Kindle en un `.md`, o los
+pantallazos si la página no se puede copiar. (Cómo armarla: la sección "Cómo
+armar una tanda".)
+
+Si hoy no vengo a ver páginas nuevas —vengo a entregar un ejercicio, a hacer
+un repaso o a que me tome examen— este paso no va: `paginas/` queda vacía y
+listo.
+
+### PASO 2 — abro la sesión `[TERMINAL]`
+
+```
+claude
+```
+
+Al abrir, el profe hace `git pull` solo. No tengo que hacer nada.
+
+### PASO 3 — `/arranque` `[CLAUDE]`
+
+**Siempre es el primer comando, sin excepción.** Me responde en menos de 10
+líneas: en qué página quedamos, qué ejercicios tengo pendientes, qué repasos
+vencieron y qué toca hoy. Y termina con un bloque así:
+
+```
+▶ SIGUE: explicar las páginas 446-453 (tanda de texto, 8 páginas)
+  1. /rename java-s56
+  2. /tanda
+```
+
+Si quiero otra cosa, se lo digo de una: `/arranque vengo a entregar el lib13`.
+
+### PASO 4 — le pongo nombre a la sesión `[CLAUDE]`
+
+Copio el `/rename` que me dio y lo pego. Eso es todo lo que hace: le pone
+nombre a esta conversación para poder retomarla con `claude --resume` si se
+cierra la terminal. **El número no lo invento yo ni lo cuento**: sale de la
+guía y me lo pasa el profe ya escrito.
+
+### PASO 5 — entrego lo que traigo hecho `[CLAUDE]`
+
+Si terminé un ejercicio, va **antes** que las páginas nuevas: el prompt ya
+relleno está al final del archivo de arranque, lo copio de ahí.
+
+```
+/entrega el ej13 está en ejercicios/ej13-multifor/, compila y corre bien
+```
+
+Si toca un repaso vencido, `/repaso`. Si el profe me propuso examen,
+`/examen`.
+
+### PASO 6 — `/tanda` `[CLAUDE]`
+
+Me explica el material página por página, anunciando cuál va ("PÁGINA 446:")
+para que lo siga con la vista. Cuando termina, deja todo guardado solo:
+guía, vocabulario, frases de tipeo, tarjetas de Anki, y mueve las páginas a
+`paginas/leidas/`.
+
+**Puedo interrumpirlo cuando quiera.** Si algo no se entendió, lo digo y lo
+explica de nuevo de otra forma, las veces que haga falta. Eso no "gasta" la
+sesión: es exactamente para lo que está.
+
+### PASO 7 — el profe decide qué sigue `[CLAUDE]`
+
+Acá no decido yo. Al terminar la tanda me dice una de estas tres, con el
+motivo en una línea:
+
+| Me dice | Qué hago |
+| --- | --- |
+| "seguimos con otra tanda" | armo la próxima en `paginas/` y otro `/tanda` |
+| "conviene cortar acá" | `/cambio` → `Ctrl+D` → `claude` → el `/rename` que me dio |
+| "cerremos el día" | `/cierre` |
+
+**`/cambio` no es lo mismo que `/cierre`.** `/cambio` es "sigo estudiando
+hoy, pero en una conversación limpia": guarda todo, sube a git y me da el
+nombre de la sesión siguiente. `/cierre` es "terminé por hoy".
+
+### PASO 8 — cierro `[CLAUDE]` + `[TERMINAL]`
+
+```
+/cierre
+```
+
+Verifica que quedó todo guardado, archiva lo cerrado, me muestra qué cambió
+en git y me pide el OK para subirlo. Después, `Ctrl+D` y listo.
+
+**Nunca me voy sin `/cierre`.** Es lo que guarda el día y lo sube: sin eso,
+mañana (o el otro PC) no se entera de nada.
+
+# ============================================================
+# QUIÉN DECIDE QUÉ (para no tener que acordarme de nada)
+# ============================================================
+
+| Decisión | Quién |
+| --- | --- |
+| Qué material entra hoy | **yo** |
+| Si la tanda es muy grande | el profe me avisa |
+| **Cuándo cortar la sesión** | **el profe** — me lo dice con el motivo |
+| Cómo se llama cada sesión | el profe (sale de la guía) |
+| **Cuándo tomar examen** | **el profe lo propone**, yo digo sí o no |
+| Cuándo toca un repaso | el profe (las fechas están agendadas) |
+| Qué pendiente se da de baja | yo, con la propuesta del profe (`/pendientes`) |
+| Resolver los ejercicios | **yo, siempre** |
+| Todo lo de git | el profe (`pull` al abrir, `commit` + `push` al cerrar) |
+
+Si en algún momento no sé qué sigue, la pregunta es literal: **"¿qué sigue?"**
+El profe siempre tiene que poder contestarla con un bloque `▶ SIGUE`.
+
+### Cuándo me va a proponer un examen
+
+No tengo que acordarme: me lo propone él, en una línea, cuando pasa alguna de
+estas. Si digo que no, no insiste.
+
+- Sumé 3 conceptos nuevos a la lista de dominados.
+- Cerré un capítulo del libro.
+- Se graduó un ejercicio (pasó su tercer repaso).
+- Pasaron ~2 semanas sin ningún examen.
+- Contesté algo con la palabra correcta pero sonó recitado.
+
+El examen va **al principio** de una sesión, nunca al final de una cargada:
+ahí el que rinde mal es el contexto, no yo.
 
 # ============================================================
 # REGLAS DE ORO
@@ -179,13 +297,14 @@ al cerrar (me muestra qué cambió y me pide el OK antes de subir).
 1. `/arranque` siempre primero. De ahí sale el nombre de la sesión y
    todo lo demás.
 2. Si la página se puede copiar como texto, va como texto. Siempre.
-3. Tamaño de tanda según formato (tabla de arriba). Nunca más de 5
-   pantallazos ni más de 10 páginas de texto por tanda.
+3. Tamaño de tanda según formato (tabla de arriba). Es un techo, no una
+   cuota: si me paso, el profe me avisa.
 4. NUNCA salir sin `/cierre`: es lo que guarda el día y lo sube.
-5. Al cambiar de sesión a mitad del día, `/cambio` primero: sin eso la
-   tanda no queda registrada en la guía y se pierde. Si además Claude
-   empieza a olvidar cosas dichas antes o se pone lento, esa es la
-   señal de que la sesión ya está demasiado cargada: cortá igual.
+5. **Cuándo cortar lo dice el profe**, yo no lo calculo. Cuando lo dice:
+   `/cambio` primero, nunca `Ctrl+D` pelado — sin eso la tanda no queda
+   registrada en la guía y se pierde. Y si noto que empieza a olvidar
+   cosas dichas antes o se pone lento, se lo digo: esa es la señal de
+   contexto saturado y se corta igual.
 6. Los ejercicios del libro (Sharpen your pencil, BE the compiler,
    Code Magnets, Pool Puzzle...) SIEMPRE los intento a mano ANTES de
    mirar la solución del libro o pedírsela a Claude.
