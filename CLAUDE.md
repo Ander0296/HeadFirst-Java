@@ -63,7 +63,7 @@ Reglas que salen de eso:
      imágenes.
 3. UNA tanda de IMÁGENES por sesión de Claude. Al terminar de
    explicarla, Claude AVISA al usuario que conviene cambiar de sesión
-   antes de la siguiente tanda (MENSAJE 1 → Ctrl+D → sesión nueva).
+   antes de la siguiente tanda (`/cambio` → Ctrl+D → sesión nueva).
    Con tandas de TEXTO se pueden hacer 2-3 antes de cambiar.
 4. Claude NO re-lee con Read archivos que ya están en el contexto.
    Este archivo (CLAUDE.md) lo carga Claude Code solo al abrir la
@@ -146,7 +146,7 @@ Registro DOBLE + archivo de arranque creado por Claude:
      instrucción "escribí tu código DEBAJO de este bloque, todo a
      mano" (recordando que la clase pública debe llamarse igual que
      el archivo), y AL FINAL el PROMPT DE ENTREGA listo para copiar:
-     el MENSAJE 4 del README ya relleno con número, nombre y ruta.
+     el comando `/entrega` ya relleno con número, nombre y ruta.
      PROHIBIDO incluir código Java ejecutable: ni el esqueleto de la
      clase, ni el main, ni imports. El usuario escribe el 100% del
      código; escribir el esqueleto de memoria es parte del músculo
@@ -154,16 +154,18 @@ Registro DOBLE + archivo de arranque creado por Claude:
    - Ejercicio del LIBRO (papel/lectura) → archivo
      ejercicios/libNN-nombre.md con: el enunciado completo, una
      sección "## MI RESPUESTA" vacía donde el usuario escribe, y al
-     final el PROMPT DE ENTREGA listo para copiar: el MENSAJE 6 ya
-     relleno con nombre, página y la ruta de este mismo archivo.
+     final el PROMPT DE ENTREGA listo para copiar: el comando
+     `/entrega` ya relleno con nombre, página y la ruta de este mismo
+     archivo.
    - Criterio para decidir entre los dos formatos: lo que importa es
      el TIPO DE ENTREGABLE, no el origen. Si resolverlo implica
      escribir/completar código Java compilable (aunque el ejercicio
      venga del libro, ej. "Sharpen your pencil" de completar código o
-     "encontrá el bug"), usar el formato CÓDIGO (ejNN-nombre/, .java,
-     MENSAJE 4). Si resolverlo es una frase, intuición o respuesta en
-     papel sin código para compilar, usar el formato LIBRO (libNN-
-     nombre.md, MENSAJE 6).
+     "encontrá el bug"), usar el formato CÓDIGO (ejNN-nombre/, .java).
+     Si resolverlo es una frase, intuición o respuesta en papel sin
+     código para compilar, usar el formato LIBRO (libNN-nombre.md).
+     En los dos casos el prompt del final es `/entrega`, con el
+     resultado de compilar solo cuando hay algo que compilar.
 3. En el chat, al proponerlo, basta con decir: "te dejé el enunciado
    y el prompt de entrega en <ruta>". El usuario abre el archivo,
    resuelve ahí mismo, y cuando termina copia el prompt del final
@@ -185,7 +187,7 @@ Registro DOBLE + archivo de arranque creado por Claude:
 - El repaso se hace DESDE CERO: el usuario vuelve a resolver el
   ejercicio en ejercicios/repasos/ejNN-rX/ (o libNN-rX.md si fue del
   libro) SIN mirar su solución anterior. Al arrancar un repaso
-  (MENSAJE 7), Claude crea su archivo de arranque con el mismo
+  (`/repaso`), Claude crea su archivo de arranque con el mismo
   formato de la regla de ejercicios (enunciado + prompt de entrega
   en comentarios), cuidando de NO incluir nada de la solución
   original ni pistas nuevas. Claude NUNCA muestra ni resume la
@@ -384,13 +386,14 @@ puntero "Si te trabás" (ej: "Checklist: ToDo/crear-una-clase-java.md").
    explicarla primero.
 4. Si la tanda trae ejercicios del libro: avisar cuáles son y dejar
    que el usuario los intente a mano (o registrarlos como pendientes),
-   aplicando la regla de cierre (ruta + mensaje relleno).
+   aplicando la regla de cierre (ruta + comando de entrega relleno).
 5. Verificar comprensión con 1-2 preguntas cortas antes de cerrar.
 6. Actualizar GUIA-JAVA.md agregando la sesión en FORMATO CORTO
    (5-8 bullets, SIN bloques de código, máx ~15 líneas — el código ya
    vive en el chat, el libro y los ejercicios; ver el formato de
    referencia al final de la guía) y sumar términos nuevos a la tabla
-   de vocabulario.
+   de vocabulario. Actualizar también el INICIO RÁPIDO, incluida la
+   línea PRÓXIMA SESIÓN.
 7. Agregar 1-2 frases CORTAS de la sesión a MECANOGRAFIA.md y volcar
    cada frase NUEVA aplanada a su propio archivo de ttyper (append-only:
    no tocar los anteriores).
@@ -405,10 +408,73 @@ puntero "Si te trabás" (ej: "Checklist: ToDo/crear-una-clase-java.md").
    apareció un error que no cubría). Ver la regla de la carpeta ToDo/.
 10. Guardar en Engram los conceptos clave, decisiones y última página
     vista.
-11. Si la tanda fue de IMÁGENES, avisar al usuario: "tanda cerrada —
-    conviene cambiar de sesión antes de la próxima (MENSAJE 1)".
+11. Cerrar con el bloque `▶ SIGUE`. Si la tanda fue de IMÁGENES, el
+    próximo paso es `/cambio`: se dice y se explica por qué en una
+    línea.
 
-### DOS contadores distintos — no confundirlos (REGLA PERMANENTE)
+# ============================================================
+# EL PRÓXIMO PASO LO ENTREGA CLAUDE — REGLA PERMANENTE
+# ============================================================
+
+El usuario no tiene que acordarse de nada, calcular ningún número ni
+buscar nada en el README. **Toda respuesta que cierra una etapa
+termina con el próximo paso listo para ejecutar**, en un bloque aparte
+y en este orden exacto:
+
+```
+▶ SIGUE: <qué es y por qué, en una línea>
+  1. Ctrl+D  (solo si hay que cambiar de sesión, y se dice por qué)
+  2. /rename java-sNN
+  3. /<comando>
+```
+
+Si el paso siguiente NO requiere cambiar de sesión, se omite el Ctrl+D
+y el rename, y queda solo el comando. Nunca se dice "pegá el mensaje
+X" ni "fijate en el README": el bloque va completo en el chat.
+
+### Protocolo de ARRANQUE (lo dispara `/arranque`)
+
+Es lo primero de CADA sesión. Claude:
+
+1. `git pull`.
+2. Lee, en este orden y NADA MÁS: Engram (dónde quedamos), el INICIO
+   RÁPIDO de GUIA-JAVA.md y EJERCICIOS.md entero.
+3. Detecta qué toca hoy, en ESTE orden de prioridad:
+
+   | # | Si encuentra... | La sesión de hoy es |
+   | --- | --- | --- |
+   | 1 | un repaso VENCIDO en REPASOS PROGRAMADOS | **REPASO** (el más antiguo primero) |
+   | 2 | un ejercicio [~] en curso que el usuario ya entregó | **ENTREGA** |
+   | 3 | material sin explicar en paginas/ | **TANDA** |
+   | 4 | ejercicios [ ] pendientes y nada de material nuevo | **EJERCICIO** |
+   | 5 | nada de lo anterior | **PREGUNTA** qué quiere hacer |
+
+   Si el usuario dio contexto al invocar el comando, ese contexto manda
+   sobre la detección automática.
+
+4. Reporta en MENOS DE 10 LÍNEAS: dónde quedamos (página exacta),
+   ejercicios pendientes, repasos vencidos y qué toca hoy con su porqué.
+5. Cierra con el bloque `▶ SIGUE`, que empieza SIEMPRE con el
+   `/rename` de ESTA sesión, copiado tal cual de la línea PRÓXIMA
+   SESIÓN del INICIO RÁPIDO.
+6. **Se detiene.** No arranca el trabajo hasta que el usuario responda.
+
+### Los comandos
+
+Viven en `.claude/commands/`. Claude los nombra por su nombre exacto:
+
+| Comando | Para qué |
+| --- | --- |
+| `/arranque` | dónde quedamos, cómo se llama esta sesión y qué toca hoy — el primero de cada sesión |
+| `/tanda` | explicar la tanda de páginas que está en paginas/ |
+| `/entrega` | corregir un ejercicio terminado |
+| `/repaso` | hacer un repaso vencido, desde cero |
+| `/cambio` | cerrar esta sesión y abrir una limpia (mitad del día) |
+| `/cierre` | cerrar el día, guardar todo y subir a git |
+
+# ============================================================
+# LOS DOS CONTADORES — no confundirlos (REGLA PERMANENTE)
+# ============================================================
 
 Hay dos numeraciones en este proyecto y NO avanzan juntas:
 
@@ -419,33 +485,66 @@ Hay dos numeraciones en este proyecto y NO avanzan juntas:
   `claude --resume`). Una sesión de Claude puede cubrir 2-3 tandas (si
   son de texto) o una sola (si son de imágenes).
 
-Los dos números YA ESTÁN SEPARADOS y la brecha crece: al 2026-07-25 la
-guía va por la Sesión #33 y la sesión de Claude por java-s06 (java-s05
-cubrió las Sesiones #30-#32). Confundirlos hace que Claude proponga un
-`/rename` equivocado, y el usuario no tiene por qué darse cuenta.
+Los dos números YA ESTÁN SEPARADOS y la brecha crece: al 2026-08-13 la
+guía va por la Sesión #81 y la sesión de Claude por java-s55. Confundirlos
+hace que Claude proponga un `/rename` equivocado, y el usuario no tiene
+por qué darse cuenta.
 
-Para que el número sea derivable y no haya que adivinarlo, el INICIO
-RÁPIDO de GUIA-JAVA.md registra LOS DOS, y Claude los actualiza en cada
-cierre:
+Por eso el nombre de la próxima sesión NO se calcula: vive escrito en
+UN solo lugar, la línea **PRÓXIMA SESIÓN** del INICIO RÁPIDO de
+GUIA-JAVA.md.
 
-- Última sesión: Sesión #NN
-- Última sesión de Claude: java-sNN (cubrió las Sesiones #X-#Y)
+- Claude la ACTUALIZA al cerrar cualquier sesión (`/cambio` o
+  `/cierre`), antes de despedirse. Si no la actualizó, la sesión no
+  está cerrada.
+- Claude la COPIA tal cual en el bloque `▶ SIGUE` de `/arranque`.
+  Nunca "el número que sigue" ni `java-sNN`: el comando va literal.
+- Si esa línea NO está en la guía, Claude **pregunta**; no deduce. Ese
+  número no vive en ningún otro archivo del repo, y un nombre repetido
+  pisa otra sesión y rompe `claude --resume`.
 
-### Decir SIEMPRE el número de la sesión que sigue — REGLA PERMANENTE
+El INICIO RÁPIDO también registra la última tanda (`Sesión #NN`) para
+que los dos contadores queden a la vista y no se mezclen.
 
-El usuario no tiene que calcular ni buscar nada. Claude toma "Última
-sesión de Claude" del INICIO RÁPIDO y le suma 1. NUNCA lo deduce de
-"Sesión #NN": son contadores distintos.
+# ============================================================
+# GIT LO MANEJA CLAUDE — REGLA PERMANENTE
+# ============================================================
 
-Se lo dice en estos dos momentos, con el comando LISTO para copiar:
-- al avisar que conviene cambiar de sesión (paso 11 de arriba),
-- y como ÚLTIMA línea de la respuesta al MENSAJE 1.
+El usuario no escribe comandos de git. Los ejecuta Claude.
 
-Formato exacto: `/rename java-s07` (nada de "java-sNN" ni "el número
-que sigue"). Si la línea "Última sesión de Claude" NO está en la guía,
-Claude PREGUNTA en vez de deducir: ese número no vive en ningún otro
-archivo del repo, y un número repetido pisa el nombre de otra sesión y
-rompe el `claude --resume`.
+**Al ABRIR una sesión** (`/arranque`): `git pull` antes de leer o tocar
+nada. Si hay conflicto, Claude lo resuelve o lo explica; nunca lo
+ignora. Es lo que mantiene sincronizados los dos PCs del usuario.
+
+**Al CERRAR** (`/cambio` y `/cierre`, y cada vez que se completa algo
+grande):
+1. Correr el chequeo de seguridad (abajo). Si falla, PARAR.
+2. Mostrar en el chat, corto, qué archivos cambiaron y con qué mensaje
+   de commit se van a guardar.
+3. **PREGUNTAR y esperar el OK del usuario.** Siempre.
+4. Recién ahí: `git add` + `git commit` + `git push`.
+5. Confirmar en una línea que subió, o pegar el error tal cual si falló.
+
+**Chequeo de seguridad — ANTES de todo commit, sin excepción:**
+
+```bash
+git status --short | rg 'paginas/'
+```
+
+Si eso devuelve CUALQUIER cosa, Claude no commitea: avisa, arregla el
+`.gitignore` y vuelve a chequear. El libro tiene copyright y este repo
+es público; un push es irreversible en la práctica (queda en caché, en
+forks, en índices).
+
+**Formato de los commits:** conventional commits, en español, una
+línea. `docs:` para guía, ejercicios y notas · `feat:` para reglas o
+estructura nueva · `chore:` para mantenimiento. **Nunca** se agrega
+atribución de IA ni `Co-Authored-By`.
+
+**Lo que Claude NO hace nunca sin pedido explícito del usuario:**
+`push --force`, reescribir historial, `reset --hard`, borrar ramas,
+cambiar la visibilidad del repo, crear repos o agregar colaboradores.
+Si algo de eso hace falta, se explica y se espera la decisión.
 
 ### Reglas de trabajo
 
@@ -472,7 +571,9 @@ rompe el `claude --resume`.
   se mueve a EJERCICIOS-ARCHIVO.md. No hace falta avisar ni discutirlo:
   se hace bien y listo. Y NO se editan esos archivos para corregir el
   prompt (siguen siendo el lugar de trabajo del usuario).
-- Claude NO ejecuta bash salvo pedido explícito del usuario.
+- Claude NO ejecuta bash salvo pedido explícito del usuario. ÚNICA
+  excepción: los comandos de git de la regla de arriba, que son parte
+  de su trabajo.
 - El usuario puede interrumpir con dudas en cualquier momento: se
   responden con calma y detalle antes de seguir.
 - El libro cubre hasta Java 17: si algo cambió o tiene una forma más
@@ -485,6 +586,9 @@ rompe el `claude --resume`.
 
 ### Estructura del proyecto
 
+- .claude/commands/ → los comandos del sistema (`/arranque`, `/tanda`,
+  `/entrega`, `/repaso`, `/cambio`, `/cierre`). Viajan por git: sin
+  esta carpeta el sistema no funciona
 - GUIA-JAVA.md → guía activa: INICIO RÁPIDO + vocabulario + sesiones
   nuevas en formato corto (mantiene Claude)
 - GUIA-ARCHIVO.md → sesiones ya archivadas (las que no están en

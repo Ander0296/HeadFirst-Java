@@ -10,3 +10,7 @@ paginas/
 .DS_Store
 Thumbs.db
 .atl/
+
+# Configuracion local de Claude Code (no viaja entre PCs)
+.claude/settings.local.json
+.codegraph/

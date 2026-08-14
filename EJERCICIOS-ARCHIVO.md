@@ -2,7 +2,7 @@
 
 ESTE ARCHIVO NO SE LEE AL INICIO DE SESIÓN. Es el historial completo
 de ejercicios y repasos con sus correcciones largas, guardado para:
-- comparar un repaso nuevo contra el intento original (MENSAJE 7),
+- comparar un repaso nuevo contra el intento original (`/repaso`),
 - un RE-ESTUDIO (concepto que falló dos veces seguidas),
 - o si el usuario pide releer una corrección vieja.
 
