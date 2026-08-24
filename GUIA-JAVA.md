@@ -8,15 +8,15 @@ Ejercicios: ver EJERCICIOS.md.
 ## INICIO RÁPIDO
 
 - Última página: 445 de 1629 (26%) — paquetes, nombre completo e `import`; `java.lang` es el único automático; `static final` = constante. Ver Sesión #81. **Próximo: pág. 446.** Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #81** (tanda). El 2026-08-24 no hubo tanda: dos sesiones de repasos (java-s56 y java-s57).
-- PRÓXIMA SESIÓN: `/rename java-s58`
+- Última sesión: **Sesión #81** (tanda). El 2026-08-24 no hubo tanda: dos de repasos (java-s56/57) y el primer triage (java-s58).
+- PRÓXIMA SESIÓN: `/rename java-s59`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto
-  al de las tandas. La última cerrada fue java-s57. Claude la actualiza
+  al de las tandas. La última cerrada fue java-s58. Claude la actualiza
   al cerrar.)
-- Ejercicios pendientes: 11 (5 obligatorios: lib07, lib12, lib13, ej13, lib17 · 6 opcionales de Puzzle). Detalle y repasos: EJERCICIOS.md.
-- ⚠ **21 repasos vencidos**, el más viejo del 2026-07-28. A 1 por día no se salda: hay que triagear.
+- Ejercicios pendientes: 6 (5 obligatorios: lib07, lib12, lib13, ej13, lib17 · 1 opcional: lib18). Detalle y repasos: EJERCICIOS.md.
+- ⚠ **21 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). A 1 por día son 21 días: hay una propuesta abierta de fusionarlos en 3 repasos integradores. Además faltan 15 archivos de arranque de repaso (el de ej05 sí está).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
-- Último triage (`/pendientes`): **nunca** — es lo próximo
+- Último triage (`/pendientes`): **2026-08-24** — 5 Pool Puzzles dados de baja; quedan 47 páginas del backlog viejo sin triagear (las 5 más recientes, a decidir)
 - Último examen (`/examen`): nunca todavía
 - Entorno: OpenJDK 26.0.1, javac/java en PATH (Arch Linux), sin config extra.
 

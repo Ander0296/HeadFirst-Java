@@ -56,29 +56,8 @@ Arranque: ejercicios/lib13-que-mas-testear.md | Si te trabás: Sesión #62 de la
 LIBRO — "Five-Minute Mystery" (misterio ciberpunk: Jai, Buchanan y Leveler) — descubrir qué sospechó Jai sobre el código de Buchanan (Ubicación pág. 315-316, Sesión #58) — [ ] pendiente
 Arranque: ejercicios/lib12-five-minute-mystery-jai.md | Si te trabás: Sesión #52 y #53 de la guía
 
-EJERCICIO #12 — Pool Puzzle: "Puzzle4" — completar una clase con fragmentos de una pileta (sin repetir ninguno) para que un programa imprima "result 543345" (Ubicación pág. 312-314, Sesión #57) — [ ] pendiente — OPCIONAL (ícono Puzzle)
-Tipo: completar/corregir código
-Arranque: ejercicios/ej12-pool-puzzle-puzzle4/Puzzle4.java | Si te trabás: Sesión #40 a #43 de la guía
-
-LIBRO — "A Heap o' Trouble" ("Un montón de problemas") — unir cada referencia hq[x] de un arreglo con el objeto HeapQuiz que le corresponde, tras una serie de reasignaciones (Ubicación pág. 251-252, Sesión #44) — [ ] pendiente — OPCIONAL (ícono Puzzle)
-Arranque: ejercicios/lib08-heap-o-trouble.md | Si te trabás: Sesión #37, #38 y #43 de la guía
-
-EJERCICIO #10 — Pool Puzzle: Triangle — completar los huecos de una clase Triangle con fragmentos de una pileta, para un arreglo de 4 triángulos (Ubicación pág. 250-251, Sesión #44) — [ ] pendiente — OPCIONAL (ícono Puzzle)
-Tipo: completar/corregir código
-Arranque: ejercicios/ej10-pool-puzzle-triangle/Triangle.java | Si te trabás: Sesión #40 a #43 de la guía
-
 LIBRO — Sharpen your pencil: ¿legal o no? — marcar cuáles de 12 líneas de asignación entre primitivas compilan y cuáles no (Ubicación pág. 210, Sesión #34) — [ ] pendiente
 Arranque: ejercicios/lib07-legal-o-no.md | Si te trabás: Sesión #32 y #33 de GUIA-JAVA.md
-
-EJERCICIO #07 — Pool Puzzle: "Echo" — completar dos clases con fragmentos de una pileta para lograr una salida exacta (Ubicación pág. 187-190, Sesión #29) — [ ] pendiente — OPCIONAL (ícono Puzzle)
-Tipo: completar/corregir código
-Arranque: ejercicios/ej07-pool-puzzle-echo/EchoTestDrive.java
-Si te trabás: Sesión #25/#26 (new, operador punto) y Sesión #17
-
-EJERCICIO #04 — Pool Puzzle: completar el código con fragmentos de una pileta para lograr una salida exacta (Ubicación pág. 129-131, Sesión #17) — [ ] pendiente — OPCIONAL (ícono Puzzle)
-Tipo: completar/corregir código
-Arranque: ejercicios/ej04-pool-puzzle/
-Si te trabás: Sesión #12 y #13 (while, if, operadores de comparación)
 
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)

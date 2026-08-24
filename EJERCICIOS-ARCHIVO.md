@@ -1568,3 +1568,24 @@ SE REPITIÓ: nada. Cero errores en las dos pasadas.
 
 RESULTADO: 3/3 PERFECTO. Repaso r2 agendado para 2026-09-08 (el
 2026-09-07 ya está ocupado por lib05-r2 — máximo 1 repaso por día).
+
+# ============================================================
+# DADAS DE BAJA (decisión tomada en un triage — no vuelven)
+# ============================================================
+
+Triage del 2026-08-24 (`/pendientes`). Los 4 Pool Puzzles entrenaban el
+mismo músculo — leer código ajeno y ensamblarlo — que ya quedó aprobado
+en lib20 (21/21 sin pistas), ej13 y los Code Magnets. Cuatro
+repeticiones sin tocar en un mes no son tarea: son ruido.
+
+- EJERCICIO #04 — Pool Puzzle (pág. 129-131, Sesión #17) — abierto 36 días.
+  Baja: músculo ya aprobado por otra vía.
+- EJERCICIO #07 — Pool Puzzle "Echo" (pág. 187-190, Sesión #29) — abierto 31 días.
+  Baja: músculo ya aprobado por otra vía.
+- EJERCICIO #10 — Pool Puzzle Triangle (pág. 250-251, Sesión #44) — abierto 28 días.
+  Baja: músculo ya aprobado por otra vía.
+- LIBRO "A Heap o' Trouble" (pág. 251-252, Sesión #44) — abierto 28 días.
+  Baja: mismo concepto (referencias vs. objetos en el heap) que el repaso
+  lib09 "pilfered references", que sigue vivo y programado.
+- EJERCICIO #12 — Pool Puzzle "Puzzle4" (pág. 312-314, Sesión #57) — abierto 25 días.
+  Baja: músculo ya aprobado por otra vía.
