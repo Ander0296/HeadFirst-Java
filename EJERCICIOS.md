@@ -84,12 +84,6 @@ Si te trabás: Sesión #12 y #13 (while, if, operadores de comparación)
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
 
-REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r1) — programado: 2026-07-28 — [ ] pendiente
-Arranque: ejercicios/repasos/lib05-r1.md
-
-REPASO — LIBRO Movie objects (pág. 170-173) (r1) — programado: 2026-07-28 — [ ] pendiente
-Arranque: ejercicios/repasos/lib04-r1.md
-
 REPASO — EJERCICIO #05 Robot (Sesión #25) (r1) — programado: 2026-07-28 — [ ] pendiente
 Arranque: ejercicios/repasos/ej05-robot-r1/ (Robot.java y RobotTestDrive.java)
 
@@ -206,6 +200,21 @@ algo y ese método es `void`; (3) la división: `celsius * 9 / 5 + 32` sin
 paréntesis alrededor del `9 / 5` (con paréntesis da 1 y arruina la
 cuenta); (4) el límite: menor a 15 → frío, si no → calor (el original
 dejó los 15 exactos del lado equivocado).
+
+REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r2) — programado: 2026-09-07 — [ ] pendiente
+Arranque: ejercicios/repasos/lib05-r2.md
+El r1 salió BIEN en lo técnico (diagnóstico y los dos arreglos), y NO
+repitió los errores de sintaxis del original. Punto a mirar: que
+entregue las DOS mitades del enunciado (diagnóstico Y arreglo escrito
+en código) sin que haya que pedírselas — eso ya falló dos veces.
+Checklist: ToDo/entregar-un-ejercicio.md
+
+REPASO — LIBRO Sharpen your pencil: "Movie objects" (pág. 170-173) (r2) — programado: 2026-09-08 — [ ] pendiente
+Arranque: ejercicios/repasos/lib04-r2.md
+El r1 salió PERFECTO (3/3) y corrigió el único detalle del original
+("Byte Club" con mayúsculas). Punto a mirar: que `two.playIt()` no
+cambia ningún valor — imprime y nada más; y que cada objeto conserva
+sus propios valores.
 
 # ============================================================
 # CONCEPTOS DOMINADOS (entran al graduarse un ejercicio con r3 bien)

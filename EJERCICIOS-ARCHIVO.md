@@ -1508,3 +1508,63 @@ verificar dónde está el .class y sobre que los IDE lo mandan a out/.
 
 Este ejercicio destraba el repaso r3 de lib01 (2026-08-16).
 Repaso r1 agendado para 2026-08-17.
+
+============================================================
+
+REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r1) — programado: 2026-07-28 — [x] cumplido (2026-08-24, con casi un mes de atraso)
+Resuelto en: ejercicios/repasos/lib05-r1.md
+Corrección de Claude (comparado contra el original del 2026-07-24):
+
+MEJORÓ: los dos arreglos salieron limpios de una. En el original, el
+arreglo de B había necesitado un tercer intento por dos errores de
+sintaxis (`system.out.println` en minúscula y sin punto y coma). Esta
+vez escribió `void play() { System.out.println("Playing song"); }`
+correcto a la primera: mayúscula, `;` y llaves. Ese error NO volvió.
+
+SE MANTUVO: el diagnóstico de A y B, correcto a la primera y sin
+pistas, igual que en el original.
+
+SE REPITIÓ (error de método, no de Java): entregó solo el diagnóstico y
+omitió la mitad "¿cómo lo arreglarías?" del enunciado. Hubo que
+pedírsela en el chat — exactamente lo que había pasado en el intento 1
+del original. Segundo strike del mismo error.
+
+RETROCESO LEVE de precisión en A: el original decía "la variable song
+no está definida" (preciso). Esta vez dijo "no se ha creado un objeto",
+mezclando los dos pasos (declarar la referencia vs. crear el objeto con
+`new`), y habló de una referencia que "apunta a esa clase" — una
+referencia apunta a un OBJETO, nunca a una clase. Señalado en el chat.
+Tampoco indicó dónde va la línea nueva; en el original sí lo había
+dicho ("arriba de song.artist").
+
+CHECKLIST CREADO: ToDo/entregar-un-ejercicio.md, por el error de método
+repetido dos veces. Cubre releer el enunciado contando sus preguntas,
+escribir el arreglo en código en vez de describirlo, y la tabla que
+separa clase / objeto / referencia.
+
+RESULTADO: r1 BIEN en lo técnico. Repaso r2 agendado para 2026-09-07.
+
+============================================================
+
+REPASO — LIBRO Sharpen your pencil: "Movie objects" (pág. 170-173) (r1)
+— programado: 2026-07-28 — [x] cumplido (2026-08-24, sesión java-s57)
+Resuelto en: ejercicios/repasos/lib04-r1.md
+
+Entrega:
+- object 1: "Gone with the Stock" / Tragic / -2 — CORRECTO.
+- object 2: "Lost in Cubicle Space" / Comedy / 5 — CORRECTO. No se dejó
+  arrastrar por `two.playIt()`: el method imprime y no toca ninguna
+  instance variable, así que los valores del objeto quedan intactos.
+- object 3: "Byte Club" / "Tragic but ultimately uplifting" / 127 —
+  CORRECTO, y con las mayúsculas exactas del código.
+
+MEJORÓ: en el original había escrito el título 3 en minúsculas
+("byte club"). Esta vez copió el String tal cual aparece en el código.
+En Java un String es sensible a mayúsculas y minúsculas, así que la
+precisión al transcribir un valor no es cosmética: es el hábito que
+después evita que `.equals()` devuelva false sin motivo aparente.
+
+SE REPITIÓ: nada. Cero errores en las dos pasadas.
+
+RESULTADO: 3/3 PERFECTO. Repaso r2 agendado para 2026-09-08 (el
+2026-09-07 ya está ocupado por lib05-r2 — máximo 1 repaso por día).

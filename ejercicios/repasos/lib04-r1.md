@@ -50,11 +50,11 @@ Si te trabás: revisá la Sesión #25 (en GUIA-ARCHIVO.md).
 
 ## MI RESPUESTA
 
-object 1 (title / genre / rating):
+object 1 (Gone with the Stock/ Tragic / -2):
 
-object 2 (title / genre / rating):
+object 2 (Lost in Cubicle Space / Comedy / 5):
 
-object 3 (title / genre / rating):
+object 3 (Byte Club / Tragic but ultimately uplifting / 127):
 
 ---
 

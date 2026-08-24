@@ -69,9 +69,14 @@ Si te trabás: revisá la Sesión #25 (en GUIA-ARCHIVO.md).
 
 ## MI RESPUESTA
 
-A:
+A: No compila porque no se ha creado un objeto de tipo streaming song, y encimas estamos usando los métodos de esa clase, al no tener control remoto que apunte a esa clase no va a compilar.
+Para arreglarlo crearía la instancia StreamingSong song = new StreamingSong();
 
-B:
+B: No compila porque estamos usando un método que no existe, por lo que va dar error de compilación, el método play es el que no existe.
+Para poder arreglarlo crearía el método play con 
+  void play() {
+    System.out.println("Playing song");
+  }
 
 ---
 

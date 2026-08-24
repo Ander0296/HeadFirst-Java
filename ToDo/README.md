@@ -43,3 +43,6 @@ técnica no hay compilador.
 - [Crear una clase en Java](crear-una-clase-java.md) — qué verificar en
   cada nivel de anidamiento (archivo → clase → método → instrucción)
   antes de compilar.
+- [Antes de entregar un ejercicio](entregar-un-ejercicio.md) — cómo
+  comprobar que respondiste el enunciado ENTERO (diagnóstico Y arreglo)
+  y que las palabras clase/objeto/referencia están bien usadas.

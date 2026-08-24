@@ -1,4 +1,4 @@
-# GUÍA-ARCHIVO: HEAD FIRST JAVA — sesiones históricas (#01 a #29)
+# GUÍA-ARCHIVO: HEAD FIRST JAVA — sesiones históricas (#01 a #55)
 
 Archivo de consulta OCASIONAL — NO se lee al inicio de sesión.
 Contiene las sesiones completas en el formato largo original (con
@@ -2115,3 +2115,287 @@ EJERCICIOS CREADOS: #06 DrumKit (Code Magnets)
 PRÓXIMO PASO: conseguir la página 188 para completar el Pool Puzzle
 "Echo", resolver el EJERCICIO #06, y seguir con el resto del cierre
 del Capítulo 2.
+
+SESIÓN #30 — 2026-07-24 — Who Am I? + soluciones oficiales del Capítulo 2 (pág. 191-195, 13%)
+- Ejercicio nuevo "Who Am I?": 13 frases para identificar quién habla (clase, objeto, method o instance variable).
+- Soluciones oficiales del libro: DrumKit valida la solución del usuario (el if oficial también queda muerto, forzado por los imanes).
+- BE the Compiler A y B validados: arreglo A idéntico al oficial; en B el libro imprime episodeNumber pero cualquier play() válido sirve.
+- Concepto nuevo: el compilador chequea que objeto.metodo() exista declarado en la clase — error de compilación si falta.
+- Concepto nuevo: un archivo .java puede tener varias clases; solo la pública debe llamarse como el archivo.
+- Ejercicios de la tanda: "Who Am I?" (lib06, pendiente).
+- Dudas: pregunta de comprensión (¿method inexistente falla al compilar o al ejecutar?) respondida MAL — dijo "al ejecutar". Segunda confusión compile-time vs. runtime de la semana (la primera fue el repaso r1 de BE the Compiler). Regla enseñada: si el compilador puede saberlo leyendo el código quieto → compilación; si depende de algo que pasa en vivo → ejecución. La contrapregunta (input del usuario → runtime) la respondió BIEN. Vigilar en el r2 del 2026-07-27.
+- PRÓXIMO PASO: seguir con el resto de las soluciones (falta la del Pool Puzzle Echo, no mirarla hasta resolver el EJERCICIO #07) y arrancar el Capítulo 3.
+
+SESIÓN #31 — 2026-07-24 — Arranque del Capítulo 3: Primitives and References (pág. 200, 13%)
+- Portada del Capítulo 3, "Know Your Variables: Primitives and References" (Conocé tus variables: primitivas y referencias).
+- Idea clave adelantada (se profundiza en próximas páginas): en Java hay dos familias de tipos — primitivos (`int`, `float`, `long`...) que guardan el valor directo, y referencias, que guardan la dirección de un objeto que vive en el heap.
+- Limpieza de paginas/: se detectaron y borraron 12 capturas sueltas de una sesión de Vim/terminal ajenas al libro, mezcladas por error con las páginas reales.
+- Ejercicios de la tanda: ninguno nuevo. "Who Am I?" (lib06) sigue en curso, intento 2 corregido en el chat.
+- Dudas: ninguna.
+- PRÓXIMO PASO: seguir el Capítulo 3 desde la pág. 201. Las páginas 197-199 (soluciones de Pool Puzzle Echo y Who Am I) quedan pendientes de explicar hasta que el usuario termine esos dos ejercicios.
+
+SESIÓN #32 — 2026-07-24 — Las 8 primitivas de Java y la analogía del vaso (pág. 200-206, salteada la 201, 13%)
+- Analogía central: una variable es un vaso (cup) — tiene un tamaño (bits) y un tipo, y contiene un valor.
+- Las 8 primitivas con su tamaño: byte(8), short(16), int(32), long(64), float(32), double(64), boolean(tamaño según la JVM), char(16, valor 0-65535).
+- Concepto nuevo: `char` usa comillas SIMPLES (`'f'`) y guarda un solo carácter; distinto de `String` (comillas dobles).
+- Concepto nuevo: sufijos de literal `L` (long) y `f` (float), para que el compilador no confunda tipos numéricos parecidos.
+- Confirmado con el usuario (2/2 bien): en `int z = x;`, `z` copia el VALOR de `x` en ese momento — si `x` cambia después, `z` no se entera.
+- Se saltó la página 201 (pendiente, junto con la pág. 177 de la clase Player).
+- Ejercicios de la tanda: ninguno.
+- PRÓXIMO PASO: seguir el Capítulo 3 desde la página 207.
+
+SESIÓN #33 — 2026-07-25 — Spillage: el compilador mira el tipo, no el valor (pág. 207-208, 14%)
+- Página 207 es solo la foto del té desbordando un vaso chico: refuerzo visual de la analogía de la pág. 206, sin contenido nuevo.
+- Concepto central: **spillage** (derrame). `int x = 24; byte b = x;` NO compila, aunque 24 entre de sobra en un byte.
+- El porqué: el compilador razona sobre TIPOS declarados, no sobre valores. Ve int (32 bits) → byte (8 bits) y frena por la POSIBILIDAD de derrame. Conecta con compile-time vs. runtime (Sesión #08/#11).
+- Nota del profe: `byte b = 24;` SÍ compila (literal, el compilador lo verifica); `byte b = x;` no (variable, solo ve el tipo). Para forzarlo existe el cast `(byte) x` — el libro lo ve más adelante, todavía no usarlo.
+- Las 3 formas de asignar: literal (`x = 12;`), otra variable (`x = y;`), expresión (`x = y + 43;`).
+- Declarar y asignar son actos SEPARABLES: `boolean isLearning;` crea el vaso vacío, `isLearning = true;` le pone el contenido.
+- Erratum del libro: en la tabla de la pág. 208 el código dice `isLearning` y la descripción de al lado dice `isCrazy`. No cambia el concepto.
+- Ejercicios de la tanda: ninguno todavía — al pie de la pág. 208 arranca un "Sharpen your pencil" cuyo enunciado está en la página siguiente.
+- Dudas: ninguna.
+- PRÓXIMO PASO: página 209, el "Sharpen your pencil" que quedó abierto.
+
+SESIÓN #34 — 2026-07-25 — Reglas para nombrar y palabras reservadas (pág. 210-214, 14%)
+- Pág. 210: enunciado del "Sharpen your pencil" — 12 líneas de asignación entre primitivas, marcar cuáles compilan. Regla que da el libro: de vaso CHICO a vaso GRANDE se puede; al revés no (spillage, Sesión #33).
+- Pág. 211: mnemotecnia "Be Careful! Bears Shouldn't Ingest Large Furry Dogs" para las 8 primitivas (B C B S I L F D). Es un recurso de memoria en inglés; el libro invita a inventar la propia.
+- Pág. 212 (el 80% de la tanda): un nombre (clase, método o variable) debe empezar con letra, `_` o `$`; nunca con número. Del segundo carácter en adelante sí van números. Y no puede ser una palabra reservada.
+- Palabra reservada (reserved word / keyword): palabra que el compilador ya tiene tomada. `public`, `static`, `void` y las 8 primitivas son reservadas.
+- El libro dice EXPLÍCITAMENTE que no hay que memorizar la lista de reservadas ahora: se aprenden usándolas.
+- Nota del profe: `$` es legal pero NUNCA se usa (se reserva para código generado); `_` solo, desde Java 9, es palabra reservada y ya NO compila como nombre. Convención real: camelCase para variables/métodos, PascalCase para clases, MAYUS_CON_GUION_BAJO para constantes.
+- Pág. 214: viñeta del oso repitiendo la mnemotecnia. Sin contenido nuevo.
+- Ejercicios de la tanda: LIBRO "¿legal o no?" (lib07, pág. 210) — pendiente.
+- Dudas: invirtió la nota del `_` (creyó que fallaba `_total`) — corregido: falla `int _ = 7;` porque el `_` SOLO es palabra reservada, igual que `int int = 5;`. La regla del primer carácter no cambió.
+- PRÓXIMO PASO: página 215 (y quedaron salteadas la 209 y la 213).
+
+SESIÓN #35 — 2026-07-25 — Referencias: el control remoto del objeto (pág. 214 resto, 218-220, 14%)
+- Pág. 214 (resto, tras la tabla de reservadas): "Controlling your Dog object" — analogía CLAVE del capítulo: una variable de referencia a objeto es como un CONTROL REMOTO del objeto, no el objeto en sí. `d.bark()` es apretar el botón `bark` de ESE control remoto.
+- Pág. 218: no existe "variable de objeto", solo variable de REFERENCIA a objeto. Sus bits representan una MANERA de acceder al objeto (como un puntero/dirección que administra sola la JVM), nunca el objeto en sí. Los objetos viven SOLO en el heap (Sesión #27/#31).
+- Pág. 218: operador punto (dot operator) formalizado: "usá lo de antes del punto para conseguir lo de después del punto" — `myDog.bark();` = con `myDog`, invocá `bark()`.
+- Pág. 219-220: retoma la analogía del vaso (Sesión #32): el vaso `reference` tiene el mismo formato que `byte`/`short`/`int`/`long`, pero adentro guarda un control remoto, no un número. Frase clave del libro en negrita: "el objeto Dog en sí NO va a la variable".
+- Ejercicios de la tanda: ninguno nuevo (tramo puramente conceptual).
+- Salteadas: 215, 216 y 217 (se suman a 177, 201, 209 y 213 pendientes).
+- Dudas: pregunta de comprensión respondida MAL — dijo que `Auto a = new Auto();` guarda el objeto Auto completo en `a`. Corregido: `a` guarda la referencia (el control remoto); el objeto vive solo en el heap. La segunda pregunta (qué hace el operador punto) SÍ salió bien.
+- PRÓXIMO PASO: página 221.
+
+SESIÓN #36 — 2026-07-26 — Los 3 pasos de `new` + Java no es C (pág. 221-224, 14%)
+- Formaliza `Dog myDog = new Dog();` en 3 pasos: (1) declarar la variable de referencia (el control remoto, tipeado para siempre a `Dog`), (2) crear el objeto en el heap (adelanto al Cap. 9, "Life and Death of an Object"), (3) vincular ambos con `=` ("programa el control remoto").
+- Dato nuevo: todas las referencias de una misma JVM pesan lo mismo entre sí, sin importar el tamaño del objeto al que apuntan; lo que varía en tamaño son los objetos, no las referencias.
+- Regla dura: no existe aritmética sobre referencias (nada de `myDog++` tipo puntero de C). Mantra del libro: "Java is not C".
+- Sección de humor "Java Exposed": entrevista a una Object Reference, que confirma que una vez declarada con un tipo, nunca puede referirse a otro tipo de objeto.
+- Sin ejercicios del libro en esta tanda (tramo puramente conceptual).
+- Dudas: las 2 preguntas de comprensión salieron bien (qué paso reserva el heap; por qué no hay aritmética de referencias), con una ronda extra para profundizar el POR QUÉ de la segunda en vez de quedarse con la regla de memoria.
+- PRÓXIMO PASO: página 225.
+
+SESIÓN #37 — 2026-07-26 — `null` y la vida en el heap recolectable (pág. 225, 227-228, 14%)
+- Pág. 225 (entrevista de humor a una Object Reference): una referencia se puede REPROGRAMAR a otro objeto del mismo tipo las veces que haga falta; la excepción es marcarla `final`, y ahí queda atada a ese único objeto para siempre.
+- `null` es un VALOR, no la ausencia de valor: la variable existe pero no controla ningún objeto. Analogía del libro: un control remoto universal en una casa sin tele — se le pueden apretar los botones todo el día y no pasa nada.
+- Consecuencia clave: si esa era la ÚNICA referencia a un objeto y se la pone en `null`, nadie puede volver a llegar a ese objeto → queda elegible para el garbage collector (recolector de basura).
+- Nota del profe: invocar un método sobre una referencia en `null` explota en RUNTIME con `NullPointerException` (el error más común de Java); desde Java 14 el mensaje dice exactamente qué variable era null. Compila igual: el compilador no ve valores (Sesión #33).
+- Pág. 227 "Life on the garbage-collectible heap": `Book b = new Book(); Book c = new Book();` → el libro arranca un contador Referencias/Objetos: 2 y 2.
+- Pág. 228: `Book d = c;` NO crea un tercer objeto — copia los bits de `c` dentro de `d`. Dos controles remotos programados a la misma tele → 3 referencias, 2 objetos.
+- Ejercicios de la tanda: ninguno nuevo (tramo conceptual).
+- Salteadas: 226 (se suma a 177, 201, 209, 213 y 215-217 pendientes).
+- Dudas: 1ra pregunta (3 referencias / 2 objetos) BIEN y con la analogía correcta. 2da MAL y corregida: creyó que `c = null;` deja el objeto elegible para el GC, olvidando que `d` sigue apuntándolo. Fondo del error: razonar desde la variable ("c no apunta a nada") en vez de desde el objeto ("¿queda ALGUIEN que pueda llegar a mí?"). La palabra clave de la pág. 225 es "the ONLY reference". Repregunta de cierre (`d = null;`) respondida BIEN y razonando ya desde el objeto: concepto recuperado en la misma sesión.
+- PRÓXIMO PASO: página 226 (salteada) y 229.
+
+SESIÓN #38 — 2026-07-26 — reprogramar una referencia ya asignada + "Life and death on the heap" (pág. 229-230, 15%)
+- Pág. 229 `c = b;`: el mecanismo (copiar bits) es el mismo de `Book d = c;` (Sesión #37), pero acá `c` YA apuntaba a algo. La asignación hace dos cosas de un saque: `c` toma el objeto 1 y SUELTA el objeto 2 (la X sobre la flecha punteada del diagrama).
+- Resultado: `b` y `c` al objeto 1, `d` al objeto 2 → 3 referencias, 2 objetos. El objeto 2 NO es basura: `d` todavía lo apunta. Soltar UNA referencia no mata al objeto; solo la ÚLTIMA lo hace.
+- Pág. 230 arranca la sección "Life and death on the heap" reseteando el ejemplo: `Book b = new Book(); Book c = new Book();` → 2 y 2.
+- Cambio de vocabulario deliberado del libro en esa página: "References/Objects" pasa a ser "ACTIVE References / REACHABLE Objects" — la precisión que hace falta antes de hablar de muerte de objetos.
+- Concepto central: `reachable` (alcanzable) es LA palabra del garbage collector. No pregunta si el objeto le importa a alguien, pregunta si se puede LLEGAR hasta él.
+- Ejercicios de la tanda: ninguno nuevo (tramo conceptual).
+- Dudas: 1ra (`d = b;` → 1 objeto alcanzable) BIEN y razonando desde el objeto, justo el músculo que falló en la #37. 2da a medias: sabe que sin referencias activas el objeto es basura, pero al preguntarle qué referencia deja de ser activa contestó DESDE EL OBJETO ("el objeto queda sin variables") en vez de desde la variable. Respuesta correcta: una variable que vale `null` no es referencia activa. Patrón de fondo a vigilar: confunde los dos contadores (active references cuenta VARIABLES, reachable objects cuenta OBJETOS) y se mueven por separado — contraejemplo dado: `Book c = b; c = null;` baja las referencias activas sin tocar los objetos alcanzables.
+- PRÓXIMO PASO: página 226 (salteada) y 231.
+
+SESIÓN #39 — 2026-07-26 — muerte de un objeto paso a paso + arranca arrays (pág. 231-232, 15%)
+- Pág. 231 `b = c;`: mismo mecanismo ya visto, pero acá el objeto que `b` suelta NO tenía otra referencia → queda ABANDONADO ("this dude is toast" / este está frito). Primera muerte real de un objeto en el libro.
+- El contador se hace de TRES columnas: Active References 2, Reachable Objects 1, Abandoned Objects 1. Dos referencias apuntando al mismo objeto no suman dos objetos alcanzables.
+- Pág. 232 `c = null;`: aparece la cuarta columna, `null` References 1. El objeto 2 sigue vivo porque `b` lo apunta: poner una variable en null solo mata al objeto si era la ÚLTIMA.
+- Regla que resume las dos páginas: las referencias activas cuentan VARIABLES; los objetos alcanzables cuentan OBJETOS. Se mueven por separado.
+- Pág. 232 abre "An array is like a tray of cups" (un arreglo es como una bandeja de vasos): acceso directo por índice, y cada elemento es una variable común del tipo declarado.
+- Clave del tramo: EL ARREGLO ES UN OBJETO, aunque sea de primitivas. Por eso `int[] nums;` es una referencia y hace falta `nums = new int[7];` para crear el objeto en el heap.
+- En un arreglo de objetos (`Dog[]`) cada casillero guarda un CONTROL REMOTO a un Dog, no el Dog: crear el arreglo no crea ni un solo Dog.
+- Ejercicios de la tanda: ninguno nuevo (tramo conceptual).
+- Dudas: 1ra (`b = null;` → 0 objetos alcanzables) BIEN y razonando desde el objeto, con el historial completo de por qué el objeto 1 ya estaba abandonado. Único matiz corregido: el GC lo hace ELEGIBLE, no lo borra en el acto. 2da MAL y re-explicada: ante `Dog[] perros = new Dog[3];` contestó "no se crea ningún objeto". Se corrigió: el arreglo ES un objeto (la bandeja vive en el heap), y sus 3 casilleros son variables de referencia en `null` esperando Dogs. Fondo del error: asocia "objeto" solo a las clases que él escribe, no al arreglo mismo. Repregunta de cierre (`String[] nombres = new String[4];`) respondida BIEN y completa (1 objeto, 4 referencias en null, imprime null): concepto recuperado en la misma sesión.
+- PRÓXIMO PASO: página 226 (salteada) y 233 (paso 3 de los arrays, cortado a mitad).
+
+SESIÓN #40 — 2026-07-26 — llenar un arreglo de primitivas y armar uno de objetos (pág. 234-236, 15%)
+- Pág. 234 cierra el paso 3: `nums[0] = 6;` hasta `nums[6] = 1;`. Cada casillero es una variable `int` común y corriente; el corchete con el índice es solo su nombre.
+- Un arreglo de 7 elementos usa los índices 0 a 6: el último índice SIEMPRE es longitud menos uno. Es el error clásico de todo principiante (off-by-one).
+- Pág. 235 lo dice sin vueltas: "Arrays are always objects" (los arreglos siempre son objetos), guarden primitivas o referencias. La bandeja es un objeto del heap; los 7 vasos con ints adentro no lo son.
+- Pág. 235-236 "Make an array of Dogs": mismos 3 pasos pero con objetos. `Dog[] pets;` declara, `pets = new Dog[7];` crea la bandeja... y el libro pregunta "What's missing?" (¿qué falta?): no hay NI UN Dog.
+- La diferencia que lo explica todo: en `int[]` cada casillero GUARDA el valor; en `Dog[]` cada casillero guarda un CONTROL REMOTO, y arranca en `null`.
+- Paso 3 de un arreglo de objetos: `pets[0] = new Dog();` — un `new` por cada elemento que quieras usar.
+- Nota del profe: hoy se escribe todo junto (`int[] nums = new int[7];`), existe el atajo `int[] nums = {6, 19, 44};` que declara-crea-llena en una línea, y en el trabajo real se usa mucho más `ArrayList<Dog>` que el arreglo crudo (Cap. 6). Pasarse del último índice explota en runtime con `ArrayIndexOutOfBoundsException`.
+- Ejercicios de la tanda: ninguno nuevo (tramo conceptual).
+- Dudas: 1ra (`new String[5]` + imprimir el casillero 4) BIEN y bien justificada: el casillero existe desde que se creó el arreglo, con `null` adentro. 2da a medias y REINCIDENTE: al contar los `new` de `Dog[] pets = new Dog[3];` + los 3 perros contestó 3, se olvidó del `new` de la bandeja (son 4). Es el MISMO fondo que la duda 2 de la #39: asocia "objeto" solo a las clases que él escribe, no al arreglo. Regla que se le dio: un `new`, un objeto — contá los `new` y sabés cuántos objetos hay.
+- PRÓXIMO PASO: página 226 (salteada) y 237.
+
+SESIÓN #41 — 2026-07-26 — el punto sobre un elemento del arreglo + Java chequea el tipo (pág. 239-240 y 242, 15%)
+- Pág. 239: repaso del operador punto (`fido.name`, `fido.bark()`). Lo único a subrayar: las instance variables son tazas que viven DENTRO del objeto; por eso hay que pasar por la referencia para llegar a ellas.
+- Pág. 240 "Java cares about type": el compilador no deja meter en un arreglo nada que no sea del tipo declarado (ni un `Cat` en un `Dog[]`, ni un `double` en un `int[]`). Chequeo en COMPILE-TIME.
+- Excepción: un `byte` SÍ entra en un `int[]` — implicit widening (ensanchamiento implícito): de taza chica a taza grande no se pierde nada, y Java lo acepta sin pedir permiso. Al revés hace falta cast (más adelante).
+- Idea central de la tanda: cuando el objeto está en un arreglo NO tiene nombre propio, así que se lo nombra por su posición. `myDogs[0]` ocupa exactamente el lugar donde antes iba `fido`, y de ahí en más todo igual: `myDogs[0].name = "Fido";`, `myDogs[0].bark();`.
+- Error clásico a evitar: `myDogs.bark()` no compila — le estarías pidiendo a la BANDEJA que ladre. Ladran los perros de adentro.
+- Nota al pie del libro (importante): `fido.name = "Fido"` es mala práctica en Java real; lo correcto es un `setName(...)`. Lo hacen así para simplificar y lo arreglan en el Cap. 4 con encapsulation (encapsulamiento) — tema 80/20 fuerte, cae en entrevistas.
+- Pág. 242: diagrama de la clase Dog (nombre / `name` / `bark()`, `eat()`, `chaseCat()`), formato ya conocido.
+- Ejercicios de la tanda: ninguno nuevo (tramo conceptual y corto).
+- Dudas: 1ra (llamar bark() sobre un casillero vacío) BIEN, con la analogía correcta ("hay control pero no tele"); se le dio el nombre técnico, NullPointerException en runtime. 2da A MEDIAS: explicó byte→int y double→int como dos reglas separadas en vez de ver la única razón de fondo — Java convierte solo cuando es IMPOSIBLE perder información; de grande a chico hay que firmar con un cast.
+- PRÓXIMO PASO: página 243. OJO material faltante: el 1er pantallazo de esta tanda salió en negro (archivo roto), así que quedaron sin ver las pág. 237-238 y 241 (el código de "A Dog example", que el diagrama de la 242 acompaña).
+
+SESIÓN #42 — 2026-07-26 — El programa completo del arreglo de Dogs, bullet points del Cap. 3 y BE the Compiler (pág. 243-246, 16%)
+- Pág. 243: el ejemplo entero junto. Novedad de forma: el `main` puede vivir DENTRO de la propia clase `Dog`, sin una clase TestDrive aparte.
+- `myDogs.length` = cantidad de elementos, es una VARIABLE (sin paréntesis), no un método. Por eso la condición del while va con `<` y nunca con `<=`: length vale 3 y los índices son 0, 1 y 2.
+- Los String son objetos disfrazados: se crean y asignan como primitivas (`String name = "Bart";`, sin `new`), pero son variables de referencia. La sintaxis corta es un regalo de Java, no un cambio de naturaleza.
+- `myDogs[2] = dog1;` NO crea nada: copia una referencia. Dos controles remotos, un solo perro; por eso la salida termina con "Bart says Ruff!".
+- La salida arranca con `null says Ruff!` porque `dog1.bark()` corre ANTES de `dog1.name = "Bart"`. Una referencia sin asignar vale `null` y se imprime literalmente como texto — no revienta nada.
+- Bullet points (pág. 244): repaso del capítulo. El único que hay que fijar: un arreglo SIEMPRE es un objeto, incluso declarado para primitivas — no existe el "arreglo primitivo", solo un arreglo que CONTIENE primitivas.
+- Ejercicios de la tanda: EJERCICIO #08 "BE the Compiler" (pág. 245-246, programas A `Books` y B `Hobbits`) — pendiente. El ícono de zapatillas marca la sección Exercise del libro.
+- Nota del profe: la consigna pide dos cosas distintas, "compile AND run without exception" (compile Y se ejecute sin excepción). Compilar bien y reventar en runtime es un resultado posible, no un caso raro.
+- Dudas: (pendientes de la ronda de comprensión de esta tanda).
+- PRÓXIMO PASO: página 247. Sigue pendiente el material faltante de pág. 237-238 y 241.
+
+SESIÓN #43 — 2026-07-27 — Code Magnets: TestArrays + arranque de Pool Puzzle "Triangle" (pág. 247-250, 16%)
+- Pág. 247: nueva ronda de "Code Magnets" (Imanes de Código): un programa desordenado como imanes en la heladera, hay que reconstruirlo a mano para que compile y dé la salida pedida. Se pueden repetir imanes, no hace falta usarlos todos, y las llaves `{ }` que falten se agregan donde corresponda.
+- Pág. 248: los imanes de `TestArrays` — dos arreglos, `String[] islands` con 4 nombres y `int[] index` con 4 números — y un `while (y < 4)` que imprime `islands[ref]` usando `ref = index[y]` como intermediario.
+- Idea clave del rompecabezas: `index[]` NO son datos a mostrar, son un MAPA de posiciones: para cada vuelta del bucle dice qué casillero de `islands[]` mostrar. Reordenando el `index[]` cambia el orden de salida sin tocar `islands[]`.
+- Pág. 249: salida esperada (`island = Fiji / Cozumel / Bermuda / Azores`) y puntero a la solución en la sección "Code Magnets" del apéndice (NO consultada, es el ejercicio del usuario). Arranca un "Pool Puzzle" nuevo: completar huecos en una clase con fragmentos de un pool.
+- Pág. 250: la salida objetivo de ese Pool Puzzle nuevo (`Triangle`, área de triángulos) — quedó con dos huecos por completar y sin el pool de fragmentos: falta la página siguiente para poder resolverlo.
+- Ejercicios de la tanda: EJERCICIO #09 "Code Magnets: TestArrays" — pendiente.
+- Dudas: `ref = index[y]` MAL al toque, corregida: dijo que creaba un "control remoto" a `islands[0]`; en realidad `ref` e `index` son primitivas (`int`), es una copia de valor, no una referencia. Recién `islands[ref]` usa ese número como posición. Corregido en el mismo mensaje, con la analogía del índice de un libro.
+- PRÓXIMO PASO: página 251 (pool de fragmentos del Pool Puzzle "Triangle", sin resolver todavía).
+
+SESIÓN #44 — 2026-07-27 — Pileta del Pool Puzzle "Triangle" + arranque de "A Heap o' Trouble" (pág. 251-252, 16%)
+- Pág. 251: la pileta de fragmentos para el Pool Puzzle "Triangle" (arrancado pág. 250, Sesión #43) — identificadores, declaraciones de arreglo, condiciones y asignaciones sueltas, con la aclaración de que un fragmento se puede repetir. Registrado como EJERCICIO #10.
+- Pág. 251-252: nuevo ejercicio "A Heap o' Trouble" ("Un montón de problemas" — juego de palabras con "heap", la zona de memoria, y el dicho "a heap of trouble" = muchísimos problemas): una clase `HeapQuiz` con un arreglo `hq[]` de 5 referencias y una serie de reasignaciones (`hq[3] = hq[1]; hq[3] = null; hq[0] = hq[3];`...); hay que unir cada `hq[x]` final con el objeto `HeapQuiz` (id 0, 1 o 2) que le corresponde. Registrado como lib08.
+- Repaso del tramo (sin enseñar nada nuevo): reusa "referencia = control remoto" (Sesión #27/#31) y "Life on the garbage-collectible heap" (Sesión #37) — acá el arreglo `hq[]` guarda referencias, no valores, como ya se vio con `index[]` en la Sesión #43.
+- Ejercicios de la tanda: EJERCICIO #10 "Pool Puzzle: Triangle" (pendiente, opcional) y LIBRO "A Heap o' Trouble" (pendiente, opcional).
+- Teaser sin abrir: "The case of the pilfered references" (pág. 253) — título de la próxima sección, no leído todavía.
+- PRÓXIMO PASO: página 253 ("The case of the pilfered references", sin abrir).
+
+SESIÓN #45 — 2026-07-28 — Five-Minute Mystery "The case of the pilfered references" + soluciones oficiales del capítulo (pág. 254-255, 257-258, 16%)
+- Pág. 254-255: el misterio. Dos formas de crear 10 objetos Contact en un celular con poca memoria: Bob usa un arreglo `Contact[] contacts` y guarda cada objeto en `contacts[x]`; Kate usa UNA sola variable `Contact contactRef` que reasigna en cada vuelta. Kate ahorra memoria en variables de referencia, y aun así Tawny elige a Bob. Registrado como lib09 (sin resolver en el chat).
+- Concepto de fondo (ya visto, no es nuevo): reasignar una referencia no mueve ni copia el objeto; el objeto anterior queda sin quien lo apunte. Conecta la Sesión #37 (garbage collection) con la #43 (arreglo de referencias).
+- Pág. 257 (mitad de abajo): solución oficial del Code Magnets "TestArrays" — confirma el EJERCICIO #09 del usuario y muestra las asignaciones de `index[0..3]` FUERA del `while`, tal como se le corrigió.
+- Pág. 258: la pantalla de salida esperada de TestArrays (4 líneas, coincide exacto con la del usuario) y arranca la sección de soluciones de "BE the Compiler" (contenido no incluido en la tanda).
+- SPOILER EVITADO A PROPÓSITO: la mitad de arriba de la pág. 257 es la solución del "Sharpen your pencil: ¿legal o no?" (pág. 210) que el usuario tiene PENDIENTE como lib07. No se explicó ni se comentó ninguna de las 12 líneas. Retomarla cuando entregue ese ejercicio.
+- Ejercicios de la tanda: LIBRO lib09 "Five-Minute Mystery" (pendiente).
+- PRÓXIMO PASO: página 256 (salteada en esta tanda, es parte de la solución de lib07) y 259 en adelante.
+
+SESIÓN #46 — 2026-07-28 — soluciones oficiales del capítulo: BE the Compiler y Five-Minute Mystery (pág. 259, 262, 16%)
+- Pág. 259 (A): solución oficial de "BE the Compiler" parte Books — los 3 `new Books()` que faltaban, exactamente lo que el usuario había agregado en el EJERCICIO #08. Nota al margen del libro: "Remember: We have to actually make the Book objects!" (Acordate: hay que crear de verdad los objetos Book.)
+- Pág. 259 (B): solución oficial de la parte Hobbits — el libro arregla con `int z = -1;` y el `z = z + 1;` como PRIMERA línea del cuerpo; el usuario lo había arreglado con `z = 0`, el incremento al FINAL y `z < 3`. Las dos son correctas: visitan los mismos índices 0, 1 y 2. Nota al margen: "Remember: arrays start with element 0!" (Acordate: los arreglos empiezan en el elemento 0.)
+- Nota del profe: un mismo bug de bucle admite varias correcciones válidas. Lo que se compara no es la forma sino QUÉ ÍNDICES termina visitando; si la salida es idéntica, las dos versiones son correctas.
+- Pág. 262 (mitad del medio): solución del Five-Minute Mystery — Kate sí crea los 10 objetos Contact, pero al reasignar la MISMA variable en cada vuelta deja 9 abandonados en el heap ("unreachable", inalcanzables) y solo el último queda accesible. Confirma la corrección del lib09.
+- SPOILERS EVITADOS A PROPÓSITO: la pág. 260 y la mitad de arriba de la 262 son la solución y la salida del Pool Puzzle "Triangle" (EJERCICIO #10, pendiente); la mitad de abajo de la 262 y toda la pág. 263 son la solución de "A Heap o' Trouble" (lib08, pendiente). No se explicó ni se comentó nada de las dos.
+- Ejercicios de la tanda: ninguno nuevo (todo eran soluciones).
+- Dudas: con `int z = 0;` y el incremento como primera línea, contestó que igual visitaría 0, 1 y 2 — CORREGIDO con traza: visita 1 y 2, `h[0]` queda en null y falta una línea de salida. Confundía "el valor con el que el bucle ENTRA" con "el valor con el que z se USA como índice".
+- PRÓXIMO PASO: pág. 261 (no vino en esta tanda) y 264 en adelante.
+
+SESIÓN #47 — 2026-07-28 — arranca el Capítulo 4: el estado afecta al comportamiento (pág. 264-267, 17%)
+- Pág. 264: portada del Cap. 4 "How Objects Behave: Methods Use Instance Variables" (Cómo se comportan los objetos: los métodos usan variables de instancia). La viñeta "Let's keep those little variables private, OK?" es anticipo de `private` y del encapsulamiento, que llegan más adelante en el capítulo.
+- Pág. 265: la idea madre del capítulo — "State affects behavior, behavior affects state" (el estado afecta al comportamiento y viceversa). State = instance variables; behavior = methods. Un `makeNoise()` que mira `weight` para decidir el ladrido es estado→comportamiento; un método que hace `weight = weight + 5` es comportamiento→estado.
+- Pág. 265: la clase como "blueprint" (plano/molde) que le dice a la JVM cómo fabricar objetos de ese tipo. Diagrama de la clase `Song`: knows = title, artist; does = setTitle(), setArtist(), play().
+- Pág. 266-267: respuesta al "¿pueden dos objetos tener métodos distintos?" — NO. Toda instancia de una clase tiene EXACTAMENTE los mismos métodos; lo que cambia es el valor de las instance variables sobre las que ese código trabaja. Mismo código, distintos datos, distinto resultado.
+- Pág. 267: dentro de un método, nombrar `title` a secas significa "la instance variable del objeto sobre el que me llamaron" — no hace falta `s1.title`. Por eso `void play() { soundPlayer.playSound(title, artist); }` suena distinto en cada instancia.
+- Referencias culturales explicadas: "My Way" de Sinatra (1969, melódico) vs. la versión punk de los Sex Pistols (1978), misma canción y resultado opuesto — por eso el libro la usa para dos objetos `Song`; y "Bark Different." como parodia del "Think Different." de Apple.
+- Ejercicios de la tanda: ninguno nuevo.
+- Nota del profe: este capítulo es la explicación formal del error de fondo del repaso de Television — métodos de acción que no tocan la instance variable de estado que deberían modificar.
+- Dudas: dijo que `song1.play()` y `song2.play()` ejecutan "código diferente" — CORREGIDO: el método vive UNA sola vez en la clase y corre idéntico; lo único que cambia son los datos que va a buscar. Advertido de no mezclarlo con polimorfismo (Cap. 7-8). La pregunta del `bark()` ciego al estado la contestó perfecta.
+- PRÓXIMO PASO: pág. 268 en adelante (el código concreto del `bark()` según el tamaño).
+
+SESIÓN #48 — 2026-07-28 — el bark() según el size + argumentos y parámetros (pág. 270, 272-273, 17%)
+- Pág. 270: `bark()` lee la instance variable `size` con un if/else if/else y elige entre "Wooof! Wooof!" (perro grande), "Ruff! Ruff!" (mediano) y "Yip! Yip!" (chico). El método no recibe nada: llega a `size` porque vive en el mismo objeto.
+- Pág. 270: `DogTestDrive` crea tres Dogs con size 70, 8 y 35 y llama `one.bark()`, `two.bark()`, `three.bark()`. Es la Sesión #47 hecha código: mismas líneas ejecutadas, distinto estado, distinta salida.
+- Pág. 270: se pueden mandar valores a un método — `d.bark(3);`. Convención del libro: "A caller passes arguments. A method takes parameters." (Quien llama pasa argumentos; un método toma parámetros.)
+- Pág. 272: el argumento es el VALOR del lado de quien llama; el parámetro es una VARIABLE LOCAL del método (tipo + nombre). Viajan los bits del valor y aterrizan en la "taza" del parámetro.
+- Pág. 272: regla dura — si un método toma un parámetro, hay que pasarle algo SÍ o SÍ, y del tipo apropiado. Faltar un argumento o mandarlo de otro tipo es error de COMPILACIÓN (mismo principio de "Java cares about type" de la Sesión #41).
+- Pág. 272: el parámetro se usa como cualquier variable adentro del método y se puede modificar (`numOfBarks = numOfBarks - 1`), porque es local: nace y muere con la llamada.
+- Pág. 273: arranca el tema espejo, el retorno. TODO método se declara con un tipo de retorno; `void` (vacío) significa "no devuelve nada". Queda explicado por fin el `void` de `public static void main`.
+- Referencias culturales explicadas: Wooof/Ruff/Yip son las tres formas en que el inglés escribe el ladrido según el tamaño del perro (grave, normal, agudo); y la foto del cajero que devuelve un patito de goma ("Cute... but not exactly what I was expecting.") es un chiste sobre el tipo de retorno.
+- Ejercicios de la tanda: ninguno nuevo.
+- Dudas: contestó bien las dos de la ronda (llamar sin argumento es error de COMPILE-TIME, y en `main` el `void` es el tipo de retorno y `String[] args` el parámetro). Ajuste 1: `void` no es una variable sino palabra reservada en el lugar del tipo. Ajuste 2 (explicación extra sobre qué es el estado): dijo que `bark()` no es estado "porque desaparece cuando termina" — veredicto bien, razón mal: el método NO desaparece, vive una sola vez en la clase; lo que muere es el stack frame de la llamada. El criterio real es DATOS vs. CÓDIGO, no persiste vs. no persiste.
+- PRÓXIMO PASO: pág. 274 en adelante (métodos que devuelven valores de verdad).
+
+SESIÓN #49 — 2026-07-28 — tipo de retorno de verdad, varios parámetros y pass-by-value (pág. 274-277, 17%)
+- Pág. 274: un método puede devolver un valor (`int giveSecret() { return 42; }`). El tipo declarado antes del nombre manda: "Whatever you say you'll give back, you better give back!" (Lo que decís que vas a devolver, más te vale devolverlo). Devolver otro tipo es error de COMPILACIÓN.
+- Pág. 274: en `int theSecret = life.giveSecret();` los dos tipos tienen que coincidir — el de la variable que recibe y el de retorno del método. Viajan los bits del valor devuelto y aterrizan en la variable.
+- Pág. 274: el libro deja abierta la excepción "o un valor COMPATIBLE con el tipo declarado" y la posterga a polimorfismo (caps. 7 y 8). Por ahora: tipo declarado = tipo devuelto.
+- Pág. 275: varios parámetros se separan con comas y CADA UNO lleva su tipo (`void takeTwo(int x, int y)`, nunca `int x, y`). Los argumentos aterrizan por POSICIÓN, no por nombre.
+- Pág. 275: peligro real — si dos parámetros son del mismo tipo e invertís el orden, compila igual y el resultado sale mal en silencio. Con tipos distintos te frena el compilador.
+- Pág. 276: se pueden pasar variables además de literales, si el tipo coincide. Los nombres de la variable y del parámetro NO tienen que coincidir (`t.takeTwo(foo, bar)` → `takeTwo(int x, int y)`).
+- Pág. 276: la anotación clave dice que los bits de `x` son IDÉNTICOS a los de `foo` — o sea otros bits iguales, no los mismos bits. Se copia el valor que la variable tenía en ESE momento.
+- Pág. 277: título solo + viñeta de una fotocopiadora — "Java is pass-by-value. That means pass-by-copy." (Java es pasaje por valor, o sea pasaje por copia). El método recibe una fotocopia; el original no se toca. 80/20 fuerte: es pregunta clásica de entrevista junior, y la respuesta es SIEMPRE pass-by-value.
+- Referencias culturales explicadas: `foo` y `bar` son metasyntactic variables, nombres genéricos de relleno tipo "fulano y mengano" (el libro los usa sin aclararlo); y la viñeta de la fotocopiadora es la metáfora entera del pass-by-copy.
+- Ejercicios de la tanda: ninguno nuevo.
+- Dudas: acertó los dos veredictos de la ronda (ni `takeTwo(3)` ni `takeTwo(3,4,5)` compilan; `foo` sigue valiendo 7). Ajuste 1: dijo "espera 3 argumentos" — espera DOS; confundió el valor 3 con la cantidad. Ajuste 2: creyó que del lado de quien llama hay que indicar el tipo — NO, el tipo vive solo en la declaración del método. Ajuste 3 (el importante): el veredicto de `foo` salió bien pero con razón vaga ("las instrucciones no cambian"); no nombró pass-by-value. Se le corrigió con la contradicción (`x = 100` SÍ cambia un valor, el de `x`) y con la idea de que `x` no ES `foo` sino una fotocopia. Volver a chequear este punto en la pág. 278.
+- PRÓXIMO PASO: pág. 278 en adelante (la demostración con código de que la copia no afecta al original).
+
+SESIÓN #50 — 2026-07-28 — pass-by-value con objetos, retorno múltiple y promoción de tipos (pág. 278-282, 17%)
+- Pág. 278: poema "Make it Stick" refuerza pass-by-value = pass-by-copy (nada nuevo); post-its con adelantos (threads/wait()/notify(), mucho más adelante) y un chiste suelto sin contenido técnico.
+- Pág. 279 (arriba): el mismo mecanismo de la Sesión #49 pero dibujado paso a paso con los "vasos" de bits: `x` y `z` son vasos distintos y sin conexión, cambiar `z` adentro del método no toca `x`.
+- Pág. 279 (abajo), "There are no dumb questions": pasar un OBJETO también es pass-by-value — se copia la referencia (el control remoto), no el objeto. Por eso mutar un atributo del objeto adentro del método SÍ se ve reflejado afuera (misma referencia al mismo objeto en el heap), pero reasignar la variable parámetro a otro objeto NO se ve afuera.
+- Misma página: un método solo declara UN tipo de retorno; para devolver varios valores se usa un arreglo. Al hacer `return` se puede promover implícitamente a un tipo más grande (`byte`→`int`), pero ir a uno más chico (`double`→`int`) no compila por pérdida de decimales. Tampoco es obligatorio usar el valor que devuelve un método.
+- Pág. 281: viñeta Jirafa/Conejo — lo que entra o sale de un método tiene que ser del tipo declarado o compatible; semilla de IS-A/herencia (todavía adelanto, ver vocabulario).
+- Pág. 282: "Bullet Points", cierre y repaso de todo el tramo de clases, parámetros y retorno — sin conceptos nuevos.
+- Ejercicios de la tanda: ninguno nuevo.
+- Dudas: ambas preguntas bien. La del objeto con matiz correcto (identidad del objeto no cambia, pero SÍ se ve el cambio de estado porque la copia de referencia apunta al mismo objeto); la de promoción de retorno también bien (byte→int compila, double→int no por pérdida de decimales).
+- PRÓXIMO PASO: pág. 283 en adelante.
+
+SESIÓN #51 — 2026-07-28 — getters, setters y arranque de encapsulación (pág. 283-284 y 286, 17%)
+- Pág. 283: Getters y Setters (formal: Accessor/Mutator) — convención de Java: `getNombre()` devuelve el valor, `setNombre(valor)` lo asigna. Diagrama de `ElectricGuitar` con 3 instance variables y sus 6 getters/setters.
+- Pág. 284: código completo de `ElectricGuitar`; arranca "Encapsulation" con el chiste "Do it or risk humiliation and ridicule".
+- Pág. 286: por qué exponer una instance variable con el operador punto (`theCat.height = 27;`) es peligroso — cualquier código externo puede asignarle un valor inválido (`theCat.height = 0;`) sin control. Solución que viene: forzar el acceso solo vía setters.
+- Página salteada: 285.
+- Referencias culturales explicadas: chiste "Do it or risk humiliation and ridicule"; viñeta "Jen says you're well-encapsulated..." (piropo romántico con el término técnico).
+- Ejercicios de la tanda: ninguno nuevo.
+- Nota del profe: el usuario resolvió el setter con `this.size = size` (técnica válida y muy usada en el mundo real para no tener que renombrar el parámetro como hace el libro) antes de que `this` se explique formalmente — anotado en vocabulario como adelanto.
+- Dudas: ambas bien conceptualmente (getSize()/setSize(int) correctos; supo explicar el riesgo de datos expuestos). Ajuste menor: faltaron los `;` de cierre en las dos instrucciones — no es grave (fue una respuesta de chat, no código compilado), pero repetirlo en un ejercicio real sí cuenta como error de compilación.
+- PRÓXIMO PASO: pág. 287 en adelante.
+
+SESIÓN #52 — 2026-07-29 — encapsulación: private, public y por qué de verdad importa (pág. 288-291, 18%)
+- Pág. 288: el setter con GUARDIA — `setHeight(int ht)` con `if (ht > 9)` adentro: si el valor no pasa el control, no asigna nada y `height` queda como estaba. El setter no es un pasamanos: es un portero con criterio.
+- Pág. 288: sección "Hide the data" — encapsular protege DOS cosas: los datos (nadie mete un valor inválido) y tu derecho a cambiar la implementación después. Se hace con los access modifiers `public` y `private` (`private` = solo se toca desde adentro de la propia clase).
+- Pág. 289: LA REGLA (recuadro del libro): "Mark instance variables private. Mark getters and setters public." El libro la llama *starter* rule of thumb (regla inicial): con más experiencia se hacen cosas distintas, pero hoy es ley.
+- Pág. 290: el tipo de dato NO alcanza — `int` acepta negativos, pero "-5 baños" o velocidad negativa no existen. El compilador solo sabe de tipos, no de sentido común; ese sentido común solo entra en el setter.
+- Pág. 290: las 4 salidas de un setter — aceptar, rechazar sin hacer nada, lanzar una excepción (`throw an Exception`, se ve mucho más adelante), o corregir/redondear al valor aceptable más cercano.
+- Pág. 290: LA RAZÓN DE FONDO (respuesta a "¿el setter no es overhead?"): "you can change your mind later, without breaking anybody else's code". Si 40 personas escribieron `theCat.height = 27;` y un día hacés la variable private, les rompés el código a las 40. Con setter desde el día uno, el cambio es invisible. La ganancia de rendimiento de ir directo es "miniscule".
+- Pág. 291: diagrama de `GoodDog` (size / getSize(), setSize(), bark()) — anticipo de la versión encapsulada; el código con `private` viene en la página siguiente.
+- Páginas salteadas: 287 (la tanda arrancó en 288).
+- Referencias culturales explicadas: chiste del "water cooler" (dispensador de agua = chisme de oficina) con el "flat cat"; sección "Java Exposed" (entrevista falsa a un Objeto) y el sueño de estar desnudo en público; "Social Security number" = documento de identidad de EE.UU.
+- Ejercicios de la tanda: ninguno nuevo.
+- PRÓXIMO PASO: pág. 292 en adelante (código de GoodDog con `private`).
+
+SESIÓN #53 — 2026-07-29 — GoodDog encapsulado, la llamada COMO valor y objetos dentro de un arreglo (pág. 292-293, 18%)
+- Pág. 292: `GoodDog` completo y encapsulado — `private int size`, `getSize()`/`setSize(int)` public, y el TestDrive que ya no escribe `one.size = 70` sino `one.setSize(70)` / `one.getSize()`.
+- Pág. 292 (clave): `bark()` lee `size` DIRECTO, sin pasar por `getSize()`, y está bien: `private` es una pared hacia AFUERA, no hacia adentro. Cualquier método de la propia clase ve sus instance variables private.
+- Pág. 292: nota del margen — los getters/setters "no agregan funcionalidad nueva", pero te dejan volver después y hacer el método "safer, faster, better" (más seguro, rápido, mejor) sin tocar a nadie.
+- Pág. 293: LA REGLA del retorno — "en cualquier lugar donde se pueda usar un valor de cierto tipo, se puede usar una llamada a un método que devuelva ese tipo": `int x = 3 + one.getSize();` es legal porque la llamada SE CONVIERTE en el int que devuelve.
+- Pág. 293: "How do objects in an array behave?" → igual que cualquier objeto; lo único distinto es CÓMO llegás a ellos. `pets[0].setSize(30)` es lo mismo que `one.setSize(30)`: `[0]` reemplaza al nombre de la variable.
+- Pág. 293: repaso del Cap. 3 en 3 pasos — `pets = new Dog[7]` crea SOLO el arreglo (7 tazas vacías, cero Dogs); `pets[0] = new Dog()` recién ahí crea el objeto; después el operador punto sobre `pets[0]`.
+- Ejercicios de la tanda: ninguno nuevo.
+- Nota del profe: `void bark()` va SIN modificador = nivel *default* (package-private), visible solo dentro del mismo paquete. Funciona por simplificación del libro; en código profesional lo que se usa desde afuera se marca `public` explícito.
+- PRÓXIMO PASO: pág. 294 en adelante.
+
+SESIÓN #54 — 2026-07-29 — valores por defecto de instance variables + instance vs. variable local (pág. 295-298, 18%)
+- Pág. 295-296: `PoorDog` declara `size` y `name` SIN asignarles valor, y `PoorDogTestDrive` igual compila y corre: sale "Dog size is 0" / "Dog name is null". Toda instance variable no inicializada recibe un valor por defecto automático.
+- Pág. 296: tabla de defaults — enteros → `0`, decimales → `0.0`, `boolean` → `false`, referencias (`String`, cualquier objeto) → `null`. `null` = "un control remoto que no está programado a nada: una referencia, pero sin objeto real" (misma analogía de la taza del Cap. 3).
+- Pág. 297 (clave): instance variable = declarada DENTRO de la clase, FUERA de cualquier método (recibe default). Variable LOCAL = declarada DENTRO de un método; Java NO le pone ningún default y DEBE inicializarse antes de usarse.
+- Pág. 298: la prueba — `int x;` local seguida de `int z = x + 3;` NO COMPILA (`variable x might not have been initialized`), a diferencia de una instance variable en la misma situación. Error de compile-time, no de runtime.
+- Ejercicios de la tanda: ninguno nuevo.
+- Nota del profe: el mensaje dice "might not have been initialized" (no "wasn't") porque el compilador rechaza CUALQUIER camino posible sin valor, aunque en la práctica nunca se ejecute — regla conservadora a propósito.
+- Dudas: ninguna (tanda expositiva, sin ronda de comprensión todavía).
+- PRÓXIMO PASO: pág. 299 en adelante.
+
+SESIÓN #55 — 2026-07-29 — comparar variables: == (bits) vs. equals() (contenido) (pág. 299-302, 19%)
+- Pág. 299: recuadro "no hay preguntas tontas" — los parámetros de método nunca quedan sin inicializar, porque el compilador exige un argumento para cada uno al llamar al método.
+- Pág. 299-301: `==` SIEMPRE compara el patrón de BITS de la variable: con primitivos compara el valor (`int a = 3; byte b = 3; a == b` es `true`); con referencias, compara si apuntan al MISMO objeto del heap.
+- Pág. 301: `.equals()` se usa para saber si dos objetos DISTINTOS son iguales en contenido (ej: dos `String` con "Fred" son iguales aunque sean dos objetos separados); qué significa "igual" depende del tipo de objeto, se retoma más adelante.
+- Pág. 302: diagrama y código de `Foo` — `Foo c = a;` copia la REFERENCIA, no crea un objeto nuevo: `a == c` da `true`, `a == b` da `false` (son dos `new Foo()` distintos).
+- Página salteada: 300.
+- Referencias culturales explicadas: viñeta "I always keep my variables private. If you want to see them, you have to talk to my methods." (chiste de encapsulamiento, ya visto en Sesión #52).
+- Ejercicios de la tanda: ninguno nuevo.
+- Dudas: ambas bien — distinguió == (identidad de referencia) de .equals() (contenido) sin dudar.
+- PRÓXIMO PASO: pág. 303 en adelante.
