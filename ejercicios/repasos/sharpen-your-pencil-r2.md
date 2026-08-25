@@ -44,7 +44,27 @@ contexto de "Speed and memory usage" y "Code structure in Java").
 
 ## MI RESPUESTA
 
-(escribí acá, línea por línea, tu frase para cada instrucción)
+int size = 27; se declara una variable de tipo int llamada size y se inicializa en 27 
+String name = "Fido"; se declara una varible de tipo String llamada name y se inicializa en "Fido";
+Dog myDog = new Dog(name, size); se crea una instancia de la clase Dog, se pasa por parámetros los valores de name y size para iniciar sus argumentos y no de error de compilación
+x = size - 5;  a la variable x se le asigna el valor de size menos 5, OJO la variable x nunca fue declarada en tipo de dato 
+if (x < 15) myDog.bark(8); si x es menor a 15 myDog va a usar el método bark para ladrar 8 veces
+
+while (x > 3) { mientras x sea mayor a 3
+  myDog.play(); myDog usa el método play
+}
+
+int[] numList = {2, 4, 6, 8}; se crea una variable de tipo array llamada numList y se inicializa con los valores 2, 4, 6 y 8
+System.out.print("Hello"); se imprime por pantalla la palabra Hello
+System.out.print("Dog: " + name); Se imprime por pantalla Dog: Fido debido a que name es equivalente a Fido
+String num = "8"; Se crea una variable de tipo String llamada num, se inicializa con el valor de "8"
+int z = Integer.parseInt(num); se crea una variable de tipo int llamada z, se inicializa con un parseInt de la variable "8", por lo tanto ese "8" pasa a ser 8 entero
+
+try { intenta
+  readTheFile("myFile.txt"); intenta leer myFile.txt
+} catch (FileNotFoundException ex) { si no existe el archivo 
+  System.out.print("File not found."); imprime "File not found."
+}
 
 ---
 

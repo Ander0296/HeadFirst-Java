@@ -8,16 +8,16 @@ Ejercicios: ver EJERCICIOS.md.
 ## INICIO RÁPIDO
 
 - Última página: 445 de 1629 (26%) — paquetes, nombre completo e `import`; `java.lang` es el único automático; `static final` = constante. Ver Sesión #81. **Próximo: pág. 446.** Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #81** (tanda). El 2026-08-24 no hubo tanda: dos de repasos (java-s56/57) y el primer triage (java-s58).
-- PRÓXIMA SESIÓN: `/rename java-s59`
+- Última sesión: **Sesión #81** (tanda). Ni el 2026-08-24 ni el 2026-08-25 hubo tanda: fueron de repasos y triage (java-s56 a s59).
+- PRÓXIMA SESIÓN: `/rename java-s60`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto
-  al de las tandas. La última cerrada fue java-s58. Claude la actualiza
+  al de las tandas. La última cerrada fue java-s59. Claude la actualiza
   al cerrar.)
 - Ejercicios pendientes: 6 (5 obligatorios: lib07, lib12, lib13, ej13, lib17 · 1 opcional: lib18). Detalle y repasos: EJERCICIOS.md.
-- ⚠ **21 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). A 1 por día son 21 días: hay una propuesta abierta de fusionarlos en 3 repasos integradores. Además faltan 15 archivos de arranque de repaso (el de ej05 sí está).
+- ⚠ **19 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Decidido el 2026-08-25: se hacen INDIVIDUALES (no integradores), pero ordenados por RIESGO y no por fecha — fusionarlos pierde el diagnóstico de cada error. **Faltan 17 archivos de arranque**; 6 sí están (ej05-r1, ej06-r1, ej08-r1, ej01-r2, ej03-r2, ej02-r2), así que hay trabajo listo para varias sesiones.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
-- Último triage (`/pendientes`): **2026-08-24** — 5 Pool Puzzles dados de baja; quedan 47 páginas del backlog viejo sin triagear (las 5 más recientes, a decidir)
-- Último examen (`/examen`): nunca todavía
+- Último triage (`/pendientes`): **2026-08-25** — DECISIONES ABIERTAS sin aplicar: bajas propuestas de lib07 (redundante con lib10 ya completado) y lib12 (lectura pura, 26 días); y del backlog de páginas, baja de 428, 431 y 434-435 (cubiertas) más decidir 440 y 444. Quedan 47 páginas sin triagear.
+- Último examen (`/examen`): nunca todavía — nunca hubo uno en 81 sesiones, conviene arrancar una sesión con eso.
 - Entorno: OpenJDK 26.0.1, javac/java en PATH (Arch Linux), sin config extra.
 
 ## VOCABULARIO EN <-> ES (Claude agrega una fila por término nuevo)

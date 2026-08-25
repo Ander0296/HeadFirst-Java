@@ -107,11 +107,6 @@ Arranque: ejercicios/repasos/ej11-r1/ (XCopy.java y ClockTestDrive.java)
 Punto a mirar: leer bien el valor exacto que pasa setTime() antes de
 anotar el output (la primera vez se equivocó de dígitos: 1234 vs. 1245).
 
-REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r2) — programado: 2026-08-04 — [ ] pendiente
-Arranque: ejercicios/repasos/sharpen-your-pencil-r2.md
-Punto a mirar: concatenación de Strings con `+` (el r1 dio el
-resultado correcto sin poder explicar el mecanismo).
-
 REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1) — programado: 2026-08-04 — [ ] pendiente
 Arranque: ejercicios/repasos/lib14-r1.md
 El original necesitó 3 intentos y solución dada por Claude. Punto a
@@ -123,9 +118,6 @@ Arranque: ejercicios/repasos/ej01-doobee-r2/DooBee.java
 
 REPASO — EJERCICIO Code Magnets: Shuffle1 (pág. 121-122) (r2) — programado: 2026-08-06 — [ ] pendiente
 Arranque: ejercicios/repasos/ej03-shuffle1-r2/Shuffle1.java
-
-REPASO — LIBRO Mixed Messages (pág. 127-129) (r2) — programado: 2026-08-08 — [ ] pendiente
-Arranque: ejercicios/repasos/lib02-r2.md
 
 REPASO — EJERCICIO BottleSong (pág. 111) (r2) — programado: 2026-08-09 — [ ] pendiente
 Arranque: ejercicios/repasos/ej02-bottlesong-r2/BottleSong.java
@@ -194,6 +186,25 @@ El r1 salió PERFECTO (3/3) y corrigió el único detalle del original
 ("Byte Club" con mayúsculas). Punto a mirar: que `two.playIt()` no
 cambia ningún valor — imprime y nada más; y que cada objeto conserva
 sus propios valores.
+
+REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3) — programado: 2026-09-25 — [ ] pendiente
+Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md
+ÚLTIMO DEL CICLO: si sale bien, el ejercicio se GRADÚA. El r2 salió
+BIEN, con un salto propio (detectó que `x` se usa sin declarar, algo
+que ni el original ni el r1 vieron). Punto a mirar, el único que falló
+las TRES veces: que al llegar a `"Dog: " + name` diga la palabra
+CONCATENACIÓN y explique que el `+` entre Strings PEGA texto en vez de
+sumar.
+
+REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 — [ ] pendiente
+Arranque: ejercicios/repasos/lib02-r3.md
+ÚLTIMO DEL CICLO: si sale bien, el ejercicio se GRADÚA. Salió 5/5
+PERFECTO las tres veces (original, r1 y r2), sin una sola pista.
+Punto a mirar: que vuelva a TRAZAR el bucle vuelta por vuelta en vez
+de contestar de memoria — si acierta recitando, el repaso no midió
+nada. Las dos trampas: el candidato donde `y` llega a 10 (la salida
+pasa a 3 dígitos) y el candidato donde `x` sube DOS veces por vuelta
+(el bucle corre 3 vueltas, no 5).
 
 # ============================================================
 # CONCEPTOS DOMINADOS (entran al graduarse un ejercicio con r3 bien)

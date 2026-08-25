@@ -19,9 +19,6 @@ class Test {
     int x = 0;
     int y = 0;
     while (x < 5) {
-
-      // ---- CANDIDATE CODE GOES HERE ----
-
       System.out.print(x + "" + y +" ");
       x = x + 1;
     }
@@ -82,15 +79,15 @@ practicá trazar el bucle a mano, vuelta por vuelta.
 
 ## MI RESPUESTA
 
-Candidato 1:
+Candidato 1: E) 00 11 21 32 42
 
-Candidato 2:
+Candidato 2: G) 00 11 23 36 410
 
-Candidato 3:
+Candidato 3: H) 02 14 25 36 47
 
-Candidato 4:
+Candidato 4: B) 11 34 59
 
-Candidato 5:
+Candidato 5: D) 02 14 36 48
 
 ---
 

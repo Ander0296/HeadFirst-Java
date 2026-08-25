@@ -125,6 +125,56 @@ de los 3 puntos débiles originales; el punto de concatenación quedó
 parcial, no repetido dos veces desde cero como para requerir
 re-estudio formal). Se agenda repaso r2 (~2 semanas después de r1).
 
+REPASO r2 (2026-08-25) — entrega en
+ejercicios/repasos/sharpen-your-pencil-r2.md, resuelto desde cero.
+Comparación contra el original (2026-07-16) y contra el r1 (2026-07-21):
+
+MEJORÓ (salto grande, el mayor de los tres intentos):
+- Línea `x = size - 5;` — DETECTÓ SOLO que `x` nunca fue declarada con
+  un tipo ("OJO la variable x nunca fue declarada en tipo de dato").
+  Ni el original ni el r1 lo vieron. Dejó de leer el código con pura
+  intuición y empezó a leerlo como lo lee el compilador. Es el mayor
+  progreso conceptual del ciclo.
+- Vocabulario consolidado en la línea 3: "instancia", "clase",
+  "parámetros" (el original no reconocía `bark()` como método; el r1
+  ya lo hacía, el r2 lo sostiene sin dudar).
+- `while`: el r1 lo llamaba "condicional while" (un while es un BUCLE,
+  no un condicional). El r2 ya no usa la palabra equivocada.
+- `Integer.parseInt(num)`: explica el mecanismo completo (el String
+  "8" pasa a ser el int 8), sostenido desde el r1.
+- `int[] numList`: el r1 solo observaba que eran pares (irrelevante);
+  el r2 nombra la variable y dice que se inicializa con esos valores.
+
+ERROR QUE SE REPITIÓ (tercera vez consecutiva):
+- Línea `System.out.print("Dog: " + name);` — el original dijo "no
+  recuerdo cómo se llama ese concepto"; el r1 dio el resultado
+  correcto sin nombrar el mecanismo; el r2 avanza un paso más
+  ("Se imprime Dog: Fido debido a que name es equivalente a Fido" —
+  ahora explica de dónde sale el valor) pero SIGUE sin decir la
+  palabra CONCATENACIÓN ni explicar que el `+` entre Strings PEGA
+  texto en vez de sumar. Diagnóstico: no es que no lo entienda —
+  lo opera bien — es que el término nunca se fijó. Causa detectada:
+  ANKI.txt tenía dos tarjetas de casos AVANZADOS de concatenación
+  (1 + 2 + "3", y null concatenado) pero NINGUNA de la definición
+  base. Remedio aplicado: tarjeta base agregada a ANKI.txt.
+
+PRECISIONES MENORES (dichas en el chat, no son errores de fondo):
+- Invirtió parámetro y argumento ("se pasa por parámetros los valores
+  ... para iniciar sus argumentos"). Es al revés: los PARÁMETROS son
+  las variables declaradas en el constructor; los ARGUMENTOS son los
+  valores concretos que se pasan al llamarlo.
+- "variable de tipo array" → el tipo es `int[]`: un arreglo DE enteros.
+- En tres intentos nunca distinguió `print` de `println` (print no
+  salta de línea): por eso "Hello" y "Dog: Fido" salen pegados.
+
+RESULTADO: repaso r2 salió BIEN (12/12 líneas correctas en su
+intención, con una observación que supera al enunciado del propio
+libro). El punto de concatenación queda como ÚNICO pendiente del
+ciclo, atacado por tarjeta de Anki en vez de re-estudio formal: el
+concepto se opera bien, lo que falta es el nombre. Se agenda r3
+(~1 mes después del r2) — es el último del ciclo: si sale bien, el
+ejercicio se GRADÚA.
+
 LIBRO — Sharpen your pencil: "DooBee" — completar el código faltante de un while + if para que coincida con la salida dada (Ubicación pág. 109, Sesión #13) — [x] completado (2026-07-16)
 
 Enunciado (tal cual lo plantea el libro): te dan la salida de un
@@ -975,6 +1025,30 @@ Comparación de Claude: 5 de 5 candidatos correctos, igual que el intento
 original (2026-07-19, también 5/5). Candidato 1→E, 2→G, 3→H, 4→B, 5→D,
 verificado con traza propia vuelta por vuelta. Sin errores nuevos ni
 repetidos: repaso limpio. Se agenda r2 para 2026-08-08.
+
+REPASO r2 (2026-08-25) — entregado en ejercicios/repasos/lib02-r2.md
+(desde cero). Comparación de Claude: 5 de 5 candidatos correctos por
+TERCERA vez consecutiva (original 2026-07-19: 5/5; r1 2026-07-25: 5/5).
+Candidato 1→E, 2→G, 3→H, 4→B, 5→D, verificado otra vez con traza propia
+vuelta por vuelta, sin dar por buena la respuesta anterior.
+
+Las dos trampas del ejercicio siguen resueltas un mes y medio después:
+- Candidato 2 → G: `y` llega a 10 en la última vuelta y la salida pasa
+  a 3 dígitos (410). Descarta F y E, que se quedan en 2 dígitos.
+- Candidato 4 → B: `x` se incrementa DOS veces por vuelta (una en el
+  bloque candidato, otra en la línea fija del while), así que el bucle
+  corre 3 vueltas y no 5. Es el único candidato con salida de 3 grupos.
+
+Sin errores nuevos ni repetidos. Se agenda r3 para 2026-09-26 (el
+2026-09-25 ya estaba ocupado por el r3 de Sharpen your pencil pág.
+80-81 — regla de máximo 1 repaso por día).
+
+OBSERVACIÓN DE MÉTODO: tres entregas perfectas seguidas, sin una sola
+pista, con un mes de separación entre cada una. El repaso ya no está
+enseñando nada: está confirmando. Candidato claro a graduarse en el r3
+y a que sus conceptos (trazar un while vuelta por vuelta, incremento
+doble de la variable de control, concatenación que cambia el ancho de
+la salida) pasen a CONCEPTOS DOMINADOS.
 
 EJERCICIO #08 — BE the Compiler: dos programas con arreglos (A: Books/BooksTestDrive, B: Hobbits) — decir si compilan, si se ejecutan sin excepción, y escribir la versión corregida (Ubicación pág. 245-246, Sesión #42) — [x] completado (2026-07-27)
 Entregado en: ejercicios/ej08-be-the-compiler-arrays/ (BooksTestDrive.java y Hobbits.java)
