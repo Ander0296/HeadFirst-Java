@@ -55,6 +55,31 @@ de cómo* lo hace. Va adentro de un método.
 - [ ] Empiezan en minúscula, por convención: `temperaturaActual`, no
       `TemperaturaActual`. Las clases sí van en mayúscula.
 
+### El emparejamiento estado ↔ comportamiento (va en LAS DOS direcciones)
+
+Una clase es dos mitades que se corresponden. Recorré tu tabla dos
+veces, una por cada dirección:
+
+- [ ] **De method a variable:** por cada method de ACCIÓN que
+      escribiste (`encender()`, `subirVolumen()`, `cambiarCanal()`),
+      señalá con el dedo la instance variable que ese method modifica.
+      Si no existe, el method no tiene dónde escribir: agregala.
+- [ ] **De variable a method:** por cada instance variable que puede
+      CAMBIAR mientras el objeto se usa (`canal`, `encendido`,
+      `volumen`), señalá el method que la cambia. Si solo tenés uno que
+      la lee (`isEncendido()`, `getCanal()`), ese dato quedó congelado
+      para siempre: falta el method que lo escribe.
+- [ ] **Que estén los dos TIPOS de method.** Los getters/setters
+      (`getCanal()`, `setCanal()`) NO reemplazan a los methods de
+      acción (`encender()`, `apagar()`): son otra cosa y conviven. Una
+      clase con puros get/set describe un objeto pero no lo hace
+      funcionar. Contá: ¿tenés al menos un verbo puro, sin `get` ni
+      `set` adelante?
+- [ ] Distinguí el dato FIJO del dato VARIABLE. `marca`, `peso` y
+      `pulgadas` nacen con el objeto y no cambian (getter sí, setter
+      no). `canal`, `volumen` y `encendido` cambian con el uso (esos sí
+      necesitan quién los escriba).
+
 ## Nivel 4 — Los métodos
 
 - [ ] Cada método tiene esta forma:

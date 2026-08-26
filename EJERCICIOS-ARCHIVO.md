@@ -1663,3 +1663,50 @@ repeticiones sin tocar en un mes no son tarea: son ruido.
   lib09 "pilfered references", que sigue vivo y programado.
 - EJERCICIO #12 — Pool Puzzle "Puzzle4" (pág. 312-314, Sesión #57) — abierto 25 días.
   Baja: músculo ya aprobado por otra vía.
+
+============================================================
+
+REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r1 bis) — programado: 2026-07-31 — [x] cumplido (2026-08-25)
+Entregado en: ejercicios/repasos/lib03-television-r1bis.md
+Respuesta del r1 bis — instance variables: marca, pulgadas, canal,
+encendido, hora, peso. Methods: getMarca(), getPulgadas(), setCanal(),
+getCanal(), isEncendido(), setHora(), getHora(), getPeso().
+
+Comparación de Claude: RESULTADO — salió BIEN. Se corrigió el error de
+fondo que venía repitiéndose desde el original. r2 agendado al ciclo
+normal (~2 semanas): 2026-09-09.
+
+MEJORÓ:
+1. DECLARÓ EL ESTADO VARIABLE — la pieza que faltó en el original
+   (intentos 3, 4 y 5) y en el r1: `canal`, `encendido` y `hora` son
+   datos que cambian mientras la tele se usa, no características fijas.
+   En el r1 la lista era toda de datos inmutables (marca, tamaño,
+   resolución, peso, color) y los methods no tenían dónde escribir.
+2. La relación method ↔ instance variable quedó bien armada:
+   setCanal()/getCanal() sobre `canal`, setHora()/getHora() sobre
+   `hora`, isEncendido() sobre `encendido`.
+3. `isEncendido()` con la convención Java de getters booleanos
+   (`isAlgo()`, no `getAlgo()`), sin que se la hubieran enseñado.
+4. getMarca(), getPulgadas() y getPeso() SIN setter: criterio correcto
+   (dato de solo lectura para lo que no cambia).
+
+QUEDÓ FLOJO (nuevo, error ESPEJO del anterior):
+1. `encendido` es una instance variable que NADIE puede modificar: hay
+   isEncendido() que la lee, pero no encender(), apagar() ni
+   setEncendido(). Estado huérfano.
+2. Desaparecieron TODOS los methods de acción (verbos puros). La clase
+   quedó 100% getters/setters: describe la tele pero no la hace
+   funcionar. Ya había pasado en el intento 3 del original — al
+   aprender get/set barre con las acciones. Oscila entre los dos
+   extremos en vez de sostener los dos a la vez. Por ser la SEGUNDA
+   aparición del mismo error, se agregó la sección "El emparejamiento
+   estado ↔ comportamiento" a ToDo/crear-una-clase-java.md.
+3. Se perdió el volumen otra vez (ni variable ni method), igual que en
+   el r1. Detalle menor, pero es el par variable+acción más limpio que
+   tiene una tele.
+4. `hora` como dato propio de la tele: válido, con el matiz de que en
+   un diseño real suele venir del sistema. No es error.
+
+PARA EL PRÓXIMO REPASO (r2) — punto a mirar: que las dos mitades estén
+completas al mismo tiempo. Por cada variable que cambia, el method que
+la escribe; y al menos un verbo puro sin get/set adelante.

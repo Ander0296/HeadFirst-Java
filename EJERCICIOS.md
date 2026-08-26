@@ -1,40 +1,33 @@
 # EJERCICIOS — JAVA (Head First Java, 3ra ed.)
 
-Este archivo guarda SOLO lo VIVO (se lee entero al inicio de cada
-sesión, así que se mantiene corto a propósito): ejercicios [ ]
-pendientes y [~] en curso, repasos programados no cumplidos, y la
-lista CONCEPTOS DOMINADOS.
-
-Todo lo CERRADO (ejercicios [x] completados con su corrección larga,
-repasos ya cumplidos) vive en EJERCICIOS-ARCHIVO.md, que NO se lee al
-inicio: solo consulta puntual para comparar un repaso o re-estudiar.
+Solo lo VIVO (se lee entero al inicio de cada sesión): ejercicios [ ]
+pendientes y [~] en curso, repasos programados no cumplidos y CONCEPTOS
+DOMINADOS. Lo CERRADO (completados con su corrección larga, repasos
+cumplidos) vive en EJERCICIOS-ARCHIVO.md, que NO se lee al inicio.
 
 Dos tipos: (A) DEL LIBRO (Sharpen your pencil, BE the compiler, Code
-Magnets, Pool Puzzle, crucigramas...), los intento a mano ANTES de
-mirar la solución; (B) DEL PROFE, los crea Claude al cerrar un tema o
+Magnets, Pool Puzzle, crucigramas), que el usuario intenta a mano ANTES
+de mirar la solución; (B) DEL PROFE, que crea Claude al cerrar un tema o
 combinando 2-3 conceptos. Código Java en ejercicios/, diagramas en
 diagramas/ (.puml).
 
-Estados: [ ] pendiente  [~] en curso  [x] completado (fecha)
-Corrección escrita acá: MÁXIMO 3 líneas. El detalle va al chat, y al
-completarse el ejercicio se mueve entero a EJERCICIOS-ARCHIVO.md.
+Estados: [ ] pendiente · [~] en curso · [x] completado (fecha).
+Corrección escrita acá: MÁXIMO 3 líneas; el detalle va al chat.
 
-FORMATOS (referencia para Claude — copiar y llenar):
+FORMATOS (copiar y llenar):
 
 EJERCICIO #NN — [tema] (Ubicación pág. X, Sesión #Y) — [ ] pendiente
 Tipo: programa desde cero | completar/corregir código | conceptual | mini-diseño
 Arranque: ejercicios/ejNN-nombre/ | Si te trabás: Sesión #Y de la guía
+
 LIBRO — [nombre] (Ubicación pág. X, Sesión #Y) — [ ] pendiente
 Arranque: ejercicios/libNN-nombre.md | Si te trabás: Sesión #Y de la guía
 
-OJO con los punteros "Si te trabás": decir "de la guía", no
-"de GUIA-JAVA.md". Las sesiones viejas se van moviendo a
-GUIA-ARCHIVO.md, así que un puntero que nombra el archivo concreto
-queda mentiroso solo. Regla: si la sesión no está en GUIA-JAVA.md,
-está en GUIA-ARCHIVO.md.
-
 REPASO — [nombre] (rX) — programado: AAAA-MM-DD — [ ] pendiente
 Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
+
+Los punteros dicen "de la guía", nunca "de GUIA-JAVA.md": las sesiones
+viejas migran a GUIA-ARCHIVO.md y el puntero quedaría mentiroso solo.
 
 # ============================================================
 # EJERCICIOS ABIERTOS
@@ -63,148 +56,129 @@ Arranque: ejercicios/lib07-legal-o-no.md | Si te trabás: Sesión #32 y #33 de G
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
 
+Nota: la corrección COMPLETA de cada intento anterior vive en
+EJERCICIOS-ARCHIVO.md. Acá solo va el "punto a mirar", en 1-2 líneas.
+Criterio vigente (2026-08-25): con 18 vencidos, se atacan por RIESGO
+(los que ya fallaron primero), no por fecha. El archivo de arranque lo
+crea `/repaso` en el momento, uno por día.
+
 REPASO — EJERCICIO #05 Robot (Sesión #25) (r1) — programado: 2026-07-28 — [ ] pendiente
-Arranque: ejercicios/repasos/ej05-robot-r1/ (Robot.java y RobotTestDrive.java)
+Arranque: ejercicios/repasos/ej05-robot-r1/ (Robot.java y RobotTestDrive.java) — YA CREADO
 
 REPASO — EJERCICIO #06 DrumKit (pág. 186) (r1) — programado: 2026-07-29 — [ ] pendiente
-Arranque: ejercicios/repasos/ej06-r1/
-
-REPASO — LIBRO Sharpen your pencil: Television (pág. 162-163) (r1 bis) — programado: 2026-07-31 — [ ] pendiente
-Arranque: ejercicios/repasos/lib03-television-r1bis.md
-El r1 salió MAL: se repitió el error de fondo del original (methods de
-acción sin la instance variable de estado que modifican). Si vuelve a
-fallar → RE-ESTUDIO de "lo que el objeto SABE vs. lo que SABE HACER"
-(Sesión #23/#24 y #25, en GUIA-ARCHIVO.md).
+Arranque: ejercicios/repasos/ej06-r1/ — YA CREADO
 
 REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r1) — programado: 2026-07-31 — [ ] pendiente
-Arranque: ejercicios/repasos/ej08-r1/ (BooksTestDrive.java y Hobbits.java)
-Punto a mirar: que diga "compila SÍ, revienta en ejecución" con el
-nombre de la excepción, y que cuente el arreglo como objeto (4, no 3).
+Arranque: ejercicios/repasos/ej08-r1/ — YA CREADO
+Mirar: que diga "compila SÍ, revienta en ejecución" con el nombre de la
+excepción, y que cuente el arreglo como objeto (4, no 3).
 
 REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r1) — programado: 2026-08-01 — [ ] pendiente
 Arranque: ejercicios/repasos/ej09-r1/TestArrays.java
-Punto a mirar: que las asignaciones de `index[0..3]` queden AFUERA del
-`while` (en el original quedaron adentro, ejecutándose 4 veces de más).
+Mirar: que `index[0..3]` quede AFUERA del `while`.
 
 REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pág. 253-255) (r1) — programado: 2026-08-02 — [ ] pendiente
 Arranque: ejercicios/repasos/lib09-r1.md
-Punto a mirar: que cierre la conclusión (después del bucle de Kate
-queda accesible UN solo Contact, el de la última vuelta) y que no
-confunda el conteo de OBJETOS con el de REFERENCIAS a Contact.
+Mirar: que cierre la conclusión (queda accesible UN solo Contact) y no
+confunda conteo de OBJETOS con conteo de REFERENCIAS.
 
 REPASO — LIBRO "Mixed Messages" (pág. 309-312) (r1) — programado: 2026-08-02 — [ ] pendiente
 Arranque: ejercicios/repasos/lib11-r1.md
-Punto a mirar: que no cuente mal el número de vueltas del bucle (ej.
-i<9 son 9 objetos, índices 0 a 8 — el desliz del intento original).
+Mirar: el conteo de vueltas del bucle (i<9 son 9 objetos, índices 0 a 8).
 
 REPASO — LIBRO "What's legal?" (pág. 305-306) (r1) — programado: 2026-08-03 — [ ] pendiente
 Arranque: ejercicios/repasos/lib10-r1.md
-Punto a mirar: la trampa del byte h = calcArea(4, 20) — la llamada es
-legal, lo ilegal es el int de retorno sin cast entrando en un byte.
+Mirar: la trampa de `byte h = calcArea(4, 20)` — la llamada es legal; lo
+ilegal es el int de retorno sin cast entrando en un byte.
 
 REPASO — EJERCICIO #11 BE the Compiler: XCopy/Clock (pág. 307) (r1) — programado: 2026-08-03 — [ ] pendiente
-Arranque: ejercicios/repasos/ej11-r1/ (XCopy.java y ClockTestDrive.java)
-Punto a mirar: leer bien el valor exacto que pasa setTime() antes de
-anotar el output (la primera vez se equivocó de dígitos: 1234 vs. 1245).
+Arranque: ejercicios/repasos/ej11-r1/
+Mirar: leer el valor exacto que pasa setTime() antes de anotar el output.
 
 REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1) — programado: 2026-08-04 — [ ] pendiente
 Arranque: ejercicios/repasos/lib14-r1.md
-El original necesitó 3 intentos y solución dada por Claude. Punto a
-mirar: el SI de corte pregunta directo por "kill" (uno solo, sin
-anidar) y setLocationCells se ejecuta una sola vez, afuera del while.
+RIESGO ALTO: el original necesitó 3 intentos + solución dada. Mirar: el
+SI de corte pregunta directo por "kill" (uno solo, sin anidar) y
+setLocationCells va una sola vez, afuera del while.
 
 REPASO — EJERCICIO DooBee (pág. 109) (r2) — programado: 2026-08-05 — [ ] pendiente
-Arranque: ejercicios/repasos/ej01-doobee-r2/DooBee.java
+Arranque: ejercicios/repasos/ej01-doobee-r2/DooBee.java — YA CREADO
 
 REPASO — EJERCICIO Code Magnets: Shuffle1 (pág. 121-122) (r2) — programado: 2026-08-06 — [ ] pendiente
-Arranque: ejercicios/repasos/ej03-shuffle1-r2/Shuffle1.java
+Arranque: ejercicios/repasos/ej03-shuffle1-r2/Shuffle1.java — YA CREADO
 
 REPASO — EJERCICIO BottleSong (pág. 111) (r2) — programado: 2026-08-09 — [ ] pendiente
-Arranque: ejercicios/repasos/ej02-bottlesong-r2/BottleSong.java
-El r1 salió BIEN y a la primera (el original había llevado 5 intentos).
-Punto a mirar: que resuelva en BottleSong.java, no en un archivo
-"TestDrive" (en el r1 usó ese nombre sin haber otra clase que probar).
+Arranque: ejercicios/repasos/ej02-bottlesong-r2/BottleSong.java — YA CREADO
+Mirar: que resuelva en BottleSong.java, no en un "TestDrive".
 
 REPASO — LIBRO "BE the JVM" (pág. 378-380) (r1) — programado: 2026-08-10 — [ ] pendiente
 Arranque: ejercicios/repasos/lib16-r1.md
-El original necesitó 2 pistas: no contaba que `++value` muta la
-variable aparte de la `value++` de arriba (2 incrementos por vuelta,
-no 1), y dudaba si `++value` en un print era una mutación real o solo
-un cálculo para imprimir. Punto a mirar: que arme la tabla vuelta por
-vuelta sin ayuda y llegue a "13 15 i = 6" solo.
+RIESGO: el original necesitó 2 pistas. Mirar: que arme la tabla vuelta
+por vuelta solo y llegue a "13 15 i = 6" (`++value` muta la variable:
+son 2 incrementos por vuelta, no 1).
 
 REPASO — LIBRO "Yours to solve" bug SimpleStartupGame (pág. 365-367) (r1) — programado: 2026-08-11 — [ ] pendiente
 Arranque: ejercicios/repasos/lib15-r1.md
-El original necesitó varios intentos (NPE, comparación por índice,
-sumar sin chequear repetidos). Punto a mirar: el arreglo paralelo de
-"ya contado" y chequearlo ANTES de sumar a numOfHits.
+RIESGO ALTO: el original necesitó varios intentos (NPE, comparación por
+índice, sumar sin chequear repetidos). Mirar: el arreglo paralelo de "ya
+contado", chequeado ANTES de sumar a numOfHits.
 
 REPASO — LIBRO Sharpen your pencil: "ArrayList vs. arreglo común" (pág. 407) (r1) — programado: 2026-08-12 — [ ] pendiente
 Arranque: ejercicios/repasos/lib19-r1.md
-El original salió en 2 intentos. Puntos a mirar: (1) el enhanced for
-CON el tipo de la variable — fue el único error que se repitió entre
-los dos intentos; (2) `boolean isIn = false;` inicializado, si no es
-error de compilación; (3) que traduzca size() a `length` de una línea,
-sin armar un bucle contador.
+Mirar: (1) el enhanced for CON el tipo de la variable (único error
+repetido en los dos intentos); (2) `boolean isIn = false;` inicializado;
+(3) size() → `length` en una línea, sin bucle contador.
 
 REPASO — LIBRO "Annotate the code yourself!" StartupBust (pág. 430-433) (r1) — programado: 2026-08-15 — [ ] pendiente
 Arranque: ejercicios/repasos/lib20-r1.md
-El original salió PERFECTO (21/21, sin pistas). Puntos a mirar: los dos
-break (15 = salir tras un hit; 16 = remove + salir tras un kill) y el
-par 5/6 (pedirle la ubicación al helper vs. pasársela a la Startup).
+El original salió PERFECTO (21/21). Mirar: los dos break (15 = salir tras
+un hit; 16 = remove + salir tras un kill) y el par 5/6.
 
 REPASO — LIBRO BE the Compiler (pág. 123) (r3) — programado: 2026-08-16 — [ ] pendiente
 Arranque: ejercicios/repasos/lib01-r3.md
-RE-ESTUDIO ACTIVO (el archivo C falló en el r1 y en el r2). El
-EJERCICIO #14 ya está entregado (2026-08-13) y salió bien: DESBLOQUEADO.
-Antes de hacerlo, releer la Sesión #09/#10 de la guía. Punto a mirar:
-que la causa de C sea "el while está suelto dentro de la clase, le
-falta ALGÚN método que lo envuelva" — NO "le falta el main". Una clase
-sin main compila.
+RIESGO ALTO — RE-ESTUDIO ACTIVO (el archivo C falló en r1 y r2). Releer
+antes la Sesión #09/#10. Mirar: la causa de C es "el while está suelto
+dentro de la clase, le falta ALGÚN método que lo envuelva", NO "le falta
+el main" (una clase sin main compila). Desbloqueado desde 2026-08-13.
 
 REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r1) — programado: 2026-08-17 — [ ] pendiente
-Arranque: ejercicios/repasos/ej14-r1/ (Termometro.java y TermometroTestDrive.java)
-El original salió bien en 2 entregas. Puntos a mirar: (1) la variable de
-instancia en `private`, que en el original quedó `public`; (2) que el
-método que imprime NO se llame `getEstado()` — `get` promete devolver
-algo y ese método es `void`; (3) la división: `celsius * 9 / 5 + 32` sin
-paréntesis alrededor del `9 / 5` (con paréntesis da 1 y arruina la
-cuenta); (4) el límite: menor a 15 → frío, si no → calor (el original
-dejó los 15 exactos del lado equivocado).
+Arranque: ejercicios/repasos/ej14-r1/
+Mirar: (1) la variable de instancia en `private`; (2) que el método que
+imprime no se llame `getEstado()` (`get` promete devolver algo); (3)
+`celsius * 9 / 5 + 32` sin paréntesis en el `9 / 5`; (4) el límite:
+menor a 15 → frío, si no → calor.
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r2) — programado: 2026-09-07 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r2.md
-El r1 salió BIEN en lo técnico (diagnóstico y los dos arreglos), y NO
-repitió los errores de sintaxis del original. Punto a mirar: que
-entregue las DOS mitades del enunciado (diagnóstico Y arreglo escrito
-en código) sin que haya que pedírselas — eso ya falló dos veces.
+Mirar: que entregue las DOS mitades (diagnóstico Y arreglo escrito en
+código) sin que haya que pedírselas — ya falló dos veces.
 Checklist: ToDo/entregar-un-ejercicio.md
 
 REPASO — LIBRO Sharpen your pencil: "Movie objects" (pág. 170-173) (r2) — programado: 2026-09-08 — [ ] pendiente
 Arranque: ejercicios/repasos/lib04-r2.md
-El r1 salió PERFECTO (3/3) y corrigió el único detalle del original
-("Byte Club" con mayúsculas). Punto a mirar: que `two.playIt()` no
-cambia ningún valor — imprime y nada más; y que cada objeto conserva
-sus propios valores.
+El r1 salió PERFECTO. Mirar: que `two.playIt()` no cambia ningún valor, y
+que cada objeto conserva los suyos.
+
+REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r2) — programado: 2026-09-09 — [ ] pendiente
+Arranque: ejercicios/repasos/lib03-television-r2.md
+El r1 bis salió BIEN (murió el error de fondo: ya declara estado
+VARIABLE). Mirar el error ESPEJO que apareció: dejó `encendido` sin
+method que la cambie y la clase quedó 100% get/set, sin un verbo puro.
+Checklist: ToDo/crear-una-clase-java.md ("emparejamiento estado ↔
+comportamiento").
 
 REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3) — programado: 2026-09-25 — [ ] pendiente
 Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md
-ÚLTIMO DEL CICLO: si sale bien, el ejercicio se GRADÚA. El r2 salió
-BIEN, con un salto propio (detectó que `x` se usa sin declarar, algo
-que ni el original ni el r1 vieron). Punto a mirar, el único que falló
-las TRES veces: que al llegar a `"Dog: " + name` diga la palabra
-CONCATENACIÓN y explique que el `+` entre Strings PEGA texto en vez de
-sumar.
+ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Mirar el único punto que falló
+las TRES veces: que en `"Dog: " + name` diga la palabra CONCATENACIÓN y
+explique que el `+` entre Strings pega texto en vez de sumar.
 
 REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 — [ ] pendiente
 Arranque: ejercicios/repasos/lib02-r3.md
-ÚLTIMO DEL CICLO: si sale bien, el ejercicio se GRADÚA. Salió 5/5
-PERFECTO las tres veces (original, r1 y r2), sin una sola pista.
-Punto a mirar: que vuelva a TRAZAR el bucle vuelta por vuelta en vez
-de contestar de memoria — si acierta recitando, el repaso no midió
-nada. Las dos trampas: el candidato donde `y` llega a 10 (la salida
-pasa a 3 dígitos) y el candidato donde `x` sube DOS veces por vuelta
-(el bucle corre 3 vueltas, no 5).
+ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Salió 5/5 las tres veces. Mirar:
+que TRACE el bucle vuelta por vuelta y no conteste de memoria. Trampas:
+el candidato donde `y` llega a 10 (salida de 3 dígitos) y el candidato
+donde `x` sube DOS veces por vuelta (3 vueltas, no 5).
 
 # ============================================================
 # CONCEPTOS DOMINADOS (entran al graduarse un ejercicio con r3 bien)
