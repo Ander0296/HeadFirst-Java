@@ -96,7 +96,7 @@ Arranque: ejercicios/repasos/ej11-r1/
 Mirar: leer el valor exacto que pasa setTime() antes de anotar el output.
 
 REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1) — programado: 2026-08-04 — [ ] pendiente
-Arranque: ejercicios/repasos/lib14-r1.md
+Arranque: ejercicios/repasos/lib14-r1.md — YA CREADO (incluye la spec de SimpleStartup: locationCells, numOfHits, setLocationCells, checkYourself)
 RIESGO ALTO: el original necesitó 3 intentos + solución dada. Mirar: el
 SI de corte pregunta directo por "kill" (uno solo, sin anidar) y
 setLocationCells va una sola vez, afuera del while.

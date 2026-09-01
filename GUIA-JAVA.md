@@ -8,12 +8,12 @@ Ejercicios: ver EJERCICIOS.md.
 ## INICIO RÁPIDO
 
 - Última página: 445 de 1629 (26%) — paquetes, nombre completo e `import`; `java.lang` es el único automático; `static final` = constante. Ver Sesión #81. **Próximo: pág. 446.** Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #81** (tanda). Del 2026-08-24 al 2026-08-25 no hubo tandas: repasos y triage (java-s56 a s60).
-- PRÓXIMA SESIÓN: `/rename java-s61`
+- Última sesión: **Sesión #81** (tanda). Del 2026-08-24 al 2026-09-01 no hubo tandas: repasos y triage (java-s56 a s61).
+- PRÓXIMA SESIÓN: `/rename java-s62`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s60.)
+  de las tandas. La última cerrada fue java-s61.)
 - Ejercicios pendientes: 6 (5 obligatorios: lib07, lib12, lib13, ej13, lib17 · 1 opcional: lib18). Detalle y repasos: EJERCICIOS.md.
-- ⚠ **18 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha (decidido 2026-08-25). 6 ya tienen archivo de arranque; el resto lo crea `/repaso` en el momento. Saldado el 2026-08-25: lib03 Television r1 bis, BIEN.
+- ⚠ **18 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha (decidido 2026-08-25). 7 ya tienen archivo de arranque (lib14-r1 se creó el 2026-09-01, sin entregar); el resto lo crea `/repaso` en el momento.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-08-25** — DECISIONES ABIERTAS sin aplicar: bajas propuestas de lib07 (redundante con lib10 ya completado) y lib12 (lectura pura, 26 días); y del backlog de páginas, baja de 428, 431 y 434-435 (cubiertas) más decidir 440 y 444. Quedan 47 páginas sin triagear.
 - Último examen (`/examen`): nunca todavía — nunca hubo uno en 81 sesiones, conviene arrancar una sesión con eso.
