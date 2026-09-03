@@ -1757,3 +1757,48 @@ CONSECUENCIA: segundo fallo seguido (el original no pasó solo, se le dio
 la solución; el r1 salió mal) → RE-ESTUDIO. Re-agendado como r1 bis para
 2026-09-05, con relectura previa de la Sesión #64. Checklist nuevo creado
 a partir de este error: ToDo/un-bucle-que-termina.md.
+
+# ------------------------------------------------------------
+EJERCICIO #15 — "Agenda de contactos" (ejercicio del profe, salido del
+examen en frío del 2026-09-02) — [x] completado 2026-09-02
+Archivos: ejercicios/ej15-agenda/Agenda.java y AgendaTestDrive.java
+Repaso r1 agendado: 2026-09-06
+
+RESULTADO: BIEN. Los tres puntos que se cayeron en el examen quedaron
+resueltos escribiendo de cero, sin pistas.
+
+BIEN:
+1. Recorrido de ArrayList correcto: `i < nombres.size()` y
+   `nombres.get(i)` en el for clásico. En el examen, escribiendo de
+   cero, había puesto `.length` y `[i]` sobre un ArrayList — el error
+   que motivó el ejercicio. No se repitió.
+2. `import java.util.ArrayList;` solo, sin recordatorio.
+3. `private ArrayList<String> nombres = new ArrayList<String>();`:
+   escondida Y creada en la misma línea (sin el `new` habría NPE en el
+   primer add).
+4. `cuantos()` DEVUELVE `nombres.size()`, no imprime.
+5. `listarSimple()`: enhanced for con el tipo adelante
+   (`for (String nombre : nombres)`) — el error repetido de lib19 tampoco
+   apareció.
+6. Validación de `agregar()` escrita por él, que es el motivo del private.
+7. Extra no pedido y bien pensado: `borrar()` chequea `contains()` antes
+   y avisa en vez de fallar en silencio.
+
+MAL:
+1. BUG REAL en `listarConIndice()`: `System.out.print(nombres.indexOf(
+   nombres.get(i)))` en vez de imprimir `i`. Da la vuelta larga (saca el
+   elemento y le pregunta a la lista dónde está) y, con nombres
+   repetidos, `indexOf` devuelve siempre la PRIMERA aparición: dos "Ana"
+   imprimirían "0 - Ana / 0 - Ana". Con nombres distintos el bug queda
+   invisible.
+2. `if (nombres.contains(nombre) == true)`: `== true` redundante sobre un
+   método que ya devuelve boolean. En `agregar()` lo había hecho bien
+   (`if (!nombre.equals(""))`).
+3. Tres `System.out.print` donde iba uno con concatenación:
+   `System.out.println(i + " - " + nombres.get(i));`.
+4. Menores: "Nombre invalido" sin el punto final que pedía el enunciado;
+   `nombre.equals("")` explota con `agregar(null)` (NOTA DEL PROFE: en el
+   trabajo real va `"".equals(nombre)` o `isEmpty()`).
+
+CONSECUENCIA: checklist ToDo/recorrer-una-coleccion.md actualizado con el
+punto de `indexOf` (§3), que no cubría.

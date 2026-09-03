@@ -27,6 +27,12 @@ repetido: se reconoce leyendo, se falla escribiendo.
 - [ ] Arreglo → `x[i]` (corchetes).
 - [ ] ArrayList → `x.get(i)` (método). `x[i]` en un ArrayList **no
       compila**: los corchetes son sintaxis de arreglo, no de objeto.
+- [ ] Si necesitás el NÚMERO de posición dentro del bucle, usá `i`
+      directo. Nunca `x.indexOf(x.get(i))`: eso saca el elemento y
+      después le pregunta a la lista dónde está, y `indexOf` devuelve
+      **la primera aparición** de ese valor. Con elementos repetidos
+      imprime el número equivocado y el bug queda invisible mientras
+      todos los elementos sean distintos.
 
 ## 4. Si usás el `for` mejorado (el de los dos puntos)
 

@@ -76,3 +76,44 @@
  ejecutar: <pega aca lo que te dijo javac/java>
  ------------------------------------------------------------------
 */
+
+import java.util.ArrayList;
+
+public class Agenda {
+    private ArrayList<String> nombres = new ArrayList<String>();
+
+    public void agregar(String nombre) {
+        if (!nombre.equals("")) {
+            nombres.add(nombre);
+        } else {
+            System.out.println("Nombre invalido");
+        }
+    }
+
+    public void borrar(String nombre) {
+        if (nombres.contains(nombre) == true) {
+            nombres.remove(nombre);
+        } else {
+            System.out.println("Nombre incorrecto");
+        }
+
+    }
+
+    public int cuantos() {
+        return nombres.size();
+    }
+
+    public void listarConIndice() {
+        for (int i = 0; i < nombres.size(); i++) {
+            System.out.print(nombres.indexOf(nombres.get(i)));
+            System.out.print(" - ");
+            System.out.println(nombres.get(i));
+        }
+    }
+
+    public void listarSimple() {
+        for (String nombre : nombres) {
+            System.out.println(nombre);
+        }
+    }
+}

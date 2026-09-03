@@ -23,11 +23,6 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # EJERCICIOS ABIERTOS
 # ============================================================
 
-EJERCICIO #15 — "Agenda de contactos": clase con lista que crece, variable de instancia escondida con validación, y el mismo recorrido con for clásico y for mejorado (ejercicio del profe, sale del examen del 2026-09-02) — [ ] pendiente
-Tipo: programa desde cero
-Arranque: ejercicios/ej15-agenda/Agenda.java | Si te trabás: Sesión #78 a #81 y #22 a #25 de la guía
-Checklist: ToDo/recorrer-una-coleccion.md
-
 EJERCICIO #13 — Code Magnets: "MultiFor" — reconstruir un programa desordenado con dos for anidados e incremento/decremento para que dé la salida pedida (Ubicación pág. 380-382, Sesión #71) — [ ] pendiente
 Tipo: completar/corregir código
 Arranque: ejercicios/ej13-code-magnets-multifor/MultiFor.java | Si te trabás: Sesión #68 y #69 de la guía
@@ -157,6 +152,15 @@ vueltas; guardar lo que devuelve checkYourself() en una variable en vez
 de llamarlo una vez por comparación; construir el array de 3 celdas
 antes de setLocationCells.
 Checklist: ToDo/un-bucle-que-termina.md
+
+REPASO — EJERCICIO #15 "Agenda de contactos" (r1) — programado: 2026-09-06 — [ ] pendiente
+Arranque: ejercicios/repasos/ej15-r1/ (lo crea `/repaso`)
+El original salió BIEN (recorrido de ArrayList correcto, `cuantos()`
+devuelve, enhanced for con tipo). Mirar: (1) que imprima `i` y NO
+`indexOf(get(i))` en el for clásico; (2) que no escriba `== true` sobre
+un método que ya devuelve boolean; (3) que use concatenación en un solo
+println en vez de tres print.
+Checklist: ToDo/recorrer-una-coleccion.md
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r2) — programado: 2026-09-07 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r2.md
