@@ -49,3 +49,6 @@ técnica no hay compilador.
 - [Un bucle que termina](un-bucle-que-termina.md) — qué señalar con el
   dedo en cualquier bucle: la línea que lo apaga, el contador que cuenta
   lo que dice el mensaje final, y el valor devuelto guardado una sola vez.
+- [Recorrer un arreglo o un ArrayList](recorrer-una-coleccion.md) — qué
+  cambia entre `length`/`[i]` y `size()`/`get(i)`, el tipo del for
+  mejorado, y el `null` de las casillas vacías.

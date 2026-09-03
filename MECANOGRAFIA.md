@@ -410,3 +410,9 @@ private static final int GRID_SIZE = 49; declara una constante que ningún objet
 
 s81b — el import:
 Escribí import java.util.ArrayList; arriba de todo y después usá el nombre corto.
+
+s81c — recorrer una lista:
+En un ArrayList escribí lista.size() y lista.get(i); los corchetes son solo para arreglos.
+
+s81d — el valor por defecto:
+Las casillas vacías de un arreglo de objetos valen null, y nunca cero.

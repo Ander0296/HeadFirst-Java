@@ -1,18 +1,11 @@
 # EJERCICIOS — JAVA (Head First Java, 3ra ed.)
 
-Solo lo VIVO (se lee entero al inicio de cada sesión): ejercicios [ ]
-pendientes y [~] en curso, repasos programados no cumplidos y CONCEPTOS
-DOMINADOS. Lo CERRADO (completados con su corrección larga, repasos
-cumplidos) vive en EJERCICIOS-ARCHIVO.md, que NO se lee al inicio.
-
-Dos tipos: (A) DEL LIBRO (Sharpen your pencil, BE the compiler, Code
-Magnets, Pool Puzzle, crucigramas), que el usuario intenta a mano ANTES
-de mirar la solución; (B) DEL PROFE, que crea Claude al cerrar un tema o
-combinando 2-3 conceptos. Código Java en ejercicios/, diagramas en
-diagramas/ (.puml).
-
-Estados: [ ] pendiente · [~] en curso · [x] completado (fecha).
-Corrección escrita acá: MÁXIMO 3 líneas; el detalle va al chat.
+Solo lo VIVO: pendientes [ ], en curso [~], repasos no cumplidos y
+CONCEPTOS DOMINADOS. Lo cerrado (con su corrección larga) vive en
+EJERCICIOS-ARCHIVO.md, que NO se lee al inicio. Estados: [ ] · [~] ·
+[x] (fecha). Corrección escrita acá: MÁXIMO 3 líneas, el detalle al chat.
+Los punteros dicen "de la guía", nunca "de GUIA-JAVA.md": las sesiones
+viejas migran a GUIA-ARCHIVO.md y el puntero quedaría mentiroso solo.
 
 FORMATOS (copiar y llenar):
 
@@ -26,12 +19,14 @@ Arranque: ejercicios/libNN-nombre.md | Si te trabás: Sesión #Y de la guía
 REPASO — [nombre] (rX) — programado: AAAA-MM-DD — [ ] pendiente
 Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 
-Los punteros dicen "de la guía", nunca "de GUIA-JAVA.md": las sesiones
-viejas migran a GUIA-ARCHIVO.md y el puntero quedaría mentiroso solo.
-
 # ============================================================
 # EJERCICIOS ABIERTOS
 # ============================================================
+
+EJERCICIO #15 — "Agenda de contactos": clase con lista que crece, variable de instancia escondida con validación, y el mismo recorrido con for clásico y for mejorado (ejercicio del profe, sale del examen del 2026-09-02) — [ ] pendiente
+Tipo: programa desde cero
+Arranque: ejercicios/ej15-agenda/Agenda.java | Si te trabás: Sesión #78 a #81 y #22 a #25 de la guía
+Checklist: ToDo/recorrer-una-coleccion.md
 
 EJERCICIO #13 — Code Magnets: "MultiFor" — reconstruir un programa desordenado con dos for anidados e incremento/decremento para que dé la salida pedida (Ubicación pág. 380-382, Sesión #71) — [ ] pendiente
 Tipo: completar/corregir código
@@ -122,6 +117,10 @@ Arranque: ejercicios/repasos/lib19-r1.md
 Mirar: (1) el enhanced for CON el tipo de la variable (único error
 repetido en los dos intentos); (2) `boolean isIn = false;` inicializado;
 (3) size() → `length` en una línea, sin bucle contador.
+PRIORIDAD ALTA tras el examen del 2026-09-02: escribiendo de cero puso
+`nombres.length` y `nombres[i]` sobre un ArrayList (en frío lo reconoce
+leyendo, pero lo falla escribiendo). Mirar también eso.
+Checklist: ToDo/recorrer-una-coleccion.md
 
 REPASO — LIBRO "Annotate the code yourself!" StartupBust (pág. 430-433) (r1) — programado: 2026-08-15 — [ ] pendiente
 Arranque: ejercicios/repasos/lib20-r1.md
@@ -141,6 +140,11 @@ Mirar: (1) la variable de instancia en `private`; (2) que el método que
 imprime no se llame `getEstado()` (`get` promete devolver algo); (3)
 `celsius * 9 / 5 + 32` sin paréntesis en el `9 / 5`; (4) el límite:
 menor a 15 → frío, si no → calor.
+Del examen del 2026-09-02: sabe que la variable va escondida, pero no
+dice PARA QUÉ (el método valida antes de asignar) ni que el método
+puede cambiar por dentro sin romper a quien lo llama. Mirar que el
+método que asigna tenga un chequeo, y que `getX()` devuelva en vez de
+imprimir.
 
 REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1 bis) — programado: 2026-09-05 — [ ] pendiente
 Arranque: ejercicios/repasos/lib14-r1bis.md (lo crea `/repaso`)
