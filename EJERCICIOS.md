@@ -112,32 +112,22 @@ Mirar: (1) la variable de instancia en `private`; (2) que el método que
 imprime no se llame `getEstado()` (`get` promete devolver algo); (3)
 `celsius * 9 / 5 + 32` sin paréntesis en el `9 / 5`; (4) el límite:
 menor a 15 → frío, si no → calor.
-Del examen del 2026-09-02: sabe que la variable va escondida, pero no
-dice PARA QUÉ (el método valida antes de asignar) ni que el método
-puede cambiar por dentro sin romper a quien lo llama. Mirar que el
-método que asigna tenga un chequeo, y que `getX()` devuelva en vez de
-imprimir.
+Del examen 2026-09-02: sabe que la variable va escondida pero no PARA
+QUÉ. Mirar que el método que asigna tenga un chequeo.
 
 REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1 bis) — programado: 2026-09-05 — [ ] pendiente
 Arranque: ejercicios/repasos/lib14-r1bis.md (lo crea `/repaso`)
-RE-ESTUDIO ACTIVO (segundo fallo seguido: el original necesitó solución
-dada, el r1 salió mal). Releer antes la Sesión #64 de la guía.
-Mirar el error espejo del corte del bucle: en el r1 no había NINGUNA
-línea que apagara el "MIENTRAS siga vivo". Y además: contar
-numOfGuesses (no numOfHits, que es de SimpleStartup) en TODAS las
-vueltas; guardar lo que devuelve checkYourself() en una variable en vez
-de llamarlo una vez por comparación; construir el array de 3 celdas
-antes de setLocationCells.
-Checklist: ToDo/un-bucle-que-termina.md
+RE-ESTUDIO ACTIVO (2do fallo seguido). Releer antes la Sesión #64.
+Mirar: (1) una línea que apague el "MIENTRAS siga vivo"; (2) contar
+numOfGuesses, no numOfHits; (3) guardar el retorno de checkYourself()
+en una variable; (4) crear el array de 3 celdas antes de
+setLocationCells. Checklist: ToDo/un-bucle-que-termina.md
 
 REPASO — EJERCICIO #15 "Agenda de contactos" (r1) — programado: 2026-09-06 — [ ] pendiente
 Arranque: ejercicios/repasos/ej15-r1/ (lo crea `/repaso`)
-El original salió BIEN (recorrido de ArrayList correcto, `cuantos()`
-devuelve, enhanced for con tipo). Mirar: (1) que imprima `i` y NO
-`indexOf(get(i))` en el for clásico; (2) que no escriba `== true` sobre
-un método que ya devuelve boolean; (3) que use concatenación en un solo
-println en vez de tres print.
-Checklist: ToDo/recorrer-una-coleccion.md
+El original salió BIEN. Mirar: (1) imprimir `i`, no `indexOf(get(i))`;
+(2) sin `== true` sobre un método que ya devuelve boolean; (3) un solo
+println con concatenación. Checklist: ToDo/recorrer-una-coleccion.md
 
 REPASO — LIBRO "ArrayList vs. arreglo común" (pág. 407) (r1 bis) — programado: 2026-09-06 — [ ] pendiente
 Arranque: ejercicios/repasos/lib19-r1bis.md (lo crea `/repaso`)
@@ -146,13 +136,10 @@ perfecta) y comparó SOLO una posición en vez de recorrer todo el
 arreglo en "contains" (fila 9). Checklist: ToDo/recorrer-una-coleccion.md.
 
 REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) — programado: 2026-09-06 — [ ] pendiente
-Arranque: lo crea `/repaso` en el momento (no tiene carpeta propia: es
-conceptual, no un ejercicio de código)
-Salió FLOJO en el examen del 2026-09-03 (java-s65): explicó bien qué
-hace falta para COMPILAR, pero para ARRANCAR mezcló "la clase que se
-ejecuta" con "el método específico que busca la JVM dentro de esa
-clase" — no lo separó con precisión. Se sacó de CONCEPTOS DOMINADOS
-hasta que esto se sostenga en frío otra vez.
+Arranque: lo crea `/repaso` (es conceptual, sin carpeta propia)
+Flojo en el examen del 2026-09-03: para ARRANCAR mezcló "la clase que
+se ejecuta" con "el método que la JVM busca dentro de esa clase".
+Mirar que separe las dos cosas. Salió de CONCEPTOS DOMINADOS.
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r2) — programado: 2026-09-07 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r2.md
@@ -167,11 +154,9 @@ que cada objeto conserva los suyos.
 
 REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r2) — programado: 2026-09-09 — [ ] pendiente
 Arranque: ejercicios/repasos/lib03-television-r2.md
-El r1 bis salió BIEN (murió el error de fondo: ya declara estado
-VARIABLE). Mirar el error ESPEJO que apareció: dejó `encendido` sin
-method que la cambie y la clase quedó 100% get/set, sin un verbo puro.
-Checklist: ToDo/crear-una-clase-java.md ("emparejamiento estado ↔
-comportamiento").
+El r1 bis salió BIEN. Mirar el error ESPEJO: dejó `encendido` sin
+método que la cambie, la clase quedó 100% get/set sin un verbo puro.
+Checklist: ToDo/crear-una-clase-java.md.
 
 REPASO — LIBRO "Yours to solve" bug SimpleStartupGame (pág. 365-367) (r2) — programado: 2026-09-17 — [ ] pendiente
 Arranque: ejercicios/repasos/lib15-r2.md (lo crea `/repaso`)
