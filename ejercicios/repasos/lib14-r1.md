@@ -80,12 +80,21 @@ You took 4 guesses  (te llevó 4 intentos)
 
 - MÉTODO `public static void main(String[] args)`
 - DECLARAR una variable `int` para contar los intentos del usuario, llamada `numOfGuesses`
+- DECLARAR una variable de tipo SimpleStartup llamada startup para que sea el molde de la clase
 - CALCULAR un número al azar entre 0 y 4 — la posición donde arranca el `SimpleStartup` (el array de ubicaciones son 3 celdas consecutivas)
+- LLAMAR el método setLocationCells() con el operador punto y el objeto startup
 - MIENTRAS el Startup siga vivo:
 - PEDIR input del usuario por la línea de comandos
+- LLAMAR el método checkYourself() para recibir el intento del usuario
+- COMPARAR checkYourself es igual a "hit"
+  - AUMENTAR la variable numOfHits en 1
+  - ESCRIBIR un mensaje que indique que acertó
+- COMPARAR checkYourself es igual a "kill"
+  - ESCRIBIR cuantos intentos le tomó al usuario
+- COMPARAR checkYourself es igual a miss
+  - ESCRIBIR un mensaje que indique que ha fallado 
+-------------------------------
 
-
-## Pistas si te trabás
 
 Repasá el prep code de `checkYourself()` (Sesión #61 y #63 de
 GUIA-JAVA.md): mismo estilo de palabras en mayúscula. Pensá en un bucle

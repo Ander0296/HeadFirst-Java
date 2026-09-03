@@ -1710,3 +1710,50 @@ QUEDÓ FLOJO (nuevo, error ESPEJO del anterior):
 PARA EL PRÓXIMO REPASO (r2) — punto a mirar: que las dos mitades estén
 completas al mismo tiempo. Por cada variable que cambia, el method que
 la escribe; y al menos un verbo puro sin get/set adelante.
+
+============================================================
+
+REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1) — cumplido 2026-09-02 (sesión java-s62) — RESULTADO: MAL
+Arranque: ejercicios/repasos/lib14-r1.md
+
+MEJORÓ respecto del original:
+1. El SI de corte ya no se contradice. El error de fondo del original
+   (corte anidado de forma contradictoria, que rompía en casos
+   incompatibles) desapareció: ahora hay tres comparaciones planas y
+   mutuamente excluyentes (hit / kill / miss), cada una con su acción.
+2. Cero rastros del patrón de SimpleStartupTestDrive (array de
+   "respuestas", variable de resultado esperado). Distingue bien clase
+   de TEST vs. juego con humano en vivo.
+3. Longitud en rango: 15 líneas sin contar llaves (el libro pide 12-18).
+
+FALLÓ (lo que impide que el juego funcione):
+1. ERROR ESPEJO del original — el bucle NO TERMINA NUNCA. Escribió
+   "MIENTRAS el Startup siga vivo" y ninguna línea de adentro vuelve
+   falsa esa condición: en "kill" imprime el total y sigue. Antes
+   cortaba de más (en cualquier resultado), ahora no corta nunca. El
+   concepto "quién apaga el bucle" sigue sin estar.
+2. Contador equivocado: `AUMENTAR numOfHits en 1`, y solo en la rama
+   "hit". Dos problemas: numOfHits es variable de instancia de
+   SimpleStartup (el juego no la toca — encapsulamiento), y el juego
+   cuenta INTENTOS, no aciertos (la salida esperada es "You took 4
+   guesses" con un miss incluido). Declaró numOfGuesses y nunca la usó.
+3. No guarda el retorno de checkYourself(): lo escribe cuatro veces
+   (una llamada + tres comparaciones), es decir cuatro ejecuciones del
+   método por vuelta, cada una consumiendo un intento. Además invirtió
+   la dirección de los datos ("LLAMAR checkYourself() para recibir el
+   intento del usuario": el método RECIBE el intento y DEVUELVE el
+   resultado).
+4. REGRESIÓN respecto del original: desapareció el array de 3 celdas
+   consecutivas. Llama a setLocationCells() sin construir nada que
+   pasarle. En el original había deducido solo (punto BIEN de aquella
+   vez) que el número al azar era la primera celda y las otras dos
+   salían de sumarle.
+5. Menores: "declarar una variable de tipo SimpleStartup para que sea el
+   MOLDE de la clase" (invertido: la clase es el molde, el objeto sale
+   del molde) y falta el paso de CREAR el objeto, que en el original sí
+   estaba. Última comparación con `miss` sin comillas.
+
+CONSECUENCIA: segundo fallo seguido (el original no pasó solo, se le dio
+la solución; el r1 salió mal) → RE-ESTUDIO. Re-agendado como r1 bis para
+2026-09-05, con relectura previa de la Sesión #64. Checklist nuevo creado
+a partir de este error: ToDo/un-bucle-que-termina.md.

@@ -58,7 +58,7 @@ Arranque: ejercicios/lib07-legal-o-no.md | Si te trabás: Sesión #32 y #33 de G
 
 Nota: la corrección COMPLETA de cada intento anterior vive en
 EJERCICIOS-ARCHIVO.md. Acá solo va el "punto a mirar", en 1-2 líneas.
-Criterio vigente (2026-08-25): con 18 vencidos, se atacan por RIESGO
+Criterio vigente (2026-08-25): con ~17 vencidos, se atacan por RIESGO
 (los que ya fallaron primero), no por fecha. El archivo de arranque lo
 crea `/repaso` en el momento, uno por día.
 
@@ -94,12 +94,6 @@ ilegal es el int de retorno sin cast entrando en un byte.
 REPASO — EJERCICIO #11 BE the Compiler: XCopy/Clock (pág. 307) (r1) — programado: 2026-08-03 — [ ] pendiente
 Arranque: ejercicios/repasos/ej11-r1/
 Mirar: leer el valor exacto que pasa setTime() antes de anotar el output.
-
-REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1) — programado: 2026-08-04 — [ ] pendiente
-Arranque: ejercicios/repasos/lib14-r1.md — YA CREADO (incluye la spec de SimpleStartup: locationCells, numOfHits, setLocationCells, checkYourself)
-RIESGO ALTO: el original necesitó 3 intentos + solución dada. Mirar: el
-SI de corte pregunta directo por "kill" (uno solo, sin anidar) y
-setLocationCells va una sola vez, afuera del while.
 
 REPASO — EJERCICIO DooBee (pág. 109) (r2) — programado: 2026-08-05 — [ ] pendiente
 Arranque: ejercicios/repasos/ej01-doobee-r2/DooBee.java — YA CREADO
@@ -147,6 +141,18 @@ Mirar: (1) la variable de instancia en `private`; (2) que el método que
 imprime no se llame `getEstado()` (`get` promete devolver algo); (3)
 `celsius * 9 / 5 + 32` sin paréntesis en el `9 / 5`; (4) el límite:
 menor a 15 → frío, si no → calor.
+
+REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1 bis) — programado: 2026-09-05 — [ ] pendiente
+Arranque: ejercicios/repasos/lib14-r1bis.md (lo crea `/repaso`)
+RE-ESTUDIO ACTIVO (segundo fallo seguido: el original necesitó solución
+dada, el r1 salió mal). Releer antes la Sesión #64 de la guía.
+Mirar el error espejo del corte del bucle: en el r1 no había NINGUNA
+línea que apagara el "MIENTRAS siga vivo". Y además: contar
+numOfGuesses (no numOfHits, que es de SimpleStartup) en TODAS las
+vueltas; guardar lo que devuelve checkYourself() en una variable en vez
+de llamarlo una vez por comparación; construir el array de 3 celdas
+antes de setLocationCells.
+Checklist: ToDo/un-bucle-que-termina.md
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r2) — programado: 2026-09-07 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r2.md

@@ -46,3 +46,6 @@ técnica no hay compilador.
 - [Antes de entregar un ejercicio](entregar-un-ejercicio.md) — cómo
   comprobar que respondiste el enunciado ENTERO (diagnóstico Y arreglo)
   y que las palabras clase/objeto/referencia están bien usadas.
+- [Un bucle que termina](un-bucle-que-termina.md) — qué señalar con el
+  dedo en cualquier bucle: la línea que lo apaga, el contador que cuenta
+  lo que dice el mensaje final, y el valor devuelto guardado una sola vez.
