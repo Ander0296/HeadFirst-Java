@@ -70,6 +70,30 @@ repetido: se reconoce leyendo, se falla escribiendo.
       y `size()` baja en 1. Nunca guardes el tamaño en una variable antes
       del bucle si adentro vas a borrar.
 
+## 7. Si el bucle lleva un CONTADOR que no debe contar dos veces
+
+Cuando el bucle suma a un contador cada vez que encuentra algo, el
+contador cuenta EVENTOS, no elementos distintos. Si el mismo elemento
+puede aparecer dos veces (porque el usuario repite un dato, o porque
+el bucle vuelve a pasar), ese elemento se suma dos veces y el total
+miente.
+
+- [ ] Preguntate: ¿este contador tiene que contar cuántas VECES pasó,
+      o cuántos elementos DISTINTOS encontré? No son lo mismo.
+- [ ] Si es "distintos", necesitás recordar cuáles ya contaste. Dos
+      formas: un arreglo paralelo `boolean[] yaContadas` del mismo
+      tamaño, o un `ArrayList` donde vas guardando lo ya contado.
+- [ ] La comprobación va con un `if`, NO con un `while`. Un `while`
+      repite; acá no hay nada que repetir: se pregunta UNA vez y se
+      decide. Poner un bucle donde va una pregunta es un bug distinto.
+- [ ] Ese `if` va **ANTES** de la línea que suma (`contador++`), nunca
+      después. Después ya sumaste: el chequeo llegó tarde.
+- [ ] Y adentro del `if`, cuando sí contás, acordate de **marcar** el
+      elemento como contado. Si no lo marcás, el chequeo nunca da
+      verdadero y el guard no sirve para nada.
+- [ ] Con `ArrayList` el chequeo es `if (!yaContadas.contains(x))`. Con
+      arreglo paralelo es `if (!yaContadas[i])`.
+
 ## Tabla de trampas — arreglo vs. ArrayList
 
 | Quiero... | Arreglo `String[]` | `ArrayList<String>` |

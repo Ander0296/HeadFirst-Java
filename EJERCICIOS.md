@@ -101,12 +101,6 @@ RIESGO: el original necesitó 2 pistas. Mirar: que arme la tabla vuelta
 por vuelta solo y llegue a "13 15 i = 6" (`++value` muta la variable:
 son 2 incrementos por vuelta, no 1).
 
-REPASO — LIBRO "Yours to solve" bug SimpleStartupGame (pág. 365-367) (r1) — programado: 2026-08-11 — [ ] pendiente
-Arranque: ejercicios/repasos/lib15-r1.md
-RIESGO ALTO: el original necesitó varios intentos (NPE, comparación por
-índice, sumar sin chequear repetidos). Mirar: el arreglo paralelo de "ya
-contado", chequeado ANTES de sumar a numOfHits.
-
 REPASO — LIBRO "Annotate the code yourself!" StartupBust (pág. 430-433) (r1) — programado: 2026-08-15 — [ ] pendiente
 Arranque: ejercicios/repasos/lib20-r1.md
 El original salió PERFECTO (21/21). Mirar: los dos break (15 = salir tras
@@ -178,6 +172,13 @@ VARIABLE). Mirar el error ESPEJO que apareció: dejó `encendido` sin
 method que la cambie y la clase quedó 100% get/set, sin un verbo puro.
 Checklist: ToDo/crear-una-clase-java.md ("emparejamiento estado ↔
 comportamiento").
+
+REPASO — LIBRO "Yours to solve" bug SimpleStartupGame (pág. 365-367) (r2) — programado: 2026-09-17 — [ ] pendiente
+Arranque: ejercicios/repasos/lib15-r2.md (lo crea `/repaso`)
+El r1 salió BIEN: diagnóstico correcto en prosa a la primera. Mirar el
+único punto flojo: dijo "un while" donde va un `if`. Que nombre la
+estructura correcta y diga que el chequeo va ANTES del `numOfHits++`.
+Checklist: ToDo/recorrer-una-coleccion.md (punto 7).
 
 REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3) — programado: 2026-09-25 — [ ] pendiente
 Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md

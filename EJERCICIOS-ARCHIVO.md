@@ -1861,3 +1861,36 @@ primer fallo del ciclo, no RE-ESTUDIO todavía). Checklist
 ToDo/recorrer-una-coleccion.md actualizado con el punto de `contains()`
 sobre arreglo (§3), que no cubría: buscar un valor exige recorrer TODO
 el arreglo, no revisar una sola posición.
+
+============================================================
+
+REPASO r1 — LIBRO "Yours to solve": el bug de SimpleStartupGame (pág. 365-367, Sesión #67) — [x] cumplido (2026-09-03)
+
+Arranque: ejercicios/repasos/lib15-r1.md
+
+RESULTADO: PASÓ. Diagnóstico correcto en prosa, a la primera, sin
+pistas y sin el código delante: "no estamos guardando los intentos que
+el usuario está ingresando, entonces cuando repite un valor correcto,
+va a volver a contar como correcto". Es exactamente el bug —
+checkYourself() suma a numOfHits sin registrar si esa celda ya fue
+contada.
+
+MEJORA CONTRA EL ORIGINAL (2026-08-07): el original llegó al mismo
+lugar pero en varios intentos, con tres bugs de implementación por el
+camino (NPE por no inicializar el arreglo, comparar guess==i en vez de
+guess==locationCells[i], y sumar sin chequear). Acá el diagnóstico salió
+limpio de entrada. Ninguno de esos tres errores se repitió.
+
+ERROR NO REPETIDO PERO NUEVO (menor): al describir la solución dijo que
+el registro de posiciones "debe estar dentro de un while". Confundió un
+GUARD (una pregunta que se hace una vez) con un BUCLE (algo que se
+repite). Al repreguntarle dónde va exactamente, contestó bien y solo:
+"un if antes del numOfHits++, que chequee el arreglo de marcadas".
+Mencionó además ArrayList + contains() como alternativa más simple —
+justo el concepto que se le había escapado en lib19-r1 dos días antes.
+
+ACCIÓN: se agregó el punto 7 a ToDo/recorrer-una-coleccion.md
+("contador que no debe contar dos veces": if y no while, ANTES del
+contador++, y marcar el elemento al contarlo).
+
+r2 agendado para 2026-09-17.
