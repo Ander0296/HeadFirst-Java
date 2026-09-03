@@ -8,15 +8,16 @@ Ejercicios: ver EJERCICIOS.md.
 ## INICIO RÁPIDO
 
 - Última página: 445 de 1629 (26%) — paquetes, nombre completo e `import`; `java.lang` es el único automático; `static final` = constante. Ver Sesión #81. **Próximo: pág. 446.** Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #81** (tanda). Desde el 2026-08-24, sin tandas nuevas: solo repasos, triage, examen y entregas (java-s56 a s64).
-- PRÓXIMA SESIÓN: `/rename java-s65`
+- Última sesión: **Sesión #81** (tanda). Desde el 2026-08-24, sin tandas nuevas: solo repasos, triage, examen y entregas (java-s56 a s65).
+- PRÓXIMA SESIÓN: `/rename java-s66`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s64, la entrega del EJERCICIO #15.)
+  de las tandas. La última cerrada fue java-s65: repaso lib19-r1 [MAL],
+  repaso lib01-r3 [BIEN → GRADUADO, primer ejercicio del proyecto] y examen.)
 - Ejercicios pendientes: 6 (5 obligatorios: lib07, lib12, lib13, ej13, lib17 · 1 opcional: lib18). Detalle y repasos: EJERCICIOS.md.
-- ⚠ **17 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha (2026-08-25); el archivo de arranque lo crea `/repaso` en el momento (6 ya lo tienen). El 2026-09-02, lib14-r1 salió MAL → RE-ESTUDIO, r1 bis el 2026-09-05.
+- ⚠ **15 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. El 2026-09-02, lib14-r1 salió MAL → RE-ESTUDIO, r1 bis el 2026-09-05. El 2026-09-03: lib19-r1 salió MAL → r1 bis el 2026-09-06; lib01-r3 GRADUÓ pero el examen bajó uno de sus 3 conceptos → repaso el 2026-09-06.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-08-25** — DECISIONES ABIERTAS sin aplicar: bajas propuestas de lib07 (redundante con lib10 ya completado) y lib12 (lectura pura, 26 días); y del backlog de páginas, baja de 428, 431 y 434-435 (cubiertas) más decidir 440 y 444. Quedan 47 páginas sin triagear.
-- Último examen (`/examen`): **2026-09-02** (el primero, java-s63). Sólido: leer código (arrays/ArrayList, no-compila) y elegir estructura. Flojo: paquetes/`import` de memoria, escribir un recorrido de ArrayList (puso `.length`/`[i]`), y para qué se esconde una variable de instancia. Consecuencia: EJERCICIO #15 (entregado el 2026-09-02 y BIEN: los tres puntos flojos quedaron corregidos) + ToDo/recorrer-una-coleccion.md. Próximo: ~2026-09-16.
+- Último examen (`/examen`): **2026-09-03** (el segundo, java-s65). Sólido: compile-time vs. runtime, y que toda instrucción ejecutable vive dentro de un método. Flojo: qué hace falta para ARRANCAR un programa — mezcló "la clase que se ejecuta" con "el método específico que busca la JVM dentro de esa clase". Consecuencia: ese concepto se sacó de CONCEPTOS DOMINADOS (no se sostuvo en frío) y se re-agendó repaso para 2026-09-06. Próximo examen: ~2026-09-17.
 - Entorno: OpenJDK 26.0.1, javac/java en PATH (Arch Linux), sin config extra.
 
 ## VOCABULARIO EN <-> ES (Claude agrega una fila por término nuevo)

@@ -107,27 +107,10 @@ RIESGO ALTO: el original necesitó varios intentos (NPE, comparación por
 índice, sumar sin chequear repetidos). Mirar: el arreglo paralelo de "ya
 contado", chequeado ANTES de sumar a numOfHits.
 
-REPASO — LIBRO Sharpen your pencil: "ArrayList vs. arreglo común" (pág. 407) (r1) — programado: 2026-08-12 — [ ] pendiente
-Arranque: ejercicios/repasos/lib19-r1.md
-Mirar: (1) el enhanced for CON el tipo de la variable (único error
-repetido en los dos intentos); (2) `boolean isIn = false;` inicializado;
-(3) size() → `length` en una línea, sin bucle contador.
-PRIORIDAD ALTA tras el examen del 2026-09-02: escribiendo de cero puso
-`nombres.length` y `nombres[i]` sobre un ArrayList (en frío lo reconoce
-leyendo, pero lo falla escribiendo). Mirar también eso.
-Checklist: ToDo/recorrer-una-coleccion.md
-
 REPASO — LIBRO "Annotate the code yourself!" StartupBust (pág. 430-433) (r1) — programado: 2026-08-15 — [ ] pendiente
 Arranque: ejercicios/repasos/lib20-r1.md
 El original salió PERFECTO (21/21). Mirar: los dos break (15 = salir tras
 un hit; 16 = remove + salir tras un kill) y el par 5/6.
-
-REPASO — LIBRO BE the Compiler (pág. 123) (r3) — programado: 2026-08-16 — [ ] pendiente
-Arranque: ejercicios/repasos/lib01-r3.md
-RIESGO ALTO — RE-ESTUDIO ACTIVO (el archivo C falló en r1 y r2). Releer
-antes la Sesión #09/#10. Mirar: la causa de C es "el while está suelto
-dentro de la clase, le falta ALGÚN método que lo envuelva", NO "le falta
-el main" (una clase sin main compila). Desbloqueado desde 2026-08-13.
 
 REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r1) — programado: 2026-08-17 — [ ] pendiente
 Arranque: ejercicios/repasos/ej14-r1/
@@ -161,6 +144,21 @@ devuelve, enhanced for con tipo). Mirar: (1) que imprima `i` y NO
 un método que ya devuelve boolean; (3) que use concatenación en un solo
 println en vez de tres print.
 Checklist: ToDo/recorrer-una-coleccion.md
+
+REPASO — LIBRO "ArrayList vs. arreglo común" (pág. 407) (r1 bis) — programado: 2026-09-06 — [ ] pendiente
+Arranque: ejercicios/repasos/lib19-r1bis.md (lo crea `/repaso`)
+El r1 salió MAL: no tradujo a código el "borrar" (fila 8, antes
+perfecta) y comparó SOLO una posición en vez de recorrer todo el
+arreglo en "contains" (fila 9). Checklist: ToDo/recorrer-una-coleccion.md.
+
+REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) — programado: 2026-09-06 — [ ] pendiente
+Arranque: lo crea `/repaso` en el momento (no tiene carpeta propia: es
+conceptual, no un ejercicio de código)
+Salió FLOJO en el examen del 2026-09-03 (java-s65): explicó bien qué
+hace falta para COMPILAR, pero para ARRANCAR mezcló "la clase que se
+ejecuta" con "el método específico que busca la JVM dentro de esa
+clase" — no lo separó con precisión. Se sacó de CONCEPTOS DOMINADOS
+hasta que esto se sostenga en frío otra vez.
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r2) — programado: 2026-09-07 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r2.md
@@ -198,4 +196,9 @@ donde `x` sube DOS veces por vuelta (3 vueltas, no 5).
 # CONCEPTOS DOMINADOS (entran al graduarse un ejercicio con r3 bien)
 # ============================================================
 
-- (vacío por ahora: ningún ejercicio llegó todavía al r3)
+- Compile-time vs. runtime: un programa bien anidado (clase → método →
+  instrucción) COMPILA aunque tenga un bucle infinito u otro error de
+  lógica; eso es un problema de EJECUCIÓN, no de compilación.
+- Toda instrucción ejecutable (`while`, `if`...) vive DENTRO de un
+  método. No puede estar suelta directo dentro de una clase, sin
+  importar el nombre del método que la envuelva.

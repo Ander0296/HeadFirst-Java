@@ -589,9 +589,19 @@ grande):
 1. Correr el chequeo de seguridad (abajo). Si falla, PARAR.
 2. Mostrar en el chat, corto, qué archivos cambiaron y con qué mensaje
    de commit se van a guardar.
-3. **PREGUNTAR y esperar el OK del usuario.** Siempre.
-4. Recién ahí: `git add` + `git commit` + `git push`.
-5. Confirmar en una línea que subió, o pegar el error tal cual si falló.
+3. `git add` + `git commit` + `git push` DIRECTO, SIN pedir OK
+   (decisión del usuario, 2026-09-03: frenar ahí no aporta nada — el
+   usuario muchas veces cierra sin releer el mensaje, así que esperar
+   su confirmación es una demora sin función real). Mostrar igual el
+   resumen del paso 2 ANTES de commitear: es información, no una
+   pregunta que bloquea.
+4. Confirmar en una línea que subió, o pegar el error tal cual si falló.
+5. Chequear también si `~/.config` (repo de dotfiles) tiene cambios
+   sin commitear (`git -C ~/.config status --short`) y avisarlo en el
+   reporte de cierre si los hay — SIN tocarlo (es otro repo, con sus
+   propias reglas: solo se avisa). Esto existe porque cambios sueltos
+   ahí rompen cosas al pasar de PC. Si el usuario pide agregar otros
+   repos a este chequeo, sumarlos a esta lista.
 
 **Chequeo de seguridad — ANTES de todo commit, sin excepción:**
 

@@ -1018,6 +1018,33 @@ clase → método → instrucción) + ejercicio nuevo del profe
 malentendido "todo programa necesita un main". Intervalo acortado:
 r3 agendado para 2026-08-16.
 
+REPASO — EJERCICIO BE the Compiler (pág. 123) (r3) — programado: 2026-08-16 — [x] cumplido 2026-09-03 (sesión java-s65) — RESULTADO: BIEN, ÚLTIMO DEL CICLO → GRADUADO
+Arranque: ejercicios/repasos/lib01-r3.md
+
+A: "Compila perfectamente... el bucle no para nunca, es un bucle
+infinito. Se arregla aumentando la variable x" — CORRECTO, sostiene la
+separación compile-time/runtime recuperada en el r2 (tercera vez
+consecutiva bien contando r2 y original). Fix propuesto también válido.
+
+B: "No compila, la clase no está declarada... para arreglarlo se debe
+declarar como class Exercise1b{...}" — CORRECTO, CUARTA vez seguida
+(original, r1, r2, r3) sin un solo fallo. El archivo más sólido de los
+tres, confirmado.
+
+C: "No compila, la clase tiene un while suelto, [...] debe ir
+solamente dentro de métodos, para arreglarlo se debe crear un método,
+public void mostrar(int x){...}" — CORRECTO, y es el punto que
+importa: dejó de decir "falta el main" (error repetido en r1 y r2) y
+generalizó a "un método" cualquiera, con un fix que ni siquiera se
+llama main. El RE-ESTUDIO (releer Sesión #09/#10 + EJERCICIO #14)
+funcionó: el mito "todo programa necesita un main" quedó desarmado.
+
+RESULTADO: 3 de 3 CORRECTO. GRADUADO — no se agendan más repasos
+individuales de este ejercicio. Conceptos movidos a CONCEPTOS
+DOMINADOS en EJERCICIOS.md: (1) compile-time vs. runtime, (2) toda
+instrucción ejecutable vive dentro de un método, (3) una clase sin
+main compila igual.
+
 REPASO — LIBRO Mixed Messages (pág. 127-129) (r1) — programado: 2026-07-23 — [x] completado (2026-07-25)
 Entregado en: ejercicios/repasos/lib02-r1.md (desde cero, sin mirar el original)
 
@@ -1802,3 +1829,35 @@ MAL:
 
 CONSECUENCIA: checklist ToDo/recorrer-una-coleccion.md actualizado con el
 punto de `indexOf` (§3), que no cubría.
+
+# ------------------------------------------------------------
+REPASO — LIBRO "ArrayList vs. arreglo común" (pág. 407) (r1) — cumplido 2026-09-03 (sesión java-s65) — RESULTADO: MAL
+Arranque: ejercicios/repasos/lib19-r1.md
+
+MANTUVO correcto (igual que el original):
+1. Fila 3 `myList[0] = a;` y Fila 5 `myList[1] = b;` — sin cambios.
+2. Fila 6 `int theSize = myList.length;` — sin cambios.
+3. Fila 7 `String str = myList[1];` — sin cambios.
+
+REGRESIÓN — dos filas que en el original habían salido bien:
+1. Fila 8 (remove): el original había escrito `myList[1] = null;`, la
+   respuesta EXACTA del libro. Ahora respondió en prosa "No se puede,
+   se debe crear un nuevo arreglo" — la idea de fondo (el arreglo no se
+   achica) sigue firme, pero no tradujo a código, que es lo que pide el
+   enunciado. El checklist YA cubre las dos rutas válidas (dejar en
+   `null` o copiar a uno nuevo) en su punto 6: no hizo falta agregar
+   nada, faltó usarlo hasta el final (escribir el código, no solo
+   nombrar la opción).
+2. Fila 9 (contains): el original tenía el CONCEPTO correcto (recorrer
+   con un bucle y comparar con `.equals()`) pero la sintaxis rota. Ahora
+   escribió sintaxis perfecta pero conceptualmente distinta:
+   `boolean isIn = myList[1].equals(b);` compara SOLO la posición 1, no
+   busca en todo el arreglo. `contains()` recorre TODAS las posiciones;
+   si `b` estuviera en el índice 0, esta línea daría `false` estando
+   `b` presente. Cambió un error de forma por un error de fondo.
+
+CONSECUENCIA: repaso r1 bis re-agendado para 2026-09-06 (a los 3 días,
+primer fallo del ciclo, no RE-ESTUDIO todavía). Checklist
+ToDo/recorrer-una-coleccion.md actualizado con el punto de `contains()`
+sobre arreglo (§3), que no cubría: buscar un valor exige recorrer TODO
+el arreglo, no revisar una sola posición.

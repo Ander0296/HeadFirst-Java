@@ -33,6 +33,11 @@ repetido: se reconoce leyendo, se falla escribiendo.
       **la primera aparición** de ese valor. Con elementos repetidos
       imprime el número equivocado y el bug queda invisible mientras
       todos los elementos sean distintos.
+- [ ] `ArrayList.contains(x)` recorre TODAS las posiciones comparando
+      con `.equals()`. Su equivalente en arreglo es un BUCLE completo,
+      nunca revisar una sola posición fija (`x[1].equals(valor)` no es
+      "buscar": solo mira el índice 1 y da `false` aunque el valor esté
+      en cualquier otro lado).
 
 ## 4. Si usás el `for` mejorado (el de los dos puntos)
 
