@@ -17,7 +17,7 @@ LIBRO — [nombre] (Ubicación pág. X, Sesión #Y) — [ ] pendiente
 Arranque: ejercicios/libNN-nombre.md | Si te trabás: Sesión #Y de la guía
 
 REPASO — [nombre] (rX) — programado: AAAA-MM-DD — [ ] pendiente
-Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
+Arranque: ejercicios/repasos/... (desde cero, sin mirar el original) (lo crea `/repaso`)
 
 # ============================================================
 # EJERCICIOS ABIERTOS
@@ -55,25 +55,25 @@ Mirar: que diga "compila SÍ, revienta en ejecución" con el nombre de la
 excepción, y que cuente el arreglo como objeto (4, no 3).
 
 REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r1) — programado: 2026-08-01 — [ ] pendiente
-Arranque: ejercicios/repasos/ej09-r1/TestArrays.java
+Arranque: ejercicios/repasos/ej09-r1/TestArrays.java (lo crea `/repaso`)
 Mirar: que `index[0..3]` quede AFUERA del `while`.
 
 REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pág. 253-255) (r1) — programado: 2026-08-02 — [ ] pendiente
-Arranque: ejercicios/repasos/lib09-r1.md
+Arranque: ejercicios/repasos/lib09-r1.md (lo crea `/repaso`)
 Mirar: que cierre la conclusión (queda accesible UN solo Contact) y no
 confunda conteo de OBJETOS con conteo de REFERENCIAS.
 
 REPASO — LIBRO "Mixed Messages" (pág. 309-312) (r1) — programado: 2026-08-02 — [ ] pendiente
-Arranque: ejercicios/repasos/lib11-r1.md
+Arranque: ejercicios/repasos/lib11-r1.md (lo crea `/repaso`)
 Mirar: el conteo de vueltas del bucle (i<9 son 9 objetos, índices 0 a 8).
 
 REPASO — LIBRO "What's legal?" (pág. 305-306) (r1) — programado: 2026-08-03 — [ ] pendiente
-Arranque: ejercicios/repasos/lib10-r1.md
+Arranque: ejercicios/repasos/lib10-r1.md (lo crea `/repaso`)
 Mirar: la trampa de `byte h = calcArea(4, 20)` — la llamada es legal; lo
 ilegal es el int de retorno sin cast entrando en un byte.
 
 REPASO — EJERCICIO #11 BE the Compiler: XCopy/Clock (pág. 307) (r1) — programado: 2026-08-03 — [ ] pendiente
-Arranque: ejercicios/repasos/ej11-r1/
+Arranque: ejercicios/repasos/ej11-r1/ (lo crea `/repaso`)
 Mirar: leer el valor exacto que pasa setTime() antes de anotar el output.
 
 REPASO — EJERCICIO DooBee (pág. 109) (r2) — programado: 2026-08-05 — [ ] pendiente
@@ -87,12 +87,12 @@ Arranque: ejercicios/repasos/ej02-bottlesong-r2/BottleSong.java — YA CREADO
 Mirar: que resuelva en BottleSong.java, no en un "TestDrive".
 
 REPASO — LIBRO "Annotate the code yourself!" StartupBust (pág. 430-433) (r1) — programado: 2026-08-15 — [ ] pendiente
-Arranque: ejercicios/repasos/lib20-r1.md
+Arranque: ejercicios/repasos/lib20-r1.md (lo crea `/repaso`)
 El original salió PERFECTO (21/21). Mirar: los dos break (15 = salir tras
 un hit; 16 = remove + salir tras un kill) y el par 5/6.
 
 REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r1) — programado: 2026-08-17 — [ ] pendiente
-Arranque: ejercicios/repasos/ej14-r1/
+Arranque: ejercicios/repasos/ej14-r1/ (lo crea `/repaso`)
 Mirar: (1) la variable de instancia en `private`; (2) que el método que
 imprime no se llame `getEstado()` (`get` promete devolver algo); (3)
 `celsius * 9 / 5 + 32` sin paréntesis en el `9 / 5`; (4) el límite:
@@ -127,18 +127,18 @@ se ejecuta" con "el método que la JVM busca dentro de esa clase".
 Mirar que separe las dos cosas. Salió de CONCEPTOS DOMINADOS.
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r2) — programado: 2026-09-07 — [ ] pendiente
-Arranque: ejercicios/repasos/lib05-r2.md
+Arranque: ejercicios/repasos/lib05-r2.md (lo crea `/repaso`)
 Mirar: que entregue las DOS mitades (diagnóstico Y arreglo escrito en
 código) sin que haya que pedírselas — ya falló dos veces.
 Checklist: ToDo/entregar-un-ejercicio.md
 
 REPASO — LIBRO Sharpen your pencil: "Movie objects" (pág. 170-173) (r2) — programado: 2026-09-08 — [ ] pendiente
-Arranque: ejercicios/repasos/lib04-r2.md
+Arranque: ejercicios/repasos/lib04-r2.md (lo crea `/repaso`)
 El r1 salió PERFECTO. Mirar: que `two.playIt()` no cambia ningún valor, y
 que cada objeto conserva los suyos.
 
 REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r2) — programado: 2026-09-09 — [ ] pendiente
-Arranque: ejercicios/repasos/lib03-television-r2.md
+Arranque: ejercicios/repasos/lib03-television-r2.md (lo crea `/repaso`)
 El r1 bis salió BIEN. Mirar el error ESPEJO: dejó `encendido` sin
 método que la cambie, la clase quedó 100% get/set sin un verbo puro.
 Checklist: ToDo/crear-una-clase-java.md.
@@ -159,13 +159,13 @@ Checklist: ToDo/un-bucle-que-termina.md (punto 2) y
 ToDo/entregar-un-ejercicio.md (Nivel 1).
 
 REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3) — programado: 2026-09-25 — [ ] pendiente
-Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md
+Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Mirar el único punto que falló
 las TRES veces: que en `"Dog: " + name` diga la palabra CONCATENACIÓN y
 explique que el `+` entre Strings pega texto en vez de sumar.
 
 REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 — [ ] pendiente
-Arranque: ejercicios/repasos/lib02-r3.md
+Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Salió 5/5 las tres veces. Mirar:
 que TRACE el bucle vuelta por vuelta y no conteste de memoria. Trampas:
 el candidato donde `y` llega a 10 (salida de 3 dígitos) y el candidato
