@@ -1941,3 +1941,53 @@ imprimir nada; i=5 → value 12, entra en `i > 4`, `++value` la deja en
 
 Repaso r2 agendado para 2026-09-18 (el 17 ya tiene lib15-r2: máximo un
 repaso por día).
+
+REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r1) — programado: 2026-08-17 — [x] cumplido (2026-09-04, con 18 días de atraso)
+Resuelto en: ejercicios/repasos/ej14-r1/
+Corrección de Claude (comparado contra el original del 2026-08-13):
+
+EL CORAZÓN DEL EJERCICIO: PERFECTO, y mejor que la primera vez. Compiló
+Termometro.java sin main sin un solo mensaje, ejecutó `java Termometro`
+y obtuvo "Main method not found" (no se encontró el método main), y el
+par completo corrió bien. En el original había caído antes en el desvío
+de IntelliJ ("Could not find or load main class"); esta vez fue directo
+al mensaje correcto, sin rodeos. El RE-ESTUDIO de anidamiento/main
+quedó confirmado por segunda vez.
+
+MEJORÓ (los dos puntos que el original había dejado abiertos):
+- LÍMITE CORREGIDO: `if (temperaturaActual < 15)` frío / else calor. En
+  el original estaba corrido (`> 15` dejaba los 15 exactos en frío).
+- DIVISIÓN: escribió `temperaturaActual * 9 / 5 + 32` sin paréntesis
+  alrededor del `9 / 5`, sostenido desde la 2da entrega del original.
+- BONUS no pedido: en el TestDrive probó las DOS ramas del if (18 →
+  calor, 14 → frío). El original solo probaba un valor. Eso es testear,
+  no ejecutar.
+
+SE REPITIÓ:
+- `double temperaturaActual;` sigue SIN `private`. En el original era
+  `public`; ahora quedó sin modificador (visible en todo el paquete).
+  Es menos malo, pero el punto es el mismo: hay setter y no protege
+  nada. Segunda vez que aparece.
+
+MEDIO CORREGIDO:
+- El nombre del método que imprime. Entendió que `getEstado()` mentía
+  (`get` promete devolver algo) y lo cambió... a `setEstado()`, que
+  miente igual: `set` promete ASIGNARLE un valor a un campo, y ese
+  método no asigna nada, imprime. Falta el paso final: un verbo puro
+  (`imprimirEstado()` / `mostrarEstado()`).
+
+QUEDÓ SIN HACER:
+- PARTE 4 (la pregunta conceptual) sin contestar por segunda vez, ahora
+  por no recordar las clases. Se le contestó en el chat: de Startup,
+  GameHelper, Dog, Song y Movie, NINGUNA tiene main.
+- El setter sigue sin ningún chequeo del valor que recibe.
+
+CHECKLIST TOCADO: ToDo/crear-una-clase-java.md — Nivel 3 ganó un bloque
+nuevo sobre `private` y para qué sirve esconder una variable (el
+checklist no lo cubría). El error del nombre `setEstado()` SÍ lo cubría
+("¿tenés al menos un verbo puro, sin get ni set adelante?"): ese punto
+se salteó.
+
+Repaso r2 agendado para 2026-09-19.
+
+============================================================

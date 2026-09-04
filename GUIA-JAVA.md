@@ -9,11 +9,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 - Última página: 456 de 1629 (26%) — cómo descubrir la API: DESCUBRIR (hojear un libro de referencia) vs. CONSULTAR (el javadoc en docs.oracle.com), y la escalera módulo → paquete → clase → método. Ver Sesión #83. **Próximo: pág. 457**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
 - Última sesión: **Sesión #83** (tanda de 4 pantallazos, 2026-09-03). Dos tandas de pantallazos el mismo día (#82 y #83).
-- PRÓXIMA SESIÓN: `/rename java-s69`
+- PRÓXIMA SESIÓN: `/rename java-s70`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s68: la tanda de la Sesión #83.)
+  de las tandas. La última cerrada fue java-s69: repaso ej14-r1, sin tanda.)
 - Ejercicios pendientes: **3** (lib21 "Leer el javadoc" [nuevo, 10 min], lib13 "¿qué más testear?" y ej13 Code Magnets MultiFor). El triage del 2026-09-03 dio de baja lib07, lib12, lib17 y lib18 (ver PENDIENTES.md). Detalle: EJERCICIOS.md.
-- ⚠ **13 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. Pendientes de re-intento: lib14-r1 bis (2026-09-05, RE-ESTUDIO), lib19-r1 bis y el concepto "arrancar un programa" (los dos el 2026-09-06). El de mayor riesgo de los vencidos es ej14-r1 (falló en el examen del 02/09). El 2026-09-03 salieron BIEN lib15-r1 y lib16-r1.
+- ⚠ **12 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. Pendientes de re-intento: lib14-r1 bis (2026-09-05, RE-ESTUDIO), lib19-r1 bis y el concepto "arrancar un programa" (los dos el 2026-09-06). Salieron BIEN: lib15-r1 y lib16-r1 (03/09) y ej14-r1 (04/09, corazón perfecto; arrastra `private` y el nombre del método que imprime → r2 al 19/09).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-09-03** — aplicado entero: 4 ejercicios de baja (lib07, lib12, lib17, lib18) y 6 páginas de baja (428, 431, 434-435, 440, 444). Quedan 41 páginas sin triagear. Ritmo real: 5,5 pág./tanda (81 tandas, pág. 445 de 1629) → faltan ~216 tandas; pasar el material como TEXTO en vez de pantallazos las bajaría a ~148.
 - Último examen (`/examen`): **2026-09-03** (el segundo, java-s65). Sólido: compile-time vs. runtime, y que toda instrucción ejecutable vive dentro de un método. Flojo: qué hace falta para ARRANCAR un programa — mezcló "la clase que se ejecuta" con "el método específico que busca la JVM dentro de esa clase". Consecuencia: ese concepto se sacó de CONCEPTOS DOMINADOS (no se sostuvo en frío) y se re-agendó repaso para 2026-09-06. Próximo examen: ~2026-09-17.
@@ -199,6 +199,8 @@ Ejercicios: ver EJERCICIOS.md.
 | setter                                | setter | Método que asigna el valor de una instance variable; convención: `set` + nombre con mayúscula inicial, un parámetro, `void`. |
 | accessor                              | accesor | Nombre formal alternativo de "getter". |
 | mutator                               | mutador | Nombre formal alternativo de "setter". |
+| `is` / `has` (prefijos)               | prefijos `is` / `has` | La forma que toma un getter cuando devuelve un `boolean`: `isEncendido()`, `hasPilas()`. Son getters igual que `get`: LEEN y devuelven, no cambian nada. No son verbos de acción. |
+| action method / behavior method       | método de acción / verbo puro | Método que HACE un trabajo en vez de leer o asignar un campo: `encender()`, `apagar()`, `imprimirEstado()`. No lleva NINGÚN prefijo. Los get/set/is describen al objeto; los verbos puros lo hacen funcionar. |
 | encapsulation                         | encapsulación, encapsulamiento | Esconder las instance variables de un objeto y forzar que se lean/modifiquen solo vía getters/setters. |
 | faux pas                              | metida de pata | Error o torpeza social (término francés); el libro lo usa en broma para "dejar los datos expuestos". |
 | this (adelanto)                       | this | Palabra reservada que dentro de un método/constructor se refiere al objeto actual; se usa para distinguir un parámetro de una instance variable con el mismo nombre (`this.size = size;`). Se formaliza más adelante. |

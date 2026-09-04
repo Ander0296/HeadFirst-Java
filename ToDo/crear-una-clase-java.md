@@ -54,6 +54,16 @@ de cómo* lo hace. Va adentro de un método.
       `int` no sirve (trunca).
 - [ ] Empiezan en minúscula, por convención: `temperaturaActual`, no
       `TemperaturaActual`. Las clases sí van en mayúscula.
+- [ ] **Cada variable de instancia arranca con `private`.**
+      `private double temperaturaActual;`, no `double` a secas ni
+      `public`. Sin `private`, cualquier código de afuera puede hacer
+      `objeto.temperaturaActual = -9999;` y saltearse tus métodos.
+- [ ] Si escribiste un setter, preguntate **para qué**. Un setter sobre
+      una variable pública no protege nada: es un método decorativo. La
+      pareja `private` + setter tiene sentido cuando el setter puede
+      **decidir**: rechazar un valor imposible, corregirlo, avisar. Si
+      tu setter solo copia el valor tal cual y la variable es pública,
+      todavía no encapsulaste nada.
 
 ### El emparejamiento estado ↔ comportamiento (va en LAS DOS direcciones)
 
@@ -75,6 +85,23 @@ veces, una por cada dirección:
       clase con puros get/set describe un objeto pero no lo hace
       funcionar. Contá: ¿tenés al menos un verbo puro, sin `get` ni
       `set` adelante?
+- [ ] **`is` y `has` son getters también.** La familia de los getters
+      tiene TRES prefijos, no uno: `getCanal()`, `isEncendido()`,
+      `hasPilas()`. Los tres LEEN y devuelven un valor sin cambiar
+      nada; `is` y `has` son simplemente la forma que toma un getter
+      cuando lo que devuelve es un `boolean`. `isEncendido()` NO es un
+      verbo de acción: pregunta "¿está encendido?", no ordena
+      "encendete".
+- [ ] **La prueba para clasificar un method NO es cómo suena el
+      nombre, es qué HACE.** Preguntale dos cosas:
+      1. ¿Devuelve un valor y no cambia nada? → es de la familia
+         GETTER: `get...`, `is...`, `has...`
+      2. ¿Cambia el estado del objeto? → si solo copia un valor que le
+         pasan, es un SETTER (`set...`); si hace un trabajo, es un
+         VERBO PURO y va **sin ningún prefijo**: `encender()`,
+         `apagar()`, `imprimirEstado()`, `ladrar()`.
+      Un method que imprime por pantalla cambia el mundo y no devuelve
+      nada: es verbo puro, nunca `get` ni `set` ni `is`.
 - [ ] Distinguí el dato FIJO del dato VARIABLE. `marca`, `peso` y
       `pulgadas` nacen con el objeto y no cambian (getter sí, setter
       no). `canal`, `volumen` y `encendido` cambian con el uso (esos sí
