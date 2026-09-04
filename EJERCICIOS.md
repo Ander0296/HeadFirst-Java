@@ -27,20 +27,8 @@ EJERCICIO #13 — Code Magnets: "MultiFor" — reconstruir un programa desordena
 Tipo: completar/corregir código
 Arranque: ejercicios/ej13-code-magnets-multifor/MultiFor.java | Si te trabás: Sesión #68 y #69 de la guía
 
-LIBRO — Crucigrama "JavaCross" — 32 pistas de vocabulario Java (Ubicación pág. 383-384, Sesión #71) — [ ] pendiente
-Arranque: ejercicios/lib17-javacross.md | Si te trabás: Sesión #56 a #70 de la guía
-
-LIBRO — "Mixed Messages" #3 — matchear 6 candidatos (x++/x--/x=x+N) con la salida de un for anidado con break (Ubicación pág. 386-387, Sesión #72) — [ ] pendiente — OPCIONAL (ícono Puzzle)
-Arranque: ejercicios/lib18-mixed-messages-3.md | Si te trabás: Sesión #68 y #69 de la guía
-
 LIBRO — Sharpen your pencil: "¿qué más testear?" — mirando el test code de SimpleStartupTestDrive, qué falta probar del método checkYourself() (Ubicación pág. 346, Sesión #62) — [ ] pendiente
 Arranque: ejercicios/lib13-que-mas-testear.md | Si te trabás: Sesión #62 de la guía
-
-LIBRO — "Five-Minute Mystery" (misterio ciberpunk: Jai, Buchanan y Leveler) — descubrir qué sospechó Jai sobre el código de Buchanan (Ubicación pág. 315-316, Sesión #58) — [ ] pendiente
-Arranque: ejercicios/lib12-five-minute-mystery-jai.md | Si te trabás: Sesión #52 y #53 de la guía
-
-LIBRO — Sharpen your pencil: ¿legal o no? — marcar cuáles de 12 líneas de asignación entre primitivas compilan y cuáles no (Ubicación pág. 210, Sesión #34) — [ ] pendiente
-Arranque: ejercicios/lib07-legal-o-no.md | Si te trabás: Sesión #32 y #33 de GUIA-JAVA.md
 
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
@@ -94,12 +82,6 @@ Arranque: ejercicios/repasos/ej03-shuffle1-r2/Shuffle1.java — YA CREADO
 REPASO — EJERCICIO BottleSong (pág. 111) (r2) — programado: 2026-08-09 — [ ] pendiente
 Arranque: ejercicios/repasos/ej02-bottlesong-r2/BottleSong.java — YA CREADO
 Mirar: que resuelva en BottleSong.java, no en un "TestDrive".
-
-REPASO — LIBRO "BE the JVM" (pág. 378-380) (r1) — programado: 2026-08-10 — [ ] pendiente
-Arranque: ejercicios/repasos/lib16-r1.md
-RIESGO: el original necesitó 2 pistas. Mirar: que arme la tabla vuelta
-por vuelta solo y llegue a "13 15 i = 6" (`++value` muta la variable:
-son 2 incrementos por vuelta, no 1).
 
 REPASO — LIBRO "Annotate the code yourself!" StartupBust (pág. 430-433) (r1) — programado: 2026-08-15 — [ ] pendiente
 Arranque: ejercicios/repasos/lib20-r1.md
@@ -164,6 +146,14 @@ El r1 salió BIEN: diagnóstico correcto en prosa a la primera. Mirar el
 único punto flojo: dijo "un while" donde va un `if`. Que nombre la
 estructura correcta y diga que el chequeo va ANTES del `numOfHits++`.
 Checklist: ToDo/recorrer-una-coleccion.md (punto 7).
+
+REPASO — LIBRO "BE the JVM" (pág. 378-380) (r2) — programado: 2026-09-18 — [ ] pendiente
+Arranque: ejercicios/repasos/lib16-r2.md (lo crea `/repaso`)
+El r1 salió BIEN sin pistas (el original necesitó 2). Mirar los dos
+puntos flojos: (1) que nombre `value > 14` como condición de corte, no
+`i > 14`; (2) que ENTREGUE la traza vuelta por vuelta, no prosa.
+Checklist: ToDo/un-bucle-que-termina.md (punto 2) y
+ToDo/entregar-un-ejercicio.md (Nivel 1).
 
 REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3) — programado: 2026-09-25 — [ ] pendiente
 Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md

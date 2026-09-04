@@ -28,6 +28,12 @@ concreta de cada punto. Si no podés señalarla, el punto está fallando.
       de salida.
 - [ ] Si el bucle tiene varias ramas (SI / SI NO / comparaciones), decí
       en voz alta cuál de ellas es la de salida. Solo una debería serlo.
+- [ ] Leé la condición de esa línea EN VOZ ALTA y copiala tal cual:
+      qué variable se compara, contra qué valor y con qué estructura
+      (`if`, `while`, `for`). Decir "el if de i > 14" cuando el código
+      dice `value > 14` cambia el programa entero: `i` puede tener un
+      techo que hace que ese corte no ocurra nunca. Nombrar la
+      condición de memoria es el error más caro de esta lista.
 
 ## 3. El contador
 

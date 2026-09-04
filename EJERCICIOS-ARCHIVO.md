@@ -1894,3 +1894,50 @@ ACCIÓN: se agregó el punto 7 a ToDo/recorrer-una-coleccion.md
 contador++, y marcar el elemento al contarlo).
 
 r2 agendado para 2026-09-17.
+
+============================================================
+
+REPASO — LIBRO "BE the JVM" (pág. 378-380, Sesión #70) (r1) — CUMPLIDO (2026-09-03, sesión java-s67)
+
+Respuesta entregada en ejercicios/repasos/lib16-r1.md: opción C,
+"13 15 i = 6", con la explicación en prosa (tres líneas).
+
+RESULTADO: BIEN — respuesta correcta y SIN PISTAS. El original
+(2026-08-07) la sacó recién en el intento 2 y con 2 pistas, así que la
+mejora es real y grande: el concepto que había fallado (`++value`
+dentro del `print` MUTA la variable, son 2 incrementos en las vueltas
+donde `i > 4`) ya está aplicado. Se comprueba porque su resultado es
+imposible de obtener sin él: con un solo incremento por vuelta `value`
+llega a 14 en la última vuelta y el `break` no se dispara nunca.
+
+Puntos flojos (de precisión al CONTAR lo hecho, no de comprensión):
+
+1. Nombró mal la condición de corte: escribió "entra en el if de
+   `if i > 14`" cuando el `if` que corta es `value > 14`. `i` no puede
+   valer 14 acá (el for la frena en `i < 8`), así que la condición que
+   describió no se cumpliría jamás. ERROR REPETIDO: es el mismo tipo
+   que en lib15-r1 (2026-09-03), donde dijo "un while" en lugar de un
+   `if`. Dos entregas seguidas nombrando mal la estructura o la
+   variable del corte → se agregó un punto al checklist
+   ToDo/un-bucle-que-termina.md, sección "2. La salida".
+
+2. Su descripción del incremento contradice su propio resultado:
+   "en cada vuelta del for aumenta en 1 mientras no entre en ningún
+   if". Nunca dice que en las vueltas con `i > 4` hay DOS mutaciones
+   (`value++` arriba y `++value` en el print). Lo aplicó pero no lo
+   enunció.
+
+3. No entregó la traza vuelta por vuelta que el enunciado del repaso
+   pedía explícitamente: entregó prosa. Ese punto YA estaba cubierto
+   por ToDo/entregar-un-ejercicio.md, Nivel 1 ("subrayá los verbos que
+   te piden acción"). Y hubiera evitado el punto 1: al escribir la
+   fila de `i = 6` hay que anotar qué valor se compara contra 14, y
+   ahí se ve que es `value`.
+
+Traza correcta (lo que faltaba entregar): i=1..4 → value 8,9,10,11 sin
+imprimir nada; i=5 → value 12, entra en `i > 4`, `++value` la deja en
+13 e imprime "13 "; i=6 → value 14, `++value` la deja en 15, imprime
+"15 ", y ahí sí `value > 14` es verdadera → imprime "i = 6" y break.
+
+Repaso r2 agendado para 2026-09-18 (el 17 ya tiene lib15-r2: máximo un
+repaso por día).

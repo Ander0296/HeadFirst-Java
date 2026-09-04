@@ -416,3 +416,9 @@ En un ArrayList escribí lista.size() y lista.get(i); los corchetes son solo par
 
 s81d — el valor por defecto:
 Las casillas vacías de un arreglo de objetos valen null, y nunca cero.
+
+s82a — size() contra length:
+El ArrayList responde size() con paréntesis y el arreglo expone length sin paréntesis.
+
+s82b — qué hace un import:
+Un import solo te ahorra tipear el nombre completo; no copia código ni agranda tu programa.

@@ -7,16 +7,16 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 445 de 1629 (26%) — paquetes, nombre completo e `import`; `java.lang` es el único automático; `static final` = constante. Ver Sesión #81. **Próximo: pág. 446.** Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #81** (tanda). Desde el 2026-08-24, sin tandas nuevas: solo repasos, triage, examen y entregas (java-s56 a s66).
-- PRÓXIMA SESIÓN: `/rename java-s67`
+- Última página: 451 de 1629 (26%) — cierre del capítulo de ArrayList/paquetes: `size()` método vs. `length` variable, autoboxing, y que un `import` solo ahorra tipear (no copia código ni pesa). Ver Sesión #82. **Próximo: pág. 452** (cómo leer la documentación de la Java API). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #82** (tanda de 5 pantallazos, 2026-09-03). Cortó una racha de 10 días sin material nuevo (java-s56 a s66 fueron solo repasos, triage, examen y entregas).
+- PRÓXIMA SESIÓN: `/rename java-s68`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s66: repaso lib15-r1 [BIEN],
-  el vencido de mayor riesgo — r2 al 2026-09-17.)
-- Ejercicios pendientes: 6 (5 obligatorios: lib07, lib12, lib13, ej13, lib17 · 1 opcional: lib18). Detalle y repasos: EJERCICIOS.md.
-- ⚠ **14 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. Pendientes de re-intento: lib14-r1 bis (2026-09-05, RE-ESTUDIO), lib19-r1 bis y el concepto "arrancar un programa" (los dos el 2026-09-06). El 2026-09-03 (java-s66) lib15-r1 salió BIEN, el de mayor riesgo de la lista.
+  de las tandas. La última cerrada fue java-s67: repaso lib16-r1 [BIEN],
+  triage completo aplicado y la tanda de la Sesión #82.)
+- Ejercicios pendientes: **2** (lib13 "¿qué más testear?" y ej13 Code Magnets MultiFor). El triage del 2026-09-03 dio de baja lib07, lib12, lib17 y lib18 (ver PENDIENTES.md). Detalle: EJERCICIOS.md.
+- ⚠ **13 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. Pendientes de re-intento: lib14-r1 bis (2026-09-05, RE-ESTUDIO), lib19-r1 bis y el concepto "arrancar un programa" (los dos el 2026-09-06). El de mayor riesgo de los vencidos es ej14-r1 (falló en el examen del 02/09). El 2026-09-03 salieron BIEN lib15-r1 y lib16-r1.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
-- Último triage (`/pendientes`): **2026-08-25** — DECISIONES ABIERTAS sin aplicar: bajas propuestas de lib07 (redundante con lib10 ya completado) y lib12 (lectura pura, 26 días); y del backlog de páginas, baja de 428, 431 y 434-435 (cubiertas) más decidir 440 y 444. Quedan 47 páginas sin triagear.
+- Último triage (`/pendientes`): **2026-09-03** — aplicado entero: 4 ejercicios de baja (lib07, lib12, lib17, lib18) y 6 páginas de baja (428, 431, 434-435, 440, 444). Quedan 41 páginas sin triagear. Ritmo real: 5,5 pág./tanda (81 tandas, pág. 445 de 1629) → faltan ~216 tandas; pasar el material como TEXTO en vez de pantallazos las bajaría a ~148.
 - Último examen (`/examen`): **2026-09-03** (el segundo, java-s65). Sólido: compile-time vs. runtime, y que toda instrucción ejecutable vive dentro de un método. Flojo: qué hace falta para ARRANCAR un programa — mezcló "la clase que se ejecuta" con "el método específico que busca la JVM dentro de esa clase". Consecuencia: ese concepto se sacó de CONCEPTOS DOMINADOS (no se sostuvo en frío) y se re-agendó repaso para 2026-09-06. Próximo examen: ~2026-09-17.
 - Entorno: OpenJDK 26.0.1, javac/java en PATH (Arch Linux), sin config extra.
 
@@ -52,6 +52,12 @@ Ejercicios: ver EJERCICIOS.md.
 | parameterized type                | tipo parametrizado | Un tipo que se completa con otro tipo entre ángulos. Existen desde Java 5; el detalle está en el Cap. 11. |
 | array brackets                    | corchetes de arreglo | Los `[]`: sintaxis especial que en Java NO se usa en ningún otro lado que no sea un arreglo. |
 | boundaries                        | límites | Los índices válidos de un arreglo: de 0 a `length - 1`. Salirse revienta en ejecución. |
+| type parameter                    | parámetro de tipo | El tipo escrito entre `< >`: en `ArrayList<Button>` le dice al compilador que ahí solo entran objetos Button. |
+| angle brackets                    | paréntesis angulares | Los signos `< >` que encierran el parámetro de tipo. |
+| to wrap / to unwrap               | envolver / desenvolver | Lo que hace el compilador solo: mete la primitiva en un objeto al agregarla a una colección y la saca al leerla. |
+| bullet points                     | puntos clave | Página de resumen con la que Head First cierra cada capítulo. |
+| hand model                        | modelo de manos | Persona cuyo trabajo es que le fotografíen las manos (relojes, cremas). Chiste del libro: tipear de más le arruina la herramienta de trabajo. |
+| "Roses are red"                   | "Las rosas son rojas" | Molde de poema infantil inglés de cuatro versos ("Roses are red, violets are blue, ...") que se usa sobre todo para chistes: lo gracioso es el remate. |
 | plain old Java object             | objeto Java común y corriente | Un objeto sin nada especial: se le piden cosas con el operador punto y listo. Así es un ArrayList, no un arreglo. |
 | autoboxing                        | autoempaquetado | Conversión automática de una primitiva a su clase envoltorio al meterla en una colección (y de vuelta al sacarla). Desde Java 5. |
 | primitive wrapper class           | clase envoltorio de primitiva | Clase que envuelve una primitiva para poder tratarla como objeto (int → Integer). Necesaria porque un ArrayList solo guarda objetos. |
@@ -481,6 +487,20 @@ SESIÓN #81 — 2026-08-13 — Ready-Bake GameHelper + paquetes e import (pág. 
 - Chequeo: `static final` PERFECTO (separó los dos efectos solo). En el import detectó bien el error, pero como "las dos formas" dio `import` específico vs. `import` con `*` — que son la MISMA opción A. La opción B del libro es escribir el nombre completo en cada uso. Corregido.
 - Dudas: ninguna.
 - PRÓXIMO PASO: pág. 446 en adelante. Salteadas nuevas: 440 y 444. FALTA además el resto del Ready-Bake de GameHelper: los 5 métodos privados que llama `placeStartup` (`getIncrement`, `startupFits`, `coordsAvailable`, `savePositionToGrid`, `convertCoordsToAlphaFormat`) — sin ellos la clase no compila.
+
+SESIÓN #82 — 2026-09-03 — Cierre del capítulo: bullet points de ArrayList + qué es (y qué NO es) un import (pág. 446, 449-451, 26%)
+- Pág. 446 es la página de RESUMEN del capítulo: nada nuevo, los conceptos de las Sesiones #75 a #81 en balazos. Se explicó agrupada, marcando solo las dos trampas.
+- TRAMPA 1: `lista.size()` es un MÉTODO (con paréntesis, porque un ArrayList es un objeto de una clase); `arreglo.length` es una VARIABLE (sin paréntesis, porque el arreglo es una estructura del lenguaje y el tamaño es un dato pegado a él). Ya está en ToDo/recorrer-una-coleccion.md.
+- TRAMPA 2: un ArrayList guarda OBJETOS, no primitivas — pero `numeros.add(7)` funciona porque el compilador envuelve (wrap) el int en un objeto al meterlo y lo desenvuelve (unwrap) al sacarlo. Eso es AUTOBOXING, palabra de entrevista.
+- `<Button>` es el TYPE PARAMETER: le dice al compilador qué tipo entra en esa lista, así el error salta al compilar y no delante de un usuario. Acepta también subclases (herencia, capítulo siguiente).
+- Pág. 449 (no dumb questions): un `import` NO copia código, NO agranda el archivo y NO hace más lento el programa — "an import statement saves you from typing". Analogía: es una agenda de contactos, no una mudanza. Y `java.lang` viene pre-importado gratis.
+- Pág. 450 (Make it Stick): poema con el molde inglés "Roses are red" (se explicó la referencia). La regla en negrita: hay que darle a Java el nombre completo de CADA clase que usás, salvo las de `java.lang`.
+- Pág. 451: `import` **o** tipear el nombre completo en cada uso — las dos formas son equivalentes para el compilador. Cierra con la pregunta que abre el próximo tema: ¿cómo descubro yo solo qué clases existen y en qué paquete viven? → leer la documentación de la API.
+- Nota del profe: en trabajo real TODA clase va en un paquete (`package com.empresa.app;` en la primera línea); una clase en el paquete por defecto ni siquiera se puede importar desde otro paquete, y Maven/Gradle/Spring lo dan por sentado. Reaparece en Fase 3.
+- Ejercicios de la tanda: ninguno en las páginas recibidas (falta ver 447-448).
+- Chequeo: LAS DOS BIEN. Separó `size()` con paréntesis de `length` sin ellos, y negó que los imports pesen o hagan lento el programa. Se agregó el matiz: `apellidos.length;` como línea suelta no compila ("not a statement") y `nombres.size();` sí — leer una variable no es una acción, llamar un método sí.
+- Dudas: ninguna.
+- PRÓXIMO PASO: pág. 452 en adelante (cómo usar la documentación de la Java API). PEDIR además los pantallazos de 447-448 (hueco de formato: probablemente el ejercicio de fin de capítulo).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
