@@ -52,3 +52,4 @@ técnica no hay compilador.
 - [Recorrer un arreglo o un ArrayList](recorrer-una-coleccion.md) — qué
   cambia entre `length`/`[i]` y `size()`/`get(i)`, el tipo del for
   mejorado, y el `null` de las casillas vacías.
+- [leer-la-documentacion-de-java.md](leer-la-documentacion-de-java.md) — cómo encontrar y leer la ficha (javadoc) de una clase o un método sin adivinar.

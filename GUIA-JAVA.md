@@ -7,13 +7,12 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 451 de 1629 (26%) — cierre del capítulo de ArrayList/paquetes: `size()` método vs. `length` variable, autoboxing, y que un `import` solo ahorra tipear (no copia código ni pesa). Ver Sesión #82. **Próximo: pág. 452** (cómo leer la documentación de la Java API). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #82** (tanda de 5 pantallazos, 2026-09-03). Cortó una racha de 10 días sin material nuevo (java-s56 a s66 fueron solo repasos, triage, examen y entregas).
-- PRÓXIMA SESIÓN: `/rename java-s68`
+- Última página: 456 de 1629 (26%) — cómo descubrir la API: DESCUBRIR (hojear un libro de referencia) vs. CONSULTAR (el javadoc en docs.oracle.com), y la escalera módulo → paquete → clase → método. Ver Sesión #83. **Próximo: pág. 457**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #83** (tanda de 4 pantallazos, 2026-09-03). Dos tandas de pantallazos el mismo día (#82 y #83).
+- PRÓXIMA SESIÓN: `/rename java-s69`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s67: repaso lib16-r1 [BIEN],
-  triage completo aplicado y la tanda de la Sesión #82.)
-- Ejercicios pendientes: **2** (lib13 "¿qué más testear?" y ej13 Code Magnets MultiFor). El triage del 2026-09-03 dio de baja lib07, lib12, lib17 y lib18 (ver PENDIENTES.md). Detalle: EJERCICIOS.md.
+  de las tandas. La última cerrada fue java-s68: la tanda de la Sesión #83.)
+- Ejercicios pendientes: **3** (lib21 "Leer el javadoc" [nuevo, 10 min], lib13 "¿qué más testear?" y ej13 Code Magnets MultiFor). El triage del 2026-09-03 dio de baja lib07, lib12, lib17 y lib18 (ver PENDIENTES.md). Detalle: EJERCICIOS.md.
 - ⚠ **13 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. Pendientes de re-intento: lib14-r1 bis (2026-09-05, RE-ESTUDIO), lib19-r1 bis y el concepto "arrancar un programa" (los dos el 2026-09-06). El de mayor riesgo de los vencidos es ej14-r1 (falló en el examen del 02/09). El 2026-09-03 salieron BIEN lib15-r1 y lib16-r1.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-09-03** — aplicado entero: 4 ejercicios de baja (lib07, lib12, lib17, lib18) y 6 páginas de baja (428, 431, 434-435, 440, 444). Quedan 41 páginas sin triagear. Ritmo real: 5,5 pág./tanda (81 tandas, pág. 445 de 1629) → faltan ~216 tandas; pasar el material como TEXTO en vez de pantallazos las bajaría a ~148.
@@ -72,6 +71,14 @@ Ejercicios: ver EJERCICIOS.md.
 | prebuilt classes                  | clases prediseñadas | Clases que ya vienen escritas y compiladas en la biblioteca; se usan sin escribirlas. |
 | Java SE (Standard Edition)        | Java Edición Estándar | La plataforma Java base que trae el núcleo de la API (miles de clases listas). |
 | reference book                    | libro de referencia | Se consulta puntualmente por un dato específico, no se lee de corrido (ej: una enciclopedia). |
+| module                            | módulo | Agrupación de PAQUETES, desde Java 9. Es la capa de arriba de todo: módulo → paquete → clase → método. `java.base` es el módulo con lo fundamental, y viene incluido siempre. |
+| javadoc                           | javadoc (documentación de la API) | Las páginas HTML con la ficha de cada clase de Java. Las genera una herramienta automáticamente a partir de los comentarios del código fuente. |
+| deprecated                        | obsoleto / desaconsejado | Método o clase que todavía funciona y compila, pero que Java pide no usar en código nuevo porque existe una alternativa mejor. |
+| to browse / to flip through       | hojear | Pasar páginas sin buscar nada puntual, para ver qué hay. Es como se DESCUBREN clases que no sabías que existían. |
+| to stumble on to                  | toparse con / tropezarse con | Encontrar algo útil por casualidad, sin haberlo buscado. |
+| in a nutshell                     | en pocas palabras / resumido | Modismo inglés. Da nombre al libro de referencia "Java in a Nutshell". |
+| index                             | índice | Lista alfabética de TODO lo que hay en la documentación (clases, métodos, variables). La entrada más rápida si sabés el nombre a medias. |
+| immutable                         | inmutable | Objeto que no se puede modificar después de creado. La lista que devuelve `List.of(...)` es inmutable: no acepta `add()`. |
 | Java API                          | API de Java | Biblioteca de clases prediseñadas que trae el JDK, lista para usar en vez de reinventar la rueda. |
 | novelty                           | novedad | Lo que el cerebro busca constantemente; lo rutinario se filtra como "no importante". |
 | abstract method (adelanto)        | método abstracto | Método sin cuerpo, declarado pero no implementado; se ve en detalle con herencia. |
@@ -501,6 +508,19 @@ SESIÓN #82 — 2026-09-03 — Cierre del capítulo: bullet points de ArrayList 
 - Chequeo: LAS DOS BIEN. Separó `size()` con paréntesis de `length` sin ellos, y negó que los imports pesen o hagan lento el programa. Se agregó el matiz: `apellidos.length;` como línea suelta no compila ("not a statement") y `nombres.size();` sí — leer una variable no es una acción, llamar un método sí.
 - Dudas: ninguna.
 - PRÓXIMO PASO: pág. 452 en adelante (cómo usar la documentación de la Java API). PEDIR además los pantallazos de 447-448 (hueco de formato: probablemente el ejercicio de fin de capítulo).
+
+SESIÓN #83 — 2026-09-03 — Cómo descubrir la API: hojear un libro vs. leer el javadoc (pág. 452-454, 456, 26%)
+- Arranca tema nuevo: ya sabemos que la biblioteca existe y está en paquetes; ahora, cómo enterarse solo de qué clases hay. El libro parte el problema en DOS: (1) DESCUBRIR qué features existen — todavía no sabés el nombre; (2) CONSULTAR qué puede hacer una clase que ya nombraste.
+- Dos herramientas, una por problema: hojear un libro de referencia ("Java in a Nutshell", Evans y Flanagan) sirve para DESCUBRIR — te topás con clases sin buscarlas. El javadoc solo sirve para CONSULTAR: para buscar algo ahí ya tenés que saber cómo se llama.
+- Pág. 453-454: la documentación oficial es `docs.oracle.com/en/java/javase/17/docs/api/index.html`; el 17 es la versión de Java (el usuario tiene 26, se cambia el número). Se llama JAVADOC porque la genera automáticamente una herramienta a partir de los comentarios del código fuente.
+- La doc se parte en Java SE (el Java de verdad, lo que usa un junior) y JDK (herramientas de nicho). De la barra de navegación, sirven INDEX (índice alfabético de todo), CLASS (la ficha de una clase) y PACKAGE (todas las clases de un paquete, ideal para descubrir).
+- DEPRECATED = obsoleto: el método todavía funciona y compila, pero Java desaconseja usarlo en código nuevo porque hay algo mejor. Palabra de entrevista.
+- CONCEPTO NUEVO — MÓDULO: la escalera completa de la biblioteca es módulo → paquete → clase → método (`java.base` → `java.util` → `ArrayList` → `add()`). Un módulo agrupa PAQUETES; existe desde Java 9. `java.base` viene incluido siempre, por eso se venía usando ArrayList sin oír nunca la palabra. Contexto, no para dominar (reaparece en Fase 3 con Maven/Gradle).
+- Pág. 456 es un pantallazo de una página del libro de referencia ("The List Interface"): 20% puro, sirve solo para ver el estilo. Su código adelanta `List<String> l = new ArrayList<>(...)` (interfaz a la izquierda, clase a la derecha = POLIMORFISMO, capítulo futuro) y los atajos `Arrays.asList(...)` / `List.of(...)` para crear listas ya llenas — `List.of()` devuelve una lista INMUTABLE.
+- Ejercicios de la tanda: ninguno del libro. Se creó uno del profe: LIBRO lib21 "Leer el javadoc" (buscar la ficha de ArrayList y contestar 5 preguntas), pendiente.
+- Nota del profe: en vez de navegar el sitio, buscar en Google "java 26 ArrayList javadoc" cae directo en la ficha. Es lo que se hace en el trabajo real.
+- Dudas: —
+- PRÓXIMO PASO: pág. 455 no vino (cubierto igual: es el borde del pantallazo de 456). Siguen faltando 447-448 (hueco de formato ya anotado). Próximo material: pág. 457 en adelante.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

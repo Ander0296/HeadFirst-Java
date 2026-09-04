@@ -422,3 +422,9 @@ El ArrayList responde size() con paréntesis y el arreglo expone length sin par�
 
 s82b — qué hace un import:
 Un import solo te ahorra tipear el nombre completo; no copia código ni agranda tu programa.
+
+s83a — descubrir contra consultar:
+El libro sirve para descubrir clases que no conocés; el javadoc sirve para consultar la que ya nombraste.
+
+s83b — la escalera de la biblioteca:
+Un módulo agrupa paquetes, un paquete agrupa clases y una clase agrupa métodos.

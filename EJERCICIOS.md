@@ -23,6 +23,9 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original)
 # EJERCICIOS ABIERTOS
 # ============================================================
 
+LIBRO — "Leer el javadoc" — buscar la ficha de ArrayList en la documentación oficial y contestar 5 preguntas (paquete/módulo, las dos versiones de add, clear(), un método nuevo, qué es deprecated) (Ubicación pág. 452-454, Sesión #83) — [ ] pendiente
+Arranque: ejercicios/lib21-leer-el-javadoc.md | Si te trabás: Sesión #83 de la guía
+
 EJERCICIO #13 — Code Magnets: "MultiFor" — reconstruir un programa desordenado con dos for anidados e incremento/decremento para que dé la salida pedida (Ubicación pág. 380-382, Sesión #71) — [ ] pendiente
 Tipo: completar/corregir código
 Arranque: ejercicios/ej13-code-magnets-multifor/MultiFor.java | Si te trabás: Sesión #68 y #69 de la guía
