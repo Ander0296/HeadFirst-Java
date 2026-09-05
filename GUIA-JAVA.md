@@ -9,9 +9,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 - Última página: 456 de 1629 (26%) — cómo descubrir la API: DESCUBRIR (hojear un libro de referencia) vs. CONSULTAR (el javadoc en docs.oracle.com), y la escalera módulo → paquete → clase → método. Ver Sesión #83. **Próximo: pág. 457**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
 - Última sesión: **Sesión #83** (tanda de 4 pantallazos, 2026-09-03). Dos tandas de pantallazos el mismo día (#82 y #83).
-- PRÓXIMA SESIÓN: `/rename java-s70`
+- PRÓXIMA SESIÓN: `/rename java-s71`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s69: repaso ej14-r1, sin tanda.)
+  de las tandas. La última cerrada fue java-s70: repaso lib14-r1 bis, sin tanda.)
 - Ejercicios pendientes: **3** (lib21 "Leer el javadoc" [nuevo, 10 min], lib13 "¿qué más testear?" y ej13 Code Magnets MultiFor). El triage del 2026-09-03 dio de baja lib07, lib12, lib17 y lib18 (ver PENDIENTES.md). Detalle: EJERCICIOS.md.
 - ⚠ **12 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. lib14-r1 bis (05/09): PARCIAL — RE-ESTUDIO LEVANTADO (el bucle ya corta y cuenta intentos), pero falta crear el objeto y llenar el array → r1 ter al 08/09. Pendientes de re-intento: lib19-r1 bis y el concepto "arrancar un programa" (los dos el 2026-09-06).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
