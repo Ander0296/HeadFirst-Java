@@ -61,11 +61,20 @@ concreta de cada punto. Si no podés señalarla, el punto está fallando.
 - [ ] Comprobá la dirección de los datos: lo que va entre paréntesis es
       lo que el método RECIBE; lo que sale es lo que DEVUELVE. Decirlo
       al revés suele venir con el error de arriba.
+- [ ] Leé la FIRMA del método (`void setLocationCells(int[] locs)`) y no
+      le atribuyas trabajo que no declara. Un setter que recibe un array
+      guarda ESE array: no lo calcula, no lo completa, no lo inventa. Si
+      el dato hay que armarlo, la línea que lo arma es TUYA y va antes
+      de la llamada.
 
 ## 5. Antes y después del bucle
 
 - [ ] Lo que se hace UNA sola vez (crear objetos, preparar datos,
       configurar) va AFUERA, antes del bucle.
+- [ ] Por cada llamada con punto (`objeto.metodo()`), señalá la línea
+      donde ese objeto NACE. Si no podés señalarla, el objeto no existe
+      y no hay a quién pedirle nada: primero se crea, después se le
+      habla.
 - [ ] Lo que resume el resultado final (el mensaje "te llevó N...") va
       AFUERA, después del bucle — no adentro, donde se imprimiría en
       cada vuelta.
@@ -83,3 +92,5 @@ concreta de cada punto. Si no podés señalarla, el punto está fallando.
 | El contador da números raros | Se declaró adentro del bucle |
 | El resultado cambia sin motivo | Se llama al método varias veces en vez de guardar lo que devuelve |
 | El mensaje final se repite | Está adentro del bucle en vez de después |
+| "No sé a quién le llamo este método" | El objeto nunca se creó |
+| Un dato llega vacío o a medias | Se esperaba que un setter lo calculara |

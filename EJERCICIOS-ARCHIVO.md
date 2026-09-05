@@ -1991,3 +1991,50 @@ se salteó.
 Repaso r2 agendado para 2026-09-19.
 
 ============================================================
+
+============================================================
+
+REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1 bis) — cumplido 2026-09-05 (sesión java-s70) — RESULTADO: PARCIAL (RE-ESTUDIO levantado, ejercicio NO aprobado)
+Arranque: ejercicios/repasos/lib14-r1bis.md
+
+MEJORÓ respecto del r1 (los dos errores que motivaron el RE-ESTUDIO):
+1. EL BUCLE TERMINA. `DETENER el mientras con un break`, y en UNA sola
+   rama: la del "kill". El error espejo (r1: no cortaba nunca; original:
+   cortaba en todos los casos) quedó resuelto sin pistas.
+2. Contador correcto y en el nivel correcto: `AUMENTAR numOfGuesses en 1`
+   afuera de las ramas, así que cuenta TODAS las vueltas (incluidos los
+   miss), que es lo que dice el mensaje "You took 4 guesses". Ya no toca
+   numOfHits (variable de instancia de SimpleStartup — encapsulamiento).
+3. Recuperó el array de 3 celdas declarado antes del bucle (había
+   desaparecido en el r1: era una regresión respecto del original).
+4. Las tres respuestas quedaron planas y excluyentes, y el mensaje del
+   total está en la rama del kill, no repitiéndose por vuelta.
+
+FALLÓ:
+1. REGRESIÓN NUEVA: nunca se CREA el objeto SimpleStartup (punto 1 de la
+   lista de tareas del enunciado). Llama a setLocationCells() y a
+   checkYourself() con el operador punto sobre un objeto que no existe.
+   En el r1 al menos lo declaraba.
+2. Le atribuyó al setter un trabajo que su firma no declara: escribió
+   que "setLocationCells crea las 2 celdas restantes a partir del número
+   al azar". `void setLocationCells(int[] locs)` RECIBE el array ya
+   armado. Falta la línea que llena `posicion` con las tres celdas
+   consecutivas — línea que en su versión ORIGINAL había deducido solo.
+3. REPETIDO del r1: no guarda el retorno de checkYourself(). Escribe
+   "REVISAR el intento con checkYourself" y después "SI el intento es
+   hit", llamando "el intento" tanto al número que tecleó el usuario
+   como al String que devolvió el método. El checklist
+   ToDo/un-bucle-que-termina.md (punto 4) ya cubría esto: se salteó.
+4. Inventó una rama imposible: "SI el intento es un intento repetido".
+   checkYourself() solo devuelve "hit"/"miss"/"kill", y el juego no
+   guarda ninguna lista de intentos previos con la que comparar.
+5. Menor (no error): suma numOfGuesses ANTES de pedir el input.
+
+CHECKLIST TOCADO: ToDo/un-bucle-que-termina.md — dos puntos nuevos
+(señalar la línea donde nace cada objeto al que se le llama un método;
+leer la FIRMA del método y no atribuirle trabajo que no declara) y dos
+filas en la tabla de trampas.
+
+RESULTADO: PARCIAL. Se levanta el RE-ESTUDIO (el error de fondo está
+corregido), pero el prep code todavía no describe un programa que
+funcione. Re-intento corto: r1 ter agendado para 2026-09-08.

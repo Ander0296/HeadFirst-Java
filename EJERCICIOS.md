@@ -89,12 +89,14 @@ Arranque: ejercicios/repasos/lib20-r1.md (lo crea `/repaso`)
 Original PERFECTO (21/21). Mirar los dos break (15 = salir tras un hit;
 16 = remove + salir tras un kill) y el par 5/6.
 
-REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1 bis) — programado: 2026-09-05 — [ ] pendiente
-Arranque: ejercicios/repasos/lib14-r1bis.md (lo crea `/repaso`)
-RE-ESTUDIO ACTIVO (2do fallo seguido). Releer antes la Sesión #64. Mirar:
-(1) apagar el "MIENTRAS siga vivo"; (2) contar numOfGuesses, no
-numOfHits; (3) guardar el retorno de checkYourself(); (4) crear el array
-de 3 celdas antes de setLocationCells. ToDo/un-bucle-que-termina.md
+REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1 ter) — programado: 2026-09-08 — [ ] pendiente
+Arranque: ejercicios/repasos/lib14-r1ter.md (lo crea `/repaso`)
+r1 bis: RE-ESTUDIO LEVANTADO (el bucle ya corta solo en "kill" y cuenta
+numOfGuesses). Sigue faltando: (1) CREAR el objeto SimpleStartup — le
+llama métodos a un objeto que nunca nace; (2) llenar el array de 3 celdas
+(le atribuyó ese cálculo al setter); (3) GUARDAR el retorno de
+checkYourself() en una variable (repetido del r1).
+ToDo/un-bucle-que-termina.md (puntos 4 y 5)
 
 REPASO — EJERCICIO #15 "Agenda de contactos" (r1) — programado: 2026-09-06 — [ ] pendiente
 Arranque: ejercicios/repasos/ej15-r1/ (lo crea `/repaso`)
