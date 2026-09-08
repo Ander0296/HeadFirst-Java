@@ -124,3 +124,18 @@ estaba", el resultado se guarda en un `boolean` que se llama bandera.
 | guardar uno | `x[i] = "a";` | `x.add("a");` |
 | borrar uno | no se puede | `x.remove(i)` / `x.remove("a")` |
 | tamaño | fijo desde el `new` | crece y baja solo |
+| insertar en el medio | no se puede | `x.add(2, "a");` (corre a los demás) |
+| pisar el de la posición i | `x[i] = "a";` | `x.set(i, "a");` (no crece) |
+
+## Trampa de los índices que se mueven
+
+En un `ArrayList`, el índice de un elemento **no es fijo**. Cada vez que
+insertás con `add(i, ...)` o borrás con `remove(i)`, todos los que
+estaban de esa posición en adelante se corren un lugar.
+
+- [ ] Si guardaste una posición en una variable antes de insertar o
+      borrar, esa posición puede haber quedado vieja. Volvé a
+      preguntarla con `indexOf(...)` en vez de reutilizar el número.
+- [ ] Al borrar dentro de un bucle que va de 0 hacia arriba, después de
+      un `remove(i)` el elemento siguiente pasa a ocupar la posición `i`:
+      si igual hacés `i++`, te lo salteás.

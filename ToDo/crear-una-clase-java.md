@@ -58,6 +58,14 @@ de cómo* lo hace. Va adentro de un método.
       `private double temperaturaActual;`, no `double` a secas ni
       `public`. Sin `private`, cualquier código de afuera puede hacer
       `objeto.temperaturaActual = -9999;` y saltearse tus métodos.
+- [ ] **Ninguna lleva `static`.** `static` significa "pertenece a la
+      CLASE, no al objeto": una sola copia compartida por TODOS los
+      objetos. Es lo contrario de una variable de instancia, que es una
+      copia propia por objeto. Si dos teles distintas tienen que poder
+      tener marcas distintas, `marca` NO puede ser `static`.
+- [ ] Si además le pusiste `final`, dale un valor **en la misma línea**:
+      `private static final int MAX = 10;`. Una constante `final` sin
+      valor inicial no compila.
 - [ ] Si escribiste un setter, preguntate **para qué**. Un setter sobre
       una variable pública no protege nada: es un método decorativo. La
       pareja `private` + setter tiene sentido cuando el setter puede
@@ -125,6 +133,19 @@ void setWatts(int w) { }       // recibe un int, no devuelve nada
 - [ ] Abre `{` y cierra `}`.
 - [ ] **Los métodos NO se anidan**: un método nunca va dentro de otro.
       Si cerraste mal una llave, te puede pasar sin darte cuenta.
+- [ ] **Adentro del método, escribí el nombre EXACTO de la variable.**
+      No el del getter, no el mismo nombre con otras mayúsculas. Si
+      declaraste `encendido`, adentro de `encender()` va `encendido =
+      true;` — `isEncendido` es el nombre del MÉTODO que la lee, no de la
+      variable. Y si declaraste `MARCA`, `return marca;` no compila:
+      Java distingue mayúsculas de minúsculas. El compilador te dirá
+      `cannot find symbol` (no se encuentra el símbolo).
+- [ ] **Que el cuerpo haga lo que promete el nombre.** Si el método se
+      llama `subirVolumen()`, adentro tiene que SUBIRLO (`volumen++`,
+      `volumen += cantidad`). Si el cuerpo solo copia el valor que le
+      pasan (`this.volumen = volumen;`), eso es un setter y el nombre
+      honesto es `setVolumen()`. Un nombre que miente es peor que un
+      nombre feo: el que lee tu código confía en él.
 
 ## Nivel 5 — Las instrucciones
 

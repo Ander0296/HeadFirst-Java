@@ -22,6 +22,17 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original) (lo crea `/
 # EJERCICIOS ABIERTOS
 # ============================================================
 
+EJERCICIO #16 — Code Magnets: "ArrayListMagnet" (Ubicación pág. 461-463, Sesión #85) — [ ] pendiente
+Tipo: completar/corregir código (reordenar imanes)
+Arranque: ejercicios/ej16-code-magnets-arraylist/ | Si te trabás: Sesión #85 de la guía
+Dato nuevo del ejercicio: `add(int index, Object o)`.
+ToDo/recorrer-una-coleccion.md
+
+LIBRO — "JavaCross del capítulo 6, adaptado a vocabulario" (Ubicación pág. 463-466, Sesión #85) — [ ] pendiente
+Arranque: ejercicios/lib22-javacross-vocabulario.md | Si te trabás: Sesión #85 de la guía
+El crucigrama original es de puns en inglés (intraducibles): se conserva
+el repaso de vocabulario en 20 definiciones directas, respuestas en inglés.
+
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
@@ -108,10 +119,12 @@ Arranque: ejercicios/repasos/lib04-r2.md (lo crea `/repaso`)
 r1 PERFECTO. Mirar que `two.playIt()` no cambia ningún valor y que cada
 objeto conserva los suyos.
 
-REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r2) — programado: 2026-09-09 — [ ] pendiente
-Arranque: ejercicios/repasos/lib03-television-r2.md (lo crea `/repaso`)
-r1 bis BIEN. Mirar el error ESPEJO: `encendido` sin método que la cambie,
-clase 100% get/set sin verbo puro — reincidió el 04/09 (ver ej14-r2).
+REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r3) — programado: 2026-10-09 — [ ] pendiente
+Arranque: ejercicios/repasos/lib03-television-r3.md (lo crea `/repaso`)
+ÚLTIMO DEL CICLO: si sale bien, GRADÚA. r2 BIEN: el error espejo quedó
+corregido (encender()/apagar() void sobre `encendido`). Errores NUEVOS a
+mirar: `static` en instance variables, y escribir el nombre EXACTO de la
+variable adentro del método (MARCA≠marca, isEncendido≠encendido).
 ToDo/crear-una-clase-java.md
 
 REPASO — LIBRO "Yours to solve" bug SimpleStartupGame (pág. 365-367) (r2) — programado: 2026-09-17 — [ ] pendiente

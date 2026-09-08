@@ -7,12 +7,12 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 460 de 1629 (27%) — navegar el javadoc (Top down / Search) y leer la ficha de una clase: Constructor Summary, Method Summary y la sección Throws. Ver Sesión #84. **Próximo: pág. 461**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #84** (tanda de 4 pantallazos, 2026-09-08).
-- PRÓXIMA SESIÓN: `/rename java-s75`
+- Última página: 466 de 1629 (27%) — CAPÍTULO 6 TERMINADO: cierra con Code Magnets de ArrayList (dato nuevo: `add(int index, Object o)` inserta y corre a los demás) y el JavaCross. Ver Sesión #85. **Próximo: pág. 467, arranca el capítulo 7**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #85** (tanda de 5 pantallazos, 2026-09-08).
+- PRÓXIMA SESIÓN: `/rename java-s77`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s74: sin tanda, solo la entrega de ej13.)
-- Ejercicios pendientes: **0** — ej13 (Code Magnets MultiFor) completado el 2026-09-08, PERFECTO a la primera; su r1 queda al 2026-09-11. lib13 dado de baja en el triage del 08/09. Detalle: EJERCICIOS.md.
+  de las tandas. La última cerrada fue java-s76: la tanda de la Sesión #85.)
+- Ejercicios pendientes: **2**, los dos de la Sesión #85 — ej16 Code Magnets "ArrayListMagnet" (código) y lib22 "JavaCross adaptado a vocabulario" (papel). Detalle: EJERCICIOS.md.
 - ⚠ **15 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. El 08/09: lib05-r2 BIEN — el fallo histórico (entregar diagnóstico sin el arreglo en código) quedó CORREGIDO; r3 al 08/10, último del ciclo. Error nuevo a vigilar: lee la salida por el NOMBRE del método en vez del `println` de adentro.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-09-08** — backlog viejo de páginas SALDADO: las 41 sin clasificar se dieron de baja (Kindle web saltea números; no era contenido faltante). PENDIENTES.md queda con 2 entradas vivas, las dos con QUÉ falta escrito: pág. 447-448 y el Ready-Bake de GameHelper. También de baja lib13. Ritmo real: 5,5 pág./tanda (83 tandas, pág. 456 de 1629) → faltan ~214 tandas; pasando el material como TEXTO en vez de pantallazos bajarían a ~147.
@@ -234,6 +234,8 @@ Ejercicios: ver EJERCICIOS.md.
 | Throws (sección del javadoc)          | Lanza | Sección de la ficha de un método que dice con qué EXCEPCIÓN revienta y bajo qué condición (`get()`: IndexOutOfBoundsException si `index < 0 || index >= size()`). Es la mitad que la firma no muestra. |
 | type parameter `E` (generics)         | tipo genérico (Elemento) | Hueco para un tipo en la ficha de una colección: `class ArrayList<E>`. Se llena al crear el objeto (`new ArrayList<String>()` hace E = String), así que todo el javadoc se relee cambiando E por ese tipo. |
 | LTS (Long Term Support)               | soporte a largo plazo | Versión de Java que recibe parches durante años; es en la que se paran las empresas. Fueron LTS la 8, 11, 17, 21 y 25. |
+| insert (add at index)                 | insertar | `lista.add(2, "dos")` mete el elemento EN la posición 2 y corre un lugar a todos los que estaban de ahí en adelante; nada se pierde. Distinto de `set(2, "dos")`, que PISA lo que había en la 2. |
+| red herring                           | pista falsa | Literalmente "arenque rojo": en inglés, un dato puesto a propósito para despistar. El libro avisa que una respuesta del crucigrama es un red herring (`tapas`, la comida española) y no tiene nada que ver con Java. |
 
 ============================================================
 (SESIONES — desde la #68 en formato CORTO: 5-8 bullets, sin bloques
@@ -434,6 +436,18 @@ SESIÓN #84 — 2026-09-08 — Navegar el javadoc y leer la ficha de una clase (
 - Dudas: TRES, todas en la pregunta de control. (1) Qué es la FIRMA de un método → explicado (nombre + parámetros; el titular, no la nota completa). (2) Qué significa la `E` de `E get(int index)` → explicado: hueco de tipo que se llena al crear la lista (`ArrayList<String>` ⇒ E = String). (3) Confundió `get()` con `indexOf()`: dijo que `get(50)` devuelve -1. NO: **`get()` lanza IndexOutOfBoundsException**. Corregido con el porqué: `indexOf()` hace una PREGUNTA (y "no está" es respuesta válida), `get()` recibe una AFIRMACIÓN del programador (y si es falsa, frena). Aplicó bien compile-time vs. runtime (compila, revienta en ejecución), solo lo colgó del método equivocado.
 - Chequeo final: BIEN. Verificar `size()` antes de llamar a `get()` (guard clause). Se agregó el matiz de las DOS puntas del rango: válido es `>= 0` Y `< size()`.
 - PRÓXIMO PASO: pág. 461 en adelante. Siguen faltando 447-448 (hueco de formato ya anotado en PENDIENTES.md).
+
+SESIÓN #85 — 2026-09-08 — Cierre del capítulo 6: Code Magnets de ArrayList y JavaCross (pág. 461-466, 27%)
+- El capítulo cierra sin material conceptual nuevo: son dos ejercicios de repaso. El único dato técnico nuevo lo trae el enunciado del Code Magnets.
+- DATO NUEVO: `add(int index, Object o)` — el SEGUNDO `add` de ArrayList (sobrecarga). El de un argumento agrega SIEMPRE al final; el de dos INSERTA en la posición pedida y corre un lugar a todos los que estaban de ahí en adelante. Insertar no pisa: `set(index, o)` sí pisa.
+- Consecuencia práctica: después de un `add(index, ...)` o de un `remove(index)` los índices de los demás elementos CAMBIAN. Por eso `indexOf()` puede devolver un número distinto al que uno esperaba.
+- Recordatorio del ejercicio: `contains("x")` devuelve boolean (¿está?) e `indexOf("x")` devuelve int (¿en qué posición?, -1 si no está). Son la misma pregunta con distinta respuesta.
+- Sintaxis del ejercicio: el for-each `for (String element : list) { ... }` — "por cada String de list, llamalo element". Recorre la colección entera sin índice ni contador; no sirve si necesitás saber en qué posición vas.
+- Ejercicios de la tanda: DOS, los dos pendientes. EJERCICIO #16 Code Magnets "ArrayListMagnet" (código) y LIBRO lib22 "JavaCross adaptado a vocabulario" (papel).
+- Nota del profe: el JavaCross original NO se puede traducir. Sus pistas son puns en inglés (ej. "Or, in the courtroom" solo cierra porque en inglés la misma palabra nombra al colegio de abogados y al símbolo `|`); traducidas pierden sentido y explicadas regalan la respuesta. Se conservó lo que el ejercicio entrena de verdad —el vocabulario del capítulo— en 20 definiciones directas, con las respuestas en inglés porque son los términos reales.
+- Dudas: ninguna (tanda de enunciados).
+- PRÓXIMO PASO: pág. 467 en adelante — arranca el capítulo 7. Siguen faltando 447-448 (hueco de formato en PENDIENTES.md).
+
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

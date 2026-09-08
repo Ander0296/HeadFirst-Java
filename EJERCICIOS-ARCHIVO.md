@@ -2176,3 +2176,45 @@ i=3 → "3 4","3 3", if no, i pasa a 4 → sale.
 SIN ERRORES: ningún checklist tocado, nada nuevo para vigilar.
 CONSECUENCIAS: r1 agendado para 2026-09-11, r2 para 2026-09-24, r3 para
 2026-10-24.
+
+============================================================
+
+REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r2) — programado: 2026-09-09 — [x] cumplido (2026-09-08)
+Entregado en: ejercicios/repasos/lib03-television-r2.md
+
+Respuesta del r2 — instance variables: MARCA y PULGADAS (declaradas
+`private static final`), canal, volumen, encendido. Methods: getMarca(),
+getPulgadas(), getCanal(), cambiarCanal(int), getVolumen(),
+subirVolumen(int), encender(), apagar().
+
+Comparación de Claude: RESULTADO — salió BIEN. El error espejo del r1 bis
+quedó CORREGIDO. r3 agendado al ciclo normal (~1 mes): 2026-10-09.
+
+MEJORÓ (esto era lo que se estaba midiendo):
+1. `encendido` YA TIENE QUIÉN LA ESCRIBA: encender() y apagar(), los dos
+   `void`. En el r1 bis era estado huérfano (solo isEncendido() la leía).
+2. Volvieron los VERBOS PUROS: cambiarCanal(), encender(), apagar(). La
+   clase dejó de ser 100% getters/setters — el error espejo del r1 bis.
+3. Escribió los methods como CÓDIGO Java real, no como lista de nombres.
+4. Todas las variables con `private` (Nivel 3 del checklist), criterio que
+   venía fallando en ej14.
+5. Mantuvo lo ganado en el r1 bis: estado variable declarado (canal,
+   volumen, encendido) y getMarca()/getPulgadas() sin setter.
+
+QUEDÓ FLOJO (errores NUEVOS, ninguno repetido de antes):
+1. `private static final String MARCA;` — `static` significa "pertenece a
+   la CLASE, no al objeto": es lo CONTRARIO de una instance variable, que
+   es justo lo que pedía el enunciado. Con static, todas las teles del
+   mundo comparten la misma marca. Además `static final` sin valor no
+   compila (una constante final se inicializa en la declaración).
+2. Nombres inconsistentes que NO COMPILAN: declaró `MARCA` y adentro del
+   getter escribió `marca`; declaró `encendido` y adentro de encender()
+   asignó `isEncendido` (el nombre del getter booleano, no de la
+   variable). Java distingue mayúsculas: "cannot find symbol".
+3. `subirVolumen(int volumen) { this.volumen = volumen; }` — el nombre
+   MIENTE: "subir" promete incrementar y el cuerpo REEMPLAZA. Es un setter
+   disfrazado de verbo. Un verbo de acción hace el trabajo: `volumen++` o
+   `volumen += cantidad`.
+4. Tipeos: `getPulgadas())` con un paréntesis de más y `return pulgadas`
+   sin `;`.
+5. Faltó bajarVolumen() (menor: el ejercicio es abierto).

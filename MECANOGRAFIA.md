@@ -434,3 +434,9 @@ La firma dice qué recibe y qué devuelve; la sección Throws dice con qué exce
 
 s84b — get contra indexOf:
 El método indexOf devuelve -1 si no encuentra, pero get(50) lanza IndexOutOfBoundsException.
+
+s85a — insertar sin pisar:
+La llamada a.add(2, "dos"); inserta en la posición 2 y corre un lugar a los que seguían.
+
+s85b — recorrer sin índice:
+El bucle for (String element : list) recorre cada elemento sin llevar un contador propio.
