@@ -1718,6 +1718,16 @@ r1 agendado para 2026-09-12.
 # DADAS DE BAJA (decisión tomada en un triage — no vuelven)
 # ============================================================
 
+Triage del 2026-09-08 (`/pendientes`, sesión java-s72).
+
+- LIBRO lib13 — Sharpen your pencil: "¿qué más testear?" (pág. 346,
+  Sesión #62) — abierto 40 días (desde el 2026-07-30). Baja: es
+  conceptual, sin código para compilar, y sobre el test code del mismo
+  juego que ya se depuró en lib15 (completado, con repaso vivo). El
+  músculo real de "qué testear" se entrena con JUnit en la Fase 3, no en
+  papel. Archivo de arranque intacto en ejercicios/lib13-que-mas-testear.md
+  por si se quiere retomar.
+
 Baja del 2026-09-08 (decisión del usuario, sesión java-s71).
 
 - REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354, Sesión #64)

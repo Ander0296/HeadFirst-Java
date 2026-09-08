@@ -26,9 +26,6 @@ EJERCICIO #13 — Code Magnets: "MultiFor" — reconstruir un programa desordena
 Tipo: completar/corregir código
 Arranque: ejercicios/ej13-code-magnets-multifor/MultiFor.java | Si te trabás: Sesión #68 y #69 de la guía
 
-LIBRO — Sharpen your pencil: "¿qué más testear?" — mirando el test code de SimpleStartupTestDrive, qué falta probar del método checkYourself() (Ubicación pág. 346, Sesión #62) — [ ] pendiente
-Arranque: ejercicios/lib13-que-mas-testear.md | Si te trabás: Sesión #62 de la guía
-
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================

@@ -44,27 +44,37 @@ y no se salda nunca.
   pantallazo cuando toque hacer correr el juego completo.
 
 # ============================================================
-# BACKLOG VIEJO — sin clasificar (anterior al 2026-08-14)
+# BACKLOG VIEJO — VACÍO (saldado el 2026-09-08)
 # ============================================================
 
-Estas páginas se anotaron cuando todavía no existía la clasificación de
-arriba, así que son solo números: no se sabe qué hay en cada una. Según el
-usuario, buena parte son huecos de formato de Kindle web, no contenido que
-falte de verdad.
+Ya no hay páginas sin clasificar. Las 41 que quedaban se dieron de baja en
+el triage del 2026-09-08: ver DADAS DE BAJA.
 
-`/pendientes` las triagea de a poco: por cada una, o se recupera el
-pantallazo, o se da de baja explícitamente. **No se arrastran para siempre.**
-
-Código de la clase Player (177), 201, 209, 213, 215-217, 226, 233, 237-238,
-241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310 (resto de "Who Am
-I?"), 326, 328, 332, 334, 336, 342, 344, 347, 355, 364, 366, 385, 399, 404,
-406, 409, 411 y 421 (tramos intermedios).
-
-Quedan 41 páginas sin triagear (triage del 2026-09-03).
+De acá en más, toda página que no llegue en una tanda se clasifica EN EL
+MOMENTO con la tabla de arriba. Si esta sección vuelve a llenarse de
+números pelados, el sistema se rompió.
 
 # ============================================================
 # DADAS DE BAJA (decisión tomada, no vuelven)
 # ============================================================
+
+## Backlog viejo COMPLETO — baja el 2026-09-08 (41 páginas)
+
+Motivo (explicado por el usuario en el triage): **la versión web de Kindle
+saltea números de página**. Esas páginas no son contenido que se haya
+salteado: en muchos casos ni siquiera existen como página mostrada. Anotar
+el número sin saber qué había adentro generaba deuda falsa — imposible de
+triagear y que se releía para siempre.
+
+Páginas dadas de baja: 177 (la nota decía "código de la clase Player", pero
+después se escribió el juego completo a mano), 201, 209, 213, 215-217, 226,
+233, 237-238, 241, 253, 256, 261, 268-269, 271, 285, 287, 300, 306, 310,
+326, 328, 332, 334, 336, 342, 344, 347, 355, 364, 366, 385, 399, 404, 406,
+409, 411 y 421.
+
+Rescate: si al releer el libro aparece que faltaba un concepto real en
+alguna, se pide ESE pantallazo puntual y se anota como hueco de formato con
+su QUÉ. Nunca se reabre la lista de números.
 
 ## Páginas del backlog viejo — baja el 2026-09-03
 
