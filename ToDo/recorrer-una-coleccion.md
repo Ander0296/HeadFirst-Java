@@ -94,6 +94,27 @@ miente.
 - [ ] Con `ArrayList` el chequeo es `if (!yaContadas.contains(x))`. Con
       arreglo paralelo es `if (!yaContadas[i])`.
 
+## 8. Si el bucle contesta SÍ o NO (bandera booleana)
+
+Cuando el bucle busca algo y al final tenés que decir "estaba" o "no
+estaba", el resultado se guarda en un `boolean` que se llama bandera.
+
+- [ ] La bandera se declara **antes** del bucle y arranca en `false`:
+      `boolean loEncontre = false;`. `false` es la respuesta por defecto
+      ("no lo encontré") y el bucle solo la cambia si encuentra algo.
+- [ ] Declararla vacía (`boolean loEncontre;`) y asignarla solo adentro
+      del `if` NO compila cuando después la leés: el compilador no sabe
+      si ese `if` va a entrar alguna vez y avisa
+      `variable might not have been initialized` (puede que la variable
+      no haya sido inicializada). Es la regla de asignación definitiva.
+- [ ] Apenas la ponés en `true`, salí con `break`: la pregunta ya está
+      contestada y seguir recorriendo es trabajo al pepe.
+- [ ] Al comparar textos dentro del bucle, poné primero el valor que
+      SEGURO no es null: `if (buscado.equals(elemento))`, no
+      `elemento.equals(buscado)`. Si una casilla del arreglo está vacía,
+      el elemento es `null` y llamarle `.equals()` revienta con
+      `NullPointerException`.
+
 ## Tabla de trampas — arreglo vs. ArrayList
 
 | Quiero... | Arreglo `String[]` | `ArrayList<String>` |

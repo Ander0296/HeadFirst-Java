@@ -22,9 +22,6 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original) (lo crea `/
 # EJERCICIOS ABIERTOS
 # ============================================================
 
-LIBRO — "Leer el javadoc" — buscar la ficha de ArrayList en la documentación oficial y contestar 5 preguntas (paquete/módulo, las dos versiones de add, clear(), un método nuevo, qué es deprecated) (Ubicación pág. 452-454, Sesión #83) — [ ] pendiente
-Arranque: ejercicios/lib21-leer-el-javadoc.md | Si te trabás: Sesión #83 de la guía
-
 EJERCICIO #13 — Code Magnets: "MultiFor" — reconstruir un programa desordenado con dos for anidados e incremento/decremento para que dé la salida pedida (Ubicación pág. 380-382, Sesión #71) — [ ] pendiente
 Tipo: completar/corregir código
 Arranque: ejercicios/ej13-code-magnets-multifor/MultiFor.java | Si te trabás: Sesión #68 y #69 de la guía
@@ -40,6 +37,13 @@ Nota: la corrección COMPLETA vive en EJERCICIOS-ARCHIVO.md; acá solo el
 "punto a mirar", en 1-2 líneas. Criterio vigente (2026-08-25): se atacan
 por RIESGO (los que ya fallaron primero), no por fecha; uno por día, y el
 arranque lo crea `/repaso` en el momento.
+
+REPASO — LIBRO "Leer el javadoc" (pág. 452-454) (r1) — programado: 2026-09-12 — [ ] pendiente
+Arranque: ejercicios/repasos/lib21-r1.md (lo crea `/repaso`)
+Original: 4 de 5 bien. Mirar (1) el PAQUETE de ArrayList (dijo java.lang;
+el módulo java.base sí estaba bien) y (2) que conteste las DOS mitades de
+cada pregunta (qué hace Y qué devuelve).
+ToDo/leer-la-documentacion-de-java.md
 
 REPASO — EJERCICIO #05 Robot (Sesión #25) (r1) — programado: 2026-07-28 — [ ] pendiente
 Arranque: ejercicios/repasos/ej05-robot-r1/ (Robot.java y RobotTestDrive.java) — YA CREADO
@@ -89,25 +93,11 @@ Arranque: ejercicios/repasos/lib20-r1.md (lo crea `/repaso`)
 Original PERFECTO (21/21). Mirar los dos break (15 = salir tras un hit;
 16 = remove + salir tras un kill) y el par 5/6.
 
-REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354) (r1 ter) — programado: 2026-09-08 — [ ] pendiente
-Arranque: ejercicios/repasos/lib14-r1ter.md (lo crea `/repaso`)
-r1 bis: RE-ESTUDIO LEVANTADO (el bucle ya corta solo en "kill" y cuenta
-numOfGuesses). Sigue faltando: (1) CREAR el objeto SimpleStartup — le
-llama métodos a un objeto que nunca nace; (2) llenar el array de 3 celdas
-(le atribuyó ese cálculo al setter); (3) GUARDAR el retorno de
-checkYourself() en una variable (repetido del r1).
-ToDo/un-bucle-que-termina.md (puntos 4 y 5)
-
 REPASO — EJERCICIO #15 "Agenda de contactos" (r1) — programado: 2026-09-06 — [ ] pendiente
 Arranque: ejercicios/repasos/ej15-r1/ (lo crea `/repaso`)
 Original BIEN. Mirar: (1) imprimir `i`, no `indexOf(get(i))`; (2) sin
 `== true` sobre un boolean; (3) un println con concatenación.
 ToDo/recorrer-una-coleccion.md
-
-REPASO — LIBRO "ArrayList vs. arreglo común" (pág. 407) (r1 bis) — programado: 2026-09-06 — [ ] pendiente
-Arranque: ejercicios/repasos/lib19-r1bis.md (lo crea `/repaso`)
-r1 MAL: no tradujo a código el "borrar" (fila 8) y en "contains" (fila 9)
-comparó una sola posición en vez de recorrer. ToDo/recorrer-una-coleccion.md
 
 REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) — programado: 2026-09-06 — [ ] pendiente
 Arranque: lo crea `/repaso` (es conceptual, sin carpeta propia)
@@ -150,6 +140,12 @@ getEstado → setEstado → isEncendido: tres veces eligió un prefijo en vez
 de un verbo puro. Mirar `imprimirEstado()` y `encender()`/`apagar()` void.
 (3) La PARTE 4 llegue contestada: se salteó las dos veces.
 ToDo/crear-una-clase-java.md (Nivel 3).
+
+REPASO — LIBRO "ArrayList vs. arreglo común" (pág. 407) (r2) — programado: 2026-09-22 — [ ] pendiente
+Arranque: ejercicios/repasos/lib19-r2.md (lo crea `/repaso`)
+r1 bis BIEN: los dos errores del r1 corregidos. Mirar que la bandera
+`boolean` arranque en `false` antes del bucle, que salga con `break`, y
+`b.equals(x)` y no al revés. ToDo/recorrer-una-coleccion.md (punto 8)
 
 REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3) — programado: 2026-09-25 — [ ] pendiente
 Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md (lo crea `/repaso`)

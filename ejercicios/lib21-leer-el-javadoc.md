@@ -34,15 +34,17 @@ Si te trabás: revisá la Sesión #83 de GUIA-JAVA.md.
 
 ## MI RESPUESTA
 
-1.
+1. Vive es el paquete java.lang, en el modulo java.base.
 
-2.
+2. la primera es add(int index, E element) Esta toma dos atributos, una de tipo int y otra de tipo  objeto, inserta el elemento en la posición indicada.
+la segunda es add(E e) Agrega el objeto al final de la lista.
 
-3.
+3. Remueve todos los elementos de la lista.
 
-4.
+4. El método que he encontrado ha sido clone(), tiene de modificador el Objeto, no se le pasan atributos, devuelve la copia de la lista, perfecto para hacer pruebas
+donde tenga que modificar elementos, sin necesidad de dañar la lista original.
 
-5.
+5. No veo alguna que sea Deprecated, significa que sirven  hoy en día, se pueden usar, pero hay opciones mejores, que ya cumplen con la meta de mejor manera.
 
 ---
 

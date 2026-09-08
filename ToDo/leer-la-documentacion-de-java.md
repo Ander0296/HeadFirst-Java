@@ -33,6 +33,15 @@ adivinar. Se recorre de arriba a abajo, con la página abierta al lado.
 - [ ] Mirá lo que devuelve (a la izquierda del nombre). Si dice `void`,
       NO devuelve nada: guardarlo en una variable no compila.
 - [ ] Mirá los paréntesis: qué recibe y de qué tipo, en ese orden exacto.
+- [ ] Leé la línea de la firma de IZQUIERDA a DERECHA y separá las tres
+      cosas distintas que hay ahí. En `public Object clone()`:
+      `public` es el MODIFICADOR (quién puede llamarlo), `Object` es el
+      TIPO DE RETORNO (qué te devuelve) y `clone` es el NOMBRE. El tipo
+      de retorno no es un modificador: es lo que te llevás de vuelta.
+- [ ] Lo que el método RECIBE entre paréntesis son PARÁMETROS, no
+      atributos. Los atributos (variables de instancia) son los datos
+      que la clase guarda adentro, y aparecen en otra tabla de la ficha
+      ("Field Summary"), no en la de métodos.
 - [ ] Si el mismo nombre aparece VARIAS veces, no es un error de la
       página: son versiones distintas del mismo método, que se
       diferencian por lo que reciben entre paréntesis. Elegí la que

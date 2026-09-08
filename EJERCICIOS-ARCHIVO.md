@@ -1670,9 +1670,65 @@ SE REPITIÓ: nada. Cero errores en las dos pasadas.
 RESULTADO: 3/3 PERFECTO. Repaso r2 agendado para 2026-09-08 (el
 2026-09-07 ya está ocupado por lib05-r2 — máximo 1 repaso por día).
 
+REPASO — LIBRO "ArrayList vs. arreglo común" (pág. 407) (r1 bis) — cumplido 2026-09-08 (sesión java-s71) — RESULTADO: BIEN
+Arranque: ejercicios/repasos/lib19-r1bis.md
+BIEN: corrigió los DOS errores del r1. Fila 8 traducida a código
+(`myList[1] = null;`, la casilla se vacía pero sigue existiendo) y fila 9
+resuelta con un recorrido completo usando el for mejorado con el tipo
+adelante, en vez de comparar una sola posición.
+FLOJO (detalles, no invalidan): (1) `boolean isIn;` sin inicializar en
+`false` → al leerla da "variable might not have been initialized"
+(asignación definitiva); (2) sin `break` al encontrarlo; (3)
+`name.equals(b)` en vez de `b.equals(name)`: como la fila 8 dejó un
+`null` en el arreglo, ese orden revienta con NullPointerException.
+Extra explicado en el chat: `length` (casillas, siempre 2) no es lo
+mismo que `size()` (elementos guardados).
+Checklist: se le agregó a ToDo/recorrer-una-coleccion.md la sección 8
+(bandera booleana: inicializar en false, break al encontrar, orden del
+equals) — esos tres puntos no estaban cubiertos.
+r2 agendado para 2026-09-22.
+
+LIBRO/PROFE — "Leer el javadoc": buscar la ficha de ArrayList en la documentación oficial y contestar 5 preguntas (Ubicación pág. 452-454, Sesión #83) — [x] completado (2026-09-08)
+Arranque: ejercicios/lib21-leer-el-javadoc.md
+BIEN: las dos versiones de add() bien identificadas y bien explicadas
+(inserta en la posición vs. agrega al final); clear() descrito correcto;
+clone() encontrado solo, con un uso propio sensato; la idea de deprecated
+("anda, pero hay algo mejor") esencialmente correcta.
+MAL: (1) el PAQUETE — dijo java.lang, y ArrayList vive en java.util (el
+MÓDULO java.base sí estaba bien). El punto "leé el encabezado: dice el
+MÓDULO y el PAQUETE" del checklist ToDo/leer-la-documentacion-de-java.md
+ya lo cubría: se salteó. (2) La pregunta 3 pedía DOS cosas (qué dice y
+qué devuelve) y solo contestó una: clear() devuelve void. Nivel 1 del
+checklist ToDo/entregar-un-ejercicio.md ("contá los signos de pregunta")
+también lo cubría. (3) De clone() dijo "tiene de modificador el Objeto":
+confundió el TIPO DE RETORNO con un modificador.
+Explicado además en el chat: sobrecarga (overloading) como el nombre del
+fenómeno de add() repetido; add(E) devuelve boolean y add(int,E) es void;
+clone() devuelve una copia SUPERFICIAL (shallow copy) — la lista es nueva
+pero los elementos son los mismos objetos.
+Checklist: se le agregaron a ToDo/leer-la-documentacion-de-java.md dos
+puntos sobre la anatomía de la firma (modificador vs. tipo de retorno vs.
+nombre, y parámetros vs. atributos).
+CORREGIDO EN EL CHAT (mismo día, con pistas y sin ver la respuesta): dijo
+`java.util` y `void` solo, a la primera. Los dos errores fueron de LECTURA
+apurada de la ficha, no de desconocimiento.
+r1 agendado para 2026-09-12.
+
 # ============================================================
 # DADAS DE BAJA (decisión tomada en un triage — no vuelven)
 # ============================================================
+
+Baja del 2026-09-08 (decisión del usuario, sesión java-s71).
+
+- REPASO — LIBRO prep code SimpleStartupGame (pág. 353-354, Sesión #64)
+  — dado de BAJA en el r1 ter, sin resolver. Historial: r1 MAL
+  (2026-09-02), r1 bis PARCIAL (2026-09-05, RE-ESTUDIO levantado).
+  Motivo: el usuario pidió no repetirlo más ("estoy cansado de hacer ese
+  mismo ejercicio"). NO cuenta como aprobado: los tres puntos abiertos
+  (crear el objeto, llenar el array de 3 celdas, guardar el retorno de
+  checkYourself()) quedan sin verificar y deben reaparecer en otro
+  ejercicio o en un `/examen`, no en este.
+  Archivo de arranque creado y sin usar: ejercicios/repasos/lib14-r1ter.md
 
 Triage del 2026-08-24 (`/pendientes`). Los 4 Pool Puzzles entrenaban el
 mismo músculo — leer código ajeno y ensamblarlo — que ya quedó aprobado
