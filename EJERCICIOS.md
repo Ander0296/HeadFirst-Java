@@ -101,11 +101,6 @@ Arranque: lo crea `/repaso` (es conceptual, sin carpeta propia)
 Examen 2026-09-03: mezcló "la clase que se ejecuta" con "el método que la
 JVM busca adentro". Mirar que separe las dos. Salió de DOMINADOS.
 
-REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r2) — programado: 2026-09-07 — [ ] pendiente
-Arranque: ejercicios/repasos/lib05-r2.md (lo crea `/repaso`)
-Mirar que entregue las DOS mitades (diagnóstico Y arreglo en código) sin
-pedírselas: ya falló dos veces. ToDo/entregar-un-ejercicio.md
-
 REPASO — LIBRO Sharpen your pencil: "Movie objects" (pág. 170-173) (r2) — programado: 2026-09-08 — [ ] pendiente
 Arranque: ejercicios/repasos/lib04-r2.md (lo crea `/repaso`)
 r1 PERFECTO. Mirar que `two.playIt()` no cambia ningún valor y que cada
@@ -154,6 +149,14 @@ Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. 5/5 las tres veces. Que TRACE el
 bucle, no conteste de memoria. Trampas: `y` llega a 10 (3 dígitos) y `x`
 sube DOS veces por vuelta (3 vueltas, no 5).
+
+REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r3) — programado: 2026-10-08 — [ ] pendiente
+Arranque: ejercicios/repasos/lib05-r3.md (lo crea `/repaso`)
+ÚLTIMO DEL CICLO: si sale bien, GRADÚA. r2 BIEN: las dos mitades
+entregadas solo (el fallo histórico quedó corregido). Mirar la SALIDA del
+archivo B: puso la del método que NO se llama (skipToNext en vez de
+skipIntro). Que lea el println DESDE ADENTRO del método que se ejecuta.
+ToDo/entregar-un-ejercicio.md (Nivel 2, último punto).
 
 # ============================================================
 # CONCEPTOS DOMINADOS (entran al graduarse un ejercicio con r3 bien)

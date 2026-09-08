@@ -9,11 +9,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 - Última página: 456 de 1629 (26%) — cómo descubrir la API: DESCUBRIR (hojear un libro de referencia) vs. CONSULTAR (el javadoc en docs.oracle.com), y la escalera módulo → paquete → clase → método. Ver Sesión #83. **Próximo: pág. 457**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
 - Última sesión: **Sesión #83** (tanda de 4 pantallazos, 2026-09-03). Dos tandas de pantallazos el mismo día (#82 y #83).
-- PRÓXIMA SESIÓN: `/rename java-s72`
+- PRÓXIMA SESIÓN: `/rename java-s73`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s71: 1 repaso + 1 ejercicio, sin tanda.)
+  de las tandas. La última cerrada fue java-s72: triage + 1 repaso, sin tanda.)
 - Ejercicios pendientes: **1** (ej13 Code Magnets MultiFor). lib13 "¿qué más testear?" dado de baja en el triage del 2026-09-08 (conceptual, sin código; el músculo real es JUnit en Fase 3). Detalle: EJERCICIOS.md.
-- ⚠ **16 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. El 08/09: lib19-r1 bis BIEN (r2 al 22/09) y lib14 (prep code SimpleStartupGame) DADO DE BAJA por decisión del usuario tras 3 intentos — baja, NO aprobado: sus 3 puntos abiertos vuelven por otro ejercicio o por `/examen`, nunca repitiendo ese enunciado.
+- ⚠ **15 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. El 08/09: lib05-r2 BIEN — el fallo histórico (entregar diagnóstico sin el arreglo en código) quedó CORREGIDO; r3 al 08/10, último del ciclo. Error nuevo a vigilar: lee la salida por el NOMBRE del método en vez del `println` de adentro.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-09-08** — backlog viejo de páginas SALDADO: las 41 sin clasificar se dieron de baja (Kindle web saltea números; no era contenido faltante). PENDIENTES.md queda con 2 entradas vivas, las dos con QUÉ falta escrito: pág. 447-448 y el Ready-Bake de GameHelper. También de baja lib13. Ritmo real: 5,5 pág./tanda (83 tandas, pág. 456 de 1629) → faltan ~214 tandas; pasando el material como TEXTO en vez de pantallazos bajarían a ~147.
 - Último examen (`/examen`): **2026-09-03** (el segundo, java-s65). Sólido: compile-time vs. runtime, y que toda instrucción ejecutable vive dentro de un método. Flojo: qué hace falta para ARRANCAR un programa — mezcló "la clase que se ejecuta" con "el método específico que busca la JVM dentro de esa clase". Consecuencia: ese concepto se sacó de CONCEPTOS DOMINADOS (no se sostuvo en frío) y se re-agendó repaso para 2026-09-06. Próximo examen: ~2026-09-17.

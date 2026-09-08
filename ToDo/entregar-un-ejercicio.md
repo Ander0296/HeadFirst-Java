@@ -53,6 +53,14 @@ no se puede esconder nada.
       código, con su tipo de retorno, sus llaves y su `;`.
 - [ ] Si pidieron una salida, escribila **literal**, tal como saldría
       en la pantalla, línea por línea. No "imprime los datos".
+- [ ] Antes de escribir una salida, **señalá con el dedo qué métodos se
+      ejecutan de verdad** y en qué orden. Si sacaste o agregaste una
+      línea como arreglo, releé el `main` YA arreglado: las líneas que
+      quedan son las únicas que imprimen.
+- [ ] Copiá el texto de la salida **desde adentro del método**, leyendo
+      su `println`. Nunca desde el nombre del método ni de memoria: dos
+      métodos con nombres parecidos (`skipIntro` y `skipToNext`)
+      imprimen cosas distintas, y la vista agarra el de al lado.
 
 ## Nivel 3 — Precisión de lo que decís
 

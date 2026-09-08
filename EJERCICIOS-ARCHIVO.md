@@ -1715,6 +1715,43 @@ apurada de la ficha, no de desconocimiento.
 r1 agendado para 2026-09-12.
 
 # ============================================================
+REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r2) — [x] cumplido (2026-09-08, sesión java-s72)
+Resuelto en: ejercicios/repasos/lib05-r2.md
+RESULTADO: BIEN. Elegido por RIESGO, no por fecha: era el único repaso
+que había fallado DOS veces por el mismo motivo (entregar el diagnóstico
+sin el arreglo en código).
+
+LO QUE SE CORRIGIÓ (el objetivo del repaso): entregó las DOS mitades en
+los dos archivos, sin que se las pidieran. Fue más allá del enunciado
+agregando la salida (que no era obligatoria: solo se pide "si compila", y
+ninguno de los dos compila). En B dio además DOS arreglos válidos
+(agregar el método o sacar la llamada) y eligió uno.
+
+- Archivo A — PERFECTO. Diagnóstico: `song` nunca se declaró ni se creó
+  con `new`. Arreglo: `StreamingSong song = new StreamingSong();`.
+  Salida tras el arreglo, literal y en orden: "Playing song" /
+  "This is Come Together by The Beatles".
+- Archivo B — diagnóstico y arreglo BIEN (`play()` no existe en
+  `Episode`). SALIDA MAL en el primer intento: escribió
+  "Loading next episode..." (el println de `skipToNext()`), pero con la
+  llamada a `play()` eliminada el único método que queda llamado es
+  `skipIntro()` → "Skipping intro...". La corrigió a la primera con una
+  pista (no se le dio la respuesta).
+
+ERROR NUEVO (no es el histórico): leyó la salida por el NOMBRE del método
+en vez de leer el `println` de adentro. `skipIntro()` y `skipToNext()`
+tienen nombres parecidos y salidas distintas. No es un fallo de concepto
+—sabía arreglarlo— sino de lectura.
+
+IMPRECISIÓN DE VOCABULARIO: dijo "sacamos el método" donde correspondía
+"sacamos la LLAMADA al método". `play()` no existe en ninguna parte, así
+que no hay método que sacar. (Checklist Nivel 3: nombrar la cosa exacta.)
+
+CONSECUENCIAS: r3 agendado para 2026-10-08 (último del ciclo: si sale
+bien, GRADÚA). Se agregó un punto nuevo al Nivel 2 de
+ToDo/entregar-un-ejercicio.md, porque el checklist pedía escribir la
+salida literal pero NO pedía verificar QUÉ método se ejecuta realmente.
+
 # DADAS DE BAJA (decisión tomada en un triage — no vuelven)
 # ============================================================
 
