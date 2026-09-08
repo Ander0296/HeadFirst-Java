@@ -22,10 +22,6 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original) (lo crea `/
 # EJERCICIOS ABIERTOS
 # ============================================================
 
-EJERCICIO #13 — Code Magnets: "MultiFor" — reconstruir un programa desordenado con dos for anidados e incremento/decremento para que dé la salida pedida (Ubicación pág. 380-382, Sesión #71) — [ ] pendiente
-Tipo: completar/corregir código
-Arranque: ejercicios/ej13-code-magnets-multifor/MultiFor.java | Si te trabás: Sesión #68 y #69 de la guía
-
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
@@ -34,6 +30,12 @@ Nota: la corrección COMPLETA vive en EJERCICIOS-ARCHIVO.md; acá solo el
 "punto a mirar", en 1-2 líneas. Criterio vigente (2026-08-25): se atacan
 por RIESGO (los que ya fallaron primero), no por fecha; uno por día, y el
 arranque lo crea `/repaso` en el momento.
+
+REPASO — EJERCICIO #13 Code Magnets: "MultiFor" (pág. 380-382) (r1) — programado: 2026-09-11 — [ ] pendiente
+Arranque: ejercicios/repasos/ej13-r1/MultiFor.java (lo crea `/repaso`)
+Original PERFECTO a la primera, los 7 imanes usados una vez. Mirar que el
+`if (i == 1) { i++; }` quede DESPUÉS del for interno (antes imprimiría
+`2 4`) y que sepa decir por qué el 2 nunca es cabeza de vuelta.
 
 REPASO — LIBRO "Leer el javadoc" (pág. 452-454) (r1) — programado: 2026-09-12 — [ ] pendiente
 Arranque: ejercicios/repasos/lib21-r1.md (lo crea `/repaso`)

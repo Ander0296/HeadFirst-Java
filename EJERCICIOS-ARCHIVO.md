@@ -2141,3 +2141,38 @@ filas en la tabla de trampas.
 RESULTADO: PARCIAL. Se levanta el RE-ESTUDIO (el error de fondo está
 corregido), pero el prep code todavía no describe un programa que
 funcione. Re-intento corto: r1 ter agendado para 2026-09-08.
+
+
+# ============================================================
+EJERCICIO #13 — Code Magnets: "MultiFor" — reconstruir un programa
+desordenado con dos for anidados e incremento/decremento para que dé la
+salida pedida (Ubicación pág. 380-382, Sesión #71) — [x] completado
+(2026-09-08, sesión java-s74)
+Resuelto en: ejercicios/ej13-code-magnets-multifor/MultiFor.java
+
+RESULTADO: PERFECTO a la primera, sin pistas. Compiló y la salida fue
+exactamente la pedida (0 4 / 0 3 / 1 4 / 1 3 / 3 4 / 3 3). Los 7 imanes
+usados, cada uno UNA sola vez — señal de Code Magnets bien resuelto.
+
+LO QUE RESOLVIÓ BIEN (y era lo difícil):
+- Ubicó el `if (i == 1) { i++; }` DESPUÉS del for interno. Es el corazón
+  del puzzle: puesto antes, en la vuelta i=1 el contador saltaría a 2
+  ANTES de imprimir y la salida sería `2 4` / `2 3`. El if tiene que
+  actuar cuando el 1 ya salió por pantalla.
+- Puso el `println` DENTRO del for interno (por eso hay dos líneas por
+  cada valor de i) y no afuera.
+- El for interno `j = 4; j > 2; j--` corta en 3: el 2 no cumple `j > 2`.
+
+CONCEPTO QUE EL EJERCICIO ENSEÑA: la variable de control de un `for` es
+una variable común, y el cuerpo del bucle puede modificarla. En la vuelta
+i=1 se incrementa DOS veces (el i++ de adentro del if + el i++ de la
+tercera parte del for), así que el 2 nunca llega a ser cabeza de vuelta.
+
+TRAZA VERIFICADA POR CLAUDE (no se dio por buena la salida pegada):
+i=0 → "0 4","0 3", if no, i pasa a 1.
+i=1 → "1 4","1 3", if SÍ → i=2, luego i++ del for → i=3.
+i=3 → "3 4","3 3", if no, i pasa a 4 → sale.
+
+SIN ERRORES: ningún checklist tocado, nada nuevo para vigilar.
+CONSECUENCIAS: r1 agendado para 2026-09-11, r2 para 2026-09-24, r3 para
+2026-10-24.

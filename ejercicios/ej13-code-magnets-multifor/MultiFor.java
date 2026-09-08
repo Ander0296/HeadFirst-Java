@@ -53,3 +53,22 @@ QUÉ. En EJERCICIOS.md actualizá el estado con una corrección de 3
 líneas como máximo; si quedó completado, movelo con su corrección a
 EJERCICIOS-ARCHIVO.md y agendá sus repasos.
 */
+
+class MultiFor {
+
+    public static void main(String[] args) {
+
+        for (int i = 0; i < 4; i++) {
+
+            for (int j = 4; j > 2; j--) {
+
+                System.out.println(i + " " + j);
+
+            }
+
+            if (i == 1) {
+                i++;
+            }
+        }
+    }
+}

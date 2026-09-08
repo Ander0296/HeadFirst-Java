@@ -9,10 +9,10 @@ Ejercicios: ver EJERCICIOS.md.
 
 - Última página: 460 de 1629 (27%) — navegar el javadoc (Top down / Search) y leer la ficha de una clase: Constructor Summary, Method Summary y la sección Throws. Ver Sesión #84. **Próximo: pág. 461**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
 - Última sesión: **Sesión #84** (tanda de 4 pantallazos, 2026-09-08).
-- PRÓXIMA SESIÓN: `/rename java-s74`
+- PRÓXIMA SESIÓN: `/rename java-s75`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s73: 1 tanda de pantallazos, Sesión #84.)
-- Ejercicios pendientes: **1** (ej13 Code Magnets MultiFor). lib13 "¿qué más testear?" dado de baja en el triage del 2026-09-08 (conceptual, sin código; el músculo real es JUnit en Fase 3). Detalle: EJERCICIOS.md.
+  de las tandas. La última cerrada fue java-s74: sin tanda, solo la entrega de ej13.)
+- Ejercicios pendientes: **0** — ej13 (Code Magnets MultiFor) completado el 2026-09-08, PERFECTO a la primera; su r1 queda al 2026-09-11. lib13 dado de baja en el triage del 08/09. Detalle: EJERCICIOS.md.
 - ⚠ **15 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. El 08/09: lib05-r2 BIEN — el fallo histórico (entregar diagnóstico sin el arreglo en código) quedó CORREGIDO; r3 al 08/10, último del ciclo. Error nuevo a vigilar: lee la salida por el NOMBRE del método en vez del `println` de adentro.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-09-08** — backlog viejo de páginas SALDADO: las 41 sin clasificar se dieron de baja (Kindle web saltea números; no era contenido faltante). PENDIENTES.md queda con 2 entradas vivas, las dos con QUÉ falta escrito: pág. 447-448 y el Ready-Bake de GameHelper. También de baja lib13. Ritmo real: 5,5 pág./tanda (83 tandas, pág. 456 de 1629) → faltan ~214 tandas; pasando el material como TEXTO en vez de pantallazos bajarían a ~147.
