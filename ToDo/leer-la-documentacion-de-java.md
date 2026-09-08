@@ -46,6 +46,17 @@ adivinar. Se recorre de arriba a abajo, con la página abierta al lado.
       página: son versiones distintas del mismo método, que se
       diferencian por lo que reciben entre paréntesis. Elegí la que
       coincida con lo que vos tenés a mano.
+- [ ] Si en la ficha ves una `E` suelta (`E get(int index)`, `boolean add(E e)`),
+      NO es una clase: es un hueco para un tipo. Se llena al crear el
+      objeto. Si escribiste `new ArrayList<String>()`, releé toda la
+      ficha cambiando `E` por `String`.
+- [ ] Bajá hasta **Throws** (Lanza) ANTES de dar el método por entendido.
+      La firma nunca dice qué pasa en el caso borde; Throws sí. Ahí está
+      la diferencia entre un método que devuelve un valor de "no lo
+      encontré" y uno que corta el programa.
+- [ ] Preguntate qué hace el método cuando NO encuentra lo que busca, y
+      buscá la respuesta escrita. No la supongas: métodos parecidos se
+      comportan al revés entre sí.
 - [ ] Buscá la palabra **Deprecated** (obsoleto). Si el método la tiene,
       funciona y compila, pero no lo uses en código nuevo: hay algo
       mejor, y la propia ficha suele decir cuál.
@@ -59,3 +70,15 @@ adivinar. Se recorre de arriba a abajo, con la página abierta al lado.
 | el mismo nombre repetido | varias versiones que se distinguen por los paréntesis |
 | `static` a la izquierda | se llama con el nombre de la CLASE, no con un objeto (`Math.random()`) |
 | Deprecated | anda, pero está desaconsejado |
+| `E` a la izquierda o entre paréntesis | el tipo que pusiste entre `< >` al crear el objeto |
+| hay sección **Throws** | ese método puede cortar el programa; leé bajo qué condición |
+
+Dos métodos que se ven parecidos y fallan al REVÉS (confusión típica):
+
+| Método | Le estás | Si no encuentra |
+| --- | --- | --- |
+| `indexOf(objeto)` | preguntando "¿está? ¿dónde?" | devuelve `-1` y el programa sigue |
+| `get(indice)` | afirmando "esa posición existe, dámela" | lanza `IndexOutOfBoundsException` y corta |
+
+Antes de un `get(i)` con un índice que no controlás vos, verificá las DOS
+puntas del rango: `i >= 0` **y** `i < lista.size()`.

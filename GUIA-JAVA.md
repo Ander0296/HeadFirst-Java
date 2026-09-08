@@ -7,11 +7,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 456 de 1629 (26%) — cómo descubrir la API: DESCUBRIR (hojear un libro de referencia) vs. CONSULTAR (el javadoc en docs.oracle.com), y la escalera módulo → paquete → clase → método. Ver Sesión #83. **Próximo: pág. 457**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #83** (tanda de 4 pantallazos, 2026-09-03). Dos tandas de pantallazos el mismo día (#82 y #83).
-- PRÓXIMA SESIÓN: `/rename java-s73`
+- Última página: 460 de 1629 (27%) — navegar el javadoc (Top down / Search) y leer la ficha de una clase: Constructor Summary, Method Summary y la sección Throws. Ver Sesión #84. **Próximo: pág. 461**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #84** (tanda de 4 pantallazos, 2026-09-08).
+- PRÓXIMA SESIÓN: `/rename java-s74`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s72: triage + 1 repaso, sin tanda.)
+  de las tandas. La última cerrada fue java-s73: 1 tanda de pantallazos, Sesión #84.)
 - Ejercicios pendientes: **1** (ej13 Code Magnets MultiFor). lib13 "¿qué más testear?" dado de baja en el triage del 2026-09-08 (conceptual, sin código; el músculo real es JUnit en Fase 3). Detalle: EJERCICIOS.md.
 - ⚠ **15 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. El 08/09: lib05-r2 BIEN — el fallo histórico (entregar diagnóstico sin el arreglo en código) quedó CORREGIDO; r3 al 08/10, último del ciclo. Error nuevo a vigilar: lee la salida por el NOMBRE del método en vez del `println` de adentro.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
@@ -230,6 +230,10 @@ Ejercicios: ver EJERCICIOS.md.
 | iteration expression                  | expresión de iteración | La 3ra parte del `for` clásico (ej. `i++`); se ejecuta al FINAL de cada vuelta, no al principio. |
 | pre-increment vs. post-increment      | pre-incremento vs. post-incremento | Solo importa cuando `++x`/`x++` es PARTE de una expresión mayor: `++x` incrementa y DESPUÉS usa el valor nuevo; `x++` usa el valor actual y DESPUÉS incrementa. |
 | narrowing conversion                  | conversión reductora (narrowing) | Cast de un tipo primitivo grande a uno chico (ej. `long` a `short`); puede perder datos (los bits de más se cortan), por eso Java exige el cast explícito. Es lo inverso del ensanchamiento implícito. |
+| method signature                      | firma del método | La línea que identifica un método: nombre + tipos que recibe entre paréntesis (`int indexOf(Object o)`). Dice QUÉ recibe y qué devuelve, pero NO qué pasa en los casos borde: eso está en la descripción y en Throws. |
+| Throws (sección del javadoc)          | Lanza | Sección de la ficha de un método que dice con qué EXCEPCIÓN revienta y bajo qué condición (`get()`: IndexOutOfBoundsException si `index < 0 || index >= size()`). Es la mitad que la firma no muestra. |
+| type parameter `E` (generics)         | tipo genérico (Elemento) | Hueco para un tipo en la ficha de una colección: `class ArrayList<E>`. Se llena al crear el objeto (`new ArrayList<String>()` hace E = String), así que todo el javadoc se relee cambiando E por ese tipo. |
+| LTS (Long Term Support)               | soporte a largo plazo | Versión de Java que recibe parches durante años; es en la que se paran las empresas. Fueron LTS la 8, 11, 17, 21 y 25. |
 
 ============================================================
 (SESIONES — desde la #68 en formato CORTO: 5-8 bullets, sin bloques
@@ -416,6 +420,20 @@ SESIÓN #83 — 2026-09-03 — Cómo descubrir la API: hojear un libro vs. leer 
 - Nota del profe: en vez de navegar el sitio, buscar en Google "java 26 ArrayList javadoc" cae directo en la ficha. Es lo que se hace en el trabajo real.
 - Dudas: —
 - PRÓXIMO PASO: pág. 455 no vino (cubierto igual: es el borde del pantallazo de 456). Siguen faltando 447-448 (hueco de formato ya anotado). Próximo material: pág. 457 en adelante.
+
+SESIÓN #84 — 2026-09-08 — Navegar el javadoc y leer la ficha de una clase (pág. 457-460, 27%)
+- Cierra el tema de la #83: el javadoc es el método de CONSULTAR. Regla de oro repetida dos veces por el libro: mirar la doc de LA MISMA versión de Java que se usa, porque las APIs cambian de versión en versión.
+- Dos direcciones distintas según la versión: Java 8 y anteriores (`docs.oracle.com/javase/8/docs/api/`, pantalla vieja de tres marcos: paquetes arriba, clases abajo, contenido a la derecha) y Java 9+ (`docs.oracle.com/en/java/javase/NN/docs/api/`, con el `/en/java/` en el medio). La vieja es contexto, no para dominar.
+- Formas de navegar: **Top down** (bajar módulo → paquete → clase) sirve cuando NO sabés el nombre; **Search** (la barra arriba a la derecha, con desplegable de sugerencias) es lo que se usa en el trabajo real y es el 80%. En la doc vieja el equivalente era **Class-first**: ir directo a la clase en la lista de abajo.
+- Módulos, lo mínimo: desde Java 9 el JDK está partido en módulos que agrupan paquetes por función; la ficha de un módulo (`java.base`) lista sus paquetes con una descripción de cada uno. El campo **Since** dice desde qué versión existe algo — sirve para saber si podés usarlo.
+- POR QUÉ existe el javadoc (el ejemplo clave de la pág. 460): la FIRMA de `indexOf()` te dice que recibe un objeto y devuelve un int, pero no qué pasa si el objeto no está. El javadoc sí: devuelve **-1**. Con eso un solo llamado sirve para dos cosas (¿está? y ¿en qué posición?), y se evita suponer que iba a explotar.
+- Secciones de la ficha de una clase: **Constructor Summary** (las formas de crear el objeto; `ArrayList()` arranca con capacidad 10) y **Method Summary** (todos los métodos con una línea de descripción). Varios constructores con el mismo nombre y distintos parámetros = SOBRECARGA (overloading).
+- La columna **"Modifier and Type"** es, en la práctica, el TIPO DE RETORNO. El nombre de la columna confunde porque mezcla dos cosas; lo que se lee ahí (`void`, `boolean`, `Object`, `E`) es qué te devuelve, no un `private`.
+- Ejercicios de la tanda: ninguno del libro, y no se agregó del profe: lib21 "Leer el javadoc" ya cubre esto y tiene su r1 al 12/09.
+- Nota del profe: el libro dice "Java 17 es la LTS actual" — eso era 2022. Hoy la LTS vigente es Java 25 y el usuario tiene 26 (que no es LTS); en proyectos reales se ve 17 o 21.
+- Dudas: TRES, todas en la pregunta de control. (1) Qué es la FIRMA de un método → explicado (nombre + parámetros; el titular, no la nota completa). (2) Qué significa la `E` de `E get(int index)` → explicado: hueco de tipo que se llena al crear la lista (`ArrayList<String>` ⇒ E = String). (3) Confundió `get()` con `indexOf()`: dijo que `get(50)` devuelve -1. NO: **`get()` lanza IndexOutOfBoundsException**. Corregido con el porqué: `indexOf()` hace una PREGUNTA (y "no está" es respuesta válida), `get()` recibe una AFIRMACIÓN del programador (y si es falsa, frena). Aplicó bien compile-time vs. runtime (compila, revienta en ejecución), solo lo colgó del método equivocado.
+- Chequeo final: BIEN. Verificar `size()` antes de llamar a `get()` (guard clause). Se agregó el matiz de las DOS puntas del rango: válido es `>= 0` Y `< size()`.
+- PRÓXIMO PASO: pág. 461 en adelante. Siguen faltando 447-448 (hueco de formato ya anotado en PENDIENTES.md).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

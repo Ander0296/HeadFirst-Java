@@ -428,3 +428,9 @@ El libro sirve para descubrir clases que no conocés; el javadoc sirve para cons
 
 s83b — la escalera de la biblioteca:
 Un módulo agrupa paquetes, un paquete agrupa clases y una clase agrupa métodos.
+
+s84a — la firma no alcanza:
+La firma dice qué recibe y qué devuelve; la sección Throws dice con qué excepción revienta.
+
+s84b — get contra indexOf:
+El método indexOf devuelve -1 si no encuentra, pero get(50) lanza IndexOutOfBoundsException.
