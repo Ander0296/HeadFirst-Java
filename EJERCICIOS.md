@@ -31,34 +31,12 @@ Nota: la corrección COMPLETA vive en EJERCICIOS-ARCHIVO.md; acá solo el
 por RIESGO (los que ya fallaron primero), no por fecha; uno por día, y el
 arranque lo crea `/repaso` en el momento.
 
-REPASO — EJERCICIO #13 Code Magnets: "MultiFor" (pág. 380-382) (r1) — programado: 2026-09-11 — [ ] pendiente
-Arranque: ejercicios/repasos/ej13-r1/MultiFor.java (lo crea `/repaso`)
-Original PERFECTO a la primera, los 7 imanes usados una vez. Mirar que el
-`if (i == 1) { i++; }` quede DESPUÉS del for interno (antes imprimiría
-`2 4`) y que sepa decir por qué el 2 nunca es cabeza de vuelta.
-
-REPASO — EJERCICIO #16 Code Magnets: "ArrayListMagnet" (pág. 461-463) (r1) — programado: 2026-09-13 — [ ] pendiente
-Arranque: ejercicios/repasos/ej16-r1/ArrayListMagnet.java (lo crea `/repaso`)
-Original: salida EXACTA, pero resuelto SIN los imanes (el archivo de
-arranque los perdió). Repetir CON los imanes completos. Mirar que use el
-`if (a.contains("two")) { a.add("2.2"); }` al final y sepa decir por qué
-NO entra (se borró "two" con remove(2)) — no dos printList seguidos.
-ToDo/recorrer-una-coleccion.md
-
-REPASO — LIBRO "Leer el javadoc" (pág. 452-454) (r1) — programado: 2026-09-12 — [ ] pendiente
-Arranque: ejercicios/repasos/lib21-r1.md (lo crea `/repaso`)
-Original: 4 de 5 bien. Mirar (1) el PAQUETE de ArrayList (dijo java.lang;
-el módulo java.base sí estaba bien) y (2) que conteste las DOS mitades de
-cada pregunta (qué hace Y qué devuelve).
-ToDo/leer-la-documentacion-de-java.md
-
 REPASO — EJERCICIO #06 DrumKit (pág. 186) (r1) — programado: 2026-07-29 — [ ] pendiente
 Arranque: ejercicios/repasos/ej06-r1/ — YA CREADO
 
 REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r1) — programado: 2026-07-31 — [ ] pendiente
 Arranque: ejercicios/repasos/ej08-r1/ — YA CREADO
-Mirar: "compila SÍ, revienta en ejecución" + nombre de la excepción, y
-que cuente el arreglo como objeto (4, no 3).
+Mirar: "compila SÍ, revienta en ejecución" + nombre de la excepción, y contar el arreglo como objeto (4, no 3).
 
 REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r1) — programado: 2026-08-01 — [ ] pendiente
 Arranque: ejercicios/repasos/ej09-r1/TestArrays.java (lo crea `/repaso`)
@@ -66,8 +44,7 @@ Mirar: que `index[0..3]` quede AFUERA del `while`.
 
 REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pág. 253-255) (r1) — programado: 2026-08-02 — [ ] pendiente
 Arranque: ejercicios/repasos/lib09-r1.md (lo crea `/repaso`)
-Mirar: que cierre la conclusión (queda accesible UN solo Contact) sin
-confundir conteo de OBJETOS con conteo de REFERENCIAS.
+Mirar: que cierre la conclusión (queda accesible UN solo Contact) sin confundir conteo de OBJETOS con conteo de REFERENCIAS.
 
 REPASO — LIBRO "Mixed Messages" (pág. 309-312) (r1) — programado: 2026-08-02 — [ ] pendiente
 Arranque: ejercicios/repasos/lib11-r1.md (lo crea `/repaso`)
@@ -75,8 +52,7 @@ Mirar: el conteo de vueltas del bucle (i<9 son 9 objetos, índices 0 a 8).
 
 REPASO — LIBRO "What's legal?" (pág. 305-306) (r1) — programado: 2026-08-03 — [ ] pendiente
 Arranque: ejercicios/repasos/lib10-r1.md (lo crea `/repaso`)
-Mirar `byte h = calcArea(4, 20)`: la llamada es legal; lo ilegal es el
-int de retorno sin cast entrando en un byte.
+Mirar `byte h = calcArea(4, 20)`: la llamada es legal; lo ilegal es el int de retorno sin cast entrando en un byte.
 
 REPASO — EJERCICIO #11 BE the Compiler: XCopy/Clock (pág. 307) (r1) — programado: 2026-08-03 — [ ] pendiente
 Arranque: ejercicios/repasos/ej11-r1/ (lo crea `/repaso`)
@@ -94,89 +70,68 @@ Mirar: que resuelva en BottleSong.java, no en un "TestDrive".
 
 REPASO — LIBRO "Annotate the code yourself!" StartupBust (pág. 430-433) (r1) — programado: 2026-08-15 — [ ] pendiente
 Arranque: ejercicios/repasos/lib20-r1.md (lo crea `/repaso`)
-Original PERFECTO (21/21). Mirar los dos break (15 = salir tras un hit;
-16 = remove + salir tras un kill) y el par 5/6.
+Original PERFECTO (21/21). Mirar los dos break (15 = salir tras un hit; 16 = remove + salir tras un kill) y el par 5/6.
 
 REPASO — EJERCICIO #15 "Agenda de contactos" (r1) — programado: 2026-09-06 — [ ] pendiente
 Arranque: ejercicios/repasos/ej15-r1/ (lo crea `/repaso`)
-Original BIEN. Mirar: (1) imprimir `i`, no `indexOf(get(i))`; (2) sin
-`== true` sobre un boolean; (3) un println con concatenación.
-ToDo/recorrer-una-coleccion.md
-
-REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) — programado: 2026-09-11 — [ ] pendiente
-Arranque: lo crea `/repaso` (es conceptual, sin carpeta propia)
-SEGUNDA caída en frío (examen 2026-09-08): escribió bien la firma
-`public static void main(String[] args)` pero la llamó "clase main" cinco
-veces, y cree que UNA sola clase puede tener main. Sí acertó que `java Gato`
-corre el main de Gato. Mirar: clase (la elegís vos) vs. método (lo busca la
-JVM adentro), y que varias clases pueden tener main.
-ToDo/crear-una-clase-java.md (la trampa del `main`, punto 4).
+Original BIEN. Mirar: imprimir `i` (no `indexOf(get(i))`), sin `== true` sobre un boolean, y un println con concatenación. ToDo/recorrer-una-coleccion.md
 
 REPASO — LIBRO Sharpen your pencil: "Movie objects" (pág. 170-173) (r2) — programado: 2026-09-08 — [ ] pendiente
 Arranque: ejercicios/repasos/lib04-r2.md (lo crea `/repaso`)
-r1 PERFECTO. Mirar que `two.playIt()` no cambia ningún valor y que cada
-objeto conserva los suyos.
+r1 PERFECTO. Mirar que `two.playIt()` no cambia ningún valor y que cada objeto conserva los suyos.
 
-REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r3) — programado: 2026-10-09 — [ ] pendiente
-Arranque: ejercicios/repasos/lib03-television-r3.md (lo crea `/repaso`)
-ÚLTIMO DEL CICLO: si sale bien, GRADÚA. r2 BIEN: el error espejo quedó
-corregido (encender()/apagar() void sobre `encendido`). Errores NUEVOS a
-mirar: `static` en instance variables, y escribir el nombre EXACTO de la
-variable adentro del método (MARCA≠marca, isEncendido≠encendido).
-ToDo/crear-una-clase-java.md
+REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) — programado: 2026-09-11 — [ ] pendiente
+Arranque: lo crea `/repaso` (es conceptual, sin carpeta propia)
+SEGUNDA caída en frío (examen 2026-09-08): dijo "clase main" cinco veces y cree que UNA sola clase puede tener main. Mirar: clase (la elegís vos) vs. método (lo busca la JVM adentro). ToDo/crear-una-clase-java.md (punto 4).
+
+REPASO — EJERCICIO #13 Code Magnets: "MultiFor" (pág. 380-382) (r1) — programado: 2026-09-11 — [ ] pendiente
+Arranque: ejercicios/repasos/ej13-r1/MultiFor.java (lo crea `/repaso`)
+Original PERFECTO a la primera. Mirar que el `if (i == 1) { i++; }` quede DESPUÉS del for interno (antes imprimiría `2 4`) y que sepa por qué el 2 nunca es cabeza de vuelta.
+
+REPASO — LIBRO "Leer el javadoc" (pág. 452-454) (r1) — programado: 2026-09-12 — [ ] pendiente
+Arranque: ejercicios/repasos/lib21-r1.md (lo crea `/repaso`)
+4 de 5 bien. Mirar el PAQUETE de ArrayList (dijo java.lang) y que conteste las DOS mitades de cada pregunta (qué hace Y qué devuelve). ToDo/leer-la-documentacion-de-java.md
+
+REPASO — EJERCICIO #16 Code Magnets: "ArrayListMagnet" (pág. 461-463) (r1) — programado: 2026-09-13 — [ ] pendiente
+Arranque: ejercicios/repasos/ej16-r1/ArrayListMagnet.java (lo crea `/repaso`)
+Salida exacta pero resuelto SIN los imanes (el arranque los perdió): repetir CON los imanes. Mirar que use `if (a.contains("two"))` al final y sepa por qué NO entra. ToDo/recorrer-una-coleccion.md
 
 REPASO — LIBRO "Yours to solve" bug SimpleStartupGame (pág. 365-367) (r2) — programado: 2026-09-17 — [ ] pendiente
 Arranque: ejercicios/repasos/lib15-r2.md (lo crea `/repaso`)
-r1 BIEN (diagnóstico a la primera). Flojo: dijo "while" donde va un `if`.
-Que nombre la estructura y ponga el chequeo ANTES del `numOfHits++`.
-ToDo/recorrer-una-coleccion.md (punto 7).
+r1 BIEN. Flojo: dijo "while" donde va un `if`. Que nombre la estructura y ponga el chequeo ANTES del `numOfHits++`. ToDo/recorrer-una-coleccion.md (punto 7).
 
 REPASO — LIBRO "BE the JVM" (pág. 378-380) (r2) — programado: 2026-09-18 — [ ] pendiente
 Arranque: ejercicios/repasos/lib16-r2.md (lo crea `/repaso`)
-r1 BIEN sin pistas. Flojo: (1) que nombre `value > 14` como corte, no
-`i > 14`; (2) que ENTREGUE la traza vuelta por vuelta, no prosa.
-ToDo/un-bucle-que-termina.md (2) y ToDo/entregar-un-ejercicio.md (Nivel 1).
+r1 BIEN sin pistas. Que nombre `value > 14` como corte (no `i > 14`) y ENTREGUE la traza vuelta por vuelta, no prosa. ToDo/un-bucle-que-termina.md (2), ToDo/entregar-un-ejercicio.md (Nivel 1).
 
 REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r2) — programado: 2026-09-19 — [ ] pendiente
 Arranque: ejercicios/repasos/ej14-r2/ (lo crea `/repaso`)
-r1 BIEN en el corazón (compila sin main / no arranca sin main). Arrastra:
-(1) la variable sigue sin `private` (repetido); (2) NOMBRES DE MÉTODO —
-getEstado → setEstado → isEncendido: tres veces eligió un prefijo en vez
-de un verbo puro. Mirar `imprimirEstado()` y `encender()`/`apagar()` void.
-(3) La PARTE 4 llegue contestada: se salteó las dos veces.
-ToDo/crear-una-clase-java.md (Nivel 3).
+r1 BIEN en el corazón. Arrastra: variable sin `private`, y NOMBRES DE MÉTODO (tres veces eligió un prefijo en vez de un verbo puro). Que la PARTE 4 llegue contestada: se salteó las dos veces. ToDo/crear-una-clase-java.md (Nivel 3).
 
 REPASO — LIBRO "ArrayList vs. arreglo común" (pág. 407) (r2) — programado: 2026-09-22 — [ ] pendiente
 Arranque: ejercicios/repasos/lib19-r2.md (lo crea `/repaso`)
-r1 bis BIEN: los dos errores del r1 corregidos. Mirar que la bandera
-`boolean` arranque en `false` antes del bucle, que salga con `break`, y
-`b.equals(x)` y no al revés. ToDo/recorrer-una-coleccion.md (punto 8)
+r1 bis BIEN. Mirar que la bandera `boolean` arranque en `false` antes del bucle, que salga con `break`, y `b.equals(x)` y no al revés. ToDo/recorrer-una-coleccion.md (punto 8)
 
 REPASO — EJERCICIO #05 Robot (Sesión #25) (r2) — programado: 2026-09-23 — [ ] pendiente
 Arranque: ejercicios/repasos/ej05-r2/ (Robot.java y RobotTestDrive.java) (lo crea `/repaso`)
-r1 BIEN, mejor que el original: el setter ya VALIDA el rango 0-100 y usa
-`this.bateria = bateria`. Mirar que la validación no falle EN SILENCIO
-(el `if` sin `else` deja la batería en 0 y nadie se entera).
-ToDo/crear-una-clase-java.md (Nivel 3, el setter que decide).
+r1 mejor que el original (el setter ya valida y usa `this`). Mirar que la validación no falle EN SILENCIO (el `if` sin `else`). ToDo/crear-una-clase-java.md (Nivel 3).
 
 REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3) — programado: 2026-09-25 — [ ] pendiente
 Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md (lo crea `/repaso`)
-ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Falló las TRES veces: que en
-`"Dog: " + name` diga CONCATENACIÓN y que el `+` pega texto, no suma.
+ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Falló las TRES veces: que en `"Dog: " + name` diga CONCATENACIÓN y que el `+` pega texto, no suma.
 
 REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 — [ ] pendiente
 Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
-ÚLTIMO DEL CICLO: si sale bien, GRADÚA. 5/5 las tres veces. Que TRACE el
-bucle, no conteste de memoria. Trampas: `y` llega a 10 (3 dígitos) y `x`
-sube DOS veces por vuelta (3 vueltas, no 5).
+ÚLTIMO DEL CICLO: si sale bien, GRADÚA. 5/5 las tres veces. Que TRACE el bucle: `y` llega a 10 (3 dígitos) y `x` sube DOS veces por vuelta (3 vueltas, no 5).
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r3) — programado: 2026-10-08 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r3.md (lo crea `/repaso`)
-ÚLTIMO DEL CICLO: si sale bien, GRADÚA. r2 BIEN: las dos mitades
-entregadas solo (el fallo histórico quedó corregido). Mirar la SALIDA del
-archivo B: puso la del método que NO se llama (skipToNext en vez de
-skipIntro). Que lea el println DESDE ADENTRO del método que se ejecuta.
-ToDo/entregar-un-ejercicio.md (Nivel 2, último punto).
+ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Mirar la SALIDA del archivo B: puso la del método que NO se llama. Que lea el println DESDE ADENTRO del método que se ejecuta. ToDo/entregar-un-ejercicio.md (Nivel 2).
+
+REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r3) — programado: 2026-10-09 — [ ] pendiente
+Arranque: ejercicios/repasos/lib03-television-r3.md (lo crea `/repaso`)
+ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Errores NUEVOS a mirar: `static` en instance variables, y el nombre EXACTO de la variable adentro del método (MARCA≠marca). ToDo/crear-una-clase-java.md
+
 
 # ============================================================
 # CONCEPTOS DOMINADOS (entran al graduarse un ejercicio con r3 bien)
