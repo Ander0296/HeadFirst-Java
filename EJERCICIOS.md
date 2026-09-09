@@ -22,17 +22,6 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original) (lo crea `/
 # EJERCICIOS ABIERTOS
 # ============================================================
 
-EJERCICIO #16 — Code Magnets: "ArrayListMagnet" (Ubicación pág. 461-463, Sesión #85) — [ ] pendiente
-Tipo: completar/corregir código (reordenar imanes)
-Arranque: ejercicios/ej16-code-magnets-arraylist/ | Si te trabás: Sesión #85 de la guía
-Dato nuevo del ejercicio: `add(int index, Object o)`.
-ToDo/recorrer-una-coleccion.md
-
-LIBRO — "JavaCross del capítulo 6, adaptado a vocabulario" (Ubicación pág. 463-466, Sesión #85) — [ ] pendiente
-Arranque: ejercicios/lib22-javacross-vocabulario.md | Si te trabás: Sesión #85 de la guía
-El crucigrama original es de puns en inglés (intraducibles): se conserva
-el repaso de vocabulario en 20 definiciones directas, respuestas en inglés.
-
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
@@ -48,15 +37,20 @@ Original PERFECTO a la primera, los 7 imanes usados una vez. Mirar que el
 `if (i == 1) { i++; }` quede DESPUÉS del for interno (antes imprimiría
 `2 4`) y que sepa decir por qué el 2 nunca es cabeza de vuelta.
 
+REPASO — EJERCICIO #16 Code Magnets: "ArrayListMagnet" (pág. 461-463) (r1) — programado: 2026-09-13 — [ ] pendiente
+Arranque: ejercicios/repasos/ej16-r1/ArrayListMagnet.java (lo crea `/repaso`)
+Original: salida EXACTA, pero resuelto SIN los imanes (el archivo de
+arranque los perdió). Repetir CON los imanes completos. Mirar que use el
+`if (a.contains("two")) { a.add("2.2"); }` al final y sepa decir por qué
+NO entra (se borró "two" con remove(2)) — no dos printList seguidos.
+ToDo/recorrer-una-coleccion.md
+
 REPASO — LIBRO "Leer el javadoc" (pág. 452-454) (r1) — programado: 2026-09-12 — [ ] pendiente
 Arranque: ejercicios/repasos/lib21-r1.md (lo crea `/repaso`)
 Original: 4 de 5 bien. Mirar (1) el PAQUETE de ArrayList (dijo java.lang;
 el módulo java.base sí estaba bien) y (2) que conteste las DOS mitades de
 cada pregunta (qué hace Y qué devuelve).
 ToDo/leer-la-documentacion-de-java.md
-
-REPASO — EJERCICIO #05 Robot (Sesión #25) (r1) — programado: 2026-07-28 — [ ] pendiente
-Arranque: ejercicios/repasos/ej05-robot-r1/ (Robot.java y RobotTestDrive.java) — YA CREADO
 
 REPASO — EJERCICIO #06 DrumKit (pág. 186) (r1) — programado: 2026-07-29 — [ ] pendiente
 Arranque: ejercicios/repasos/ej06-r1/ — YA CREADO
@@ -157,6 +151,13 @@ Arranque: ejercicios/repasos/lib19-r2.md (lo crea `/repaso`)
 r1 bis BIEN: los dos errores del r1 corregidos. Mirar que la bandera
 `boolean` arranque en `false` antes del bucle, que salga con `break`, y
 `b.equals(x)` y no al revés. ToDo/recorrer-una-coleccion.md (punto 8)
+
+REPASO — EJERCICIO #05 Robot (Sesión #25) (r2) — programado: 2026-09-23 — [ ] pendiente
+Arranque: ejercicios/repasos/ej05-r2/ (Robot.java y RobotTestDrive.java) (lo crea `/repaso`)
+r1 BIEN, mejor que el original: el setter ya VALIDA el rango 0-100 y usa
+`this.bateria = bateria`. Mirar que la validación no falle EN SILENCIO
+(el `if` sin `else` deja la batería en 0 y nadie se entera).
+ToDo/crear-una-clase-java.md (Nivel 3, el setter que decide).
 
 REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3) — programado: 2026-09-25 — [ ] pendiente
 Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md (lo crea `/repaso`)

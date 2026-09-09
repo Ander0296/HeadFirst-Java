@@ -2218,3 +2218,102 @@ QUEDÓ FLOJO (errores NUEVOS, ninguno repetido de antes):
 4. Tipeos: `getPulgadas())` con un paréntesis de más y `return pulgadas`
    sin `;`.
 5. Faltó bajarVolumen() (menor: el ejercicio es abierto).
+
+============================================================
+
+REPASO — EJERCICIO #05 Robot (Sesión #25) (r1) — [x] cumplido (2026-09-09, sesión java-s78)
+Entrega: ejercicios/repasos/ej05-robot-r1/Robot.java + RobotTestDrive.java.
+Compiló y ejecutó a la primera. Salida:
+```
+Hola, Robotino
+Robotino está cargando, lleva 80%
+```
+
+RESULTADO: BIEN — mejor que el original, con mejoras de fondo, no cosméticas.
+
+MEJORÓ (vs. la entrega del 2026-07-24):
+1. `setBateria()` ahora VALIDA: `if (bateria >= 0 && bateria <= 100)`. El
+   original solo copiaba el valor. El rango "de 0 a 100" estaba en el
+   enunciado desde julio y recién ahora quedó defendido. Es exactamente el
+   punto de ToDo/crear-una-clase-java.md (Nivel 3): el setter que decide.
+   Lo aplicó SIN que se lo pidieran.
+2. `this.nombre = nombre` / `this.bateria = bateria`: parámetro homónimo
+   desambiguado con `this`. No estaba en la versión original. Esquivó la
+   trampa clásica de `nombre = nombre;` (se asigna a sí mismo, compila, y
+   deja la instance variable en null).
+3. Corregido el detalle cosmético del original: era "Hola, soy :Anderson"
+   (dos puntos pegados al nombre); ahora "Hola, Robotino", limpio.
+4. `cargar()` usa las DOS instance variables, no solo una.
+5. Checklist limpio: `private` en las dos variables, sin `static`, nombres
+   en minúscula, y `saludar()`/`cargar()` como VERBOS PUROS sin prefijo —
+   justo donde falla en otros ejercicios (getEstado/setEstado/isEncendido
+   de Termometro). Acá no le pasó.
+
+SE REPITIÓ (uno solo, y no resta):
+Volvió a usar setters en vez de escribir la variable directo con el punto
+(`robot.bateria = 80;`), que era el patrón `d.size = 40;` del que nacía el
+ejercicio. Sigue sin practicar el operador punto para ESCRIBIR una variable,
+solo para LLAMAR métodos. Pero en julio era un adelanto y hoy (capítulo 7)
+el encapsulamiento ya es la regla: con `private`, la asignación directa ni
+compilaría. Es una postura que se volvió correcta, no un error arrastrado.
+
+ERROR NUEVO A VIGILAR — la validación falla EN SILENCIO:
+El `if` de `setBateria()` no tiene `else`. Con `setBateria(150)` no pasa
+nada: la batería se queda en 0 (valor por defecto del int), nadie se entera
+y `cargar()` imprime "lleva 0%" como si fuera un dato bueno. Un error que
+no se ve es peor que uno que revienta. Se le mostraron las tres salidas:
+(A) `else` con mensaje, (B) corregir el valor (clamp a 0 o 100),
+(C) excepción — lo del trabajo real, capítulo 11.
+
+OBSERVACIÓN DE HERRAMIENTA: corrió `javac RobotTestDrive.java` sin nombrar
+`Robot.java` y compiló igual. Se le explicó por qué: javac vio `new Robot()`,
+buscó `Robot` en la carpeta, encontró el `.java` y lo compiló solo. Cómodo,
+pero si el archivo no nombrado tuviera un error, el mensaje aparece
+"compilando el otro" y confunde.
+
+r2 agendado para 2026-09-23.
+
+============================================================
+
+EJERCICIO #16 — Code Magnets: "ArrayListMagnet" (pág. 461-463, Sesión #85) — [x] completado (2026-09-09, sesión java-s78)
+Tipo: completar/corregir código (reordenar imanes)
+Entrega: ejercicios/ej16-code-magnets-arraylist/ArrayListMagnet.java.
+Compiló y ejecutó. Salida EXACTA a la pedida (las cuatro líneas).
+
+DEFECTO DEL ARCHIVO DE ARRANQUE (error de Claude, no del usuario):
+el bloque "LOS IMANES" quedó VACÍO (líneas 27-54 del archivo son
+comentarios en blanco). Solo sobrevivió UN imán, el
+`if (a.contains("two")) { a.add("2.2"); }`. El usuario resolvió el
+ejercicio SIN los imanes, reconstruyendo el programa desde la salida
+esperada — más difícil que el ejercicio original, no menos.
+
+BIEN:
+- `a.add(0,"zero")` ... `a.add(3,"three")`: el dato nuevo del ejercicio
+  (`add(int index, Object o)`) usado bien las cuatro veces.
+- `a.remove(2)` borra por ÍNDICE, eligiendo el 2 a sabiendas de que ahí
+  estaba "two". Punto 6 de ToDo/recorrer-una-coleccion.md aplicado.
+- `a.add(4, "4.2")` sobre una lista de tamaño 4: legal y al borde. Para
+  INSERTAR, el índice `size()` vale (= al final); `add(5, ...)` habría
+  tirado IndexOutOfBoundsException en ejecución.
+- `printList` declarado `static`: obligatorio, porque lo llama `main`,
+  que es static. Sin el static no compilaba.
+- `for (String element : list)`: for mejorado con el tipo de UN elemento.
+
+LO QUE SE PERDIÓ POR EL ARCHIVO ROTO (el corazón del ejercicio):
+El imán `if (a.contains("two")) { a.add("2.2"); }` va AL FINAL, antes
+del cuarto printList. Las líneas 3 y 4 de la salida son idénticas
+porque "two" ya NO está en la lista (lo borró `a.remove(2)` antes), el
+`if` da false y no agrega nada. El usuario llegó al mismo resultado
+llamando `printList(a)` DOS VECES SEGUIDAS: misma salida, razón
+distinta. La lección que quedó pendiente: dos líneas de salida
+idénticas casi nunca son un doble println, son un `if` que no entró.
+
+RESULTADO: COMPLETADO (la solución es correcta con los imanes que
+tenía). r1 agendado para 2026-09-13, esta vez CON los imanes completos.
+
+LIBRO — lib22 "JavaCross del capítulo 6, adaptado a vocabulario" (pág. 463-466, Sesión #85) — DADO DE BAJA (2026-09-09, sesión java-s78)
+Motivo: decisión del usuario — "No hagamos los crucigramas, pasemos".
+El crucigrama original es de puns en inglés (intraducibles) y se había
+adaptado a 20 definiciones de vocabulario. El vocabulario del capítulo 6
+ya está cubierto por la tabla de GUIA-JAVA.md y por las tarjetas de
+ANKI.txt, así que la baja no deja hueco de contenido.

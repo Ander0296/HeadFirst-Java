@@ -72,6 +72,14 @@ de cómo* lo hace. Va adentro de un método.
       **decidir**: rechazar un valor imposible, corregirlo, avisar. Si
       tu setter solo copia el valor tal cual y la variable es pública,
       todavía no encapsulaste nada.
+- [ ] **Si tu setter rechaza un valor, que el rechazo SE VEA.** Un `if`
+      de validación sin `else` descarta el valor en silencio: el objeto
+      se queda con lo que tenía (o con el `0` / `null` por defecto), el
+      programa sigue y después imprime un dato falso que vas a perseguir
+      durante horas. Elegí una de las tres y aplicala siempre:
+      **avisar** (`else` con un `println` que diga qué valor llegó y
+      cuál era el rango), **corregir** (si se pasa de 100, guardá 100),
+      o **tirar una excepción**. Lo único que no vale es no hacer nada.
 
 ### El emparejamiento estado ↔ comportamiento (va en LAS DOS direcciones)
 

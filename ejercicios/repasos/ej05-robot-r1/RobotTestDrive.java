@@ -26,3 +26,13 @@
  * repitió. Actualizá EJERCICIOS.md: si salió bien, agendá el r2; si
  * salió mal, acortá el intervalo a ~3 días.
  */
+
+public class RobotTestDrive {
+    public static void main(String[] args) {
+        Robot robot = new Robot();
+        robot.setNombre("Robotino");
+        robot.setBateria(150);
+        robot.saludar();
+        robot.cargar();
+    }
+}

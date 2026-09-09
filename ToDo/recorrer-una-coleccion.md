@@ -139,3 +139,10 @@ estaban de esa posición en adelante se corren un lugar.
 - [ ] Al borrar dentro de un bucle que va de 0 hacia arriba, después de
       un `remove(i)` el elemento siguiente pasa a ocupar la posición `i`:
       si igual hacés `i++`, te lo salteás.
+- [ ] **Para INSERTAR, el índice `size()` es legal; uno más, no.** Los
+      índices que podés LEER con `get(i)` van de `0` a `size()-1`. Pero
+      `add(i, x)` acepta también `i == size()`, y significa "al final".
+      En una lista de 4 elementos, `add(4, "x")` funciona y `add(5, "x")`
+      revienta en ejecución con `IndexOutOfBoundsException` (índice fuera
+      de rango). Compila igual en los dos casos: el compilador no cuenta
+      elementos, solo la JVM sabe cuántos hay cuando llega ahí.

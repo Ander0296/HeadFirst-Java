@@ -21,3 +21,26 @@
  * RobotTestDrive.java (misma carpeta). El prompt de entrega está en
  * ese segundo archivo.
  */
+
+public class Robot {
+    private String nombre;
+    private int bateria;
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setBateria(int bateria) {
+        if (bateria >= 0 && bateria <= 100) {
+            this.bateria = bateria;
+        }
+    }
+
+    public void saludar() {
+        System.out.println("Hola, " + nombre);
+    }
+
+    public void cargar() {
+        System.out.println(nombre + " está cargando, lleva " + bateria + "%");
+    }
+}

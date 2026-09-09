@@ -24,40 +24,21 @@
 // LOS IMANES (cada bloque separado por una linea en blanco es UN
 // iman; se usan TODOS, y cada uno UNA sola vez):
 //
-//   a.remove(2);
 //
-//   printList(a);
 //
-//   printList(a);
 //
-//   printList(a);
 //
-//   a.add(0, "zero");
-//   a.add(1, "one");
 //
-//   public static void printList(ArrayList<String> list) {
 //
 //   if (a.contains("two")) {
 //       a.add("2.2");
 //   }
 //
-//   a.add(2, "two");
 //
-//   public static void main (String[] args) {
 //
-//       System.out.print(element + "  ");
-//   }
-//   System.out.println();
 //
-//   if (a.contains("three")) {
-//       a.add("four");
-//   }
 //
-//   public class ArrayListMagnet {
-//
-//   if (a.indexOf("four") != 4) {
-//       a.add(4, "4.2");
-//   }
+//  
 //
 //   }
 //
@@ -67,14 +48,9 @@
 //
 //   }
 //
-//   import java.util.ArrayList;
 //
-//   ArrayList<String> a = new ArrayList<String>();
 //
-//   for (String element : list) {
 //
-//   a.add(3, "three");
-//   printList(a);
 //
 // ------------------------------------------------------------
 // SALIDA QUE TIENE QUE DAR (File Edit Window Help Dance):
@@ -105,4 +81,41 @@
 // Compilo: [si / no]. Al ejecutarlo: [pego abajo la salida o el error].
 // Revisalo linea por linea EN EL CHAT: que esta bien, que esta mal y
 // por que. Despues actualiza EJERCICIOS.md.
-//
+
+import java.util.ArrayList;
+
+public class ArrayListMagnet {
+    public static void main(String[] args) {
+        ArrayList<String> a = new ArrayList<String>();
+
+        a.add(0, "zero");
+        a.add(1, "one");
+        a.add(2, "two");
+        a.add(3, "three");
+
+        printList(a);
+
+        a.remove(2);
+
+        if (a.contains("three")) {
+            a.add("four");
+        }
+
+        printList(a);
+
+        if (a.indexOf("four") != 4) {
+            a.add(4, "4.2");
+        }
+
+        printList(a);
+        printList(a);
+
+    }
+
+    public static void printList(ArrayList<String> list) {
+        for (String element : list) {
+            System.out.print(element + "  ");
+        }
+        System.out.println();
+    }
+}
