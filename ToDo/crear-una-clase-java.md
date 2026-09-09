@@ -188,7 +188,7 @@ void setWatts(int w) { }       // recibe un int, no devuelve nada
 | Para que la clase **compile** | **NO.** Nunca. |
 | Para **arrancar** un programa desde esa clase | **SÍ.** La JVM entra por ahí. |
 
-Tres cosas que conviene tener clarísimas:
+Cuatro cosas que conviene tener clarísimas:
 
 1. `main` es un **método**, no una clase. "Una clase main" no existe.
    Su forma completa es `public static void main(String[] args)`.
@@ -197,6 +197,17 @@ Tres cosas que conviene tener clarísimas:
 3. `main` es la **puerta de entrada** que busca la JVM para arrancar.
    Una casa sin puerta de calle sigue siendo una casa bien construida:
    simplemente no podés entrar desde afuera.
+4. **Cualquier clase puede tener su propio `main`, y varias a la vez.**
+   No hay una regla que diga "uno solo por programa". Es común que una
+   clase tenga un `main` chiquito para probarse sola. El que corre lo
+   elegís **vos** al escribir `java NombreClase`: la JVM busca el `main`
+   adentro de **esa** clase y de ninguna otra. Si `Perro`, `Gato` y
+   `Zoologico` tienen `main`, `java Gato` corre el de `Gato` y los otros
+   dos ni se miran.
+
+- [ ] Antes de correr `java X`, preguntate: ¿el `main` que quiero que
+      corra está adentro de la clase **X**? No alcanza con que exista en
+      alguna clase del proyecto.
 
 Si al ejecutar te aparece un mensaje sobre un "main method not found"
 (no se encontró el método main), eso es un error de **ejecución**, no

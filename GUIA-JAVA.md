@@ -9,14 +9,14 @@ Ejercicios: ver EJERCICIOS.md.
 
 - Última página: 466 de 1629 (27%) — CAPÍTULO 6 TERMINADO: cierra con Code Magnets de ArrayList (dato nuevo: `add(int index, Object o)` inserta y corre a los demás) y el JavaCross. Ver Sesión #85. **Próximo: pág. 467, arranca el capítulo 7**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
 - Última sesión: **Sesión #85** (tanda de 5 pantallazos, 2026-09-08).
-- PRÓXIMA SESIÓN: `/rename java-s77`
+- PRÓXIMA SESIÓN: `/rename java-s78`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s76: la tanda de la Sesión #85.)
+  de las tandas. La última cerrada fue java-s77: el tercer examen en frío.)
 - Ejercicios pendientes: **2**, los dos de la Sesión #85 — ej16 Code Magnets "ArrayListMagnet" (código) y lib22 "JavaCross adaptado a vocabulario" (papel). Detalle: EJERCICIOS.md.
 - ⚠ **15 repasos vencidos** (el más viejo, ej05 Robot r1, del 2026-07-28). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el archivo de arranque lo crea `/repaso` en el momento. El 08/09: lib05-r2 BIEN — el fallo histórico (entregar diagnóstico sin el arreglo en código) quedó CORREGIDO; r3 al 08/10, último del ciclo. Error nuevo a vigilar: lee la salida por el NOMBRE del método en vez del `println` de adentro.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-09-08** — backlog viejo de páginas SALDADO: las 41 sin clasificar se dieron de baja (Kindle web saltea números; no era contenido faltante). PENDIENTES.md queda con 2 entradas vivas, las dos con QUÉ falta escrito: pág. 447-448 y el Ready-Bake de GameHelper. También de baja lib13. Ritmo real: 5,5 pág./tanda (83 tandas, pág. 456 de 1629) → faltan ~214 tandas; pasando el material como TEXTO en vez de pantallazos bajarían a ~147.
-- Último examen (`/examen`): **2026-09-03** (el segundo, java-s65). Sólido: compile-time vs. runtime, y que toda instrucción ejecutable vive dentro de un método. Flojo: qué hace falta para ARRANCAR un programa — mezcló "la clase que se ejecuta" con "el método específico que busca la JVM dentro de esa clase". Consecuencia: ese concepto se sacó de CONCEPTOS DOMINADOS (no se sostuvo en frío) y se re-agendó repaso para 2026-09-06. Próximo examen: ~2026-09-17.
+- Último examen (`/examen`): **2026-09-08** (el tercero, java-s77). 7 de 8 sólidos: compile-time vs. runtime, instrucción ejecutable dentro de un método, ArrayList (`size`/`indexOf`/`remove` y por qué se compacta), ArrayList vs. arreglo, `b = a` copia la referencia no el objeto, y paquetes/`import`/nombre completo (el `*` no pesa ni ralentiza). Flojo por SEGUNDA vez: qué hace falta para ARRANCAR un programa — dijo "clase main" y cree que solo una clase puede tener `main`. Repaso re-agendado al 2026-09-11 y checklist ampliado. Próximo examen: ~2026-09-22.
 - Entorno: OpenJDK 26.0.1, javac/java en PATH (Arch Linux), sin config extra.
 
 ## VOCABULARIO EN <-> ES (Claude agrega una fila por término nuevo)

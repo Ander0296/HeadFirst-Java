@@ -109,10 +109,14 @@ Original BIEN. Mirar: (1) imprimir `i`, no `indexOf(get(i))`; (2) sin
 `== true` sobre un boolean; (3) un println con concatenación.
 ToDo/recorrer-una-coleccion.md
 
-REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) — programado: 2026-09-06 — [ ] pendiente
+REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) — programado: 2026-09-11 — [ ] pendiente
 Arranque: lo crea `/repaso` (es conceptual, sin carpeta propia)
-Examen 2026-09-03: mezcló "la clase que se ejecuta" con "el método que la
-JVM busca adentro". Mirar que separe las dos. Salió de DOMINADOS.
+SEGUNDA caída en frío (examen 2026-09-08): escribió bien la firma
+`public static void main(String[] args)` pero la llamó "clase main" cinco
+veces, y cree que UNA sola clase puede tener main. Sí acertó que `java Gato`
+corre el main de Gato. Mirar: clase (la elegís vos) vs. método (lo busca la
+JVM adentro), y que varias clases pueden tener main.
+ToDo/crear-una-clase-java.md (la trampa del `main`, punto 4).
 
 REPASO — LIBRO Sharpen your pencil: "Movie objects" (pág. 170-173) (r2) — programado: 2026-09-08 — [ ] pendiente
 Arranque: ejercicios/repasos/lib04-r2.md (lo crea `/repaso`)
