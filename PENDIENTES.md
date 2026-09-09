@@ -35,6 +35,13 @@ y no se salda nunca.
   o crucigrama). Rescate: pedir ESOS dos pantallazos puntuales en la próxima
   tanda; si resultan ser relleno, se dan de baja en el acto.
 
+- **Página 476** (anotado el 2026-09-09, Sesión #86): es un recuadro **Brain
+  Power** del capítulo 7 y llegó SIN texto (Kindle web mostró el título y el
+  dibujo del átomo, el cuerpo quedó en negro). Un Brain Power es una pregunta
+  para pensar, así que ahí hay una pregunta sobre herencia que no se leyó.
+  Rescate: pedir ESE pantallazo puntual en la próxima tanda; si resulta ser
+  una pregunta ya respondida por las páginas 474-475, se da de baja.
+
 # ============================================================
 # DIFERIDO A PROPÓSITO
 # ============================================================

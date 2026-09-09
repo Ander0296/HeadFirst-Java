@@ -440,3 +440,9 @@ La llamada a.add(2, "dos"); inserta en la posición 2 y corre un lugar a los que
 
 s85b — recorrer sin índice:
 El bucle for (String element : list) recorre cada elemento sin llevar un contador propio.
+
+s86a — herencia:
+La subclase Square extends Shape recibe el método rotate() sin escribirlo de nuevo.
+
+s86b — sobrescribir:
+La clase Amoeba redefine rotate() y playSound(); la JVM elige cuál corre en ejecución.

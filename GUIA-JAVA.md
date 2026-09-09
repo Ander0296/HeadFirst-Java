@@ -7,11 +7,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 466 de 1629 (27%) — CAPÍTULO 6 TERMINADO: cierra con Code Magnets de ArrayList (dato nuevo: `add(int index, Object o)` inserta y corre a los demás) y el JavaCross. Ver Sesión #85. **Próximo: pág. 467, arranca el capítulo 7**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #85** (tanda de 5 pantallazos, 2026-09-08).
-- PRÓXIMA SESIÓN: `/rename java-s79`
+- Última página: 476 de 1629 (27%) — **arrancó el CAPÍTULO 7: herencia y polimorfismo**. Los 4 pasos de Brad (buscar lo común → abstraer a una superclase → linkear con herencia → sobrescribir lo distinto), superclase/subclase y override. Ver Sesión #86. **Próximo: pág. 477**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #86** (tanda de 5 pantallazos, 2026-09-09).
+- PRÓXIMA SESIÓN: `/rename java-s80`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s78: repaso ej05 + entrega ej16.)
+  de las tandas. La última cerrada fue java-s79: arranque del capítulo 7.)
 - Ejercicios pendientes: **CERO**. El 09/09 se completó ej16 "ArrayListMagnet" (salida exacta) y se dio de BAJA lib22 (crucigrama, decisión del usuario). Capítulo 6 cerrado del todo.
 - ⚠ **13 repasos vencidos** (el más viejo, ej06 DrumKit r1, del 2026-07-29). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. El 09/09: ej05 Robot r1 BIEN y MEJOR que el original — el setter ya VALIDA el rango y usa `this.bateria = bateria`, aplicando el checklist solo. Errores nuevos a vigilar: validación que falla EN SILENCIO (`if` sin `else`), y leer dos líneas de salida idénticas como "printeó dos veces" en vez de "un `if` no entró".
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
@@ -236,6 +236,12 @@ Ejercicios: ver EJERCICIOS.md.
 | LTS (Long Term Support)               | soporte a largo plazo | Versión de Java que recibe parches durante años; es en la que se paran las empresas. Fueron LTS la 8, 11, 17, 21 y 25. |
 | insert (add at index)                 | insertar | `lista.add(2, "dos")` mete el elemento EN la posición 2 y corre un lugar a todos los que estaban de ahí en adelante; nada se pierde. Distinto de `set(2, "dos")`, que PISA lo que había en la 2. |
 | red herring                           | pista falsa | Literalmente "arenque rojo": en inglés, un dato puesto a propósito para despistar. El libro avisa que una respuesta del crucigrama es un red herring (`tapas`, la comida española) y no tiene nada que ver con Java. |
+| inheritance                           | herencia | Relación entre clases: una clase general (superclase) define atributos y métodos, y las clases específicas (subclases) los reciben automáticamente, sin copiarlos. Se lee "Square hereda de Shape". |
+| superclass                            | superclase | La clase de arriba, la más general/abstracta. Tiene lo que TODAS las de abajo comparten. En Java se declara con `class Subclase extends Superclase`. |
+| subclass                              | subclase | La clase de abajo, la más específica. Hereda todo lo de la superclase y puede agregar lo suyo o cambiar lo heredado. |
+| override / overriding                 | sobrescribir | Una subclase REDEFINE un método que heredó, escribiendo su propia versión con el mismo nombre. Se usa cuando ese comportamiento tiene que ser distinto en la subclase. NO se borra el de la superclase: las otras subclases lo siguen usando. |
+| polymorphism                          | polimorfismo | Que un mismo llamado (`rotate()`) ejecute código distinto según qué objeto lo reciba. La JVM decide en tiempo de EJECUCIÓN cuál versión corre. Es el tema central del capítulo 7. |
+| abstract (more abstract)              | abstracto (más general) | En un diagrama de herencia, hacia arriba es más ABSTRACTO (menos detalle, más cosas encajan: Shape) y hacia abajo más ESPECÍFICO (Circle). No confundir con la palabra clave `abstract` de Java, que llega después. |
 
 ============================================================
 (SESIONES — desde la #68 en formato CORTO: 5-8 bullets, sin bloques
@@ -447,6 +453,19 @@ SESIÓN #85 — 2026-09-08 — Cierre del capítulo 6: Code Magnets de ArrayList
 - Nota del profe: el JavaCross original NO se puede traducir. Sus pistas son puns en inglés (ej. "Or, in the courtroom" solo cierra porque en inglés la misma palabra nombra al colegio de abogados y al símbolo `|`); traducidas pierden sentido y explicadas regalan la respuesta. Se conservó lo que el ejercicio entrena de verdad —el vocabulario del capítulo— en 20 definiciones directas, con las respuestas en inglés porque son los términos reales.
 - Dudas: ninguna (tanda de enunciados).
 - PRÓXIMO PASO: pág. 467 en adelante — arranca el capítulo 7. Siguen faltando 447-448 (hueco de formato en PENDIENTES.md).
+
+
+SESIÓN #86 — 2026-09-09 — Arranca el capítulo 7: herencia y sobrescritura (pág. 472-476, 27%)
+- HERENCIA (inheritance): en vez de repetir el mismo método en cuatro clases, se saca lo común a UNA clase más general (superclase) y las específicas (subclases) cuelgan de ella. Se lee "Square hereda de Shape".
+- Los 4 pasos de Brad, que son la receta del capítulo: (1) mirar qué tienen en común todas las clases, (2) abstraer eso a una clase nueva, (3) linkear las otras a ella con herencia, (4) sobrescribir en la subclase lo que necesite comportarse distinto.
+- Qué se gana: UNA sola copia de `rotate()` para mantener en vez de cuatro. Si la superclase tiene la funcionalidad, las subclases la tienen automáticamente — no hay que copiarla ni llamarla, ya es de ellas.
+- SOBRESCRIBIR (override): la subclase redefine un método heredado cuando necesita cambiarlo o extenderlo. Amoeba redefine `rotate()` y `playSound()`; Square, Circle y Triangle quedan con las cajas VACÍAS en el diagrama, y esa caja vacía es justamente la señal de que heredan.
+- Quién decide qué versión corre: la JVM, en TIEMPO DE EJECUCIÓN. Cuando alguien le pide a un Amoeba que rote, corre el `rotate()` de Amoeba, no el de Shape. Ese mecanismo es el corazón del polimorfismo.
+- Eje del diagrama: hacia ARRIBA más abstracto (superclass = more abstract), hacia ABAJO más específico (subclasses = more specific). La flecha de herencia se dibuja de la subclase HACIA la superclase.
+- Ejercicios de la tanda: ninguno entregable. La pág. 476 es un Brain Power y vino sin texto (hueco de formato anotado en PENDIENTES.md).
+- Nota del profe: en código esto se escribe con la palabra clave `extends` (`class Square extends Shape`). El libro todavía no la mostró; se adelantó en el chat porque el diagrama sin sintaxis no se puede escribir.
+- Chequeo de comprensión: LAS DOS BIEN, sin pistas. (1) Caja vacía de Square = sí puede rotar, con el comportamiento de Shape "porque no se modificó, solo se heredó". (2) El `rotate()` de Shape sigue existiendo; la única que cambia el comportamiento es Amoeba. Se le agregó el matiz: heredar NO es recibir una copia — el método vive una sola vez en la superclase.
+- PRÓXIMO PASO: pág. 477 en adelante. Siguen faltando 447-448 y ahora la 476 (huecos de formato en PENDIENTES.md).
 
 
 # ============================================================
