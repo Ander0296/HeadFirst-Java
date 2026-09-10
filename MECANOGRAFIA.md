@@ -458,3 +458,9 @@ El estado son las variables de instancia y el comportamiento son los métodos de
 
 s88b — superclase Animal:
 La superclase Animal declara picture, food, hunger, boundaries, location y el método roam().
+
+s89a — qué se sobrescribe:
+Cada subclase sobrescribe makeNoise() y eat(), pero sleep() y roam() quedan genéricos en Animal.
+
+s89b — clases intermedias:
+Feline y Canine heredan de Animal y definen su propio roam(); Hippo usa el genérico.
