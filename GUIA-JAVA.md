@@ -9,9 +9,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 - Última página: 476 de 1629 (27%) — **arrancó el CAPÍTULO 7: herencia y polimorfismo**. Los 4 pasos de Brad (buscar lo común → abstraer a una superclase → linkear con herencia → sobrescribir lo distinto), superclase/subclase y override. Ver Sesión #86. **Próximo: pág. 477**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
 - Última sesión: **Sesión #86** (tanda de 5 pantallazos, 2026-09-09).
-- PRÓXIMA SESIÓN: `/rename java-s80`
+- PRÓXIMA SESIÓN: `/rename java-s81`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última cerrada fue java-s79: arranque del capítulo 7.)
+  de las tandas. La última cerrada fue java-s80: repaso ej06 DrumKit r1.)
 - Ejercicios pendientes: **CERO**. El 09/09 se completó ej16 "ArrayListMagnet" (salida exacta) y se dio de BAJA lib22 (crucigrama, decisión del usuario). Capítulo 6 cerrado del todo.
 - ⚠ **12 repasos vencidos** (el más viejo, ej08 BE the Compiler r1, del 2026-07-31). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. El 09/09 salieron BIEN dos: ej05 Robot r1 (el setter ya VALIDA el rango y usa `this.bateria = bateria`, checklist aplicado solo) y ej06 DrumKit r1 (salida exacta, los 12 imanes, y con un orden DISTINTO al original → trazó, no recordó). Errores a vigilar: validación que falla EN SILENCIO (`if` sin `else`), y leer dos líneas de salida idénticas como "printeó dos veces" en vez de "un `if` no entró".
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
