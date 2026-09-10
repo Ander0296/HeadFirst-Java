@@ -35,12 +35,25 @@ y no se salda nunca.
   o crucigrama). Rescate: pedir ESOS dos pantallazos puntuales en la próxima
   tanda; si resultan ser relleno, se dan de baja en el acto.
 
-- **Página 476** (anotado el 2026-09-09, Sesión #86): es un recuadro **Brain
-  Power** del capítulo 7 y llegó SIN texto (Kindle web mostró el título y el
-  dibujo del átomo, el cuerpo quedó en negro). Un Brain Power es una pregunta
-  para pensar, así que ahí hay una pregunta sobre herencia que no se leyó.
-  Rescate: pedir ESE pantallazo puntual en la próxima tanda; si resulta ser
-  una pregunta ya respondida por las páginas 474-475, se da de baja.
+- **Páginas 479-480** (anotado el 2026-09-10, Sesión #87): no vinieron en la
+  tanda. La 478 arranca "An inheritance example:" (Un ejemplo de herencia) con
+  el chiste del doctor, y la 481 ya muestra el CÓDIGO de `Doctor`,
+  `FamilyDoctor` y `Surgeon`. En el medio falta la presentación de ese ejemplo:
+  casi seguro el DIAGRAMA del árbol Doctor → FamilyDoctor/Surgeon y el texto
+  que explica qué sobrescribe cada uno. PARCIALMENTE SALDADO el 2026-09-10
+  (Sesión #88): el diagrama del árbol Doctor llegó en la pág. 482. Queda solo
+  el texto de presentación del ejemplo. Rescate: si no aparece solo, dar de baja.
+
+- **Página 483** (anotado el 2026-09-10, Sesión #88): no vino en la tanda. La
+  482 arranca el diseño del simulador de animales (paso 1: buscar lo común) y
+  la 484 ya muestra la foto de los seis animales con las 5 variables y los 4
+  métodos comunes. En el medio falta, casi seguro, la lista de los seis tipos
+  escrita y/o el resto del paso 1. Rescate: pedir ESE pantallazo en la próxima
+  tanda; si resulta ser solo la foto, se da de baja.
+
+**SALDADO 2026-09-10** — la página 476 (Brain Power del capítulo 7) llegó con
+texto en la Sesión #87 y quedó explicada: era la pregunta del gato doméstico
+vs. el tigre.
 
 # ============================================================
 # DIFERIDO A PROPÓSITO

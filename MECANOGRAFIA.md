@@ -446,3 +446,15 @@ La subclase Square extends Shape recibe el método rotate() sin escribirlo de nu
 
 s86b — sobrescribir:
 La clase Amoeba redefine rotate() y playSound(); la JVM elige cuál corre en ejecución.
+
+s87a — extends:
+La subclase Surgeon extends Doctor hereda worksAtHospital y sobrescribe treatPatient().
+
+s87b — variables de instancia:
+Las variables de instancia no se sobrescriben; cada objeto les da el valor que quiera.
+
+s88a — estado y comportamiento:
+El estado son las variables de instancia y el comportamiento son los métodos de la clase.
+
+s88b — superclase Animal:
+La superclase Animal declara picture, food, hunger, boundaries, location y el método roam().

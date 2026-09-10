@@ -15,30 +15,30 @@
  *
  * PROGRAMA A — tal cual está en el libro (dos clases, un archivo):
  *
- *   class Books {
- *     String title;
- *     String author;
- *   }
+ class Books {
+   String title;
+   String author;
+ }
  *
- *   class BooksTestDrive {
- *     public static void main(String[] args) {
- *       Books[] myBooks = new Books[3];
- *       int x = 0;
- *       myBooks[0].title = "The Grapes of Java";
- *       myBooks[1].title = "The Java Gatsby";
- *       myBooks[2].title = "The Java Cookbook";
- *       myBooks[0].author = "bob";
- *       myBooks[1].author = "sue";
- *       myBooks[2].author = "ian";
+ class BooksTestDrive {
+   public static void main(String[] args) {
+     Books[] myBooks = new Books[3];
+     int x = 0;
+     myBooks[0].title = "The Grapes of Java";
+     myBooks[1].title = "The Java Gatsby";
+     myBooks[2].title = "The Java Cookbook";
+     myBooks[0].author = "bob";
+     myBooks[1].author = "sue";
+     myBooks[2].author = "ian";
  *
- *       while (x < 3) {
- *         System.out.print(myBooks[x].title);
- *         System.out.print(" by ");
- *         System.out.println(myBooks[x].author);
- *         x = x + 1;
- *       }
- *     }
- *   }
+     while (x < 3) {
+       System.out.print(myBooks[x].title);
+       System.out.print(" by ");
+       System.out.println(myBooks[x].author);
+       x = x + 1;
+     }
+   }
+ }
  *
  * (Los títulos son parodias de novelas famosas cambiándoles una
  *  palabra por "Java": "The Grapes of Wrath" (Las uvas de la ira),
@@ -60,3 +60,37 @@
  * BooksTestDrive. Escribí tu código DEBAJO de este bloque, todo a
  * mano.
  */
+
+class Books {
+    String title;
+    String author;
+}
+
+class BooksTestDrive {
+    public static void main(String[] args) {
+        Books[] myBooks = new Books[3];
+        myBooks[0] = new Books();
+        myBooks[1] = new Books();
+        myBooks[2] = new Books();
+
+        int x = 0;
+        myBooks[0].title = "The Grapes of Java";
+        myBooks[1].title = "The Java Gatsby";
+        myBooks[2].title = "The Java Cookbook";
+        myBooks[0].author = "bob";
+        myBooks[1].author = "sue";
+        myBooks[2].author = "ian";
+
+        while (x < 3) {
+            System.out.print(myBooks[x].title);
+            System.out.print(" by ");
+            System.out.println(myBooks[x].author);
+            x = x + 1;
+        }
+    }
+}
+
+// 1. Compila, no hay error de compilación.
+// 2. No se ejecuta debido a que no se ha creado el objeto books, solo se creo
+// el objeto que crea la lista.
+// 3. el arreglo es crear los objetos en el Heap con new,

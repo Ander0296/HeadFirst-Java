@@ -82,6 +82,31 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
 - [ ] Si dos cosas fallan por causas distintas, decí las dos. Si
       fallan por la misma, no la repitas dos veces con otras palabras.
 
+- [ ] **"No se ejecuta" casi nunca es cierto.** Si el programa compila,
+      la JVM lo ARRANCA igual: empieza por la primera línea del `main` y
+      va bajando hasta que se topa con el problema. Lo correcto es
+      "arranca y revienta en tal línea". Decir "no se ejecuta" suena a
+      que la computadora se negó a correrlo, y eso solo pasa cuando NO
+      compila.
+- [ ] Cuando revienta, contá **cuántas líneas alcanzó a imprimir antes**
+      y escribilas. Salida parcial + mensaje de error es la firma de un
+      error de ejecución (runtime), y esa salida parcial te dice en qué
+      vuelta del bucle murió.
+- [ ] **Nombrá la excepción con su nombre propio**, tal como la vas a
+      ver escrita en la terminal: `NullPointerException` (llamaste algo
+      sobre una casilla vacía), `ArrayIndexOutOfBoundsException` (pediste
+      un índice que no existe). "Error de desbordamiento" o "se pasa de
+      rango" describe la idea, pero el nombre es lo que se busca en
+      Google y lo que se dice en una entrevista.
+- [ ] Si el ejercicio tiene DOS programas, aplicá la misma regla en los
+      dos. Nombrar la excepción en uno y no en el otro no es un olvido
+      chico: es la mitad de la respuesta.
+- [ ] **Arreglo no es lista.** Un arreglo (`Books[] x = new Books[3]`)
+      tiene tamaño fijo, se lee con `x[i]` y se mide con `x.length`. Una
+      lista (`ArrayList`) crece sola, se lee con `get(i)` y se mide con
+      `size()`. Son dos tipos distintos: usar la palabra equivocada hace
+      pensar que estás mirando otro código.
+
 ## Nivel 4 — Antes de mandar
 
 - [ ] **Guardá el archivo.** Escribir en el editor no es guardar. Una

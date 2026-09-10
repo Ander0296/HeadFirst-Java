@@ -22,6 +22,10 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original) (lo crea `/
 # EJERCICIOS ABIERTOS
 # ============================================================
 
+LIBRO — Sharpen your pencil: contar el árbol Doctor/Surgeon/FamilyDoctor (Ubicación pág. 482, Sesión #88) — [ ] pendiente
+Arranque: ejercicios/lib23-sharpen-arbol-doctor.md | Si te trabás: Sesión #88 de la guía
+Trampa: preguntan cuántas TIENE cada clase, no cuántas escribe.
+
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
@@ -30,10 +34,6 @@ Nota: la corrección COMPLETA vive en EJERCICIOS-ARCHIVO.md; acá solo el
 "punto a mirar", en 1-2 líneas. Criterio vigente (2026-08-25): se atacan
 por RIESGO (los que ya fallaron primero), no por fecha; uno por día, y el
 arranque lo crea `/repaso` en el momento.
-
-REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r1) — programado: 2026-07-31 — [ ] pendiente
-Arranque: ejercicios/repasos/ej08-r1/ — YA CREADO
-Mirar: "compila SÍ, revienta en ejecución" + nombre de la excepción, y contar el arreglo como objeto (4, no 3).
 
 REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r1) — programado: 2026-08-01 — [ ] pendiente
 Arranque: ejercicios/repasos/ej09-r1/TestArrays.java (lo crea `/repaso`)
@@ -116,6 +116,10 @@ r1 PERFECTO a la primera, con un orden DISTINTO al original (razonó, no record�
 REPASO — EJERCICIO #05 Robot (Sesión #25) (r2) — programado: 2026-09-23 — [ ] pendiente
 Arranque: ejercicios/repasos/ej05-r2/ (Robot.java y RobotTestDrive.java) (lo crea `/repaso`)
 r1 mejor que el original (el setter ya valida y usa `this`). Mirar que la validación no falle EN SILENCIO (el `if` sin `else`). ToDo/crear-una-clase-java.md (Nivel 3).
+
+REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r2) — programado: 2026-09-24 — [ ] pendiente
+Arranque: ejercicios/repasos/ej08-r2/ (dos archivos) (lo crea `/repaso`)
+r1 BIEN: los dos programas corregidos y salida exacta. Arrastra "no se ejecuta" (arranca y revienta: B imprime DOS líneas antes), no nombró NullPointerException en A, dijo "lista" por arreglo y volvió a hardcodear el 3 en vez de `.length`. ToDo/entregar-un-ejercicio.md (Nivel 3).
 
 REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3) — programado: 2026-09-25 — [ ] pendiente
 Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md (lo crea `/repaso`)

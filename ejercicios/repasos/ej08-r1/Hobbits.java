@@ -12,28 +12,28 @@
  *
  * PROGRAMA B — tal cual está en el libro:
  *
- *   class Hobbits {
- *     String name;
- *
- *     public static void main(String[] args) {
- *       Hobbits[] h = new Hobbits[3];
- *       int z = 0;
- *
- *       while (z < 4) {
- *         z = z + 1;
- *         h[z] = new Hobbits();
- *         h[z].name = "bilbo";
- *         if (z == 1) {
- *           h[z].name = "frodo";
- *         }
- *         if (z == 2) {
- *           h[z].name = "sam";
- *         }
- *         System.out.print(h[z].name + " is a ");
- *         System.out.println("good Hobbit name");
- *       }
- *     }
- *   }
+class Hobbits {
+  String name;
+ 
+  public static void main(String[] args) {
+Hobbits[] h = new Hobbits[3];
+int z = 0;
+ 
+while (z < 4) {
+  z = z + 1;
+  h[z] = new Hobbits();
+  h[z].name = "bilbo";
+  if (z == 1) {
+h[z].name = "frodo";
+  }
+  if (z == 2) {
+h[z].name = "sam";
+  }
+  System.out.print(h[z].name + " is a ");
+  System.out.println("good Hobbit name");
+}
+  }
+}
  *
  * (Hobbits: los personajes bajitos de "El Señor de los Anillos".
  *  Bilbo, Frodo y Sam son tres de ellos. La salida arma la frase
@@ -60,3 +60,33 @@
  * repitió. Actualizá EJERCICIOS.md: si salió bien, agendá el r2; si
  * salió mal, acortá el intervalo a ~3 días.
  */
+
+class Hobbits {
+    String name;
+
+    public static void main(String[] args) {
+        Hobbits[] h = new Hobbits[3];
+        int z = 0;
+
+        while (z < 3) {
+            h[z] = new Hobbits();
+            h[z].name = "bilbo";
+            if (z == 1) {
+                h[z].name = "frodo";
+            }
+            if (z == 2) {
+                h[z].name = "sam";
+            }
+
+            System.out.print(h[z].name + " is a ");
+            System.out.println("good Hobbit name");
+
+            z = z + 1;
+        }
+    }
+}
+
+// El programa compila.
+// 2. El programa no se ejecuta debido a ArrayIndexOutBoundException
+// 3. El arreglo es colocar el aumento en la posicion correcta y modificar el
+// while a que la condicion pare con z<3

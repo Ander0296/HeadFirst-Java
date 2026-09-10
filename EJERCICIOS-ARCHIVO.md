@@ -2347,3 +2347,42 @@ El crucigrama original es de puns en inglés (intraducibles) y se había
 adaptado a 20 definiciones de vocabulario. El vocabulario del capítulo 6
 ya está cubierto por la tabla de GUIA-JAVA.md y por las tarjetas de
 ANKI.txt, así que la baja no deja hueco de contenido.
+
+============================================================
+
+REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r1) — programado: 2026-07-31 — [x] cumplido (2026-09-10, sesión java-s81)
+Entregado en: ejercicios/repasos/ej08-r1/ (BooksTestDrive.java y Hobbits.java)
+El más viejo de la pila (41 días vencido). Los DOS programas compilaron
+y dieron la salida exacta del libro: A "The Grapes of Java by bob / The
+Java Gatsby by sue / The Java Cookbook by ian"; B "bilbo / frodo / sam
+is a good Hobbit name".
+
+Comparación con el original (2026-07-27):
+
+MEJORÓ:
+1. En B nombró la excepción: "ArrayIndexOutBoundException" (le faltan
+   letras — es ArrayIndexOutOfBoundsException — pero la nombró, y en el
+   original solo había dicho "error de desbordamiento").
+2. En B diagnosticó las DOS fallas juntas y en una sola frase: el
+   incremento en la posición equivocada + la condición `z < 4`.
+3. En A el diagnóstico de causa quedó nítido: los casilleros existen
+   pero están vacíos, faltan los `new Books()`.
+
+SE REPITIÓ:
+1. "No se ejecuta" en los DOS programas (era el punto 1 de la
+   corrección original). Los dos ARRANCAN: A revienta en la tercera
+   instrucción sin imprimir nada, y B imprime DOS líneas completas
+   ("frodo is a good Hobbit name" y "sam is a good Hobbit name") antes
+   de reventar. Salida parcial + excepción es la firma del runtime.
+2. En A NO nombró la excepción (NullPointerException). La nombró en B
+   y no en A: la regla se aplicó en un programa y no en el otro, igual
+   que en el original pasó con el conteo de objetos.
+3. Volvió a hardcodear el 3 en las dos condiciones (`x < 3`, `z < 3`)
+   en vez de `myBooks.length` y `h.length` (era la NOTA DEL PROFE 4).
+
+ERROR NUEVO: llamó "lista" al arreglo ("solo se creó el objeto que crea
+la lista"). Después del capítulo 6 (ArrayList) esa palabra ya tiene
+dueño y confunde dos tipos distintos.
+
+RESULTADO: salió BIEN. Código perfecto en los dos programas; lo que
+falta es precisión al DESCRIBIR la falla. r2 agendado para 2026-09-24.
