@@ -15,24 +15,6 @@
  *
  * Los imanes disponibles (desordenados):
  *
- *   d.playSnare();
- *   DrumKit d = new DrumKit();
- *   boolean topHat = true;
- *   boolean snare = true;
- *   void playSnare() {
- *     System.out.println("bang bang ba-bang");
- *   }
- *   public static void main(String [] args) {
- *   if (d.snare == true) {
- *     d.playSnare();
- *   }
- *   d.snare = false;
- *   class DrumKitTestDrive {
- *   d.playTopHat();
- *   class DrumKit {
- *   void playTopHat () {
- *     System.out.println("ding ding da-ding");
- *   }
  *
  * Este repaso tiene DOS archivos — este es la clase DrumKit. Cuando
  * termines este, pasá a DrumKitTestDrive.java (misma carpeta); el
@@ -43,3 +25,22 @@
  * Recordá que la clase pública debe llamarse igual que el archivo:
  * DrumKit. Escribí tu código DEBAJO de este bloque, todo a mano.
  */
+
+// if (d.snare == true) {
+//   d.playSnare();
+// }
+// d.snare = false;
+// d.playTopHat();
+
+class DrumKit {
+    boolean topHat = true;
+    boolean snare = true;
+
+    void playSnare() {
+        System.out.println("bang bang ba-bang");
+    }
+
+    void playTopHat() {
+        System.out.println("ding ding da-ding");
+    }
+}

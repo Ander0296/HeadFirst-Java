@@ -831,10 +831,40 @@ como pendiente. EJERCICIO COMPLETADO. Primer repaso agendado para
 
 REPASOS
 
-REPASO — EJERCICIO #06 DrumKit (pág. 186) (r1) — programado: 2026-07-29 — [ ] pendiente
+REPASO — EJERCICIO #06 DrumKit (pág. 186) (r1) — programado: 2026-07-29 — [x] cumplido (2026-09-09, sesión java-s80)
 Entregá en: ejercicios/repasos/ej06-r1/ (desde cero, sin mirar el original; archivos de arranque nuevos con los imanes, solo comentarios)
-Comparación de Claude (se llena al revisar):
-...
+Comparación de Claude: SALIÓ BIEN. Compiló a la primera y la salida fue
+EXACTA ("bang bang ba-bang" / "ding ding da-ding"), igual que el
+original. Usó los 12 imanes, sin sobrantes ni faltantes, y repartió
+bien las dos clases: DrumKit se quedó solo con las dos instance
+variables y los dos methods; todo lo que empieza con `d.` quedó en el
+main de DrumKitTestDrive.
+
+DIFERENCIA CON EL ORIGINAL (a favor): resolvió con un ORDEN DISTINTO —
+puso el `if` muerto ANTES de `d.playTopHat()`, mientras que el original
+(y la solución oficial del libro) lo pone al final. Misma salida, misma
+cantidad de imanes: las dos versiones son equivalentes entre sí y a la
+oficial. Que llegara a un orden nuevo y correcto sin pistas indica que
+TRAZÓ el programa en vez de recordar la respuesta — es señal más fuerte
+que repetir la solución idéntica.
+
+MEJORA DE PROCESO: dejó comentados arriba de DrumKit.java los imanes
+que todavía no había ubicado (los cinco que empiezan con `d.`), usando
+el archivo como zona de planificación antes de escribir. Es el
+equivalente en papel del prep code del capítulo 5.
+
+ERRORES REPETIDOS: ninguno. No hubo errores en el original ni en el r1.
+
+NO SE CUENTA COMO ERROR (forzado por los imanes, se le explicó en el
+chat): el `if (d.snare == true)` es código muerto y `boolean topHat`
+nunca se lee. Con el `d.playSnare();` suelto en juego, si el `if`
+disparara saldrían DOS "bang" y la salida pedida tiene uno solo. Y el
+`== true` sobre un boolean, que en otro contexto sí se marca como
+redundante, acá viene escrito así en el imán y la regla del ejercicio
+es no cambiar lo que dice cada imán.
+
+Ningún checklist de ToDo/ tocado: no apareció error nuevo ni se salteó
+un punto ya cubierto. r2 agendado para 2026-09-23.
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r1) — programado: 2026-07-28 — [ ] pendiente
 Entregá en: ejercicios/repasos/lib05-r1.md (desde cero, sin mirar el original; archivo de arranque nuevo, solo comentarios, sin código)

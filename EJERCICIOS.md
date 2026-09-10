@@ -31,9 +31,6 @@ Nota: la corrección COMPLETA vive en EJERCICIOS-ARCHIVO.md; acá solo el
 por RIESGO (los que ya fallaron primero), no por fecha; uno por día, y el
 arranque lo crea `/repaso` en el momento.
 
-REPASO — EJERCICIO #06 DrumKit (pág. 186) (r1) — programado: 2026-07-29 — [ ] pendiente
-Arranque: ejercicios/repasos/ej06-r1/ — YA CREADO
-
 REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r1) — programado: 2026-07-31 — [ ] pendiente
 Arranque: ejercicios/repasos/ej08-r1/ — YA CREADO
 Mirar: "compila SÍ, revienta en ejecución" + nombre de la excepción, y contar el arreglo como objeto (4, no 3).
@@ -111,6 +108,10 @@ r1 BIEN en el corazón. Arrastra: variable sin `private`, y NOMBRES DE MÉTODO (
 REPASO — LIBRO "ArrayList vs. arreglo común" (pág. 407) (r2) — programado: 2026-09-22 — [ ] pendiente
 Arranque: ejercicios/repasos/lib19-r2.md (lo crea `/repaso`)
 r1 bis BIEN. Mirar que la bandera `boolean` arranque en `false` antes del bucle, que salga con `break`, y `b.equals(x)` y no al revés. ToDo/recorrer-una-coleccion.md (punto 8)
+
+REPASO — EJERCICIO #06 Code Magnets: DrumKit (pág. 186) (r2) — programado: 2026-09-23 — [ ] pendiente
+Arranque: ejercicios/repasos/ej06-r2/ (DrumKit.java y DrumKitTestDrive.java) (lo crea `/repaso`)
+r1 PERFECTO a la primera, con un orden DISTINTO al original (razonó, no recordó). Mirar que sepa POR QUÉ el `if` es código muerto forzado: con el `d.playSnare()` suelto en juego, si el `if` disparara saldrían DOS "bang".
 
 REPASO — EJERCICIO #05 Robot (Sesión #25) (r2) — programado: 2026-09-23 — [ ] pendiente
 Arranque: ejercicios/repasos/ej05-r2/ (Robot.java y RobotTestDrive.java) (lo crea `/repaso`)
