@@ -34,10 +34,8 @@ Arranque: ejercicios/lib24-sharpen-arbol-musicos.md | Si te trabás: Sesión #90
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
 
-Nota: la corrección COMPLETA vive en EJERCICIOS-ARCHIVO.md; acá solo el
-"punto a mirar", en 1-2 líneas. Criterio vigente (2026-08-25): se atacan
-por RIESGO (los que ya fallaron primero), no por fecha; uno por día, y el
-arranque lo crea `/repaso` en el momento.
+Nota: corrección completa en EJERCICIOS-ARCHIVO.md; acá solo el "punto a mirar". Criterio (2026-08-25):
+por RIESGO (los que ya fallaron primero), uno por día; el arranque lo crea `/repaso` en el momento.
 
 REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r1) — programado: 2026-08-01 — [ ] pendiente
 Arranque: ejercicios/repasos/ej09-r1/TestArrays.java (lo crea `/repaso`)
@@ -146,9 +144,5 @@ Arranque: ejercicios/repasos/lib03-television-r3.md (lo crea `/repaso`)
 # CONCEPTOS DOMINADOS (entran al graduarse un ejercicio con r3 bien)
 # ============================================================
 
-- Compile-time vs. runtime: un programa bien anidado (clase → método →
-  instrucción) COMPILA aunque tenga un bucle infinito u otro error de
-  lógica; eso es un problema de EJECUCIÓN, no de compilación.
-- Toda instrucción ejecutable (`while`, `if`...) vive DENTRO de un
-  método. No puede estar suelta directo dentro de una clase, sin
-  importar el nombre del método que la envuelva.
+- Compile-time vs. runtime: un programa bien anidado COMPILA aunque tenga un bucle infinito; eso es un problema de EJECUCIÓN.
+- Toda instrucción ejecutable (`while`, `if`...) vive DENTRO de un método (con cualquier nombre), nunca suelta en la clase.
