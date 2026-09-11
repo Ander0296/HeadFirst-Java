@@ -2386,3 +2386,36 @@ dueño y confunde dos tipos distintos.
 
 RESULTADO: salió BIEN. Código perfecto en los dos programas; lo que
 falta es precisión al DESCRIBIR la falla. r2 agendado para 2026-09-24.
+
+REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) (r1) — programado: 2026-09-11 — [x] cumplido (2026-09-11, sesión java-s85) — RESULTADO: PARCIAL
+Entregado en: ejercicios/repasos/lib01-concepto-arranque-r1.md (5 preguntas en frío: Perro/Gato/Zoologico con main, Termometro sin main)
+Contexto: dos caídas en examen en frío (2026-09-03: mezcló "la clase que
+se ejecuta" con "el método que busca la JVM"; 2026-09-08: dijo "clase
+main" cinco veces y creyó que UNA sola clase puede tener main).
+
+BIEN (3,5 de 5): P2 firma exacta `public static void main(String[] args)`.
+P3 predice `Miau` y que los otros dos main se ignoran sin error. P4 error
+de EJECUCIÓN, compila porque main no hace falta, Termometro es una
+plantilla que otra clase usa con `new`. P5 elige A y explica B como "no
+se encontró el .class" (le faltó el caso "estás parado en otra carpeta").
+
+MEJORÓ respecto de los exámenes: "clase main" desapareció (cero veces, y
+en P1 dice "el método main es un método"). Y ya acepta que todas las
+clases pueden tener su propio main.
+
+SE REPITIÓ, invertido: P1 dice "main le indica a la JVM cuál es la clase
+de arranque". Es al revés: VOS elegís la clase (`java Gato`) y la JVM
+busca el método main ADENTRO de esa clase; main no elige nada. Es el
+mismo nudo del examen del 03/09 (clase que corre vs. método que se busca).
+RESIDUO del examen del 08/09: P3 dice "el programa solo puede tener un
+solo main". Falso: un programa puede tener muchos; lo que es único es la
+PUERTA de cada EJECUCIÓN (el main de la clase que nombraste).
+Además en P1 metió "nombre de clase = nombre del archivo" como requisito
+de arranque (es regla de COMPILACIÓN de la clase pública) y "los archivos
+con main van a correr" (PUEDEN correr, solo si los nombrás).
+
+Diagnóstico: predice bien lo que PASA (P3-P5 perfectas); lo que falla es
+EXPLICAR en palabras quién elige a quién. El ToDo/crear-una-clase-java.md
+ya lo cubría (punto 4 de "La trampa del main"): no se agrega nada.
+No es RE-ESTUDIO: es el primer REPASO del concepto (las otras dos fueron
+exámenes) y la falla cambió de forma. Intervalo acortado: r2 2026-09-14.

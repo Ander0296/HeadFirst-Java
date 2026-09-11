@@ -77,13 +77,13 @@ REPASO — LIBRO Sharpen your pencil: "Movie objects" (pág. 170-173) (r2) — p
 Arranque: ejercicios/repasos/lib04-r2.md (lo crea `/repaso`)
 r1 PERFECTO. Mirar que `two.playIt()` no cambia ningún valor y que cada objeto conserva los suyos.
 
-REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) — programado: 2026-09-11 — [ ] pendiente
-Arranque: lo crea `/repaso` (es conceptual, sin carpeta propia)
-SEGUNDA caída en frío (examen 2026-09-08): dijo "clase main" cinco veces y cree que UNA sola clase puede tener main. Mirar: clase (la elegís vos) vs. método (lo busca la JVM adentro). ToDo/crear-una-clase-java.md (punto 4).
-
 REPASO — EJERCICIO #13 Code Magnets: "MultiFor" (pág. 380-382) (r1) — programado: 2026-09-11 — [ ] pendiente
 Arranque: ejercicios/repasos/ej13-r1/MultiFor.java (lo crea `/repaso`)
 Original PERFECTO a la primera. Mirar que el `if (i == 1) { i++; }` quede DESPUÉS del for interno (antes imprimiría `2 4`) y que sepa por qué el 2 nunca es cabeza de vuelta.
+
+REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) (r2) — programado: 2026-09-14 — [ ] pendiente
+Arranque: ejercicios/repasos/lib01-concepto-arranque-r2.md (lo crea `/repaso`)
+r1 PARCIAL (2026-09-11): "clase main" desapareció y P3-P5 perfectas, pero dijo "main le indica a la JVM la clase" (al revés: vos elegís la clase, la JVM busca main adentro) y "el programa solo puede tener un main". ToDo/crear-una-clase-java.md (trampa del main, punto 4).
 
 REPASO — LIBRO "Leer el javadoc" (pág. 452-454) (r1) — programado: 2026-09-12 — [ ] pendiente
 Arranque: ejercicios/repasos/lib21-r1.md (lo crea `/repaso`)
