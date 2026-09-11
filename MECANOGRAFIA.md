@@ -464,3 +464,9 @@ Cada subclase sobrescribe makeNoise() y eat(), pero sleep() y roam() quedan gen�
 
 s89b — clases intermedias:
 Feline y Canine heredan de Animal y definen su propio roam(); Hippo usa el genérico.
+
+s90a — gana la más baja:
+w.roam() busca primero en Wolf, sube a Canine y ahí lo encuentra: gana la más baja.
+
+s90b — tabla de herencia:
+Tabla de herencia: Clothing no tiene superclase; Boxers y Shirt son sus subclases.

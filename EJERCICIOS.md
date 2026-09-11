@@ -26,6 +26,10 @@ LIBRO — Sharpen your pencil: contar el árbol Doctor/Surgeon/FamilyDoctor (Ubi
 Arranque: ejercicios/lib23-sharpen-arbol-doctor.md | Si te trabás: Sesión #88 de la guía
 Trampa: preguntan cuántas TIENE cada clase, no cuántas escribe.
 
+LIBRO — Sharpen your pencil: el árbol de los músicos (Ubicación pág. 496, Sesión #90) — [ ] pendiente
+Arranque: ejercicios/lib24-sharpen-arbol-musicos.md | Si te trabás: Sesión #90 de la guía
+"Yours to solve": sin solución del libro, se corrige por criterio (cada relación tiene que tener sentido).
+
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================

@@ -7,12 +7,12 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 491 de 1629 (28%) — **capítulo 7 (herencia)**: terminado el diseño del simulador de animales. Se sobrescriben `eat()` y `makeNoise()` en cada subclase; `sleep()` y `roam()` quedan genéricos, y aparecen las clases intermedias `Feline` y `Canine` con su propio `roam()`. Ver Sesión #89. **Próximo: pág. 492**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #89** (tanda de 4 pantallazos, 2026-09-10).
-- PRÓXIMA SESIÓN: `/rename java-s85`
+- Última página: 496 de 1629 (28%) — **capítulo 7 (herencia)**: "gana la más baja" (la JVM busca el método desde la clase del objeto hacia arriba) y la tabla de herencia (Class / Superclasses / Subclasses). Ver Sesión #90. **Próximo: pág. 494-495** (el pantallazo vino vacío: pedirlas PRIMERO) **y después la 497**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #90** (tanda de 4 pantallazos, 2026-09-11).
+- PRÓXIMA SESIÓN: `/rename java-s86`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última fue java-s84: Sesión #89, Feline y Canine.)
-- Ejercicios pendientes: **lib23** "Sharpen your pencil: contar el árbol Doctor" (pág. 482, contar variables y métodos heredados vs. escritos).
+  de las tandas. La última fue java-s85: repaso "arrancar un programa" + Sesión #90.)
+- Ejercicios pendientes: **lib23** "contar el árbol Doctor" (pág. 482) y **lib24** "el árbol de los músicos" (pág. 496, tabla + diagrama, sin solución en el libro).
 - ⚠ **12 repasos vencidos** (el más viejo, ej09 TestArrays r1, del 2026-08-01). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. El 11/09 el concepto "arrancar un programa" r1 salió PARCIAL: ya no dice "clase main", pero invierte quién elige a quién (r2 al 14/09). Errores a vigilar: decir "no se ejecuta" cuando el programa arranca y revienta (mirar cuántas líneas imprimió antes), no nombrar la excepción (`NullPointerException` / `ArrayIndexOutOfBoundsException`), llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-09-08** — backlog viejo de páginas SALDADO: las 41 sin clasificar se dieron de baja (Kindle web saltea números; no era contenido faltante). PENDIENTES.md queda con 2 entradas vivas, las dos con QUÉ falta escrito: pág. 447-448 y el Ready-Bake de GameHelper. También de baja lib13. Ritmo real: 5,5 pág./tanda (83 tandas, pág. 456 de 1629) → faltan ~214 tandas; pasando el material como TEXTO en vez de pantallazos bajarían a ~147.
@@ -249,6 +249,8 @@ Ejercicios: ver EJERCICIOS.md.
 | abstraction                       | abstracción | Subir lo que se repite a un lugar común más arriba en el árbol. Si dos o más subclases hermanas comparten un comportamiento, se crea una clase intermedia que lo tenga una sola vez. |
 | class hierarchy                   | jerarquía de clases | El árbol completo de herencia, con todos sus niveles. Puede tener más de dos: `Animal` → `Feline` → `Lion`. Un objeto ejecuta la versión de método MÁS CERCANA subiendo por el árbol. |
 | Feline / Canine (clase intermedia)| felino / canino (clase intermedia) | Clase que va entre la superclase general y las concretas, para alojar lo que comparten SOLO algunas subclases y no todas. |
+| the lowest one wins               | gana la más baja | Al llamar a un método, corre la versión más específica para el tipo del objeto: la JVM busca primero en la clase del objeto y sube por la jerarquía hasta encontrarla. |
+| inheritance table                 | tabla de herencia | Tabla de diseño con tres columnas (Class / Superclasses / Subclasses) que se llena ANTES de dibujar el árbol. Cada relación aparece dos veces, una en cada fila. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -306,6 +308,18 @@ SESIÓN #89 — 2026-09-10 — Pasos 3, 4 y 5 del diseño: qué se sobrescribe y
 - Nota del profe: las clases intermedias son la respuesta a "¿dónde pongo este método?" — se sube al nivel más alto donde el comportamiento sea verdadero para TODOS los de abajo, ni más arriba ni más abajo.
 - Chequeo de comprensión: LAS DOS BIEN, sin pistas. (1) Un `Dog` ejecuta el `roam()` de `Canine` "por ser el más cercano". (2) El andar en manada no puede vivir en `Animal` porque no es cierto para todos; y agregó solo el criterio profesional: ante la duda, dejar a `Hippo` heredando lo más general en vez de inventarle un override.
 - PRÓXIMO PASO: pág. 492 en adelante (el diseño vuelve más adelante en el capítulo).
+
+SESIÓN #90 — 2026-09-11 — Qué método se llama ("gana la más baja") y la tabla de herencia (pág. 493-496, 28%)
+- Pág. 493: `Wolf` tiene 4 métodos: `sleep()` heredado de `Animal`, `roam()` heredado de `Canine` (que ya sobrescribía el de `Animal`), y `makeNoise()` y `eat()` sobrescritos en `Wolf`. Con la referencia `w` se llaman los cuatro con el operador punto.
+- Regla del libro: "the lowest one wins" (gana la más baja). Se ejecuta la versión MÁS ESPECÍFICA para el tipo del objeto: la JVM busca primero en `Wolf` y, si no está, sube por la jerarquía hasta encontrarla. Es la regla de la Sesión #89 con su nombre oficial.
+- Resultado: `w.makeNoise()` y `w.eat()` → `Wolf`; `w.roam()` → `Canine`; `w.sleep()` → `Animal`.
+- Diseñar un árbol: TABLA DE HERENCIA con columnas Class / Superclasses / Subclasses. `Clothing` sin superclase (`---`) y con subclases `Boxers` y `Shirt`. Cada relación aparece DOS veces: como subclase en una fila y como superclase en la otra.
+- "Superclasses" va en plural porque, con más niveles, cuenta toda la cadena de arriba (para `Wolf`: `Canine` y `Animal`).
+- Huecos: la pág. 492 es un número que Kindle se saltea (no falta nada). Las pág. 494-495 no llegaron porque el pantallazo 3 vino vacío: pedirlas al abrir la próxima tanda.
+- Ejercicios de la tanda: lib24 "Sharpen your pencil: el árbol de los músicos" (pág. 496), PENDIENTE. Es "Yours to solve" (te toca resolverlo): el libro no trae solución.
+- Nota del profe: la búsqueda arranca en el tipo del OBJETO. Con `Animal a = new Wolf();` la regla no cambia, y eso es el polimorfismo (próximas páginas).
+- Chequeo de comprensión: pendiente de respuesta.
+- PRÓXIMO PASO: pág. 494-495 (faltan) y 497 en adelante.
 
 
 # ============================================================
