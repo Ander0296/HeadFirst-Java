@@ -596,12 +596,19 @@ grande):
    resumen del paso 2 ANTES de commitear: es información, no una
    pregunta que bloquea.
 4. Confirmar en una línea que subió, o pegar el error tal cual si falló.
-5. Chequear también si `~/.config` (repo de dotfiles) tiene cambios
-   sin commitear (`git -C ~/.config status --short`) y avisarlo en el
-   reporte de cierre si los hay — SIN tocarlo (es otro repo, con sus
-   propias reglas: solo se avisa). Esto existe porque cambios sueltos
-   ahí rompen cosas al pasar de PC. Si el usuario pide agregar otros
-   repos a este chequeo, sumarlos a esta lista.
+5. Chequear también `~/.config` (repo de dotfiles) con
+   `git -C ~/.config status --short`. Esto existe porque cambios
+   sueltos ahí rompen cosas al pasar de PC.
+   - Los archivos de ttyper de ESTE proyecto
+     (`ttyper/texts/headfirst-java-*.txt`) se commitean y pushean
+     DIRECTO, SIN preguntar, en el mismo cierre (decisión del usuario,
+     2026-09-11: salen de este proyecto, así que viajan con él).
+     `git add` SOLO de esas rutas, con commit
+     `chore(ttyper): frases de práctica de HeadFirst-Java sNN`.
+   - Cualquier OTRO cambio en `~/.config` NO se toca: solo se avisa en
+     el reporte de cierre (es otro repo, con sus propias reglas).
+   Si el usuario pide agregar otros repos a este chequeo, sumarlos a
+   esta lista.
 
 **Chequeo de seguridad — ANTES de todo commit, sin excepción:**
 
