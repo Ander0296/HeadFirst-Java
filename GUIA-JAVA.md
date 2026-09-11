@@ -318,7 +318,7 @@ SESIÓN #90 — 2026-09-11 — Qué método se llama ("gana la más baja") y la 
 - Huecos: la pág. 492 es un número que Kindle se saltea (no falta nada). Las pág. 494-495 no llegaron porque el pantallazo 3 vino vacío: pedirlas al abrir la próxima tanda.
 - Ejercicios de la tanda: lib24 "Sharpen your pencil: el árbol de los músicos" (pág. 496), PENDIENTE. Es "Yours to solve" (te toca resolverlo): el libro no trae solución.
 - Nota del profe: la búsqueda arranca en el tipo del OBJETO. Con `Animal a = new Wolf();` la regla no cambia, y eso es el polimorfismo (próximas páginas).
-- Chequeo de comprensión: pendiente de respuesta.
+- Chequeo de comprensión: 1 BIEN y 1 A MEDIAS. (1) Si se borra el `roam()` de `Canine`, `w.roam()` sube hasta el de `Animal`, sin error. (2) Puso solo `Shirt` en las superclases de `TShirt`: le faltó `Clothing` (el plural cuenta toda la cadena). Lo de agregar `TShirt` en las subclases de `Shirt` estuvo bien.
 - PRÓXIMO PASO: pág. 494-495 (faltan) y 497 en adelante.
 
 
