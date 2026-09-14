@@ -50,6 +50,10 @@ de cómo* lo hace. Va adentro de un método.
 - [ ] Cada una tiene **tipo y nombre**: `int watts;`, `double
       temperatura;`, `String nombre;`
 - [ ] Termina en punto y coma `;`
+- [ ] Si la variable guarda OTRO objeto (TIENE-UN), el tipo es el nombre
+      **exacto** de esa clase: con `class Engine`, va `Engine motor;`,
+      no `Motor motor;`. El nombre de la variable lo elegís vos; el del
+      tipo, no (si no existe esa clase: "cannot find symbol").
 - [ ] El tipo aguanta lo que le vas a meter. Si va a tener decimales,
       `int` no sirve (trunca).
 - [ ] Empiezan en minúscula, por convención: `temperaturaActual`, no

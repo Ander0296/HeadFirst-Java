@@ -7,11 +7,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 496 de 1629 (28%) — **capítulo 7 (herencia)**: "gana la más baja" (la JVM busca el método desde la clase del objeto hacia arriba) y la tabla de herencia (Class / Superclasses / Subclasses). Ver Sesión #90. **Próximo: pág. 494-495** (el pantallazo vino vacío: pedirlas PRIMERO) **y después la 497**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #90** (tanda de 4 pantallazos, 2026-09-11).
-- PRÓXIMA SESIÓN: `/rename java-s87`
+- Última página: 500 de 1629 (28%) — **capítulo 7 (herencia)**: el compilador vs. la JVM al llamar un método heredado, la prueba ES-UN (IS-A) y la relación TIENE-UN (HAS-A: `Bathroom` tiene una variable `Tub`). Ver Sesión #91. **Próximo: pág. 501.** Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #91** (tanda de 4 pantallazos, 2026-09-14).
+- PRÓXIMA SESIÓN: `/rename java-s88`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última fue java-s86: repaso r2 "arrancar un programa" PARCIAL + RE-ESTUDIO ej17 cumplido, sin tanda.)
+  de las tandas. La última fue java-s87: Sesión #91, IS-A / HAS-A.)
 - Ejercicios pendientes: **lib23** "contar el árbol Doctor" (pág. 482) y **lib24** "el árbol de los músicos" (pág. 496, tabla + diagrama, sin solución en el libro).
 - ⚠ **14 repasos vencidos** (el más viejo, ej09 TestArrays r1, del 2026-08-01). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. "Arrancar un programa": r2 PARCIAL el 14/09 → RE-ESTUDIO con ej17, cumplido ("clase main" ya no aparece); r3 al 17/09, mirar que conteste las DOS mitades de cada pregunta. Errores a vigilar: decir "no se ejecuta" cuando el programa arranca y revienta (mirar cuántas líneas imprimió antes), no nombrar la excepción (`NullPointerException` / `ArrayIndexOutOfBoundsException`), llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
@@ -251,6 +251,8 @@ Ejercicios: ver EJERCICIOS.md.
 | Feline / Canine (clase intermedia)| felino / canino (clase intermedia) | Clase que va entre la superclase general y las concretas, para alojar lo que comparten SOLO algunas subclases y no todas. |
 | the lowest one wins               | gana la más baja | Al llamar a un método, corre la versión más específica para el tipo del objeto: la JVM busca primero en la clase del objeto y sube por la jerarquía hasta encontrarla. |
 | inheritance table                 | tabla de herencia | Tabla de diseño con tres columnas (Class / Superclasses / Subclasses) que se llena ANTES de dibujar el árbol. Cada relación aparece dos veces, una en cada fila. |
+| IS-A test                         | prueba ES-UN | Preguntarse "¿tiene sentido decir que X ES UN Y?". Si es verdad, X puede extender a Y; si suena falsa (una bañera ES UN baño), no corresponde herencia. |
+| HAS-A (composition)               | TIENE-UN (composición) | Una clase guarda a otra en una variable de instancia (`Bathroom` tiene `Tub bathtub;`): están relacionadas sin que ninguna extienda a la otra. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -320,6 +322,17 @@ SESIÓN #90 — 2026-09-11 — Qué método se llama ("gana la más baja") y la 
 - Nota del profe: la búsqueda arranca en el tipo del OBJETO. Con `Animal a = new Wolf();` la regla no cambia, y eso es el polimorfismo (próximas páginas).
 - Chequeo de comprensión: 1 BIEN y 1 A MEDIAS. (1) Si se borra el `roam()` de `Canine`, `w.roam()` sube hasta el de `Animal`, sin error. (2) Puso solo `Shirt` en las superclases de `TShirt`: le faltó `Clothing` (el plural cuenta toda la cadena). Lo de agregar `TShirt` en las subclases de `Shirt` estuvo bien.
 - PRÓXIMO PASO: pág. 494-495 (faltan) y 497 en adelante.
+
+SESIÓN #91 — 2026-09-14 — Compilador vs. JVM con un método heredado + prueba ES-UN y relación TIENE-UN (pág. 496-500, 28%)
+- Pág. 496: repite el Sharpen de los músicos (lib24), ya registrado completo. Las pág. 494-495 y 498-499 NO faltan: Kindle saltea números (la 497 habla del "ejemplo de Wolf de la página anterior").
+- Pág. 497 (No hay preguntas tontas): "¿y si la JVM nunca encuentra el método?" No puede pasar. El COMPILADOR garantiza que el método se puede llamar con ese tipo de referencia, sin importarle en qué clase del árbol está escrito (heredar un método es TENERLO). En EJECUCIÓN, la JVM elige la versión más específica para ese objeto.
+- Prueba ES-UN (IS-A test): "¿tiene sentido decir que X ES UN Y?". Triangle/Shape, Cat/Feline y Surgeon/Doctor la pasan.
+- `Tub extends Bathroom` "suena razonable" hasta aplicar la prueba: una bañera no es un baño. Al revés tampoco. Frase falsa = diseño mal.
+- Bathroom y Tub SÍ se relacionan, pero por TIENE-UN (HAS-A): `Bathroom` tiene una variable de instancia `Tub bathtub;` (una REFERENCIA a una bañera) y ninguna extiende a la otra. El diagrama encadena Bathroom → Tub → Bubbles, todo TIENE-UN.
+- Ejercicios de la tanda: ninguno nuevo. lib24 sigue PENDIENTE y ahora se resuelve aplicando la prueba ES-UN a cada par.
+- Nota del profe: el compilador acepta `class Tub extends Bathroom` sin quejarse (revisa sintaxis, no sentido). TIENE-UN se llama composición (composition); en entrevistas aparece "favor composition over inheritance" (preferí composición antes que herencia).
+- Chequeo de comprensión: LAS DOS BIEN, sin pistas y contestando las dos mitades. (1) `Car` TIENE-UN motor → variable de instancia. Detalle: escribió `Motor m;` y la clase se llamaba `Engine` (el tipo va con el nombre EXACTO de la clase). (2) `Engine extends Car` compila pero el diseño está mal: falla la prueba ES-UN.
+- PRÓXIMO PASO: pág. 501 en adelante.
 
 
 # ============================================================

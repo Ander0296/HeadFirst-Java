@@ -470,3 +470,9 @@ w.roam() busca primero en Wolf, sube a Canine y ahí lo encuentra: gana la más 
 
 s90b — tabla de herencia:
 Tabla de herencia: Clothing no tiene superclase; Boxers y Shirt son sus subclases.
+
+s91a — prueba ES-UN:
+Tub extends Bathroom compila, pero falla la prueba: una bañera no es un baño.
+
+s91b — TIENE-UN:
+class Bathroom { Tub bathtub; } porque el baño tiene una bañera.
