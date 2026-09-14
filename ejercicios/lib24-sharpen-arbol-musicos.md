@@ -51,22 +51,30 @@ Qué entregar:
 
 | Class           | Superclasses | Subclasses |
 | --------------- | ------------ | ---------- |
-| Musician        |              |            |
-| Rock Star       |              |            |
-| Fan             |              |            |
-| Bass Player     |              |            |
-| Concert Pianist |              |            |
+| Musician        |  --------            | Rock Star, Bass Player, Concert Pianist, Guitarrist |
+| Rock Star       | Musician             |   ---------         |
+| Fan             | --------             | -----------           |
+| Bass Player     | Musician     | ---------           |
+| Guitarrist      | Musician          |            |
+| Concert Pianist | Musician     |  ------          |
 |                 |              |            |
 
 ### Diagrama
 
 ```
+Musician
+Bass Player
+Concert Pianist
+Guitarrist
 
 ```
 
 ### Por qué
 
--
+- Agregué una clase Guitarrist, extiende de Musician ya que toca un instrumento, 
+Rock Star hereda de Musician porque una estrella de rock es un músico.
+El fan no hereda de ninguno,
+Las demas heredan de Musician ya que tocan un instrumento o cantan.
 
 ---
 

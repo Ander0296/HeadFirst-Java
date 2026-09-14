@@ -32,51 +32,40 @@ Contestá:
 
 1. How many instance variables does Doctor have?
    (¿Cuántas variables de instancia tiene Doctor?)
+   Tiene 1 warksAtHospital
 
 2. How many instance variables does Surgeon have?
    (¿Cuántas variables de instancia tiene Surgeon?)
+   TIene 1 instance variable, y es la que hereda de Doctor
 
 3. How many instance variables does FamilyDoctor have?
    (¿Cuántas variables de instancia tiene FamilyDoctor?)
+   Tiene 2 instance variables, la heredada de Doctor y makeHouseCalls
 
 4. How many methods does Doctor have?
    (¿Cuántos métodos tiene Doctor?)
+   Doctor tiene un método treatPatient()
 
 5. How many methods does Surgeon have?
    (¿Cuántos métodos tiene Surgeon?)
+   Sorgeon tiene dos métodos el heredado de Doctor y makeIncision()
 
 6. How many methods does FamilyDoctor have?
    (¿Cuántos métodos tiene FamilyDoctor?)
+   tiene 2, el heredado de Doctor y giveAdvice()
 
 7. Can a FamilyDoctor do treatPatient()?
    (¿Puede un FamilyDoctor hacer treatPatient()?)
+   Si, ya que usa el de Doctor, entonces la JVM la encuentra en la clase Doctor al ir subiendo en jerarquia.
 
 8. Can a FamilyDoctor do makeIncision()?
    (¿Puede un FamilyDoctor hacer makeIncision()?)
+   No, ese método es de Surgeon, entonces la JVM no encuentra ese método.
 
 En las preguntas 7 y 8, además del sí/no, escribí POR QUÉ en una línea.
 
 ---
 
-## MI RESPUESTA
-
-1.
-
-2.
-
-3.
-
-4.
-
-5.
-
-6.
-
-7.
-
-8.
-
----
 
 ## PROMPT DE ENTREGA (copiá esto y pegalo en Claude cuando termines)
 

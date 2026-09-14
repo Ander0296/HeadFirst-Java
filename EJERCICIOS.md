@@ -22,13 +22,9 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original) (lo crea `/
 # EJERCICIOS ABIERTOS
 # ============================================================
 
-LIBRO — Sharpen your pencil: contar el árbol Doctor/Surgeon/FamilyDoctor (Ubicación pág. 482, Sesión #88) — [ ] pendiente
-Arranque: ejercicios/lib23-sharpen-arbol-doctor.md | Si te trabás: Sesión #88 de la guía
-Trampa: preguntan cuántas TIENE cada clase, no cuántas escribe.
-
-LIBRO — Sharpen your pencil: el árbol de los músicos (Ubicación pág. 496, Sesión #90) — [ ] pendiente
+LIBRO — Sharpen your pencil: el árbol de los músicos (Ubicación pág. 496, Sesión #90) — [~] entregado 2026-09-14, pistas dadas
 Arranque: ejercicios/lib24-sharpen-arbol-musicos.md | Si te trabás: Sesión #90 de la guía
-"Yours to solve": sin solución del libro, se corrige por criterio (cada relación tiene que tener sentido).
+Tabla con sentido (4 subclases de Musician, agregó Guitarrist, Fan suelto) y ES-UN aplicado en Rock Star. Mal: el diagrama es una lista sin jerarquía y sin Rock Star ni Fan; Fan suelto sin POR QUÉ (otra vez media consigna); Rock Star mezcla fama con instrumento.
 
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
@@ -102,6 +98,10 @@ r1 BIEN. Flojo: dijo "while" donde va un `if`. Que nombre la estructura y ponga 
 REPASO — LIBRO "BE the JVM" (pág. 378-380) (r2) — programado: 2026-09-18 — [ ] pendiente
 Arranque: ejercicios/repasos/lib16-r2.md (lo crea `/repaso`)
 r1 BIEN sin pistas. Que nombre `value > 14` como corte (no `i > 14`) y ENTREGUE la traza vuelta por vuelta, no prosa. ToDo/un-bucle-que-termina.md (2), ToDo/entregar-un-ejercicio.md (Nivel 1).
+
+REPASO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r1) — programado: 2026-09-18 — [ ] pendiente
+Arranque: ejercicios/repasos/lib23-r1.md (lo crea `/repaso`)
+Números bien; salió con pistas. Mirar que diga SOBRESCRIBE (no "hereda") cuando el método está en la caja de la subclase, que culpe al COMPILADOR (no a la JVM) y los nombres exactos (`makesHouseCalls`).
 
 REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r2) — programado: 2026-09-19 — [ ] pendiente
 Arranque: ejercicios/repasos/ej14-r2/ (lo crea `/repaso`)

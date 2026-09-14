@@ -48,6 +48,12 @@ no se puede esconder nada.
 - [ ] Si el enunciado tiene varias partes rotuladas (A, B, C...),
       comprobá que **todas** tengan respuesta. Una parte en blanco no
       es "obvia": es una parte en blanco.
+- [ ] Si la misma respuesta va en **dos formatos** (una tabla Y un
+      diagrama, un código Y su salida), cruzalos: cada cosa que está en
+      uno tiene que estar en el otro, y decir lo mismo. Un diagrama de
+      herencia muestra **quién cuelga de quién** (la superclase arriba,
+      las subclases debajo, unidas con líneas): una lista de nombres
+      encolumnados no es un diagrama.
 - [ ] Si pidieron un arreglo, **escribí el arreglo**, no lo describas.
       "Habría que crear el método" no es un arreglo. El arreglo es el
       código, con su tipo de retorno, sus llaves y su `;`.

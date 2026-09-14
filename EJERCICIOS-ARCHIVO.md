@@ -2477,3 +2477,23 @@ ERROR DE CLAUDE en la primera lectura: leyó el archivo desde el cierre del come
 que estaba adentro. Al corregir un ejercicio hay que leer el archivo ENTERO, no desde donde empieza el código.
 
 REPASO: no se agenda uno propio. Lo absorbe el r3 del concepto "arrancar un programa" (2026-09-17), que es el mismo tema.
+
+LIBRO — Sharpen your pencil: contar el árbol Doctor/Surgeon/FamilyDoctor (pág. 482, Sesión #88) — [x] completado (2026-09-14, sesión java-s88)
+Arranque: ejercicios/lib23-sharpen-arbol-doctor.md
+
+LO QUE ESTUVO BIEN:
+- Los 8 conteos correctos a la primera: variables 1 / 1 / 2, métodos 1 / 2 / 2. Contó lo que cada clase TIENE, no lo que escribe.
+- P7 y P8 con el sí/no Y el porqué: NO se salteó la segunda mitad (el error persistente de ToDo/entregar-un-ejercicio.md, Nivel 1).
+- P8: razonó bien que makeIncision() es de Surgeon y FamilyDoctor es su hermano; la herencia baja, no va de costado.
+
+LO QUE ESTUVO MAL (salió con UNA ronda de pistas):
+- P5: dijo que Surgeon tiene "el heredado de Doctor" y makeIncision(). treatPatient() está dibujado en la caja de Surgeon, así
+  que lo SOBRESCRIBE (override). Número correcto, razón equivocada. Con la pista ("qué dice adentro de la caja") lo corrigió.
+- P8: culpó a la JVM ("la JVM no encuentra ese método"). Lo frena el COMPILADOR: javac revisa que el tipo de la referencia
+  (FamilyDoctor) tenga ese método, y como no lo tiene no genera el .class. Con la pista contestó "el compilador protesta
+  primero".
+- Nombres mal escritos: warksAtHospital, makeHouseCalls (es makesHouseCalls) y Sorgeon. Es el TERCER caso de nombre no exacto
+  (MARCA/marca en lib03, Motor por Engine en el chequeo de la Sesión #91). Ya lo cubría ToDo/crear-una-clase-java.md
+  ("escribí el nombre EXACTO"): no se agregó ningún punto.
+
+REPASO r1 agendado: 2026-09-18.

@@ -9,10 +9,10 @@ Ejercicios: ver EJERCICIOS.md.
 
 - Última página: 500 de 1629 (28%) — **capítulo 7 (herencia)**: el compilador vs. la JVM al llamar un método heredado, la prueba ES-UN (IS-A) y la relación TIENE-UN (HAS-A: `Bathroom` tiene una variable `Tub`). Ver Sesión #91. **Próximo: pág. 501.** Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
 - Última sesión: **Sesión #91** (tanda de 4 pantallazos, 2026-09-14).
-- PRÓXIMA SESIÓN: `/rename java-s88`
+- PRÓXIMA SESIÓN: `/rename java-s89`
   (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última fue java-s87: Sesión #91, IS-A / HAS-A.)
-- Ejercicios pendientes: **lib23** "contar el árbol Doctor" (pág. 482) y **lib24** "el árbol de los músicos" (pág. 496, tabla + diagrama, sin solución en el libro).
+  de las tandas. La última fue java-s88: sin tanda, lib23 completado y lib24 entregado.)
+- Ejercicios: **lib24** "el árbol de los músicos" [~] ENTREGADO con 3 pistas SIN RESPONDER (diagrama sin jerarquía y sin Rock Star/Fan; POR QUÉ de Fan con ES-UN y TIENE-UN; dónde va un bajista famoso de rock). Arrancar por ahí y después cerrarlo. lib23 completado el 14/09 (r1 al 18/09).
 - ⚠ **14 repasos vencidos** (el más viejo, ej09 TestArrays r1, del 2026-08-01). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. "Arrancar un programa": r2 PARCIAL el 14/09 → RE-ESTUDIO con ej17, cumplido ("clase main" ya no aparece); r3 al 17/09, mirar que conteste las DOS mitades de cada pregunta. Errores a vigilar: decir "no se ejecuta" cuando el programa arranca y revienta (mirar cuántas líneas imprimió antes), no nombrar la excepción (`NullPointerException` / `ArrayIndexOutOfBoundsException`), llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-09-08** — backlog viejo de páginas SALDADO: las 41 sin clasificar se dieron de baja (Kindle web saltea números; no era contenido faltante). PENDIENTES.md queda con 2 entradas vivas, las dos con QUÉ falta escrito: pág. 447-448 y el Ready-Bake de GameHelper. También de baja lib13. Ritmo real: 5,5 pág./tanda (83 tandas, pág. 456 de 1629) → faltan ~214 tandas; pasando el material como TEXTO en vez de pantallazos bajarían a ~147.
