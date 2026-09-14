@@ -83,10 +83,6 @@ REPASO — EJERCICIO #13 Code Magnets: "MultiFor" (pág. 380-382) (r1) — progr
 Arranque: ejercicios/repasos/ej13-r1/MultiFor.java (lo crea `/repaso`)
 Original PERFECTO a la primera. Mirar que el `if (i == 1) { i++; }` quede DESPUÉS del for interno (antes imprimiría `2 4`) y que sepa por qué el 2 nunca es cabeza de vuelta.
 
-REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) (r2) — programado: 2026-09-14 — [ ] pendiente
-Arranque: ejercicios/repasos/lib01-concepto-arranque-r2.md (lo crea `/repaso`)
-r1 PARCIAL (2026-09-11): "clase main" desapareció y P3-P5 perfectas, pero dijo "main le indica a la JVM la clase" (al revés: vos elegís la clase, la JVM busca main adentro) y "el programa solo puede tener un main". ToDo/crear-una-clase-java.md (trampa del main, punto 4).
-
 REPASO — LIBRO "Leer el javadoc" (pág. 452-454) (r1) — programado: 2026-09-12 — [ ] pendiente
 Arranque: ejercicios/repasos/lib21-r1.md (lo crea `/repaso`)
 4 de 5 bien. Mirar el PAQUETE de ArrayList (dijo java.lang) y que conteste las DOS mitades de cada pregunta (qué hace Y qué devuelve). ToDo/leer-la-documentacion-de-java.md
@@ -94,6 +90,10 @@ Arranque: ejercicios/repasos/lib21-r1.md (lo crea `/repaso`)
 REPASO — EJERCICIO #16 Code Magnets: "ArrayListMagnet" (pág. 461-463) (r1) — programado: 2026-09-13 — [ ] pendiente
 Arranque: ejercicios/repasos/ej16-r1/ArrayListMagnet.java (lo crea `/repaso`)
 Salida exacta pero resuelto SIN los imanes (el arranque los perdió): repetir CON los imanes. Mirar que use `if (a.contains("two"))` al final y sepa por qué NO entra. ToDo/recorrer-una-coleccion.md
+
+REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) (r3) — programado: 2026-09-17 — [ ] pendiente
+Arranque: ejercicios/repasos/lib01-concepto-arranque-r3.md (lo crea `/repaso`) — absorbe el repaso del EJERCICIO #17 (mismo concepto: no duplicar)
+RE-ESTUDIO CUMPLIDO (ej17, 2026-09-14): "clase main" NO apareció ni una vez y P1 salió exacta ("main es un método y vive dentro de una clase"). Queda el otro error: contesta la primera mitad de cada pregunta y se saltea la segunda. ToDo/entregar-un-ejercicio.md (Nivel 1: contar los signos de pregunta).
 
 REPASO — LIBRO "Yours to solve" bug SimpleStartupGame (pág. 365-367) (r2) — programado: 2026-09-17 — [ ] pendiente
 Arranque: ejercicios/repasos/lib15-r2.md (lo crea `/repaso`)

@@ -113,6 +113,12 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
       respuesta sin guardar llega en blanco y se corrige en blanco.
 - [ ] Comprobá que estás entregando **la ruta correcta** (el archivo
       del repaso, no el original; la carpeta del ejercicio, no otra).
+- [ ] **Buscá los corchetes `[ ]` en el prompt de entrega y llenalos
+      todos.** Los `[pegá acá...]` son huecos, no decoración: marcan
+      exactamente lo que hay que copiar de la terminal o escribir a
+      mano. Un prompt entregado con los corchetes intactos llega vacío
+      y no se puede corregir — el código compilando no es la entrega,
+      es solo una parte.
 
 ---
 

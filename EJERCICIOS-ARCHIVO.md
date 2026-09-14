@@ -2419,3 +2419,61 @@ EXPLICAR en palabras quién elige a quién. El ToDo/crear-una-clase-java.md
 ya lo cubría (punto 4 de "La trampa del main"): no se agrega nada.
 No es RE-ESTUDIO: es el primer REPASO del concepto (las otras dos fueron
 exámenes) y la falla cambió de forma. Intervalo acortado: r2 2026-09-14.
+
+REPASO CUMPLIDO — CONCEPTO "qué hace falta para ARRANCAR un programa" (r2) — 2026-09-14 (sesión java-s86)
+Archivo: ejercicios/repasos/lib01-concepto-arranque-r2.md — RESULTADO: PARCIAL (4/5). Segundo PARCIAL seguido → RE-ESTUDIO.
+
+MEJORÓ respecto de r1:
+- P3: desapareció "el programa solo puede tener un solo main". Ahora: "los otros main se ignoran, nosotros le estamos
+  diciendo que inicie desde la clase Gato". Correcto y bien fundamentado.
+- P1: agregó la pieza que faltaba — "esto lo logramos diciéndole que ejecute la clase con `java nombreClase`".
+  Es el orden correcto: la clase la elige el usuario, el `main` se busca adentro.
+- P2 perfecta otra vez (firma completa).
+- P5: A y B bien separados. En r1 justificó B con "no compilamos"; en r2 con "estamos en otra carpeta". Las dos son
+  causas válidas del mismo error.
+
+ERROR REPETIDO (tercera aparición: examen 2026-09-08, r1 2026-09-11, r2 2026-09-14):
+- P4: "para compilar no se necesita tener una clase main / la clase main es para correr el programa". `main` es un
+  MÉTODO. En P1 lo dijo bien ("el método main") y en P4 volvió al término viejo: el concepto está entendido, la
+  PALABRA no está fijada. Es el punto 1 de ToDo/crear-una-clase-java.md ("La trampa del main"), que ya lo cubría.
+- P1 arrastra la formulación invertida: "el método main sirve para que la JVM lea la clase y sepa que va a empezar
+  por esa misma clase". `main` no le indica nada a nadie: es la puerta que la JVM BUSCA dentro de la clase nombrada.
+  La frase correcta la escribió a continuación, pero conviven las dos versiones.
+- Detalle menor: escribió `Java Gato` con mayúscula. El comando es `java` en minúscula (Linux distingue).
+
+REMEDIO: EJERCICIO #17 "tres clases, dos puertas de entrada" (ejercicios/ej17-dos-main/) + releer Sesión #09 y #10.
+r3 agendado 2026-09-17 (intervalo acortado a 3 días).
+
+EJERCICIO #17 — "tres clases, dos puertas de entrada" (RE-ESTUDIO del concepto `main`) — [x] 2026-09-14 (sesión java-s86)
+Archivo: ejercicios/ej17-dos-main/ (Cocina.java con el bloque de respuestas, Horno.java, Heladera.java).
+RESULTADO: el RE-ESTUDIO CUMPLIÓ SU OBJETIVO. Las tres clases compilaron y los cinco comandos se corrieron de verdad,
+con las salidas exactas pegadas (incluida la línea `Caused by: java.lang.ClassNotFoundException: heladera`).
+
+LO QUE SE ARREGLÓ (era el objetivo del re-estudio):
+- P1 EXACTA: "`main` es un método y vive DENTRO de una clase". La palabra "clase main" no aparece ni una vez en toda
+  la entrega, después de tres apariciones seguidas (examen 2026-09-08, r1 2026-09-11, r2 2026-09-14).
+- P4 primera mitad perfecta: "no tiene método main, el programa para arrancar debe tener ese método".
+- P2: identificó bien QUIÉN elige la puerta de entrada ("soy yo").
+- Código de las tres clases correcto a la primera.
+
+LO QUE QUEDA (error distinto, y es el persistente):
+- CONTESTA LA PRIMERA MITAD DE CADA PREGUNTA Y SE SALTEA LA SEGUNDA. P2 pedía quién Y en qué momento exacto (respuesta:
+  al escribir `java Cocina`, en tiempo de EJECUCIÓN, no al compilar) — contestó solo el quién. P3 pedía por qué Y para
+  qué sirve una clase sin `main` — no contestó el "para qué". Es el Nivel 1 de ToDo/entregar-un-ejercicio.md ("contá los
+  signos de pregunta"), que ya lo cubría. Mismo patrón que lib21-r1 y que la PARTE 4 del Termómetro (ej14, dos veces).
+- P3 "por qué compiló" quedó CIRCULAR: "no se quejó porque se puede compilar sin problemas". La razón real: `javac` solo
+  verifica sintaxis y tipos; `main` no es un requisito del lenguaje para una clase, solo hace falta para LANZARLA.
+  Compilar y arrancar son dos momentos distintos.
+- REGRESIÓN POR OMISIÓN: en el r1 (2026-09-11) SÍ había contestado "para qué sirve" ("una clase creada para usarse como
+  plantilla, y la usará la clase que la use con el new"). Esta vez lo dejó afuera por no leer la pregunta entera.
+- P4 segunda mitad genérica: dijo "no existe, o está en otra carpeta". La causa concreta que él mismo provocó es que
+  Linux distingue mayúsculas: el archivo es `Heladera.class` y pidió `heladera`.
+- `int temperatura` sin `private` (arrastre de ej14; el enunciado pedía `int temperatura` a secas, así que no cuenta
+  como error del ejercicio, pero el reflejo debería ser `private` primero).
+
+DEFECTO DE LA ENTREGA (no del trabajo): pegó el prompt con los corchetes `[pegá acá...]` sin llenar, aunque las
+respuestas estaban escritas dentro de Cocina.java. Se agregó el punto al Nivel 4 de ToDo/entregar-un-ejercicio.md.
+ERROR DE CLAUDE en la primera lectura: leyó el archivo desde el cierre del comentario y no vio el bloque de respuestas,
+que estaba adentro. Al corregir un ejercicio hay que leer el archivo ENTERO, no desde donde empieza el código.
+
+REPASO: no se agenda uno propio. Lo absorbe el r3 del concepto "arrancar un programa" (2026-09-17), que es el mismo tema.
