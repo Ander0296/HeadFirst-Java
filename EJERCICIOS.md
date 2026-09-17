@@ -103,6 +103,10 @@ REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r2) — programa
 Arranque: ejercicios/repasos/ej14-r2/ (lo crea `/repaso`)
 r1 BIEN en el corazón. Arrastra: variable sin `private`, y NOMBRES DE MÉTODO (tres veces eligió un prefijo en vez de un verbo puro). Que la PARTE 4 llegue contestada: se salteó las dos veces. ToDo/crear-una-clase-java.md (Nivel 3).
 
+REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r1) — programado: 2026-09-20 — [ ] pendiente
+Arranque: ejercicios/repasos/concepto-sobrescritura-r1.md (lo crea `/repaso`)
+Se cayó en el examen del 2026-09-17: dio por terminada la salida en el primer `println` de un método heredado y no entró en la llamada que tenía abajo. Mirar que lea el método ENTERO y que, con un método heredado que llama a otro, gane la versión de la clase del OBJETO. ToDo/entregar-un-ejercicio.md (Nivel 2).
+
 REPASO — LIBRO "ArrayList vs. arreglo común" (pág. 407) (r2) — programado: 2026-09-22 — [ ] pendiente
 Arranque: ejercicios/repasos/lib19-r2.md (lo crea `/repaso`)
 r1 bis BIEN. Mirar que la bandera `boolean` arranque en `false` antes del bucle, que salga con `break`, y `b.equals(x)` y no al revés. ToDo/recorrer-una-coleccion.md (punto 8)

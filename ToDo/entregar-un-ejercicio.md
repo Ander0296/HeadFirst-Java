@@ -63,6 +63,17 @@ no se puede esconder nada.
       ejecutan de verdad** y en qué orden. Si sacaste o agregaste una
       línea como arreglo, releé el `main` YA arreglado: las líneas que
       quedan son las únicas que imprimen.
+- [ ] **Leé el método ENTERO, no su primera línea.** Un método puede
+      imprimir algo Y ADEMÁS llamar a otro método abajo. Cada llamada
+      que veas adentro te obliga a entrar ahí y seguir leyendo: la
+      salida son todos los `println` que se disparan en cadena, no el
+      primero que encontraste.
+- [ ] Si el método que se está ejecutando fue **heredado** de una clase
+      de más arriba, y adentro llama a otro método, fijate si la clase
+      del objeto tiene su **propia versión** de ese método. Si la tiene,
+      corre ESA, no la de arriba. El método heredado no arrastra consigo
+      las versiones de su clase de origen: siempre gana la versión más
+      baja del árbol, la de la clase con la que se hizo el objeto.
 - [ ] Copiá el texto de la salida **desde adentro del método**, leyendo
       su `println`. Nunca desde el nombre del método ni de memoria: dos
       métodos con nombres parecidos (`skipIntro` y `skipToNext`)
