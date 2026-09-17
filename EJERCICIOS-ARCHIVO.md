@@ -2497,3 +2497,9 @@ LO QUE ESTUVO MAL (salió con UNA ronda de pistas):
   ("escribí el nombre EXACTO"): no se agregó ningún punto.
 
 REPASO r1 agendado: 2026-09-18.
+
+REPASO — CONCEPTO "qué hace falta para ARRANCAR un programa" (post-graduación lib01) (r3) — [x] 2026-09-17 — BIEN → **GRADUADO**
+Arranque: ejercicios/repasos/lib01-concepto-arranque-r3.md (absorbió el repaso del EJERCICIO #17)
+Bien: P1 dice "el método main" y lo busca en la clase indicada con `java NombreClase` (segunda entrega seguida sin "clase main"); P2 con la firma exacta; P3 completa y con el porqué ("no importa cuántas clases tengan main"); P5 elige A y explica B por carpeta o nombre equivocados (en r2 lo justificaba con "clase main").
+Mal: en P4 contestó "al ejecutar" pero se saltó el POR QUÉ compila sin main — media pregunta otra vez, el punto "contá los signos de pregunta" de ToDo/entregar-un-ejercicio.md ya lo cubría. Con una pista lo cerró bien: las clases sin main son plantillas para crear objetos y para heredar, y main solo hace falta para arrancar.
+Cierre del ciclo: r1 PARCIAL (2026-09-11) → r2 PARCIAL (2026-09-14) → RE-ESTUDIO con EJERCICIO #17 (cumplido) → r3 BIEN. Los conceptos pasaron a CONCEPTOS DOMINADOS en EJERCICIOS.md.
