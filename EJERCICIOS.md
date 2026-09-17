@@ -26,16 +26,15 @@ LIBRO — Sharpen your pencil: el árbol de los músicos (Ubicación pág. 496, 
 Arranque: ejercicios/lib24-sharpen-arbol-musicos.md | Si te trabás: Sesión #90 de la guía
 Tabla con sentido (4 subclases de Musician, agregó Guitarrist, Fan suelto) y ES-UN aplicado en Rock Star. Mal: el diagrama es una lista sin jerarquía y sin Rock Star ni Fan; Fan suelto sin POR QUÉ (otra vez media consigna); Rock Star mezcla fama con instrumento.
 
+LIBRO — Sharpen your pencil: ¿qué relaciones tienen sentido? (Ubicación pág. 505, Sesión #92) — [ ] pendiente
+Arranque: ejercicios/lib25-sharpen-relaciones-que-tienen-sentido.md | Si te trabás: Sesión #92 de la guía
+
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
 
 Nota: corrección completa en EJERCICIOS-ARCHIVO.md; acá solo el "punto a mirar". Criterio (2026-08-25):
 por RIESGO (los que ya fallaron primero), uno por día; el arranque lo crea `/repaso` en el momento.
-
-REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r1) — programado: 2026-08-01 — [ ] pendiente
-Arranque: ejercicios/repasos/ej09-r1/TestArrays.java (lo crea `/repaso`)
-Mirar: que `index[0..3]` quede AFUERA del `while`.
 
 REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pág. 253-255) (r1) — programado: 2026-08-02 — [ ] pendiente
 Arranque: ejercicios/repasos/lib09-r1.md (lo crea `/repaso`)
@@ -130,6 +129,10 @@ Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md (lo crea `/repaso`)
 REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 — [ ] pendiente
 Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. 5/5 las tres veces. Que TRACE el bucle: `y` llega a 10 (3 dígitos) y `x` sube DOS veces por vuelta (3 vueltas, no 5).
+
+REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r2) — programado: 2026-10-01 — [ ] pendiente
+Arranque: ejercicios/repasos/ej09-r2/TestArrays.java (lo crea `/repaso`)
+r1 MEJOR que el original: corrigió solo el único error (las 4 asignaciones de `index[]` ya salieron del `while`). Mirar que siga separando preparación de bucle y que no invierta `islands[index[y]]`.
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r3) — programado: 2026-10-08 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r3.md (lo crea `/repaso`)

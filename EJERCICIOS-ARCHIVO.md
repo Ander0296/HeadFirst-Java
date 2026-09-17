@@ -2503,3 +2503,36 @@ Arranque: ejercicios/repasos/lib01-concepto-arranque-r3.md (absorbió el repaso 
 Bien: P1 dice "el método main" y lo busca en la clase indicada con `java NombreClase` (segunda entrega seguida sin "clase main"); P2 con la firma exacta; P3 completa y con el porqué ("no importa cuántas clases tengan main"); P5 elige A y explica B por carpeta o nombre equivocados (en r2 lo justificaba con "clase main").
 Mal: en P4 contestó "al ejecutar" pero se saltó el POR QUÉ compila sin main — media pregunta otra vez, el punto "contá los signos de pregunta" de ToDo/entregar-un-ejercicio.md ya lo cubría. Con una pista lo cerró bien: las clases sin main son plantillas para crear objetos y para heredar, y main solo hace falta para arrancar.
 Cierre del ciclo: r1 PARCIAL (2026-09-11) → r2 PARCIAL (2026-09-14) → RE-ESTUDIO con EJERCICIO #17 (cumplido) → r3 BIEN. Los conceptos pasaron a CONCEPTOS DOMINADOS en EJERCICIOS.md.
+
+============================================================
+
+REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r1) — [x] cumplido (2026-09-17)
+Resuelto en: ejercicios/repasos/ej09-r1/TestArrays.java
+Compiló a la primera. Salida exacta:
+"island = Fiji / island = Cozumel / island = Bermuda / island = Azores"
+
+RESULTADO: BIEN — y MEJOR que el original.
+
+QUÉ MEJORÓ (el único error del original, corregido solo):
+En el original las cuatro asignaciones `index[0] = 1; index[1] = 3;
+index[2] = 0; index[3] = 2;` habían quedado DENTRO del `while`: 16
+asignaciones para llenar un arreglo de 4. En el r1 quedaron ARRIBA del
+bucle, junto a las de `islands[]`. Aplicó la regla a los DOS arreglos,
+no a uno solo. Ese era exactamente el punto a mirar del repaso.
+
+QUÉ SE MANTUVO BIEN:
+1. Las dos declaraciones (`new int[4]`, `new String[4]`) y dos arreglos
+   de tipos distintos conviviendo.
+2. `int ref;` declarado sin valor y asignado dentro del bucle antes de
+   leerse (definite assignment de variables locales).
+3. Bucle sin off-by-one: `y = 0`, `y < 4`, `y = y + 1` al final del
+   cuerpo. Cuatro vueltas exactas.
+4. `index[]` usado como MAPA de posiciones, no como dato a imprimir.
+5. `print` vs `println` bien usados para armar la línea completa.
+
+ORDEN NUEVO respecto al original: movió `int y = 0;` y `int ref;` de
+arriba de todo a justo antes del `while`. Es mejor estilo (la variable
+nace cerca de donde se usa), y muestra que razonó el programa en vez de
+recordarlo.
+
+NINGÚN error repetido. Repaso r2 agendado para 2026-10-01.

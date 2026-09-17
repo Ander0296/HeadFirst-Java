@@ -476,3 +476,9 @@ Tub extends Bathroom compila, pero falla la prueba: una bañera no es un baño.
 
 s91b — TIENE-UN:
 class Bathroom { Tub bathtub; } porque el baño tiene una bañera.
+
+s92a — dirección única de ES-UN:
+Triangle extends Shape tiene sentido, pero Shape extends Triangle no: la flecha va en un solo sentido.
+
+s92b — super:
+public void roam() { super.roam(); } corre la versión heredada y después sigue con lo mío.

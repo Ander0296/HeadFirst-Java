@@ -55,7 +55,7 @@ Qué entregar:
 | Rock Star       | Musician             |   ---------         |
 | Fan             | --------             | -----------           |
 | Bass Player     | Musician     | ---------           |
-| Guitarrist      | Musician          |            |
+| Guitarrist      | Musician          |    --------        |
 | Concert Pianist | Musician     |  ------          |
 |                 |              |            |
 

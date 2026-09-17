@@ -125,3 +125,14 @@ su QUÉ. Nunca se reabre la lista de números.
 Los archivos de arranque de estos cuatro siguen en ejercicios/ por si
 alguna vez se quieren retomar: la baja saca el ejercicio de la lista viva,
 no borra el enunciado.
+
+- **Páginas 502-503** (anotado el 2026-09-17, Sesión #92): no vinieron en la
+  tanda. La 501 cierra con el diagrama Animal → Canine → Wolf y la 504 arranca
+  ya EMPEZADO un recuadro ("Beer is-a Drink, but not all drinks are beer. OK,
+  your turn. Make one that shows the oneway-ness of the IS-A relationship") —
+  o sea que en el medio está el ARRANQUE de ese recuadro (probablemente un
+  Sharpen your pencil o un BULLET POINTS sobre la dirección única de ES-UN) y
+  su consigna completa. El concepto en sí SÍ quedó cubierto por la 504
+  (Triangle/Shape); lo que falta es la consigna del ejercicio. Rescate: pedir
+  ESOS dos pantallazos puntuales en la próxima tanda; si resultan ser solo
+  relleno, se dan de baja en el acto.

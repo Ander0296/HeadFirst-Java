@@ -7,13 +7,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 500 de 1629 (28%) — **capítulo 7 (herencia)**: el compilador vs. la JVM al llamar un método heredado, la prueba ES-UN (IS-A) y la relación TIENE-UN (HAS-A: `Bathroom` tiene una variable `Tub`). Ver Sesión #91. **Próximo: pág. 501.** Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #91** (tanda de 4 pantallazos, 2026-09-14).
-- PRÓXIMA SESIÓN: `/rename java-s90`
-  (sale SIEMPRE de esta línea, no se calcula: es un contador distinto al
-  de las tandas. La última fue java-s89: sin tanda, r3 de "arrancar un programa" BIEN → concepto GRADUADO.)
-- Ejercicios: **lib24** "el árbol de los músicos" [~] ENTREGADO con 3 pistas SIN RESPONDER (diagrama sin jerarquía y sin Rock Star/Fan; POR QUÉ de Fan con ES-UN y TIENE-UN; dónde va un bajista famoso de rock). Arrancar por ahí y después cerrarlo. lib23 completado el 14/09 (r1 al 18/09).
-- ⚠ **15 repasos vencidos** (el más viejo, ej09 TestArrays r1, del 2026-08-01). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. "Arrancar un programa" GRADUADO el 17/09 (r3 bien, cerró el ciclo r1/r2 parciales + re-estudio ej17). Errores a vigilar: contestar solo la PRIMERA mitad de cada pregunta (ToDo/entregar-un-ejercicio.md, "contá los signos de pregunta"), decir "no se ejecuta" cuando el programa arranca y revienta (mirar cuántas líneas imprimió antes), no nombrar la excepción (`NullPointerException` / `ArrayIndexOutOfBoundsException`), llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
+- Última página: 506 de 1629 (29%) — **capítulo 7 (herencia)**: la prueba ES-UN es TRANSITIVA (sube por todo el árbol) y va en UNA sola dirección, y `super.metodo()` para llamar a la versión heredada desde un método sobrescrito. Ver Sesión #92. **Próximo: pág. 507** ("Who gets the Porsche": qué puede heredar realmente una subclase). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #92** (tanda de 4 pantallazos, 2026-09-17).
+- PRÓXIMA SESIÓN: `/rename java-s92` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s91: repaso ej09 r1 BIEN + Sesión #92.)
+- Ejercicios: **lib25** "¿qué relaciones tienen sentido?" (pág. 505) [ ] NUEVO, sin empezar. **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
+- ⚠ **15 repasos vencidos** (el más viejo, lib09 "pilfered references" r1, del 2026-08-02). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. ej09 TestArrays r1 BIEN el 17/09 (corrigió solo su único error; r2 al 2026-10-01). Errores a vigilar: contestar solo la PRIMERA mitad de cada pregunta (ToDo/entregar-un-ejercicio.md), decir "no se ejecuta" cuando el programa arranca y revienta, no nombrar la excepción, llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-09-08** — backlog viejo de páginas SALDADO: las 41 sin clasificar se dieron de baja (Kindle web saltea números; no era contenido faltante). PENDIENTES.md queda con 2 entradas vivas, las dos con QUÉ falta escrito: pág. 447-448 y el Ready-Bake de GameHelper. También de baja lib13. Ritmo real: 5,5 pág./tanda (83 tandas, pág. 456 de 1629) → faltan ~214 tandas; pasando el material como TEXTO en vez de pantallazos bajarían a ~147.
 - Último examen (`/examen`): **2026-09-17** (el cuarto, java-s90). 5 de 6 sólidos: arrancar un programa (compila vs. ejecuta; y `java Perro` corre el `main` de Perro aunque el archivo se llame Zoologico.java), instrucción ejecutable siempre dentro de un método, ES-UN vs. TIENE-UN (guitarrista TIENE una guitarra), y que la herencia baja y no sube. FLOJO: qué método corre cuando hay SOBRESCRITURA — cortó la salida en el primer `println` de un método heredado sin entrar en la llamada que tenía abajo. Repaso agendado al 2026-09-20 y ToDo/entregar-un-ejercicio.md ampliado (Nivel 2). También confundió "en el mismo archivo" con "dentro de la clase". Próximo examen: ~2026-10-01.
@@ -253,6 +251,8 @@ Ejercicios: ver EJERCICIOS.md.
 | inheritance table                 | tabla de herencia | Tabla de diseño con tres columnas (Class / Superclasses / Subclasses) que se llena ANTES de dibujar el árbol. Cada relación aparece dos veces, una en cada fila. |
 | IS-A test                         | prueba ES-UN | Preguntarse "¿tiene sentido decir que X ES UN Y?". Si es verdad, X puede extender a Y; si suena falsa (una bañera ES UN baño), no corresponde herencia. |
 | HAS-A (composition)               | TIENE-UN (composición) | Una clase guarda a otra en una variable de instancia (`Bathroom` tiene `Tub bathtub;`): están relacionadas sin que ninguna extienda a la otra. |
+| super (keyword)                   | super (palabra clave) | Dentro de una subclase, se refiere a la superclase. `super.roam();` en un método sobrescrito ejecuta la versión HEREDADA de `roam()` y después sigue con el código propio: extiende el comportamiento en vez de reemplazarlo. |
+| oneway-ness (of IS-A)             | dirección única (de ES-UN) | La relación ES-UN vale en un solo sentido: `Triangle IS-A Shape` es verdad, `Shape IS-A Triangle` no. Por eso `extends` nunca se puede dar vuelta. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -333,6 +333,20 @@ SESIÓN #91 — 2026-09-14 — Compilador vs. JVM con un método heredado + prue
 - Nota del profe: el compilador acepta `class Tub extends Bathroom` sin quejarse (revisa sintaxis, no sentido). TIENE-UN se llama composición (composition); en entrevistas aparece "favor composition over inheritance" (preferí composición antes que herencia).
 - Chequeo de comprensión: LAS DOS BIEN, sin pistas y contestando las dos mitades. (1) `Car` TIENE-UN motor → variable de instancia. Detalle: escribió `Motor m;` y la clase se llamaba `Engine` (el tipo va con el nombre EXACTO de la clase). (2) `Engine extends Car` compila pero el diseño está mal: falla la prueba ES-UN.
 - PRÓXIMO PASO: pág. 501 en adelante.
+
+
+SESIÓN #92 — 2026-09-17 — la prueba ES-UN es transitiva y va en UNA sola dirección; `super` (pág. 501-506, 29%)
+- La prueba ES-UN funciona en CUALQUIER punto del árbol, no solo entre padre e hijo directo: si C hereda de B y B de A, entonces C ES UN B y C ES UN A. La herencia es TRANSITIVA.
+- Ojo con la escritura: en el CÓDIGO una clase nombra a UNA sola superclase (`class Wolf extends Canine`). Que "Wolf extends Animal" sea verdad es una relación del ÁRBOL, indirecta; no se escribe.
+- ES-UN va en UNA sola dirección: `Triangle IS-A Shape` es verdad, `Shape IS-A Triangle` no. Por eso Triangle extiende a Shape y nunca al revés. Invertir la flecha es EL error típico de diseño.
+- Regla práctica para decidir la jerarquía: si "X ES UN Y" tiene sentido, las dos clases probablemente van en la misma jerarquía (comparten comportamiento). Y si X ES UN Y, X puede hacer TODO lo que hace Y (y quizá más).
+- No existe herencia al revés: una superclase no puede usar la versión de la subclase, ni sabe que sus subclases existen (alguien puede extenderla años después).
+- `super.metodo()` (NUEVO): dentro de un método sobrescrito, llama a la versión HEREDADA y después sigue con el código propio. Sirve para AGREGAR comportamiento en vez de reemplazarlo — es el sentido literal de `extends`.
+- Ejercicios de la tanda: lib25 "¿qué relaciones tienen sentido?" (pág. 505, once `extends` para tildar aplicando ES-UN), PENDIENTE.
+- Falta: pág. 502-503 (el arranque del recuadro "Beer is-a Drink"; el concepto quedó cubierto por la 504) → anotado en PENDIENTES.md.
+- Chequeo: LAS DOS BIEN en el concepto. (1) Transitividad entendida y nombró la superclase DIRECTA, pero escribió `Violin extends StringInstrument{}` sin la palabra `class` (punto del Nivel 1 de ToDo/crear-una-clase-java.md que se salteó). (2) `super.roam()` primero y el código propio después, orden correcto; escribió `void roam()` donde el padre tiene `public void roam()` — no compilaría por acceso más débil, que es justo el tema de la pág. 507.
+- Dudas: ninguna.
+- PRÓXIMO PASO: pág. 507 — "Who gets the Porsche, who gets the porcelain?" (qué puede heredar realmente una subclase: niveles de acceso).
 
 
 # ============================================================
