@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 506 de 1629 (29%) — **capítulo 7 (herencia)**: la prueba ES-UN es TRANSITIVA (sube por todo el árbol) y va en UNA sola dirección, y `super.metodo()` para llamar a la versión heredada desde un método sobrescrito. Ver Sesión #92. **Próximo: pág. 507** ("Who gets the Porsche": qué puede heredar realmente una subclase). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #92** (tanda de 4 pantallazos, 2026-09-17).
-- PRÓXIMA SESIÓN: `/rename java-s93` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s92: repaso lib23 r1 PARCIAL + lib25 completado, SIN tanda de páginas.)
+- Última página: 513 de 1629 (30%) — **capítulo 7 (herencia)**: qué se hereda (`public` sí, `private` no; 4 niveles de acceso), las reglas para NO abusar de la herencia y sus dos ventajas (sin duplicar código + contrato común → polimorfismo). Ver Sesión #93. **Próximo: pág. 514** ("The 3 steps of object declaration and assignment": arranca polimorfismo). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #93** (tanda de 5 pantallazos, 2026-09-18).
+- PRÓXIMA SESIÓN: `/rename java-s94` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s93: tanda Sesión #93, sin repaso.)
 - Ejercicios: **lib25** COMPLETADO el 18/09 (11/11 en SÍ/NO; las 4 invertidas salieron con una pista; r1 al 22/09). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
 - ⚠ **15 repasos vencidos** (el más viejo, lib09 "pilfered references" r1, del 2026-08-02). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. lib23 (árbol Doctor) r1 el 18/09: PARCIAL 6/8 — contó `makesHouseCalls` como método por no mirar los paréntesis del diagrama; r1 bis al 2026-09-21, si falla otra vez es RE-ESTUDIO. Errores a vigilar: contestar solo la PRIMERA mitad de cada pregunta (ToDo/entregar-un-ejercicio.md), decir "no se ejecuta" cuando el programa arranca y revienta, no nombrar la excepción, llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
@@ -253,6 +253,9 @@ Ejercicios: ver EJERCICIOS.md.
 | HAS-A (composition)               | TIENE-UN (composición) | Una clase guarda a otra en una variable de instancia (`Bathroom` tiene `Tub bathtub;`): están relacionadas sin que ninguna extienda a la otra. |
 | super (keyword)                   | super (palabra clave) | Dentro de una subclase, se refiere a la superclase. `super.roam();` en un método sobrescrito ejecuta la versión HEREDADA de `roam()` y después sigue con el código propio: extiende el comportamiento en vez de reemplazarlo. |
 | oneway-ness (of IS-A)             | dirección única (de ES-UN) | La relación ES-UN vale en un solo sentido: `Triangle IS-A Shape` es verdad, `Shape IS-A Triangle` no. Por eso `extends` nunca se puede dar vuelta. |
+| protected                         | protegido | Tercer nivel de acceso (entre default y public): visible en el mismo paquete Y en las subclases. Detalle en el Apéndice B del libro; para un junior alcanza con saber que existe. |
+| contract / protocol (of a supertype) | contrato / protocolo (de un supertipo) | Promesa que hace una superclase con sus métodos heredables: "todo Animal (y toda subclase) sabe hacer makeNoise(), eat()..." con esa firma exacta. El código de afuera puede confiar en eso sin saber qué subclase tiene. |
+| supertype reference              | referencia de tipo supertipo | Variable declarada con el tipo de la superclase que apunta a un objeto de una subclase (`Animal a = new Dog();`). Es la puerta de entrada al polimorfismo; se ve en la próxima tanda. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -348,6 +351,19 @@ SESIÓN #92 — 2026-09-17 — la prueba ES-UN es transitiva y va en UNA sola di
 - Dudas: ninguna.
 - PRÓXIMO PASO: pág. 507 — "Who gets the Porsche, who gets the porcelain?" (qué puede heredar realmente una subclase: niveles de acceso).
 
+
+SESIÓN #93 — 2026-09-18 — Qué se hereda (public sí, private no), reglas para usar bien la herencia y para qué sirve (pág. 507-513, 30%)
+- Una subclase hereda los MIEMBROS (variables de instancia + métodos) que la superclase le deja heredar según el NIVEL DE ACCESO. Hay cuatro, de más cerrado a más abierto: `private` → default (sin palabra) → `protected` → `public`. Por ahora: `public` SE hereda, `private` NO.
+- Lo heredado se usa como si la subclase lo hubiera escrito ella misma: para el resto del código, Square "simplemente tiene" un `rotate()`.
+- 4 reglas de diseño: SÍ heredar cuando la subclase ES UN tipo más específico (Willow extends Tree) o cuando varias clases del mismo tipo general comparten comportamiento. NO heredar solo para reusar código si no pasa ES-UN (Potato no extiende Animal para imprimir: eso va en una clase Printer vía TIENE-UN).
+- Las variables de instancia NO se sobrescriben (se pueden "redefinir", casi nunca hace falta); los métodos sí. Gana la versión más baja.
+- Ventaja 1 — cero código duplicado: se cambia en la superclase, se recompila SOLO ella y todas las subclases usan la versión nueva sin tocarlas (mientras no se "rompa" lo que usan: nombre, argumentos, tipo de retorno).
+- Ventaja 2 — un PROTOCOLO común (contrato): la superclase garantiza que todo su subtipo tiene esos métodos con esa firma. Eso habilita el POLIMORFISMO: usar una referencia del supertipo para un objeto de la subclase.
+- NOTA DEL PROFE: "preferir composición (TIENE-UN) sobre herencia" es un principio clásico del diseño (Head First Design Patterns); en entrevistas lo preguntan.
+- Ejercicios de la tanda: ninguno.
+- Chequeo: LAS DOS BIEN y con las dos mitades. (1) Dog usa `eat()` public, no `name` private. (2) Car no extiende Document: código de guardado a una clase FileSaver que Car y Document TIENEN.
+- Dudas: "cómo sería realmente" TIENE-UN → se mostró FileSaver como variable de instancia + delegar con `saver.save()`. Bien, para reforzar en la Fase 2.
+- PRÓXIMO PASO: pág. 514 — "The 3 steps of object declaration and assignment" (los 3 pasos de declarar y asignar un objeto) y el polimorfismo en acción.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

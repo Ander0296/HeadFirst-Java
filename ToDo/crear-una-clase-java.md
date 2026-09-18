@@ -158,6 +158,12 @@ void setWatts(int w) { }       // recibe un int, no devuelve nada
       pasan (`this.volumen = volumen;`), eso es un setter y el nombre
       honesto es `setVolumen()`. Un nombre que miente es peor que un
       nombre feo: el que lee tu código confía en él.
+- [ ] **Si el método SOBRESCRIBE uno de la superclase, copiá la firma
+      entera, incluida la palabra de acceso.** Si el padre dice
+      `public void roam()`, el hijo también escribe `public void roam()`.
+      Escribir solo `void roam()` no compila: el hijo no puede ser más
+      cerrado que el padre (`attempting to assign weaker access
+      privileges`, intentando asignar privilegios de acceso más débiles).
 
 ## Nivel 5 — Las instrucciones
 

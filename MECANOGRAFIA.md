@@ -482,3 +482,9 @@ Triangle extends Shape tiene sentido, pero Shape extends Triangle no: la flecha 
 
 s92b — super:
 public void roam() { super.roam(); } corre la versión heredada y después sigue con lo mío.
+
+s93a — qué se hereda:
+Los miembros public se heredan; los private no. La subclase los usa como propios.
+
+s93b — herencia bien usada:
+Potato no extiende Animal para imprimir: no pasa ES-UN, eso va con TIENE-UN.
