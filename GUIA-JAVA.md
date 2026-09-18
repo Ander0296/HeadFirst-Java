@@ -7,10 +7,10 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 527 de 1629 (31%) — **capítulo 7 (polimorfismo)**: clases/métodos `final` y reglas para sobrescribir (mismos argumentos, retorno compatible, no menos accesible). Ver Sesión #96. **Próximo: pág. 528** (sobrecarga). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #96** (tanda de 5 pantallazos, 2026-09-18).
-- PRÓXIMA SESIÓN: `/rename java-s97` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s96: tanda Sesión #96, sin repaso.)
-- Ejercicios: **lib25** COMPLETADO el 18/09 (11/11 en SÍ/NO; las 4 invertidas salieron con una pista; r1 al 22/09). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
+- Última página: 533 de 1629 (31%) — **capítulo 7 (polimorfismo)**: sobrecarga (overloading) vs. sobrescritura. Ver Sesión #97. **Próximo: pág. 533, BE the Compiler Monster/Vampire** (sus pantallazos YA están en paginas/). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #97** (tanda de pantallazos, 2026-09-18).
+- PRÓXIMA SESIÓN: `/rename java-s98` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s97: tanda Sesión #97, sin repaso.)
+- Ejercicios: **lib26** Mixed Messages "Mixed2" PENDIENTE (pág. 531-533: qué versión de m1/m2/m3 corre). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
 - ⚠ **15 repasos vencidos** (el más viejo, lib09 "pilfered references" r1, del 2026-08-02). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. lib23 (árbol Doctor) r1 el 18/09: PARCIAL 6/8 — contó `makesHouseCalls` como método por no mirar los paréntesis del diagrama; r1 bis al 2026-09-21, si falla otra vez es RE-ESTUDIO. Errores a vigilar: contestar solo la PRIMERA mitad de cada pregunta (ToDo/entregar-un-ejercicio.md), decir "no se ejecuta" cuando el programa arranca y revienta, no nombrar la excepción, llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-09-08** — backlog viejo de páginas SALDADO: las 41 sin clasificar se dieron de baja (Kindle web saltea números; no era contenido faltante). PENDIENTES.md queda con 2 entradas vivas, las dos con QUÉ falta escrito: pág. 447-448 y el Ready-Bake de GameHelper. También de baja lib13. Ritmo real: 5,5 pág./tanda (83 tandas, pág. 456 de 1629) → faltan ~214 tandas; pasando el material como TEXTO en vez de pantallazos bajarían a ~147.
@@ -261,6 +261,7 @@ Ejercicios: ver EJERCICIOS.md.
 | supertype reference              | referencia de tipo supertipo | Variable declarada con el tipo de la superclase que apunta a un objeto de una subclase (`Animal a = new Dog();`). Es la puerta de entrada al polimorfismo; se ve en la próxima tanda. |
 | reference type / object type     | tipo de la referencia / tipo del objeto | En `Animal a = new Dog();` el tipo de la referencia es Animal (a la izquierda: decide qué métodos se pueden llamar) y el del objeto es Dog (después de `new`: decide qué versión corre). |
 | polymorphic array                | arreglo polimórfico | Arreglo declarado con el supertipo (`Animal[]`) que guarda objetos de subclases distintas (Dog, Cat, Hippo...). Recorriéndolo, cada objeto ejecuta SU versión del método. |
+| overloading / overloaded method  | sobrecarga / método sobrecargado | Dos métodos con el mismo nombre y distinta lista de argumentos (`addNums(int, int)` y `addNums(double, double)`). El compilador elige cuál por los tipos que le pasás. NO es sobrescritura. |
 | polymorphic argument             | argumento polimórfico | Parámetro declarado con el supertipo (`giveShot(Animal a)`): acepta cualquier subclase, y el método que corre adentro es el del objeto real que llegó. |
 
 ============================================================
@@ -402,6 +403,17 @@ SESIÓN #96 — 2026-09-18 — Polimorfismo que no cambia, clases final y reglas
 - Ejercicios de la tanda: ninguno.
 - Chequeo: P1 BIEN (corre el de Appliance: turnOn(int) no sobrescribe; ajuste: Toaster SÍ tiene turnOn() heredado). P2 A MEDIAS: dijo herencia/ES-UN pero omitió la regla 2 (no menos accesible) → otra vez la segunda mitad.
 - PRÓXIMO PASO: pág. 528 (sobrecarga de métodos).
+
+SESIÓN #97 — 2026-09-18 — Sobrecarga de métodos (overloading) + Mixed Messages (pág. 529-533, 31%)
+- Sobrecarga = dos métodos con el MISMO nombre y DISTINTA lista de argumentos. Es otro método que comparte nombre: nada que ver con herencia ni polimorfismo.
+- Para qué: comodidad del que llama (`addNums(int, int)` y `addNums(double, double)`; `setUniqueID(String)` y `setUniqueID(int)`). Reaparece con los constructores (cap. 9).
+- Regla 1: el retorno PUEDE cambiar. Regla 2: NO alcanza con cambiar SOLO el retorno; los argumentos tienen que cambiar sí o sí. Regla 3: el acceso puede ir en cualquier dirección (no hay contrato que cumplir).
+- Quién elige: en la sobrecarga, el COMPILADOR, por los tipos de los argumentos; en la sobrescritura, la JVM, por el objeto real.
+- Nota del profe: `"" + ssNumber` convierte un int en String por concatenación; en código real se prefiere `String.valueOf(ssNumber)`.
+- Pantallazos 1-2 repetían la pág. 527 (cubierto igual); pág. 528 y 530 saltadas por Kindle (cubierto igual).
+- Ejercicios de la tanda: lib26 Mixed Messages "Mixed2" pendiente. El BE the Compiler Monster/Vampire (pág. 533) va en la próxima tanda.
+- Chequeo: P1 BIEN el veredicto (no compila: mismos argumentos), pero dijo "cree que es sobrescritura" — en la MISMA clase el error es "already defined" (ya está definido). P2 A MEDIAS: versión int bien, pero dijo que decide la JVM (decide el COMPILADOR).
+- PRÓXIMO PASO: pág. 533, BE the Compiler (pantallazo 13.55.30 en adelante, ya en paginas/).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

@@ -506,3 +506,9 @@ public final class String { } nadie puede extenderla ni cambiar sus métodos.
 
 s96b — reglas para sobrescribir:
 Sobrescribir: mismos argumentos, retorno compatible y nunca menos accesible.
+
+s97a — sobrecarga:
+int sumar(int a, int b) y double sumar(double a, double b) conviven sin problema.
+
+s97b — quién elige:
+Sobrecarga la elige el compilador; sobrescritura la elige la JVM en ejecución.

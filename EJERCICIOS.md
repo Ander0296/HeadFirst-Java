@@ -26,6 +26,9 @@ LIBRO — Sharpen your pencil: el árbol de los músicos (Ubicación pág. 496, 
 Arranque: ejercicios/lib24-sharpen-arbol-musicos.md | Si te trabás: Sesión #90 de la guía
 Tabla con sentido (4 subclases de Musician, agregó Guitarrist, Fan suelto) y ES-UN aplicado en Rock Star. Mal: el diagrama es una lista sin jerarquía y sin Rock Star ni Fan; Fan suelto sin POR QUÉ (otra vez media consigna); Rock Star mezcla fama con instrumento.
 
+LIBRO — Mixed Messages: "Mixed2" (Ubicación pág. 531-533, Sesión #97) — [ ] pendiente
+Arranque: ejercicios/lib26-mixed-messages-mixed2.md | Si te trabás: Sesiones #94-#96 de la guía · ToDo/entregar-un-ejercicio.md (Nivel 2)
+
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
