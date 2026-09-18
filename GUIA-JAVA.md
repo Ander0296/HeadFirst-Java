@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 520 de 1629 (30%) — **capítulo 7 (polimorfismo)**: arreglos polimórficos (`Animal[]` con Dog, Cat, Hippo...) y argumentos polimórficos (`giveShot(Animal a)`). Ver Sesión #95. **Próximo: pág. 521**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #95** (tanda de 4 pantallazos, 2026-09-18).
-- PRÓXIMA SESIÓN: `/rename java-s96` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s95: tanda Sesión #95, sin repaso.)
+- Última página: 527 de 1629 (31%) — **capítulo 7 (polimorfismo)**: clases/métodos `final` y reglas para sobrescribir (mismos argumentos, retorno compatible, no menos accesible). Ver Sesión #96. **Próximo: pág. 528** (sobrecarga). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #96** (tanda de 5 pantallazos, 2026-09-18).
+- PRÓXIMA SESIÓN: `/rename java-s97` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s96: tanda Sesión #96, sin repaso.)
 - Ejercicios: **lib25** COMPLETADO el 18/09 (11/11 en SÍ/NO; las 4 invertidas salieron con una pista; r1 al 22/09). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
 - ⚠ **15 repasos vencidos** (el más viejo, lib09 "pilfered references" r1, del 2026-08-02). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. lib23 (árbol Doctor) r1 el 18/09: PARCIAL 6/8 — contó `makesHouseCalls` como método por no mirar los paréntesis del diagrama; r1 bis al 2026-09-21, si falla otra vez es RE-ESTUDIO. Errores a vigilar: contestar solo la PRIMERA mitad de cada pregunta (ToDo/entregar-un-ejercicio.md), decir "no se ejecuta" cuando el programa arranca y revienta, no nombrar la excepción, llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
@@ -212,6 +212,9 @@ Ejercicios: ver EJERCICIOS.md.
 | local variable                        | variable local | Variable declarada DENTRO de un método (no en la clase); a diferencia de las instance variables, Java no le pone valor por defecto: hay que inicializarla antes de usarla o el compilador la rechaza. |
 | prep code                             | código de preparación | Forma de pseudocódigo para enfocarse en la LÓGICA de una clase/método sin preocuparse por la sintaxis; se escribe antes del test code. (Corregido en Sesión #61: la definición anterior tenía el foco al revés.) |
 | test code                             | código de prueba | Clase o métodos que prueban el real code y validan que hace lo correcto; se escribe después del prep code y antes del real code. |
+| final (en una clase o método)         | final | En una CLASE: nadie puede extenderla (ej. `String`). En un MÉTODO: ninguna subclase puede sobrescribirlo. Da seguridad de que funcionan como se escribieron. |
+| contract (of a method)                | contrato (de un método) | Lo que un método promete hacia afuera: qué argumentos recibe y qué devuelve. Quien lo sobrescribe tiene que respetarlo idéntico. |
+| @Override                             | (anotación) sobrescribe | Se pone arriba de un método para que el compilador verifique que de verdad sobrescribe uno de la superclase; si la firma no coincide, da error. |
 | overloading                           | sobrecarga | Varios métodos con el MISMO nombre en la misma clase, que se diferencian por lo que reciben entre paréntesis: `add(E e)` y `add(int index, E element)`. Java elige cuál llamar mirando los argumentos, nunca el tipo de retorno. |
 | shallow copy                          | copia superficial | Copia que duplica el contenedor pero NO los objetos de adentro: `clone()` de un ArrayList devuelve una lista nueva cuyos elementos son los mismos objetos. Agregar o borrar en una no toca a la otra, pero modificar un elemento se ve en las dos. |
 | real code                             | código real | La implementación real de la clase, ya en sintaxis Java de verdad — el último de los 3 pasos (prep code → test code → real code). |
@@ -387,6 +390,18 @@ SESIÓN #95 — 2026-09-18 — Arreglos y argumentos polimórficos (pág. 518-52
 - Ejercicios de la tanda: ninguno.
 - Chequeo: P1 eligió bien el eat() de Cat, pero el POR QUÉ quedó en "hereda" (falta: Cat SOBRESCRIBE eat() y la JVM corre la versión del objeto real). P2 MAL: creyó que `giveShot(new Penguin())` necesita una variable → se explicó que el parámetro `a` ES la variable, y que Vet no se toca.
 - PRÓXIMO PASO: pág. 521 — seguir con argumentos/retornos polimórficos.
+
+SESIÓN #96 — 2026-09-18 — Polimorfismo que no cambia, clases final y reglas para sobrescribir (pág. 522-527, 31%)
+- Pág. 522: con parámetros de tipo superclase, el código NO cambia cuando otro programador agrega subclases nuevas (Vet sigue andando con animales que no conocía). Pág. 521, 523-524 y 526: Kindle saltea números, contenido continuo (cubierto igual).
+- No hay límite de niveles de herencia, pero en la práctica los árboles son anchos y poco profundos (1-2 niveles). Se puede extender una clase ajena y sobrescribir el método que funciona mal.
+- Tres cosas impiden extender una clase: que no sea `public` (solo la extienden las de su mismo paquete), `final` (fin de la línea de herencia; ej. `String`) o que solo tenga constructores `private` (cap. 9). Un MÉTODO `final` no se puede sobrescribir.
+- Pág. 525: los métodos son el CONTRATO. El compilador mira el tipo de la REFERENCIA (`Appliance`); la JVM, en ejecución, mira el OBJETO (`Toaster`).
+- Regla 1: los ARGUMENTOS deben ser idénticos y el RETORNO compatible (el mismo tipo o una subclase). `turnOn(int level)` en Toaster NO sobrescribe `turnOn()`: es una SOBRECARGA legal, y con referencia Appliance corre el de Appliance.
+- Regla 2: el método que sobrescribe no puede ser MENOS accesible (`public` → `private` no compila). Hay 4 niveles de acceso (2 vistos) y otra regla con excepciones (cap. 13).
+- Nota del profe: `@Override` arriba del método le pide al compilador que verifique que de verdad sobrescribe; habría atrapado el `turnOn(int)`. Se usa siempre en el trabajo real.
+- Ejercicios de la tanda: ninguno.
+- Chequeo: P1 BIEN (corre el de Appliance: turnOn(int) no sobrescribe; ajuste: Toaster SÍ tiene turnOn() heredado). P2 A MEDIAS: dijo herencia/ES-UN pero omitió la regla 2 (no menos accesible) → otra vez la segunda mitad.
+- PRÓXIMO PASO: pág. 528 (sobrecarga de métodos).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

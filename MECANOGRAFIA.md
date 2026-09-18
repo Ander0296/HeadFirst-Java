@@ -500,3 +500,9 @@ Animal[] animals = new Animal[5]; guarda un Dog, un Cat y un Hippo.
 
 s95b — argumento polimórfico:
 public void giveShot(Animal a) { a.makeNoise(); } acepta cualquier animal.
+
+s96a — clase final:
+public final class String { } nadie puede extenderla ni cambiar sus métodos.
+
+s96b — reglas para sobrescribir:
+Sobrescribir: mismos argumentos, retorno compatible y nunca menos accesible.
