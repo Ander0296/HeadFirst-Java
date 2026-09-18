@@ -488,3 +488,9 @@ Los miembros public se heredan; los private no. La subclase los usa como propios
 
 s93b — herencia bien usada:
 Potato no extiende Animal para imprimir: no pasa ES-UN, eso va con TIENE-UN.
+
+s94a — los tres pasos:
+Dog d = new Dog(); declara la referencia, crea el objeto y los enlaza.
+
+s94b — polimorfismo:
+Animal a = new Dog(); la referencia es Animal y el objeto es Dog.

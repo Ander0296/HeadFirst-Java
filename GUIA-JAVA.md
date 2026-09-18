@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 513 de 1629 (30%) — **capítulo 7 (herencia)**: qué se hereda (`public` sí, `private` no; 4 niveles de acceso), las reglas para NO abusar de la herencia y sus dos ventajas (sin duplicar código + contrato común → polimorfismo). Ver Sesión #93. **Próximo: pág. 514** ("The 3 steps of object declaration and assignment": arranca polimorfismo). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #93** (tanda de 5 pantallazos, 2026-09-18).
-- PRÓXIMA SESIÓN: `/rename java-s94` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s93: tanda Sesión #93, sin repaso.)
+- Última página: 517 de 1629 (30%) — **capítulo 7 (herencia → polimorfismo)**: los 3 pasos de `Dog myDog = new Dog();` y que con polimorfismo el tipo de la referencia y el del objeto pueden ser distintos (`Animal myDog = new Dog();`). Ver Sesión #94. **Próximo: pág. 518** (qué se hace con una referencia del supertipo). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #94** (tanda de 5 pantallazos, 2026-09-18).
+- PRÓXIMA SESIÓN: `/rename java-s95` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s94: tanda Sesión #94, sin repaso.)
 - Ejercicios: **lib25** COMPLETADO el 18/09 (11/11 en SÍ/NO; las 4 invertidas salieron con una pista; r1 al 22/09). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
 - ⚠ **15 repasos vencidos** (el más viejo, lib09 "pilfered references" r1, del 2026-08-02). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. lib23 (árbol Doctor) r1 el 18/09: PARCIAL 6/8 — contó `makesHouseCalls` como método por no mirar los paréntesis del diagrama; r1 bis al 2026-09-21, si falla otra vez es RE-ESTUDIO. Errores a vigilar: contestar solo la PRIMERA mitad de cada pregunta (ToDo/entregar-un-ejercicio.md), decir "no se ejecuta" cuando el programa arranca y revienta, no nombrar la excepción, llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
@@ -256,6 +256,7 @@ Ejercicios: ver EJERCICIOS.md.
 | protected                         | protegido | Tercer nivel de acceso (entre default y public): visible en el mismo paquete Y en las subclases. Detalle en el Apéndice B del libro; para un junior alcanza con saber que existe. |
 | contract / protocol (of a supertype) | contrato / protocolo (de un supertipo) | Promesa que hace una superclase con sus métodos heredables: "todo Animal (y toda subclase) sabe hacer makeNoise(), eat()..." con esa firma exacta. El código de afuera puede confiar en eso sin saber qué subclase tiene. |
 | supertype reference              | referencia de tipo supertipo | Variable declarada con el tipo de la superclase que apunta a un objeto de una subclase (`Animal a = new Dog();`). Es la puerta de entrada al polimorfismo; se ve en la próxima tanda. |
+| reference type / object type     | tipo de la referencia / tipo del objeto | En `Animal a = new Dog();` el tipo de la referencia es Animal (a la izquierda: decide qué métodos se pueden llamar) y el del objeto es Dog (después de `new`: decide qué versión corre). |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -364,6 +365,16 @@ SESIÓN #93 — 2026-09-18 — Qué se hereda (public sí, private no), reglas p
 - Chequeo: LAS DOS BIEN y con las dos mitades. (1) Dog usa `eat()` public, no `name` private. (2) Car no extiende Document: código de guardado a una clase FileSaver que Car y Document TIENEN.
 - Dudas: "cómo sería realmente" TIENE-UN → se mostró FileSaver como variable de instancia + delegar con `saver.save()`. Bien, para reforzar en la Fase 2.
 - PRÓXIMO PASO: pág. 514 — "The 3 steps of object declaration and assignment" (los 3 pasos de declarar y asignar un objeto) y el polimorfismo en acción.
+
+SESIÓN #94 — 2026-09-18 — Los 3 pasos de `Dog myDog = new Dog();` y la puerta del polimorfismo (pág. 514-517, 30%)
+- Repaso del capítulo 3 con otra mirada: (1) DECLARAR la referencia `Dog myDog` (el control remoto, de tipo Dog PARA SIEMPRE), (2) CREAR el objeto `new Dog()` en el heap, (3) ENLAZAR con `=` (programar el control remoto).
+- Hasta ahora el TIPO DE LA REFERENCIA (izquierda) y el TIPO DEL OBJETO (derecha, lo que va después de `new`) eran el mismo.
+- Con polimorfismo pueden ser DISTINTOS: `Animal myDog = new Dog();` es legal porque un Dog ES-UN Animal.
+- Nota del profe: la regla que ya vimos se lee acá: los BOTONES del control los decide el tipo de la referencia (compilador); qué hace cada botón lo decide el objeto (JVM). Es la misma idea de la sobrescritura.
+- Pág. 514 (el título) no vino en pantallazo: cubierto igual, el contenido arranca en la 515.
+- Ejercicios de la tanda: ninguno.
+- Chequeo: los 3 pasos BIEN. Eligió bien `Animal a = new Dog();`, pero no sabía por qué `Dog d = new Animal();` no compila → se explicó: ES-UN va en una sola dirección (un Animal no tiene por qué ser un Dog).
+- PRÓXIMO PASO: pág. 518 — seguir con `Animal myDog = new Dog();` (qué se puede hacer con una referencia del supertipo).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
