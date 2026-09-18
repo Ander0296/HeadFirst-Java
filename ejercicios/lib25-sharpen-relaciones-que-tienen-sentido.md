@@ -17,18 +17,18 @@
 
 Las once relaciones que da el libro, con la traducción de cada clase:
 
-1. `Oven extends Kitchen` — Oven (horno), Kitchen (cocina, el ambiente).
-2. `Guitar extends Instrument` — Guitar (guitarra), Instrument (instrumento musical).
-3. `Person extends Employee` — Person (persona), Employee (empleado).
-4. `Ferrari extends Engine` — Ferrari (la marca de auto), Engine (motor).
-5. `FriedEgg extends Food` — FriedEgg (huevo frito), Food (comida).
-6. `Beagle extends Pet` — Beagle (la raza de perro), Pet (mascota).
-7. `Container extends Jar` — Container (recipiente, envase en general), Jar (frasco).
-8. `Metal extends Titanium` — Metal (metal), Titanium (titanio).
+1. `Oven extends Kitchen` — Oven (horno), Kitchen (cocina, el ambiente). NO, un horno no es una cocina
+2. `Guitar extends Instrument` — Guitar (guitarra), Instrument (instrumento musical). SI
+3. `Person extends Employee` — Person (persona), Employee (empleado). NO, todas  las personas no son empleadas
+4. `Ferrari extends Engine` — Ferrari (la marca de auto), Engine (motor). NO, un Ferrari no es un motor tiene un motor.
+5. `FriedEgg extends Food` — FriedEgg (huevo frito), Food (comida). SI
+6. `Beagle extends Pet` — Beagle (la raza de perro), Pet (mascota). SI
+7. `Container extends Jar` — Container (recipiente, envase en general), Jar (frasco). NO, Un container no es un frasco
+8. `Metal extends Titanium` — Metal (metal), Titanium (titanio). NO, un metal no es titanio, algunos son titanio pero no todos
 9. `GratefulDead extends Band` — Grateful Dead (una banda de rock
-   estadounidense muy conocida, activa desde los años 60), Band (banda musical).
-10. `Blonde extends Smart` — Blonde (rubia/rubio), Smart (inteligente).
-11. `Beverage extends Martini` — Beverage (bebida en general),
+   estadounidense muy conocida, activa desde los años 60), Band (banda musical). SI
+10. `Blonde extends Smart` — Blonde (rubia/rubio), Smart (inteligente). NO, no todos los rubios son inteligentes.
+11. `Beverage extends Martini` — Beverage (bebida en general), NO, todas las bebidas no son un martini.
     Martini (un trago hecho con gin y vermut seco).
 
 Recordá cómo se lee cada línea: `X extends Y` se lee "X hereda de Y",
@@ -42,25 +42,6 @@ Qué entregar:
    aplicar la prueba ES-UN. Si el problema es que la relación está dada
    vuelta, decilo y escribila como iría.
 
----
-
-## MI RESPUESTA
-
-| # | Relación | ¿Tiene sentido? | Por qué |
-| --- | --- | --- | --- |
-| 1 | Oven extends Kitchen | | |
-| 2 | Guitar extends Instrument | | |
-| 3 | Person extends Employee | | |
-| 4 | Ferrari extends Engine | | |
-| 5 | FriedEgg extends Food | | |
-| 6 | Beagle extends Pet | | |
-| 7 | Container extends Jar | | |
-| 8 | Metal extends Titanium | | |
-| 9 | GratefulDead extends Band | | |
-| 10 | Blonde extends Smart | | |
-| 11 | Beverage extends Martini | | |
-
----
 
 ## PROMPT DE ENTREGA (copiá esto y pegalo en Claude cuando termines)
 

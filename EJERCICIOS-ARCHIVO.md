@@ -2536,3 +2536,70 @@ nace cerca de donde se usa), y muestra que razonó el programa en vez de
 recordarlo.
 
 NINGÚN error repetido. Repaso r2 agendado para 2026-10-01.
+
+# ------------------------------------------------------------
+REPASO CUMPLIDO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r1) — 2026-09-18
+Archivo: ejercicios/repasos/lib23-r1.md — resultado: PARCIAL (6/8), cerrado con una ronda de pistas.
+
+MEJORÓ respecto del original:
+- P5 (métodos de Surgeon): describió la SOBRESCRITURA ("cambia el
+  comportamiento del método... instrucciones adicionales o diferentes").
+  En el original solo decía "el heredado de Doctor". Falta todavía usar la
+  palabra exacta: sobrescribe / override.
+- P7 y P8: ya no culpa a la JVM. En la 8 dio el argumento correcto y
+  nuevo: "en el árbol nunca sube la herencia, solo baja" (la dirección
+  única de ES-UN, Sesión #92).
+
+FALLÓ (y en el original estas dos las tenía BIEN — retroceso):
+- P3: dijo 1 variable de instancia en FamilyDoctor; son 2
+  (`worksAtHospital` heredada + `makesHouseCalls`).
+- P6: dijo 3 métodos en FamilyDoctor; son 2 (`treatPatient()` heredado +
+  `giveAdvice()`).
+
+CAUSA ÚNICA de los dos errores: leyó el diagrama sin mirar los
+PARÉNTESIS y movió `makesHouseCalls` de la columna de variables a la de
+métodos. La señal estaba en su propia respuesta: en P1 y P2 escribió
+`worksAtHospital()` con paréntesis mientras la llamaba "variable".
+
+CON LA PISTA (mirá los paréntesis, sin dar la respuesta) lo corrigió
+solo y a la primera: "2 variables de instancia y 2 métodos".
+
+Checklist ToDo/entregar-un-ejercicio.md ampliado (Nivel 2) con el punto
+de los paréntesis en diagramas de clases. Repaso r1 bis al 2026-09-21;
+si vuelve a salir mal, RE-ESTUDIO.
+
+# ------------------------------------------------------------
+LIBRO — Sharpen your pencil: ¿qué relaciones tienen sentido? (pág. 505, Sesión #92) — [x] 2026-09-18
+Archivo: ejercicios/lib25-sharpen-relaciones-que-tienen-sentido.md
+("Yours to solve": el libro NO trae la solución.)
+
+MARCAS SÍ/NO: 11 de 11 correctas, con el POR QUÉ bien redactado en cada NO.
+- SÍ: Guitar/Instrument, FriedEgg/Food, Beagle/Pet, GratefulDead/Band.
+- NO: Oven/Kitchen, Person/Employee, Ferrari/Engine, Container/Jar,
+  Metal/Titanium, Blonde/Smart, Beverage/Martini.
+
+DESTACADO: en Ferrari/Engine escribió solo "no es un motor, TIENE un
+motor" — nombró la relación TIENE-UN sin que se la pidieran. Y en
+Metal/Titanium razonó la dirección correcta: "algunos son titanio pero
+no todos", que es el argumento exacto de por qué la general va arriba.
+
+FALTÓ (segunda mitad de la consigna): el enunciado pedía "si la relación
+está dada vuelta, decilo y ESCRIBILA como iría". No escribió ninguna de
+las cuatro invertidas hasta que se le pidió. Es el error histórico de
+contestar solo la primera mitad — y el checklist YA lo cubría
+(ToDo/entregar-un-ejercicio.md, Nivel 1: "buscá los condicionales").
+No se agregó punto nuevo: se le señaló el que se salteó.
+
+CON LA PISTA (sin decirle cuáles eran) las sacó las cuatro exactas:
+Employee extends Person · Titanium extends Metal · Martini extends
+Beverage · Jar extends Container.
+
+CIERRE CONCEPTUAL dado en el chat — los NO se reparten en tres tipos:
+1. INVERTIDO (3, 7, 8, 11): las clases son las correctas, el orden no.
+   La general va arriba, la específica abajo.
+2. TIENE-UN (1 Oven/Kitchen, 4 Ferrari/Engine): no hay herencia en
+   ninguna dirección; va como variable de instancia.
+3. SIN ARREGLO (10 Blonde/Smart): la broma del libro. Ni ES-UN ni
+   TIENE-UN en ninguna dirección; son características sueltas.
+
+Repaso r1 agendado al 2026-09-22.

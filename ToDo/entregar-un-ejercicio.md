@@ -54,6 +54,18 @@ no se puede esconder nada.
       herencia muestra **quién cuelga de quién** (la superclase arriba,
       las subclases debajo, unidas con líneas): una lista de nombres
       encolumnados no es un diagrama.
+- [ ] **En un diagrama de clases, los paréntesis mandan.** Un renglón
+      con `()` es un MÉTODO (`giveAdvice()`); un renglón sin `()` es una
+      VARIABLE de instancia (`makesHouseCalls`). Antes de contar cuántas
+      variables y cuántos métodos tiene una clase, recorré la caja
+      renglón por renglón marcando cuáles llevan paréntesis y cuáles no.
+      Un renglón leído en la columna equivocada te arruina DOS
+      respuestas de una: sobra de un lado y falta del otro.
+- [ ] **Respetá esa marca también al escribir tu respuesta.** Si te
+      encontrás escribiendo una variable con paréntesis
+      (`worksAtHospital()`), esa es la señal temprana de que la estás
+      contando mal. El nombre que escribís tiene que verse igual que en
+      el diagrama.
 - [ ] Si pidieron un arreglo, **escribí el arreglo**, no lo describas.
       "Habría que crear el método" no es un arreglo. El arreglo es el
       código, con su tipo de retorno, sus llaves y su `;`.

@@ -26,9 +26,6 @@ LIBRO — Sharpen your pencil: el árbol de los músicos (Ubicación pág. 496, 
 Arranque: ejercicios/lib24-sharpen-arbol-musicos.md | Si te trabás: Sesión #90 de la guía
 Tabla con sentido (4 subclases de Musician, agregó Guitarrist, Fan suelto) y ES-UN aplicado en Rock Star. Mal: el diagrama es una lista sin jerarquía y sin Rock Star ni Fan; Fan suelto sin POR QUÉ (otra vez media consigna); Rock Star mezcla fama con instrumento.
 
-LIBRO — Sharpen your pencil: ¿qué relaciones tienen sentido? (Ubicación pág. 505, Sesión #92) — [ ] pendiente
-Arranque: ejercicios/lib25-sharpen-relaciones-que-tienen-sentido.md | Si te trabás: Sesión #92 de la guía
-
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
@@ -94,10 +91,6 @@ REPASO — LIBRO "BE the JVM" (pág. 378-380) (r2) — programado: 2026-09-18 �
 Arranque: ejercicios/repasos/lib16-r2.md (lo crea `/repaso`)
 r1 BIEN sin pistas. Que nombre `value > 14` como corte (no `i > 14`) y ENTREGUE la traza vuelta por vuelta, no prosa. ToDo/un-bucle-que-termina.md (2), ToDo/entregar-un-ejercicio.md (Nivel 1).
 
-REPASO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r1) — programado: 2026-09-18 — [ ] pendiente
-Arranque: ejercicios/repasos/lib23-r1.md (lo crea `/repaso`)
-Números bien; salió con pistas. Mirar que diga SOBRESCRIBE (no "hereda") cuando el método está en la caja de la subclase, que culpe al COMPILADOR (no a la JVM) y los nombres exactos (`makesHouseCalls`).
-
 REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r2) — programado: 2026-09-19 — [ ] pendiente
 Arranque: ejercicios/repasos/ej14-r2/ (lo crea `/repaso`)
 r1 BIEN en el corazón. Arrastra: variable sin `private`, y NOMBRES DE MÉTODO (tres veces eligió un prefijo en vez de un verbo puro). Que la PARTE 4 llegue contestada: se salteó las dos veces. ToDo/crear-una-clase-java.md (Nivel 3).
@@ -105,6 +98,14 @@ r1 BIEN en el corazón. Arrastra: variable sin `private`, y NOMBRES DE MÉTODO (
 REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r1) — programado: 2026-09-20 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-sobrescritura-r1.md (lo crea `/repaso`)
 Se cayó en el examen del 2026-09-17: dio por terminada la salida en el primer `println` de un método heredado y no entró en la llamada que tenía abajo. Mirar que lea el método ENTERO y que, con un método heredado que llama a otro, gane la versión de la clase del OBJETO. ToDo/entregar-un-ejercicio.md (Nivel 2).
+
+REPASO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r1 bis) — programado: 2026-09-21 — [ ] pendiente
+Arranque: ejercicios/repasos/lib23-r1bis.md (lo crea `/repaso`)
+r1 PARCIAL (6/8): contó `makesHouseCalls` como método. Mirar que separe variables de métodos POR LOS PARÉNTESIS antes de contar, y que diga SOBRESCRIBE (no "lo hereda con cambios"). ToDo/entregar-un-ejercicio.md (Nivel 2). Si vuelve a salir mal: RE-ESTUDIO.
+
+REPASO — LIBRO Sharpen your pencil: ¿qué relaciones tienen sentido? (pág. 505) (r1) — programado: 2026-09-22 — [ ] pendiente
+Arranque: ejercicios/repasos/lib25-r1.md (lo crea `/repaso`)
+Original: 11/11 en SÍ/NO, pero sin escribir las invertidas hasta que se le pidió. Mirar que clasifique cada NO en los tres tipos (invertido / TIENE-UN / sin arreglo) y ESCRIBA la línea corregida. ToDo/entregar-un-ejercicio.md (Nivel 1, condicionales).
 
 REPASO — LIBRO "ArrayList vs. arreglo común" (pág. 407) (r2) — programado: 2026-09-22 — [ ] pendiente
 Arranque: ejercicios/repasos/lib19-r2.md (lo crea `/repaso`)
