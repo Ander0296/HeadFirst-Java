@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 517 de 1629 (30%) — **capítulo 7 (herencia → polimorfismo)**: los 3 pasos de `Dog myDog = new Dog();` y que con polimorfismo el tipo de la referencia y el del objeto pueden ser distintos (`Animal myDog = new Dog();`). Ver Sesión #94. **Próximo: pág. 518** (qué se hace con una referencia del supertipo). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #94** (tanda de 5 pantallazos, 2026-09-18).
-- PRÓXIMA SESIÓN: `/rename java-s95` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s94: tanda Sesión #94, sin repaso.)
+- Última página: 520 de 1629 (30%) — **capítulo 7 (polimorfismo)**: arreglos polimórficos (`Animal[]` con Dog, Cat, Hippo...) y argumentos polimórficos (`giveShot(Animal a)`). Ver Sesión #95. **Próximo: pág. 521**. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #95** (tanda de 4 pantallazos, 2026-09-18).
+- PRÓXIMA SESIÓN: `/rename java-s96` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s95: tanda Sesión #95, sin repaso.)
 - Ejercicios: **lib25** COMPLETADO el 18/09 (11/11 en SÍ/NO; las 4 invertidas salieron con una pista; r1 al 22/09). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
 - ⚠ **15 repasos vencidos** (el más viejo, lib09 "pilfered references" r1, del 2026-08-02). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. lib23 (árbol Doctor) r1 el 18/09: PARCIAL 6/8 — contó `makesHouseCalls` como método por no mirar los paréntesis del diagrama; r1 bis al 2026-09-21, si falla otra vez es RE-ESTUDIO. Errores a vigilar: contestar solo la PRIMERA mitad de cada pregunta (ToDo/entregar-un-ejercicio.md), decir "no se ejecuta" cuando el programa arranca y revienta, no nombrar la excepción, llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
@@ -257,6 +257,8 @@ Ejercicios: ver EJERCICIOS.md.
 | contract / protocol (of a supertype) | contrato / protocolo (de un supertipo) | Promesa que hace una superclase con sus métodos heredables: "todo Animal (y toda subclase) sabe hacer makeNoise(), eat()..." con esa firma exacta. El código de afuera puede confiar en eso sin saber qué subclase tiene. |
 | supertype reference              | referencia de tipo supertipo | Variable declarada con el tipo de la superclase que apunta a un objeto de una subclase (`Animal a = new Dog();`). Es la puerta de entrada al polimorfismo; se ve en la próxima tanda. |
 | reference type / object type     | tipo de la referencia / tipo del objeto | En `Animal a = new Dog();` el tipo de la referencia es Animal (a la izquierda: decide qué métodos se pueden llamar) y el del objeto es Dog (después de `new`: decide qué versión corre). |
+| polymorphic array                | arreglo polimórfico | Arreglo declarado con el supertipo (`Animal[]`) que guarda objetos de subclases distintas (Dog, Cat, Hippo...). Recorriéndolo, cada objeto ejecuta SU versión del método. |
+| polymorphic argument             | argumento polimórfico | Parámetro declarado con el supertipo (`giveShot(Animal a)`): acepta cualquier subclase, y el método que corre adentro es el del objeto real que llegó. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -375,6 +377,16 @@ SESIÓN #94 — 2026-09-18 — Los 3 pasos de `Dog myDog = new Dog();` y la puer
 - Ejercicios de la tanda: ninguno.
 - Chequeo: los 3 pasos BIEN. Eligió bien `Animal a = new Dog();`, pero no sabía por qué `Dog d = new Animal();` no compila → se explicó: ES-UN va en una sola dirección (un Animal no tiene por qué ser un Dog).
 - PRÓXIMO PASO: pág. 518 — seguir con `Animal myDog = new Dog();` (qué se puede hacer con una referencia del supertipo).
+
+SESIÓN #95 — 2026-09-18 — Arreglos y argumentos polimórficos (pág. 518-520, 30%)
+- Pág. 518: resumen visual de `Animal myDog = new Dog();` → la referencia y el objeto NO son del mismo tipo; la referencia puede ser una SUPERCLASE del tipo real del objeto. (La viñeta "todavía no lo entiendo" es chiste: cubierto igual.)
+- Regla: a una referencia se le puede asignar CUALQUIER objeto que pase la prueba ES-UN con su tipo (todo lo que `extends` ese tipo).
+- Pág. 519: ARREGLO POLIMÓRFICO: `Animal[] animals = new Animal[5];` guarda Dog, Cat, Wolf, Hippo y Lion. El for-each llama `eat()` y `roam()` y cada objeto ejecuta SU versión (vuelta 1 el eat() de Dog, vuelta 2 el de Cat...).
+- Pág. 520: ARGUMENTO POLIMÓRFICO: `giveShot(Animal a)` en Vet acepta cualquier subclase; `a.makeNoise()` ejecuta el de Dog o el de Hippo según el objeto que llegó. El libro anuncia también tipos de RETORNO polimórficos.
+- Nota del profe: la ganancia es que Vet NO cambia cuando aparece un animal nuevo. Es el corazón de "programar contra el supertipo" (reaparece con interfaces y en Spring, Fase 3).
+- Ejercicios de la tanda: ninguno.
+- Chequeo: P1 eligió bien el eat() de Cat, pero el POR QUÉ quedó en "hereda" (falta: Cat SOBRESCRIBE eat() y la JVM corre la versión del objeto real). P2 MAL: creyó que `giveShot(new Penguin())` necesita una variable → se explicó que el parámetro `a` ES la variable, y que Vet no se toca.
+- PRÓXIMO PASO: pág. 521 — seguir con argumentos/retornos polimórficos.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

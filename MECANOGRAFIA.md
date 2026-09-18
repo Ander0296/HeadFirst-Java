@@ -494,3 +494,9 @@ Dog d = new Dog(); declara la referencia, crea el objeto y los enlaza.
 
 s94b — polimorfismo:
 Animal a = new Dog(); la referencia es Animal y el objeto es Dog.
+
+s95a — arreglo polimórfico:
+Animal[] animals = new Animal[5]; guarda un Dog, un Cat y un Hippo.
+
+s95b — argumento polimórfico:
+public void giveShot(Animal a) { a.makeNoise(); } acepta cualquier animal.
