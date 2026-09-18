@@ -26,6 +26,17 @@ la Fase 2).
   mensaje de error) debe ir acompañada AL LADO de su traducción al
   español entre paréntesis. Sin excepciones. Ejemplo: "File not found."
   (Archivo no encontrado.)
+- Eso INCLUYE LOS NOMBRES DEL CÓDIGO: clases, métodos, variables y
+  parámetros en inglés (`Appliance`, `Toaster`, `turnOn()`, `level`,
+  `Vet`, `giveShot()`...). La PRIMERA vez que cada nombre aparece en la
+  sesión, va con su traducción al lado: `Appliance` (electrodoméstico),
+  `turnOn()` (encender). Un nombre sin traducir deja el ejemplo sin
+  sentido: el usuario no puede saber qué modela la clase ni qué hace el
+  método. Excepción: las palabras reservadas y las clases de la API que
+  ya están en el vocabulario de la guía (`public`, `class`, `String`,
+  `ArrayList`...). Antes de mandar una explicación, Claude repasa los
+  nombres del código que aparecen en ella y verifica que cada uno nuevo
+  tenga su traducción.
 - Si un ejercicio o ejemplo se apoya en una referencia cultural en
   inglés (canción, dicho, juego de palabras, chiste) que el libro no
   explica, traducir y explicar esa referencia COMPLETA (de qué se
