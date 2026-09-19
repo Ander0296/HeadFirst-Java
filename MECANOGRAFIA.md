@@ -512,3 +512,6 @@ int sumar(int a, int b) y double sumar(double a, double b) conviven sin problema
 
 s97b — quién elige:
 Sobrecarga la elige el compilador; sobrescritura la elige la JVM en ejecución.
+
+s98 — referencia manda al compilar:
+El compilador mira Monster m; la JVM corre el frighten() del objeto real.

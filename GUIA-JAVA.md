@@ -7,11 +7,11 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 533 de 1629 (31%) — **capítulo 7 (polimorfismo)**: sobrecarga (overloading) vs. sobrescritura. Ver Sesión #97. **Próximo: pág. 533, BE the Compiler Monster/Vampire** (sus pantallazos YA están en paginas/). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #97** (tanda de pantallazos, 2026-09-18).
-- PRÓXIMA SESIÓN: `/rename java-s99` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s98: solo el repaso lib09 r1, sin tanda.)
-- Ejercicios: **lib26** Mixed Messages "Mixed2" PENDIENTE (pág. 531-533: qué versión de m1/m2/m3 corre). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
-- ⚠ **14 repasos vencidos** (el más viejo, lib11 "Mixed Messages" r1, del 2026-08-02; lib09 r1 salió BIEN el 19/09). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. lib23 (árbol Doctor) r1 el 18/09: PARCIAL 6/8 — contó `makesHouseCalls` como método por no mirar los paréntesis del diagrama; r1 bis al 2026-09-21, si falla otra vez es RE-ESTUDIO. Errores a vigilar: contestar solo la PRIMERA mitad de cada pregunta (ToDo/entregar-un-ejercicio.md), decir "no se ejecuta" cuando el programa arranca y revienta, no nombrar la excepción, llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
+- Última página: 536 de 1629 (31%) — **capítulo 7 (polimorfismo)**, ejercicios de fin de capítulo. Ver Sesión #98. **Próximo: pág. 536-537, el código del Pool Puzzle.** Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #98** (tanda de pantallazos, 2026-09-19).
+- PRÓXIMA SESIÓN: `/rename java-s100` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s99: Sesión #98.)
+- Ejercicios: **lib26** Mixed Messages "Mixed2" y **lib27** BE the Compiler Monster/Vampire PENDIENTES (los dos: qué versión de un método corre). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
+- ⚠ **15 repasos vencidos** (mañana 20/09 toca "qué método corre cuando hay sobrescritura": en el chequeo #98 volvió a fallar sobrecarga vs. sobrescritura) (el más viejo, lib11 "Mixed Messages" r1, del 2026-08-02; lib09 r1 salió BIEN el 19/09). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. lib23 (árbol Doctor) r1 el 18/09: PARCIAL 6/8 — contó `makesHouseCalls` como método por no mirar los paréntesis del diagrama; r1 bis al 2026-09-21, si falla otra vez es RE-ESTUDIO. Errores a vigilar: contestar solo la PRIMERA mitad de cada pregunta (ToDo/entregar-un-ejercicio.md), decir "no se ejecuta" cuando el programa arranca y revienta, no nombrar la excepción, llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
 - Último triage (`/pendientes`): **2026-09-08** — backlog viejo de páginas SALDADO: las 41 sin clasificar se dieron de baja (Kindle web saltea números; no era contenido faltante). PENDIENTES.md queda con 2 entradas vivas, las dos con QUÉ falta escrito: pág. 447-448 y el Ready-Bake de GameHelper. También de baja lib13. Ritmo real: 5,5 pág./tanda (83 tandas, pág. 456 de 1629) → faltan ~214 tandas; pasando el material como TEXTO en vez de pantallazos bajarían a ~147.
 - Último examen (`/examen`): **2026-09-17** (el cuarto, java-s90). 5 de 6 sólidos: arrancar un programa (compila vs. ejecuta; y `java Perro` corre el `main` de Perro aunque el archivo se llame Zoologico.java), instrucción ejecutable siempre dentro de un método, ES-UN vs. TIENE-UN (guitarrista TIENE una guitarra), y que la herencia baja y no sube. FLOJO: qué método corre cuando hay SOBRESCRITURA — cortó la salida en el primer `println` de un método heredado sin entrar en la llamada que tenía abajo. Repaso agendado al 2026-09-20 y ToDo/entregar-un-ejercicio.md ampliado (Nivel 2). También confundió "en el mismo archivo" con "dentro de la clase". Próximo examen: ~2026-10-01.
@@ -414,6 +414,17 @@ SESIÓN #97 — 2026-09-18 — Sobrecarga de métodos (overloading) + Mixed Mess
 - Ejercicios de la tanda: lib26 Mixed Messages "Mixed2" pendiente. El BE the Compiler Monster/Vampire (pág. 533) va en la próxima tanda.
 - Chequeo: P1 BIEN el veredicto (no compila: mismos argumentos), pero dijo "cree que es sobrescritura" — en la MISMA clase el error es "already defined" (ya está definido). P2 A MEDIAS: versión int bien, pero dijo que decide la JVM (decide el COMPILADOR).
 - PRÓXIMO PASO: pág. 533, BE the Compiler (pantallazo 13.55.30 en adelante, ya en paginas/).
+
+SESIÓN #98 — 2026-09-19 — BE the Compiler Monster/Vampire + intro del Pool Puzzle (pág. 533-536, 31%)
+- Pantallazo 1 y el principio del 2 (llamadas y salidas posibles de Mixed2) ya estaban en lib26: cubierto igual.
+- `monsters[i].frighten(i)`: el COMPILADOR solo deja llamar lo que tiene el TIPO DE LA REFERENCIA (Monster); qué versión corre lo decide la JVM por el OBJETO.
+- Un método de la subclase con el MISMO nombre y los MISMOS argumentos sobrescribe → el retorno tiene que ser compatible. Con otros argumentos (o con otro nombre) es un método aparte: no reemplaza nada.
+- Para sobrescribir, los tipos de los argumentos tienen que ser IDÉNTICOS: el tipo del parámetro cuenta, no solo el nombre del método.
+- Se puede llamar a un método y no usar lo que devuelve (el `boolean` de frighten se descarta).
+- Pool Puzzle (pág. 536): elegir fragmentos del "pool" (piscina) para completar un programa que compile y corra; se pueden repetir fragmentos y sobrar otros. El rompecabezas en sí viene en la próxima tanda.
+- Ejercicios de la tanda: lib27 BE the Compiler Monster/Vampire PENDIENTE.
+- Chequeo: P1 MAL — con `Animal a = new Gato(); a.hablar();` y Gato con solo `hablar(String)`, dijo que corre el de Gato "porque lo lee primero"; corre el de Animal (sobrecarga, no sobrescribe). P2 la confundió con el ejercicio: se le dio la respuesta (no compila; lo decide el compilador por la referencia).
+- PRÓXIMO PASO: pág. 536-537, el código del Pool Puzzle.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

@@ -86,6 +86,12 @@ no se puede esconder nada.
       corre ESA, no la de arriba. El método heredado no arrastra consigo
       las versiones de su clase de origen: siempre gana la versión más
       baja del árbol, la de la clase con la que se hizo el objeto.
+- [ ] "Su propia versión" = mismo nombre **Y** mismos tipos de argumentos.
+      Compará los paréntesis de la llamada con los del método: si la
+      subclase tiene `hablar(String s)` y la llamada es `hablar()`, ese
+      método NO es una versión propia (es sobrecarga) y corre el de
+      arriba. No existe "lee primero el de la subclase": gana el que
+      coincide con los argumentos.
 - [ ] Copiá el texto de la salida **desde adentro del método**, leyendo
       su `println`. Nunca desde el nombre del método ni de memoria: dos
       métodos con nombres parecidos (`skipIntro` y `skipToNext`)
