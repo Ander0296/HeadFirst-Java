@@ -7,12 +7,12 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 536 de 1629 (31%) — **capítulo 7 (polimorfismo)**, ejercicios de fin de capítulo. Ver Sesión #98. **Próximo: pág. 536-537, el código del Pool Puzzle.** Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #98** (tanda de pantallazos, 2026-09-19).
-- PRÓXIMA SESIÓN: `/rename java-s100` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s99: Sesión #98.)
-- Ejercicios: **lib26** Mixed Messages "Mixed2" y **lib27** BE the Compiler Monster/Vampire PENDIENTES (los dos: qué versión de un método corre). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
+- Última página: 540 de 1629 (31%) — **capítulo 7 (polimorfismo) TERMINADO** (las últimas páginas son las soluciones). Ver Sesión #99. **Próximo: pág. 541, arranca el capítulo 8.** Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #99** (tanda de pantallazos, 2026-09-19).
+- PRÓXIMA SESIÓN: `/rename java-s101` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s100: Sesión #99.)
+- Ejercicios: **lib26** Mixed Messages "Mixed2", **lib27** BE the Compiler Monster/Vampire y **ej18** Pool Puzzle "los botes" PENDIENTES (los tres: qué versión de un método corre). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
 - ⚠ **15 repasos vencidos** (mañana 20/09 toca "qué método corre cuando hay sobrescritura": en el chequeo #98 volvió a fallar sobrecarga vs. sobrescritura) (el más viejo, lib11 "Mixed Messages" r1, del 2026-08-02; lib09 r1 salió BIEN el 19/09). Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. lib23 (árbol Doctor) r1 el 18/09: PARCIAL 6/8 — contó `makesHouseCalls` como método por no mirar los paréntesis del diagrama; r1 bis al 2026-09-21, si falla otra vez es RE-ESTUDIO. Errores a vigilar: contestar solo la PRIMERA mitad de cada pregunta (ToDo/entregar-un-ejercicio.md), decir "no se ejecuta" cuando el programa arranca y revienta, no nombrar la excepción, llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
-- SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391.
+- SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
 - Último triage (`/pendientes`): **2026-09-08** — backlog viejo de páginas SALDADO: las 41 sin clasificar se dieron de baja (Kindle web saltea números; no era contenido faltante). PENDIENTES.md queda con 2 entradas vivas, las dos con QUÉ falta escrito: pág. 447-448 y el Ready-Bake de GameHelper. También de baja lib13. Ritmo real: 5,5 pág./tanda (83 tandas, pág. 456 de 1629) → faltan ~214 tandas; pasando el material como TEXTO en vez de pantallazos bajarían a ~147.
 - Último examen (`/examen`): **2026-09-17** (el cuarto, java-s90). 5 de 6 sólidos: arrancar un programa (compila vs. ejecuta; y `java Perro` corre el `main` de Perro aunque el archivo se llame Zoologico.java), instrucción ejecutable siempre dentro de un método, ES-UN vs. TIENE-UN (guitarrista TIENE una guitarra), y que la herencia baja y no sube. FLOJO: qué método corre cuando hay SOBRESCRITURA — cortó la salida en el primer `println` de un método heredado sin entrar en la llamada que tenía abajo. Repaso agendado al 2026-09-20 y ToDo/entregar-un-ejercicio.md ampliado (Nivel 2). También confundió "en el mismo archivo" con "dentro de la clase". Próximo examen: ~2026-10-01.
 - Entorno: OpenJDK 26.0.1, javac/java en PATH (Arch Linux), sin config extra.
@@ -425,6 +425,16 @@ SESIÓN #98 — 2026-09-19 — BE the Compiler Monster/Vampire + intro del Pool 
 - Ejercicios de la tanda: lib27 BE the Compiler Monster/Vampire PENDIENTE.
 - Chequeo: P1 MAL — con `Animal a = new Gato(); a.hablar();` y Gato con solo `hablar(String)`, dijo que corre el de Gato "porque lo lee primero"; corre el de Animal (sobrecarga, no sobrescribe). P2 la confundió con el ejercicio: se le dio la respuesta (no compila; lo decide el compilador por la referencia).
 - PRÓXIMO PASO: pág. 536-537, el código del Pool Puzzle.
+
+SESIÓN #99 — 2026-09-19 — Pool Puzzle de los botes (pág. 537-540, 31%)
+- El rompecabezas: cuatro clases con huecos (Rowboat, Boat, Sailboat, TestBoats) y una salida exigida, `drift drift hoist sail`. Se completa con fragmentos de la piscina; se pueden repetir y sobran varios.
+- Para que compile hay que decidir tres cosas distintas en cada hueco: modificador (`public`/`private`/`static`), TIPO (de retorno o de parámetro) y NOMBRE. Un hueco antes de `(` es nombre de método; uno antes de un nombre de variable es un tipo.
+- `extends` solo aparece en el encabezado de una clase, nunca dentro de un método: los huecos del encabezado de Rowboat y de la cuarta clase son de herencia.
+- La salida repite `drift` dos veces y `hoist sail` una: tres llamadas a `move()` sobre tres referencias distintas. Cuál versión imprime cada una depende del objeto real, no de la referencia.
+- El retorno importa: un método `void` no puede llevar `return valor`, y uno declarado `int` tiene que devolver un `int` sí o sí.
+- Pág. 538-540 son las SOLUCIONES del capítulo (BE the Compiler, Mixed Messages y el propio Pool Puzzle): leídas y NO explicadas, quedan como spoilers hasta que se entregue cada ejercicio.
+- Ejercicios de la tanda: EJERCICIO #18 Pool Puzzle "los botes" PENDIENTE.
+- PRÓXIMO PASO: pág. 541 en adelante (arranca el capítulo 8).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

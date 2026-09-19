@@ -515,3 +515,9 @@ Sobrecarga la elige el compilador; sobrescritura la elige la JVM en ejecución.
 
 s98 — referencia manda al compilar:
 El compilador mira Monster m; la JVM corre el frighten() del objeto real.
+
+s99 — huecos del Pool Puzzle:
+Cada hueco pide tres cosas: modificador, tipo y nombre; extends solo va en el encabezado.
+
+s99 — qué versión imprime:
+Con tres referencias llamando a move(), imprime la versión del objeto real, no la del tipo.

@@ -32,6 +32,10 @@ Arranque: ejercicios/lib26-mixed-messages-mixed2.md | Si te trabás: Sesiones #9
 LIBRO — BE the Compiler: Monster/Vampire (Ubicación pág. 533-535, Sesión #98) — [ ] pendiente
 Arranque: ejercicios/lib27-be-the-compiler-monster.md | Si te trabás: Sesiones #95-#98 de la guía · ToDo/entregar-un-ejercicio.md (Nivel 2)
 
+EJERCICIO #18 — Pool Puzzle: los botes (Ubicación pág. 536-537, Sesión #99) — [ ] pendiente
+Tipo: completar código (4 clases; salida exacta "drift drift hoist sail")
+Arranque: ejercicios/ej18-pool-puzzle-boats/TestBoats.java | Si te trabás: Sesiones #93-#98 de la guía · ToDo/crear-una-clase-java.md
+
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
