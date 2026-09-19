@@ -2603,3 +2603,11 @@ CIERRE CONCEPTUAL dado en el chat — los NO se reparten en tres tipos:
    TIENE-UN en ninguna dirección; son características sueltas.
 
 Repaso r1 agendado al 2026-09-22.
+
+============================================================
+
+REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pág. 253-255) (r1) — programado: 2026-08-02 — [x] cumplido (2026-09-19)
+Resuelto en: ejercicios/repasos/lib09-r1.md
+BIEN. Mejoró: Bob = 11 objetos (10 Contact + el arreglo) y 11 referencias (`contacts` + 10 casilleros), y cerró la conclusión que faltó en el original (en Kate queda UN solo Contact accesible).
+Repitió: media consigna en la parte 2 (no dijo cuántas referencias tiene Kate: 1). Retrocedió: esta vez no nombró al garbage collector.
+Nota: el arranque traía la parte 2 con "¿qué les pasa a los demás?", pista de más que el candado no dejó quitar.

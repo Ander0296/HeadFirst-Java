@@ -36,10 +36,6 @@ Arranque: ejercicios/lib26-mixed-messages-mixed2.md | Si te trabás: Sesiones #9
 Nota: corrección completa en EJERCICIOS-ARCHIVO.md; acá solo el "punto a mirar". Criterio (2026-08-25):
 por RIESGO (los que ya fallaron primero), uno por día; el arranque lo crea `/repaso` en el momento.
 
-REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pág. 253-255) (r1) — programado: 2026-08-02 — [ ] pendiente
-Arranque: ejercicios/repasos/lib09-r1.md (lo crea `/repaso`)
-Mirar: que cierre la conclusión (queda accesible UN solo Contact) sin confundir conteo de OBJETOS con conteo de REFERENCIAS.
-
 REPASO — LIBRO "Mixed Messages" (pág. 309-312) (r1) — programado: 2026-08-02 — [ ] pendiente
 Arranque: ejercicios/repasos/lib11-r1.md (lo crea `/repaso`)
 Mirar: el conteo de vueltas del bucle (i<9 son 9 objetos, índices 0 a 8).
@@ -137,6 +133,10 @@ Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
 REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r2) — programado: 2026-10-01 — [ ] pendiente
 Arranque: ejercicios/repasos/ej09-r2/TestArrays.java (lo crea `/repaso`)
 r1 MEJOR que el original: corrigió solo el único error (las 4 asignaciones de `index[]` ya salieron del `while`). Mirar que siga separando preparación de bucle y que no invierta `islands[index[y]]`.
+
+REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pág. 253-255) (r2) — programado: 2026-10-03 — [ ] pendiente
+Arranque: ejercicios/repasos/lib09-r2.md (lo crea `/repaso`)
+r1 BIEN: conteos de Bob exactos (11 objetos, 11 referencias) y cerró "queda UN solo Contact accesible". Mirar que en Kate diga TAMBIÉN cuántas referencias hay (1) y que nombre "elegibles para el garbage collector". ToDo/entregar-un-ejercicio.md (Nivel 1).
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r3) — programado: 2026-10-08 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r3.md (lo crea `/repaso`)
