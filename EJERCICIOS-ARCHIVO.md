@@ -2645,3 +2645,23 @@ MAL — PARTE 3c, el rol de cada uno (invertido):
 - El checklist NO cubría este punto: su punto de Nivel 3 hablaba de que el
   método EXISTA en el tipo de la referencia, pero nunca decía QUIÉN elige la
   versión. Se le agregó un punto nuevo en Nivel 3.
+
+REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r1) — [~] PARCIAL 2026-09-24
+Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r1.md (Employee/Manager/Intern, razonado a mano sin compilar)
+- BIEN (veredictos): P1 línea B no compila y lo detecta el compilador; P2 salida
+  exacta y "la JVM elige" (la inversión del 23/09 quedó RESUELTA); P3 salida
+  exacta y en orden, Intern hereda work() sin sobrescribir; P4a "NO COMPILA,
+  lo decide el compilador" (ya no dice "corre la del padre": resuelto).
+- MAL (el porqué): nunca nombró "el tipo de la REFERENCIA". En P4a dijo que el
+  compilador no encuentra work() "en la clase Intern": mira Employee (el tipo de
+  `x`), no Intern; el compilador ni sabe qué objetos hay en el arreglo. De ahí
+  sale P4b errada: agregar work() en Intern NO arregla (x sigue siendo
+  Employee); lo que arregla es declararlo en Employee. P3a "no hay errores de
+  sintaxis, el método existe" sin decir DÓNDE existe. P2b "al crear el objeto"
+  (es al LLAMAR el método) y "analiza la clase" sin decir que es la del OBJETO.
+- P5 MAL: "el compilador mira la sintaxis" y "la JVM mira si los objetos tienen
+  esos métodos" — le dio a la JVM el trabajo del compilador. Ninguna oración dijo
+  qué tipo mira cada uno.
+- El checklist YA lo cubría (ToDo/entregar-un-ejercicio.md, Nivel 3, la tabla
+  compilador/JVM): no se agregó nada, se le señaló el punto salteado.
+- Resultado: r1 bis al 2026-09-27. Si vuelve a salir mal: RE-ESTUDIO (Sesiones #91 y #94).

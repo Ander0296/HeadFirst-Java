@@ -121,10 +121,6 @@ REPASO — EJERCICIO #05 Robot (Sesión #25) (r2) — programado: 2026-09-23 —
 Arranque: ejercicios/repasos/ej05-r2/ (Robot.java y RobotTestDrive.java) (lo crea `/repaso`)
 r1 mejor que el original (el setter ya valida y usa `this`). Mirar que la validación no falle EN SILENCIO (el `if` sin `else`). ToDo/crear-una-clase-java.md (Nivel 3).
 
-REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r1) — programado: 2026-09-23 — [ ] pendiente ⚠ PRIORIDAD
-Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r1.md (lo crea `/repaso`)
-Se cayó en el examen del 2026-09-20: con `Animal[]` y `comer()` declarado SOLO en las subclases dijo que el bucle "tomaría el de Animal". No compila: el compilador mira el tipo de la referencia. EVIDENCIA NUEVA (2026-09-23, repaso de sobrescritura r1): dijo que "el que decide qué versión toma es el COMPILADOR al compilar, la JVM solo ejecuta" — invertido, y en la respuesta anterior él mismo había dicho "la JVM ejecuta ese método". Mirar que nombre el par completo (compilador → referencia → si el método EXISTE / JVM → objeto real → QUÉ VERSIÓN corre), que use el verbo ELIGE para la JVM, y que diga NO COMPILA en vez de "corre la del padre". ToDo/entregar-un-ejercicio.md (Nivel 3).
-
 REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r2) — programado: 2026-09-24 — [ ] pendiente
 Arranque: ejercicios/repasos/ej08-r2/ (dos archivos) (lo crea `/repaso`)
 r1 BIEN: los dos programas corregidos y salida exacta. Arrastra "no se ejecuta" (arranca y revienta: B imprime DOS líneas antes), no nombró NullPointerException en A, dijo "lista" por arreglo y volvió a hardcodear el 3 en vez de `.length`. ToDo/entregar-un-ejercicio.md (Nivel 3).
@@ -136,6 +132,10 @@ Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md (lo crea `/repaso`)
 REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 — [ ] pendiente
 Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. 5/5 las tres veces. Que TRACE el bucle: `y` llega a 10 (3 dígitos) y `x` sube DOS veces por vuelta (3 vueltas, no 5).
+
+REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r1 bis) — programado: 2026-09-27 — [ ] pendiente ⚠ PRIORIDAD
+Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r1bis.md (lo crea `/repaso`)
+r1 PARCIAL (24/09): veredictos bien y ya dice "la JVM elige", pero cree que el compilador mira la clase del OBJETO (dijo "no encuentra work() en Intern" y propuso agregarlo ahí). Mirar que diga "tipo de la REFERENCIA", que arregle declarando en el padre, y P5 con qué mira cada uno. Si falla: RE-ESTUDIO. ToDo/entregar-un-ejercicio.md (Nivel 3).
 
 REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r2) — programado: 2026-10-01 — [ ] pendiente
 Arranque: ejercicios/repasos/ej09-r2/TestArrays.java (lo crea `/repaso`)
