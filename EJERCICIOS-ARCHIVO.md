@@ -2611,3 +2611,37 @@ Resuelto en: ejercicios/repasos/lib09-r1.md
 BIEN. Mejoró: Bob = 11 objetos (10 Contact + el arreglo) y 11 referencias (`contacts` + 10 casilleros), y cerró la conclusión que faltó en el original (en Kate queda UN solo Contact accesible).
 Repitió: media consigna en la parte 2 (no dijo cuántas referencias tiene Kate: 1). Retrocedió: esta vez no nombró al garbage collector.
 Nota: el arranque traía la parte 2 con "¿qué les pasa a los demás?", pista de más que el candado no dejó quitar.
+
+REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r1) — [x] 2026-09-23
+Arranque: ejercicios/repasos/concepto-sobrescritura-r1.md (Vehicle/Motorcycle/Truck, trazado a mano sin compilar)
+
+Resultado: BIEN (5/5 en lo que el repaso medía). Siguiente: r2 al 2026-10-07.
+
+BIEN — las dos caídas anteriores quedaron resueltas:
+- PARTE 1 exacta: "Checking fuel / Kick start / Ready to go". Leyó el método
+  ENTERO (no cortó en el primer println) Y respetó el orden de los renglones.
+  Ese doble error es el que lo tumbó en los exámenes del 17/09 (cortó la
+  salida) y del 20/09 (la puso al revés).
+- Entendió que un método heredado NO arrastra las versiones de su clase de
+  origen: `start()` salió de Vehicle pero `ignite()` salió de Motorcycle.
+- PARTE 2 exacta: "Releasing brake / Diesel ignition". No arrastró el
+  "Ready to go" de la versión de Vehicle, que la de Truck no tiene.
+- 3a y 3b bien, con el porqué correcto (sobrescritura en ambos casos).
+
+MAL — PARTE 3c, el rol de cada uno (invertido):
+- Escribió: "el que decide qué versión toma es el COMPILADOR en el momento de
+  compilar, el que las ejecuta es la JVM". Al revés. El compilador solo mira
+  el TIPO DE LA REFERENCIA y decide si el método EXISTE; la JVM mira el
+  OBJETO REAL y ELIGE qué versión corre.
+- POR QUÉ no puede decidir el compilador: en tiempo de compilación el objeto
+  todavía no existe. Con un `if` que asigna `new Motorcycle()` o `new Truck()`
+  según un argumento de la terminal, la versión que corre depende de algo que
+  solo se sabe al ejecutar.
+- Detalle revelador: en la 3a él mismo había escrito "la JVM ejecuta ese
+  método". Tenía la pieza; lo que falta es el verbo ELIGE, no "ejecuta".
+- Es exactamente el tema del repaso gemelo (CONCEPTO "el compilador mira la
+  referencia, la JVM mira el objeto" r1, vencido el 2026-09-23): se le sumó
+  esta evidencia y quedó marcado como PRIORIDAD.
+- El checklist NO cubría este punto: su punto de Nivel 3 hablaba de que el
+  método EXISTA en el tipo de la referencia, pero nunca decía QUIÉN elige la
+  versión. Se le agregó un punto nuevo en Nivel 3.

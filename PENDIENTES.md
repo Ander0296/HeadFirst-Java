@@ -28,28 +28,8 @@ y no se salda nunca.
 # HUECOS DE FORMATO — falta el contenido, hay que recuperarlo
 # ============================================================
 
-- **Páginas 447-448** (anotado el 2026-09-03, Sesión #82): no vinieron en la
-  tanda. La 446 es la página de resumen (bullet points) que cierra el
-  capítulo y la 449-451 es el repaso de `import`, así que en el medio muy
-  probablemente esté el EJERCICIO de fin de capítulo (Exercise, Code Magnets
-  o crucigrama). Rescate: pedir ESOS dos pantallazos puntuales en la próxima
-  tanda; si resultan ser relleno, se dan de baja en el acto.
-
-- **Páginas 479-480** (anotado el 2026-09-10, Sesión #87): no vinieron en la
-  tanda. La 478 arranca "An inheritance example:" (Un ejemplo de herencia) con
-  el chiste del doctor, y la 481 ya muestra el CÓDIGO de `Doctor`,
-  `FamilyDoctor` y `Surgeon`. En el medio falta la presentación de ese ejemplo:
-  casi seguro el DIAGRAMA del árbol Doctor → FamilyDoctor/Surgeon y el texto
-  que explica qué sobrescribe cada uno. PARCIALMENTE SALDADO el 2026-09-10
-  (Sesión #88): el diagrama del árbol Doctor llegó en la pág. 482. Queda solo
-  el texto de presentación del ejemplo. Rescate: si no aparece solo, dar de baja.
-
-- **Página 483** (anotado el 2026-09-10, Sesión #88): no vino en la tanda. La
-  482 arranca el diseño del simulador de animales (paso 1: buscar lo común) y
-  la 484 ya muestra la foto de los seis animales con las 5 variables y los 4
-  métodos comunes. En el medio falta, casi seguro, la lista de los seis tipos
-  escrita y/o el resto del paso 1. Rescate: pedir ESE pantallazo en la próxima
-  tanda; si resulta ser solo la foto, se da de baja.
+**VACÍO** (saldado el 2026-09-23): las 4 entradas que quedaban se dieron de
+baja en el triage de ese día. Ver DADAS DE BAJA.
 
 **SALDADO 2026-09-10** — la página 476 (Brain Power del capítulo 7) llegó con
 texto en la Sesión #87 y quedó explicada: era la pregunta del gato doméstico
@@ -126,13 +106,25 @@ Los archivos de arranque de estos cuatro siguen en ejercicios/ por si
 alguna vez se quieren retomar: la baja saca el ejercicio de la lista viva,
 no borra el enunciado.
 
-- **Páginas 502-503** (anotado el 2026-09-17, Sesión #92): no vinieron en la
-  tanda. La 501 cierra con el diagrama Animal → Canine → Wolf y la 504 arranca
-  ya EMPEZADO un recuadro ("Beer is-a Drink, but not all drinks are beer. OK,
-  your turn. Make one that shows the oneway-ness of the IS-A relationship") —
-  o sea que en el medio está el ARRANQUE de ese recuadro (probablemente un
-  Sharpen your pencil o un BULLET POINTS sobre la dirección única de ES-UN) y
-  su consigna completa. El concepto en sí SÍ quedó cubierto por la 504
-  (Triangle/Shape); lo que falta es la consigna del ejercicio. Rescate: pedir
-  ESOS dos pantallazos puntuales en la próxima tanda; si resultan ser solo
-  relleno, se dan de baja en el acto.
+## Huecos de formato — baja el 2026-09-23 (triage: capítulos 6 y 7 cerrados)
+
+Los cuatro son tramos de capítulos que ya se terminaron de explicar. Pedir
+esos pantallazos ahora es arqueología: el concepto está cubierto y el
+capítulo está cerrado.
+
+- **Páginas 447-448** (anotadas el 2026-09-03, Sesión #82) — probable
+  ejercicio de fin del capítulo 6. 20 días sin aparecer y el capítulo hace
+  rato que se cerró.
+- **Páginas 479-480** (anotadas el 2026-09-10, Sesión #87) — texto de
+  presentación del ejemplo `Doctor`. Ya estaba PARCIALMENTE saldado: el
+  diagrama del árbol llegó en la pág. 482 y el ejemplo se explicó entero.
+- **Página 483** (anotada el 2026-09-10, Sesión #88) — lista de los seis
+  animales del simulador. La 484 trae la foto con las 5 variables y los 4
+  métodos comunes: el concepto quedó cubierto.
+- **Páginas 502-503** (anotadas el 2026-09-17, Sesión #92) — consigna del
+  recuadro sobre la dirección única de ES-UN. La propia entrada decía que el
+  concepto SÍ quedó cubierto por la 504 (Triangle/Shape); faltaba solo la
+  consigna de un ejercicio del capítulo 7, ya terminado.
+
+Rescate (para las cuatro): si al releer aparece que faltaba un concepto real,
+se pide ESE pantallazo puntual y se anota de nuevo como hueco con su QUÉ.

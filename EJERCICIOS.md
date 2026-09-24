@@ -101,10 +101,6 @@ REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r2) — programa
 Arranque: ejercicios/repasos/ej14-r2/ (lo crea `/repaso`)
 r1 BIEN en el corazón. Arrastra: variable sin `private`, y NOMBRES DE MÉTODO (tres veces eligió un prefijo en vez de un verbo puro). Que la PARTE 4 llegue contestada: se salteó las dos veces. ToDo/crear-una-clase-java.md (Nivel 3).
 
-REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r1) — programado: 2026-09-20 — [ ] pendiente
-Arranque: ejercicios/repasos/concepto-sobrescritura-r1.md (lo crea `/repaso`)
-Se cayó en el examen del 2026-09-17: dio por terminada la salida en el primer `println` de un método heredado y no entró en la llamada que tenía abajo. Mirar que lea el método ENTERO y que, con un método heredado que llama a otro, gane la versión de la clase del OBJETO. ToDo/entregar-un-ejercicio.md (Nivel 2).
-
 REPASO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r1 bis) — programado: 2026-09-21 — [ ] pendiente
 Arranque: ejercicios/repasos/lib23-r1bis.md (lo crea `/repaso`)
 r1 PARCIAL (6/8): contó `makesHouseCalls` como método. Mirar que separe variables de métodos POR LOS PARÉNTESIS antes de contar, y que diga SOBRESCRIBE (no "lo hereda con cambios"). ToDo/entregar-un-ejercicio.md (Nivel 2). Si vuelve a salir mal: RE-ESTUDIO.
@@ -125,6 +121,10 @@ REPASO — EJERCICIO #05 Robot (Sesión #25) (r2) — programado: 2026-09-23 —
 Arranque: ejercicios/repasos/ej05-r2/ (Robot.java y RobotTestDrive.java) (lo crea `/repaso`)
 r1 mejor que el original (el setter ya valida y usa `this`). Mirar que la validación no falle EN SILENCIO (el `if` sin `else`). ToDo/crear-una-clase-java.md (Nivel 3).
 
+REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r1) — programado: 2026-09-23 — [ ] pendiente ⚠ PRIORIDAD
+Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r1.md (lo crea `/repaso`)
+Se cayó en el examen del 2026-09-20: con `Animal[]` y `comer()` declarado SOLO en las subclases dijo que el bucle "tomaría el de Animal". No compila: el compilador mira el tipo de la referencia. EVIDENCIA NUEVA (2026-09-23, repaso de sobrescritura r1): dijo que "el que decide qué versión toma es el COMPILADOR al compilar, la JVM solo ejecuta" — invertido, y en la respuesta anterior él mismo había dicho "la JVM ejecuta ese método". Mirar que nombre el par completo (compilador → referencia → si el método EXISTE / JVM → objeto real → QUÉ VERSIÓN corre), que use el verbo ELIGE para la JVM, y que diga NO COMPILA en vez de "corre la del padre". ToDo/entregar-un-ejercicio.md (Nivel 3).
+
 REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r2) — programado: 2026-09-24 — [ ] pendiente
 Arranque: ejercicios/repasos/ej08-r2/ (dos archivos) (lo crea `/repaso`)
 r1 BIEN: los dos programas corregidos y salida exacta. Arrastra "no se ejecuta" (arranca y revienta: B imprime DOS líneas antes), no nombró NullPointerException en A, dijo "lista" por arreglo y volvió a hardcodear el 3 en vez de `.length`. ToDo/entregar-un-ejercicio.md (Nivel 3).
@@ -144,6 +144,10 @@ r1 MEJOR que el original: corrigió solo el único error (las 4 asignaciones de 
 REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pág. 253-255) (r2) — programado: 2026-10-03 — [ ] pendiente
 Arranque: ejercicios/repasos/lib09-r2.md (lo crea `/repaso`)
 r1 BIEN: conteos de Bob exactos (11 objetos, 11 referencias) y cerró "queda UN solo Contact accesible". Mirar que en Kate diga TAMBIÉN cuántas referencias hay (1) y que nombre "elegibles para el garbage collector". ToDo/entregar-un-ejercicio.md (Nivel 1).
+
+REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r2) — programado: 2026-10-07 — [ ] pendiente
+Arranque: ejercicios/repasos/concepto-sobrescritura-r2.md (lo crea `/repaso`)
+r1 BIEN (5/5): leyó el método ENTERO y escribió la salida en orden — las dos caídas de los exámenes del 17/09 y 20/09 quedaron resueltas. Mirar que sostenga el orden cuando la cadena de llamadas tenga TRES niveles, y que no arrastre líneas de la versión del padre que la subclase no tiene.
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r3) — programado: 2026-10-08 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r3.md (lo crea `/repaso`)

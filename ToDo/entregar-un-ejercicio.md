@@ -80,6 +80,13 @@ no se puede esconder nada.
       que veas adentro te obliga a entrar ahí y seguir leyendo: la
       salida son todos los `println` que se disparan en cadena, no el
       primero que encontraste.
+- [ ] **Escribí la salida en el ORDEN en que se ejecutan las líneas**, de
+      arriba hacia abajo. Si un método imprime algo y DESPUÉS llama a
+      otro, lo suyo sale PRIMERO y lo del otro sale segundo. Java no
+      ejecuta primero lo más profundo ni lo más interesante: va renglón
+      por renglón en el orden en que están escritos. Numerá 1, 2, 3 las
+      líneas que se disparan y copiá la salida en ESE orden. Tener las
+      líneas correctas pero al revés es una salida equivocada.
 - [ ] Si el método que se está ejecutando fue **heredado** de una clase
       de más arriba, y adentro llama a otro método, fijate si la clase
       del objeto tiene su **propia versión** de ese método. Si la tiene,
@@ -116,6 +123,30 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
 
 - [ ] Si dos cosas fallan por causas distintas, decí las dos. Si
       fallan por la misma, no la repitas dos veces con otras palabras.
+
+- [ ] **Antes de decir qué versión de un método corre, comprobá que ese
+      método EXISTA en la clase con la que declaraste la variable.** El
+      compilador solo mira ese tipo (en `Animal a = new Perro()`, mira
+      `Animal`): si `comer()` no está declarado ahí, el programa NO
+      COMPILA (`cannot find symbol: method comer()` — no se encuentra el
+      símbolo) y no se ejecuta ni una línea. "Corre la versión del padre"
+      solo es posible cuando el padre TIENE ese método. Sin método
+      arriba no hay versión que ganar: hay error de compilación.
+- [ ] **Si decís QUIÉN decide qué versión corre, que sea la JVM — y el verbo
+      es ELIGE, no "ejecuta".** Los dos trabajan, pero en momentos distintos y
+      sobre cosas distintas:
+
+| Quién | Cuándo | Qué mira | Qué decide |
+| --- | --- | --- | --- |
+| **compilador** | al compilar | el tipo de la **referencia** | si el método EXISTE (si no, no compila) |
+| **JVM** | al ejecutar | el **objeto real** | QUÉ VERSIÓN de ese método corre |
+
+      El compilador no puede elegir la versión aunque quiera: cuando él
+      trabaja, el objeto **todavía no existe**. `new Motorcycle()` es texto en
+      un archivo hasta que el programa corre. Si la referencia se asigna
+      dentro de un `if` (`new Motorcycle()` o `new Truck()` según lo que
+      escriba el usuario en la terminal), la versión que corre se sabe recién
+      al ejecutar. Por eso decide la JVM, mirando el objeto.
 
 - [ ] **"No se ejecuta" casi nunca es cierto.** Si el programa compila,
       la JVM lo ARRANCA igual: empieza por la primera línea del `main` y
