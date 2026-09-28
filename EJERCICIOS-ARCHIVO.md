@@ -2681,3 +2681,17 @@ Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r1bis.md (Payment/CardPa
 - Checklist: P1 y el "objeto de tipo Payment" ya estaban cubiertos (Nivel 2 partes
   rotuladas, Nivel 3 tabla clase/objeto/referencia); 4c NO → punto nuevo en Nivel 2.
 - Resultado: BIEN (sale del riesgo de RE-ESTUDIO). r2 al 2026-10-12.
+
+REPASO CUMPLIDO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r1 bis) — 2026-09-28
+Archivo: ejercicios/repasos/lib23-r1bis.md — resultado: BIEN (8/8), sin pistas.
+- BIEN: separó variables de métodos (makesHouseCalls = variable de FamilyDoctor, el error del r1),
+  distinguió propio/heredado en cada conteo y dijo "sobreescrito" en P5 (el r1 decía "lo hereda con cambios").
+- FLOJO: P2 y P3 sin el número total escrito ("ninguna propia + una heredada"); P8 dijo "exclusivo de Surgeon"
+  pero no el porqué de fondo del original (FamilyDoctor es HERMANO: la herencia baja, no va de costado).
+- Sale del riesgo de RE-ESTUDIO. r2 al 2026-10-12.
+
+LIBRO — Mixed Messages: "Mixed2" (pág. 531-533, Sesión #97) — [x] completado (2026-09-28, sesión java-s107)
+Arranque: ejercicios/lib26-mixed-messages-mixed2.md — resultado: 4/4 tras UNA pista.
+- BIEN: bloques 1 (S2), 2 (S4) y 3 (S7) a la primera, con la cuenta ivar + 6 = 13; bloque 1 con el porqué por línea.
+- MAL: bloque 4 puso S7: con a2 = new C(), m1 lo hereda C de B (se salteó B al subir la cadena). Pista: leer el new de a2 y subir C → B → A; corrigió a S4.
+- Media consigna: sin porqués en los bloques 2 a 4. r1 al 2026-10-02.

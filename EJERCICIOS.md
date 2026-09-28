@@ -26,9 +26,6 @@ LIBRO — Sharpen your pencil: el árbol de los músicos (Ubicación pág. 496, 
 Arranque: ejercicios/lib24-sharpen-arbol-musicos.md | Si te trabás: Sesión #90 de la guía
 Tabla con sentido (4 subclases de Musician, agregó Guitarrist, Fan suelto) y ES-UN aplicado en Rock Star. Mal: el diagrama es una lista sin jerarquía y sin Rock Star ni Fan; Fan suelto sin POR QUÉ (otra vez media consigna); Rock Star mezcla fama con instrumento.
 
-LIBRO — Mixed Messages: "Mixed2" (Ubicación pág. 531-533, Sesión #97) — [ ] pendiente
-Arranque: ejercicios/lib26-mixed-messages-mixed2.md | Si te trabás: Sesiones #94-#96 de la guía · ToDo/entregar-un-ejercicio.md (Nivel 2)
-
 LIBRO — BE the Compiler: Monster/Vampire (Ubicación pág. 533-535, Sesión #98) — [ ] pendiente
 Arranque: ejercicios/lib27-be-the-compiler-monster.md | Si te trabás: Sesiones #95-#98 de la guía · ToDo/entregar-un-ejercicio.md (Nivel 2)
 
@@ -101,10 +98,6 @@ REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r2) — programa
 Arranque: ejercicios/repasos/ej14-r2/ (lo crea `/repaso`)
 r1 BIEN en el corazón. Arrastra: variable sin `private`, y NOMBRES DE MÉTODO (tres veces eligió un prefijo en vez de un verbo puro). Que la PARTE 4 llegue contestada: se salteó las dos veces. ToDo/crear-una-clase-java.md (Nivel 3).
 
-REPASO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r1 bis) — programado: 2026-09-21 — [ ] pendiente
-Arranque: ejercicios/repasos/lib23-r1bis.md (lo crea `/repaso`)
-r1 PARCIAL (6/8): contó `makesHouseCalls` como método. Mirar que separe variables de métodos POR LOS PARÉNTESIS antes de contar, y que diga SOBRESCRIBE (no "lo hereda con cambios"). ToDo/entregar-un-ejercicio.md (Nivel 2). Si vuelve a salir mal: RE-ESTUDIO.
-
 REPASO — LIBRO Sharpen your pencil: ¿qué relaciones tienen sentido? (pág. 505) (r1) — programado: 2026-09-22 — [ ] pendiente
 Arranque: ejercicios/repasos/lib25-r1.md (lo crea `/repaso`)
 Original: 11/11 en SÍ/NO, pero sin escribir las invertidas hasta que se le pidió. Mirar que clasifique cada NO en los tres tipos (invertido / TIENE-UN / sin arreglo) y ESCRIBA la línea corregida. ToDo/entregar-un-ejercicio.md (Nivel 1, condicionales).
@@ -133,6 +126,10 @@ REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 
 Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. 5/5 las tres veces. Que TRACE el bucle: `y` llega a 10 (3 dígitos) y `x` sube DOS veces por vuelta (3 vueltas, no 5).
 
+REPASO — LIBRO Mixed Messages: "Mixed2" (pág. 531-533) (r1) — programado: 2026-10-02 — [ ] pendiente
+Arranque: ejercicios/repasos/lib26-r1.md (lo crea `/repaso`)
+Original 4/4 tras UNA pista (bloque 4: se salteó B al subir desde el objeto de a2). Mirar que suba la cadena clase por clase desde el `new` y que escriba el porqué de CADA llamada en los 4 bloques (solo lo hizo en el 1). ToDo/entregar-un-ejercicio.md (Nivel 2).
+
 REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r2) — programado: 2026-10-01 — [ ] pendiente
 Arranque: ejercicios/repasos/ej09-r2/TestArrays.java (lo crea `/repaso`)
 r1 MEJOR que el original: corrigió solo el único error (las 4 asignaciones de `index[]` ya salieron del `while`). Mirar que siga separando preparación de bucle y que no invierta `islands[index[y]]`.
@@ -156,6 +153,10 @@ Arranque: ejercicios/repasos/lib03-television-r3.md (lo crea `/repaso`)
 REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r2) — programado: 2026-10-12 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2.md (lo crea `/repaso`)
 r1 bis BIEN (28/09): referencia → compilador y arreglo en el padre, RESUELTO. Mirar: que conteste LÍNEA POR LÍNEA, que no diga "objeto de tipo X" cuando habla de la referencia, y que antes de decir qué versión corre lea el `new` de ESA variable (confundió p1 con p2). ToDo/entregar-un-ejercicio.md (Niveles 2 y 3).
+
+REPASO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r2) — programado: 2026-10-12 — [ ] pendiente
+Arranque: ejercicios/repasos/lib23-r2.md (lo crea `/repaso`)
+r1 bis BIEN 8/8 (separó variables de métodos, dijo "sobrescrito"). Mirar que escriba el NÚMERO total en cada conteo (no solo "ninguna propia + una heredada") y que en P8 diga que FamilyDoctor es HERMANO de Surgeon: la herencia baja, no va de costado.
 
 
 # ============================================================

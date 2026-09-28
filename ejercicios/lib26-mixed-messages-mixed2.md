@@ -102,7 +102,20 @@ Mirá también la cuenta de `ivar + 6`.
 
 ## MI RESPUESTA
 
+Bloque 1
+S2: B's m1, A's m2, A's m3,
+b.m1 corre la versión de B
+c.m2 corre la versión de A ya que JVM lo encuentra en la clase A
+a.m3 corre la versión de A
 
+Bloque 2
+S4: B's m1, A's m2, C's m3, 13
+
+Bloque 3
+S7: A's m1, A's m2, C's m3, 13
+
+Bloque 4
+S4: B's m1, A's m2, C's m3, 13
 
 ---
 
