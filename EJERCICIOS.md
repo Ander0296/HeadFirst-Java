@@ -133,10 +133,6 @@ REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 
 Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. 5/5 las tres veces. Que TRACE el bucle: `y` llega a 10 (3 dígitos) y `x` sube DOS veces por vuelta (3 vueltas, no 5).
 
-REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r1 bis) — programado: 2026-09-27 — [ ] pendiente ⚠ PRIORIDAD
-Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r1bis.md (lo crea `/repaso`)
-r1 PARCIAL (24/09): veredictos bien y ya dice "la JVM elige", pero cree que el compilador mira la clase del OBJETO (dijo "no encuentra work() en Intern" y propuso agregarlo ahí). Mirar que diga "tipo de la REFERENCIA", que arregle declarando en el padre, y P5 con qué mira cada uno. Si falla: RE-ESTUDIO. ToDo/entregar-un-ejercicio.md (Nivel 3).
-
 REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r2) — programado: 2026-10-01 — [ ] pendiente
 Arranque: ejercicios/repasos/ej09-r2/TestArrays.java (lo crea `/repaso`)
 r1 MEJOR que el original: corrigió solo el único error (las 4 asignaciones de `index[]` ya salieron del `while`). Mirar que siga separando preparación de bucle y que no invierta `islands[index[y]]`.
@@ -156,6 +152,10 @@ Arranque: ejercicios/repasos/lib05-r3.md (lo crea `/repaso`)
 REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r3) — programado: 2026-10-09 — [ ] pendiente
 Arranque: ejercicios/repasos/lib03-television-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Errores NUEVOS a mirar: `static` en instance variables, y el nombre EXACTO de la variable adentro del método (MARCA≠marca). ToDo/crear-una-clase-java.md
+
+REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r2) — programado: 2026-10-12 — [ ] pendiente
+Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2.md (lo crea `/repaso`)
+r1 bis BIEN (28/09): referencia → compilador y arreglo en el padre, RESUELTO. Mirar: que conteste LÍNEA POR LÍNEA, que no diga "objeto de tipo X" cuando habla de la referencia, y que antes de decir qué versión corre lea el `new` de ESA variable (confundió p1 con p2). ToDo/entregar-un-ejercicio.md (Niveles 2 y 3).
 
 
 # ============================================================

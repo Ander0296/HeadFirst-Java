@@ -2665,3 +2665,19 @@ Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r1.md (Employee/Manager/
 - El checklist YA lo cubría (ToDo/entregar-un-ejercicio.md, Nivel 3, la tabla
   compilador/JVM): no se agregó nada, se le señaló el punto salteado.
 - Resultado: r1 bis al 2026-09-27. Si vuelve a salir mal: RE-ESTUDIO (Sesiones #91 y #94).
+
+REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r1 bis) — [x] BIEN 2026-09-28
+Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r1bis.md (Payment/CardPayment/CashPayment, razonado a mano)
+- RESUELTO lo que el r1 bis medía: "el tipo de la referencia es Payment" y el
+  compilador busca el método EN Payment; rechazó el arreglo en la subclase (4a) y
+  arregló declarando en el padre, con código (4b); P5: compilador → referencia →
+  ¿existe? → al compilar; JVM → objeto → al ejecutar. Salida P2 exacta y en orden.
+- MAL: P1 contestada en bloque, no línea por línea (no dijo que A, B y C compilan;
+  "el tipo es Payment" es falso en C, donde `c` es CardPayment). 4a: "sigue siendo
+  un OBJETO de tipo Payment" (el objeto es CardPayment; Payment es la REFERENCIA).
+  4c: dijo "Dando el cambio" (CashPayment): leyó el objeto de p2, no el de p1
+  (`new CardPayment()` → corre la versión de CardPayment, "Pidiendo PIN").
+  P5 JVM: "¿el método está en esta clase?" (su pregunta es ¿QUÉ VERSIÓN corro?).
+- Checklist: P1 y el "objeto de tipo Payment" ya estaban cubiertos (Nivel 2 partes
+  rotuladas, Nivel 3 tabla clase/objeto/referencia); 4c NO → punto nuevo en Nivel 2.
+- Resultado: BIEN (sale del riesgo de RE-ESTUDIO). r2 al 2026-10-12.

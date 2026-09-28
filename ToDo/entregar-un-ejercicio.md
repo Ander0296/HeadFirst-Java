@@ -93,6 +93,12 @@ no se puede esconder nada.
       corre ESA, no la de arriba. El método heredado no arrastra consigo
       las versiones de su clase de origen: siempre gana la versión más
       baja del árbol, la de la clase con la que se hizo el objeto.
+- [ ] **Antes de decir qué versión corre, volvé a la línea donde se creó
+      ESA variable y leé su `new`.** En `Payment p1 = new CardPayment();`
+      el objeto de `p1` es un `CardPayment`: corre la versión de
+      `CardPayment`. Con varias variables del mismo tipo (`p1`, `p2`), la
+      vista agarra el objeto de la de al lado — el tipo de la izquierda es
+      igual en todas, el `new` de la derecha es lo que las distingue.
 - [ ] "Su propia versión" = mismo nombre **Y** mismos tipos de argumentos.
       Compará los paréntesis de la llamada con los del método: si la
       subclase tiene `hablar(String s)` y la llamada es `hablar()`, ese
