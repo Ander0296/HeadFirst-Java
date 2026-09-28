@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 540 de 1629 (31%) — **capítulo 7 (polimorfismo) TERMINADO** (las últimas páginas son las soluciones). Ver Sesión #99. **Próximo: pág. 541, arranca el capítulo 8.** Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #99** (tanda de pantallazos, 2026-09-19).
-- PRÓXIMA SESIÓN: `/rename java-s106` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s105: solo el repaso "compilador vs. JVM" r1 bis, BIEN.) ⚠ En `paginas/` de ESTE PC hay 56 pantallazos del cap. 8 (pág. 541+, del 24/09 y 26/09) sin explicar; pueden superponerse con los 9 del otro PC. NO viajan por git.
+- Última página: 546 de 1629 (32%) — **capítulo 8 (interfaces y clases abstractas) ARRANCADO**. Ver Sesión #100. **Próximo: pág. 547** (qué hacer con `new Animal()`). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #100** (tanda de 5 pantallazos, 2026-09-28).
+- PRÓXIMA SESIÓN: `/rename java-s107` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s106: Sesión #100.) `paginas/` de ESTE PC quedó VACÍO (eran 5, no 56); si el otro PC tiene pantallazos de la pág. 547+, se siguen desde ahí.
 - Ejercicios: **lib26** Mixed Messages "Mixed2", **lib27** BE the Compiler Monster/Vampire y **ej18** Pool Puzzle "los botes" PENDIENTES (los tres: qué versión de un método corre). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
 - ⚠ **21 repasos en cola** (el más viejo, lib11 "Mixed Messages" r1, del 2026-08-02). El de "qué método corre cuando hay sobrescritura" r1 salió **BIEN el 23/09** (5/5: leyó el método entero y respetó el orden — las dos caídas de los exámenes quedaron resueltas); r2 al 2026-10-07. El gemelo, CONCEPTO "compilador vs. JVM", r1 bis **BIEN el 28/09**: ya dice "tipo de la referencia", arregla declarando en el padre y rechaza el arreglo en la subclase; falló leer el `new` de la variable correcta (p1 vs. p2); r2 al 2026-10-12. La cola NO converge: entran ~1,3/día y sale 1. Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. lib23 (árbol Doctor) r1 el 18/09: PARCIAL 6/8 — contó `makesHouseCalls` como método por no mirar los paréntesis del diagrama; r1 bis al 2026-09-21, si falla otra vez es RE-ESTUDIO. Errores a vigilar: contestar solo la PRIMERA mitad de cada pregunta (ToDo/entregar-un-ejercicio.md), decir "no se ejecuta" cuando el programa arranca y revienta, no nombrar la excepción, llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
@@ -263,6 +263,9 @@ Ejercicios: ver EJERCICIOS.md.
 | polymorphic array                | arreglo polimórfico | Arreglo declarado con el supertipo (`Animal[]`) que guarda objetos de subclases distintas (Dog, Cat, Hippo...). Recorriéndolo, cada objeto ejecuta SU versión del método. |
 | overloading / overloaded method  | sobrecarga / método sobrecargado | Dos métodos con el mismo nombre y distinta lista de argumentos (`addNums(int, int)` y `addNums(double, double)`). El compilador elige cuál por los tipos que le pasás. NO es sobrescritura. |
 | polymorphic argument             | argumento polimórfico | Parámetro declarado con el supertipo (`giveShot(Animal a)`): acepta cualquier subclase, y el método que corre adentro es el del objeto real que llegó. |
+| instantiate                      | instanciar | Crear un objeto de una clase con `new`. "Una clase que no se puede instanciar" = una clase a la que no se le puede hacer `new`. |
+| abstract class                   | clase abstracta | Clase que NO se puede instanciar: existe para que otras la extiendan (ej. `Animal`, que es un concepto general, no un animal concreto). |
+| interface                        | interfaz | Contrato de métodos que una clase se compromete a tener. El libro la presenta como "una clase 100% abstracta". No confundir con la interfaz gráfica (GUI). |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -435,6 +438,18 @@ SESIÓN #99 — 2026-09-19 — Pool Puzzle de los botes (pág. 537-540, 31%)
 - Pág. 538-540 son las SOLUCIONES del capítulo (BE the Compiler, Mixed Messages y el propio Pool Puzzle): leídas y NO explicadas, quedan como spoilers hasta que se entregue cada ejercicio.
 - Ejercicios de la tanda: EJERCICIO #18 Pool Puzzle "los botes" PENDIENTE.
 - PRÓXIMO PASO: pág. 541 en adelante (arranca el capítulo 8).
+
+SESIÓN #100 — 2026-09-28 — Arranca el capítulo 8: interfaces y clases abstractas; el problema de `new Animal()` (pág. 541-546, 32%)
+- Capítulo 8 "Serious Polymorphism" (polimorfismo en serio). La herencia es solo el comienzo: para aprovechar el polimorfismo del todo hacen falta INTERFACES (no las gráficas: contratos de código).
+- Adelanto del libro: interfaz = clase 100% abstracta; CLASE ABSTRACTA = clase que NO se puede instanciar (no se le puede hacer `new`).
+- Pág. 542-545: el diseño de animales del cap. 7 está bien (poco código duplicado, overrides donde hace falta, `Animal` como protocolo común de 4 métodos, y sirve para subclases que todavía no existen)... pero "¿nos olvidamos de algo?".
+- Tres casos: `Wolf aWolf = new Wolf();` (mismo tipo), `Animal aHippo = new Hippo();` (tipos distintos: polimorfismo) y `Animal anim = new Animal();` (mismo tipo, pero RARO).
+- El problema: `Animal` es un concepto general. Un objeto "Animal" a secas no tiene forma, ruido ni comida con sentido: nadie debería poder crearlo. La solución (clase abstracta) viene en la próxima tanda.
+- Pág. 543-544: Kindle saltea números por el diagrama grande (cubierto igual).
+- Ejercicios de la tanda: ninguno.
+- Nota del profe: desde Java 8 las interfaces pueden tener métodos `default` con cuerpo, así que "100% abstracta" es una simplificación; el libro lo ve más adelante.
+- Chequeo: LAS DOS BIEN, sin pistas y con las dos mitades. (1) Referencia Animal, objeto Hippo, corre el `eat()` de Hippo y lo decide la JVM. (2) `Animal` es una categoría ("dame una verdura" → "¿cuál?"); `new Hippo()` sí dice qué objeto concreto es.
+- PRÓXIMO PASO: pág. 547 — qué hacer con `new Animal()` (clases abstractas).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

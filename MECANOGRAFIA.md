@@ -521,3 +521,9 @@ Cada hueco pide tres cosas: modificador, tipo y nombre; extends solo va en el en
 
 s99 — qué versión imprime:
 Con tres referencias llamando a move(), imprime la versión del objeto real, no la del tipo.
+
+s100a — un animal genérico:
+Animal anim = new Animal(); compila, pero ¿qué forma tiene un animal genérico?
+
+s100b — referencia y objeto:
+Animal aHippo = new Hippo(); la referencia es Animal y el objeto es Hippo.
