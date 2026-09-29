@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 546 de 1629 (32%) — **capítulo 8 (interfaces y clases abstractas) ARRANCADO**. Ver Sesión #100. **Próximo: pág. 547** (qué hacer con `new Animal()`). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #100** (tanda de 5 pantallazos, 2026-09-28).
-- PRÓXIMA SESIÓN: `/rename java-s108` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s107: sin tanda, repaso lib23 r1 bis BIEN + lib26 completado.) `paginas/` de ESTE PC está VACÍO; si el otro PC tiene pantallazos de la pág. 547+, se siguen desde ahí.
+- Última página: 550 de 1629 (32%) — capítulo 8: **clases abstractas vs. concretas** (Sesión #101). **Próximo: pág. 550-551**, el BRAIN POWER (poder mental) del vino, cuya pregunta sigue en la 551. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #101** (tanda de 6 pantallazos, 2026-09-28).
+- PRÓXIMA SESIÓN: `/rename java-s109` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s108: tanda Sesión #101, clases abstractas.)
 - Ejercicios: **lib26** "Mixed2" COMPLETADO el 28/09 (4/4 tras una pista; r1 al 2026-10-02). **lib27** BE the Compiler Monster/Vampire y **ej18** Pool Puzzle "los botes" PENDIENTES (los dos: qué versión de un método corre). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
 - ⚠ **21 repasos en cola** (el más viejo, lib11 "Mixed Messages" r1, del 2026-08-02). El de "qué método corre cuando hay sobrescritura" r1 salió **BIEN el 23/09** (5/5: leyó el método entero y respetó el orden — las dos caídas de los exámenes quedaron resueltas); r2 al 2026-10-07. El gemelo, CONCEPTO "compilador vs. JVM", r1 bis **BIEN el 28/09**: ya dice "tipo de la referencia", arregla declarando en el padre y rechaza el arreglo en la subclase; falló leer el `new` de la variable correcta (p1 vs. p2); r2 al 2026-10-12. La cola NO converge: entran ~1,3/día y sale 1. Se atacan INDIVIDUALES y por RIESGO, no por fecha; el arranque lo crea `/repaso`. lib23 (árbol Doctor) r1 bis **BIEN 8/8 el 28/09** (sale del riesgo de RE-ESTUDIO); r2 al 2026-10-12. Errores a vigilar: contestar solo la PRIMERA mitad de cada pregunta (ToDo/entregar-un-ejercicio.md), decir "no se ejecuta" cuando el programa arranca y revienta, no nombrar la excepción, llamar "lista" a un arreglo, y hardcodear el tamaño en vez de `.length`.
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
@@ -265,6 +265,8 @@ Ejercicios: ver EJERCICIOS.md.
 | polymorphic argument             | argumento polimórfico | Parámetro declarado con el supertipo (`giveShot(Animal a)`): acepta cualquier subclase, y el método que corre adentro es el del objeto real que llegó. |
 | instantiate                      | instanciar | Crear un objeto de una clase con `new`. "Una clase que no se puede instanciar" = una clase a la que no se le puede hacer `new`. |
 | abstract class                   | clase abstracta | Clase que NO se puede instanciar: existe para que otras la extiendan (ej. `Animal`, que es un concepto general, no un animal concreto). |
+| concrete class                   | clase concreta | Clase que NO es abstracta: es lo bastante específica para crear objetos con `new` (ej. `Dog`, `Lion`). |
+| cannot be instantiated           | no se puede instanciar | Parte del error del compilador al hacer `new` de una clase abstracta: "Canine is abstract; cannot be instantiated". |
 | interface                        | interfaz | Contrato de métodos que una clase se compromete a tener. El libro la presenta como "una clase 100% abstracta". No confundir con la interfaz gráfica (GUI). |
 
 ============================================================
@@ -450,6 +452,19 @@ SESIÓN #100 — 2026-09-28 — Arranca el capítulo 8: interfaces y clases abst
 - Nota del profe: desde Java 8 las interfaces pueden tener métodos `default` con cuerpo, así que "100% abstracta" es una simplificación; el libro lo ve más adelante.
 - Chequeo: LAS DOS BIEN, sin pistas y con las dos mitades. (1) Referencia Animal, objeto Hippo, corre el `eat()` de Hippo y lo decide la JVM. (2) `Animal` es una categoría ("dame una verdura" → "¿cuál?"); `new Hippo()` sí dice qué objeto concreto es.
 - PRÓXIMO PASO: pág. 547 — qué hacer con `new Animal()` (clases abstractas).
+
+SESIÓN #101 — 2026-09-28 — Clases abstractas vs. concretas (pág. 547-550, 32%)
+- Algunas clases NO deben instanciarse: un objeto `Animal` a secas no tiene forma, color ni patas (el "accidente del teletransportador" de Star Trek).
+- Se marca con la palabra clave `abstract` en la declaración: `abstract class Canine extends Animal { }`. El COMPILADOR prohíbe todo `new` de esa clase ("Canine is abstract; cannot be instantiated").
+- Lo único prohibido es el `new`: la clase abstracta SÍ sirve como tipo de referencia (variable, argumento, retorno, arreglo polimórfico). `Canine c = new Dog();` compila.
+- CLASE CONCRETA = la que no es abstracta, lo bastante específica para instanciarse. Árbol: Animal, Canine y Feline abstractas; Hippo, Wolf, Dog, Lion, Cat y Tiger concretas.
+- Una clase abstracta casi no sirve si nadie la extiende: el trabajo en ejecución lo hacen instancias de sus subclases concretas. Excepción: miembros `static` (cap. 10).
+- En la API hay muchas: `Component` (GUI) es abstracta; se instancia `JButton`, nunca `Component`.
+- Pág. 548: Kindle salta el número, el texto sigue sin corte (cubierto igual). BRAIN POWER de la 550: la pregunta sigue en la 551.
+- Ejercicios de la tanda: ninguno.
+- Nota del profe: el libro escribe `abstract public class`; compila igual, pero la convención es `public abstract class`.
+- Chequeo: BIEN tras pedirle las mitades que faltaban (b sin "quién", c sin "porqué": otra vez media consigna). (1) b no compila y lo frena el compilador; c compila porque ES-UN se hereda por toda la cadena. (2) Ejemplo propio: Forma abstracta, Triangulo y Circulo concretas.
+- PRÓXIMO PASO: pág. 550-551 — el BRAIN POWER del vino (¿abstracta o concreta?).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

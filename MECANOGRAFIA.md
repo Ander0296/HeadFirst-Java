@@ -527,3 +527,9 @@ Animal anim = new Animal(); compila, pero ¿qué forma tiene un animal genérico
 
 s100b — referencia y objeto:
 Animal aHippo = new Hippo(); la referencia es Animal y el objeto es Hippo.
+
+s101a — clase abstracta:
+abstract class Canine extends Animal { } no se puede instanciar con new.
+
+s101b — clase concreta:
+Una clase concreta se puede instanciar: Canine c = new Dog(); compila bien.
