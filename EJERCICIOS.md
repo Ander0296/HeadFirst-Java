@@ -114,10 +114,6 @@ REPASO — EJERCICIO #05 Robot (Sesión #25) (r2) — programado: 2026-09-23 —
 Arranque: ejercicios/repasos/ej05-r2/ (Robot.java y RobotTestDrive.java) (lo crea `/repaso`)
 r1 mejor que el original (el setter ya valida y usa `this`). Mirar que la validación no falle EN SILENCIO (el `if` sin `else`). ToDo/crear-una-clase-java.md (Nivel 3).
 
-REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r2) — programado: 2026-09-24 — [ ] pendiente
-Arranque: ejercicios/repasos/ej08-r2/ (dos archivos) (lo crea `/repaso`)
-r1 BIEN: los dos programas corregidos y salida exacta. Arrastra "no se ejecuta" (arranca y revienta: B imprime DOS líneas antes), no nombró NullPointerException en A, dijo "lista" por arreglo y volvió a hardcodear el 3 en vez de `.length`. ToDo/entregar-un-ejercicio.md (Nivel 3).
-
 REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 — [ ] pendiente
 Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. 5/5 las tres veces. Que TRACE el bucle: `y` llega a 10 (3 dígitos) y `x` sube DOS veces por vuelta (3 vueltas, no 5).
@@ -157,6 +153,10 @@ r1 bis BIEN (28/09): referencia → compilador y arreglo en el padre, RESUELTO. 
 REPASO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r2) — programado: 2026-10-12 — [ ] pendiente
 Arranque: ejercicios/repasos/lib23-r2.md (lo crea `/repaso`)
 r1 bis BIEN 8/8 (separó variables de métodos, dijo "sobrescrito"). Mirar que escriba el NÚMERO total en cada conteo (no solo "ninguna propia + una heredada") y que en P8 diga que FamilyDoctor es HERMANO de Surgeon: la herencia baja, no va de costado.
+
+REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r3) — programado: 2026-10-29 — [ ] pendiente
+Arranque: ejercicios/repasos/ej08-r3/ (dos archivos) (lo crea `/repaso`)
+ÚLTIMO DEL CICLO: si sale bien, GRADÚA. r2 BIEN (29/09): nombró las DOS excepciones, "arranca y revienta", "arreglo" siempre. Arrastra (3ª vez): no escribió las 2 líneas que B imprime antes de reventar, y `z < 3` en vez de `h.length`. ToDo/entregar-un-ejercicio.md (Nivel 3) · ToDo/recorrer-una-coleccion.md (2).
 
 
 # ============================================================

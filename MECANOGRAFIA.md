@@ -533,3 +533,9 @@ abstract class Canine extends Animal { } no se puede instanciar con new.
 
 s101b — clase concreta:
 Una clase concreta se puede instanciar: Canine c = new Dog(); compila bien.
+
+s102a — método abstracto:
+public abstract void eat(); no tiene cuerpo: termina en punto y coma.
+
+s102b — implementar:
+La primera clase concreta implementa todos los métodos abstractos: class Dog extends Canine { }

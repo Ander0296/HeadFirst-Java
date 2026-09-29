@@ -2713,3 +2713,42 @@ SESIÓN #85 — 2026-09-08 — Cierre del capítulo 6: Code Magnets de ArrayList
 - Nota del profe: el JavaCross original NO se puede traducir. Sus pistas son puns en inglés (ej. "Or, in the courtroom" solo cierra porque en inglés la misma palabra nombra al colegio de abogados y al símbolo `|`); traducidas pierden sentido y explicadas regalan la respuesta. Se conservó lo que el ejercicio entrena de verdad —el vocabulario del capítulo— en 20 definiciones directas, con las respuestas en inglés porque son los términos reales.
 - Dudas: ninguna (tanda de enunciados).
 - PRÓXIMO PASO: pág. 467 en adelante — arranca el capítulo 7. Siguen faltando 447-448 (hueco de formato en PENDIENTES.md).
+
+SESIÓN #86 — 2026-09-09 — Arranca el capítulo 7: herencia y sobrescritura (pág. 472-476, 27%)
+- HERENCIA (inheritance): en vez de repetir el mismo método en cuatro clases, se saca lo común a UNA clase más general (superclase) y las específicas (subclases) cuelgan de ella. Se lee "Square hereda de Shape".
+- Los 4 pasos de Brad, que son la receta del capítulo: (1) mirar qué tienen en común todas las clases, (2) abstraer eso a una clase nueva, (3) linkear las otras a ella con herencia, (4) sobrescribir en la subclase lo que necesite comportarse distinto.
+- Qué se gana: UNA sola copia de `rotate()` para mantener en vez de cuatro. Si la superclase tiene la funcionalidad, las subclases la tienen automáticamente — no hay que copiarla ni llamarla, ya es de ellas.
+- SOBRESCRIBIR (override): la subclase redefine un método heredado cuando necesita cambiarlo o extenderlo. Amoeba redefine `rotate()` y `playSound()`; Square, Circle y Triangle quedan con las cajas VACÍAS en el diagrama, y esa caja vacía es justamente la señal de que heredan.
+- Quién decide qué versión corre: la JVM, en TIEMPO DE EJECUCIÓN. Cuando alguien le pide a un Amoeba que rote, corre el `rotate()` de Amoeba, no el de Shape. Ese mecanismo es el corazón del polimorfismo.
+- Eje del diagrama: hacia ARRIBA más abstracto (superclass = more abstract), hacia ABAJO más específico (subclasses = more specific). La flecha de herencia se dibuja de la subclase HACIA la superclase.
+- Ejercicios de la tanda: ninguno entregable. La pág. 476 es un Brain Power y vino sin texto (hueco de formato anotado en PENDIENTES.md).
+- Nota del profe: en código esto se escribe con la palabra clave `extends` (`class Square extends Shape`). El libro todavía no la mostró; se adelantó en el chat porque el diagrama sin sintaxis no se puede escribir.
+- Chequeo de comprensión: LAS DOS BIEN, sin pistas. (1) Caja vacía de Square = sí puede rotar, con el comportamiento de Shape "porque no se modificó, solo se heredó". (2) El `rotate()` de Shape sigue existiendo; la única que cambia el comportamiento es Amoeba. Se le agregó el matiz: heredar NO es recibir una copia — el método vive una sola vez en la superclase.
+- PRÓXIMO PASO: pág. 477 en adelante. Siguen faltando 447-448 y ahora la 476 (huecos de formato en PENDIENTES.md).
+
+
+SESIÓN #87 — 2026-09-10 — `extends` en código: qué se hereda, qué se agrega y qué se sobrescribe (pág. 476-481, 28%)
+- Pág. 476 (Brain Power, hueco de formato SALDADO): gato doméstico vs. tigre. La pregunta trampa es "¿el gato es un tigre especializado?" — no: ninguno hereda del otro, los dos son subclases de algo más general (Felino).
+- Pág. 477: la sintaxis real de la herencia — `class Subclase extends Superclase`. La subclase hereda los MEMBERS (miembros) de la superclase: variables de instancia + métodos, las dos cosas.
+- Una subclase puede hacer TRES cosas con lo heredado: usarlo tal cual, AGREGAR lo suyo (métodos y variables nuevos) y SOBRESCRIBIR lo que necesite distinto. FriedEggMan no sobrescribe nada y es una clase válida (cuerpo vacío).
+- Pág. 478: las VARIABLES DE INSTANCIA NO SE SOBRESCRIBEN — no hace falta, porque no definen comportamiento. Cada objeto le pone a `tights` el valor que quiera (púrpura, blanco) sin tocar la declaración heredada. Solo los MÉTODOS se sobrescriben.
+- Pág. 481: ejemplo Doctor/FamilyDoctor/Surgeon. `Surgeon` sobrescribe `treatPatient()` (misma firma, cuerpo distinto: cirugía en vez de chequeo) y AGREGA `makeIncision()`. `FamilyDoctor` no sobrescribe nada: solo agrega `makesHouseCalls` y `giveAdvice()`. Ninguna de las dos vuelve a declarar `worksAtHospital`: ya lo tienen.
+- Ejercicios de la tanda: hay un "Sharpen your pencil" en la pág. 481 pero llegó SIN enunciado (solo el ícono del lápiz) — anotado como hueco de formato.
+- Chequeo de comprensión: LAS DOS BIEN, sin pistas. (1) `Surgeon` tiene `worksAtHospital` porque lo hereda con `extends`; declarado una sola vez en Doctor.java. (2) `FamilyDoctor.treatPatient()` corre el chequeo de `Doctor` porque no lo sobrescribió. Matiz agregado: heredar la variable NO es compartir el valor — cada objeto tiene su propia copia.
+- PRÓXIMO PASO: pág. 479-480 (faltan) y 482 en adelante.
+
+
+SESIÓN #88 — 2026-09-10 — El árbol Doctor dibujado + arranca el diseño del simulador de animales (pág. 482-484, 28%)
+- Pág. 482: el diagrama del árbol Doctor/Surgeon/FamilyDoctor. En un diagrama, la caja de una subclase muestra SOLO lo que ESA clase escribe; lo heredado está pero no se dibuja.
+- Anotaciones del libro: Surgeon "overrides the inherited treatPatient()" (sobrescribe el heredado) y agrega `makeIncision()`; FamilyDoctor agrega la variable `makesHouseCalls` y el método `giveAdvice()`.
+- Arranca el ejemplo largo del capítulo: un simulador donde el usuario tira animales a un entorno. No se programa todavía: se DISEÑA.
+- La condición que manda el diseño: "otros programadores tienen que poder agregar tipos nuevos de animales en cualquier momento". Ese es el motivo real de la herencia en el trabajo: dejar la puerta abierta a código que todavía no existe, no ahorrar tipeo.
+- PASO 1 del método: buscar objetos con atributos y comportamientos en común. Dos preguntas guía: qué tienen en común los seis tipos (→ paso 2) y cómo se relacionan (→ pasos 4-5).
+- Pág. 484: los seis animales (lion, hippo, tiger, wolf, dog, cat) y el estado común: 5 variables de instancia (`picture`, `food` —meat o grass—, `hunger` (int), `boundaries` (ej. 640x480), `location` (X e Y)) y 4 métodos (`makeNoise()`, `eat()`, `sleep()`, `roam()`).
+- PASO 2: diseñar una clase con ese estado y comportamiento común → la superclase `Animal`, con las seis subclases colgando y sus cajas VACÍAS (por ahora se conforman con todo lo heredado).
+- Vocabulario clave: estado (state) = variables de instancia, lo que el objeto SABE; comportamiento (behavior) = métodos, lo que el objeto HACE.
+- Ejercicios de la tanda: lib23 "Sharpen your pencil: contar el árbol Doctor" (pág. 482) — PENDIENTE.
+- Chequeo de comprensión: LAS DOS BIEN, sin pistas. (1) Lion puede hacer `roam()`: el método vive una sola vez en `Animal` y se ejecuta subiendo por el árbol. (2) Para agregar `Elephant` NO hay que tocar nada de lo ya escrito: solo un archivo nuevo que extienda `Animal`, y sobrescribir solo si el comportamiento difiere.
+- Nota del profe: eso último tiene nombre y aparece en entrevistas — principio abierto/cerrado (Open/Closed Principle, la "O" de SOLID): abierto a extensión, cerrado a modificación. La herencia es la primera herramienta que lo permite. Reaparece en la Fase 2.
+- PRÓXIMO PASO: pág. 485 en adelante (pasos 3-5 del diseño). Falta la 483 (hueco de formato).
+

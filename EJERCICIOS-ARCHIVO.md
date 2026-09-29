@@ -2703,3 +2703,8 @@ Arranque: ejercicios/lib26-mixed-messages-mixed2.md — resultado: 4/4 tras UNA 
 - BIEN: bloques 1 (S2), 2 (S4) y 3 (S7) a la primera, con la cuenta ivar + 6 = 13; bloque 1 con el porqué por línea.
 - MAL: bloque 4 puso S7: con a2 = new C(), m1 lo hereda C de B (se salteó B al subir la cadena). Pista: leer el new de a2 y subir C → B → A; corrigió a S4.
 - Media consigna: sin porqués en los bloques 2 a 4. r1 al 2026-10-02.
+
+REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r2) — programado: 2026-09-24 — [x] cumplido (2026-09-29, sesión java-s110)
+Entregado en: ejercicios/repasos/ej08-r2/ (BooksTestDrive.java y Hobbits.java). Los dos compilan y dan la salida exacta.
+MEJORÓ vs. r1 y original: nombró NullPointerException en A y ArrayIndexOutOfBoundsException en B (bien escrita); dijo "ejecuta y revienta en tal línea", nunca "no se ejecuta"; "arreglo" siempre (no "lista"); ubicó la vuelta 3 (z = 3) como la que revienta.
+REPITIÓ (3ª vez): no escribió la salida parcial de B ("frodo..." y "sam..." salen ANTES de reventar) y usó `z < 3` en vez de `h.length`. Nuevo flojo: no dijo que h[0] queda en null (el original sí lo había diagnosticado). r3 al 2026-10-29.

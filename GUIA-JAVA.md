@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 550 de 1629 (32%) — capítulo 8: **clases abstractas vs. concretas** (Sesión #101). **Próximo: pág. 550-551**, el BRAIN POWER (poder mental) del vino, cuya pregunta sigue en la 551. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #101** (tanda de 6 pantallazos, 2026-09-28).
-- PRÓXIMA SESIÓN: `/rename java-s110` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s109: repaso r3 del Sharpen pág. 80-81, sin tanda.)
+- Última página: 557 de 1629 (32%) — capítulo 8: **métodos abstractos** (Sesión #102). **Próximo: pág. 558**, la tabla del Sharpen "Abstract versus Concrete classes" (crearle su arranque lib28). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #102** (tanda de 4 pantallazos, 2026-09-29).
+- PRÓXIMA SESIÓN: `/rename java-s111` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s110: repaso ej08 r2 + Sesión #102.)
 - Ejercicios: **lib26** "Mixed2" COMPLETADO el 28/09 (4/4 tras una pista; r1 al 2026-10-02). **lib27** BE the Compiler Monster/Vampire y **ej18** Pool Puzzle "los botes" PENDIENTES (los dos: qué versión de un método corre). **lib24** "el árbol de los músicos" [~] con 3 pistas SIN RESPONDER — el usuario pidió dejarlo de lado el 17/09; retomarlo cuando él quiera, sin insistir.
 - ⚠ **21 repasos en cola** (el más viejo, lib11 "Mixed Messages" r1, del 2026-08-02). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 r3 NO GRADUÓ (28/09)**: 4ª vez sin decir "concatenación", volvió "condicional while", y con x = 22 dijo que el perro ladra (22 < 15 es falso) → r3 bis al 2026-10-01. Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
@@ -268,50 +268,18 @@ Ejercicios: ver EJERCICIOS.md.
 | concrete class                   | clase concreta | Clase que NO es abstracta: es lo bastante específica para crear objetos con `new` (ej. `Dog`, `Lion`). |
 | cannot be instantiated           | no se puede instanciar | Parte del error del compilador al hacer `new` de una clase abstracta: "Canine is abstract; cannot be instantiated". |
 | interface                        | interfaz | Contrato de métodos que una clase se compromete a tener. El libro la presenta como "una clase 100% abstracta". No confundir con la interfaz gráfica (GUI). |
+| abstract method                  | método abstracto | Método declarado con `abstract` y SIN cuerpo: sin llaves, termina en `;` (`public abstract void eat();`). Obliga a la primera subclase concreta a escribirlo. Si una clase tiene uno, la clase tiene que ser abstracta. |
+| implement (a method)             | implementar (un método) | Escribirle el cuerpo a un método abstracto heredado: misma firma, tipo de retorno compatible. Es igual que sobrescribir. |
+| method body                      | cuerpo del método | Lo que va entre las llaves `{ }` de un método. Un método abstracto no tiene. `{ }` vacío SÍ es un cuerpo. |
+| method signature                 | firma del método | Nombre + lista de argumentos (`eat()`, `roam(int)`). Es lo que tiene que coincidir para implementar o sobrescribir. |
+| protocol                         | protocolo | El conjunto de métodos que un supertipo promete que TODAS sus subclases tienen. Los métodos abstractos definen protocolo sin escribir código. |
+| pass the buck                    | pasar la pelota | Expresión: dejarle la responsabilidad a otro. Una clase abstracta puede no implementar los métodos abstractos que heredó y dejárselos a la primera subclase concreta. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
-de código, máximo ~15 líneas por sesión. Las sesiones #01 a #85 están
+de código, máximo ~15 líneas por sesión. Las sesiones #01 a #88 están
 en GUIA-ARCHIVO.md.)
 ============================================================
-
-SESIÓN #86 — 2026-09-09 — Arranca el capítulo 7: herencia y sobrescritura (pág. 472-476, 27%)
-- HERENCIA (inheritance): en vez de repetir el mismo método en cuatro clases, se saca lo común a UNA clase más general (superclase) y las específicas (subclases) cuelgan de ella. Se lee "Square hereda de Shape".
-- Los 4 pasos de Brad, que son la receta del capítulo: (1) mirar qué tienen en común todas las clases, (2) abstraer eso a una clase nueva, (3) linkear las otras a ella con herencia, (4) sobrescribir en la subclase lo que necesite comportarse distinto.
-- Qué se gana: UNA sola copia de `rotate()` para mantener en vez de cuatro. Si la superclase tiene la funcionalidad, las subclases la tienen automáticamente — no hay que copiarla ni llamarla, ya es de ellas.
-- SOBRESCRIBIR (override): la subclase redefine un método heredado cuando necesita cambiarlo o extenderlo. Amoeba redefine `rotate()` y `playSound()`; Square, Circle y Triangle quedan con las cajas VACÍAS en el diagrama, y esa caja vacía es justamente la señal de que heredan.
-- Quién decide qué versión corre: la JVM, en TIEMPO DE EJECUCIÓN. Cuando alguien le pide a un Amoeba que rote, corre el `rotate()` de Amoeba, no el de Shape. Ese mecanismo es el corazón del polimorfismo.
-- Eje del diagrama: hacia ARRIBA más abstracto (superclass = more abstract), hacia ABAJO más específico (subclasses = more specific). La flecha de herencia se dibuja de la subclase HACIA la superclase.
-- Ejercicios de la tanda: ninguno entregable. La pág. 476 es un Brain Power y vino sin texto (hueco de formato anotado en PENDIENTES.md).
-- Nota del profe: en código esto se escribe con la palabra clave `extends` (`class Square extends Shape`). El libro todavía no la mostró; se adelantó en el chat porque el diagrama sin sintaxis no se puede escribir.
-- Chequeo de comprensión: LAS DOS BIEN, sin pistas. (1) Caja vacía de Square = sí puede rotar, con el comportamiento de Shape "porque no se modificó, solo se heredó". (2) El `rotate()` de Shape sigue existiendo; la única que cambia el comportamiento es Amoeba. Se le agregó el matiz: heredar NO es recibir una copia — el método vive una sola vez en la superclase.
-- PRÓXIMO PASO: pág. 477 en adelante. Siguen faltando 447-448 y ahora la 476 (huecos de formato en PENDIENTES.md).
-
-
-SESIÓN #87 — 2026-09-10 — `extends` en código: qué se hereda, qué se agrega y qué se sobrescribe (pág. 476-481, 28%)
-- Pág. 476 (Brain Power, hueco de formato SALDADO): gato doméstico vs. tigre. La pregunta trampa es "¿el gato es un tigre especializado?" — no: ninguno hereda del otro, los dos son subclases de algo más general (Felino).
-- Pág. 477: la sintaxis real de la herencia — `class Subclase extends Superclase`. La subclase hereda los MEMBERS (miembros) de la superclase: variables de instancia + métodos, las dos cosas.
-- Una subclase puede hacer TRES cosas con lo heredado: usarlo tal cual, AGREGAR lo suyo (métodos y variables nuevos) y SOBRESCRIBIR lo que necesite distinto. FriedEggMan no sobrescribe nada y es una clase válida (cuerpo vacío).
-- Pág. 478: las VARIABLES DE INSTANCIA NO SE SOBRESCRIBEN — no hace falta, porque no definen comportamiento. Cada objeto le pone a `tights` el valor que quiera (púrpura, blanco) sin tocar la declaración heredada. Solo los MÉTODOS se sobrescriben.
-- Pág. 481: ejemplo Doctor/FamilyDoctor/Surgeon. `Surgeon` sobrescribe `treatPatient()` (misma firma, cuerpo distinto: cirugía en vez de chequeo) y AGREGA `makeIncision()`. `FamilyDoctor` no sobrescribe nada: solo agrega `makesHouseCalls` y `giveAdvice()`. Ninguna de las dos vuelve a declarar `worksAtHospital`: ya lo tienen.
-- Ejercicios de la tanda: hay un "Sharpen your pencil" en la pág. 481 pero llegó SIN enunciado (solo el ícono del lápiz) — anotado como hueco de formato.
-- Chequeo de comprensión: LAS DOS BIEN, sin pistas. (1) `Surgeon` tiene `worksAtHospital` porque lo hereda con `extends`; declarado una sola vez en Doctor.java. (2) `FamilyDoctor.treatPatient()` corre el chequeo de `Doctor` porque no lo sobrescribió. Matiz agregado: heredar la variable NO es compartir el valor — cada objeto tiene su propia copia.
-- PRÓXIMO PASO: pág. 479-480 (faltan) y 482 en adelante.
-
-
-SESIÓN #88 — 2026-09-10 — El árbol Doctor dibujado + arranca el diseño del simulador de animales (pág. 482-484, 28%)
-- Pág. 482: el diagrama del árbol Doctor/Surgeon/FamilyDoctor. En un diagrama, la caja de una subclase muestra SOLO lo que ESA clase escribe; lo heredado está pero no se dibuja.
-- Anotaciones del libro: Surgeon "overrides the inherited treatPatient()" (sobrescribe el heredado) y agrega `makeIncision()`; FamilyDoctor agrega la variable `makesHouseCalls` y el método `giveAdvice()`.
-- Arranca el ejemplo largo del capítulo: un simulador donde el usuario tira animales a un entorno. No se programa todavía: se DISEÑA.
-- La condición que manda el diseño: "otros programadores tienen que poder agregar tipos nuevos de animales en cualquier momento". Ese es el motivo real de la herencia en el trabajo: dejar la puerta abierta a código que todavía no existe, no ahorrar tipeo.
-- PASO 1 del método: buscar objetos con atributos y comportamientos en común. Dos preguntas guía: qué tienen en común los seis tipos (→ paso 2) y cómo se relacionan (→ pasos 4-5).
-- Pág. 484: los seis animales (lion, hippo, tiger, wolf, dog, cat) y el estado común: 5 variables de instancia (`picture`, `food` —meat o grass—, `hunger` (int), `boundaries` (ej. 640x480), `location` (X e Y)) y 4 métodos (`makeNoise()`, `eat()`, `sleep()`, `roam()`).
-- PASO 2: diseñar una clase con ese estado y comportamiento común → la superclase `Animal`, con las seis subclases colgando y sus cajas VACÍAS (por ahora se conforman con todo lo heredado).
-- Vocabulario clave: estado (state) = variables de instancia, lo que el objeto SABE; comportamiento (behavior) = métodos, lo que el objeto HACE.
-- Ejercicios de la tanda: lib23 "Sharpen your pencil: contar el árbol Doctor" (pág. 482) — PENDIENTE.
-- Chequeo de comprensión: LAS DOS BIEN, sin pistas. (1) Lion puede hacer `roam()`: el método vive una sola vez en `Animal` y se ejecuta subiendo por el árbol. (2) Para agregar `Elephant` NO hay que tocar nada de lo ya escrito: solo un archivo nuevo que extienda `Animal`, y sobrescribir solo si el comportamiento difiere.
-- Nota del profe: eso último tiene nombre y aparece en entrevistas — principio abierto/cerrado (Open/Closed Principle, la "O" de SOLID): abierto a extensión, cerrado a modificación. La herencia es la primera herramienta que lo permite. Reaparece en la Fase 2.
-- PRÓXIMO PASO: pág. 485 en adelante (pasos 3-5 del diseño). Falta la 483 (hueco de formato).
 
 SESIÓN #89 — 2026-09-10 — Pasos 3, 4 y 5 del diseño: qué se sobrescribe y las clases intermedias Feline/Canine (pág. 486-491, 28%)
 - PASO 3: decidir si una subclase necesita comportamiento propio. Las 5 variables sirven igual para todos (cambian los VALORES, no las variables); lo que cambia de verdad es el comportamiento.
@@ -465,6 +433,19 @@ SESIÓN #101 — 2026-09-28 — Clases abstractas vs. concretas (pág. 547-550, 
 - Nota del profe: el libro escribe `abstract public class`; compila igual, pero la convención es `public abstract class`.
 - Chequeo: BIEN tras pedirle las mitades que faltaban (b sin "quién", c sin "porqué": otra vez media consigna). (1) b no compila y lo frena el compilador; c compila porque ES-UN se hereda por toda la cadena. (2) Ejemplo propio: Forma abstracta, Triangulo y Circulo concretas.
 - PRÓXIMO PASO: pág. 550-551 — el BRAIN POWER del vino (¿abstracta o concreta?).
+
+SESIÓN #102 — 2026-09-29 — Métodos abstractos (pág. 552-557, 32%)
+- BRAIN POWER del vino: Wine, Red y White probablemente abstractas; una botella puntual (Camelot 1997 Pinot Noir) seguro concreta. Dónde se corta depende de la aplicación.
+- Clase abstracta = DEBE ser extendida; método abstracto = DEBE ser sobrescrito (implementado). Se usa cuando no existe un cuerpo genérico con sentido (¿cómo come un "animal" a secas?).
+- Sintaxis: `public abstract void eat();` — sin cuerpo, sin llaves, termina en punto y coma.
+- Un método abstracto obliga a que la CLASE sea abstracta. Una clase abstracta puede mezclar métodos abstractos y con cuerpo.
+- Para qué sirve: define PROTOCOLO. "Todos los subtipos tienen ESTE método" → el compilador acepta `a.eat()` sobre una referencia `Animal`, y `Vet` no necesita un método por cada subclase.
+- La PRIMERA subclase concreta implementa TODOS los abstractos pendientes. Una abstracta intermedia (Canine) puede pasar la pelota o implementar algunos. Implementar = misma firma + retorno compatible; el contenido da igual para Java (hasta `{ }`).
+- Pág. 553 y 555-556: Kindle saltea números por las viñetas; el texto sigue sin corte (cubierto igual).
+- Ejercicios de la tanda: Sharpen "Abstract versus Concrete classes" (pág. 557): la tabla está en la página siguiente → su arranque se crea en la próxima tanda.
+- Nota del profe: en el trabajo real, `@Override` arriba de cada método implementado; los IDE los generan solos (IntelliJ: "Implement methods", Fase 3).
+- Chequeo: veredictos BIEN (Parrot no compila y lo frena el compilador; método abstracto → clase abstracta). Faltó la salida principal: IMPLEMENTAR `fly()`; hacer Parrot abstracta compila pero prohíbe `new Parrot()`. El porqué de "la abstracta puede tener cuerpo" no llegó (media consigna).
+- PRÓXIMO PASO: pág. 558 — la tabla del Sharpen "Abstract versus Concrete".
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
