@@ -118,13 +118,13 @@ REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r2) — progra
 Arranque: ejercicios/repasos/ej08-r2/ (dos archivos) (lo crea `/repaso`)
 r1 BIEN: los dos programas corregidos y salida exacta. Arrastra "no se ejecuta" (arranca y revienta: B imprime DOS líneas antes), no nombró NullPointerException en A, dijo "lista" por arreglo y volvió a hardcodear el 3 en vez de `.length`. ToDo/entregar-un-ejercicio.md (Nivel 3).
 
-REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3) — programado: 2026-09-25 — [ ] pendiente
-Arranque: ejercicios/repasos/sharpen-your-pencil-r3.md (lo crea `/repaso`)
-ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Falló las TRES veces: que en `"Dog: " + name` diga CONCATENACIÓN y que el `+` pega texto, no suma.
-
 REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 — [ ] pendiente
 Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. 5/5 las tres veces. Que TRACE el bucle: `y` llega a 10 (3 dígitos) y `x` sube DOS veces por vuelta (3 vueltas, no 5).
+
+REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3 bis) — programado: 2026-10-01 — [ ] pendiente
+Arranque: ejercicios/repasos/sharpen-your-pencil-r3bis.md (lo crea `/repaso`)
+r3 NO graduó (28/09): sin "concatenación" por 4ª vez, "condicional while", "lista" por arreglo. Mirar la línea 5: con x = 22, `22 < 15` es FALSO → el perro NO ladra (con pista dijo que sí). Si sale bien, GRADÚA. ToDo/entregar-un-ejercicio.md (Nivel 3).
 
 REPASO — LIBRO Mixed Messages: "Mixed2" (pág. 531-533) (r1) — programado: 2026-10-02 — [ ] pendiente
 Arranque: ejercicios/repasos/lib26-r1.md (lo crea `/repaso`)

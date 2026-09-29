@@ -175,6 +175,14 @@ concepto se opera bien, lo que falta es el nombre. Se agenda r3
 (~1 mes después del r2) — es el último del ciclo: si sale bien, el
 ejercicio se GRADÚA.
 
+REPASO r3 (2026-09-28, java-s109) — ejercicios/repasos/sharpen-your-pencil-r3.md.
+NO GRADÚA. Bien: x sin declarar (sostiene lo del r2), línea 3 con "variable de
+referencia" + new + argumentos, bucle infinito detectado, parseInt completo.
+Mal desde cero: línea 11 sin "concatenación" (CUARTA vez; con pista la dijo y
+resolvió "3"+5 = 35), volvió "condicional while" y "lista" por arreglo, y en
+la línea 5 no evaluó el caso. Con pista dijo que con x = 22 el perro SÍ ladra:
+ERROR NUEVO (22 < 15 es falso: no ladra). r3 bis a 2026-10-01.
+
 LIBRO — Sharpen your pencil: "DooBee" — completar el código faltante de un while + if para que coincida con la salida dada (Ubicación pág. 109, Sesión #13) — [x] completado (2026-07-16)
 
 Enunciado (tal cual lo plantea el libro): te dan la salida de un

@@ -178,6 +178,17 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
       lista (`ArrayList`) crece sola, se lee con `get(i)` y se mide con
       `size()`. Son dos tipos distintos: usar la palabra equivocada hace
       pensar que estás mirando otro código.
+- [ ] **`while` y `for` son BUCLES, no condicionales.** El condicional
+      (`if`) decide UNA vez si algo corre; el bucle lo REPITE mientras
+      la condición siga siendo verdadera.
+- [ ] **Antes de decir si un `if` entra, escribí la condición con el
+      valor real y decí VERDADERO o FALSO.** `x < 15` con x = 22 es
+      `22 < 15` → falso → no entra. Ya se dio por hecho que entraba sin
+      hacer la cuenta.
+- [ ] **Si hay un `+` con un String al lado, escribí la palabra
+      CONCATENACIÓN.** El `+` entre un String y otra cosa PEGA texto, no
+      suma: `"Dog: " + name` da `Dog: Fido`. Dar bien el resultado sin
+      nombrar el mecanismo ya falló cuatro veces seguidas.
 
 ## Nivel 4 — Antes de mandar
 
