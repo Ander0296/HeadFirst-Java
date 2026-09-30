@@ -95,7 +95,7 @@ Arranque: ejercicios/repasos/lib16-r2.md (lo crea `/repaso`)
 r1 BIEN sin pistas. Que nombre `value > 14` como corte (no `i > 14`) y ENTREGUE la traza vuelta por vuelta, no prosa. ToDo/un-bucle-que-termina.md (2), ToDo/entregar-un-ejercicio.md (Nivel 1).
 
 REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r2) — programado: 2026-09-19 — [ ] pendiente
-Arranque: ejercicios/repasos/ej14-r2/ (lo crea `/repaso`)
+Arranque: ejercicios/repasos/ej14-r2/ — YA CREADO (2026-09-30), [~] en curso
 r1 BIEN en el corazón. Arrastra: variable sin `private`, y NOMBRES DE MÉTODO (tres veces eligió un prefijo en vez de un verbo puro). Que la PARTE 4 llegue contestada: se salteó las dos veces. ToDo/crear-una-clase-java.md (Nivel 3).
 
 REPASO — LIBRO Sharpen your pencil: ¿qué relaciones tienen sentido? (pág. 505) (r1) — programado: 2026-09-22 — [ ] pendiente
