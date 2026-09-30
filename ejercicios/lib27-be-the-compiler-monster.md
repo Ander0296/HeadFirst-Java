@@ -59,6 +59,8 @@ breathe fire     (echar fuego)
 arrrgh           (un grito de monstruo)
 ```
 
+R/ Esta salida la produce el PAR 1
+
 ### Los 4 pares candidatos
 
 ```
@@ -91,12 +93,32 @@ Al final: cuáles pares cumplen las dos cosas.
 ## MI RESPUESTA
 
 PAR 1:
+Si compila, imprime
+a bite?
+breathe fire
+arrrgh
+coincide con la sálida pedida
 
 PAR 2:
+No compila, en la super clase el método es de tipo int, en las otras clases
+es de tipo boolean, entonces da error de incompatibilidad.
+no coincide con la salida pedida porque ni compila.
 
 PAR 3:
+Si compila, imprime 
+arrrgh
+breathe fire
+arrrgh
+no coincide con la salida pedida.
 
 PAR 4:
+Si compila, imprime 
+arrrgh
+breathe fire
+arrrgh
+no coincide con la salida pedida, acá el método de Vampire se sobrecarga con un tipo byte
+como el int no puede ir como argumento en ese método entonces toma el heredado por Monster
+por eso nos va a imprimir en la primer linea el arrrgh
 
 Pares que compilan Y dan la salida pedida:
 
@@ -106,3 +128,5 @@ PROMPT DE ENTREGA (copialo y pegalo en Claude cuando termines):
 
 /entrega Hice el ejercicio del libro lib27 BE the Compiler "Monster/Vampire"
 (pág. 533-535). Mi respuesta está en ejercicios/lib27-be-the-compiler-monster.md.
+
+

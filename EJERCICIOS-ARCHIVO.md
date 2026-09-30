@@ -2708,3 +2708,8 @@ REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r2) — progra
 Entregado en: ejercicios/repasos/ej08-r2/ (BooksTestDrive.java y Hobbits.java). Los dos compilan y dan la salida exacta.
 MEJORÓ vs. r1 y original: nombró NullPointerException en A y ArrayIndexOutOfBoundsException en B (bien escrita); dijo "ejecuta y revienta en tal línea", nunca "no se ejecuta"; "arreglo" siempre (no "lista"); ubicó la vuelta 3 (z = 3) como la que revienta.
 REPITIÓ (3ª vez): no escribió la salida parcial de B ("frodo..." y "sam..." salen ANTES de reventar) y usó `z < 3` en vez de `h.length`. Nuevo flojo: no dijo que h[0] queda en null (el original sí lo había diagnosticado). r3 al 2026-10-29.
+
+LIBRO — BE the Compiler: Monster/Vampire (pág. 533-535, Sesión #98) — [x] completado (2026-09-29, sesión java-s111)
+Arranque: ejercicios/lib27-be-the-compiler-monster.md — resultado: 4/4 veredictos, cerrado sin responder las pistas (a pedido del usuario).
+- BIEN: par 1 con la salida exacta; par 4 razonado solo: `frighten(byte)` sobrecarga, el int no entra en byte, corre la versión de Monster.
+- MAL: par 2 dijo "en la superclase el método es int" (el int es B, en Vampire: la subclase cambia el tipo de retorno); par 3 sin porqué (`scare` es un método nuevo, Vampire hereda `frighten` de Monster); línea final en blanco. r1 al 2026-10-03.

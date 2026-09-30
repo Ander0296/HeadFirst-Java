@@ -26,9 +26,6 @@ LIBRO — Sharpen your pencil: el árbol de los músicos (Ubicación pág. 496, 
 Arranque: ejercicios/lib24-sharpen-arbol-musicos.md | Si te trabás: Sesión #90 de la guía
 Tabla con sentido (4 subclases de Musician, agregó Guitarrist, Fan suelto) y ES-UN aplicado en Rock Star. Mal: el diagrama es una lista sin jerarquía y sin Rock Star ni Fan; Fan suelto sin POR QUÉ (otra vez media consigna); Rock Star mezcla fama con instrumento.
 
-LIBRO — BE the Compiler: Monster/Vampire (Ubicación pág. 533-535, Sesión #98) — [ ] pendiente
-Arranque: ejercicios/lib27-be-the-compiler-monster.md | Si te trabás: Sesiones #95-#98 de la guía · ToDo/entregar-un-ejercicio.md (Nivel 2)
-
 EJERCICIO #18 — Pool Puzzle: los botes (Ubicación pág. 536-537, Sesión #99) — [ ] pendiente
 Tipo: completar código (4 clases; salida exacta "drift drift hoist sail")
 Arranque: ejercicios/ej18-pool-puzzle-boats/TestBoats.java | Si te trabás: Sesiones #93-#98 de la guía · ToDo/crear-una-clase-java.md
@@ -133,6 +130,10 @@ r1 MEJOR que el original: corrigió solo el único error (las 4 asignaciones de 
 REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pág. 253-255) (r2) — programado: 2026-10-03 — [ ] pendiente
 Arranque: ejercicios/repasos/lib09-r2.md (lo crea `/repaso`)
 r1 BIEN: conteos de Bob exactos (11 objetos, 11 referencias) y cerró "queda UN solo Contact accesible". Mirar que en Kate diga TAMBIÉN cuántas referencias hay (1) y que nombre "elegibles para el garbage collector". ToDo/entregar-un-ejercicio.md (Nivel 1).
+
+REPASO — LIBRO BE the Compiler: Monster/Vampire (pág. 533-535) (r1) — programado: 2026-10-03 — [ ] pendiente
+Arranque: ejercicios/repasos/lib27-r1.md (lo crea `/repaso`)
+Veredictos 4/4 bien. Mirar: que ubique cada pieza en SU clase (A = Monster, B = Vampire) antes de decir dónde falla el par 2, que dé el porqué del par 3 y que llene la línea final. ToDo/entregar-un-ejercicio.md (Nivel 2).
 
 REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r2) — programado: 2026-10-07 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-sobrescritura-r2.md (lo crea `/repaso`)

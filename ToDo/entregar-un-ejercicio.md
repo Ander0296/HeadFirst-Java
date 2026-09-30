@@ -99,6 +99,11 @@ no se puede esconder nada.
       `CardPayment`. Con varias variables del mismo tipo (`p1`, `p2`), la
       vista agarra el objeto de la de al lado — el tipo de la izquierda es
       igual en todas, el `new` de la derecha es lo que las distingue.
+- [ ] **Si el ejercicio inserta piezas en huecos ("A va en la clase X, B
+      en la clase Y"), escribí al lado de cada pieza el nombre de SU
+      clase antes de razonar.** Ya se ubicó en la superclase un tipo de
+      retorno que estaba en la subclase: el veredicto salió bien, pero la
+      explicación señalaba la clase equivocada.
 - [ ] "Su propia versión" = mismo nombre **Y** mismos tipos de argumentos.
       Compará los paréntesis de la llamada con los del método: si la
       subclase tiene `hablar(String s)` y la llamada es `hablar()`, ese
