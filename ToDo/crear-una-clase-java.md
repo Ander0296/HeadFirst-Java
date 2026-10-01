@@ -200,6 +200,10 @@ void setWatts(int w) { }       // recibe un int, no devuelve nada
       te marca.
 - [ ] Compilá: `javac Archivo.java`. Sin mensajes = compiló bien.
 - [ ] Ejecutá: `java NombreDeLaClase` (sin el `.java`).
+- [ ] **Si la clase tiene un `if`, el TestDrive prueba LAS DOS ramas**: un
+      valor que entra al `if` y otro que cae al `else` (y uno justo en el
+      límite, ej. 15 si la condición es `< 15`). Con un solo valor, la
+      otra rama nunca corrió y no sabés si anda.
 
 ---
 

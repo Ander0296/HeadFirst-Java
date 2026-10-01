@@ -88,10 +88,6 @@ REPASO — LIBRO "BE the JVM" (pág. 378-380) (r2) — programado: 2026-09-18 �
 Arranque: ejercicios/repasos/lib16-r2.md (lo crea `/repaso`)
 r1 BIEN sin pistas. Que nombre `value > 14` como corte (no `i > 14`) y ENTREGUE la traza vuelta por vuelta, no prosa. ToDo/un-bucle-que-termina.md (2), ToDo/entregar-un-ejercicio.md (Nivel 1).
 
-REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r2) — programado: 2026-09-19 — [ ] pendiente
-Arranque: ejercicios/repasos/ej14-r2/ — YA CREADO (2026-09-30), [~] en curso
-r1 BIEN en el corazón. Arrastra: variable sin `private`, y NOMBRES DE MÉTODO (tres veces eligió un prefijo en vez de un verbo puro). Que la PARTE 4 llegue contestada: se salteó las dos veces. ToDo/crear-una-clase-java.md (Nivel 3).
-
 REPASO — LIBRO Sharpen your pencil: ¿qué relaciones tienen sentido? (pág. 505) (r1) — programado: 2026-09-22 — [ ] pendiente
 Arranque: ejercicios/repasos/lib25-r1.md (lo crea `/repaso`)
 Original: 11/11 en SÍ/NO, pero sin escribir las invertidas hasta que se le pidió. Mirar que clasifique cada NO en los tres tipos (invertido / TIENE-UN / sin arreglo) y ESCRIBA la línea corregida. ToDo/entregar-un-ejercicio.md (Nivel 1, condicionales).
@@ -159,6 +155,10 @@ r1 bis BIEN 8/8 (separó variables de métodos, dijo "sobrescrito"). Mirar que e
 REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r3) — programado: 2026-10-29 — [ ] pendiente
 Arranque: ejercicios/repasos/ej08-r3/ (dos archivos) (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. r2 BIEN (29/09): nombró las DOS excepciones, "arranca y revienta", "arreglo" siempre. Arrastra (3ª vez): no escribió las 2 líneas que B imprime antes de reventar, y `z < 3` en vez de `h.length`. ToDo/entregar-un-ejercicio.md (Nivel 3) · ToDo/recorrer-una-coleccion.md (2).
+
+REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r3) — programado: 2026-10-30 — [ ] pendiente
+Arranque: ejercicios/repasos/ej14-r3/ (lo crea `/repaso`)
+ÚLTIMO DEL CICLO: si sale bien, GRADÚA. r2 BIEN (30/09): `private` resuelto. Mirar: que el método de frío/calor IMPRIMA (no devuelva), `get` en los que devuelven, y que el TestDrive pruebe LAS DOS ramas del if. ToDo/crear-una-clase-java.md (Niveles 3 y 6).
 
 
 # ============================================================

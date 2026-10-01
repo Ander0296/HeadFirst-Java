@@ -13,3 +13,12 @@
  * Escribí tu código DEBAJO de este bloque, todo a mano. Acordate de
  * que la clase pública tiene que llamarse igual que el archivo.
  */
+
+public class TermometroTestDrive {
+    public static void main(String[] args) {
+        Termometro termometro = new Termometro();
+        termometro.setTemperaturaActual(10);
+        System.out.println(termometro.temperaturaFarenheit());
+        System.out.println(termometro.estadoTemperatura());
+    }
+}

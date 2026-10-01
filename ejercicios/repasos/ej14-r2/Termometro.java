@@ -45,15 +45,21 @@
  * Anotá qué pasó: compiló o no compiló, y si apareció algún mensaje.
  * Después intentá EJECUTARLA sola:
  *
+ * R/ Si compiló sin problema
+ *
  *     java Termometro
  *
  * Anotá el mensaje exacto que aparece (y su traducción al español, si
  * viene en inglés). Ese mensaje es la respuesta del ejercicio.
  *
+ * R/salta el error de ejecucicón Main method not found in class Termometro
+ *
  * Por último compilá y ejecutá el par completo:
  *
  *     javac Termometro.java TermometroTestDrive.java
  *     java TermometroTestDrive
+ *
+ *     R/ Ejecuta el programa sin problemas
  *
  * PARTE 4 — la pregunta conceptual (ES OBLIGATORIA: sin ella el
  * repaso queda incompleto)
@@ -62,6 +68,10 @@
  * de las clases que ya viste en el libro (Startup, GameHelper, Dog,
  * Song, Movie), cuántas tienen método main, y por qué igual son parte
  * de programas que funcionan.
+ * 
+ * R/ no recuerdo las clases pero creo que de esas clases debería tener GameHelper
+ * las demás son clases plantilla aunque también creo que puede ser que ninguna tenga main
+ * solo son clases plantillas que se unas para hacer variables de referencia con esas clases
  *
  * ------------------------------------------------------------------
  * Si te trabás: revisá la Sesión #09 y #10 de GUIA-JAVA.md (jerarquía
@@ -85,3 +95,23 @@
  * [escribo]. Comparalo con mi original y mi r1 (sin mostrármelos
  * antes) y decime qué mejoré y qué se repitió.
  */
+
+public class Termometro {
+    private double temperaturaActual;
+
+    public void setTemperaturaActual(double temperaturaActual) {
+        this.temperaturaActual = temperaturaActual;
+    }
+
+    public double temperaturaFarenheit() {
+        return temperaturaActual * 9 / 5 + 32;
+    }
+
+    public String estadoTemperatura() {
+        if (temperaturaActual < 15)
+            return "Hace frio";
+        else
+            return "Hace calor";
+    }
+
+}

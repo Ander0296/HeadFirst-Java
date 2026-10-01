@@ -2131,6 +2131,17 @@ se salteó.
 
 Repaso r2 agendado para 2026-09-19.
 
+REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r2) — programado: 2026-09-19 — [x] cumplido 2026-09-30 (sesión java-s113) — RESULTADO: BIEN
+Resuelto en: ejercicios/repasos/ej14-r2/
+MEJORÓ: `private` por fin (público en el original, sin modificador en el r1); división y límite `< 15` sostenidos;
+PARTE 4 contestada por primera vez (con una pista: NINGUNA de Startup/GameHelper/Dog/Song/Movie tiene main; las usa con
+`new` otra clase que sí lo tiene). Con 10 °C trazó bien "50.0 / Hace frio".
+SE REPITIÓ: el método de frío/calor DEVUELVE un String en vez de IMPRIMIR (mismo desvío que la 1ra entrega del original:
+no subrayó el verbo "imprima"). Nombres sin `get` en métodos que devuelven (`temperaturaFarenheit()` sin h →
+getFahrenheit(), `estadoTemperatura()` → getEstado()). RETROCESO: probó UNA sola rama del if (en el r1 probó las dos).
+Prompt de entrega sin rellenar. CHECKLIST: crear-una-clase-java.md Nivel 6 ganó "el TestDrive prueba las dos ramas".
+r3 agendado para 2026-10-30.
+
 ============================================================
 
 ============================================================
