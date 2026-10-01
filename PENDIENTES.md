@@ -128,3 +128,22 @@ capítulo está cerrado.
 
 Rescate (para las cuatro): si al releer aparece que faltaba un concepto real,
 se pide ESE pantallazo puntual y se anota de nuevo como hueco con su QUÉ.
+
+## Repasos y ejercicios — baja el 2026-10-01 (triage: la cola no convergía)
+
+La cola tenía 32 repasos y sale uno por día: no se vacía nunca. Se dan de
+baja los que repiten lo que el examen del 2026-10-01 mostró sólido en frío
+(trazar un bucle, incluido el borde `1 > 1`) o lo que otro repaso vivo ya
+cubre. La baja corta las repeticiones; no marca nada como dominado.
+
+- **ej01 DooBee r2** (vencía 05/08) — bucles del cap. 1, sólidos en el examen.
+- **ej03 Shuffle1 r2** (vencía 06/08) — lo mismo; ej13 MultiFor sigue vivo.
+- **ej02 BottleSong r2** (vencía 09/08) — lo mismo.
+- **lib11 Mixed Messages r1** (vencía 02/08) — mismo formato que lib02 r3, vivo.
+- **lib20 StartupBust anotado r1** (vencía 15/08) — original 21/21; los
+  `break` y el ArrayList siguen vivos en lib19 y ej16.
+- **lib24 "el árbol de los músicos" [~]** (entregado 14/09, pausado 17/09) —
+  quedó parado; ES-UN y árboles de herencia siguen vivos en lib23 r2 y lib25 r1.
+
+Los archivos quedan en ejercicios/. Rescate: si el concepto se cae en un
+examen, se agenda un repaso nuevo (como parseInt el 2026-10-01).

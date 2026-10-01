@@ -22,9 +22,7 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original) (lo crea `/
 # EJERCICIOS ABIERTOS
 # ============================================================
 
-LIBRO — Sharpen your pencil: el árbol de los músicos (Ubicación pág. 496, Sesión #90) — [~] entregado 2026-09-14, pistas dadas
-Arranque: ejercicios/lib24-sharpen-arbol-musicos.md | Si te trabás: Sesión #90 de la guía
-Tabla con sentido (4 subclases de Musician, agregó Guitarrist, Fan suelto) y ES-UN aplicado en Rock Star. Mal: el diagrama es una lista sin jerarquía y sin Rock Star ni Fan; Fan suelto sin POR QUÉ (otra vez media consigna); Rock Star mezcla fama con instrumento.
+(ninguno — lib24 dado de baja en el triage del 2026-10-01, ver PENDIENTES.md)
 
 
 # ============================================================
@@ -34,10 +32,6 @@ Tabla con sentido (4 subclases de Musician, agregó Guitarrist, Fan suelto) y ES
 Nota: corrección completa en EJERCICIOS-ARCHIVO.md; acá solo el "punto a mirar". Criterio (2026-08-25):
 por RIESGO (los que ya fallaron primero), uno por día; el arranque lo crea `/repaso` en el momento.
 
-REPASO — LIBRO "Mixed Messages" (pág. 309-312) (r1) — programado: 2026-08-02 — [ ] pendiente
-Arranque: ejercicios/repasos/lib11-r1.md (lo crea `/repaso`)
-Mirar: el conteo de vueltas del bucle (i<9 son 9 objetos, índices 0 a 8).
-
 REPASO — LIBRO "What's legal?" (pág. 305-306) (r1) — programado: 2026-08-03 — [ ] pendiente
 Arranque: ejercicios/repasos/lib10-r1.md (lo crea `/repaso`)
 Mirar `byte h = calcArea(4, 20)`: la llamada es legal; lo ilegal es el int de retorno sin cast entrando en un byte.
@@ -45,20 +39,6 @@ Mirar `byte h = calcArea(4, 20)`: la llamada es legal; lo ilegal es el int de re
 REPASO — EJERCICIO #11 BE the Compiler: XCopy/Clock (pág. 307) (r1) — programado: 2026-08-03 — [ ] pendiente
 Arranque: ejercicios/repasos/ej11-r1/ (lo crea `/repaso`)
 Mirar: leer el valor exacto que pasa setTime() antes de anotar el output.
-
-REPASO — EJERCICIO DooBee (pág. 109) (r2) — programado: 2026-08-05 — [ ] pendiente
-Arranque: ejercicios/repasos/ej01-doobee-r2/DooBee.java — YA CREADO
-
-REPASO — EJERCICIO Code Magnets: Shuffle1 (pág. 121-122) (r2) — programado: 2026-08-06 — [ ] pendiente
-Arranque: ejercicios/repasos/ej03-shuffle1-r2/Shuffle1.java — YA CREADO
-
-REPASO — EJERCICIO BottleSong (pág. 111) (r2) — programado: 2026-08-09 — [ ] pendiente
-Arranque: ejercicios/repasos/ej02-bottlesong-r2/BottleSong.java — YA CREADO
-Mirar: que resuelva en BottleSong.java, no en un "TestDrive".
-
-REPASO — LIBRO "Annotate the code yourself!" StartupBust (pág. 430-433) (r1) — programado: 2026-08-15 — [ ] pendiente
-Arranque: ejercicios/repasos/lib20-r1.md (lo crea `/repaso`)
-Original PERFECTO (21/21). Mirar los dos break (15 = salir tras un hit; 16 = remove + salir tras un kill) y el par 5/6.
 
 REPASO — EJERCICIO #15 "Agenda de contactos" (r1) — programado: 2026-09-06 — [ ] pendiente
 Arranque: ejercicios/repasos/ej15-r1/ (lo crea `/repaso`)
