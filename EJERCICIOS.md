@@ -26,9 +26,6 @@ LIBRO — Sharpen your pencil: el árbol de los músicos (Ubicación pág. 496, 
 Arranque: ejercicios/lib24-sharpen-arbol-musicos.md | Si te trabás: Sesión #90 de la guía
 Tabla con sentido (4 subclases de Musician, agregó Guitarrist, Fan suelto) y ES-UN aplicado en Rock Star. Mal: el diagrama es una lista sin jerarquía y sin Rock Star ni Fan; Fan suelto sin POR QUÉ (otra vez media consigna); Rock Star mezcla fama con instrumento.
 
-EJERCICIO #18 — Pool Puzzle: los botes (Ubicación pág. 536-537, Sesión #99) — [ ] pendiente
-Tipo: completar código (4 clases; salida exacta "drift drift hoist sail")
-Arranque: ejercicios/ej18-pool-puzzle-boats/TestBoats.java | Si te trabás: Sesiones #93-#98 de la guía · ToDo/crear-una-clase-java.md
 
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
@@ -134,6 +131,10 @@ r1 BIEN: conteos de Bob exactos (11 objetos, 11 referencias) y cerró "queda UN 
 REPASO — LIBRO BE the Compiler: Monster/Vampire (pág. 533-535) (r1) — programado: 2026-10-03 — [ ] pendiente
 Arranque: ejercicios/repasos/lib27-r1.md (lo crea `/repaso`)
 Veredictos 4/4 bien. Mirar: que ubique cada pieza en SU clase (A = Monster, B = Vampire) antes de decir dónde falla el par 2, que dé el porqué del par 3 y que llene la línea final. ToDo/entregar-un-ejercicio.md (Nivel 2).
+
+REPASO — EJERCICIO #18 Pool Puzzle: los botes (pág. 536-537) (r1) — programado: 2026-10-04 — [ ] pendiente
+Arranque: ejercicios/repasos/ej18-r1/TestBoats.java (lo crea `/repaso`, CON diccionario de la piscina)
+Salió con muchas pistas y trabado por el inglés. Mirar que sin ayuda diga por qué `b3.move()` imprime "drift" (Rowboat no tiene move(): hereda el de Boat) y que deje UN solo `public class` por archivo.
 
 REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r2) — programado: 2026-10-07 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-sobrescritura-r2.md (lo crea `/repaso`)

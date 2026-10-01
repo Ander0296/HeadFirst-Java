@@ -91,3 +91,43 @@
  Mi código está en ejercicios/ej18-pool-puzzle-boats/. Compila así: [pegá
  acá el resultado de javac] y al ejecutarlo imprime: [pegá acá la salida].
 */
+
+class Rowboat extends Boat { // Rowboat = bote de remos
+    public void rowTheBoat() { // rowTheBoat() = remar el bote
+        System.out.print("stroke natasha"); // stroke natasha = "remada, Natasha"
+    }
+}
+
+class Boat {
+    private int length;
+
+    public void setLength(int len) {
+        length = len; // length = largo · len = largo (abreviado)
+    }
+
+    public int getLength() { // getLength() = obtener el largo
+        return length;
+    }
+
+    public void move() { // move() = moverse
+        System.out.print("drift ");
+    }
+}
+
+public class TestBoats { // TestBoats = probar los botes
+    public static void main(String[] args) {
+        Boat b1 = new Boat(); // Boat = bote
+        Sailboat b2 = new Sailboat(); // Sailboat = velero
+        Rowboat b3 = new Rowboat();
+        b2.setLength(32); // setLength() = fijar el largo
+        b1.move();
+        b3.move();
+        b2.move();
+    }
+}
+
+class Sailboat extends Boat {
+    public void move() {
+        System.out.print("hoist sail");
+    }
+}

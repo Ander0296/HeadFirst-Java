@@ -29,6 +29,10 @@ vivir directamente dentro de una clase: le falta el método del medio.
       de minúsculas: `termometro` no sirve.
 - [ ] El archivo termina en `.java` (no `.txt`, no sin extensión).
 - [ ] Los `import` (si hay) van **arriba de todo**, antes del `class`.
+- [ ] Si el archivo tiene VARIAS clases, contá los `public class`: tiene que
+      haber UNO solo, el que se llama igual que el archivo. A las demás se
+      les saca el `public` (o van cada una a su propio archivo). Si no:
+      `class X is public, should be declared in a file named X.java`.
 
 ## Nivel 2 — La clase
 

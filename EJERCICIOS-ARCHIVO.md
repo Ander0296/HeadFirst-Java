@@ -2713,3 +2713,8 @@ LIBRO — BE the Compiler: Monster/Vampire (pág. 533-535, Sesión #98) — [x] 
 Arranque: ejercicios/lib27-be-the-compiler-monster.md — resultado: 4/4 veredictos, cerrado sin responder las pistas (a pedido del usuario).
 - BIEN: par 1 con la salida exacta; par 4 razonado solo: `frighten(byte)` sobrecarga, el int no entra en byte, corre la versión de Monster.
 - MAL: par 2 dijo "en la superclase el método es int" (el int es B, en Vampire: la subclase cambia el tipo de retorno); par 3 sin porqué (`scare` es un método nuevo, Vampire hereda `frighten` de Monster); línea final en blanco. r1 al 2026-10-03.
+
+EJERCICIO #18 — Pool Puzzle: los botes (pág. 536-537, Sesión #99) — [x] completado (2026-09-30, sesión java-s112)
+Arranque: ejercicios/ej18-pool-puzzle-boats/TestBoats.java — compila (4 .class), salida "drift drift hoist sail" (con espacio agregado en "drift ").
+- BIEN: Boat entera sola a la primera (private, setter, getter con return, move "drift"); Sailboat extends Boat; tipos del main.
+- MAL: Rowboat extends TestBoats (no ES-UN); usó getLength() como si imprimiera; 4 clases public en un archivo (no compila). Se trabó por el inglés: el arranque no traía diccionario de la piscina. r1 al 2026-10-04.
