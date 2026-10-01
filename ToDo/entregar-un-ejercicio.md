@@ -194,6 +194,10 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
       CONCATENACIÓN.** El `+` entre un String y otra cosa PEGA texto, no
       suma: `"Dog: " + name` da `Dog: Fido`. Dar bien el resultado sin
       nombrar el mecanismo ya falló cuatro veces seguidas.
+- [ ] **Si convertís un String a número, escribí `Integer.parseInt(...)`
+      con `Integer.` adelante, y la línea COMPLETA con su variable.**
+      `parseInt` es un método de la clase `Integer`: suelto da `cannot
+      find symbol`. Correcto: `int total = Integer.parseInt(cantidad) + 2;`
 
 ## Nivel 4 — Antes de mandar
 

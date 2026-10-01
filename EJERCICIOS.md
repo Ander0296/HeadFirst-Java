@@ -128,6 +128,10 @@ REPASO — EJERCICIO #18 Pool Puzzle: los botes (pág. 536-537) (r1) — program
 Arranque: ejercicios/repasos/ej18-r1/TestBoats.java (lo crea `/repaso`, CON diccionario de la piscina)
 Salió con muchas pistas y trabado por el inglés. Mirar que sin ayuda diga por qué `b3.move()` imprime "drift" (Rowboat no tiene move(): hereda el de Boat) y que deje UN solo `public class` por archivo.
 
+REPASO — CONCEPTO "String vs. int: Integer.parseInt" (r1) — programado: 2026-10-04 — [ ] pendiente
+Arranque: ejercicios/repasos/concepto-parseint-r1/ (lo crea `/repaso`; salió de DOMINADOS en el examen del 01/10)
+Examen: sabía que hay que convertir, pero escribió `parseInt(cantidad) + 2` sin `Integer.` (no compila) y sin la línea completa; dijo "82" sin decir que es String. Mirar las tres cosas. ToDo/entregar-un-ejercicio.md (Nivel 3).
+
 REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r2) — programado: 2026-10-07 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-sobrescritura-r2.md (lo crea `/repaso`)
 r1 BIEN (5/5): leyó el método ENTERO y escribió la salida en orden — las dos caídas de los exámenes del 17/09 y 20/09 quedaron resueltas. Mirar que sostenga el orden cuando la cadena de llamadas tenga TRES niveles, y que no arrastre líneas de la versión del padre que la subclase no tiene.
@@ -166,5 +170,4 @@ Arranque: ejercicios/repasos/ej14-r3/ (lo crea `/repaso`)
 - `main` es un MÉTODO (`public static void main(String[] args)`), no una clase: la JVM lo busca dentro de la clase que se nombra en `java NombreClase`. Cualquier cantidad de clases puede tenerlo; los demás `main` se ignoran.
 - Una clase sin `main` compila igual: `main` no lo exige el compilador, solo hace falta para ARRANCAR. Sin él da error al EJECUTAR (`Main method not found in class X`); `Could not find or load main class X` es otra cosa (carpeta o nombre equivocados).
 - `+` entre un String y otra cosa CONCATENA (une texto): `"Dog: " + name` → `Dog: Fido`. `{2, 4, 6, 8}` con `int[]` es un ARREGLO, no una lista.
-- `"8"` con comillas es un String, no un número: para operar con él hace falta `Integer.parseInt("8")`.
 - Antes de decir qué hace un `if`/`while`, EVALUAR la condición con el valor real (x = 22 → `22 < 15` es falso); un `while` cuya variable nunca cambia es un bucle infinito.
