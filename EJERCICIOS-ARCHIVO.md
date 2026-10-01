@@ -2729,3 +2729,9 @@ EJERCICIO #18 — Pool Puzzle: los botes (pág. 536-537, Sesión #99) — [x] co
 Arranque: ejercicios/ej18-pool-puzzle-boats/TestBoats.java — compila (4 .class), salida "drift drift hoist sail" (con espacio agregado en "drift ").
 - BIEN: Boat entera sola a la primera (private, setter, getter con return, move "drift"); Sailboat extends Boat; tipos del main.
 - MAL: Rowboat extends TestBoats (no ES-UN); usó getLength() como si imprimiera; 4 clases public en un archivo (no compila). Se trabó por el inglés: el arranque no traía diccionario de la piscina. r1 al 2026-10-04.
+
+REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3 bis) — [x] 2026-10-01 (sesión java-s114) — BIEN → **GRADUADO**
+Arranque: ejercicios/repasos/sharpen-your-pencil-r3bis.md
+- RESUELTO solo (sin pistas): "concatena" en la línea 11 (había faltado 4 veces), "arreglo" en la 9 (no "lista"), ya no dice "condicional while". Línea 13 impecable.
+- CON PISTAS: con x = 22 el perro NO ladra (en el r3 había dicho que sí); el while es un bucle infinito porque x no cambia; "8" con comillas es String y por eso existe parseInt; `Dog` es el tipo, `myDog` la referencia; el catch atrapa la excepción para dar un mensaje propio.
+- FLOJO: dejó vacías las líneas 8 y 18 (`}`) y no dijo que `new` crea el objeto (media consigna, cubierta por ToDo/entregar-un-ejercicio.md). "inicializada" donde iba "asignada" (línea 4). Ciclo cerrado: original → r1 → r2 → r3 (no gradúa) → r3 bis BIEN.

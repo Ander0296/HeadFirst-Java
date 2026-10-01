@@ -108,10 +108,6 @@ REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 
 Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. 5/5 las tres veces. Que TRACE el bucle: `y` llega a 10 (3 dígitos) y `x` sube DOS veces por vuelta (3 vueltas, no 5).
 
-REPASO — LIBRO Sharpen your pencil (pág. 80-81) (r3 bis) — programado: 2026-10-01 — [ ] pendiente
-Arranque: ejercicios/repasos/sharpen-your-pencil-r3bis.md (lo crea `/repaso`)
-r3 NO graduó (28/09): sin "concatenación" por 4ª vez, "condicional while", "lista" por arreglo. Mirar la línea 5: con x = 22, `22 < 15` es FALSO → el perro NO ladra (con pista dijo que sí). Si sale bien, GRADÚA. ToDo/entregar-un-ejercicio.md (Nivel 3).
-
 REPASO — LIBRO Mixed Messages: "Mixed2" (pág. 531-533) (r1) — programado: 2026-10-02 — [ ] pendiente
 Arranque: ejercicios/repasos/lib26-r1.md (lo crea `/repaso`)
 Original 4/4 tras UNA pista (bloque 4: se salteó B al subir desde el objeto de a2). Mirar que suba la cadena clase por clase desde el `new` y que escriba el porqué de CADA llamada en los 4 bloques (solo lo hizo en el 1). ToDo/entregar-un-ejercicio.md (Nivel 2).
@@ -169,3 +165,6 @@ Arranque: ejercicios/repasos/ej14-r3/ (lo crea `/repaso`)
 - Toda instrucción ejecutable (`while`, `if`...) vive DENTRO de un método (con cualquier nombre), nunca suelta en la clase.
 - `main` es un MÉTODO (`public static void main(String[] args)`), no una clase: la JVM lo busca dentro de la clase que se nombra en `java NombreClase`. Cualquier cantidad de clases puede tenerlo; los demás `main` se ignoran.
 - Una clase sin `main` compila igual: `main` no lo exige el compilador, solo hace falta para ARRANCAR. Sin él da error al EJECUTAR (`Main method not found in class X`); `Could not find or load main class X` es otra cosa (carpeta o nombre equivocados).
+- `+` entre un String y otra cosa CONCATENA (une texto): `"Dog: " + name` → `Dog: Fido`. `{2, 4, 6, 8}` con `int[]` es un ARREGLO, no una lista.
+- `"8"` con comillas es un String, no un número: para operar con él hace falta `Integer.parseInt("8")`.
+- Antes de decir qué hace un `if`/`while`, EVALUAR la condición con el valor real (x = 22 → `22 < 15` es falso); un `while` cuya variable nunca cambia es un bucle infinito.
