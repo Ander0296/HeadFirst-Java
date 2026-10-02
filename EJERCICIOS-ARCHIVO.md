@@ -2735,3 +2735,8 @@ Arranque: ejercicios/repasos/sharpen-your-pencil-r3bis.md
 - RESUELTO solo (sin pistas): "concatena" en la línea 11 (había faltado 4 veces), "arreglo" en la 9 (no "lista"), ya no dice "condicional while". Línea 13 impecable.
 - CON PISTAS: con x = 22 el perro NO ladra (en el r3 había dicho que sí); el while es un bucle infinito porque x no cambia; "8" con comillas es String y por eso existe parseInt; `Dog` es el tipo, `myDog` la referencia; el catch atrapa la excepción para dar un mensaje propio.
 - FLOJO: dejó vacías las líneas 8 y 18 (`}`) y no dijo que `new` crea el objeto (media consigna, cubierta por ToDo/entregar-un-ejercicio.md). "inicializada" donde iba "asignada" (línea 4). Ciclo cerrado: original → r1 → r2 → r3 (no gradúa) → r3 bis BIEN.
+
+REPASO — LIBRO Mixed Messages: "Mixed2" (pág. 531-533) (r1) — programado: 2026-10-02 — [x] cumplido (2026-10-02, sesión java-s118)
+Entregado en: ejercicios/repasos/lib26-r1.md — resultado: BIEN 4/4 (S2, S4, S7, S4), sin pistas.
+MEJORÓ vs. original: bloque 4 a la primera (subió C → B para m1, el error del original) y porqué en las 12 llamadas (el original solo en el bloque 1).
+FLOJO: "en todas las llamadas ivar es 13" (ivar vale 7 y no cambia; 13 es ivar + 6, y solo se imprime en el m3 de C); en a2 no nombró el `new C()`. r2 al 2026-10-16.

@@ -75,6 +75,10 @@ no se puede esconder nada.
       ejecutan de verdad** y en qué orden. Si sacaste o agregaste una
       línea como arreglo, releé el `main` YA arreglado: las líneas que
       quedan son las únicas que imprimen.
+- [ ] **No confundas la variable con la cuenta que la usa.** En
+      `print(ivar + 6)` con `ivar = 7`, la variable SIGUE valiendo 7: lo
+      que se imprime es el resultado, 13. Una cuenta adentro de un
+      `print` no le asigna nada a nadie; solo `=` cambia una variable.
 - [ ] **Leé el método ENTERO, no su primera línea.** Un método puede
       imprimir algo Y ADEMÁS llamar a otro método abajo. Cada llamada
       que veas adentro te obliga a entrar ahí y seguir leyendo: la

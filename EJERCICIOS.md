@@ -90,10 +90,6 @@ REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 
 Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. 5/5 las tres veces. Que TRACE el bucle: `y` llega a 10 (3 dígitos) y `x` sube DOS veces por vuelta (3 vueltas, no 5).
 
-REPASO — LIBRO Mixed Messages: "Mixed2" (pág. 531-533) (r1) — programado: 2026-10-02 — [ ] pendiente
-Arranque: ejercicios/repasos/lib26-r1.md (lo crea `/repaso`)
-Original 4/4 tras UNA pista (bloque 4: se salteó B al subir desde el objeto de a2). Mirar que suba la cadena clase por clase desde el `new` y que escriba el porqué de CADA llamada en los 4 bloques (solo lo hizo en el 1). ToDo/entregar-un-ejercicio.md (Nivel 2).
-
 REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r2) — programado: 2026-10-01 — [ ] pendiente
 Arranque: ejercicios/repasos/ej09-r2/TestArrays.java (lo crea `/repaso`)
 r1 MEJOR que el original: corrigió solo el único error (las 4 asignaciones de `index[]` ya salieron del `while`). Mirar que siga separando preparación de bucle y que no invierta `islands[index[y]]`.
@@ -133,6 +129,10 @@ r1 bis BIEN (28/09): referencia → compilador y arreglo en el padre, RESUELTO. 
 REPASO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r2) — programado: 2026-10-12 — [ ] pendiente
 Arranque: ejercicios/repasos/lib23-r2.md (lo crea `/repaso`)
 r1 bis BIEN 8/8 (separó variables de métodos, dijo "sobrescrito"). Mirar que escriba el NÚMERO total en cada conteo (no solo "ninguna propia + una heredada") y que en P8 diga que FamilyDoctor es HERMANO de Surgeon: la herencia baja, no va de costado.
+
+REPASO — LIBRO Mixed Messages: "Mixed2" (pág. 531-533) (r2) — programado: 2026-10-16 — [ ] pendiente
+Arranque: ejercicios/repasos/lib26-r2.md (lo crea `/repaso`)
+r1 BIEN 4/4 sin pistas, con el porqué de las 12 llamadas. Mirar que en a2 nombre el `new C()` (el objeto) antes de subir la cadena, y que no diga "ivar es 13": ivar vale 7, lo que imprime es ivar + 6. ToDo/entregar-un-ejercicio.md (Nivel 2).
 
 REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r3) — programado: 2026-10-29 — [ ] pendiente
 Arranque: ejercicios/repasos/ej08-r3/ (dos archivos) (lo crea `/repaso`)
