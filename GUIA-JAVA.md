@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 564 de 1629 (33%) — capítulo 8: **MyAnimalList y la clase Object** (Sesión #103). **Próximo: pág. 565** (qué trae Object). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #103** (tanda de 4 pantallazos, 2026-10-02).
-- PRÓXIMA SESIÓN: `/rename java-s119` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s118 (02/10): sin tanda, solo el repaso lib26 r1 BIEN 4/4 sin pistas, r2 al 16/10.)
+- Última página: 569 de 1629 (33%) — capítulo 8: **la clase Object y sus 4 métodos** (Sesión #104). **Próximo: pág. 570**. Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #104** (tanda de 5 pantallazos, 2026-10-02).
+- PRÓXIMA SESIÓN: `/rename java-s120` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s119 (02/10): Sesión #104, pág. 565-569, Object.)
 - Ejercicios: **lib26** "Mixed2" COMPLETADO el 28/09 (4/4 tras una pista; r1 al 2026-10-02). **lib27** Monster/Vampire COMPLETADO el 29/09 (4/4 veredictos, cerrado sin responder pistas; r1 al 2026-10-03). **ej18** Pool Puzzle "los botes" COMPLETADO el 30/09 con muchas pistas, trabado por el inglés (r1 al 2026-10-04; desde ahora todo puzzle trae diccionario de la piscina). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
@@ -276,6 +276,10 @@ Ejercicios: ver EJERCICIOS.md.
 | pass the buck                    | pasar la pelota | Expresión: dejarle la responsabilidad a otro. Una clase abstracta puede no implementar los métodos abstractos que heredó y dejárselos a la primera subclase concreta. |
 | heterogeneous (list)             | (lista) heterogénea | Colección que guarda objetos de clases DISTINTAS bajo un mismo supertipo: un `Animal[]` con perros y gatos adentro. |
 | Object (class)                   | (la clase) Object | La raíz de TODAS las clases de Java: quien no escribe `extends` hereda de ella automáticamente. Trae equals(), getClass(), hashCode() y toString(). |
+| explicitly / implicitly          | explícitamente / implícitamente | Explícito = lo escribís vos (`extends Animal`). Implícito = Java lo hace solo sin que lo escribas (toda clase sin `extends` extiende `Object`). |
+| equals()                         | es igual a | Método de Object que dice si dos objetos se consideran iguales. La versión de Object solo da true si son EL MISMO objeto (como `==`); String la sobrescribe para comparar el texto. |
+| hashcode / hashCode()            | código hash | Número entero que identifica a un objeto, pensado para guardarlo rápido en tablas hash (HashMap). Por ahora: "una especie de ID"; dos objetos distintos pueden llegar a compartirlo. |
+| toString()                       | a texto (convertir a String) | Método de Object que devuelve un String que representa al objeto. El de Object da `NombreClase@número-hex` (Cat@7d277f); println(obj) lo llama solo. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -459,6 +463,18 @@ SESIÓN #103 — 2026-10-02 — polimorfismo en acción: MyDogList → MyAnimalL
 - Nota del profe: en el trabajo real nadie escribe esta lista: se usa `ArrayList<Animal>`, que crece sola. "Una clase que acepte cualquier cosa" se resuelve con genéricos (cap. 11).
 - Chequeo: las dos BIEN (0 Animals, arreglo en null; la sexta llamada no hace nada y nextIndex queda en 5). Faltó escribir `5 < 5` → false y "no imprime nada". Práctica libre en Eclipse (Pildoras): faltaba `package`, Cat no extendía Feline.
 - PRÓXIMO PASO: pág. 565 (qué trae Object).
+
+SESIÓN #104 — 2026-10-02 — la clase Object y sus 4 métodos (pág. 565-569, 33%)
+- Para una lista que acepte CUALQUIER cosa hace falta un tipo por encima de Animal: ya existe, es `Object`. Toda clase que no extiende nada explícitamente la extiende implícitamente (`class Dog extends Object`).
+- Si la clase ya extiende otra, NO extiende Object directo: Dog → Canine → Animal → Object. Lo hereda indirectamente, igual que todo lo demás.
+- Por qué existe: los autores de la biblioteca escribieron métodos que reciben y devuelven tipos que no conocían (tus clases); sin una raíz común eso sería imposible.
+- `equals(Object o)`: ¿se consideran iguales? Dog vs. Cat → false. `getClass()`: la clase con la que se creó el objeto → `class Cat`. `hashCode()`: un número tipo ID (8202111). `toString()`: `Cat@7d277f`.
+- Nota del profe: el equals de Object compara si es el MISMO objeto (igual que `==`); String lo sobrescribe para comparar texto (por eso `b.equals(x)`). El hashCode NO es único garantizado. El número de toString es el hashCode en hexadecimal (7d277f = 8202111). `println(c)` llama solo a `c.toString()`.
+- Nota del profe: en el trabajo se sobrescriben equals/hashCode/toString en las clases propias (y los `record` de Java 16+ los generan solos).
+- Duda: == vs. equals (programa propio en nvim): entendido. Con literales iguales, == da true por el String pool; con new String da false. Regla: los String se comparan con equals.
+- Ejercicios de la tanda: ninguno.
+- Chequeo: veredictos BIEN (indirecto; true/false; 2 objetos). Porqués MAL: "toString sale de Animal" (sale de Object) y "equals compara el contenido" (el de Object compara si es el mismo objeto). Repaso del concepto al 05/10.
+- PRÓXIMO PASO: pág. 570.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

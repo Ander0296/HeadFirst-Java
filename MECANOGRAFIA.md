@@ -545,3 +545,9 @@ new Animal[5] crea un arreglo, no objetos: Animal sigue siendo abstracta.
 
 s103b — la raíz de todo:
 Toda clase que no extiende nada extiende Object automáticamente: class Animal { }
+
+s104a — los métodos de Object:
+Todo objeto hereda equals(), getClass(), hashCode() y toString() de Object.
+
+s104b — toString por defecto:
+System.out.println(c.toString()); imprime Cat@7d277f: clase, arroba y número.

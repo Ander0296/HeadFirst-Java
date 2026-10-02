@@ -110,6 +110,10 @@ REPASO — CONCEPTO "String vs. int: Integer.parseInt" (r1) — programado: 2026
 Arranque: ejercicios/repasos/concepto-parseint-r1/ (lo crea `/repaso`; salió de DOMINADOS en el examen del 01/10)
 Examen: sabía que hay que convertir, pero escribió `parseInt(cantidad) + 2` sin `Integer.` (no compila) y sin la línea completa; dijo "82" sin decir que es String. Mirar las tres cosas. ToDo/entregar-un-ejercicio.md (Nivel 3).
 
+REPASO — CONCEPTO "== vs. equals() (y el String pool)" (r1) — programado: 2026-10-05 — [ ] pendiente
+Arranque: ejercicios/repasos/concepto-equals-r1/ (lo crea `/repaso`; lo pidió el usuario por confusión, Sesión #104)
+Chequeo del 02/10: veredictos bien, pero dijo "equals compara el contenido" para Dog (sin sobrescribir = mismo objeto, como ==) y "toString sale de Animal" (sale de Object, heredado a través de Animal). Mirar: que diga QUIÉN escribió el método y si la clase lo sobrescribió.
+
 REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r2) — programado: 2026-10-07 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-sobrescritura-r2.md (lo crea `/repaso`)
 r1 BIEN (5/5): leyó el método ENTERO y escribió la salida en orden — las dos caídas de los exámenes del 17/09 y 20/09 quedaron resueltas. Mirar que sostenga el orden cuando la cadena de llamadas tenga TRES niveles, y que no arrastre líneas de la versión del padre que la subclase no tiene.
