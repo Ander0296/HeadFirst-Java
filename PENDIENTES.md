@@ -28,8 +28,11 @@ y no se salda nunca.
 # HUECOS DE FORMATO — falta el contenido, hay que recuperarlo
 # ============================================================
 
-**VACÍO** (saldado el 2026-09-23): las 4 entradas que quedaban se dieron de
-baja en el triage de ese día. Ver DADAS DE BAJA.
+**SALDADO 2026-10-02** — la tabla del Sharpen "Abstract versus Concrete"
+(pág. 558-560) llegó en la misma sesión (#103): arranque lib28 creado.
+
+(Antes: vacío desde el 2026-09-23, cuando las 4 entradas que quedaban se
+dieron de baja. Ver DADAS DE BAJA.)
 
 **SALDADO 2026-09-10** — la página 476 (Brain Power del capítulo 7) llegó con
 texto en la Sesión #87 y quedó explicada: era la pregunta del gato doméstico

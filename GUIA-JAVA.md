@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 557 de 1629 (32%) — capítulo 8: **métodos abstractos** (Sesión #102). **Próximo: pág. 558**, la tabla del Sharpen "Abstract versus Concrete classes" (crearle su arranque lib28). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #102** (tanda de 4 pantallazos, 2026-09-29).
-- PRÓXIMA SESIÓN: `/rename java-s117` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s116 (01/10): solo `/pendientes` (6 bajas); la tanda de la pág. 560 se CANCELÓ a pedido del usuario — se hace desde cero en el otro PC.)
+- Última página: 564 de 1629 (33%) — capítulo 8: **MyAnimalList y la clase Object** (Sesión #103). **Próximo: pág. 565** (qué trae Object). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #103** (tanda de 4 pantallazos, 2026-10-02).
+- PRÓXIMA SESIÓN: `/rename java-s118` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s117 (02/10): Sesión #103, la tanda de la pág. 560 hecha desde cero + lib28 creado.)
 - Ejercicios: **lib26** "Mixed2" COMPLETADO el 28/09 (4/4 tras una pista; r1 al 2026-10-02). **lib27** Monster/Vampire COMPLETADO el 29/09 (4/4 veredictos, cerrado sin responder pistas; r1 al 2026-10-03). **ej18** Pool Puzzle "los botes" COMPLETADO el 30/09 con muchas pistas, trabado por el inglés (r1 al 2026-10-04; desde ahora todo puzzle trae diccionario de la piscina). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
@@ -274,6 +274,8 @@ Ejercicios: ver EJERCICIOS.md.
 | method signature                 | firma del método | Nombre + lista de argumentos (`eat()`, `roam(int)`). Es lo que tiene que coincidir para implementar o sobrescribir. |
 | protocol                         | protocolo | El conjunto de métodos que un supertipo promete que TODAS sus subclases tienen. Los métodos abstractos definen protocolo sin escribir código. |
 | pass the buck                    | pasar la pelota | Expresión: dejarle la responsabilidad a otro. Una clase abstracta puede no implementar los métodos abstractos que heredó y dejárselos a la primera subclase concreta. |
+| heterogeneous (list)             | (lista) heterogénea | Colección que guarda objetos de clases DISTINTAS bajo un mismo supertipo: un `Animal[]` con perros y gatos adentro. |
+| Object (class)                   | (la clase) Object | La raíz de TODAS las clases de Java: quien no escribe `extends` hereda de ella automáticamente. Trae equals(), getClass(), hashCode() y toString(). |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -446,6 +448,17 @@ SESIÓN #102 — 2026-09-29 — Métodos abstractos (pág. 552-557, 32%)
 - Nota del profe: en el trabajo real, `@Override` arriba de cada método implementado; los IDE los generan solos (IntelliJ: "Implement methods", Fase 3).
 - Chequeo: veredictos BIEN (Parrot no compila y lo frena el compilador; método abstracto → clase abstracta). Faltó la salida principal: IMPLEMENTAR `fly()`; hacer Parrot abstracta compila pero prohíbe `new Parrot()`. El porqué de "la abstracta puede tener cuerpo" no llegó (media consigna).
 - PRÓXIMO PASO: pág. 558 — la tabla del Sharpen "Abstract versus Concrete".
+
+SESIÓN #103 — 2026-10-02 — polimorfismo en acción: MyDogList → MyAnimalList, y Object (pág. 560-564, 33%)
+- Lista propia hecha a mano: arreglo de 5 casillas + `nextIndex` (próximo índice); `add()` guarda solo si `nextIndex < arreglo.length`, si no, no hace NADA (ni error ni mensaje).
+- Al sumar gatos: una clase por animal o dos arreglos con `addCat`/`addDog` es torpe; la buena es UNA lista con el SUPERTIPO (`Animal[]`, `add(Animal a)`) que acepta cualquier subclase, incluso las futuras.
+- `new Animal[5]` con Animal abstracta COMPILA: crea UN objeto arreglo con 5 casillas en null, ningún Animal. Lo prohibido es `new Animal()`.
+- Toda clase que no escribe `extends` hereda automáticamente de `Object`, la raíz de todo el árbol: equals(), getClass(), hashCode(), toString().
+- La app numera por pantalla: la tabla del Sharpen y MyDogList dicen las dos "Page 560". Pág. 562: cubierto igual (el código sigue sin corte).
+- Ejercicios de la tanda: lib28 Sharpen "Abstract versus Concrete" (pendiente): imaginar una app donde cada clase sea concreta y otra donde sea abstracta.
+- Nota del profe: en el trabajo real nadie escribe esta lista: se usa `ArrayList<Animal>`, que crece sola. "Una clase que acepte cualquier cosa" se resuelve con genéricos (cap. 11).
+- Chequeo: las dos BIEN (0 Animals, arreglo en null; la sexta llamada no hace nada y nextIndex queda en 5). Faltó escribir `5 < 5` → false y "no imprime nada". Práctica libre en Eclipse (Pildoras): faltaba `package`, Cat no extendía Feline.
+- PRÓXIMO PASO: pág. 565 (qué trae Object).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

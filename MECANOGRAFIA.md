@@ -539,3 +539,9 @@ public abstract void eat(); no tiene cuerpo: termina en punto y coma.
 
 s102b — implementar:
 La primera clase concreta implementa todos los métodos abstractos: class Dog extends Canine { }
+
+s103a — arreglo de un tipo abstracto:
+new Animal[5] crea un arreglo, no objetos: Animal sigue siendo abstracta.
+
+s103b — la raíz de todo:
+Toda clase que no extiende nada extiende Object automáticamente: class Animal { }

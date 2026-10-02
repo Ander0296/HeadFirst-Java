@@ -22,7 +22,9 @@ Arranque: ejercicios/repasos/... (desde cero, sin mirar el original) (lo crea `/
 # EJERCICIOS ABIERTOS
 # ============================================================
 
-(ninguno — lib24 dado de baja en el triage del 2026-10-01, ver PENDIENTES.md)
+LIBRO — Sharpen your pencil: "Abstract versus Concrete classes" (pág. 557-560, Sesión #103) — [ ] pendiente
+Arranque: ejercicios/lib28-sharpen-abstracta-o-concreta.md | Si te trabás: Sesiones #102 y #103 de la guía
+OJO: el arranque dice "15 huecos" por error; son 21.
 
 
 # ============================================================
