@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 591 de 1629 (34%) — capítulo 8: **el cast de referencias** (`Dog d = (Dog) o;`, `instanceof`, `ClassCastException`) y **el contrato** de una clase; arranca el diseño del PetShop (Sesión #109). **Próximo: pág. 591-592** (opción 2 para meter comportamientos de mascota). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #109** (tanda de 5 pantallazos, 2026-10-03).
-- PRÓXIMA SESIÓN: `/rename java-s126` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s125 (03/10): Sesión #109, pág. 586-591.)
+- Última página: 601 de 1629 (34%) — capítulo 8: opciones de diseño del PetShop y por qué Java prohíbe la **herencia múltiple** (Deadly Diamond of Death) (Sesión #110). **Próximo: pág. 602** (la solución: la interface). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #110** (tanda de 5 pantallazos, 2026-10-03).
+- PRÓXIMA SESIÓN: `/rename java-s127` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s126 (03/10): Sesión #110, pág. 591-601.)
 - Ejercicios: **lib26** "Mixed2" COMPLETADO el 28/09 (4/4 tras una pista; r1 al 2026-10-02). **lib27** Monster/Vampire: r1 BIEN 4/4 el 03/10 (línea final en blanco por 2ª vez; r2 al 17/10). **ej18** Pool Puzzle "los botes" COMPLETADO el 30/09 con muchas pistas, trabado por el inglés (r1 al 2026-10-04; desde ahora todo puzzle trae diccionario de la piscina). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
@@ -288,76 +288,15 @@ Ejercicios: ver EJERCICIOS.md.
 | cast back to its real type       | devolver (con un cast) a su tipo real | Convertir una referencia general (Object) al tipo verdadero del objeto (Dog) para recuperar sus métodos. No cambia el objeto: cambia el control remoto. |
 | instanceof                       | es instancia de | Operador que pregunta si un objeto ES UN tipo dado: `o instanceof Dog` da true o false. Se usa antes de un cast para evitar el ClassCastException. |
 | expose (a method)                | exponer (un método) | Hacerlo accesible al código de afuera de la clase, normalmente marcándolo `public`. Los métodos expuestos forman el contrato de la clase. |
+| multiple inheritance             | herencia múltiple | Que una clase extienda DOS o más superclases. Java NO la permite: `extends` acepta una sola clase (`class Dog extends Animal, Pet` no compila). |
+| Deadly Diamond of Death          | diamante mortal de la muerte | El problema que justifica la prohibición: dos superclases sobrescriben el mismo método y la clase de abajo hereda de las dos → ¿cuál versión corre? (No confundir con el diamond operator `<>`.) |
+| do-nothing method                | método que no hace nada | Implementación con cuerpo vacío `{ }`, escrita solo para cumplir con un método abstracto heredado. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
-de código, máximo ~15 líneas por sesión. Las sesiones #01 a #93 están
+de código, máximo ~15 líneas por sesión. Las sesiones #01 a #99 están
 en GUIA-ARCHIVO.md.)
 ============================================================
-
-SESIÓN #94 — 2026-09-18 — Los 3 pasos de `Dog myDog = new Dog();` y la puerta del polimorfismo (pág. 514-517, 30%)
-- Repaso del capítulo 3 con otra mirada: (1) DECLARAR la referencia `Dog myDog` (el control remoto, de tipo Dog PARA SIEMPRE), (2) CREAR el objeto `new Dog()` en el heap, (3) ENLAZAR con `=` (programar el control remoto).
-- Hasta ahora el TIPO DE LA REFERENCIA (izquierda) y el TIPO DEL OBJETO (derecha, lo que va después de `new`) eran el mismo.
-- Con polimorfismo pueden ser DISTINTOS: `Animal myDog = new Dog();` es legal porque un Dog ES-UN Animal.
-- Nota del profe: la regla que ya vimos se lee acá: los BOTONES del control los decide el tipo de la referencia (compilador); qué hace cada botón lo decide el objeto (JVM). Es la misma idea de la sobrescritura.
-- Pág. 514 (el título) no vino en pantallazo: cubierto igual, el contenido arranca en la 515.
-- Ejercicios de la tanda: ninguno.
-- Chequeo: los 3 pasos BIEN. Eligió bien `Animal a = new Dog();`, pero no sabía por qué `Dog d = new Animal();` no compila → se explicó: ES-UN va en una sola dirección (un Animal no tiene por qué ser un Dog).
-- PRÓXIMO PASO: pág. 518 — seguir con `Animal myDog = new Dog();` (qué se puede hacer con una referencia del supertipo).
-
-SESIÓN #95 — 2026-09-18 — Arreglos y argumentos polimórficos (pág. 518-520, 30%)
-- Pág. 518: resumen visual de `Animal myDog = new Dog();` → la referencia y el objeto NO son del mismo tipo; la referencia puede ser una SUPERCLASE del tipo real del objeto. (La viñeta "todavía no lo entiendo" es chiste: cubierto igual.)
-- Regla: a una referencia se le puede asignar CUALQUIER objeto que pase la prueba ES-UN con su tipo (todo lo que `extends` ese tipo).
-- Pág. 519: ARREGLO POLIMÓRFICO: `Animal[] animals = new Animal[5];` guarda Dog, Cat, Wolf, Hippo y Lion. El for-each llama `eat()` y `roam()` y cada objeto ejecuta SU versión (vuelta 1 el eat() de Dog, vuelta 2 el de Cat...).
-- Pág. 520: ARGUMENTO POLIMÓRFICO: `giveShot(Animal a)` en Vet acepta cualquier subclase; `a.makeNoise()` ejecuta el de Dog o el de Hippo según el objeto que llegó. El libro anuncia también tipos de RETORNO polimórficos.
-- Nota del profe: la ganancia es que Vet NO cambia cuando aparece un animal nuevo. Es el corazón de "programar contra el supertipo" (reaparece con interfaces y en Spring, Fase 3).
-- Ejercicios de la tanda: ninguno.
-- Chequeo: P1 eligió bien el eat() de Cat, pero el POR QUÉ quedó en "hereda" (falta: Cat SOBRESCRIBE eat() y la JVM corre la versión del objeto real). P2 MAL: creyó que `giveShot(new Penguin())` necesita una variable → se explicó que el parámetro `a` ES la variable, y que Vet no se toca.
-- PRÓXIMO PASO: pág. 521 — seguir con argumentos/retornos polimórficos.
-
-SESIÓN #96 — 2026-09-18 — Polimorfismo que no cambia, clases final y reglas para sobrescribir (pág. 522-527, 31%)
-- Pág. 522: con parámetros de tipo superclase, el código NO cambia cuando otro programador agrega subclases nuevas (Vet sigue andando con animales que no conocía). Pág. 521, 523-524 y 526: Kindle saltea números, contenido continuo (cubierto igual).
-- No hay límite de niveles de herencia, pero en la práctica los árboles son anchos y poco profundos (1-2 niveles). Se puede extender una clase ajena y sobrescribir el método que funciona mal.
-- Tres cosas impiden extender una clase: que no sea `public` (solo la extienden las de su mismo paquete), `final` (fin de la línea de herencia; ej. `String`) o que solo tenga constructores `private` (cap. 9). Un MÉTODO `final` no se puede sobrescribir.
-- Pág. 525: los métodos son el CONTRATO. El compilador mira el tipo de la REFERENCIA (`Appliance`); la JVM, en ejecución, mira el OBJETO (`Toaster`).
-- Regla 1: los ARGUMENTOS deben ser idénticos y el RETORNO compatible (el mismo tipo o una subclase). `turnOn(int level)` en Toaster NO sobrescribe `turnOn()`: es una SOBRECARGA legal, y con referencia Appliance corre el de Appliance.
-- Regla 2: el método que sobrescribe no puede ser MENOS accesible (`public` → `private` no compila). Hay 4 niveles de acceso (2 vistos) y otra regla con excepciones (cap. 13).
-- Nota del profe: `@Override` arriba del método le pide al compilador que verifique que de verdad sobrescribe; habría atrapado el `turnOn(int)`. Se usa siempre en el trabajo real.
-- Ejercicios de la tanda: ninguno.
-- Chequeo: P1 BIEN (corre el de Appliance: turnOn(int) no sobrescribe; ajuste: Toaster SÍ tiene turnOn() heredado). P2 A MEDIAS: dijo herencia/ES-UN pero omitió la regla 2 (no menos accesible) → otra vez la segunda mitad.
-- PRÓXIMO PASO: pág. 528 (sobrecarga de métodos).
-
-SESIÓN #97 — 2026-09-18 — Sobrecarga de métodos (overloading) + Mixed Messages (pág. 529-533, 31%)
-- Sobrecarga = dos métodos con el MISMO nombre y DISTINTA lista de argumentos. Es otro método que comparte nombre: nada que ver con herencia ni polimorfismo.
-- Para qué: comodidad del que llama (`addNums(int, int)` y `addNums(double, double)`; `setUniqueID(String)` y `setUniqueID(int)`). Reaparece con los constructores (cap. 9).
-- Regla 1: el retorno PUEDE cambiar. Regla 2: NO alcanza con cambiar SOLO el retorno; los argumentos tienen que cambiar sí o sí. Regla 3: el acceso puede ir en cualquier dirección (no hay contrato que cumplir).
-- Quién elige: en la sobrecarga, el COMPILADOR, por los tipos de los argumentos; en la sobrescritura, la JVM, por el objeto real.
-- Nota del profe: `"" + ssNumber` convierte un int en String por concatenación; en código real se prefiere `String.valueOf(ssNumber)`.
-- Pantallazos 1-2 repetían la pág. 527 (cubierto igual); pág. 528 y 530 saltadas por Kindle (cubierto igual).
-- Ejercicios de la tanda: lib26 Mixed Messages "Mixed2" pendiente. El BE the Compiler Monster/Vampire (pág. 533) va en la próxima tanda.
-- Chequeo: P1 BIEN el veredicto (no compila: mismos argumentos), pero dijo "cree que es sobrescritura" — en la MISMA clase el error es "already defined" (ya está definido). P2 A MEDIAS: versión int bien, pero dijo que decide la JVM (decide el COMPILADOR).
-- PRÓXIMO PASO: pág. 533, BE the Compiler (pantallazo 13.55.30 en adelante, ya en paginas/).
-
-SESIÓN #98 — 2026-09-19 — BE the Compiler Monster/Vampire + intro del Pool Puzzle (pág. 533-536, 31%)
-- Pantallazo 1 y el principio del 2 (llamadas y salidas posibles de Mixed2) ya estaban en lib26: cubierto igual.
-- `monsters[i].frighten(i)`: el COMPILADOR solo deja llamar lo que tiene el TIPO DE LA REFERENCIA (Monster); qué versión corre lo decide la JVM por el OBJETO.
-- Un método de la subclase con el MISMO nombre y los MISMOS argumentos sobrescribe → el retorno tiene que ser compatible. Con otros argumentos (o con otro nombre) es un método aparte: no reemplaza nada.
-- Para sobrescribir, los tipos de los argumentos tienen que ser IDÉNTICOS: el tipo del parámetro cuenta, no solo el nombre del método.
-- Se puede llamar a un método y no usar lo que devuelve (el `boolean` de frighten se descarta).
-- Pool Puzzle (pág. 536): elegir fragmentos del "pool" (piscina) para completar un programa que compile y corra; se pueden repetir fragmentos y sobrar otros. El rompecabezas en sí viene en la próxima tanda.
-- Ejercicios de la tanda: lib27 BE the Compiler Monster/Vampire PENDIENTE.
-- Chequeo: P1 MAL — con `Animal a = new Gato(); a.hablar();` y Gato con solo `hablar(String)`, dijo que corre el de Gato "porque lo lee primero"; corre el de Animal (sobrecarga, no sobrescribe). P2 la confundió con el ejercicio: se le dio la respuesta (no compila; lo decide el compilador por la referencia).
-- PRÓXIMO PASO: pág. 536-537, el código del Pool Puzzle.
-
-SESIÓN #99 — 2026-09-19 — Pool Puzzle de los botes (pág. 537-540, 31%)
-- El rompecabezas: cuatro clases con huecos (Rowboat, Boat, Sailboat, TestBoats) y una salida exigida, `drift drift hoist sail`. Se completa con fragmentos de la piscina; se pueden repetir y sobran varios.
-- Para que compile hay que decidir tres cosas distintas en cada hueco: modificador (`public`/`private`/`static`), TIPO (de retorno o de parámetro) y NOMBRE. Un hueco antes de `(` es nombre de método; uno antes de un nombre de variable es un tipo.
-- `extends` solo aparece en el encabezado de una clase, nunca dentro de un método: los huecos del encabezado de Rowboat y de la cuarta clase son de herencia.
-- La salida repite `drift` dos veces y `hoist sail` una: tres llamadas a `move()` sobre tres referencias distintas. Cuál versión imprime cada una depende del objeto real, no de la referencia.
-- El retorno importa: un método `void` no puede llevar `return valor`, y uno declarado `int` tiene que devolver un `int` sí o sí.
-- Pág. 538-540 son las SOLUCIONES del capítulo (BE the Compiler, Mixed Messages y el propio Pool Puzzle): leídas y NO explicadas, quedan como spoilers hasta que se entregue cada ejercicio.
-- Ejercicios de la tanda: EJERCICIO #18 Pool Puzzle "los botes" PENDIENTE.
-- PRÓXIMO PASO: pág. 541 en adelante (arranca el capítulo 8).
 
 SESIÓN #100 — 2026-09-28 — Arranca el capítulo 8: interfaces y clases abstractas; el problema de `new Animal()` (pág. 541-546, 32%)
 - Capítulo 8 "Serious Polymorphism" (polimorfismo en serio). La herencia es solo el comienzo: para aprovechar el polimorfismo del todo hacen falta INTERFACES (no las gráficas: contratos de código).
@@ -471,6 +410,15 @@ SESIÓN #109 — 2026-10-03 — el cast de referencias y el contrato de una clas
 - Nota del profe: desde Java 16, `if (o instanceof Dog d) { d.roam(); }` hace el chequeo y el cast en una línea (pattern matching).
 - Chequeo: veredictos BIEN 2/2 (compila y revienta; UN solo Dog). Flojo: no nombró `ClassCastException` ni dijo POR QUÉ (el objeto real es un Cat); dijo "casteamos la variable o" (o sigue siendo Object: el cast crea una SEGUNDA referencia `d`).
 - PRÓXIMO PASO: pág. 591-592 (opción 2 y siguientes para el PetShop).
+
+SESIÓN #110 — 2026-10-03 — diseñar el PetShop y la herencia múltiple (pág. 591-601, 34%)
+- Opción 2: métodos de mascota ABSTRACTOS en Animal → ningún no-mascota hereda comportamiento, pero cada clase concreta (Hippo, Lion...) tipea métodos "do-nothing" `{ }`, y el contrato MIENTE: anuncia beFriendly() sin hacerlo. En Animal va solo lo que vale para TODOS los animales.
+- Opción 3: métodos de mascota SOLO en Dog y Cat. Dos problemas: (1) sin contrato, el compilador no detecta si alguien escribe doFriendly() o pone un String donde iba un int; (2) sin polimorfismo: `Animal a = new Dog(); a.beFriendly();` no compila (Animal no tiene el método).
+- Lo que se necesita: comportamiento solo en las mascotas + garantía de mismos métodos + polimorfismo → parecen hacer falta DOS superclases (Pet y Animal).
+- Herencia múltiple (`extends Animal, Pet`) NO existe en Java por el Deadly Diamond of Death: CDBurner y DVDBurner sobrescriben burn() de DigitalRecorder; ComboDrive heredaría de las dos → ¿qué burn() corre? ¿qué `i`? La salida de Java: la interface (páginas siguientes).
+- Pág. 592-594, 597-598 y 600: la app saltea números en páginas con dibujo; el texto empalma (cubierto igual). Ejercicios: ninguno.
+- Chequeo: BIEN 2/2 (el compilador mira la referencia; Java no sabría qué burn() ejecutar). Detalle: "se rompe" → mejor "es ambiguo, por eso Java no lo compila".
+- PRÓXIMO PASO: pág. 601-602 en adelante (la interface).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

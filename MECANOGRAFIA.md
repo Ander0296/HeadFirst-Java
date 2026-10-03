@@ -576,3 +576,7 @@ lo que sale de un ArrayList<Object> es siempre una referencia Object.
 s109 — el cast de referencias:
 Dog d = (Dog) o; devuelve el Object a su tipo real, sin cambiar el objeto.
 if (o instanceof Dog) { Dog d = (Dog) o; } evita el ClassCastException.
+
+s110 — herencia múltiple:
+class Dog extends Animal, Pet { } no compila: Java no tiene herencia múltiple.
+El diamante mortal: si dos padres tienen burn(), ¿cuál corre en ComboDrive?

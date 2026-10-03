@@ -2817,3 +2817,68 @@ SESIÓN #93 — 2026-09-18 — Qué se hereda (public sí, private no), reglas p
 - Dudas: "cómo sería realmente" TIENE-UN → se mostró FileSaver como variable de instancia + delegar con `saver.save()`. Bien, para reforzar en la Fase 2.
 - PRÓXIMO PASO: pág. 514 — "The 3 steps of object declaration and assignment" (los 3 pasos de declarar y asignar un objeto) y el polimorfismo en acción.
 
+
+SESIÓN #94 — 2026-09-18 — Los 3 pasos de `Dog myDog = new Dog();` y la puerta del polimorfismo (pág. 514-517, 30%)
+- Repaso del capítulo 3 con otra mirada: (1) DECLARAR la referencia `Dog myDog` (el control remoto, de tipo Dog PARA SIEMPRE), (2) CREAR el objeto `new Dog()` en el heap, (3) ENLAZAR con `=` (programar el control remoto).
+- Hasta ahora el TIPO DE LA REFERENCIA (izquierda) y el TIPO DEL OBJETO (derecha, lo que va después de `new`) eran el mismo.
+- Con polimorfismo pueden ser DISTINTOS: `Animal myDog = new Dog();` es legal porque un Dog ES-UN Animal.
+- Nota del profe: la regla que ya vimos se lee acá: los BOTONES del control los decide el tipo de la referencia (compilador); qué hace cada botón lo decide el objeto (JVM). Es la misma idea de la sobrescritura.
+- Pág. 514 (el título) no vino en pantallazo: cubierto igual, el contenido arranca en la 515.
+- Ejercicios de la tanda: ninguno.
+- Chequeo: los 3 pasos BIEN. Eligió bien `Animal a = new Dog();`, pero no sabía por qué `Dog d = new Animal();` no compila → se explicó: ES-UN va en una sola dirección (un Animal no tiene por qué ser un Dog).
+- PRÓXIMO PASO: pág. 518 — seguir con `Animal myDog = new Dog();` (qué se puede hacer con una referencia del supertipo).
+
+SESIÓN #95 — 2026-09-18 — Arreglos y argumentos polimórficos (pág. 518-520, 30%)
+- Pág. 518: resumen visual de `Animal myDog = new Dog();` → la referencia y el objeto NO son del mismo tipo; la referencia puede ser una SUPERCLASE del tipo real del objeto. (La viñeta "todavía no lo entiendo" es chiste: cubierto igual.)
+- Regla: a una referencia se le puede asignar CUALQUIER objeto que pase la prueba ES-UN con su tipo (todo lo que `extends` ese tipo).
+- Pág. 519: ARREGLO POLIMÓRFICO: `Animal[] animals = new Animal[5];` guarda Dog, Cat, Wolf, Hippo y Lion. El for-each llama `eat()` y `roam()` y cada objeto ejecuta SU versión (vuelta 1 el eat() de Dog, vuelta 2 el de Cat...).
+- Pág. 520: ARGUMENTO POLIMÓRFICO: `giveShot(Animal a)` en Vet acepta cualquier subclase; `a.makeNoise()` ejecuta el de Dog o el de Hippo según el objeto que llegó. El libro anuncia también tipos de RETORNO polimórficos.
+- Nota del profe: la ganancia es que Vet NO cambia cuando aparece un animal nuevo. Es el corazón de "programar contra el supertipo" (reaparece con interfaces y en Spring, Fase 3).
+- Ejercicios de la tanda: ninguno.
+- Chequeo: P1 eligió bien el eat() de Cat, pero el POR QUÉ quedó en "hereda" (falta: Cat SOBRESCRIBE eat() y la JVM corre la versión del objeto real). P2 MAL: creyó que `giveShot(new Penguin())` necesita una variable → se explicó que el parámetro `a` ES la variable, y que Vet no se toca.
+- PRÓXIMO PASO: pág. 521 — seguir con argumentos/retornos polimórficos.
+
+SESIÓN #96 — 2026-09-18 — Polimorfismo que no cambia, clases final y reglas para sobrescribir (pág. 522-527, 31%)
+- Pág. 522: con parámetros de tipo superclase, el código NO cambia cuando otro programador agrega subclases nuevas (Vet sigue andando con animales que no conocía). Pág. 521, 523-524 y 526: Kindle saltea números, contenido continuo (cubierto igual).
+- No hay límite de niveles de herencia, pero en la práctica los árboles son anchos y poco profundos (1-2 niveles). Se puede extender una clase ajena y sobrescribir el método que funciona mal.
+- Tres cosas impiden extender una clase: que no sea `public` (solo la extienden las de su mismo paquete), `final` (fin de la línea de herencia; ej. `String`) o que solo tenga constructores `private` (cap. 9). Un MÉTODO `final` no se puede sobrescribir.
+- Pág. 525: los métodos son el CONTRATO. El compilador mira el tipo de la REFERENCIA (`Appliance`); la JVM, en ejecución, mira el OBJETO (`Toaster`).
+- Regla 1: los ARGUMENTOS deben ser idénticos y el RETORNO compatible (el mismo tipo o una subclase). `turnOn(int level)` en Toaster NO sobrescribe `turnOn()`: es una SOBRECARGA legal, y con referencia Appliance corre el de Appliance.
+- Regla 2: el método que sobrescribe no puede ser MENOS accesible (`public` → `private` no compila). Hay 4 niveles de acceso (2 vistos) y otra regla con excepciones (cap. 13).
+- Nota del profe: `@Override` arriba del método le pide al compilador que verifique que de verdad sobrescribe; habría atrapado el `turnOn(int)`. Se usa siempre en el trabajo real.
+- Ejercicios de la tanda: ninguno.
+- Chequeo: P1 BIEN (corre el de Appliance: turnOn(int) no sobrescribe; ajuste: Toaster SÍ tiene turnOn() heredado). P2 A MEDIAS: dijo herencia/ES-UN pero omitió la regla 2 (no menos accesible) → otra vez la segunda mitad.
+- PRÓXIMO PASO: pág. 528 (sobrecarga de métodos).
+
+SESIÓN #97 — 2026-09-18 — Sobrecarga de métodos (overloading) + Mixed Messages (pág. 529-533, 31%)
+- Sobrecarga = dos métodos con el MISMO nombre y DISTINTA lista de argumentos. Es otro método que comparte nombre: nada que ver con herencia ni polimorfismo.
+- Para qué: comodidad del que llama (`addNums(int, int)` y `addNums(double, double)`; `setUniqueID(String)` y `setUniqueID(int)`). Reaparece con los constructores (cap. 9).
+- Regla 1: el retorno PUEDE cambiar. Regla 2: NO alcanza con cambiar SOLO el retorno; los argumentos tienen que cambiar sí o sí. Regla 3: el acceso puede ir en cualquier dirección (no hay contrato que cumplir).
+- Quién elige: en la sobrecarga, el COMPILADOR, por los tipos de los argumentos; en la sobrescritura, la JVM, por el objeto real.
+- Nota del profe: `"" + ssNumber` convierte un int en String por concatenación; en código real se prefiere `String.valueOf(ssNumber)`.
+- Pantallazos 1-2 repetían la pág. 527 (cubierto igual); pág. 528 y 530 saltadas por Kindle (cubierto igual).
+- Ejercicios de la tanda: lib26 Mixed Messages "Mixed2" pendiente. El BE the Compiler Monster/Vampire (pág. 533) va en la próxima tanda.
+- Chequeo: P1 BIEN el veredicto (no compila: mismos argumentos), pero dijo "cree que es sobrescritura" — en la MISMA clase el error es "already defined" (ya está definido). P2 A MEDIAS: versión int bien, pero dijo que decide la JVM (decide el COMPILADOR).
+- PRÓXIMO PASO: pág. 533, BE the Compiler (pantallazo 13.55.30 en adelante, ya en paginas/).
+
+SESIÓN #98 — 2026-09-19 — BE the Compiler Monster/Vampire + intro del Pool Puzzle (pág. 533-536, 31%)
+- Pantallazo 1 y el principio del 2 (llamadas y salidas posibles de Mixed2) ya estaban en lib26: cubierto igual.
+- `monsters[i].frighten(i)`: el COMPILADOR solo deja llamar lo que tiene el TIPO DE LA REFERENCIA (Monster); qué versión corre lo decide la JVM por el OBJETO.
+- Un método de la subclase con el MISMO nombre y los MISMOS argumentos sobrescribe → el retorno tiene que ser compatible. Con otros argumentos (o con otro nombre) es un método aparte: no reemplaza nada.
+- Para sobrescribir, los tipos de los argumentos tienen que ser IDÉNTICOS: el tipo del parámetro cuenta, no solo el nombre del método.
+- Se puede llamar a un método y no usar lo que devuelve (el `boolean` de frighten se descarta).
+- Pool Puzzle (pág. 536): elegir fragmentos del "pool" (piscina) para completar un programa que compile y corra; se pueden repetir fragmentos y sobrar otros. El rompecabezas en sí viene en la próxima tanda.
+- Ejercicios de la tanda: lib27 BE the Compiler Monster/Vampire PENDIENTE.
+- Chequeo: P1 MAL — con `Animal a = new Gato(); a.hablar();` y Gato con solo `hablar(String)`, dijo que corre el de Gato "porque lo lee primero"; corre el de Animal (sobrecarga, no sobrescribe). P2 la confundió con el ejercicio: se le dio la respuesta (no compila; lo decide el compilador por la referencia).
+- PRÓXIMO PASO: pág. 536-537, el código del Pool Puzzle.
+
+SESIÓN #99 — 2026-09-19 — Pool Puzzle de los botes (pág. 537-540, 31%)
+- El rompecabezas: cuatro clases con huecos (Rowboat, Boat, Sailboat, TestBoats) y una salida exigida, `drift drift hoist sail`. Se completa con fragmentos de la piscina; se pueden repetir y sobran varios.
+- Para que compile hay que decidir tres cosas distintas en cada hueco: modificador (`public`/`private`/`static`), TIPO (de retorno o de parámetro) y NOMBRE. Un hueco antes de `(` es nombre de método; uno antes de un nombre de variable es un tipo.
+- `extends` solo aparece en el encabezado de una clase, nunca dentro de un método: los huecos del encabezado de Rowboat y de la cuarta clase son de herencia.
+- La salida repite `drift` dos veces y `hoist sail` una: tres llamadas a `move()` sobre tres referencias distintas. Cuál versión imprime cada una depende del objeto real, no de la referencia.
+- El retorno importa: un método `void` no puede llevar `return valor`, y uno declarado `int` tiene que devolver un `int` sí o sí.
+- Pág. 538-540 son las SOLUCIONES del capítulo (BE the Compiler, Mixed Messages y el propio Pool Puzzle): leídas y NO explicadas, quedan como spoilers hasta que se entregue cada ejercicio.
+- Ejercicios de la tanda: EJERCICIO #18 Pool Puzzle "los botes" PENDIENTE.
+- PRÓXIMO PASO: pág. 541 en adelante (arranca el capítulo 8).
+
