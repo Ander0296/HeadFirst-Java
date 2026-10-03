@@ -551,3 +551,9 @@ Todo objeto hereda equals(), getClass(), hashCode() y toString() de Object.
 
 s104b — toString por defecto:
 System.out.println(c.toString()); imprime Cat@7d277f: clase, arroba y número.
+
+s105a — ArrayList de Object:
+Con ArrayList<Object>, get(0) devuelve Object aunque adentro haya un Dog.
+
+s105b — la referencia manda:
+Object o = new Dog(); o.bark(); no compila: Object no tiene bark().

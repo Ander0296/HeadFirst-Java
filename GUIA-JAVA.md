@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 569 de 1629 (33%) — capítulo 8: **la clase Object y sus 4 métodos** (Sesión #104). **Próximo: pág. 570**. Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #104** (tanda de 5 pantallazos, 2026-10-02).
-- PRÓXIMA SESIÓN: `/rename java-s120` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s119 (02/10): Sesión #104, pág. 565-569, Object.)
+- Última página: 574 de 1629 (33%) — capítulo 8: **el precio de las referencias Object** (`ArrayList<Object>`: get() devuelve Object) (Sesión #105). **Próximo: pág. 575**. Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #105** (tanda de 4 pantallazos, 2026-10-02).
+- PRÓXIMA SESIÓN: `/rename java-s121` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s120 (02/10): Sesión #105, pág. 569-574, referencias Object.)
 - Ejercicios: **lib26** "Mixed2" COMPLETADO el 28/09 (4/4 tras una pista; r1 al 2026-10-02). **lib27** Monster/Vampire COMPLETADO el 29/09 (4/4 veredictos, cerrado sin responder pistas; r1 al 2026-10-03). **ej18** Pool Puzzle "los botes" COMPLETADO el 30/09 con muchas pistas, trabado por el inglés (r1 al 2026-10-04; desde ahora todo puzzle trae diccionario de la piscina). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
@@ -280,76 +280,14 @@ Ejercicios: ver EJERCICIOS.md.
 | equals()                         | es igual a | Método de Object que dice si dos objetos se consideran iguales. La versión de Object solo da true si son EL MISMO objeto (como `==`); String la sobrescribe para comparar el texto. |
 | hashcode / hashCode()            | código hash | Número entero que identifica a un objeto, pensado para guardarlo rápido en tablas hash (HashMap). Por ahora: "una especie de ID"; dos objetos distintos pueden llegar a compartirlo. |
 | toString()                       | a texto (convertir a String) | Método de Object que devuelve un String que representa al objeto. El de Object da `NombreClase@número-hex` (Cat@7d277f); println(obj) lo llama solo. |
+| type-safety                      | seguridad de tipos | Garantía de Java de que no le pidas a un objeto algo que no sabe hacer: el compilador solo deja llamar métodos que existen en el tipo de la referencia. |
+| strongly typed                   | fuertemente tipado | Lenguaje donde cada variable tiene un tipo fijo y el compilador lo controla. Java lo es: `Object o` solo deja usar métodos de Object. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
-de código, máximo ~15 líneas por sesión. Las sesiones #01 a #88 están
+de código, máximo ~15 líneas por sesión. Las sesiones #01 a #93 están
 en GUIA-ARCHIVO.md.)
 ============================================================
-
-SESIÓN #89 — 2026-09-10 — Pasos 3, 4 y 5 del diseño: qué se sobrescribe y las clases intermedias Feline/Canine (pág. 486-491, 28%)
-- PASO 3: decidir si una subclase necesita comportamiento propio. Las 5 variables sirven igual para todos (cambian los VALORES, no las variables); lo que cambia de verdad es el comportamiento.
-- Decisión: `eat()` y `makeNoise()` se sobrescriben en cada subclase (un león no come como un hipopótamo, un perro no suena como un gato). `sleep()` y `roam()` quedan genéricos en `Animal`.
-- El libro se corrige solo: SÍ se podría escribir un `makeNoise()` genérico que reproduzca un sonido guardado en una variable, pero queda poco especializado (un animal puede tener varios ruidos según la situación).
-- PASO 4: buscar más abstracción — dos o más subclases que compartan comportamiento entre ellas. Wolf y Dog se parecen; Lion, Tiger y Cat también.
-- PASO 5: terminar la jerarquía usando las familias biológicas: clases intermedias `Feline` y `Canine` entre `Animal` y los animales concretos.
-- `Canine` define un `roam()` común (se mueven en manada) y `Feline` otro `roam()` común (evitan a los de su especie); `Hippo` cuelga directo de `Animal` y se queda con el `roam()` genérico heredado.
-- Regla nueva: con tres niveles, un objeto ejecuta la versión del método MÁS CERCANA subiendo por el árbol. Un `Lion` usa el `roam()` de `Feline`, no el de `Animal`.
-- Ejercicios de la tanda: ninguno.
-- Nota del profe: las clases intermedias son la respuesta a "¿dónde pongo este método?" — se sube al nivel más alto donde el comportamiento sea verdadero para TODOS los de abajo, ni más arriba ni más abajo.
-- Chequeo de comprensión: LAS DOS BIEN, sin pistas. (1) Un `Dog` ejecuta el `roam()` de `Canine` "por ser el más cercano". (2) El andar en manada no puede vivir en `Animal` porque no es cierto para todos; y agregó solo el criterio profesional: ante la duda, dejar a `Hippo` heredando lo más general en vez de inventarle un override.
-- PRÓXIMO PASO: pág. 492 en adelante (el diseño vuelve más adelante en el capítulo).
-
-SESIÓN #90 — 2026-09-11 — Qué método se llama ("gana la más baja") y la tabla de herencia (pág. 493-496, 28%)
-- Pág. 493: `Wolf` tiene 4 métodos: `sleep()` heredado de `Animal`, `roam()` heredado de `Canine` (que ya sobrescribía el de `Animal`), y `makeNoise()` y `eat()` sobrescritos en `Wolf`. Con la referencia `w` se llaman los cuatro con el operador punto.
-- Regla del libro: "the lowest one wins" (gana la más baja). Se ejecuta la versión MÁS ESPECÍFICA para el tipo del objeto: la JVM busca primero en `Wolf` y, si no está, sube por la jerarquía hasta encontrarla. Es la regla de la Sesión #89 con su nombre oficial.
-- Resultado: `w.makeNoise()` y `w.eat()` → `Wolf`; `w.roam()` → `Canine`; `w.sleep()` → `Animal`.
-- Diseñar un árbol: TABLA DE HERENCIA con columnas Class / Superclasses / Subclasses. `Clothing` sin superclase (`---`) y con subclases `Boxers` y `Shirt`. Cada relación aparece DOS veces: como subclase en una fila y como superclase en la otra.
-- "Superclasses" va en plural porque, con más niveles, cuenta toda la cadena de arriba (para `Wolf`: `Canine` y `Animal`).
-- Huecos: la pág. 492 es un número que Kindle se saltea (no falta nada). Las pág. 494-495 no llegaron porque el pantallazo 3 vino vacío: pedirlas al abrir la próxima tanda.
-- Ejercicios de la tanda: lib24 "Sharpen your pencil: el árbol de los músicos" (pág. 496), PENDIENTE. Es "Yours to solve" (te toca resolverlo): el libro no trae solución.
-- Nota del profe: la búsqueda arranca en el tipo del OBJETO. Con `Animal a = new Wolf();` la regla no cambia, y eso es el polimorfismo (próximas páginas).
-- Chequeo de comprensión: 1 BIEN y 1 A MEDIAS. (1) Si se borra el `roam()` de `Canine`, `w.roam()` sube hasta el de `Animal`, sin error. (2) Puso solo `Shirt` en las superclases de `TShirt`: le faltó `Clothing` (el plural cuenta toda la cadena). Lo de agregar `TShirt` en las subclases de `Shirt` estuvo bien.
-- PRÓXIMO PASO: pág. 494-495 (faltan) y 497 en adelante.
-
-SESIÓN #91 — 2026-09-14 — Compilador vs. JVM con un método heredado + prueba ES-UN y relación TIENE-UN (pág. 496-500, 28%)
-- Pág. 496: repite el Sharpen de los músicos (lib24), ya registrado completo. Las pág. 494-495 y 498-499 NO faltan: Kindle saltea números (la 497 habla del "ejemplo de Wolf de la página anterior").
-- Pág. 497 (No hay preguntas tontas): "¿y si la JVM nunca encuentra el método?" No puede pasar. El COMPILADOR garantiza que el método se puede llamar con ese tipo de referencia, sin importarle en qué clase del árbol está escrito (heredar un método es TENERLO). En EJECUCIÓN, la JVM elige la versión más específica para ese objeto.
-- Prueba ES-UN (IS-A test): "¿tiene sentido decir que X ES UN Y?". Triangle/Shape, Cat/Feline y Surgeon/Doctor la pasan.
-- `Tub extends Bathroom` "suena razonable" hasta aplicar la prueba: una bañera no es un baño. Al revés tampoco. Frase falsa = diseño mal.
-- Bathroom y Tub SÍ se relacionan, pero por TIENE-UN (HAS-A): `Bathroom` tiene una variable de instancia `Tub bathtub;` (una REFERENCIA a una bañera) y ninguna extiende a la otra. El diagrama encadena Bathroom → Tub → Bubbles, todo TIENE-UN.
-- Ejercicios de la tanda: ninguno nuevo. lib24 sigue PENDIENTE y ahora se resuelve aplicando la prueba ES-UN a cada par.
-- Nota del profe: el compilador acepta `class Tub extends Bathroom` sin quejarse (revisa sintaxis, no sentido). TIENE-UN se llama composición (composition); en entrevistas aparece "favor composition over inheritance" (preferí composición antes que herencia).
-- Chequeo de comprensión: LAS DOS BIEN, sin pistas y contestando las dos mitades. (1) `Car` TIENE-UN motor → variable de instancia. Detalle: escribió `Motor m;` y la clase se llamaba `Engine` (el tipo va con el nombre EXACTO de la clase). (2) `Engine extends Car` compila pero el diseño está mal: falla la prueba ES-UN.
-- PRÓXIMO PASO: pág. 501 en adelante.
-
-
-SESIÓN #92 — 2026-09-17 — la prueba ES-UN es transitiva y va en UNA sola dirección; `super` (pág. 501-506, 29%)
-- La prueba ES-UN funciona en CUALQUIER punto del árbol, no solo entre padre e hijo directo: si C hereda de B y B de A, entonces C ES UN B y C ES UN A. La herencia es TRANSITIVA.
-- Ojo con la escritura: en el CÓDIGO una clase nombra a UNA sola superclase (`class Wolf extends Canine`). Que "Wolf extends Animal" sea verdad es una relación del ÁRBOL, indirecta; no se escribe.
-- ES-UN va en UNA sola dirección: `Triangle IS-A Shape` es verdad, `Shape IS-A Triangle` no. Por eso Triangle extiende a Shape y nunca al revés. Invertir la flecha es EL error típico de diseño.
-- Regla práctica para decidir la jerarquía: si "X ES UN Y" tiene sentido, las dos clases probablemente van en la misma jerarquía (comparten comportamiento). Y si X ES UN Y, X puede hacer TODO lo que hace Y (y quizá más).
-- No existe herencia al revés: una superclase no puede usar la versión de la subclase, ni sabe que sus subclases existen (alguien puede extenderla años después).
-- `super.metodo()` (NUEVO): dentro de un método sobrescrito, llama a la versión HEREDADA y después sigue con el código propio. Sirve para AGREGAR comportamiento en vez de reemplazarlo — es el sentido literal de `extends`.
-- Ejercicios de la tanda: lib25 "¿qué relaciones tienen sentido?" (pág. 505, once `extends` para tildar aplicando ES-UN), PENDIENTE.
-- Falta: pág. 502-503 (el arranque del recuadro "Beer is-a Drink"; el concepto quedó cubierto por la 504) → anotado en PENDIENTES.md.
-- Chequeo: LAS DOS BIEN en el concepto. (1) Transitividad entendida y nombró la superclase DIRECTA, pero escribió `Violin extends StringInstrument{}` sin la palabra `class` (punto del Nivel 1 de ToDo/crear-una-clase-java.md que se salteó). (2) `super.roam()` primero y el código propio después, orden correcto; escribió `void roam()` donde el padre tiene `public void roam()` — no compilaría por acceso más débil, que es justo el tema de la pág. 507.
-- Dudas: ninguna.
-- PRÓXIMO PASO: pág. 507 — "Who gets the Porsche, who gets the porcelain?" (qué puede heredar realmente una subclase: niveles de acceso).
-
-
-SESIÓN #93 — 2026-09-18 — Qué se hereda (public sí, private no), reglas para usar bien la herencia y para qué sirve (pág. 507-513, 30%)
-- Una subclase hereda los MIEMBROS (variables de instancia + métodos) que la superclase le deja heredar según el NIVEL DE ACCESO. Hay cuatro, de más cerrado a más abierto: `private` → default (sin palabra) → `protected` → `public`. Por ahora: `public` SE hereda, `private` NO.
-- Lo heredado se usa como si la subclase lo hubiera escrito ella misma: para el resto del código, Square "simplemente tiene" un `rotate()`.
-- 4 reglas de diseño: SÍ heredar cuando la subclase ES UN tipo más específico (Willow extends Tree) o cuando varias clases del mismo tipo general comparten comportamiento. NO heredar solo para reusar código si no pasa ES-UN (Potato no extiende Animal para imprimir: eso va en una clase Printer vía TIENE-UN).
-- Las variables de instancia NO se sobrescriben (se pueden "redefinir", casi nunca hace falta); los métodos sí. Gana la versión más baja.
-- Ventaja 1 — cero código duplicado: se cambia en la superclase, se recompila SOLO ella y todas las subclases usan la versión nueva sin tocarlas (mientras no se "rompa" lo que usan: nombre, argumentos, tipo de retorno).
-- Ventaja 2 — un PROTOCOLO común (contrato): la superclase garantiza que todo su subtipo tiene esos métodos con esa firma. Eso habilita el POLIMORFISMO: usar una referencia del supertipo para un objeto de la subclase.
-- NOTA DEL PROFE: "preferir composición (TIENE-UN) sobre herencia" es un principio clásico del diseño (Head First Design Patterns); en entrevistas lo preguntan.
-- Ejercicios de la tanda: ninguno.
-- Chequeo: LAS DOS BIEN y con las dos mitades. (1) Dog usa `eat()` public, no `name` private. (2) Car no extiende Document: código de guardado a una clase FileSaver que Car y Document TIENEN.
-- Dudas: "cómo sería realmente" TIENE-UN → se mostró FileSaver como variable de instancia + delegar con `saver.save()`. Bien, para reforzar en la Fase 2.
-- PRÓXIMO PASO: pág. 514 — "The 3 steps of object declaration and assignment" (los 3 pasos de declarar y asignar un objeto) y el polimorfismo en acción.
 
 SESIÓN #94 — 2026-09-18 — Los 3 pasos de `Dog myDog = new Dog();` y la puerta del polimorfismo (pág. 514-517, 30%)
 - Repaso del capítulo 3 con otra mirada: (1) DECLARAR la referencia `Dog myDog` (el control remoto, de tipo Dog PARA SIEMPRE), (2) CREAR el objeto `new Dog()` en el heap, (3) ENLAZAR con `=` (programar el control remoto).
@@ -475,6 +413,16 @@ SESIÓN #104 — 2026-10-02 — la clase Object y sus 4 métodos (pág. 565-569,
 - Ejercicios de la tanda: ninguno.
 - Chequeo: veredictos BIEN (indirecto; true/false; 2 objetos). Porqués MAL: "toString sale de Animal" (sale de Object) y "equals compara el contenido" (el de Object compara si es el mismo objeto). Repaso del concepto al 05/10.
 - PRÓXIMO PASO: pág. 570.
+
+SESIÓN #105 — 2026-10-02 — el precio de usar referencias Object (pág. 569-574, 33%)
+- Object es CONCRETA (sus métodos traen código). Sus métodos `final` no se sobrescriben (getClass); se recomienda sobrescribir equals, hashCode y toString.
+- Object sirve para dos cosas: tipo polimórfico para métodos que aceptan cualquier clase, y código común que todo objeto hereda. `new Object()` casi nunca se usa.
+- Type-safety (seguridad de tipos): solo se llama un método si la clase del TIPO DE LA REFERENCIA lo tiene. `Object o = new Ferrari(); o.goFast();` no compila.
+- Con `ArrayList<Dog>`, get() devuelve Dog. Con `ArrayList<Object>`, get() devuelve Object aunque adentro haya un Dog: `Dog d = lista.get(0);` NO COMPILA.
+- El objeto no deja de ser Dog: solo lo "parece" (para el compilador, que lee la etiqueta de la referencia). Próximo: un método que devuelve Object, y cómo recuperar el Dog.
+- Ejercicios de la tanda: ninguno. Hueco 570-571: cubierto igual (la pantalla de Android junta páginas).
+- Chequeo: BIEN 2/2 (dijo "línea 4" por la 3: contar las líneas). Pidió la explicación más fácil: el compilador es un guardia que solo lee la etiqueta de la caja.
+- PRÓXIMO PASO: pág. 575.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
