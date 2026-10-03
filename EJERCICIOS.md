@@ -110,6 +110,10 @@ REPASO — CONCEPTO "== vs. equals() (y el String pool)" (r1) — programado: 20
 Arranque: ejercicios/repasos/concepto-equals-r1/ (lo crea `/repaso`; lo pidió el usuario por confusión, Sesión #104)
 Chequeo del 02/10: veredictos bien, pero dijo "equals compara el contenido" para Dog (sin sobrescribir = mismo objeto, como ==) y "toString sale de Animal" (sale de Object, heredado a través de Animal). Mirar: que diga QUIÉN escribió el método y si la clase lo sobrescribió.
 
+REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r2) — programado: 2026-10-06 — [ ] pendiente
+Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2.md (lo crea `/repaso`; INCLUIR asignaciones con Object, adelantado desde el 12/10)
+r1 bis BIEN (28/09). Sesión #106: invirtió la frase ES-UN dos veces (`Cat c = metodoQueDevuelveObject();` "compila"; `Object o = c;` "no compila"). Mirar: que escriba "<derecha> ES UN <izquierda>" en cada asignación, que conteste LÍNEA POR LÍNEA y lea el `new` de ESA variable. ToDo/entregar-un-ejercicio.md (Nivel 3).
+
 REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r2) — programado: 2026-10-07 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-sobrescritura-r2.md (lo crea `/repaso`)
 r1 BIEN (5/5): leyó el método ENTERO y escribió la salida en orden — las dos caídas de los exámenes del 17/09 y 20/09 quedaron resueltas. Mirar que sostenga el orden cuando la cadena de llamadas tenga TRES niveles, y que no arrastre líneas de la versión del padre que la subclase no tiene.
@@ -121,10 +125,6 @@ Arranque: ejercicios/repasos/lib05-r3.md (lo crea `/repaso`)
 REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r3) — programado: 2026-10-09 — [ ] pendiente
 Arranque: ejercicios/repasos/lib03-television-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Errores NUEVOS a mirar: `static` en instance variables, y el nombre EXACTO de la variable adentro del método (MARCA≠marca). ToDo/crear-una-clase-java.md
-
-REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r2) — programado: 2026-10-12 — [ ] pendiente
-Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2.md (lo crea `/repaso`)
-r1 bis BIEN (28/09): referencia → compilador y arreglo en el padre, RESUELTO. Mirar: que conteste LÍNEA POR LÍNEA, que no diga "objeto de tipo X" cuando habla de la referencia, y que antes de decir qué versión corre lea el `new` de ESA variable (confundió p1 con p2). ToDo/entregar-un-ejercicio.md (Niveles 2 y 3).
 
 REPASO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r2) — programado: 2026-10-12 — [ ] pendiente
 Arranque: ejercicios/repasos/lib23-r2.md (lo crea `/repaso`)

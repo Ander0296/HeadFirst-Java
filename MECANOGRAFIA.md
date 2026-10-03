@@ -557,3 +557,9 @@ Con ArrayList<Object>, get(0) devuelve Object aunque adentro haya un Dog.
 
 s105b — la referencia manda:
 Object o = new Dog(); o.bark(); no compila: Object no tiene bark().
+
+s106a — método que devuelve Object:
+Dog d = getObject(aDog); no compila: el retorno declarado es Object.
+
+s106b — a Object le entra todo:
+Object x = getObject(aDog); compila: todo objeto ES UN Object.

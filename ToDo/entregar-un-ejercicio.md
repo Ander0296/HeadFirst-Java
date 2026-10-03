@@ -163,6 +163,14 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
       escriba el usuario en la terminal), la versión que corre se sabe recién
       al ejecutar. Por eso decide la JVM, mirando el objeto.
 
+- [ ] **Antes de decir si una asignación `Tipo x = valor;` compila,
+      escribí la frase "<tipo de lo de la DERECHA> ES UN <tipo de la
+      IZQUIERDA>".** Si es verdad, compila; si es falsa, no. Siempre en ese
+      orden: primero lo que llega, después la caja. `Object o = c;` (c es
+      Cat) → "Cat ES UN Object" → compila. `Cat c2 = o;` (o es Object) →
+      "Object ES UN Cat" → falso → no compila, aunque adentro haya un Cat.
+      Ya se invirtió la frase dos veces, una para cada lado.
+
 - [ ] **"No se ejecuta" casi nunca es cierto.** Si el programa compila,
       la JVM lo ARRANCA igual: empieza por la primera línea del `main` y
       va bajando hasta que se topa con el problema. Lo correcto es

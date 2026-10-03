@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 574 de 1629 (33%) — capítulo 8: **el precio de las referencias Object** (`ArrayList<Object>`: get() devuelve Object) (Sesión #105). **Próximo: pág. 575**. Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #105** (tanda de 4 pantallazos, 2026-10-02).
-- PRÓXIMA SESIÓN: `/rename java-s122` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s121 (03/10): sin tanda, solo repaso lib27 r1 BIEN 4/4, r2 al 17/10.)
+- Última página: 576 de 1629 (33%) — capítulo 8: **un método que devuelve Object** (`Dog d = getObject(aDog);` no compila) (Sesión #106). **Próximo: pág. 577** (el cast). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #106** (tanda de 3 pantallazos, 2026-10-03).
+- PRÓXIMA SESIÓN: `/rename java-s123` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s122 (03/10): Sesión #106, pág. 574-576.)
 - Ejercicios: **lib26** "Mixed2" COMPLETADO el 28/09 (4/4 tras una pista; r1 al 2026-10-02). **lib27** Monster/Vampire: r1 BIEN 4/4 el 03/10 (línea final en blanco por 2ª vez; r2 al 17/10). **ej18** Pool Puzzle "los botes" COMPLETADO el 30/09 con muchas pistas, trabado por el inglés (r1 al 2026-10-04; desde ahora todo puzzle trae diccionario de la piscina). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
@@ -282,6 +282,7 @@ Ejercicios: ver EJERCICIOS.md.
 | toString()                       | a texto (convertir a String) | Método de Object que devuelve un String que representa al objeto. El de Object da `NombreClase@número-hex` (Cat@7d277f); println(obj) lo llama solo. |
 | type-safety                      | seguridad de tipos | Garantía de Java de que no le pidas a un objeto algo que no sabe hacer: el compilador solo deja llamar métodos que existen en el tipo de la referencia. |
 | strongly typed                   | fuertemente tipado | Lenguaje donde cada variable tiene un tipo fijo y el compilador lo controla. Java lo es: `Object o` solo deja usar métodos de Object. |
+| incompatible types (found / required) | tipos incompatibles (encontrado / requerido) | Error de compilación cuando el tipo del valor no entra en la variable: "found: Object, required: Dog". El javac actual lo dice como "Object cannot be converted to Dog". |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -423,6 +424,16 @@ SESIÓN #105 — 2026-10-02 — el precio de usar referencias Object (pág. 569-
 - Ejercicios de la tanda: ninguno. Hueco 570-571: cubierto igual (la pantalla de Android junta páginas).
 - Chequeo: BIEN 2/2 (dijo "línea 4" por la 3: contar las líneas). Pidió la explicación más fácil: el compilador es un guardia que solo lee la etiqueta de la caja.
 - PRÓXIMO PASO: pág. 575.
+
+SESIÓN #106 — 2026-10-03 — un método que devuelve Object (pág. 574-576, 33%)
+- `public Object getObject(Object o) { return o; }` es legal: recibe un Dog y devuelve una referencia al MISMO Dog, pero con tipo de retorno Object. Es lo mismo que hace get() de `ArrayList<Object>`.
+- `Dog sameDog = getObject(aDog);` NO COMPILA: "incompatible types, found: java.lang.Object, required: Dog". El compilador lee el TIPO DE RETORNO declarado, no lo que el método devuelve de verdad.
+- `Object sameDog = getObject(aDog);` SÍ compila: a una referencia Object entra cualquier objeto, porque toda clase pasa la prueba ES-UN con Object (está en la cima de todo árbol).
+- Pero sirve de poco: con `Object o` solo se llaman métodos de Object (`o.hashCode()` sí, `o.bark()` no compila). El compilador decide por el tipo de la REFERENCIA, no del objeto real: para él podría ser un Button o un Microwave.
+- Ejercicios de la tanda: ninguno. Pág. 576 repasa type-safety de la #105 con otro ejemplo. Un pantallazo salió vacío (cubierto igual: 574-576 sin hueco).
+- Nota del profe: el javac actual dice el mismo error como "incompatible types: Object cannot be converted to Dog".
+- Chequeo: P2 BIEN (`o.hashCode()` sí, `o.meow()` no; escribió `hashcode`). P1 MAL: dijo que `Cat c = findPet();` compila, y después que `Object o = c;` no: invirtió la frase ES-UN las dos veces. Con el método de 3 pasos ("<derecha> ES UN <izquierda>") acertó `Cat c2 = o;` → no compila. Repaso del concepto adelantado al 06/10.
+- PRÓXIMO PASO: pág. 577 (cómo recuperar el Dog: el cast).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
