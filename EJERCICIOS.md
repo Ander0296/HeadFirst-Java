@@ -98,10 +98,6 @@ REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pá
 Arranque: ejercicios/repasos/lib09-r2.md (lo crea `/repaso`)
 r1 BIEN: conteos de Bob exactos (11 objetos, 11 referencias) y cerró "queda UN solo Contact accesible". Mirar que en Kate diga TAMBIÉN cuántas referencias hay (1) y que nombre "elegibles para el garbage collector". ToDo/entregar-un-ejercicio.md (Nivel 1).
 
-REPASO — LIBRO BE the Compiler: Monster/Vampire (pág. 533-535) (r1) — programado: 2026-10-03 — [ ] pendiente
-Arranque: ejercicios/repasos/lib27-r1.md (lo crea `/repaso`)
-Veredictos 4/4 bien. Mirar: que ubique cada pieza en SU clase (A = Monster, B = Vampire) antes de decir dónde falla el par 2, que dé el porqué del par 3 y que llene la línea final. ToDo/entregar-un-ejercicio.md (Nivel 2).
-
 REPASO — EJERCICIO #18 Pool Puzzle: los botes (pág. 536-537) (r1) — programado: 2026-10-04 — [ ] pendiente
 Arranque: ejercicios/repasos/ej18-r1/TestBoats.java (lo crea `/repaso`, CON diccionario de la piscina)
 Salió con muchas pistas y trabado por el inglés. Mirar que sin ayuda diga por qué `b3.move()` imprime "drift" (Rowboat no tiene move(): hereda el de Boat) y que deje UN solo `public class` por archivo.
@@ -137,6 +133,10 @@ r1 bis BIEN 8/8 (separó variables de métodos, dijo "sobrescrito"). Mirar que e
 REPASO — LIBRO Mixed Messages: "Mixed2" (pág. 531-533) (r2) — programado: 2026-10-16 — [ ] pendiente
 Arranque: ejercicios/repasos/lib26-r2.md (lo crea `/repaso`)
 r1 BIEN 4/4 sin pistas, con el porqué de las 12 llamadas. Mirar que en a2 nombre el `new C()` (el objeto) antes de subir la cadena, y que no diga "ivar es 13": ivar vale 7, lo que imprime es ivar + 6. ToDo/entregar-un-ejercicio.md (Nivel 2).
+
+REPASO — LIBRO BE the Compiler: Monster/Vampire (pág. 533-535) (r2) — programado: 2026-10-17 — [ ] pendiente
+Arranque: ejercicios/repasos/lib27-r2.md (lo crea `/repaso`)
+r1 BIEN 4/4 con porqué en los 4 pares. Mirar: que LLENE la línea final (en blanco 2 veces), que nombre "tipo de RETORNO" en el par 2 y que no diga que un byte llamaría al de Vampire (con referencia Monster, el compilador solo ve frighten(int)). ToDo/entregar-un-ejercicio.md (Nivel 4).
 
 REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r3) — programado: 2026-10-29 — [ ] pendiente
 Arranque: ejercicios/repasos/ej08-r3/ (dos archivos) (lo crea `/repaso`)

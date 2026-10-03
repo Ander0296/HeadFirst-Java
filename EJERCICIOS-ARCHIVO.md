@@ -2740,3 +2740,8 @@ REPASO — LIBRO Mixed Messages: "Mixed2" (pág. 531-533) (r1) — programado: 2
 Entregado en: ejercicios/repasos/lib26-r1.md — resultado: BIEN 4/4 (S2, S4, S7, S4), sin pistas.
 MEJORÓ vs. original: bloque 4 a la primera (subió C → B para m1, el error del original) y porqué en las 12 llamadas (el original solo en el bloque 1).
 FLOJO: "en todas las llamadas ivar es 13" (ivar vale 7 y no cambia; 13 es ivar + 6, y solo se imprime en el m3 de C); en a2 no nombró el `new C()`. r2 al 2026-10-16.
+
+REPASO — LIBRO BE the Compiler: Monster/Vampire (pág. 533-535) (r1) — programado: 2026-10-03 — [x] cumplido (2026-10-03, sesión java-s121)
+Entregado en: ejercicios/repasos/lib27-r1.md — resultado: BIEN 4/4 veredictos, sin pistas.
+MEJORÓ vs. original: par 3 con porqué (Vampire no sobrescribe, usa el frighten heredado de Monster); par 2 ya no ubica el int en la superclase; porqué en los 4 pares.
+REPITIÓ: línea final "Pares que compilan Y dan la salida pedida" en blanco (2ª vez). NUEVO: par 4 "con un byte corre el de Vampire" (falso con referencia Monster: el compilador solo ve frighten(int)). r2 al 2026-10-17.

@@ -207,6 +207,10 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
 
 - [ ] **Guardá el archivo.** Escribir en el editor no es guardar. Una
       respuesta sin guardar llega en blanco y se corrige en blanco.
+- [ ] **Bajá por tu respuesta buscando rótulos vacíos.** Si hay un
+      renglón tipo "Respuesta final:" o "Pares que cumplen:" sin nada al
+      lado, falta tu conclusión. Ya llegó en blanco dos veces: razonar
+      cada parte no reemplaza escribir la respuesta final.
 - [ ] Comprobá que estás entregando **la ruta correcta** (el archivo
       del repaso, no el original; la carpeta del ejercicio, no otra).
 - [ ] **Buscá los corchetes `[ ]` en el prompt de entrega y llenalos
