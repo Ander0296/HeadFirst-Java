@@ -569,3 +569,6 @@ new Snowboard() crea UN solo objeto, con un núcleo Object adentro.
 
 s107b — la referencia manda:
 Object o = new Snowboard(); o.turn(); no compila: Object no tiene turn().
+
+s108 — ArrayList de Object:
+lo que sale de un ArrayList<Object> es siempre una referencia Object.

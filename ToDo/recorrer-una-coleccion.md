@@ -51,6 +51,12 @@ repetido: se reconoce leyendo, se falla escribiendo.
 
 ## 5. Antes de usar lo que sacaste
 
+- [ ] Lo que devuelve `lista.get(i)` es UN ELEMENTO (el `Dog` que metiste),
+      nunca la lista. Separá dos preguntas: tipo de la REFERENCIA = lo que
+      dice el `<...>` (`ArrayList<Object>` → Object); tipo del OBJETO = lo
+      que se creó con `new` antes del `add()` (Dog). Ya causó un error:
+      se contestó "ArrayList" como tipo del objeto que sale.
+
 - [ ] Si el arreglo es de OBJETOS (`String[]`, `Perro[]`) y no llenaste
       todas las casillas, las vacías valen **`null`**, no `0` ni `""`.
       Llamar un método sobre esa casilla compila y **revienta en
