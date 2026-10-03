@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 585 de 1629 (34%) — capítulo 8: **polimorfismo con Object** (lo que sale de un `ArrayList<Object>` es SIEMPRE Object; hay que devolverlo a su tipo real) (Sesión #108). **Próximo: pág. 586** (la sintaxis del cast de referencias). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #108** (tanda de 5 pantallazos, 2026-10-03).
-- PRÓXIMA SESIÓN: `/rename java-s125` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s124 (03/10): Sesión #108, pág. 582-585.)
+- Última página: 591 de 1629 (34%) — capítulo 8: **el cast de referencias** (`Dog d = (Dog) o;`, `instanceof`, `ClassCastException`) y **el contrato** de una clase; arranca el diseño del PetShop (Sesión #109). **Próximo: pág. 591-592** (opción 2 para meter comportamientos de mascota). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #109** (tanda de 5 pantallazos, 2026-10-03).
+- PRÓXIMA SESIÓN: `/rename java-s126` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s125 (03/10): Sesión #109, pág. 586-591.)
 - Ejercicios: **lib26** "Mixed2" COMPLETADO el 28/09 (4/4 tras una pista; r1 al 2026-10-02). **lib27** Monster/Vampire: r1 BIEN 4/4 el 03/10 (línea final en blanco por 2ª vez; r2 al 17/10). **ej18** Pool Puzzle "los botes" COMPLETADO el 30/09 con muchas pistas, trabado por el inglés (r1 al 2026-10-04; desde ahora todo puzzle trae diccionario de la piscina). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
@@ -286,6 +286,8 @@ Ejercicios: ver EJERCICIOS.md.
 | inner core (inner Object)        | núcleo interno (el Object de adentro) | Todo objeto lleva adentro la parte que hereda de cada superclase, hasta Object. `new Snowboard()` es UN solo objeto en el heap, no dos. |
 | many forms                       | muchas formas | Significado literal de "polimorfismo": un mismo objeto se puede ver como su clase o como cualquier superclase (Snowboard o Object), según el tipo de la referencia. |
 | cast back to its real type       | devolver (con un cast) a su tipo real | Convertir una referencia general (Object) al tipo verdadero del objeto (Dog) para recuperar sus métodos. No cambia el objeto: cambia el control remoto. |
+| instanceof                       | es instancia de | Operador que pregunta si un objeto ES UN tipo dado: `o instanceof Dog` da true o false. Se usa antes de un cast para evitar el ClassCastException. |
+| expose (a method)                | exponer (un método) | Hacerlo accesible al código de afuera de la clase, normalmente marcándolo `public`. Los métodos expuestos forman el contrato de la clase. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -457,6 +459,18 @@ SESIÓN #108 — 2026-10-03 — polimorfismo con Object y el problema de recuper
 - Ejercicios de la tanda: ninguno. Pág. 580-581 y 583 no vinieron: el dibujo de la 582 es el mismo de la #107 (cubierto igual).
 - Chequeo: P1 BIEN (un objeto; `o.getAir()` no compila por el tipo Object). P2 a medias: referencia Object bien, pero dijo que el objeto en el heap es "ArrayList" (es el Dog: `get()` devuelve el elemento, no la lista).
 - PRÓXIMO PASO: pág. 586 (el cast de referencias: `Dog d = (Dog) o;`).
+
+SESIÓN #109 — 2026-10-03 — el cast de referencias y el contrato de una clase (pág. 586-591, 34%)
+- `Dog d = (Dog) o;` copia la referencia Object en una referencia Dog. El objeto NO cambia (sigue siendo el mismo Dog); cambia el control remoto, que recupera los botones de Dog (`d.roam()`).
+- El cast es una PROMESA tuya al compilador ("sé que es un Dog"). Si mentís, compila igual pero en ejecución revienta con `ClassCastException`.
+- Si no estás seguro: `if (o instanceof Dog) { Dog d = (Dog) o; }`. `instanceof` pregunta "¿el objeto ES UN Dog?" y devuelve true/false.
+- Los métodos públicos de una clase son su CONTRATO con el mundo. Exponer (expose) un método = hacerlo accesible, normalmente con `public`.
+- Ejemplo Account (debit, credit, getBalance): si la clase no tuviera de verdad el método, explotaría en ejecución. Eso no pasa porque el compilador revisa la clase de la REFERENCIA en cada punto (`a.metodo()`): que exista, que reciba esos argumentos y que devuelva ese tipo.
+- El contrato de Dog incluye todo lo heredado: Canine, Animal y Object. Problema nuevo: reusar Dog en un PetShop que pide comportamientos de mascota (`beFriendly()`, `play()`). Opción 1: meterlos en Animal → hereda todo el mundo, pero un Hippo o un Lion quedan con métodos de mascota, y Dog y Cat igual tendrían que sobrescribirlos.
+- Ejercicios de la tanda: ninguno (el Brain Power se responde en las páginas que siguen). Pág. 587, 589 y 590 no vinieron: el texto empalma (cubierto igual).
+- Nota del profe: desde Java 16, `if (o instanceof Dog d) { d.roam(); }` hace el chequeo y el cast en una línea (pattern matching).
+- Chequeo: veredictos BIEN 2/2 (compila y revienta; UN solo Dog). Flojo: no nombró `ClassCastException` ni dijo POR QUÉ (el objeto real es un Cat); dijo "casteamos la variable o" (o sigue siendo Object: el cast crea una SEGUNDA referencia `d`).
+- PRÓXIMO PASO: pág. 591-592 (opción 2 y siguientes para el PetShop).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

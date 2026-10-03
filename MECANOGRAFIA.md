@@ -572,3 +572,7 @@ Object o = new Snowboard(); o.turn(); no compila: Object no tiene turn().
 
 s108 — ArrayList de Object:
 lo que sale de un ArrayList<Object> es siempre una referencia Object.
+
+s109 — el cast de referencias:
+Dog d = (Dog) o; devuelve el Object a su tipo real, sin cambiar el objeto.
+if (o instanceof Dog) { Dog d = (Dog) o; } evita el ClassCastException.
