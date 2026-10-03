@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 576 de 1629 (33%) — capítulo 8: **un método que devuelve Object** (`Dog d = getObject(aDog);` no compila) (Sesión #106). **Próximo: pág. 577** (el cast). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #106** (tanda de 3 pantallazos, 2026-10-03).
-- PRÓXIMA SESIÓN: `/rename java-s123` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s122 (03/10): Sesión #106, pág. 574-576.)
+- Última página: 579 de 1629 (33%) — capítulo 8: **el núcleo Object** (`new Snowboard()` = UN objeto con la parte Object adentro) (Sesión #107). **Próximo: pág. 580** (el cast). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #107** (tanda de 4 pantallazos, 2026-10-03).
+- PRÓXIMA SESIÓN: `/rename java-s124` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s123 (03/10): Sesión #107, pág. 576-579.)
 - Ejercicios: **lib26** "Mixed2" COMPLETADO el 28/09 (4/4 tras una pista; r1 al 2026-10-02). **lib27** Monster/Vampire: r1 BIEN 4/4 el 03/10 (línea final en blanco por 2ª vez; r2 al 17/10). **ej18** Pool Puzzle "los botes" COMPLETADO el 30/09 con muchas pistas, trabado por el inglés (r1 al 2026-10-04; desde ahora todo puzzle trae diccionario de la piscina). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
@@ -283,6 +283,7 @@ Ejercicios: ver EJERCICIOS.md.
 | type-safety                      | seguridad de tipos | Garantía de Java de que no le pidas a un objeto algo que no sabe hacer: el compilador solo deja llamar métodos que existen en el tipo de la referencia. |
 | strongly typed                   | fuertemente tipado | Lenguaje donde cada variable tiene un tipo fijo y el compilador lo controla. Java lo es: `Object o` solo deja usar métodos de Object. |
 | incompatible types (found / required) | tipos incompatibles (encontrado / requerido) | Error de compilación cuando el tipo del valor no entra en la variable: "found: Object, required: Dog". El javac actual lo dice como "Object cannot be converted to Dog". |
+| inner core (inner Object)        | núcleo interno (el Object de adentro) | Todo objeto lleva adentro la parte que hereda de cada superclase, hasta Object. `new Snowboard()` es UN solo objeto en el heap, no dos. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -434,6 +435,16 @@ SESIÓN #106 — 2026-10-03 — un método que devuelve Object (pág. 574-576, 3
 - Nota del profe: el javac actual dice el mismo error como "incompatible types: Object cannot be converted to Dog".
 - Chequeo: P2 BIEN (`o.hashCode()` sí, `o.meow()` no; escribió `hashcode`). P1 MAL: dijo que `Cat c = findPet();` compila, y después que `Object o = c;` no: invirtió la frase ES-UN las dos veces. Con el método de 3 pasos ("<derecha> ES UN <izquierda>") acertó `Cat c2 = o;` → no compila. Repaso del concepto adelantado al 06/10.
 - PRÓXIMO PASO: pág. 577 (cómo recuperar el Dog: el cast).
+
+SESIÓN #107 — 2026-10-03 — el núcleo Object de todo objeto (pág. 576-579, 33%)
+- Pág. 576 y 578 vuelven sobre la #106: el método que se llama sobre una referencia TIENE que existir en la clase de ESA referencia. Con `Object o`, el control remoto tiene 4 botones (equals, getClass, hashCode, toString), aunque el objeto sea un Dog.
+- `o.bark()` no compila aunque VOS sepas que es un Dog: para el compilador podría ser un Button o un Microwave.
+- Pág. 579 (viñeta): "me trata como un Object, pero puedo hacer mucho más": la referencia esconde lo que el objeto sabe hacer.
+- "Get in touch with your inner Object": un objeto contiene TODO lo que hereda de cada superclase. `new Snowboard()` crea UN solo objeto en el heap, que envuelve un núcleo con la parte Object. No son dos objetos.
+- Por eso todo objeto puede tratarse como su clase Y como Object. Snowboard = 4 métodos heredados de Object + 4 propios (turn, shred, getAir, loseControl).
+- Ejercicios de la tanda: ninguno. Pág. 577 no vino: el texto de la 576 empalma con el dibujo de la 578 (cubierto igual).
+- Chequeo: BIEN 2/2 (`o.turn()` no, `o.toString()` sí, por el tipo de la referencia; UN solo objeto). Detalle: dijo "toString pertenece a un método de Object" (ES un método de Object) y escribió "Objeto" por `Object`.
+- PRÓXIMO PASO: pág. 580 (cómo ver al objeto "por lo que realmente es": el cast).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

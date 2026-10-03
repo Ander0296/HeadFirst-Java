@@ -563,3 +563,9 @@ Dog d = getObject(aDog); no compila: el retorno declarado es Object.
 
 s106b — a Object le entra todo:
 Object x = getObject(aDog); compila: todo objeto ES UN Object.
+
+s107a — el núcleo Object:
+new Snowboard() crea UN solo objeto, con un núcleo Object adentro.
+
+s107b — la referencia manda:
+Object o = new Snowboard(); o.turn(); no compila: Object no tiene turn().
