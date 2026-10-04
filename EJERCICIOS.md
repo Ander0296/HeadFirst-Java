@@ -102,10 +102,6 @@ REPASO — EJERCICIO #18 Pool Puzzle: los botes (pág. 536-537) (r1) — program
 Arranque: ejercicios/repasos/ej18-r1/TestBoats.java (lo crea `/repaso`, CON diccionario de la piscina)
 Salió con muchas pistas y trabado por el inglés. Mirar que sin ayuda diga por qué `b3.move()` imprime "drift" (Rowboat no tiene move(): hereda el de Boat) y que deje UN solo `public class` por archivo.
 
-REPASO — CONCEPTO "String vs. int: Integer.parseInt" (r1) — programado: 2026-10-04 — [ ] pendiente
-Arranque: ejercicios/repasos/concepto-parseint-r1/ (lo crea `/repaso`; salió de DOMINADOS en el examen del 01/10)
-Examen: sabía que hay que convertir, pero escribió `parseInt(cantidad) + 2` sin `Integer.` (no compila) y sin la línea completa; dijo "82" sin decir que es String. Mirar las tres cosas. ToDo/entregar-un-ejercicio.md (Nivel 3).
-
 REPASO — CONCEPTO "== vs. equals() (y el String pool)" (r1) — programado: 2026-10-05 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-equals-r1/ (lo crea `/repaso`; lo pidió el usuario por confusión, Sesión #104)
 Chequeo del 02/10: veredictos bien, pero dijo "equals compara el contenido" para Dog (sin sobrescribir = mismo objeto, como ==) y "toString sale de Animal" (sale de Object, heredado a través de Animal). Mirar: que diga QUIÉN escribió el método y si la clase lo sobrescribió.
@@ -137,6 +133,10 @@ r1 BIEN 4/4 sin pistas, con el porqué de las 12 llamadas. Mirar que en a2 nombr
 REPASO — LIBRO BE the Compiler: Monster/Vampire (pág. 533-535) (r2) — programado: 2026-10-17 — [ ] pendiente
 Arranque: ejercicios/repasos/lib27-r2.md (lo crea `/repaso`)
 r1 BIEN 4/4 con porqué en los 4 pares. Mirar: que LLENE la línea final (en blanco 2 veces), que nombre "tipo de RETORNO" en el par 2 y que no diga que un byte llamaría al de Vampire (con referencia Monster, el compilador solo ve frighten(int)). ToDo/entregar-un-ejercicio.md (Nivel 4).
+
+REPASO — CONCEPTO "String vs. int: Integer.parseInt" (r2) — programado: 2026-10-18 — [ ] pendiente
+Arranque: ejercicios/repasos/concepto-parseint-r2/ (lo crea `/repaso`)
+r1 BIEN (04/10): `Integer.parseInt`, línea completa, "concatenar". Mirar: que no lo llame "casteo", que declare `int` (no `Integer`) y que explique el "ocho" como tipos (compilador) vs. valores (ejecución). ToDo/entregar-un-ejercicio.md (Nivel 3).
 
 REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r3) — programado: 2026-10-29 — [ ] pendiente
 Arranque: ejercicios/repasos/ej08-r3/ (dos archivos) (lo crea `/repaso`)

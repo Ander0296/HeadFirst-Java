@@ -210,6 +210,9 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
       con `Integer.` adelante, y la línea COMPLETA con su variable.**
       `parseInt` es un método de la clase `Integer`: suelto da `cannot
       find symbol`. Correcto: `int total = Integer.parseInt(cantidad) + 2;`
+- [ ] **A `parseInt` no lo llames "casteo", y guardá su resultado en un
+      `int`.** El cast `(Dog) o` no cambia el objeto. `parseInt` LEE el
+      texto y FABRICA un número nuevo. Devuelve `int`, no `Integer`.
 
 ## Nivel 4 — Antes de mandar
 

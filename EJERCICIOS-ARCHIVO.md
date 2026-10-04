@@ -2745,3 +2745,8 @@ REPASO — LIBRO BE the Compiler: Monster/Vampire (pág. 533-535) (r1) — progr
 Entregado en: ejercicios/repasos/lib27-r1.md — resultado: BIEN 4/4 veredictos, sin pistas.
 MEJORÓ vs. original: par 3 con porqué (Vampire no sobrescribe, usa el frighten heredado de Monster); par 2 ya no ubica el int en la superclase; porqué en los 4 pares.
 REPITIÓ: línea final "Pares que compilan Y dan la salida pedida" en blanco (2ª vez). NUEVO: par 4 "con un byte corre el de Vampire" (falso con referencia Monster: el compilador solo ve frighten(int)). r2 al 2026-10-17.
+
+REPASO — CONCEPTO "String vs. int: Integer.parseInt" (r1) — programado: 2026-10-04 — [x] cumplido (2026-10-04, sesión java-s127)
+Entregado en: ejercicios/repasos/concepto-parseint-r1/Conversion.java — compila, salida "82" y "10"; con "ocho", NumberFormatException al ejecutar. BIEN.
+MEJORÓ vs. examen del 01/10: `Integer.parseInt` con `Integer.` adelante, línea completa con variable, dijo que "82" es String y nombró "concatenar" (venía faltando).
+FLOJO: llamó "casteo" a parseInt (convierte, no castea); declaró `Integer` en vez de `int`; explicó el "ocho" con "referencia vs. objeto" (es tipos vs. valores). r2 al 2026-10-18.
