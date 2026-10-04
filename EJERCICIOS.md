@@ -26,6 +26,12 @@ LIBRO — Sharpen your pencil: "Abstract versus Concrete classes" (pág. 557-560
 Arranque: ejercicios/lib28-sharpen-abstracta-o-concreta.md | Si te trabás: Sesiones #102 y #103 de la guía
 OJO: el arranque dice "15 huecos" por error; son 21.
 
+LIBRO — Exercise: "What's the Picture?" (pág. 615-617, Sesión #113) — [ ] pendiente
+Arranque: ejercicios/lib29-whats-the-picture.md | Si te trabás: Sesiones #111-#113 de la guía
+
+LIBRO — Exercise: "What's the Declaration?" (pág. 617, Sesión #113) — [ ] pendiente
+Arranque: ejercicios/lib30-whats-the-declaration.md | Si te trabás: Sesiones #111-#113 de la guía
+
 
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)

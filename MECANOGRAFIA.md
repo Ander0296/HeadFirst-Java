@@ -588,3 +588,7 @@ class Dog extends Canine implements Pet { } extiende una clase e implementa una 
 s112 — interfaces como roles:
 class Dog extends Animal implements Pet, Saveable { } una clase, varias interfaces.
 Pet p = new RoboDog(); la interface acepta clases de cualquier árbol de herencia.
+
+s113 — super y genéricos:
+super.runReport(); corre la versión de la superclase desde la subclase.
+ArrayList<Dog> perros; el compilador pone el cast por vos.

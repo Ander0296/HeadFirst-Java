@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 609 de 1629 (35%) — capítulo 8: interfaces como **roles** (tipo interface acepta objetos de cualquier árbol; extender UNA clase e implementar VARIAS interfaces; cuándo clase/subclase/abstracta/interface) (Sesión #112). **Próximo: pág. 610** (sigue `super.runReport()`). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #112** (tanda de 4 pantallazos, 2026-10-04).
-- PRÓXIMA SESIÓN: `/rename java-s130` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s129 (04/10): Sesión #112. paginas/ queda vacía: traer pantallazos desde la pág. 610.)
+- Última página: 617 de 1629 (35%) — capítulo 8: `super` como parte de la superclase, Bullet Points del capítulo y los ejercicios de diagramas (Sesión #113). **Próximo: pág. 618** (sigue el cierre del cap. 8). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #113** (tanda de 5 pantallazos, 2026-10-04).
+- PRÓXIMA SESIÓN: `/rename java-s131` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s130 (04/10): Sesión #113. paginas/ queda vacía: traer pantallazos desde la pág. 618.)
 - Ejercicios: **lib26** "Mixed2" COMPLETADO el 28/09 (4/4 tras una pista; r1 al 2026-10-02). **lib27** Monster/Vampire: r1 BIEN 4/4 el 03/10 (línea final en blanco por 2ª vez; r2 al 17/10). **ej18** Pool Puzzle "los botes" COMPLETADO el 30/09 con muchas pistas, trabado por el inglés (r1 al 2026-10-04; desde ahora todo puzzle trae diccionario de la piscina). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
@@ -295,6 +295,8 @@ Ejercicios: ver EJERCICIOS.md.
 | multiple inheritance             | herencia múltiple | Que una clase extienda DOS o más superclases. Java NO la permite: `extends` acepta una sola clase (`class Dog extends Animal, Pet` no compila). |
 | Deadly Diamond of Death          | diamante mortal de la muerte | El problema que justifica la prohibición: dos superclases sobrescriben el mismo método y la clase de abajo hereda de las dos → ¿cuál versión corre? (No confundir con el diamond operator `<>`.) |
 | do-nothing method                | método que no hace nada | Implementación con cuerpo vacío `{ }`, escrita solo para cumplir con un método abstracto heredado. |
+| class diagram                    | diagrama de clases | Dibujo de cajas (una por clase/interface) unidas por flechas: SÓLIDA = extends, PUNTEADA = implements, siempre de la hija hacia arriba. Es notación UML. |
+| type safety (generics)           | seguridad de tipos (genéricos) | `ArrayList<Dog>` no es una clase especial: el compilador solo deja meter Dogs y por eso pone el cast al sacar. El error aparece al COMPILAR, no en ejecución delante del cliente. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -444,6 +446,14 @@ SESIÓN #112 — 2026-10-04 — interfaces como ROLES y cuándo usar cada cosa (
 - `super.runReport();` (repaso): BuzzwordsReport usa el código de Report y le AGREGA lo suyo. La pág. 609 sigue en la 610.
 - Pág. 608 no vino (cubierto igual: la 609 arranca con encabezado nuevo). Ejercicios: ninguno. Nota del profe: `default`/`static` en interfaces (Java 8), ya anotados en #100.
 - Chequeo: P1 BIEN (Pet sí, Animal no), pero dijo que implements "permite crear el objeto" (lo crea `new`; implements deja que una referencia Pet lo apunte). P2 BIEN (compila, se pierde el código del padre), pero llamó "método BuzzwordsReport" a la clase. PRÓXIMO PASO: pág. 610.
+
+SESIÓN #113 — 2026-10-04 — `super` como "la parte de la superclase" + Bullet Points del cap. 8 (pág. 612-617, 35%)
+- `super` es una referencia a la PORCIÓN de superclase dentro del objeto: `super.runReport();` corre la versión de Report aunque la subclase la haya sobrescrito. Desde AFUERA, una referencia siempre llama a la versión de la subclase (polimorfismo); solo el código de la subclase puede pedir la del padre.
+- Bullet Points: repaso de TODO el capítulo (abstract, Object, cast, ClassCastException en ejecución, ArrayList<Object>, diamante, interface/implements, varias interfaces, super). Nada nuevo salvo el adelanto de `default`/`static` (cap. 12).
+- Pregunta tonta: `ArrayList<Dog>` devuelve Dogs sin cast porque el COMPILADOR pone el cast por vos: solo te dejó meter Dogs, así que sabe que es seguro. Ventaja real: el error salta al compilar, no en ejecución. Detalle en el cap. 11 (genéricos).
+- Ejercicios: lib29 "What's the Picture?" (código → diagrama) y lib30 "What's the Declaration?" (diagrama → código), pendientes. Clave: flecha sólida = extends, punteada = implements, cursiva = interface, gris = abstracta.
+- Huecos: 610-611 y 613-614 cubierto igual (la 612 rehace el ejemplo de super; la app saltea números).
+- Chequeo: P1 BIEN (corre la de BuzzwordReport y super trae la de Report), pero sin el porqué (la JVM mira el OBJETO) y dijo "extender" un método (es sobrescribir). P2 a medias: "el compilador pone el cast" bien, pero invirtió la ventaja (el error se encuentra AL compilar) y omitió que solo deja meter Dogs. PRÓXIMO PASO: pág. 618.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
