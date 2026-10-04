@@ -580,3 +580,7 @@ if (o instanceof Dog) { Dog d = (Dog) o; } evita el ClassCastException.
 s110 — herencia múltiple:
 class Dog extends Animal, Pet { } no compila: Java no tiene herencia múltiple.
 El diamante mortal: si dos padres tienen burn(), ¿cuál corre en ComboDrive?
+
+s111 — la interface:
+public interface Pet { void beFriendly(); void play(); } métodos sin cuerpo.
+class Dog extends Canine implements Pet { } extiende una clase e implementa una interface.

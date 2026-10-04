@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 601 de 1629 (34%) — capítulo 8: opciones de diseño del PetShop y por qué Java prohíbe la **herencia múltiple** (Deadly Diamond of Death) (Sesión #110). **Próximo: pág. 602** (la solución: la interface). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #110** (tanda de 5 pantallazos, 2026-10-03).
-- PRÓXIMA SESIÓN: `/rename java-s128` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s127 (04/10): sin tanda, repaso parseInt r1 BIEN. Esperan 4 pantallazos en paginas/ desde la pág. 602.)
+- Última página: 604 de 1629 (35%) — capítulo 8: la **interface** (`public interface Pet`, métodos implícitamente public abstract, `class Dog extends Canine implements Pet`) (Sesión #111). **Próximo: pág. 605**. Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #111** (tanda de 4 pantallazos, 2026-10-04).
+- PRÓXIMA SESIÓN: `/rename java-s129` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s128 (04/10): Sesión #111. paginas/ queda vacía: traer pantallazos desde la pág. 605.)
 - Ejercicios: **lib26** "Mixed2" COMPLETADO el 28/09 (4/4 tras una pista; r1 al 2026-10-02). **lib27** Monster/Vampire: r1 BIEN 4/4 el 03/10 (línea final en blanco por 2ª vez; r2 al 17/10). **ej18** Pool Puzzle "los botes" COMPLETADO el 30/09 con muchas pistas, trabado por el inglés (r1 al 2026-10-04; desde ahora todo puzzle trae diccionario de la piscina). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
@@ -270,6 +270,8 @@ Ejercicios: ver EJERCICIOS.md.
 | interface                        | interfaz | Contrato de métodos que una clase se compromete a tener. El libro la presenta como "una clase 100% abstracta". No confundir con la interfaz gráfica (GUI). |
 | abstract method                  | método abstracto | Método declarado con `abstract` y SIN cuerpo: sin llaves, termina en `;` (`public abstract void eat();`). Obliga a la primera subclase concreta a escribirlo. Si una clase tiene uno, la clase tiene que ser abstracta. |
 | implement (a method)             | implementar (un método) | Escribirle el cuerpo a un método abstracto heredado: misma firma, tipo de retorno compatible. Es igual que sobrescribir. |
+| implements                       | implementa | Palabra clave para que una clase firme el contrato de una interface: `class Dog extends Canine implements Pet`. Va DESPUÉS del `extends`; la clase queda obligada a escribir todos los métodos de la interface. |
+| implicitly                       | implícitamente | Sin escribirlo: Java lo da por hecho. Los métodos de una interface son implícitamente `public` y `abstract`. |
 | method body                      | cuerpo del método | Lo que va entre las llaves `{ }` de un método. Un método abstracto no tiene. `{ }` vacío SÍ es un cuerpo. |
 | method signature                 | firma del método | Nombre + lista de argumentos (`eat()`, `roam(int)`). Es lo que tiene que coincidir para implementar o sobrescribir. |
 | protocol                         | protocolo | El conjunto de métodos que un supertipo promete que TODAS sus subclases tienen. Los métodos abstractos definen protocolo sin escribir código. |
@@ -419,6 +421,17 @@ SESIÓN #110 — 2026-10-03 — diseñar el PetShop y la herencia múltiple (pá
 - Pág. 592-594, 597-598 y 600: la app saltea números en páginas con dibujo; el texto empalma (cubierto igual). Ejercicios: ninguno.
 - Chequeo: BIEN 2/2 (el compilador mira la referencia; Java no sabría qué burn() ejecutar). Detalle: "se rompe" → mejor "es ambiguo, por eso Java no lo compila".
 - PRÓXIMO PASO: pág. 601-602 en adelante (la interface).
+
+SESIÓN #111 — 2026-10-04 — la interface al rescate (pág. 602-604, 35%)
+- Permitir el diamante obliga a reglas especiales para cada ambigüedad; Java prefiere reglas simples y consistentes (C++ sí lo permite).
+- Solución: la `interface` (palabra clave, no la interfaz gráfica): da casi todo el polimorfismo de la herencia múltiple sin el diamante.
+- El truco: TODOS sus métodos son abstractos → la subclase concreta está OBLIGADA a escribirlos, así que en ejecución hay UNA sola versión y la JVM no duda cuál llamar.
+- Definir: `public interface Pet { ... }` (interface en lugar de class). Métodos sin cuerpo, terminan en `;`.
+- Los métodos de una interface son IMPLÍCITAMENTE `public` y `abstract`: escribirlo es opcional y se considera mal estilo (el libro lo escribe solo para remarcarlo).
+- Implementar: `class Dog extends Canine implements Pet { }` → se puede extender UNA clase y además implementar la interface. Dog ES-UN Canine y ES-UN Pet.
+- Pág. 602-604 sin huecos (la 604 vino en dos pantallazos). Ejercicios: ninguno. Nota del profe: los métodos `default` con cuerpo (Java 8) ya anotados en la Sesión #100.
+- Chequeo: P1 BIEN (método con cuerpo en interface no compila). P2 a medias: sabía que sin métodos no compila, pero dijo que Cat ES-UN "Feline y Animal" y OMITIÓ Pet (lo que agrega `implements`). Leer la declaración entera.
+- PRÓXIMO PASO: pág. 605 en adelante.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
