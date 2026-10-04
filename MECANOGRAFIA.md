@@ -584,3 +584,7 @@ El diamante mortal: si dos padres tienen burn(), ¿cuál corre en ComboDrive?
 s111 — la interface:
 public interface Pet { void beFriendly(); void play(); } métodos sin cuerpo.
 class Dog extends Canine implements Pet { } extiende una clase e implementa una interface.
+
+s112 — interfaces como roles:
+class Dog extends Animal implements Pet, Saveable { } una clase, varias interfaces.
+Pet p = new RoboDog(); la interface acepta clases de cualquier árbol de herencia.

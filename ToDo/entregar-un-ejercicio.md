@@ -132,6 +132,7 @@ no se puede esconder nada.
 | **clase** | El molde, el plano. Se escribe una vez. | `class Perro { }` |
 | **objeto** | La cosa construida con ese molde. Vive en memoria. | lo que crea `new Perro()` |
 | **referencia** (la variable) | El control remoto que apunta **a un objeto**, nunca a una clase. | `Perro p` |
+| **método** | Una acción que vive DENTRO de una clase. Se nombra con paréntesis y diciendo de qué clase es; el nombre de la clase NO es un método. | "`ladrar()` de `Perro`", no "el método Perro" |
 
 La frase "la referencia apunta a la clase" está mal. Apunta al
 **objeto**. La clase solo dice de qué tipo puede ser ese objeto.
