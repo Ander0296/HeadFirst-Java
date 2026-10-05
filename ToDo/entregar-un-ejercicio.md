@@ -214,6 +214,15 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
 - [ ] **A `parseInt` no lo llames "casteo", y guardá su resultado en un
       `int`.** El cast `(Dog) o` no cambia el objeto. `parseInt` LEE el
       texto y FABRICA un número nuevo. Devuelve `int`, no `Integer`.
+- [ ] **Si un método es heredado, "lo escribió" la clase donde está su
+      código, no la que lo usa.** Antes de nombrarla, abrí la clase del
+      objeto: si el método NO está escrito ahí, lo escribió una clase de
+      más arriba (al final, `Object`). "Dog escribió equals y lo heredó"
+      se contradice: o lo escribió, o lo heredó.
+- [ ] **`==` entre referencias NUNCA mira el contenido: solo pregunta si
+      las dos apuntan al MISMO objeto.** Si da true con dos String
+      iguales, es porque son el mismo objeto (el String pool reusa los
+      literales), no porque compare el texto. El texto lo compara `equals`.
 
 ## Nivel 4 — Antes de mandar
 

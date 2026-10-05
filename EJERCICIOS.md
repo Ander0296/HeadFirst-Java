@@ -104,10 +104,6 @@ REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pá
 Arranque: ejercicios/repasos/lib09-r2.md (lo crea `/repaso`)
 r1 BIEN: conteos de Bob exactos (11 objetos, 11 referencias) y cerró "queda UN solo Contact accesible". Mirar que en Kate diga TAMBIÉN cuántas referencias hay (1) y que nombre "elegibles para el garbage collector". ToDo/entregar-un-ejercicio.md (Nivel 1).
 
-REPASO — CONCEPTO "== vs. equals() (y el String pool)" (r1) — programado: 2026-10-05 — [ ] pendiente
-Arranque: ejercicios/repasos/concepto-equals-r1/ (lo crea `/repaso`; lo pidió el usuario por confusión, Sesión #104)
-Chequeo del 02/10: veredictos bien, pero dijo "equals compara el contenido" para Dog (sin sobrescribir = mismo objeto, como ==) y "toString sale de Animal" (sale de Object, heredado a través de Animal). Mirar: que diga QUIÉN escribió el método y si la clase lo sobrescribió.
-
 REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r2) — programado: 2026-10-06 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2.md (lo crea `/repaso`; INCLUIR asignaciones con Object, adelantado desde el 12/10)
 r1 bis BIEN (28/09). Sesión #106: invirtió la frase ES-UN dos veces (`Cat c = metodoQueDevuelveObject();` "compila"; `Object o = c;` "no compila"). Mirar: que escriba "<derecha> ES UN <izquierda>" en cada asignación, que conteste LÍNEA POR LÍNEA y lea el `new` de ESA variable. ToDo/entregar-un-ejercicio.md (Nivel 3).
@@ -115,6 +111,10 @@ r1 bis BIEN (28/09). Sesión #106: invirtió la frase ES-UN dos veces (`Cat c = 
 REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r2) — programado: 2026-10-07 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-sobrescritura-r2.md (lo crea `/repaso`)
 r1 BIEN (5/5): leyó el método ENTERO y escribió la salida en orden — las dos caídas de los exámenes del 17/09 y 20/09 quedaron resueltas. Mirar que sostenga el orden cuando la cadena de llamadas tenga TRES niveles, y que no arrastre líneas de la versión del padre que la subclase no tiene.
+
+REPASO — CONCEPTO "== vs. equals() (y el String pool)" (r1 bis) — programado: 2026-10-08 — [ ] pendiente
+Arranque: ejercicios/repasos/concepto-equals-r1bis/ (lo crea `/repaso`; ejemplo NUEVO, sin Dog/"hola")
+r1 A MEDIAS (05/10): 8/8 true/false y "Object compara el mismo objeto" (antes decía contenido). Mal: "Dog escribió equals" (lo escribió Object), "== con literales compara contenido" (es el mismo objeto del pool) y toString sin contestar. ToDo/entregar-un-ejercicio.md (Nivel 3).
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r3) — programado: 2026-10-08 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r3.md (lo crea `/repaso`)

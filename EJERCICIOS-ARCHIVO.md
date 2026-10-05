@@ -2755,3 +2755,8 @@ REPASO — EJERCICIO #18 Pool Puzzle: los botes (r1) — programado: 2026-10-04 
 Entregado en: ejercicios/repasos/ej18-r1/TestBoats.java — compila (4 .class), salida "drift drift hoist sail". BIEN, sin pistas.
 MEJORÓ vs. original: Rowboat extends Boat (antes TestBoats), un solo public class (antes 4, no compilaba), getLength() con return; explicó b3.move() como heredado de Boat y no sobrescrito.
 FLOJO: dijo "b3 imprime" (corre el objeto Rowboat, b3 es la referencia); "sobreescribe" (ortografía). r2 al 2026-10-19.
+
+REPASO — CONCEPTO "== vs. equals() (y el String pool)" (r1) — programado: 2026-10-05 — [x] cumplido A MEDIAS (2026-10-05, sesión java-s132)
+Entregado en: ejercicios/repasos/concepto-equals-r1/Igualdad.java — compila, salida true/true, false/true, false/false, true/true, Dog@7ad041f3. Predicciones 8/8.
+MEJORÓ vs. chequeo #104: el equals de Dog compara "si es el mismo objeto" (antes "el contenido"); nombró el pool; 2 Dog y 3 referencias; explicó que el + se evalúa antes que el == (incomparable types).
+MAL: "Dog escribió equals y lo hereda" (lo escribió Object); "== con literales da true por el contenido" (es el mismo objeto del pool); P5 toString sin contestar (sale de Object); variable `nombre` en vez de `name`. r1 bis al 2026-10-08.
