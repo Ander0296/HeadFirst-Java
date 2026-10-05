@@ -2750,3 +2750,8 @@ REPASO — CONCEPTO "String vs. int: Integer.parseInt" (r1) — programado: 2026
 Entregado en: ejercicios/repasos/concepto-parseint-r1/Conversion.java — compila, salida "82" y "10"; con "ocho", NumberFormatException al ejecutar. BIEN.
 MEJORÓ vs. examen del 01/10: `Integer.parseInt` con `Integer.` adelante, línea completa con variable, dijo que "82" es String y nombró "concatenar" (venía faltando).
 FLOJO: llamó "casteo" a parseInt (convierte, no castea); declaró `Integer` en vez de `int`; explicó el "ocho" con "referencia vs. objeto" (es tipos vs. valores). r2 al 2026-10-18.
+
+REPASO — EJERCICIO #18 Pool Puzzle: los botes (r1) — programado: 2026-10-04 — [x] cumplido (2026-10-05, sesión java-s131)
+Entregado en: ejercicios/repasos/ej18-r1/TestBoats.java — compila (4 .class), salida "drift drift hoist sail". BIEN, sin pistas.
+MEJORÓ vs. original: Rowboat extends Boat (antes TestBoats), un solo public class (antes 4, no compilaba), getLength() con return; explicó b3.move() como heredado de Boat y no sobrescrito.
+FLOJO: dijo "b3 imprime" (corre el objeto Rowboat, b3 es la referencia); "sobreescribe" (ortografía). r2 al 2026-10-19.

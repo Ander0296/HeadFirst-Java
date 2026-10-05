@@ -104,10 +104,6 @@ REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pá
 Arranque: ejercicios/repasos/lib09-r2.md (lo crea `/repaso`)
 r1 BIEN: conteos de Bob exactos (11 objetos, 11 referencias) y cerró "queda UN solo Contact accesible". Mirar que en Kate diga TAMBIÉN cuántas referencias hay (1) y que nombre "elegibles para el garbage collector". ToDo/entregar-un-ejercicio.md (Nivel 1).
 
-REPASO — EJERCICIO #18 Pool Puzzle: los botes (pág. 536-537) (r1) — programado: 2026-10-04 — [ ] pendiente
-Arranque: ejercicios/repasos/ej18-r1/TestBoats.java (lo crea `/repaso`, CON diccionario de la piscina)
-Salió con muchas pistas y trabado por el inglés. Mirar que sin ayuda diga por qué `b3.move()` imprime "drift" (Rowboat no tiene move(): hereda el de Boat) y que deje UN solo `public class` por archivo.
-
 REPASO — CONCEPTO "== vs. equals() (y el String pool)" (r1) — programado: 2026-10-05 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-equals-r1/ (lo crea `/repaso`; lo pidió el usuario por confusión, Sesión #104)
 Chequeo del 02/10: veredictos bien, pero dijo "equals compara el contenido" para Dog (sin sobrescribir = mismo objeto, como ==) y "toString sale de Animal" (sale de Object, heredado a través de Animal). Mirar: que diga QUIÉN escribió el método y si la clase lo sobrescribió.
@@ -143,6 +139,10 @@ r1 BIEN 4/4 con porqué en los 4 pares. Mirar: que LLENE la línea final (en bla
 REPASO — CONCEPTO "String vs. int: Integer.parseInt" (r2) — programado: 2026-10-18 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-parseint-r2/ (lo crea `/repaso`)
 r1 BIEN (04/10): `Integer.parseInt`, línea completa, "concatenar". Mirar: que no lo llame "casteo", que declare `int` (no `Integer`) y que explique el "ocho" como tipos (compilador) vs. valores (ejecución). ToDo/entregar-un-ejercicio.md (Nivel 3).
+
+REPASO — EJERCICIO #18 Pool Puzzle: los botes (pág. 536-537) (r2) — programado: 2026-10-19 — [ ] pendiente
+Arranque: ejercicios/repasos/ej18-r2/TestBoats.java (lo crea `/repaso`, CON diccionario de la piscina)
+r1 BIEN (05/10) sin pistas: Rowboat extends Boat, un solo public, y el porqué de b3.move() (heredado, no sobrescrito). Mirar que diga que corre el OBJETO (no la referencia b3).
 
 REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r3) — programado: 2026-10-29 — [ ] pendiente
 Arranque: ejercicios/repasos/ej08-r3/ (dos archivos) (lo crea `/repaso`)
