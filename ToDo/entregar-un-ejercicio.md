@@ -171,6 +171,11 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
       Cat) → "Cat ES UN Object" → compila. `Cat c2 = o;` (o es Object) →
       "Object ES UN Cat" → falso → no compila, aunque adentro haya un Cat.
       Ya se invirtió la frase dos veces, una para cada lado.
+- [ ] **Si lo de la derecha es una LLAMADA a un método, su tipo es el
+      tipo de RETORNO de la declaración** (`static Object sacar()` →
+      Object), NO el `new` que hay adentro del método. El compilador lee
+      la firma, no el cuerpo. `Guitar g = sacar();` → "Object ES UN
+      Guitar" → no compila; se arregla con cast: `(Guitar) sacar()`.
 
 - [ ] **"No se ejecuta" casi nunca es cierto.** Si el programa compila,
       la JVM lo ARRANCA igual: empieza por la primera línea del `main` y

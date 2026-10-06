@@ -2760,3 +2760,12 @@ REPASO — CONCEPTO "== vs. equals() (y el String pool)" (r1) — programado: 20
 Entregado en: ejercicios/repasos/concepto-equals-r1/Igualdad.java — compila, salida true/true, false/true, false/false, true/true, Dog@7ad041f3. Predicciones 8/8.
 MEJORÓ vs. chequeo #104: el equals de Dog compara "si es el mismo objeto" (antes "el contenido"); nombró el pool; 2 Dog y 3 referencias; explicó que el + se evalúa antes que el == (incomparable types).
 MAL: "Dog escribió equals y lo hereda" (lo escribió Object); "== con literales da true por el contenido" (es el mismo objeto del pool); P5 toString sin contestar (sale de Object); variable `nombre` en vez de `name`. r1 bis al 2026-10-08.
+
+REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r2) — [~] A MEDIAS 2026-10-06
+Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2.md (Instrument/Guitar/Drum + Object, takeFromCase() y cast)
+- BIEN: P2 las 6 llamadas (compila sí/no + tipo de referencia + "Instrument/Object no tiene ese método");
+  P3 salida exacta y objeto/versión por renglón (Drum corre play() heredado de Instrument); P6 tabla correcta.
+- MAL: P1 líneas 5-6 escribió "Guitar es un Object" (leyó el new de ADENTRO del método; el tipo es el de RETORNO,
+  Object): 5 no compila, 6 sí. P1 b/c en bloque (otra vez, como el r1 bis). P4 "no sé", aunque en P2c ya lo había
+  dicho. P5a cambió la llamada por new Guitar() (esquivó el cast); P5b en blanco (ClassCastException).
+- Checklist: ES-UN ya estaba (Nivel 3); el tipo de RETORNO no → punto nuevo. r2 bis al 2026-10-09.

@@ -104,10 +104,6 @@ REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pá
 Arranque: ejercicios/repasos/lib09-r2.md (lo crea `/repaso`)
 r1 BIEN: conteos de Bob exactos (11 objetos, 11 referencias) y cerró "queda UN solo Contact accesible". Mirar que en Kate diga TAMBIÉN cuántas referencias hay (1) y que nombre "elegibles para el garbage collector". ToDo/entregar-un-ejercicio.md (Nivel 1).
 
-REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r2) — programado: 2026-10-06 — [ ] pendiente
-Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2.md (lo crea `/repaso`; INCLUIR asignaciones con Object, adelantado desde el 12/10)
-r1 bis BIEN (28/09). Sesión #106: invirtió la frase ES-UN dos veces (`Cat c = metodoQueDevuelveObject();` "compila"; `Object o = c;` "no compila"). Mirar: que escriba "<derecha> ES UN <izquierda>" en cada asignación, que conteste LÍNEA POR LÍNEA y lea el `new` de ESA variable. ToDo/entregar-un-ejercicio.md (Nivel 3).
-
 REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r2) — programado: 2026-10-07 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-sobrescritura-r2.md (lo crea `/repaso`)
 r1 BIEN (5/5): leyó el método ENTERO y escribió la salida en orden — las dos caídas de los exámenes del 17/09 y 20/09 quedaron resueltas. Mirar que sostenga el orden cuando la cadena de llamadas tenga TRES niveles, y que no arrastre líneas de la versión del padre que la subclase no tiene.
@@ -119,6 +115,10 @@ r1 A MEDIAS (05/10): 8/8 true/false y "Object compara el mismo objeto" (antes de
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r3) — programado: 2026-10-08 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Mirar la SALIDA del archivo B: puso la del método que NO se llama. Que lea el println DESDE ADENTRO del método que se ejecuta. ToDo/entregar-un-ejercicio.md (Nivel 2).
+
+REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r2 bis) — programado: 2026-10-09 — [ ] pendiente
+Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2bis.md (lo crea `/repaso`; ejemplo NUEVO, CON método que devuelve Object y cast)
+r2 A MEDIAS (06/10): llamadas A-F, salida y tabla BIEN. Mal: tomó el `new` de adentro del método como tipo de la derecha (líneas 5-6), P1 en bloque, P4 "no sé" (la había contestado en P2c), P5 esquivó el cast y dejó la b) en blanco. ToDo/entregar-un-ejercicio.md (Nivel 3, punto nuevo de RETORNO).
 
 REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r3) — programado: 2026-10-09 — [ ] pendiente
 Arranque: ejercicios/repasos/lib03-television-r3.md (lo crea `/repaso`)
