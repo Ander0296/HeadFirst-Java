@@ -123,10 +123,15 @@ Arranque: ejercicios/repasos/lib05-r3.md (lo crea `/repaso`)
 REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r2 bis) — programado: 2026-10-09 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2bis.md (lo crea `/repaso`; ejemplo NUEVO, CON método que devuelve Object y cast)
 r2 A MEDIAS (06/10): llamadas A-F, salida y tabla BIEN. Mal: tomó el `new` de adentro del método como tipo de la derecha (líneas 5-6), P1 en bloque, P4 "no sé" (la había contestado en P2c), P5 esquivó el cast y dejó la b) en blanco. ToDo/entregar-un-ejercicio.md (Nivel 3, punto nuevo de RETORNO).
+EXAMEN 06/10 MAL: con `Animal a = new Dog(); Object o = a;` dijo `"..."`, `Dog`, `Object` (es Guau / class Dog / class Dog) mientras afirmaba "lo decide la JVM". Incluir `getClass()` con DOS referencias a UN objeto. ToDo (Nivel 3, getClass).
 
 REPASO — LIBRO Sharpen your pencil: "Television" (pág. 162-163) (r3) — programado: 2026-10-09 — [ ] pendiente
 Arranque: ejercicios/repasos/lib03-television-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. Errores NUEVOS a mirar: `static` en instance variables, y el nombre EXACTO de la variable adentro del método (MARCA≠marca). ToDo/crear-una-clase-java.md
+
+REPASO — CONCEPTO "herencia simple de clases, múltiple de interfaces" (r1) — programado: 2026-10-09 — [ ] pendiente
+Arranque: ejercicios/repasos/concepto-interface-vs-abstracta-r1.md (lo crea `/repaso`; caso NUEVO de clase abstracta vs. interface)
+EXAMEN 06/10 A MEDIAS: eligió interface (bien) por "solo la implementa quien vuela", pero no vio que las clases YA tenían `extends` y que una segunda superclase no compila. Mirar que mire los `extends` existentes antes de elegir.
 
 REPASO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r2) — programado: 2026-10-12 — [ ] pendiente
 Arranque: ejercicios/repasos/lib23-r2.md (lo crea `/repaso`)

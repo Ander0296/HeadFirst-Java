@@ -164,6 +164,17 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
       escriba el usuario en la terminal), la versión que corre se sabe recién
       al ejecutar. Por eso decide la JVM, mirando el objeto.
 
+- [ ] **`getClass()` le pregunta al OBJETO, nunca a la referencia.** Contá
+      los `new` del programa: esos son TODOS los objetos que existen. En
+      `Animal a = new Dog(); Object o = a;` hay UN objeto, así que
+      `a.getClass()` y `o.getClass()` imprimen lo mismo: `class Dog` (con
+      la palabra `class` adelante). Ya se contestó "Object" por mirar la
+      variable.
+- [ ] **Un método no se "extiende": se SOBRESCRIBE.** `extends` es para
+      clases. Si la subclase escribe su propia versión y adentro llama a
+      `super.run()`, decí "sobrescribe `run()` y con `super` llama a la
+      versión del padre". Ya se dijo "lo estamos extendiendo" dos veces.
+
 - [ ] **Antes de decir si una asignación `Tipo x = valor;` compila,
       escribí la frase "<tipo de lo de la DERECHA> ES UN <tipo de la
       IZQUIERDA>".** Si es verdad, compila; si es falsa, no. Siempre en ese
