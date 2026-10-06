@@ -592,3 +592,6 @@ Pet p = new RoboDog(); la interface acepta clases de cualquier árbol de herenci
 s113 — super y genéricos:
 super.runReport(); corre la versión de la superclase desde la subclase.
 ArrayList<Dog> perros; el compilador pone el cast por vos.
+
+s114 — arreglo de interface:
+Pet[] p = new Pet[3]; crea tres referencias vacías, ningún objeto Pet.

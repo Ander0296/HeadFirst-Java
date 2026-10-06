@@ -32,6 +32,10 @@ Arranque: ejercicios/lib29-whats-the-picture.md | Si te trabás: Sesiones #111-#
 LIBRO — Exercise: "What's the Declaration?" (pág. 617, Sesión #113) — [ ] pendiente
 Arranque: ejercicios/lib30-whats-the-declaration.md | Si te trabás: Sesiones #111-#113 de la guía
 
+EJERCICIO #19 — Pool Puzzle: Acts/Clowns/Of76 (Ubicación pág. 619-620, Sesión #114) — [ ] pendiente
+Tipo: completar/corregir código
+Arranque: ejercicios/ej19-pool-puzzle-of76/ | Si te trabás: Sesiones #111-#114 y #104 (getClass) de la guía (el arranque dice #106 por error)
+
 
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)

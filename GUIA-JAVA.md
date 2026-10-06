@@ -7,12 +7,12 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 617 de 1629 (35%) — capítulo 8: `super` como parte de la superclase, Bullet Points del capítulo y los ejercicios de diagramas (Sesión #113). **Próximo: pág. 618** (sigue el cierre del cap. 8). Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #113** (tanda de 5 pantallazos, 2026-10-04).
-- PRÓXIMA SESIÓN: `/rename java-s134` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s133 (06/10): sin tanda, repaso compilador vs. JVM r2 A MEDIAS → r2 bis al 09/10. paginas/ tiene 5 pantallazos desde la pág. 618.)
-- Ejercicios: abiertos lib28, lib29 y lib30 (cap. 8). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
+- Última página: 620 de 1629 (35%) — capítulo 8: Pool Puzzle Acts/Clowns/Of76 (Sesión #114). **Próximo: pág. 621+ (SPOILERS: soluciones del cap. 8, NO explicar hasta entregar lib29, lib30 y ej19); lo nuevo arranca en el capítulo 9.** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #114** (tanda de 4 pantallazos, 2026-10-06).
+- PRÓXIMA SESIÓN: `/rename java-s135` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s134 (06/10): Sesión #114, Pool Puzzle ej19 creado. paginas/ queda vacía: traer el cap. 9 salteando las soluciones del cap. 8.)
+- Ejercicios: abiertos lib28, lib29, lib30 y **ej19** Pool Puzzle Of76 (cap. 8). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
-- SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, **538-540** (soluciones del cap. 7: lib27, lib26 y ej18).
+- SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620 en adelante** (soluciones del cap. 8: lib29, lib30, ej19).
 - Último triage (`/pendientes`): **2026-10-01** — bajas: 5 repasos (ej01, ej02, ej03, lib11, lib20) + lib24; cola de repasos 32 → 27. PENDIENTES.md: solo el Ready-Bake de GameHelper. Ritmo real: **5,46 pág./tanda** (102 tandas, pág. 557) → faltan **~196 tandas** (~143 con TEXTO). Freno principal: de java-s103 a s115 solo 3 sesiones tuvieron tanda; el resto, repasos.
 - Último examen (`/examen`): **2026-10-01** (el sexto, java-s115; el quinto fue el 20/09). SÓLIDO: concatenación de izquierda a derecha (`"Suma: " + 3 + 4` → `Suma: 34`; `3 + 4 + " total"` → `7 total`), evaluar la condición con el valor real (vio el borde `1 > 1`) y clase/método abstracto (eligió con dos razones). FLOJO: `Integer.parseInt` (escribió `parseInt` suelto) → sale de DOMINADOS; r1 BIEN el 04/10 (pero lo llamó "casteo" y usó `Integer` por `int`), r2 al 18/10. Transversal: media consigna en 4 de 4 (porqué, tipo, línea completa, la línea ilegal); sigue sin decir "concatena". ToDo/entregar-un-ejercicio.md: punto nuevo de parseInt.
 - Entorno: OpenJDK 26.0.1, javac/java en PATH (Arch Linux), sin config extra.
@@ -297,6 +297,7 @@ Ejercicios: ver EJERCICIOS.md.
 | do-nothing method                | método que no hace nada | Implementación con cuerpo vacío `{ }`, escrita solo para cumplir con un método abstracto heredado. |
 | class diagram                    | diagrama de clases | Dibujo de cajas (una por clase/interface) unidas por flechas: SÓLIDA = extends, PUNTEADA = implements, siempre de la hija hacia arriba. Es notación UML. |
 | type safety (generics)           | seguridad de tipos (genéricos) | `ArrayList<Dog>` no es una clase especial: el compilador solo deja meter Dogs y por eso pone el cast al sacar. El error aparece al COMPILAR, no en ejecución delante del cliente. |
+| array of an interface type       | arreglo de tipo interface | `Pet[] p = new Pet[3];` es legal aunque Pet sea una interface: crea 3 REFERENCIAS vacías (null), cero objetos. Lo ilegal es `new Pet()`. Cada casilla acepta cualquier objeto de una clase que implemente Pet. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -454,6 +455,15 @@ SESIÓN #113 — 2026-10-04 — `super` como "la parte de la superclase" + Bulle
 - Ejercicios: lib29 "What's the Picture?" (código → diagrama) y lib30 "What's the Declaration?" (diagrama → código), pendientes. Clave: flecha sólida = extends, punteada = implements, cursiva = interface, gris = abstracta.
 - Huecos: 610-611 y 613-614 cubierto igual (la 612 rehace el ejemplo de super; la app saltea números).
 - Chequeo: P1 BIEN (corre la de BuzzwordReport y super trae la de Report), pero sin el porqué (la JVM mira el OBJETO) y dijo "extender" un método (es sobrescribir). P2 a medias: "el compilador pone el cast" bien, pero invirtió la ventaja (el error se encuentra AL compilar) y omitió que solo deja meter Dogs. PRÓXIMO PASO: pág. 618.
+
+SESIÓN #114 — 2026-10-06 — Pool Puzzle del cap. 8 (pág. 618-620, 35%)
+- Pág. 618: cierre de "What's the Declaration?" (solo un enlace a las respuestas). Pág. 619-620: Pool Puzzle con interface, clase abstracta, arreglo y `getClass()`.
+- Bases repasadas para resolverlo: un arreglo puede ser de tipo interface (`Pet[] p = new Pet[3]` crea referencias vacías, cero objetos; `new Pet()` no compila). Una clase abstracta no se instancia con `new`.
+- `getClass()` (heredado de Object) imprime la clase del OBJETO real (`class Dog`), no la de la referencia: es la JVM la que mira el objeto.
+- Ejercicios: ej19 Pool Puzzle "Acts/Clowns/Of76", pendiente. El arranque dice "Sesión #106" para getClass(): es la #104.
+- Pág. 620 (segunda mitad) en adelante: soluciones del cap. 8 = SPOILER, sin explicar.
+- Chequeo: P1 BIEN y más fino que la pregunta (el arreglo ES un objeto; cero Pet, casillas null). P2 a medias: "lo decide la JVM" bien, pero dijo que imprime Animal (es `class Dog`: la JVM mira el OBJETO). Mismo error que el repaso compilador vs. JVM r2.
+- PRÓXIMO PASO: capítulo 9 (saltear las soluciones del cap. 8).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
