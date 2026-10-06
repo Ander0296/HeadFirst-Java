@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 625 de 1629 (36%) — portada del capítulo 9: constructores y garbage collection (Sesión #115). **Próximo: pág. 626, desarrollo del cap. 9 (conviene traerlo como TEXTO).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #115** (tanda de 5 pantallazos, 2026-10-06: 4 de spoilers + la portada del cap. 9).
-- PRÓXIMA SESIÓN: `/rename java-s137` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s136 (06/10): Sesión #115, la portada del cap. 9.)
+- Última página: 630 de 1629 (36%) — cap. 9, el stack y el heap; instance vs. variables locales (Sesión #116). **Próximo: pág. 631 (conviene traerla como TEXTO).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #116** (tanda de 4 pantallazos, 2026-10-06: pág. 626-630, stack y heap).
+- PRÓXIMA SESIÓN: `/rename java-s138` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s137 (06/10): Sesión #116, el stack y el heap.)
 - Ejercicios: abiertos lib28, lib29, lib30 y **ej19** Pool Puzzle Of76 (cap. 8). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620-624** (soluciones del cap. 8: lib29, lib30, ej19).
@@ -297,6 +297,9 @@ Ejercicios: ver EJERCICIOS.md.
 | do-nothing method                | método que no hace nada | Implementación con cuerpo vacío `{ }`, escrita solo para cumplir con un método abstracto heredado. |
 | class diagram                    | diagrama de clases | Dibujo de cajas (una por clase/interface) unidas por flechas: SÓLIDA = extends, PUNTEADA = implements, siempre de la hija hacia arriba. Es notación UML. |
 | type safety (generics)           | seguridad de tipos (genéricos) | `ArrayList<Dog>` no es una clase especial: el compilador solo deja meter Dogs y por eso pone el cast al sacar. El error aparece al COMPILAR, no en ejecución delante del cliente. |
+| the stack                        | el stack (la pila) | Zona de memoria donde viven las llamadas a métodos en curso y sus variables locales. Se apilan: el método de ARRIBA es el que se está ejecutando; al terminar, sale de la pila. |
+| LIFO (Last In, First Out)        | último en entrar, primero en salir | Regla de toda pila: el método que se llamó último (arriba) es el primero que termina y sale. |
+| stack variable                   | variable de pila | Otro nombre de la variable local (incluidos los parámetros): vive en el stack mientras su método no llegue a la llave de cierre. |
 | array of an interface type       | arreglo de tipo interface | `Pet[] p = new Pet[3];` es legal aunque Pet sea una interface: crea 3 REFERENCIAS vacías (null), cero objetos. Lo ilegal es `new Pet()`. Cada casilla acepta cualquier objeto de una clase que implemente Pet. |
 
 ============================================================
@@ -472,6 +475,16 @@ SESIÓN #115 — 2026-10-06 — Portada del cap. 9 (pág. 621-625, 36%)
 - Ejercicios de la tanda: ninguno.
 - Chequeo: P1 BIEN con porqué (única referencia → elegible para el GC). P2 buena intuición ("Dog() es como un método") pero invirtió los roles: `new` reserva la memoria en el heap; `Dog()` llama al CONSTRUCTOR, que inicializa el objeto.
 - PRÓXIMO PASO: pág. 626 (el cap. 9 trae mucho texto: conviene pegarlo como TEXTO en paginas/).
+
+SESIÓN #116 — 2026-10-06 — El stack y el heap: dónde vive cada cosa (pág. 626-630, 36%)
+- Ciclo de vida: el programador decide cuándo CONSTRUIR un objeto; no lo destruye, lo ABANDONA, y el garbage collector recupera su memoria.
+- La JVM le pide un bloque de memoria al sistema operativo al arrancar; casi nunca se decide cuánto (NOTA DEL PROFE: en el trabajo se ajusta con `-Xmx`).
+- Dos zonas que importan: el HEAP (todos los objetos) y el STACK (las llamadas a métodos en curso y sus variables locales). Dibujo: `main()` abajo, `doStuff()` encima, `go()` arriba = el que corre ahora.
+- Instance variable: declarada en la clase, fuera de todo método; vive DENTRO del objeto (o sea, en el heap). Ej.: `int size;` en `Duck`.
+- Variable local (también "stack variable"): declarada dentro de un método, INCLUIDOS los parámetros; vive solo hasta la llave de cierre del método.
+- Ejercicios de la tanda: ninguno.
+- Chequeo: 2/2 BIEN con porqué (go() corre, main() fue primero: lo último que entra es lo primero que sale; size en el heap, speed y laps locales en el stack).
+- PRÓXIMO PASO: pág. 631 (conviene traerla como TEXTO).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

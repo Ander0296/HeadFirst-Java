@@ -598,3 +598,7 @@ Pet[] p = new Pet[3]; crea tres referencias vacías, ningún objeto Pet.
 
 s115 — capítulo 9, vida y muerte de un objeto:
 Un objeto sin ninguna referencia queda elegible para el garbage collector.
+
+s116 — el stack y el heap:
+Los objetos viven en el heap; los métodos y sus variables locales, en el stack.
+En foo(int x) { int i = x + 3; } x e i son variables locales.
