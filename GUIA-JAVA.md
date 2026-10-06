@@ -7,12 +7,12 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 620 de 1629 (35%) — capítulo 8: Pool Puzzle Acts/Clowns/Of76 (Sesión #114). **Próximo: pág. 621+ (SPOILERS: soluciones del cap. 8, NO explicar hasta entregar lib29, lib30 y ej19); lo nuevo arranca en el capítulo 9.** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #114** (tanda de 4 pantallazos, 2026-10-06).
-- PRÓXIMA SESIÓN: `/rename java-s136` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s135 (06/10): sin tanda, dos exámenes (cap. 8 y dominados). paginas/ sigue vacía: traer el cap. 9 salteando las soluciones del cap. 8.)
+- Última página: 625 de 1629 (36%) — portada del capítulo 9: constructores y garbage collection (Sesión #115). **Próximo: pág. 626, desarrollo del cap. 9 (conviene traerlo como TEXTO).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"). Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #115** (tanda de 5 pantallazos, 2026-10-06: 4 de spoilers + la portada del cap. 9).
+- PRÓXIMA SESIÓN: `/rename java-s137` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s136 (06/10): Sesión #115, la portada del cap. 9.)
 - Ejercicios: abiertos lib28, lib29, lib30 y **ej19** Pool Puzzle Of76 (cap. 8). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
-- SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620 en adelante** (soluciones del cap. 8: lib29, lib30, ej19).
+- SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620-624** (soluciones del cap. 8: lib29, lib30, ej19).
 - Último triage (`/pendientes`): **2026-10-01** — bajas: 5 repasos (ej01, ej02, ej03, lib11, lib20) + lib24; cola de repasos 32 → 27. PENDIENTES.md: solo el Ready-Bake de GameHelper. Ritmo real: **5,46 pág./tanda** (102 tandas, pág. 557) → faltan **~196 tandas** (~143 con TEXTO). Freno principal: de java-s103 a s115 solo 3 sesiones tuvieron tanda; el resto, repasos.
 - Último examen (`/examen`): **2026-10-06** (el séptimo, java-s135, sobre el cap. 8; el sexto fue el 01/10). SÓLIDO: métodos de interface implícitamente `public` (no se puede bajar el acceso) y `super.run()` en el orden correcto (B-A-C). FLOJO: elegir interface vs. clase abstracta (no vio los `extends` ya existentes; repaso al 09/10). NO ESTÁ: qué corre y `getClass()` con `Animal a = new Dog()` (respondió como si mandara la referencia, diciendo "decide la JVM"; r2 bis al 09/10). Vocabulario: "extender" un método (2ª vez). ToDo/entregar-un-ejercicio.md: puntos de getClass y sobrescribir. Mismo día, examen corto de DOMINADOS: 3/3 sólido (borde `10 > 10` + concatenación, sin main compila/falla al ejecutar, dos main).
 - Entorno: OpenJDK 26.0.1, javac/java en PATH (Arch Linux), sin config extra.
@@ -464,6 +464,14 @@ SESIÓN #114 — 2026-10-06 — Pool Puzzle del cap. 8 (pág. 618-620, 35%)
 - Pág. 620 (segunda mitad) en adelante: soluciones del cap. 8 = SPOILER, sin explicar.
 - Chequeo: P1 BIEN y más fino que la pregunta (el arreglo ES un objeto; cero Pet, casillas null). P2 a medias: "lo decide la JVM" bien, pero dijo que imprime Animal (es `class Dog`: la JVM mira el OBJETO). Mismo error que el repaso compilador vs. JVM r2.
 - PRÓXIMO PASO: capítulo 9 (saltear las soluciones del cap. 8).
+
+SESIÓN #115 — 2026-10-06 — Portada del cap. 9 (pág. 621-625, 36%)
+- Pág. 621-624: soluciones del cap. 8 (What's the Picture?, What's the Declaration? y el Pool Puzzle Of76) = SPOILER, se vieron pero NO se explicaron.
+- Pág. 625: portada del capítulo 9, "Life and Death of an Object: Constructors and Garbage Collection" (Vida y muerte de un objeto: constructores y recolección de basura). Es un chiste sobre un objeto que se llevó el garbage collector.
+- Tema del capítulo: cómo NACE un objeto (constructor) y cómo MUERE (cuando ya nada lo referencia, el garbage collector libera su memoria).
+- Ejercicios de la tanda: ninguno.
+- Chequeo: P1 BIEN con porqué (única referencia → elegible para el GC). P2 buena intuición ("Dog() es como un método") pero invirtió los roles: `new` reserva la memoria en el heap; `Dog()` llama al CONSTRUCTOR, que inicializa el objeto.
+- PRÓXIMO PASO: pág. 626 (el cap. 9 trae mucho texto: conviene pegarlo como TEXTO en paginas/).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

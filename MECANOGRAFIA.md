@@ -595,3 +595,6 @@ ArrayList<Dog> perros; el compilador pone el cast por vos.
 
 s114 — arreglo de interface:
 Pet[] p = new Pet[3]; crea tres referencias vacías, ningún objeto Pet.
+
+s115 — capítulo 9, vida y muerte de un objeto:
+Un objeto sin ninguna referencia queda elegible para el garbage collector.
