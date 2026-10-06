@@ -602,3 +602,7 @@ Un objeto sin ninguna referencia queda elegible para el garbage collector.
 s116 — el stack y el heap:
 Los objetos viven en el heap; los métodos y sus variables locales, en el stack.
 En foo(int x) { int i = x + 3; } x e i son variables locales.
+
+s117 — la pila de llamadas (call stack):
+Cada llamada a un método apila un stack frame con sus variables locales.
+Cuando crazy() termina, su frame sale y go() sigue en la línea siguiente.

@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 630 de 1629 (36%) — cap. 9, el stack y el heap; instance vs. variables locales (Sesión #116). **Próximo: pág. 631 (conviene traerla como TEXTO).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #116** (tanda de 4 pantallazos, 2026-10-06: pág. 626-630, stack y heap).
-- PRÓXIMA SESIÓN: `/rename java-s138` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s137 (06/10): Sesión #116, el stack y el heap.)
+- Última página: 633 de 1629 (36%) — cap. 9, la pila de llamadas paso a paso: stack frames, push y pop (Sesión #117). **Próximo: pág. 634 (conviene traerla como TEXTO).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #117** (tanda de 4 pantallazos, 2026-10-06: pág. 631-633, la pila de llamadas).
+- PRÓXIMA SESIÓN: `/rename java-s139` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s138 (06/10): Sesión #117, la pila de llamadas.)
 - Ejercicios: abiertos lib28, lib29, lib30 y **ej19** Pool Puzzle Of76 (cap. 8). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** tras el triage del 01/10 (el más viejo, lib10 "What's legal?" r1, del 2026-08-03). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620-624** (soluciones del cap. 8: lib29, lib30, ej19).
@@ -300,62 +300,16 @@ Ejercicios: ver EJERCICIOS.md.
 | the stack                        | el stack (la pila) | Zona de memoria donde viven las llamadas a métodos en curso y sus variables locales. Se apilan: el método de ARRIBA es el que se está ejecutando; al terminar, sale de la pila. |
 | LIFO (Last In, First Out)        | último en entrar, primero en salir | Regla de toda pila: el método que se llamó último (arriba) es el primero que termina y sale. |
 | stack variable                   | variable de pila | Otro nombre de la variable local (incluidos los parámetros): vive en el stack mientras su método no llegue a la llave de cierre. |
+| call stack                       | pila de llamadas | La pila de métodos en curso: abajo el primero que se llamó, arriba el que se está ejecutando ahora. |
+| stack frame                      | marco de pila | El bloque que se apila por cada llamada a un método: guarda la línea en ejecución y sus variables locales. |
+| push / pop                       | apilar / desapilar | push = poner un frame arriba de la pila (al llamar al método); pop = sacarlo (al terminar), y la ejecución vuelve al método de abajo. |
 | array of an interface type       | arreglo de tipo interface | `Pet[] p = new Pet[3];` es legal aunque Pet sea una interface: crea 3 REFERENCIAS vacías (null), cero objetos. Lo ilegal es `new Pet()`. Cada casilla acepta cualquier objeto de una clase que implemente Pet. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
-de código, máximo ~15 líneas por sesión. Las sesiones #01 a #99 están
+de código, máximo ~15 líneas por sesión. Las sesiones #01 a #103 están
 en GUIA-ARCHIVO.md.)
 ============================================================
-
-SESIÓN #100 — 2026-09-28 — Arranca el capítulo 8: interfaces y clases abstractas; el problema de `new Animal()` (pág. 541-546, 32%)
-- Capítulo 8 "Serious Polymorphism" (polimorfismo en serio). La herencia es solo el comienzo: para aprovechar el polimorfismo del todo hacen falta INTERFACES (no las gráficas: contratos de código).
-- Adelanto del libro: interfaz = clase 100% abstracta; CLASE ABSTRACTA = clase que NO se puede instanciar (no se le puede hacer `new`).
-- Pág. 542-545: el diseño de animales del cap. 7 está bien (poco código duplicado, overrides donde hace falta, `Animal` como protocolo común de 4 métodos, y sirve para subclases que todavía no existen)... pero "¿nos olvidamos de algo?".
-- Tres casos: `Wolf aWolf = new Wolf();` (mismo tipo), `Animal aHippo = new Hippo();` (tipos distintos: polimorfismo) y `Animal anim = new Animal();` (mismo tipo, pero RARO).
-- El problema: `Animal` es un concepto general. Un objeto "Animal" a secas no tiene forma, ruido ni comida con sentido: nadie debería poder crearlo. La solución (clase abstracta) viene en la próxima tanda.
-- Pág. 543-544: Kindle saltea números por el diagrama grande (cubierto igual).
-- Ejercicios de la tanda: ninguno.
-- Nota del profe: desde Java 8 las interfaces pueden tener métodos `default` con cuerpo, así que "100% abstracta" es una simplificación; el libro lo ve más adelante.
-- Chequeo: LAS DOS BIEN, sin pistas y con las dos mitades. (1) Referencia Animal, objeto Hippo, corre el `eat()` de Hippo y lo decide la JVM. (2) `Animal` es una categoría ("dame una verdura" → "¿cuál?"); `new Hippo()` sí dice qué objeto concreto es.
-- PRÓXIMO PASO: pág. 547 — qué hacer con `new Animal()` (clases abstractas).
-
-SESIÓN #101 — 2026-09-28 — Clases abstractas vs. concretas (pág. 547-550, 32%)
-- Algunas clases NO deben instanciarse: un objeto `Animal` a secas no tiene forma, color ni patas (el "accidente del teletransportador" de Star Trek).
-- Se marca con la palabra clave `abstract` en la declaración: `abstract class Canine extends Animal { }`. El COMPILADOR prohíbe todo `new` de esa clase ("Canine is abstract; cannot be instantiated").
-- Lo único prohibido es el `new`: la clase abstracta SÍ sirve como tipo de referencia (variable, argumento, retorno, arreglo polimórfico). `Canine c = new Dog();` compila.
-- CLASE CONCRETA = la que no es abstracta, lo bastante específica para instanciarse. Árbol: Animal, Canine y Feline abstractas; Hippo, Wolf, Dog, Lion, Cat y Tiger concretas.
-- Una clase abstracta casi no sirve si nadie la extiende: el trabajo en ejecución lo hacen instancias de sus subclases concretas. Excepción: miembros `static` (cap. 10).
-- En la API hay muchas: `Component` (GUI) es abstracta; se instancia `JButton`, nunca `Component`.
-- Pág. 548: Kindle salta el número, el texto sigue sin corte (cubierto igual). BRAIN POWER de la 550: la pregunta sigue en la 551.
-- Ejercicios de la tanda: ninguno.
-- Nota del profe: el libro escribe `abstract public class`; compila igual, pero la convención es `public abstract class`.
-- Chequeo: BIEN tras pedirle las mitades que faltaban (b sin "quién", c sin "porqué": otra vez media consigna). (1) b no compila y lo frena el compilador; c compila porque ES-UN se hereda por toda la cadena. (2) Ejemplo propio: Forma abstracta, Triangulo y Circulo concretas.
-- PRÓXIMO PASO: pág. 550-551 — el BRAIN POWER del vino (¿abstracta o concreta?).
-
-SESIÓN #102 — 2026-09-29 — Métodos abstractos (pág. 552-557, 32%)
-- BRAIN POWER del vino: Wine, Red y White probablemente abstractas; una botella puntual (Camelot 1997 Pinot Noir) seguro concreta. Dónde se corta depende de la aplicación.
-- Clase abstracta = DEBE ser extendida; método abstracto = DEBE ser sobrescrito (implementado). Se usa cuando no existe un cuerpo genérico con sentido (¿cómo come un "animal" a secas?).
-- Sintaxis: `public abstract void eat();` — sin cuerpo, sin llaves, termina en punto y coma.
-- Un método abstracto obliga a que la CLASE sea abstracta. Una clase abstracta puede mezclar métodos abstractos y con cuerpo.
-- Para qué sirve: define PROTOCOLO. "Todos los subtipos tienen ESTE método" → el compilador acepta `a.eat()` sobre una referencia `Animal`, y `Vet` no necesita un método por cada subclase.
-- La PRIMERA subclase concreta implementa TODOS los abstractos pendientes. Una abstracta intermedia (Canine) puede pasar la pelota o implementar algunos. Implementar = misma firma + retorno compatible; el contenido da igual para Java (hasta `{ }`).
-- Pág. 553 y 555-556: Kindle saltea números por las viñetas; el texto sigue sin corte (cubierto igual).
-- Ejercicios de la tanda: Sharpen "Abstract versus Concrete classes" (pág. 557): la tabla está en la página siguiente → su arranque se crea en la próxima tanda.
-- Nota del profe: en el trabajo real, `@Override` arriba de cada método implementado; los IDE los generan solos (IntelliJ: "Implement methods", Fase 3).
-- Chequeo: veredictos BIEN (Parrot no compila y lo frena el compilador; método abstracto → clase abstracta). Faltó la salida principal: IMPLEMENTAR `fly()`; hacer Parrot abstracta compila pero prohíbe `new Parrot()`. El porqué de "la abstracta puede tener cuerpo" no llegó (media consigna).
-- PRÓXIMO PASO: pág. 558 — la tabla del Sharpen "Abstract versus Concrete".
-
-SESIÓN #103 — 2026-10-02 — polimorfismo en acción: MyDogList → MyAnimalList, y Object (pág. 560-564, 33%)
-- Lista propia hecha a mano: arreglo de 5 casillas + `nextIndex` (próximo índice); `add()` guarda solo si `nextIndex < arreglo.length`, si no, no hace NADA (ni error ni mensaje).
-- Al sumar gatos: una clase por animal o dos arreglos con `addCat`/`addDog` es torpe; la buena es UNA lista con el SUPERTIPO (`Animal[]`, `add(Animal a)`) que acepta cualquier subclase, incluso las futuras.
-- `new Animal[5]` con Animal abstracta COMPILA: crea UN objeto arreglo con 5 casillas en null, ningún Animal. Lo prohibido es `new Animal()`.
-- Toda clase que no escribe `extends` hereda automáticamente de `Object`, la raíz de todo el árbol: equals(), getClass(), hashCode(), toString().
-- La app numera por pantalla: la tabla del Sharpen y MyDogList dicen las dos "Page 560". Pág. 562: cubierto igual (el código sigue sin corte).
-- Ejercicios de la tanda: lib28 Sharpen "Abstract versus Concrete" (pendiente): imaginar una app donde cada clase sea concreta y otra donde sea abstracta.
-- Nota del profe: en el trabajo real nadie escribe esta lista: se usa `ArrayList<Animal>`, que crece sola. "Una clase que acepte cualquier cosa" se resuelve con genéricos (cap. 11).
-- Chequeo: las dos BIEN (0 Animals, arreglo en null; la sexta llamada no hace nada y nextIndex queda en 5). Faltó escribir `5 < 5` → false y "no imprime nada". Práctica libre en Eclipse (Pildoras): faltaba `package`, Cat no extendía Feline.
-- PRÓXIMO PASO: pág. 565 (qué trae Object).
 
 SESIÓN #104 — 2026-10-02 — la clase Object y sus 4 métodos (pág. 565-569, 33%)
 - Para una lista que acepte CUALQUIER cosa hace falta un tipo por encima de Animal: ya existe, es `Object`. Toda clase que no extiende nada explícitamente la extiende implícitamente (`class Dog extends Object`).
@@ -485,6 +439,17 @@ SESIÓN #116 — 2026-10-06 — El stack y el heap: dónde vive cada cosa (pág.
 - Ejercicios de la tanda: ninguno.
 - Chequeo: 2/2 BIEN con porqué (go() corre, main() fue primero: lo último que entra es lo primero que sale; size en el heap, speed y laps locales en el stack).
 - PRÓXIMO PASO: pág. 631 (conviene traerla como TEXTO).
+
+SESIÓN #117 — 2026-10-06 — La pila de llamadas paso a paso (pág. 631-633, 36%)
+- Llamar a un método APILA (push) un stack frame: guarda la línea que se está ejecutando y los valores de todas sus variables locales (parámetros incluidos).
+- El frame de arriba es SIEMPRE el método que se está ejecutando; un método sigue en la pila hasta su llave de cierre.
+- Escenario: doStuff() (b) → go(int x) (x, z) → crazy() (c): la pila crece de abajo hacia arriba.
+- Al terminar crazy(), su frame se DESAPILA (pop) con su variable c, y go() sigue en la línea SIGUIENTE a la llamada.
+- Por ahora hay una sola pila; más adelante el libro agrega más.
+- Nota del profe: la pila es lo que se imprime en un stack trace (las líneas `at ...` de una excepción), y una recursión sin fin la llena hasta `StackOverflowError`.
+- Ejercicios de la tanda: ninguno.
+- Chequeo: P1 a medias (c desaparece con su método, bien; pero "sigue en go()" sin decir que es en la línea SIGUIENTE a la llamada, no desde el principio). P2 BIEN: queda solo doStuff() con b.
+- PRÓXIMO PASO: pág. 634.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

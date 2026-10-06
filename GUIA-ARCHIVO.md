@@ -2882,3 +2882,53 @@ SESIÓN #99 — 2026-09-19 — Pool Puzzle de los botes (pág. 537-540, 31%)
 - Ejercicios de la tanda: EJERCICIO #18 Pool Puzzle "los botes" PENDIENTE.
 - PRÓXIMO PASO: pág. 541 en adelante (arranca el capítulo 8).
 
+
+SESIÓN #100 — 2026-09-28 — Arranca el capítulo 8: interfaces y clases abstractas; el problema de `new Animal()` (pág. 541-546, 32%)
+- Capítulo 8 "Serious Polymorphism" (polimorfismo en serio). La herencia es solo el comienzo: para aprovechar el polimorfismo del todo hacen falta INTERFACES (no las gráficas: contratos de código).
+- Adelanto del libro: interfaz = clase 100% abstracta; CLASE ABSTRACTA = clase que NO se puede instanciar (no se le puede hacer `new`).
+- Pág. 542-545: el diseño de animales del cap. 7 está bien (poco código duplicado, overrides donde hace falta, `Animal` como protocolo común de 4 métodos, y sirve para subclases que todavía no existen)... pero "¿nos olvidamos de algo?".
+- Tres casos: `Wolf aWolf = new Wolf();` (mismo tipo), `Animal aHippo = new Hippo();` (tipos distintos: polimorfismo) y `Animal anim = new Animal();` (mismo tipo, pero RARO).
+- El problema: `Animal` es un concepto general. Un objeto "Animal" a secas no tiene forma, ruido ni comida con sentido: nadie debería poder crearlo. La solución (clase abstracta) viene en la próxima tanda.
+- Pág. 543-544: Kindle saltea números por el diagrama grande (cubierto igual).
+- Ejercicios de la tanda: ninguno.
+- Nota del profe: desde Java 8 las interfaces pueden tener métodos `default` con cuerpo, así que "100% abstracta" es una simplificación; el libro lo ve más adelante.
+- Chequeo: LAS DOS BIEN, sin pistas y con las dos mitades. (1) Referencia Animal, objeto Hippo, corre el `eat()` de Hippo y lo decide la JVM. (2) `Animal` es una categoría ("dame una verdura" → "¿cuál?"); `new Hippo()` sí dice qué objeto concreto es.
+- PRÓXIMO PASO: pág. 547 — qué hacer con `new Animal()` (clases abstractas).
+
+SESIÓN #101 — 2026-09-28 — Clases abstractas vs. concretas (pág. 547-550, 32%)
+- Algunas clases NO deben instanciarse: un objeto `Animal` a secas no tiene forma, color ni patas (el "accidente del teletransportador" de Star Trek).
+- Se marca con la palabra clave `abstract` en la declaración: `abstract class Canine extends Animal { }`. El COMPILADOR prohíbe todo `new` de esa clase ("Canine is abstract; cannot be instantiated").
+- Lo único prohibido es el `new`: la clase abstracta SÍ sirve como tipo de referencia (variable, argumento, retorno, arreglo polimórfico). `Canine c = new Dog();` compila.
+- CLASE CONCRETA = la que no es abstracta, lo bastante específica para instanciarse. Árbol: Animal, Canine y Feline abstractas; Hippo, Wolf, Dog, Lion, Cat y Tiger concretas.
+- Una clase abstracta casi no sirve si nadie la extiende: el trabajo en ejecución lo hacen instancias de sus subclases concretas. Excepción: miembros `static` (cap. 10).
+- En la API hay muchas: `Component` (GUI) es abstracta; se instancia `JButton`, nunca `Component`.
+- Pág. 548: Kindle salta el número, el texto sigue sin corte (cubierto igual). BRAIN POWER de la 550: la pregunta sigue en la 551.
+- Ejercicios de la tanda: ninguno.
+- Nota del profe: el libro escribe `abstract public class`; compila igual, pero la convención es `public abstract class`.
+- Chequeo: BIEN tras pedirle las mitades que faltaban (b sin "quién", c sin "porqué": otra vez media consigna). (1) b no compila y lo frena el compilador; c compila porque ES-UN se hereda por toda la cadena. (2) Ejemplo propio: Forma abstracta, Triangulo y Circulo concretas.
+- PRÓXIMO PASO: pág. 550-551 — el BRAIN POWER del vino (¿abstracta o concreta?).
+
+SESIÓN #102 — 2026-09-29 — Métodos abstractos (pág. 552-557, 32%)
+- BRAIN POWER del vino: Wine, Red y White probablemente abstractas; una botella puntual (Camelot 1997 Pinot Noir) seguro concreta. Dónde se corta depende de la aplicación.
+- Clase abstracta = DEBE ser extendida; método abstracto = DEBE ser sobrescrito (implementado). Se usa cuando no existe un cuerpo genérico con sentido (¿cómo come un "animal" a secas?).
+- Sintaxis: `public abstract void eat();` — sin cuerpo, sin llaves, termina en punto y coma.
+- Un método abstracto obliga a que la CLASE sea abstracta. Una clase abstracta puede mezclar métodos abstractos y con cuerpo.
+- Para qué sirve: define PROTOCOLO. "Todos los subtipos tienen ESTE método" → el compilador acepta `a.eat()` sobre una referencia `Animal`, y `Vet` no necesita un método por cada subclase.
+- La PRIMERA subclase concreta implementa TODOS los abstractos pendientes. Una abstracta intermedia (Canine) puede pasar la pelota o implementar algunos. Implementar = misma firma + retorno compatible; el contenido da igual para Java (hasta `{ }`).
+- Pág. 553 y 555-556: Kindle saltea números por las viñetas; el texto sigue sin corte (cubierto igual).
+- Ejercicios de la tanda: Sharpen "Abstract versus Concrete classes" (pág. 557): la tabla está en la página siguiente → su arranque se crea en la próxima tanda.
+- Nota del profe: en el trabajo real, `@Override` arriba de cada método implementado; los IDE los generan solos (IntelliJ: "Implement methods", Fase 3).
+- Chequeo: veredictos BIEN (Parrot no compila y lo frena el compilador; método abstracto → clase abstracta). Faltó la salida principal: IMPLEMENTAR `fly()`; hacer Parrot abstracta compila pero prohíbe `new Parrot()`. El porqué de "la abstracta puede tener cuerpo" no llegó (media consigna).
+- PRÓXIMO PASO: pág. 558 — la tabla del Sharpen "Abstract versus Concrete".
+
+SESIÓN #103 — 2026-10-02 — polimorfismo en acción: MyDogList → MyAnimalList, y Object (pág. 560-564, 33%)
+- Lista propia hecha a mano: arreglo de 5 casillas + `nextIndex` (próximo índice); `add()` guarda solo si `nextIndex < arreglo.length`, si no, no hace NADA (ni error ni mensaje).
+- Al sumar gatos: una clase por animal o dos arreglos con `addCat`/`addDog` es torpe; la buena es UNA lista con el SUPERTIPO (`Animal[]`, `add(Animal a)`) que acepta cualquier subclase, incluso las futuras.
+- `new Animal[5]` con Animal abstracta COMPILA: crea UN objeto arreglo con 5 casillas en null, ningún Animal. Lo prohibido es `new Animal()`.
+- Toda clase que no escribe `extends` hereda automáticamente de `Object`, la raíz de todo el árbol: equals(), getClass(), hashCode(), toString().
+- La app numera por pantalla: la tabla del Sharpen y MyDogList dicen las dos "Page 560". Pág. 562: cubierto igual (el código sigue sin corte).
+- Ejercicios de la tanda: lib28 Sharpen "Abstract versus Concrete" (pendiente): imaginar una app donde cada clase sea concreta y otra donde sea abstracta.
+- Nota del profe: en el trabajo real nadie escribe esta lista: se usa `ArrayList<Animal>`, que crece sola. "Una clase que acepte cualquier cosa" se resuelve con genéricos (cap. 11).
+- Chequeo: las dos BIEN (0 Animals, arreglo en null; la sexta llamada no hace nada y nextIndex queda en 5). Faltó escribir `5 < 5` → false y "no imprime nada". Práctica libre en Eclipse (Pildoras): faltaba `package`, Cat no extendía Feline.
+- PRÓXIMO PASO: pág. 565 (qué trae Object).
+
