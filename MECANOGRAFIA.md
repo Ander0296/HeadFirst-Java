@@ -630,3 +630,7 @@ Se sobrecarga con tipo y orden distintos: (int, boolean) no es (boolean, int).
 s123 — constructores sin no-arg y nanorepaso:
 Color c = new Color(3, 45, 200); exige el color: no hay no-arg.
 El constructor se llama como la clase y no tiene tipo de retorno.
+
+s124 — el objeto con capas y el constructor private:
+new Hippo() crea UN objeto con capas: Hippo, Animal y Object.
+private Hippo() { } solo deja hacer new desde adentro de la clase.

@@ -2932,3 +2932,66 @@ SESIÓN #103 — 2026-10-02 — polimorfismo en acción: MyDogList → MyAnimalL
 - Chequeo: las dos BIEN (0 Animals, arreglo en null; la sexta llamada no hace nada y nextIndex queda en 5). Faltó escribir `5 < 5` → false y "no imprime nada". Práctica libre en Eclipse (Pildoras): faltaba `package`, Cat no extendía Feline.
 - PRÓXIMO PASO: pág. 565 (qué trae Object).
 
+SESIÓN #104 — 2026-10-02 — la clase Object y sus 4 métodos (pág. 565-569, 33%)
+- Para una lista que acepte CUALQUIER cosa hace falta un tipo por encima de Animal: ya existe, es `Object`. Toda clase que no extiende nada explícitamente la extiende implícitamente (`class Dog extends Object`).
+- Si la clase ya extiende otra, NO extiende Object directo: Dog → Canine → Animal → Object. Lo hereda indirectamente, igual que todo lo demás.
+- Por qué existe: los autores de la biblioteca escribieron métodos que reciben y devuelven tipos que no conocían (tus clases); sin una raíz común eso sería imposible.
+- `equals(Object o)`: ¿se consideran iguales? Dog vs. Cat → false. `getClass()`: la clase con la que se creó el objeto → `class Cat`. `hashCode()`: un número tipo ID (8202111). `toString()`: `Cat@7d277f`.
+- Nota del profe: el equals de Object compara si es el MISMO objeto (igual que `==`); String lo sobrescribe para comparar texto (por eso `b.equals(x)`). El hashCode NO es único garantizado. El número de toString es el hashCode en hexadecimal (7d277f = 8202111). `println(c)` llama solo a `c.toString()`.
+- Nota del profe: en el trabajo se sobrescriben equals/hashCode/toString en las clases propias (y los `record` de Java 16+ los generan solos).
+- Duda: == vs. equals (programa propio en nvim): entendido. Con literales iguales, == da true por el String pool; con new String da false. Regla: los String se comparan con equals.
+- Ejercicios de la tanda: ninguno.
+- Chequeo: veredictos BIEN (indirecto; true/false; 2 objetos). Porqués MAL: "toString sale de Animal" (sale de Object) y "equals compara el contenido" (el de Object compara si es el mismo objeto). Repaso del concepto al 05/10.
+- PRÓXIMO PASO: pág. 570.
+
+SESIÓN #105 — 2026-10-02 — el precio de usar referencias Object (pág. 569-574, 33%)
+- Object es CONCRETA (sus métodos traen código). Sus métodos `final` no se sobrescriben (getClass); se recomienda sobrescribir equals, hashCode y toString.
+- Object sirve para dos cosas: tipo polimórfico para métodos que aceptan cualquier clase, y código común que todo objeto hereda. `new Object()` casi nunca se usa.
+- Type-safety (seguridad de tipos): solo se llama un método si la clase del TIPO DE LA REFERENCIA lo tiene. `Object o = new Ferrari(); o.goFast();` no compila.
+- Con `ArrayList<Dog>`, get() devuelve Dog. Con `ArrayList<Object>`, get() devuelve Object aunque adentro haya un Dog: `Dog d = lista.get(0);` NO COMPILA.
+- El objeto no deja de ser Dog: solo lo "parece" (para el compilador, que lee la etiqueta de la referencia). Próximo: un método que devuelve Object, y cómo recuperar el Dog.
+- Ejercicios de la tanda: ninguno. Hueco 570-571: cubierto igual (la pantalla de Android junta páginas).
+- Chequeo: BIEN 2/2 (dijo "línea 4" por la 3: contar las líneas). Pidió la explicación más fácil: el compilador es un guardia que solo lee la etiqueta de la caja.
+- PRÓXIMO PASO: pág. 575.
+
+SESIÓN #106 — 2026-10-03 — un método que devuelve Object (pág. 574-576, 33%)
+- `public Object getObject(Object o) { return o; }` es legal: recibe un Dog y devuelve una referencia al MISMO Dog, pero con tipo de retorno Object. Es lo mismo que hace get() de `ArrayList<Object>`.
+- `Dog sameDog = getObject(aDog);` NO COMPILA: "incompatible types, found: java.lang.Object, required: Dog". El compilador lee el TIPO DE RETORNO declarado, no lo que el método devuelve de verdad.
+- `Object sameDog = getObject(aDog);` SÍ compila: a una referencia Object entra cualquier objeto, porque toda clase pasa la prueba ES-UN con Object (está en la cima de todo árbol).
+- Pero sirve de poco: con `Object o` solo se llaman métodos de Object (`o.hashCode()` sí, `o.bark()` no compila). El compilador decide por el tipo de la REFERENCIA, no del objeto real: para él podría ser un Button o un Microwave.
+- Ejercicios de la tanda: ninguno. Pág. 576 repasa type-safety de la #105 con otro ejemplo. Un pantallazo salió vacío (cubierto igual: 574-576 sin hueco).
+- Nota del profe: el javac actual dice el mismo error como "incompatible types: Object cannot be converted to Dog".
+- Chequeo: P2 BIEN (`o.hashCode()` sí, `o.meow()` no; escribió `hashcode`). P1 MAL: dijo que `Cat c = findPet();` compila, y después que `Object o = c;` no: invirtió la frase ES-UN las dos veces. Con el método de 3 pasos ("<derecha> ES UN <izquierda>") acertó `Cat c2 = o;` → no compila. Repaso del concepto adelantado al 06/10.
+- PRÓXIMO PASO: pág. 577 (cómo recuperar el Dog: el cast).
+
+SESIÓN #107 — 2026-10-03 — el núcleo Object de todo objeto (pág. 576-579, 33%)
+- Pág. 576 y 578 vuelven sobre la #106: el método que se llama sobre una referencia TIENE que existir en la clase de ESA referencia. Con `Object o`, el control remoto tiene 4 botones (equals, getClass, hashCode, toString), aunque el objeto sea un Dog.
+- `o.bark()` no compila aunque VOS sepas que es un Dog: para el compilador podría ser un Button o un Microwave.
+- Pág. 579 (viñeta): "me trata como un Object, pero puedo hacer mucho más": la referencia esconde lo que el objeto sabe hacer.
+- "Get in touch with your inner Object": un objeto contiene TODO lo que hereda de cada superclase. `new Snowboard()` crea UN solo objeto en el heap, que envuelve un núcleo con la parte Object. No son dos objetos.
+- Por eso todo objeto puede tratarse como su clase Y como Object. Snowboard = 4 métodos heredados de Object + 4 propios (turn, shred, getAir, loseControl).
+- Ejercicios de la tanda: ninguno. Pág. 577 no vino: el texto de la 576 empalma con el dibujo de la 578 (cubierto igual).
+- Chequeo: BIEN 2/2 (`o.turn()` no, `o.toString()` sí, por el tipo de la referencia; UN solo objeto). Detalle: dijo "toString pertenece a un método de Object" (ES un método de Object) y escribió "Objeto" por `Object`.
+- PRÓXIMO PASO: pág. 580 (cómo ver al objeto "por lo que realmente es": el cast).
+
+SESIÓN #108 — 2026-10-03 — polimorfismo con Object y el problema de recuperar el Dog (pág. 582-585, 34%)
+- "Polymorphism means many forms" (polimorfismo = muchas formas): un Snowboard se puede tratar como Snowboard o como Object. El objeto es UNO; lo que cambia es el control remoto.
+- El control remoto suma botones al bajar por el árbol: Object = 4 botones; Snowboard = esos 4 + los propios. Más específica la clase, más botones (salvo que la subclase solo sobrescriba).
+- `Snowboard s = new Snowboard(); Object o = s;` → dos referencias, UN objeto. `o` solo ve la parte Object del objeto.
+- Regla de ArrayList<Object>: lo que entra se trata solo como Object, y lo que sale (`get`) es SIEMPRE una referencia Object.
+- Pág. 584-585: "¿de qué sirve un Dog que salió como Object si no puede hacer cosas de perro?" → se lo devuelve a su tipo REAL con un cast. La sintaxis viene en la pág. 586.
+- Ejercicios de la tanda: ninguno. Pág. 580-581 y 583 no vinieron: el dibujo de la 582 es el mismo de la #107 (cubierto igual).
+- Chequeo: P1 BIEN (un objeto; `o.getAir()` no compila por el tipo Object). P2 a medias: referencia Object bien, pero dijo que el objeto en el heap es "ArrayList" (es el Dog: `get()` devuelve el elemento, no la lista).
+- PRÓXIMO PASO: pág. 586 (el cast de referencias: `Dog d = (Dog) o;`).
+
+SESIÓN #109 — 2026-10-03 — el cast de referencias y el contrato de una clase (pág. 586-591, 34%)
+- `Dog d = (Dog) o;` copia la referencia Object en una referencia Dog. El objeto NO cambia (sigue siendo el mismo Dog); cambia el control remoto, que recupera los botones de Dog (`d.roam()`).
+- El cast es una PROMESA tuya al compilador ("sé que es un Dog"). Si mentís, compila igual pero en ejecución revienta con `ClassCastException`.
+- Si no estás seguro: `if (o instanceof Dog) { Dog d = (Dog) o; }`. `instanceof` pregunta "¿el objeto ES UN Dog?" y devuelve true/false.
+- Los métodos públicos de una clase son su CONTRATO con el mundo. Exponer (expose) un método = hacerlo accesible, normalmente con `public`.
+- Ejemplo Account (debit, credit, getBalance): si la clase no tuviera de verdad el método, explotaría en ejecución. Eso no pasa porque el compilador revisa la clase de la REFERENCIA en cada punto (`a.metodo()`): que exista, que reciba esos argumentos y que devuelva ese tipo.
+- El contrato de Dog incluye todo lo heredado: Canine, Animal y Object. Problema nuevo: reusar Dog en un PetShop que pide comportamientos de mascota (`beFriendly()`, `play()`). Opción 1: meterlos en Animal → hereda todo el mundo, pero un Hippo o un Lion quedan con métodos de mascota, y Dog y Cat igual tendrían que sobrescribirlos.
+- Ejercicios de la tanda: ninguno (el Brain Power se responde en las páginas que siguen). Pág. 587, 589 y 590 no vinieron: el texto empalma (cubierto igual).
+- Nota del profe: desde Java 16, `if (o instanceof Dog d) { d.roam(); }` hace el chequeo y el cast en una línea (pattern matching).
+- Chequeo: veredictos BIEN 2/2 (compila y revienta; UN solo Dog). Flojo: no nombró `ClassCastException` ni dijo POR QUÉ (el objeto real es un Cat); dijo "casteamos la variable o" (o sigue siendo Object: el cast crea una SEGUNDA referencia `d`).
+- PRÓXIMO PASO: pág. 591-592 (opción 2 y siguientes para el PetShop).
