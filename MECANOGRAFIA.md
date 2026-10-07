@@ -606,3 +606,7 @@ En foo(int x) { int i = x + 3; } x e i son variables locales.
 s117 — la pila de llamadas (call stack):
 Cada llamada a un método apila un stack frame con sus variables locales.
 Cuando crazy() termina, su frame sale y go() sigue en la línea siguiente.
+
+s118 — referencias locales e instance variables en memoria:
+Duck d = new Duck(); la referencia d va al stack y el objeto al heap.
+private Antenna ant; crea solo el control remoto: la Antenna no existe todavía.

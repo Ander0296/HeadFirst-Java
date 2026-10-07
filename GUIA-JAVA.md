@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 633 de 1629 (36%) — cap. 9, la pila de llamadas paso a paso: stack frames, push y pop (Sesión #117). **Próximo: pág. 634 (conviene traerla como TEXTO).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #117** (tanda de 4 pantallazos, 2026-10-06: pág. 631-633, la pila de llamadas).
-- PRÓXIMA SESIÓN: `/rename java-s140` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s139 (07/10): repaso lib10 r1 BIEN 9/9, sin tanda.)
+- Última página: 638 de 1629 (36%) — cap. 9, dónde viven las referencias locales y las variables de instancia (Sesión #118). **Próximo: pág. 639 (conviene traerla como TEXTO).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #118** (tanda de 5 pantallazos, 2026-10-07: pág. 634-638, referencias locales e instance variables en memoria).
+- PRÓXIMA SESIÓN: `/rename java-s141` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s140 (07/10): Sesión #118.)
 - Ejercicios: abiertos lib28, lib29, lib30 y **ej19** Pool Puzzle Of76 (cap. 8). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** (el más viejo, ej11 XCopy/Clock r1, del 2026-08-03; lib10 r1 BIEN 9/9 el 07/10, r2 al 21/10). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620-624** (soluciones del cap. 8: lib29, lib30, ej19).
@@ -301,6 +301,8 @@ Ejercicios: ver EJERCICIOS.md.
 | LIFO (Last In, First Out)        | último en entrar, primero en salir | Regla de toda pila: el método que se llamó último (arriba) es el primero que termina y sale. |
 | stack variable                   | variable de pila | Otro nombre de la variable local (incluidos los parámetros): vive en el stack mientras su método no llegue a la llave de cierre. |
 | call stack                       | pila de llamadas | La pila de métodos en curso: abajo el primero que se llamó, arriba el que se está ejecutando ahora. |
+| non-primitive variable           | variable no primitiva | Variable de tipo clase (`Duck d`, `Antenna ant`): guarda una REFERENCIA (el control remoto), no el objeto. |
+| HAS-A (instance reference)       | TIENE-UN (referencia de instancia) | `CellPhone` con un `private Antenna ant;`: adentro del objeto CellPhone vive solo la referencia; la Antenna es otro objeto aparte en el heap. |
 | stack frame                      | marco de pila | El bloque que se apila por cada llamada a un método: guarda la línea en ejecución y sus variables locales. |
 | push / pop                       | apilar / desapilar | push = poner un frame arriba de la pila (al llamar al método); pop = sacarlo (al terminar), y la ejecución vuelve al método de abajo. |
 | array of an interface type       | arreglo de tipo interface | `Pet[] p = new Pet[3];` es legal aunque Pet sea una interface: crea 3 REFERENCIAS vacías (null), cero objetos. Lo ilegal es `new Pet()`. Cada casilla acepta cualquier objeto de una clase que implemente Pet. |
@@ -450,6 +452,18 @@ SESIÓN #117 — 2026-10-06 — La pila de llamadas paso a paso (pág. 631-633, 
 - Ejercicios de la tanda: ninguno.
 - Chequeo: P1 a medias (c desaparece con su método, bien; pero "sigue en go()" sin decir que es en la línea SIGUIENTE a la llamada, no desde el principio). P2 BIEN: queda solo doStuff() con b.
 - PRÓXIMO PASO: pág. 634.
+
+SESIÓN #118 — 2026-10-07 — Referencias locales y variables de instancia en memoria (pág. 634-638, 36%)
+- Una variable de referencia LOCAL (`Duck d = new Duck();` dentro de un método) va al stack, en el frame de su método: solo el control remoto, nunca el objeto.
+- TODO objeto vive en el heap, siempre: no importa si la referencia es local o de instancia, ni dónde se creó.
+- Las variables de instancia viven en el heap, DENTRO del objeto al que pertenecen: `new` reserva espacio para todas ellas.
+- Primitivas de instancia: el espacio lo fija el TIPO, no el valor (un int ocupa 32 bits valga 32 o 32.000.000; un long, 64).
+- Referencia de instancia (CellPhone TIENE-UNA Antenna): adentro del objeto solo entra el control remoto, no la Antenna.
+- `private Antenna ant;` crea solo la referencia (queda en `null`); el objeto Antenna recién existe con `= new Antenna();`.
+- Por qué importa: alcance de variables, creación de objetos, memoria, threads y excepciones se apoyan en esto.
+- Ejercicios de la tanda: ninguno. Numeración 635 → 638: cubierto igual (el texto de la 635 y los dibujos de la 638 son continuos).
+- Chequeo: 2/2 BIEN. P1: c al stack, objeto al heap, y sin que se lo pidieran lo conectó con el GC (al salir el frame el objeto queda sin referencia → elegible). P2: un objeto, ant null (no nombró que ese objeto es el CellPhone).
+- PRÓXIMO PASO: pág. 639.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
