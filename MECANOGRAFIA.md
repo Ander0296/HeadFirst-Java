@@ -614,3 +614,7 @@ private Antenna ant; crea solo el control remoto: la Antenna no existe todavía.
 s119 — el constructor:
 new reserva la memoria y el constructor Duck() inicializa el objeto.
 public Duck() { } no tiene tipo de retorno y se llama como la clase.
+
+s120 — para qué sirve el constructor:
+El constructor corre antes del = y deja el objeto listo para usar.
+public Duck() { size = 34; } evita crear un pato sin tamaño.

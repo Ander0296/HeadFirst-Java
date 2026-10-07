@@ -7,10 +7,10 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 642 de 1629 (37%) — cap. 9, qué es un constructor y el default (Sesión #119). **Próximo: pág. 643 (conviene traerla como TEXTO).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #119** (tanda de 5 pantallazos, 2026-10-07: pág. 639-642, el constructor y el default constructor).
-- PRÓXIMA SESIÓN: `/rename java-s142` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s141 (07/10): Sesión #119.)
-- Ejercicios: abiertos lib28, lib29, lib30 y **ej19** Pool Puzzle Of76 (cap. 8). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
+- Última página: 647 de 1629 (37%) — cap. 9, el constructor inicializa el estado; el problema del setter (Sesión #120). **Próximo: pág. 648 (conviene traerla como TEXTO).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #120** (tanda de 5 pantallazos, 2026-10-07: pág. 643-647, para qué sirve el constructor).
+- PRÓXIMA SESIÓN: `/rename java-s143` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s142 (07/10): Sesión #120.)
+- Ejercicios: abiertos lib28, lib29, lib30, **lib31** (Sharpen constructor de Car, cap. 9) y **ej19** Pool Puzzle Of76 (cap. 8). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** (el más viejo, ej11 XCopy/Clock r1, del 2026-08-03; lib10 r1 BIEN 9/9 el 07/10, r2 al 21/10). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620-624** (soluciones del cap. 8: lib29, lib30, ej19).
 - Último triage (`/pendientes`): **2026-10-01** — bajas: 5 repasos (ej01, ej02, ej03, lib11, lib20) + lib24; cola de repasos 32 → 27. PENDIENTES.md: solo el Ready-Bake de GameHelper. Ritmo real: **5,46 pág./tanda** (102 tandas, pág. 557) → faltan **~196 tandas** (~143 con TEXTO). Freno principal: de java-s103 a s115 solo 3 sesiones tuvieron tanda; el resto, repasos.
@@ -308,6 +308,7 @@ Ejercicios: ver EJERCICIOS.md.
 | array of an interface type       | arreglo de tipo interface | `Pet[] p = new Pet[3];` es legal aunque Pet sea una interface: crea 3 REFERENCIAS vacías (null), cero objetos. Lo ilegal es `new Pet()`. Cada casilla acepta cualquier objeto de una clase que implemente Pet. |
 | constructor                      | constructor | El código que corre al hacer `new`: se llama igual que la clase y no tiene tipo de retorno. `new` reserva la memoria; el constructor la inicializa. |
 | default constructor              | constructor por defecto | El que agrega el compilador si la clase no escribe ninguno: `public Duck() { }`, sin parámetros y vacío. |
+| initialize (state)               | inicializar (el estado) | Darles su primer valor a las instance variables de un objeto. Es el trabajo típico del constructor: que el objeto nazca listo, sin un paso extra con un setter. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -478,6 +479,17 @@ SESIÓN #119 — 2026-10-07 — El milagro de crear un objeto: el constructor (p
 - Ejercicios de la tanda: ninguno. Pág. 641: cubierto igual (la app salta de a 2; 640 → 642 es continuo).
 - Chequeo: P1 BIEN (new reserva, el constructor inicializa: el error invertido de la #115 quedó corregido). P2a A MEDIAS: "compila" con los 4 pasos, pero sin el porqué (el compilador agrega el default constructor). P2b BIEN: con void es método, solo corre si se lo llama.
 - PRÓXIMO PASO: pág. 643.
+
+SESIÓN #120 — 2026-10-07 — Para qué sirve el constructor: inicializar el estado (pág. 643-647, 37%)
+- El constructor corre ANTES de que el objeto quede enlazado a la referencia: es la chance de "meterse en el medio del `new`" y dejar el objeto listo para usar.
+- Uso principal: inicializar el ESTADO (darles valor a las instance variables), ej. `size = 34;` dentro de `Duck()`.
+- Problema de inicializar con setter: entre `new Duck()` y `d.setSize(42)` el pato existe SIN tamaño (en realidad con `0`, el valor por defecto) y el usuario de la clase tiene que SABER que crearlo lleva dos pasos.
+- Valores por defecto de las instance variables: `0`/`0.0` numéricos, `false` boolean, `null` referencias.
+- Hay que escribir un constructor propio cuando hace falta código para dejar el objeto listo (y por un motivo de la superclase que viene en unas páginas).
+- Los constructores NO se heredan. `public void Duck() { }` compila pero es un método (con tipo de retorno) y además rompe la convención (métodos en minúscula): no hacerlo.
+- Ejercicios de la tanda: lib31 Sharpen "constructor de Car" (pendiente). Pág. 646: cubierto igual (645 anuncia el código que muestra la 647).
+- Chequeo: P1 BIEN el orden (constructor antes del `=`); el porqué lo bajó a NullPointerException, se ajustó a "nunca queda visible un objeto a medio armar". P2 BIEN: compila, corre e imprime 0 (error silencioso).
+- PRÓXIMO PASO: pág. 648, "Using the constructor to initialize important Duck state" (usar el constructor para inicializar el estado importante del Duck).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

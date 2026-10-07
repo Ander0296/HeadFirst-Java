@@ -36,6 +36,9 @@ EJERCICIO #19 — Pool Puzzle: Acts/Clowns/Of76 (Ubicación pág. 619-620, Sesi�
 Tipo: completar/corregir código
 Arranque: ejercicios/ej19-pool-puzzle-of76/ | Si te trabás: Sesiones #111-#114 y #104 (getClass) de la guía (el arranque dice #106 por error)
 
+LIBRO — Sharpen your pencil: "¿qué haría el constructor de Car?" (pág. 644-645, Sesión #120) — [ ] pendiente
+Arranque: ejercicios/lib31-sharpen-constructor-car.md | Si te trabás: Sesiones #119 y #120 de la guía
+
 
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
