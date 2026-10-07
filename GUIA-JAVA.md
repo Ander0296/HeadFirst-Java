@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 652 de 1629 (37%) — cap. 9, constructor con argumentos y el parche feo del 0 como valor por defecto (Sesión #121). **Próximo: pág. 653 (conviene traerla como TEXTO).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #121** (tanda de 5 pantallazos, 2026-10-07: pág. 648-652, constructor con argumentos).
-- PRÓXIMA SESIÓN: `/rename java-s144` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s143 (07/10): Sesión #121.)
+- Última página: 657 de 1629 (37%) — cap. 9, constructores sobrecargados y bullet points (Sesión #122). **Próximo: pág. 658, el Sharpen "Yours to solve" de los constructores de Duck (pantallazo: tiene flechas para unir).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #122** (tanda de 4 pantallazos, 2026-10-07: pág. 653-657, constructores sobrecargados).
+- PRÓXIMA SESIÓN: `/rename java-s145` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s144 (07/10): Sesión #122.)
 - Ejercicios: abiertos lib28, lib29, lib30, **lib31** (Sharpen constructor de Car, cap. 9) y **ej19** Pool Puzzle Of76 (cap. 8). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** (el más viejo, ej11 XCopy/Clock r1, del 2026-08-03; lib10 r1 BIEN 9/9 el 07/10, r2 al 21/10). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620-624** (soluciones del cap. 8: lib29, lib30, ej19).
@@ -311,6 +311,8 @@ Ejercicios: ver EJERCICIOS.md.
 | initialize (state)               | inicializar (el estado) | Darles su primer valor a las instance variables de un objeto. Es el trabajo típico del constructor: que el objeto nazca listo, sin un paso extra con un setter. |
 | constructor with arguments       | constructor con argumentos | Constructor que recibe parámetros, como `public Duck(int duckSize)`: se llama con `new Duck(42)` y el objeto nace con su dato en UN solo paso. |
 | no-arg constructor               | constructor sin argumentos | Constructor sin parámetros (`public Duck()`). Sirve para crear el objeto con valores por defecto cuando quien lo crea no sabe qué dato pasar. |
+| overloaded constructors          | constructores sobrecargados | Más de un constructor en la misma clase, cada uno con una lista de argumentos distinta (tipo y orden). Da varias formas de crear el objeto: `new Duck2()` o `new Duck2(15)`. |
+| argument list                    | lista de argumentos | Tipos y orden de los parámetros de un constructor o método: `(int, boolean)`. El nombre del parámetro NO forma parte de ella. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -503,6 +505,17 @@ SESIÓN #121 — 2026-10-07 — Constructor con argumentos y el problema del val
 - Ejercicios de la tanda: ninguno. Pág. 648 y 650: cubierto igual (la app salta de a 2).
 - Chequeo: P1 BIEN (sin no-arg, `new Duck()` no compila). P2 A MEDIAS: "no distingue un 0 real" bien; la otra razón la confundió con el error silencioso del setter (#120). Es que hay que CONOCER el código secreto del 0, y con parámetro obligatorio no se puede olvidar el tamaño.
 - PRÓXIMO PASO: pág. 653, la solución con dos constructores (no-arg + con argumento).
+
+SESIÓN #122 — 2026-10-07 — Constructores sobrecargados (pág. 653-657, 37%)
+- Solución al parche del 0: DOS constructores en `Duck2` — `Duck2()` pone 27 por defecto y `Duck2(int duckSize)` usa el dato. El `new` elige cuál corre por lo que va entre paréntesis.
+- Más de un constructor en una clase = constructores SOBRECARGADOS (overloaded). No confundir con sobrescritura (overriding, cap. 7).
+- El compilador escribe el default constructor SOLO si no escribiste NINGUNO. Si escribiste uno con argumentos y querés también el no-arg, lo escribís vos.
+- Cada constructor necesita una lista de argumentos distinta: cuentan el TIPO y el ORDEN, no el nombre del parámetro. `(boolean, int)` y `(int, boolean)` son distintos; `(int size)` y `(int weight)` NO compilan juntos.
+- Bullet points: valores por defecto de instance variables 0 / 0.0 / false / null; "poné un no-arg si podés".
+- Nota del profe: no-arg solo si el valor por defecto tiene sentido real (27 sí, un 0 inventado no). Semilla: encadenar con `this(27)`, más adelante en el capítulo.
+- Ejercicios de la tanda: Sharpen "Yours to solve" (unir cada `new Duck()` con su constructor) arranca en la pág. 657; el enunciado está en la 658 → arranque en la próxima tanda. Pág. 655: cubierto igual.
+- Chequeo: 2/2 BIEN (`Cat(String name)` + `Cat(String color)` no compila: misma lista; `new Mushroom(5, true)` → `(int size, boolean isMagic)` por tipo y orden).
+- PRÓXIMO PASO: pág. 658, el Sharpen de los constructores de Duck.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

@@ -622,3 +622,7 @@ public Duck() { size = 34; } evita crear un pato sin tamaño.
 s121 — constructor con argumentos:
 Duck d = new Duck(42); crea el pato y le da tamaño en un paso.
 public Duck(int duckSize) { size = duckSize; } recibe el dato al nacer.
+
+s122 — constructores sobrecargados:
+public Duck2() { size = 27; } y public Duck2(int duckSize) { size = duckSize; }
+Se sobrecarga con tipo y orden distintos: (int, boolean) no es (boolean, int).
