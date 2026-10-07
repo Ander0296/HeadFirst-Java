@@ -610,3 +610,7 @@ Cuando crazy() termina, su frame sale y go() sigue en la línea siguiente.
 s118 — referencias locales e instance variables en memoria:
 Duck d = new Duck(); la referencia d va al stack y el objeto al heap.
 private Antenna ant; crea solo el control remoto: la Antenna no existe todavía.
+
+s119 — el constructor:
+new reserva la memoria y el constructor Duck() inicializa el objeto.
+public Duck() { } no tiene tipo de retorno y se llama como la clase.
