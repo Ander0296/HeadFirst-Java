@@ -7,10 +7,10 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 657 de 1629 (37%) — cap. 9, constructores sobrecargados y bullet points (Sesión #122). **Próximo: pág. 658, el Sharpen "Yours to solve" de los constructores de Duck (pantallazo: tiene flechas para unir).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #122** (tanda de 4 pantallazos, 2026-10-07: pág. 653-657, constructores sobrecargados).
-- PRÓXIMA SESIÓN: `/rename java-s145` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s144 (07/10): Sesión #122.)
-- Ejercicios: abiertos lib28, lib29, lib30, **lib31** (Sharpen constructor de Car, cap. 9) y **ej19** Pool Puzzle Of76 (cap. 8). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
+- Última página: 661 de 1629 (38%) — cap. 9, nanorepaso de constructores (Sesión #123). **Próximo: pág. 662.** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #123** (tanda de 4 pantallazos, 2026-10-07: pág. 658-661, Sharpen de Duck, Color sin no-arg, nanorepaso).
+- PRÓXIMA SESIÓN: `/rename java-s146` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s145 (07/10): Sesión #123.)
+- Ejercicios: abiertos lib28, lib29, lib30, **lib31** (Sharpen constructor de Car), **lib32** (Sharpen constructores de Duck) y **ej19** Pool Puzzle Of76 (cap. 8). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** (el más viejo, ej11 XCopy/Clock r1, del 2026-08-03; lib10 r1 BIEN 9/9 el 07/10, r2 al 21/10). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620-624** (soluciones del cap. 8: lib29, lib30, ej19).
 - Último triage (`/pendientes`): **2026-10-01** — bajas: 5 repasos (ej01, ej02, ej03, lib11, lib20) + lib24; cola de repasos 32 → 27. PENDIENTES.md: solo el Ready-Bake de GameHelper. Ritmo real: **5,46 pág./tanda** (102 tandas, pág. 557) → faltan **~196 tandas** (~143 con TEXTO). Freno principal: de java-s103 a s115 solo 3 sesiones tuvieron tanda; el resto, repasos.
@@ -313,6 +313,8 @@ Ejercicios: ver EJERCICIOS.md.
 | no-arg constructor               | constructor sin argumentos | Constructor sin parámetros (`public Duck()`). Sirve para crear el objeto con valores por defecto cuando quien lo crea no sabe qué dato pasar. |
 | overloaded constructors          | constructores sobrecargados | Más de un constructor en la misma clase, cada uno con una lista de argumentos distinta (tipo y orden). Da varias formas de crear el objeto: `new Duck2()` o `new Duck2(15)`. |
 | argument list                    | lista de argumentos | Tipos y orden de los parámetros de un constructor o método: `(int, boolean)`. El nombre del parámetro NO forma parte de ella. |
+| RGB (red, green, blue)           | RGB (rojo, verde, azul) | Forma de describir un color con tres números de 0 a 255, uno por cada luz: `new Color(3, 45, 200)` es casi todo azul. |
+| cannot find symbol               | no se encuentra el símbolo | Error del compilador cuando usás algo que no existe: una variable mal escrita, un método o un constructor con una lista de argumentos que la clase no tiene. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -516,6 +518,16 @@ SESIÓN #122 — 2026-10-07 — Constructores sobrecargados (pág. 653-657, 37%)
 - Ejercicios de la tanda: Sharpen "Yours to solve" (unir cada `new Duck()` con su constructor) arranca en la pág. 657; el enunciado está en la 658 → arranque en la próxima tanda. Pág. 655: cubierto igual.
 - Chequeo: 2/2 BIEN (`Cat(String name)` + `Cat(String color)` no compila: misma lista; `new Mushroom(5, true)` → `(int size, boolean isMagic)` por tipo y orden).
 - PRÓXIMO PASO: pág. 658, el Sharpen de los constructores de Duck.
+
+SESIÓN #123 — 2026-10-07 — Sharpen de Duck, el caso Color y el nanorepaso de constructores (pág. 658-661, 38%)
+- Sharpen "Yours to solve": unir cada `new Duck(...)` con uno de los 5 constructores → arranque lib32 (sin resolver en el chat). Pág. 658: cubierto igual (enunciado ya conocido).
+- Hay clases donde un no-arg NO tiene sentido: `java.awt.Color` exige el color (`new Color(3, 45, 200)`, valores RGB); `new Color()` no compila.
+- Mensaje del libro: `cannot resolve symbol: constructor Color()`. Nota del profe: el javac actual dice `cannot find symbol` o `no suitable constructor found for Color(no arguments)`.
+- Regla de diseño: no-arg solo si existe un valor por defecto honesto; si no, obligar el dato es lo correcto.
+- Nanorepaso: (1) el constructor corre con `new`; (2) mismo nombre que la clase y SIN tipo de retorno; (3) sin ninguno, el compilador pone un default no-arg; (4) varios con listas distintas = sobrecargados.
+- Ejercicios de la tanda: lib32 pendiente.
+- Chequeo: 2/2 BIEN (Ticket sin no-arg: no compila, y un asiento por defecto duplicaría asientos; `public void Duck()` no es constructor por el tipo de retorno). Vocabulario: dijo "clases" por "objetos".
+- PRÓXIMO PASO: pág. 662.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

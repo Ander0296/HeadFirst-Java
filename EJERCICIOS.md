@@ -39,6 +39,9 @@ Arranque: ejercicios/ej19-pool-puzzle-of76/ | Si te trabás: Sesiones #111-#114 
 LIBRO — Sharpen your pencil: "¿qué haría el constructor de Car?" (pág. 644-645, Sesión #120) — [ ] pendiente
 Arranque: ejercicios/lib31-sharpen-constructor-car.md | Si te trabás: Sesiones #119 y #120 de la guía
 
+LIBRO — Sharpen your pencil "Yours to solve": ¿qué constructor de Duck corre? (pág. 657-659, Sesión #123) — [ ] pendiente
+Arranque: ejercicios/lib32-sharpen-constructores-duck.md | Si te trabás: Sesiones #122 y #123 de la guía
+
 
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)

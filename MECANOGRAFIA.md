@@ -626,3 +626,7 @@ public Duck(int duckSize) { size = duckSize; } recibe el dato al nacer.
 s122 — constructores sobrecargados:
 public Duck2() { size = 27; } y public Duck2(int duckSize) { size = duckSize; }
 Se sobrecarga con tipo y orden distintos: (int, boolean) no es (boolean, int).
+
+s123 — constructores sin no-arg y nanorepaso:
+Color c = new Color(3, 45, 200); exige el color: no hay no-arg.
+El constructor se llama como la clase y no tiene tipo de retorno.
