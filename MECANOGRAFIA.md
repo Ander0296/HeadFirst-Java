@@ -618,3 +618,7 @@ public Duck() { } no tiene tipo de retorno y se llama como la clase.
 s120 — para qué sirve el constructor:
 El constructor corre antes del = y deja el objeto listo para usar.
 public Duck() { size = 34; } evita crear un pato sin tamaño.
+
+s121 — constructor con argumentos:
+Duck d = new Duck(42); crea el pato y le da tamaño en un paso.
+public Duck(int duckSize) { size = duckSize; } recibe el dato al nacer.

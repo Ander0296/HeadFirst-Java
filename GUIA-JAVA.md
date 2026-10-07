@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 647 de 1629 (37%) — cap. 9, el constructor inicializa el estado; el problema del setter (Sesión #120). **Próximo: pág. 648 (conviene traerla como TEXTO).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #120** (tanda de 5 pantallazos, 2026-10-07: pág. 643-647, para qué sirve el constructor).
-- PRÓXIMA SESIÓN: `/rename java-s143` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s142 (07/10): Sesión #120.)
+- Última página: 652 de 1629 (37%) — cap. 9, constructor con argumentos y el parche feo del 0 como valor por defecto (Sesión #121). **Próximo: pág. 653 (conviene traerla como TEXTO).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #121** (tanda de 5 pantallazos, 2026-10-07: pág. 648-652, constructor con argumentos).
+- PRÓXIMA SESIÓN: `/rename java-s144` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s143 (07/10): Sesión #121.)
 - Ejercicios: abiertos lib28, lib29, lib30, **lib31** (Sharpen constructor de Car, cap. 9) y **ej19** Pool Puzzle Of76 (cap. 8). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** (el más viejo, ej11 XCopy/Clock r1, del 2026-08-03; lib10 r1 BIEN 9/9 el 07/10, r2 al 21/10). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620-624** (soluciones del cap. 8: lib29, lib30, ej19).
@@ -309,6 +309,8 @@ Ejercicios: ver EJERCICIOS.md.
 | constructor                      | constructor | El código que corre al hacer `new`: se llama igual que la clase y no tiene tipo de retorno. `new` reserva la memoria; el constructor la inicializa. |
 | default constructor              | constructor por defecto | El que agrega el compilador si la clase no escribe ninguno: `public Duck() { }`, sin parámetros y vacío. |
 | initialize (state)               | inicializar (el estado) | Darles su primer valor a las instance variables de un objeto. Es el trabajo típico del constructor: que el objeto nazca listo, sin un paso extra con un setter. |
+| constructor with arguments       | constructor con argumentos | Constructor que recibe parámetros, como `public Duck(int duckSize)`: se llama con `new Duck(42)` y el objeto nace con su dato en UN solo paso. |
+| no-arg constructor               | constructor sin argumentos | Constructor sin parámetros (`public Duck()`). Sirve para crear el objeto con valores por defecto cuando quien lo crea no sabe qué dato pasar. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -490,6 +492,17 @@ SESIÓN #120 — 2026-10-07 — Para qué sirve el constructor: inicializar el e
 - Ejercicios de la tanda: lib31 Sharpen "constructor de Car" (pendiente). Pág. 646: cubierto igual (645 anuncia el código que muestra la 647).
 - Chequeo: P1 BIEN el orden (constructor antes del `=`); el porqué lo bajó a NullPointerException, se ajustó a "nunca queda visible un objeto a medio armar". P2 BIEN: compila, corre e imprime 0 (error silencioso).
 - PRÓXIMO PASO: pág. 648, "Using the constructor to initialize important Duck state" (usar el constructor para inicializar el estado importante del Duck).
+
+SESIÓN #121 — 2026-10-07 — Constructor con argumentos y el problema del valor por defecto (pág. 648-652, 37%)
+- Si un objeto no debe usarse hasta tener cierto estado, que nadie obtenga la referencia antes: el lugar para inicializar es el CONSTRUCTOR, y para eso se le ponen parámetros.
+- `public Duck(int duckSize) { size = duckSize; }` + `new Duck(42)`: crear el pato y darle tamaño en UNA sola instrucción. El argumento de `new Duck(42)` viaja al parámetro del constructor, igual que en un método.
+- Salida del ejemplo: `Quack` y `size is 42` (el constructor imprime antes y después de asignar).
+- Nuevo problema: con un único constructor con parámetro, quien no sabe el tamaño NO puede crear un Duck (sin el int no compila: mismas reglas que un método).
+- Parche "feo": usar `0` como código para "dame el tamaño por defecto" (27). Malo porque hay que CONOCER ese protocolo y no se distingue un 0 real de un "no sé".
+- Lo que viene: tener DOS constructores (uno sin argumentos = no-arg, otro con el tamaño).
+- Ejercicios de la tanda: ninguno. Pág. 648 y 650: cubierto igual (la app salta de a 2).
+- Chequeo: P1 BIEN (sin no-arg, `new Duck()` no compila). P2 A MEDIAS: "no distingue un 0 real" bien; la otra razón la confundió con el error silencioso del setter (#120). Es que hay que CONOCER el código secreto del 0, y con parámetro obligatorio no se puede olvidar el tamaño.
+- PRÓXIMO PASO: pág. 653, la solución con dos constructores (no-arg + con argumento).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
