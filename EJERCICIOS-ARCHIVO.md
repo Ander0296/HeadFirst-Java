@@ -2769,3 +2769,7 @@ Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2.md (Instrument/Guitar
   Object): 5 no compila, 6 sí. P1 b/c en bloque (otra vez, como el r1 bis). P4 "no sé", aunque en P2c ya lo había
   dicho. P5a cambió la llamada por new Guitar() (esquivó el cast); P5b en blanco (ClassCastException).
 - Checklist: ES-UN ya estaba (Nivel 3); el tipo de RETORNO no → punto nuevo. r2 bis al 2026-10-09.
+
+REPASO — LIBRO "What's legal?" (pág. 305-306) (r1) — programado: 2026-08-03 — [x] cumplido (2026-10-07)
+Arranque: ejercicios/repasos/lib10-r1.md
+CORRECCIÓN: BIEN 9/9. Mejoró sobre el original: escribió el porqué en TODAS las líneas (antes faltaban short→int y descartar el retorno). Sostuvo la trampa de byte h (lo ilegal es el retorno int). Detalle: dijo "conversión" donde va "cast". r2 al 2026-10-21.

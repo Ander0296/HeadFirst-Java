@@ -44,10 +44,6 @@ Arranque: ejercicios/ej19-pool-puzzle-of76/ | Si te trabás: Sesiones #111-#114 
 Nota: corrección completa en EJERCICIOS-ARCHIVO.md; acá solo el "punto a mirar". Criterio (2026-08-25):
 por RIESGO (los que ya fallaron primero), uno por día; el arranque lo crea `/repaso` en el momento.
 
-REPASO — LIBRO "What's legal?" (pág. 305-306) (r1) — programado: 2026-08-03 — [ ] pendiente
-Arranque: ejercicios/repasos/lib10-r1.md (lo crea `/repaso`)
-Mirar `byte h = calcArea(4, 20)`: la llamada es legal; lo ilegal es el int de retorno sin cast entrando en un byte.
-
 REPASO — EJERCICIO #11 BE the Compiler: XCopy/Clock (pág. 307) (r1) — programado: 2026-08-03 — [ ] pendiente
 Arranque: ejercicios/repasos/ej11-r1/ (lo crea `/repaso`)
 Mirar: leer el valor exacto que pasa setTime() antes de anotar el output.
@@ -152,6 +148,10 @@ r1 BIEN (04/10): `Integer.parseInt`, línea completa, "concatenar". Mirar: que n
 REPASO — EJERCICIO #18 Pool Puzzle: los botes (pág. 536-537) (r2) — programado: 2026-10-19 — [ ] pendiente
 Arranque: ejercicios/repasos/ej18-r2/TestBoats.java (lo crea `/repaso`, CON diccionario de la piscina)
 r1 BIEN (05/10) sin pistas: Rowboat extends Boat, un solo public, y el porqué de b3.move() (heredado, no sobrescrito). Mirar que diga que corre el OBJETO (no la referencia b3).
+
+REPASO — LIBRO "What's legal?" (pág. 305-306) (r2) — programado: 2026-10-21 — [ ] pendiente
+Arranque: ejercicios/repasos/lib10-r2.md (lo crea `/repaso`)
+r1 BIEN 9/9 (07/10) con porqué en TODAS las líneas, incluido `byte h` (mira el retorno). Mirar que diga "cast" (no "conversión") y que el tipo manda sobre el valor (80 cabría en un byte y aun así no compila).
 
 REPASO — EJERCICIO #08 BE the Compiler: arrays (pág. 245-246) (r3) — programado: 2026-10-29 — [ ] pendiente
 Arranque: ejercicios/repasos/ej08-r3/ (dos archivos) (lo crea `/repaso`)
