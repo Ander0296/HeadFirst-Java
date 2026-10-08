@@ -239,6 +239,14 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
       las dos apuntan al MISMO objeto.** Si da true con dos String
       iguales, es porque son el mismo objeto (el String pool reusa los
       literales), no porque compare el texto. El texto lo compara `equals`.
+- [ ] **Si `equals` es el HEREDADO de `Object`, hace lo mismo que `==`.**
+      `Object` no sabe qué campos tiene tu clase, así que no puede
+      comparar contenido: solo pregunta si es el mismo objeto. Dos
+      objetos con el mismo dato y `equals` heredado → `false`. Solo
+      compara contenido si la clase lo SOBRESCRIBIÓ (como `String`).
+- [ ] **Si el enunciado da el nombre de una variable, copialo letra por
+      letra** (`title`, no `tittle`; `name`, no `nombre`). Compila igual,
+      pero no es lo que se pidió.
 
 ## Nivel 4 — Antes de mandar
 
@@ -256,6 +264,9 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
       mano. Un prompt entregado con los corchetes intactos llega vacío
       y no se puede corregir — el código compilando no es la entrega,
       es solo una parte.
+- [ ] **Poné tu predicción al lado de la salida real, línea por línea.**
+      Si alguna no coincide, escribí cuál y POR QUÉ. Ese desajuste es lo
+      más valioso del ejercicio: pegar la salida sin compararla lo tira.
 
 ---
 

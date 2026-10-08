@@ -43,6 +43,11 @@ LIBRO — Sharpen your pencil "Yours to solve": ¿qué constructor de Duck corre
 Arranque: ejercicios/lib32-sharpen-constructores-duck.md | Si te trabás: Sesiones #122 y #123 de la guía
 
 
+EJERCICIO #20 — RE-ESTUDIO "¿quién compara y qué compara?" (== vs. equals() vs. toString()) — [ ] pendiente
+Tipo: programa desde cero + tabla de predicciones
+Arranque: ejercicios/ej20-quien-compara/ | Si te trabás: Sesiones #104 y #55 de GUIA-ARCHIVO.md (releerlas ANTES)
+Motivo: r1 y r1 bis de "== vs. equals()" mal dos veces seguidas. Al completarse, se agenda el repaso del concepto a ~3 días.
+
 # ============================================================
 # REPASOS PROGRAMADOS (ordenados por fecha: el de arriba es el que toca)
 # ============================================================
@@ -113,10 +118,6 @@ r1 BIEN: conteos de Bob exactos (11 objetos, 11 referencias) y cerró "queda UN 
 REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r2) — programado: 2026-10-07 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-sobrescritura-r2.md (lo crea `/repaso`)
 r1 BIEN (5/5): leyó el método ENTERO y escribió la salida en orden — las dos caídas de los exámenes del 17/09 y 20/09 quedaron resueltas. Mirar que sostenga el orden cuando la cadena de llamadas tenga TRES niveles, y que no arrastre líneas de la versión del padre que la subclase no tiene.
-
-REPASO — CONCEPTO "== vs. equals() (y el String pool)" (r1 bis) — programado: 2026-10-08 — [ ] pendiente
-Arranque: ejercicios/repasos/concepto-equals-r1bis/ (lo crea `/repaso`; ejemplo NUEVO, sin Dog/"hola")
-r1 A MEDIAS (05/10): 8/8 true/false y "Object compara el mismo objeto" (antes decía contenido). Mal: "Dog escribió equals" (lo escribió Object), "== con literales compara contenido" (es el mismo objeto del pool) y toString sin contestar. ToDo/entregar-un-ejercicio.md (Nivel 3).
 
 REPASO — LIBRO BE the Compiler, parte 2 (pág. 183-184) (r3) — programado: 2026-10-08 — [ ] pendiente
 Arranque: ejercicios/repasos/lib05-r3.md (lo crea `/repaso`)

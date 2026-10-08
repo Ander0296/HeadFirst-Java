@@ -2773,3 +2773,8 @@ Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2.md (Instrument/Guitar
 REPASO — LIBRO "What's legal?" (pág. 305-306) (r1) — programado: 2026-08-03 — [x] cumplido (2026-10-07)
 Arranque: ejercicios/repasos/lib10-r1.md
 CORRECCIÓN: BIEN 9/9. Mejoró sobre el original: escribió el porqué en TODAS las líneas (antes faltaban short→int y descartar el retorno). Sostuvo la trampa de byte h (lo ilegal es el retorno int). Detalle: dijo "conversión" donde va "cast". r2 al 2026-10-21.
+
+REPASO — CONCEPTO "== vs. equals() (y el String pool)" (r1 bis) — programado: 2026-10-08 — [x] cumplido MAL (2026-10-08, sesión java-s147)
+Arranque: ejercicios/repasos/concepto-equals-r1bis/Comparar.java (Book/"cafe")
+CORRECCIÓN: 7/8 predicciones (b1.equals(b2) dijo true), sin comentar el desajuste en P7. REPITIÓ: "Book escribió equals y lo hereda", "== compara el contenido" con literales, sin nombrar toString(), y el nombre de la variable (tittle). Además RETROCEDIÓ: el equals heredado de Object "compara el contenido" (en el r1 lo tenía bien).
+Bien: String sobrescribe equals, pool nombrado, 2 Book + 3 referencias, forma Book@hash escrita por Object, y en P6 vio que con String compila y con Book no. Mal dos veces seguidas → RE-ESTUDIO: ej20 + releer #104 y #55. Checklist: +2 puntos en Nivel 3 (equals de Object = ==, nombre literal) y +1 en Nivel 4 (comparar predicción con salida).
