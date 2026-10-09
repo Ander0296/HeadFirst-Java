@@ -638,3 +638,7 @@ private Hippo() { } solo deja hacer new desde adentro de la clase.
 s125 — encadenamiento de constructores:
 new Hippo() corre Hippo(), que llama a Animal(), que llama a Object().
 Una clase abstract no admite new, pero su constructor corre igual.
+
+s126 — super() y la pila de constructores:
+Para llamar al constructor de la superclase se escribe super(); nunca Animal();
+Si no escribís super(), el compilador lo agrega sin argumentos.

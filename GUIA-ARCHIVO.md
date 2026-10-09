@@ -2995,3 +2995,23 @@ SESIÓN #109 — 2026-10-03 — el cast de referencias y el contrato de una clas
 - Nota del profe: desde Java 16, `if (o instanceof Dog d) { d.roam(); }` hace el chequeo y el cast en una línea (pattern matching).
 - Chequeo: veredictos BIEN 2/2 (compila y revienta; UN solo Dog). Flojo: no nombró `ClassCastException` ni dijo POR QUÉ (el objeto real es un Cat); dijo "casteamos la variable o" (o sigue siendo Object: el cast crea una SEGUNDA referencia `d`).
 - PRÓXIMO PASO: pág. 591-592 (opción 2 y siguientes para el PetShop).
+
+SESIÓN #110 — 2026-10-03 — diseñar el PetShop y la herencia múltiple (pág. 591-601, 34%)
+- Opción 2: métodos de mascota ABSTRACTOS en Animal → ningún no-mascota hereda comportamiento, pero cada clase concreta (Hippo, Lion...) tipea métodos "do-nothing" `{ }`, y el contrato MIENTE: anuncia beFriendly() sin hacerlo. En Animal va solo lo que vale para TODOS los animales.
+- Opción 3: métodos de mascota SOLO en Dog y Cat. Dos problemas: (1) sin contrato, el compilador no detecta si alguien escribe doFriendly() o pone un String donde iba un int; (2) sin polimorfismo: `Animal a = new Dog(); a.beFriendly();` no compila (Animal no tiene el método).
+- Lo que se necesita: comportamiento solo en las mascotas + garantía de mismos métodos + polimorfismo → parecen hacer falta DOS superclases (Pet y Animal).
+- Herencia múltiple (`extends Animal, Pet`) NO existe en Java por el Deadly Diamond of Death: CDBurner y DVDBurner sobrescriben burn() de DigitalRecorder; ComboDrive heredaría de las dos → ¿qué burn() corre? ¿qué `i`? La salida de Java: la interface (páginas siguientes).
+- Pág. 592-594, 597-598 y 600: la app saltea números en páginas con dibujo; el texto empalma (cubierto igual). Ejercicios: ninguno.
+- Chequeo: BIEN 2/2 (el compilador mira la referencia; Java no sabría qué burn() ejecutar). Detalle: "se rompe" → mejor "es ambiguo, por eso Java no lo compila".
+- PRÓXIMO PASO: pág. 601-602 en adelante (la interface).
+
+SESIÓN #111 — 2026-10-04 — la interface al rescate (pág. 602-604, 35%)
+- Permitir el diamante obliga a reglas especiales para cada ambigüedad; Java prefiere reglas simples y consistentes (C++ sí lo permite).
+- Solución: la `interface` (palabra clave, no la interfaz gráfica): da casi todo el polimorfismo de la herencia múltiple sin el diamante.
+- El truco: TODOS sus métodos son abstractos → la subclase concreta está OBLIGADA a escribirlos, así que en ejecución hay UNA sola versión y la JVM no duda cuál llamar.
+- Definir: `public interface Pet { ... }` (interface en lugar de class). Métodos sin cuerpo, terminan en `;`.
+- Los métodos de una interface son IMPLÍCITAMENTE `public` y `abstract`: escribirlo es opcional y se considera mal estilo (el libro lo escribe solo para remarcarlo).
+- Implementar: `class Dog extends Canine implements Pet { }` → se puede extender UNA clase y además implementar la interface. Dog ES-UN Canine y ES-UN Pet.
+- Pág. 602-604 sin huecos (la 604 vino en dos pantallazos). Ejercicios: ninguno. Nota del profe: los métodos `default` con cuerpo (Java 8) ya anotados en la Sesión #100.
+- Chequeo: P1 BIEN (método con cuerpo en interface no compila). P2 a medias: sabía que sin métodos no compila, pero dijo que Cat ES-UN "Feline y Animal" y OMITIÓ Pet (lo que agrega `implements`). Leer la declaración entera.
+- PRÓXIMO PASO: pág. 605 en adelante.

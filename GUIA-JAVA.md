@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 673 de 1629 (38%) — cap. 9, encadenamiento de constructores: Hippo() apila a Animal() (Sesión #125). **Próximo: pág. 674.** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #125** (tanda de 4 pantallazos, 2026-10-09: pág. 669-673, constructor chaining y constructores de clases abstractas).
-- PRÓXIMA SESIÓN: `/rename java-s150` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s149 (09/10): Sesión #125, pág. 669-673.)
+- Última página: 677 de 1629 (38%) — cap. 9, la pila de constructores y `super()` (Sesión #126). **Próximo: pág. 677 abajo ("Can the child exist before the parents?").** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #126** (tanda de 5 pantallazos, 2026-10-09: pág. 674-677, la pila de constructores y `super()`).
+- PRÓXIMA SESIÓN: `/rename java-s151` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s150 (09/10): Sesión #126, pág. 674-677.)
 - Ejercicios: abiertos lib28, lib29, lib30, **lib31** (Sharpen constructor de Car), **lib32** (Sharpen constructores de Duck), **ej19** Pool Puzzle Of76 (cap. 8) y **ej20** RE-ESTUDIO de == vs. equals() (r1 bis MAL el 08/10: releer #104 y #55 antes). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** (el más viejo, ej11 XCopy/Clock r1, del 2026-08-03; lib10 r1 BIEN 9/9 el 07/10, r2 al 21/10). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620-624** (soluciones del cap. 8: lib29, lib30, ej19).
@@ -319,32 +319,14 @@ Ejercicios: ver EJERCICIOS.md.
 | layers (of an object)            | capas (de un objeto) | Un objeto de una subclase lleva una capa por cada clase del árbol (Hippo, Animal, Object), cada una con sus instance variables. Es UN solo objeto. |
 | Catch-22                         | callejón sin salida circular | Situación donde para conseguir A necesitás B y para B necesitás A (de la novela de Joseph Heller). |
 | constructor chaining             | encadenamiento de constructores | Al hacer `new` de una subclase corren TODOS los constructores del árbol de herencia: cada uno, apenas arranca, llama al de su superclase, hasta llegar a Object. |
+| super()                          | (llamada a) super() | La única forma de llamar al constructor de la superclase desde un constructor. Si no se escribe, el compilador agrega `super();` sin argumentos. |
+| pop (off the stack)              | sacar (de la pila) | Cuando un método o constructor termina, su stack frame se saca de la pila y la ejecución vuelve al que quedó abajo. Lo contrario de push (apilar). |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
-de código, máximo ~15 líneas por sesión. Las sesiones #01 a #109 están
+de código, máximo ~15 líneas por sesión. Las sesiones #01 a #111 están
 en GUIA-ARCHIVO.md.)
 ============================================================
-
-SESIÓN #110 — 2026-10-03 — diseñar el PetShop y la herencia múltiple (pág. 591-601, 34%)
-- Opción 2: métodos de mascota ABSTRACTOS en Animal → ningún no-mascota hereda comportamiento, pero cada clase concreta (Hippo, Lion...) tipea métodos "do-nothing" `{ }`, y el contrato MIENTE: anuncia beFriendly() sin hacerlo. En Animal va solo lo que vale para TODOS los animales.
-- Opción 3: métodos de mascota SOLO en Dog y Cat. Dos problemas: (1) sin contrato, el compilador no detecta si alguien escribe doFriendly() o pone un String donde iba un int; (2) sin polimorfismo: `Animal a = new Dog(); a.beFriendly();` no compila (Animal no tiene el método).
-- Lo que se necesita: comportamiento solo en las mascotas + garantía de mismos métodos + polimorfismo → parecen hacer falta DOS superclases (Pet y Animal).
-- Herencia múltiple (`extends Animal, Pet`) NO existe en Java por el Deadly Diamond of Death: CDBurner y DVDBurner sobrescriben burn() de DigitalRecorder; ComboDrive heredaría de las dos → ¿qué burn() corre? ¿qué `i`? La salida de Java: la interface (páginas siguientes).
-- Pág. 592-594, 597-598 y 600: la app saltea números en páginas con dibujo; el texto empalma (cubierto igual). Ejercicios: ninguno.
-- Chequeo: BIEN 2/2 (el compilador mira la referencia; Java no sabría qué burn() ejecutar). Detalle: "se rompe" → mejor "es ambiguo, por eso Java no lo compila".
-- PRÓXIMO PASO: pág. 601-602 en adelante (la interface).
-
-SESIÓN #111 — 2026-10-04 — la interface al rescate (pág. 602-604, 35%)
-- Permitir el diamante obliga a reglas especiales para cada ambigüedad; Java prefiere reglas simples y consistentes (C++ sí lo permite).
-- Solución: la `interface` (palabra clave, no la interfaz gráfica): da casi todo el polimorfismo de la herencia múltiple sin el diamante.
-- El truco: TODOS sus métodos son abstractos → la subclase concreta está OBLIGADA a escribirlos, así que en ejecución hay UNA sola versión y la JVM no duda cuál llamar.
-- Definir: `public interface Pet { ... }` (interface en lugar de class). Métodos sin cuerpo, terminan en `;`.
-- Los métodos de una interface son IMPLÍCITAMENTE `public` y `abstract`: escribirlo es opcional y se considera mal estilo (el libro lo escribe solo para remarcarlo).
-- Implementar: `class Dog extends Canine implements Pet { }` → se puede extender UNA clase y además implementar la interface. Dog ES-UN Canine y ES-UN Pet.
-- Pág. 602-604 sin huecos (la 604 vino en dos pantallazos). Ejercicios: ninguno. Nota del profe: los métodos `default` con cuerpo (Java 8) ya anotados en la Sesión #100.
-- Chequeo: P1 BIEN (método con cuerpo en interface no compila). P2 a medias: sabía que sin métodos no compila, pero dijo que Cat ES-UN "Feline y Animal" y OMITIÓ Pet (lo que agrega `implements`). Leer la declaración entera.
-- PRÓXIMO PASO: pág. 605 en adelante.
 
 SESIÓN #112 — 2026-10-04 — interfaces como ROLES y cuándo usar cada cosa (pág. 605-609, 35%)
 - Al implementar Pet, Dog DEBE escribir `beFriendly()` y `play()` con cuerpo `{ }` (el contrato); `roam()` y `eat()` son sobrescrituras normales de Animal.
@@ -488,6 +470,17 @@ SESIÓN #125 — 2026-10-09 — Encadenamiento de constructores (pág. 669-673, 
 - Pág. 670 y 672: cubierto igual (la app salta de a 2 sin cortar el texto).
 - Chequeo: P1 BIEN (A), pero dijo que la cadena "empieza desde Object()": EMPIEZA Hippo() (se apila primero) y TERMINA primero Object(); el println de Hippo corre recién cuando Animal() sale de la pila. P2 BIEN (compila y corre el constructor de la abstracta); faltó el porqué (inicializa su capa).
 - PRÓXIMO PASO: pág. 674, el resto de la pila y cómo se llama al constructor de la superclase (`super()`).
+
+SESIÓN #126 — 2026-10-09 — La pila de constructores y `super()` (pág. 674-677, 38%)
+- La pila completa: Hippo() se apila primero, Animal() encima, Object() arriba. Object() TERMINA primero y sale de la pila (pop); la ejecución vuelve a Animal() en la línea siguiente a su llamada. Hippo() empieza primero y termina último. Respuesta del Sharpen de la #125: A.
+- La ÚNICA forma de llamar al constructor de la superclase es `super()`. Escribir `Animal();` adentro de `Duck(int newSize)` no compila.
+- Si no lo escribís, lo pone el compilador: (1) si la clase no tiene constructor, escribe el default `public NombreClase() { super(); }`; (2) si tiene constructores sin `super()`, le agrega uno a CADA uno.
+- El `super()` que agrega el compilador es SIEMPRE sin argumentos: si la superclase tiene constructores sobrecargados, solo se llama el no-arg.
+- Excepción anunciada (asterisco): un constructor que llama a otro constructor sobrecargado de su misma clase no recibe ese `super()` (se ve en unas páginas).
+- Nota del profe: el libro dice que Animal() "finishes first" (termina primero) comparándolo con Hippo(); en rigor el primero de todos en terminar es Object().
+- Ejercicios de la tanda: ninguno. Un pantallazo era una franja en blanco: cubierto igual.
+- Chequeo: P1 BIEN (empieza Hippo(), termina primero Object(); el porqué de la capa salió flojo). P2 MAL: dijo que compila porque el compilador "toma el único que hay". No compila: el `super()` implícito busca `Animal()` y Animal no lo tiene (definió `Animal(String)`, así que no hay default). Hay que mirar esto en la próxima tanda (`super(args)`).
+- PRÓXIMO PASO: pág. 677 abajo, "Can the child exist before the parents?" (¿puede existir el hijo antes que los padres?).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
