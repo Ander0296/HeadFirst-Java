@@ -2778,3 +2778,10 @@ REPASO — CONCEPTO "== vs. equals() (y el String pool)" (r1 bis) — programado
 Arranque: ejercicios/repasos/concepto-equals-r1bis/Comparar.java (Book/"cafe")
 CORRECCIÓN: 7/8 predicciones (b1.equals(b2) dijo true), sin comentar el desajuste en P7. REPITIÓ: "Book escribió equals y lo hereda", "== compara el contenido" con literales, sin nombrar toString(), y el nombre de la variable (tittle). Además RETROCEDIÓ: el equals heredado de Object "compara el contenido" (en el r1 lo tenía bien).
 Bien: String sobrescribe equals, pool nombrado, 2 Book + 3 referencias, forma Book@hash escrita por Object, y en P6 vio que con String compila y con Book no. Mal dos veces seguidas → RE-ESTUDIO: ej20 + releer #104 y #55. Checklist: +2 puntos en Nivel 3 (equals de Object = ==, nombre literal) y +1 en Nivel 4 (comparar predicción con salida).
+
+REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r2 bis) — programado: 2026-10-09 — [x] cumplido A MEDIAS (2026-10-09, sesión java-s148)
+Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2bis.md (Instrument/Guitar/Shop, `Object sell()`, casts, getClass)
+- BIEN: P1 A, B, C, E-J con el porqué correcto (mejoró respecto del examen del 06/10); P4 mismo objeto; P5b compila y falla al ejecutar, la detecta la JVM; P6 tabla perfecta.
+- MAL: P2 tipo de la derecha = Guitar (error repetido del r2: tomó el `new` del cuerpo, no el retorno de la firma); D en blanco (cast hacia abajo); P3 imprimió el Afinando de F (que él mismo dijo que no compila) y "Guitar" sin "class"; P5b sin nombrar ClassCastException; P6 sin contar objetos (1).
+- Comentario del usuario: "estuve perdido, mucho es mucho". El ejercicio era largo (10 líneas + 6 preguntas): el r2 ter va corto y enfocado.
+

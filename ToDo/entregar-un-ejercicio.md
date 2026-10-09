@@ -187,6 +187,12 @@ La frase "la referencia apunta a la clase" está mal. Apunta al
       Object), NO el `new` que hay adentro del método. El compilador lee
       la firma, no el cuerpo. `Guitar g = sacar();` → "Object ES UN
       Guitar" → no compila; se arregla con cast: `(Guitar) sacar()`.
+- [ ] **Un cast hacia ABAJO (`(Guitar) i2` con `i2` de tipo Instrument)
+      se decide en DOS momentos.** Compilador: ¿los dos tipos son de la
+      misma familia de herencia? Si sí, compila (con un tipo sin relación,
+      como `(String) i2`, no compila). JVM: abre la caja y mira el OBJETO;
+      si no es un Guitar, revienta con `ClassCastException`. La línea del
+      cast se quedó en blanco una vez.
 
 - [ ] **"No se ejecuta" casi nunca es cierto.** Si el programa compila,
       la JVM lo ARRANCA igual: empieza por la primera línea del `main` y
