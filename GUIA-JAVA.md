@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 668 de 1629 (38%) — cap. 9, el objeto con capas y el papel de los constructores de la superclase (Sesión #124). **Próximo: pág. 669.** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #124** (tanda de 4 pantallazos, 2026-10-07: pág. 662-668, constructores private y el objeto con capas de cada superclase).
-- PRÓXIMA SESIÓN: `/rename java-s149` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s148 (09/10): repaso compilador vs. JVM r2 bis A MEDIAS → r2 ter al 12/10, sin tanda; en paginas/ esperan 5 pantallazos desde la pág. 669.)
+- Última página: 673 de 1629 (38%) — cap. 9, encadenamiento de constructores: Hippo() apila a Animal() (Sesión #125). **Próximo: pág. 674.** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #125** (tanda de 4 pantallazos, 2026-10-09: pág. 669-673, constructor chaining y constructores de clases abstractas).
+- PRÓXIMA SESIÓN: `/rename java-s150` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s149 (09/10): Sesión #125, pág. 669-673.)
 - Ejercicios: abiertos lib28, lib29, lib30, **lib31** (Sharpen constructor de Car), **lib32** (Sharpen constructores de Duck), **ej19** Pool Puzzle Of76 (cap. 8) y **ej20** RE-ESTUDIO de == vs. equals() (r1 bis MAL el 08/10: releer #104 y #55 antes). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10). **ej18** Pool Puzzle "los botes": r1 BIEN sin pistas el 05/10 con diccionario de la piscina (r2 al 19/10). **lib24** dado de baja en el triage del 01/10.
 - ⚠ **27 repasos en cola** (el más viejo, ej11 XCopy/Clock r1, del 2026-08-03; lib10 r1 BIEN 9/9 el 07/10, r2 al 21/10). No converge (entran ~1,3/día, sale 1): se atacan por RIESGO, no por fecha; el arranque lo crea `/repaso`. Recientes: sobrescritura r1 BIEN (23/09, r2 07/10); compilador vs. JVM r1 bis BIEN (28/09, r2 12/10); lib23 r1 bis BIEN 8/8 (28/09, r2 12/10). **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620-624** (soluciones del cap. 8: lib29, lib30, ej19).
@@ -318,6 +318,7 @@ Ejercicios: ver EJERCICIOS.md.
 | private constructor              | constructor privado | Constructor marcado `private`: solo el código de la misma clase puede hacer `new` de ella; desde afuera no compila. |
 | layers (of an object)            | capas (de un objeto) | Un objeto de una subclase lleva una capa por cada clase del árbol (Hippo, Animal, Object), cada una con sus instance variables. Es UN solo objeto. |
 | Catch-22                         | callejón sin salida circular | Situación donde para conseguir A necesitás B y para B necesitás A (de la novela de Joseph Heller). |
+| constructor chaining             | encadenamiento de constructores | Al hacer `new` de una subclase corren TODOS los constructores del árbol de herencia: cada uno, apenas arranca, llama al de su superclase, hasta llegar a Object. |
 
 ============================================================
 (SESIONES — desde la #86 en formato CORTO: 5-8 bullets, sin bloques
@@ -477,6 +478,16 @@ SESIÓN #124 — 2026-10-07 — El objeto con capas y los constructores de la su
 - Ejercicios de la tanda: ninguno. Pág. 662, 664 y 665: cubierto igual (la app salta páginas; el texto sigue sin cortes).
 - Chequeo: P1 BIEN (un objeto; k, S, V en la capa Animal; precisar "capa Animal DEL objeto Hippo", no "en Animal"). P2 A MEDIAS: existe por herencia, pero faltó el porqué concreto (el setter heredado la usa) e invirtió la dirección ("una clase que hereda Hippo": es Hippo el que hereda de Animal).
 - PRÓXIMO PASO: pág. 669, qué hace el constructor de cada capa.
+
+SESIÓN #125 — 2026-10-09 — Encadenamiento de constructores (pág. 669-673, 38%)
+- Al hacer `new` de una subclase corren TODOS los constructores del árbol de herencia (Hippo → Animal → Object). Responde el Brain Power de la #124: sí, corre el de Canine al crear un Dog.
+- Las clases abstractas TAMBIÉN tienen constructor: no se puede hacer `new` de ellas, pero su constructor corre cuando se crea un objeto de una subclase concreta.
+- Por qué: cada constructor arma SU capa del objeto. Los métodos heredados dependen de las variables de la superclase (aunque sean `private`), así que esa capa tiene que quedar inicializada.
+- Cada constructor, APENAS arranca, llama al de su superclase: se apilan en la pila (stack) Hippo() → Animal() → Object(). Eso se llama constructor chaining (encadenamiento de constructores).
+- Ejercicios de la tanda: Sharpen "¿salida A o B?" de TestHippo (pág. 671): se usa como chequeo en el chat.
+- Pág. 670 y 672: cubierto igual (la app salta de a 2 sin cortar el texto).
+- Chequeo: P1 BIEN (A), pero dijo que la cadena "empieza desde Object()": EMPIEZA Hippo() (se apila primero) y TERMINA primero Object(); el println de Hippo corre recién cuando Animal() sale de la pila. P2 BIEN (compila y corre el constructor de la abstracta); faltó el porqué (inicializa su capa).
+- PRÓXIMO PASO: pág. 674, el resto de la pila y cómo se llama al constructor de la superclase (`super()`).
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)

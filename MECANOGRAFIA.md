@@ -634,3 +634,7 @@ El constructor se llama como la clase y no tiene tipo de retorno.
 s124 — el objeto con capas y el constructor private:
 new Hippo() crea UN objeto con capas: Hippo, Animal y Object.
 private Hippo() { } solo deja hacer new desde adentro de la clase.
+
+s125 — encadenamiento de constructores:
+new Hippo() corre Hippo(), que llama a Animal(), que llama a Object().
+Una clase abstract no admite new, pero su constructor corre igual.
