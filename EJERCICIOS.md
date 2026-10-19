@@ -63,57 +63,13 @@ REPASO — EJERCICIO #15 "Agenda de contactos" (r1) — programado: 2026-09-06 �
 Arranque: ejercicios/repasos/ej15-r1/ (lo crea `/repaso`)
 Original BIEN. Mirar: imprimir `i` (no `indexOf(get(i))`), sin `== true` sobre un boolean, y un println con concatenación. ToDo/recorrer-una-coleccion.md
 
-REPASO — LIBRO Sharpen your pencil: "Movie objects" (pág. 170-173) (r2) — programado: 2026-09-08 — [ ] pendiente
-Arranque: ejercicios/repasos/lib04-r2.md (lo crea `/repaso`)
-r1 PERFECTO. Mirar que `two.playIt()` no cambia ningún valor y que cada objeto conserva los suyos.
-
-REPASO — EJERCICIO #13 Code Magnets: "MultiFor" (pág. 380-382) (r1) — programado: 2026-09-11 — [ ] pendiente
-Arranque: ejercicios/repasos/ej13-r1/MultiFor.java (lo crea `/repaso`)
-Original PERFECTO a la primera. Mirar que el `if (i == 1) { i++; }` quede DESPUÉS del for interno (antes imprimiría `2 4`) y que sepa por qué el 2 nunca es cabeza de vuelta.
-
-REPASO — LIBRO "Leer el javadoc" (pág. 452-454) (r1) — programado: 2026-09-12 — [ ] pendiente
-Arranque: ejercicios/repasos/lib21-r1.md (lo crea `/repaso`)
-4 de 5 bien. Mirar el PAQUETE de ArrayList (dijo java.lang) y que conteste las DOS mitades de cada pregunta (qué hace Y qué devuelve). ToDo/leer-la-documentacion-de-java.md
-
-REPASO — EJERCICIO #16 Code Magnets: "ArrayListMagnet" (pág. 461-463) (r1) — programado: 2026-09-13 — [ ] pendiente
-Arranque: ejercicios/repasos/ej16-r1/ArrayListMagnet.java (lo crea `/repaso`)
-Salida exacta pero resuelto SIN los imanes (el arranque los perdió): repetir CON los imanes. Mirar que use `if (a.contains("two"))` al final y sepa por qué NO entra. ToDo/recorrer-una-coleccion.md
-
-REPASO — LIBRO "Yours to solve" bug SimpleStartupGame (pág. 365-367) (r2) — programado: 2026-09-17 — [ ] pendiente
-Arranque: ejercicios/repasos/lib15-r2.md (lo crea `/repaso`)
-r1 BIEN. Flojo: dijo "while" donde va un `if`. Que nombre la estructura y ponga el chequeo ANTES del `numOfHits++`. ToDo/recorrer-una-coleccion.md (punto 7).
-
-REPASO — LIBRO "BE the JVM" (pág. 378-380) (r2) — programado: 2026-09-18 — [ ] pendiente
-Arranque: ejercicios/repasos/lib16-r2.md (lo crea `/repaso`)
-r1 BIEN sin pistas. Que nombre `value > 14` como corte (no `i > 14`) y ENTREGUE la traza vuelta por vuelta, no prosa. ToDo/un-bucle-que-termina.md (2), ToDo/entregar-un-ejercicio.md (Nivel 1).
-
 REPASO — LIBRO Sharpen your pencil: ¿qué relaciones tienen sentido? (pág. 505) (r1) — programado: 2026-09-22 — [ ] pendiente
 Arranque: ejercicios/repasos/lib25-r1.md (lo crea `/repaso`)
 Original: 11/11 en SÍ/NO, pero sin escribir las invertidas hasta que se le pidió. Mirar que clasifique cada NO en los tres tipos (invertido / TIENE-UN / sin arreglo) y ESCRIBA la línea corregida. ToDo/entregar-un-ejercicio.md (Nivel 1, condicionales).
 
-REPASO — LIBRO "ArrayList vs. arreglo común" (pág. 407) (r2) — programado: 2026-09-22 — [ ] pendiente
-Arranque: ejercicios/repasos/lib19-r2.md (lo crea `/repaso`)
-r1 bis BIEN. Mirar que la bandera `boolean` arranque en `false` antes del bucle, que salga con `break`, y `b.equals(x)` y no al revés. ToDo/recorrer-una-coleccion.md (punto 8)
-
-REPASO — EJERCICIO #06 Code Magnets: DrumKit (pág. 186) (r2) — programado: 2026-09-23 — [ ] pendiente
-Arranque: ejercicios/repasos/ej06-r2/ (DrumKit.java y DrumKitTestDrive.java) (lo crea `/repaso`)
-r1 PERFECTO a la primera, con un orden DISTINTO al original (razonó, no recordó). Mirar que sepa POR QUÉ el `if` es código muerto forzado: con el `d.playSnare()` suelto en juego, si el `if` disparara saldrían DOS "bang".
-
-REPASO — EJERCICIO #05 Robot (Sesión #25) (r2) — programado: 2026-09-23 — [ ] pendiente
-Arranque: ejercicios/repasos/ej05-r2/ (Robot.java y RobotTestDrive.java) (lo crea `/repaso`)
-r1 mejor que el original (el setter ya valida y usa `this`). Mirar que la validación no falle EN SILENCIO (el `if` sin `else`). ToDo/crear-una-clase-java.md (Nivel 3).
-
 REPASO — LIBRO Mixed Messages (pág. 127-129) (r3) — programado: 2026-09-26 — [ ] pendiente
 Arranque: ejercicios/repasos/lib02-r3.md (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. 5/5 las tres veces. Que TRACE el bucle: `y` llega a 10 (3 dígitos) y `x` sube DOS veces por vuelta (3 vueltas, no 5).
-
-REPASO — EJERCICIO #09 Code Magnets: TestArrays (pág. 247-249) (r2) — programado: 2026-10-01 — [ ] pendiente
-Arranque: ejercicios/repasos/ej09-r2/TestArrays.java (lo crea `/repaso`)
-r1 MEJOR que el original: corrigió solo el único error (las 4 asignaciones de `index[]` ya salieron del `while`). Mirar que siga separando preparación de bucle y que no invierta `islands[index[y]]`.
-
-REPASO — LIBRO Five-Minute Mystery: "The case of the pilfered references" (pág. 253-255) (r2) — programado: 2026-10-03 — [ ] pendiente
-Arranque: ejercicios/repasos/lib09-r2.md (lo crea `/repaso`)
-r1 BIEN: conteos de Bob exactos (11 objetos, 11 referencias) y cerró "queda UN solo Contact accesible". Mirar que en Kate diga TAMBIÉN cuántas referencias hay (1) y que nombre "elegibles para el garbage collector". ToDo/entregar-un-ejercicio.md (Nivel 1).
 
 REPASO — CONCEPTO "qué método corre cuando hay sobrescritura" (r2) — programado: 2026-10-07 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-sobrescritura-r2.md (lo crea `/repaso`)
@@ -139,10 +95,6 @@ REPASO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r2) �
 Arranque: ejercicios/repasos/lib23-r2.md (lo crea `/repaso`)
 r1 bis BIEN 8/8 (separó variables de métodos, dijo "sobrescrito"). Mirar que escriba el NÚMERO total en cada conteo (no solo "ninguna propia + una heredada") y que en P8 diga que FamilyDoctor es HERMANO de Surgeon: la herencia baja, no va de costado.
 
-REPASO — LIBRO Mixed Messages: "Mixed2" (pág. 531-533) (r2) — programado: 2026-10-16 — [ ] pendiente
-Arranque: ejercicios/repasos/lib26-r2.md (lo crea `/repaso`)
-r1 BIEN 4/4 sin pistas, con el porqué de las 12 llamadas. Mirar que en a2 nombre el `new C()` (el objeto) antes de subir la cadena, y que no diga "ivar es 13": ivar vale 7, lo que imprime es ivar + 6. ToDo/entregar-un-ejercicio.md (Nivel 2).
-
 REPASO — LIBRO BE the Compiler: Monster/Vampire (pág. 533-535) (r2) — programado: 2026-10-17 — [ ] pendiente
 Arranque: ejercicios/repasos/lib27-r2.md (lo crea `/repaso`)
 r1 BIEN 4/4 con porqué en los 4 pares. Mirar: que LLENE la línea final (en blanco 2 veces), que nombre "tipo de RETORNO" en el par 2 y que no diga que un byte llamaría al de Vampire (con referencia Monster, el compilador solo ve frighten(int)). ToDo/entregar-un-ejercicio.md (Nivel 4).
@@ -150,10 +102,6 @@ r1 BIEN 4/4 con porqué en los 4 pares. Mirar: que LLENE la línea final (en bla
 REPASO — CONCEPTO "String vs. int: Integer.parseInt" (r2) — programado: 2026-10-18 — [ ] pendiente
 Arranque: ejercicios/repasos/concepto-parseint-r2/ (lo crea `/repaso`)
 r1 BIEN (04/10): `Integer.parseInt`, línea completa, "concatenar". Mirar: que no lo llame "casteo", que declare `int` (no `Integer`) y que explique el "ocho" como tipos (compilador) vs. valores (ejecución). ToDo/entregar-un-ejercicio.md (Nivel 3).
-
-REPASO — EJERCICIO #18 Pool Puzzle: los botes (pág. 536-537) (r2) — programado: 2026-10-19 — [ ] pendiente
-Arranque: ejercicios/repasos/ej18-r2/TestBoats.java (lo crea `/repaso`, CON diccionario de la piscina)
-r1 BIEN (05/10) sin pistas: Rowboat extends Boat, un solo public, y el porqué de b3.move() (heredado, no sobrescrito). Mirar que diga que corre el OBJETO (no la referencia b3).
 
 REPASO — LIBRO "What's legal?" (pág. 305-306) (r2) — programado: 2026-10-21 — [ ] pendiente
 Arranque: ejercicios/repasos/lib10-r2.md (lo crea `/repaso`)

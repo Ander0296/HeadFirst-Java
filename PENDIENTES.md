@@ -150,3 +150,25 @@ cubre. La baja corta las repeticiones; no marca nada como dominado.
 
 Los archivos quedan en ejercicios/. Rescate: si el concepto se cae en un
 examen, se agenda un repaso nuevo (como parseInt el 2026-10-01).
+
+## Repasos — baja el 2026-10-19 (triage: vuelta de una semana de vacaciones)
+
+25 vencidos de 28 en cola. Criterio: salió perfecto o bien, y otro repaso
+vivo (o CONCEPTOS DOMINADOS) sigue entrenando el mismo músculo. Cola 28 → 15.
+
+- **lib04 Movie objects r2** (vencía 08/09) — r1 perfecto; objetos con valores propios, base de todo lo posterior.
+- **ej13 MultiFor r1** (vencía 11/09) — original perfecto; trazar bucles vive en lib02 r3 y DOMINADOS.
+- **lib16 BE the JVM r2** (vencía 18/09) — misma traza de bucle que lib02 r3.
+- **ej06 DrumKit r2** (vencía 23/09) — r1 perfecto; lib05 r3 cubre leer qué método se llama.
+- **lib21 Leer el javadoc r1** (vencía 12/09) — reaparece en la Fase 3; hoy es nicho.
+- **ej16 ArrayListMagnet r1** (vencía 13/09) — recorrer un ArrayList sigue vivo en ej15.
+- **lib19 ArrayList vs. arreglo r2** (vencía 22/09) — r1 bis bien; ej15 cubre el recorrido.
+- **lib15 bug SimpleStartupGame r2** (vencía 17/09) — r1 bien; ej15 + ToDo/recorrer-una-coleccion.md.
+- **ej05 Robot r2** (vencía 23/09) — clase con `private` y validación sigue en ej14 r3.
+- **ej09 TestArrays r2** (vencía 01/10) — r1 mejor que el original; arreglos siguen en ej08 r3.
+- **lib09 Five-Minute Mystery r2** (vencía 03/10) — r1 bien; garbage collector es 20%, contar con precisión vive en lib23 r2.
+- **lib26 Mixed2 r2** (vencía 16/10) — r1 bien 4/4; mismo músculo que el repaso de sobrescritura r2.
+- **ej18 Pool Puzzle los botes r2** (vencía 19/10) — r1 bien; "corre el objeto" vive en compilador vs. JVM y sobrescritura.
+
+Los archivos quedan en ejercicios/. Rescate: igual que arriba (si se cae
+en un examen, repaso nuevo).
