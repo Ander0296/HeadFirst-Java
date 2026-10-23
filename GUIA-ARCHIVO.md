@@ -3015,3 +3015,30 @@ SESIÓN #111 — 2026-10-04 — la interface al rescate (pág. 602-604, 35%)
 - Pág. 602-604 sin huecos (la 604 vino en dos pantallazos). Ejercicios: ninguno. Nota del profe: los métodos `default` con cuerpo (Java 8) ya anotados en la Sesión #100.
 - Chequeo: P1 BIEN (método con cuerpo en interface no compila). P2 a medias: sabía que sin métodos no compila, pero dijo que Cat ES-UN "Feline y Animal" y OMITIÓ Pet (lo que agrega `implements`). Leer la declaración entera.
 - PRÓXIMO PASO: pág. 605 en adelante.
+
+SESIÓN #112 — 2026-10-04 — interfaces como ROLES y cuándo usar cada cosa (pág. 605-609, 35%)
+- Al implementar Pet, Dog DEBE escribir `beFriendly()` y `play()` con cuerpo `{ }` (el contrato); `roam()` y `eat()` son sobrescrituras normales de Animal.
+- Tipo polimórfico CLASE → solo objetos de ESE árbol (parámetro Canine acepta Wolf y Dog, no Cat ni Hippo). Tipo INTERFACE → cualquier árbol: RoboDog (extends Robot) también es un Pet. Se trata al objeto por el ROL que cumple.
+- Una clase extiende UNA clase pero implementa VARIAS interfaces: `class Dog extends Animal implements Pet, Saveable, Paintable`. La superclase dice quién sos; las interfaces, qué roles cumplís.
+- En la API: Serializable (guardar estado en archivo) y Runnable (otro hilo) se ven más adelante.
+- Decisión: clase común (no pasa ES-UN con nada) / subclase (versión MÁS ESPECÍFICA) / abstracta (plantilla con código común, no instanciable) / interface (ROL en cualquier árbol).
+- `super.runReport();` (repaso): BuzzwordsReport usa el código de Report y le AGREGA lo suyo. La pág. 609 sigue en la 610.
+- Pág. 608 no vino (cubierto igual: la 609 arranca con encabezado nuevo). Ejercicios: ninguno. Nota del profe: `default`/`static` en interfaces (Java 8), ya anotados en #100.
+- Chequeo: P1 BIEN (Pet sí, Animal no), pero dijo que implements "permite crear el objeto" (lo crea `new`; implements deja que una referencia Pet lo apunte). P2 BIEN (compila, se pierde el código del padre), pero llamó "método BuzzwordsReport" a la clase. PRÓXIMO PASO: pág. 610.
+
+SESIÓN #113 — 2026-10-04 — `super` como "la parte de la superclase" + Bullet Points del cap. 8 (pág. 612-617, 35%)
+- `super` es una referencia a la PORCIÓN de superclase dentro del objeto: `super.runReport();` corre la versión de Report aunque la subclase la haya sobrescrito. Desde AFUERA, una referencia siempre llama a la versión de la subclase (polimorfismo); solo el código de la subclase puede pedir la del padre.
+- Bullet Points: repaso de TODO el capítulo (abstract, Object, cast, ClassCastException en ejecución, ArrayList<Object>, diamante, interface/implements, varias interfaces, super). Nada nuevo salvo el adelanto de `default`/`static` (cap. 12).
+- Pregunta tonta: `ArrayList<Dog>` devuelve Dogs sin cast porque el COMPILADOR pone el cast por vos: solo te dejó meter Dogs, así que sabe que es seguro. Ventaja real: el error salta al compilar, no en ejecución. Detalle en el cap. 11 (genéricos).
+- Ejercicios: lib29 "What's the Picture?" (código → diagrama) y lib30 "What's the Declaration?" (diagrama → código), pendientes. Clave: flecha sólida = extends, punteada = implements, cursiva = interface, gris = abstracta.
+- Huecos: 610-611 y 613-614 cubierto igual (la 612 rehace el ejemplo de super; la app saltea números).
+- Chequeo: P1 BIEN (corre la de BuzzwordReport y super trae la de Report), pero sin el porqué (la JVM mira el OBJETO) y dijo "extender" un método (es sobrescribir). P2 a medias: "el compilador pone el cast" bien, pero invirtió la ventaja (el error se encuentra AL compilar) y omitió que solo deja meter Dogs. PRÓXIMO PASO: pág. 618.
+
+SESIÓN #114 — 2026-10-06 — Pool Puzzle del cap. 8 (pág. 618-620, 35%)
+- Pág. 618: cierre de "What's the Declaration?" (solo un enlace a las respuestas). Pág. 619-620: Pool Puzzle con interface, clase abstracta, arreglo y `getClass()`.
+- Bases repasadas para resolverlo: un arreglo puede ser de tipo interface (`Pet[] p = new Pet[3]` crea referencias vacías, cero objetos; `new Pet()` no compila). Una clase abstracta no se instancia con `new`.
+- `getClass()` (heredado de Object) imprime la clase del OBJETO real (`class Dog`), no la de la referencia: es la JVM la que mira el objeto.
+- Ejercicios: ej19 Pool Puzzle "Acts/Clowns/Of76", pendiente. El arranque dice "Sesión #106" para getClass(): es la #104.
+- Pág. 620 (segunda mitad) en adelante: soluciones del cap. 8 = SPOILER, sin explicar.
+- Chequeo: P1 BIEN y más fino que la pregunta (el arreglo ES un objeto; cero Pet, casillas null). P2 a medias: "lo decide la JVM" bien, pero dijo que imprime Animal (es `class Dog`: la JVM mira el OBJETO). Mismo error que el repaso compilador vs. JVM r2.
+- PRÓXIMO PASO: capítulo 9 (saltear las soluciones del cap. 8).

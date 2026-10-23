@@ -642,3 +642,7 @@ Una clase abstract no admite new, pero su constructor corre igual.
 s126 — super() y la pila de constructores:
 Para llamar al constructor de la superclase se escribe super(); nunca Animal();
 Si no escribís super(), el compilador lo agrega sin argumentos.
+
+s127 — super() va primero:
+super(); va primero: la superclase se termina de construir antes que la subclase.
+public Boop(int i) { super(); size = i; }

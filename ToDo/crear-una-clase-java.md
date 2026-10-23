@@ -168,6 +168,15 @@ void setWatts(int w) { }       // recibe un int, no devuelve nada
       Escribir solo `void roam()` no compila: el hijo no puede ser más
       cerrado que el padre (`attempting to assign weaker access
       privileges`, intentando asignar privilegios de acceso más débiles).
+- [ ] **Si la clase tiene `extends`, abrí la superclase y buscá un
+      constructor SIN argumentos.** Cada constructor de la subclase que
+      no escribe `super(...)` recibe del compilador un `super();` VACÍO
+      en la primera línea. Si la superclase solo tiene constructores con
+      parámetros (por ejemplo `Animal(String n)`), ese `super();` no
+      encuentra a quién llamar y NO COMPILA. El compilador no elige "el
+      único que hay": se arregla escribiendo `super("Rex");` como
+      primera línea, o agregándole un `Animal()` a la superclase.
+      (Ya falló dos veces seguidas en los chequeos.)
 
 ## Nivel 5 — Las instrucciones
 

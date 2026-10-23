@@ -7,9 +7,9 @@ Ejercicios: ver EJERCICIOS.md.
 
 ## INICIO RÁPIDO
 
-- Última página: 677 de 1629 (38%) — cap. 9, la pila de constructores y `super()` (Sesión #126). **Próximo: pág. 677 abajo ("Can the child exist before the parents?").** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
-- Última sesión: **Sesión #126** (tanda de 5 pantallazos, 2026-10-09: pág. 674-677, la pila de constructores y `super()`).
-- PRÓXIMA SESIÓN: `/rename java-s151` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s150 (09/10): Sesión #126, pág. 674-677.)
+- Última página: 679 de 1629 (39%) — cap. 9, `super()` va primero (Sesión #127). **Próximo: pág. 680 (lo que sigue al recuadro de Boop).** Desde java-s117 se lee en la app de Android: el número de página sale ABAJO A LA IZQUIERDA ("Page X of 1629"); salta de a 2 por pantalla sin perder contenido. Deuda de páginas: PENDIENTES.md (la triagea `/pendientes`).
+- Última sesión: **Sesión #127** (tanda de 4 pantallazos, 2026-10-23: pág. 677-679, `super()` va primero).
+- PRÓXIMA SESIÓN: `/rename java-s152` (sale SIEMPRE de esta línea, NO se calcula: es un contador distinto al de las tandas. La última fue java-s151 (23/10): Sesión #127, pág. 677-679.)
 - Ejercicios: abiertos lib28, lib29, lib30, **lib31** (Sharpen constructor de Car), **lib32** (Sharpen constructores de Duck), **ej19** Pool Puzzle Of76 (cap. 8) y **ej20** RE-ESTUDIO de == vs. equals() (r1 bis MAL el 08/10: releer #104 y #55 antes). **lib27** Monster/Vampire r1 BIEN 4/4 (r2 al 17/10).
 - ⚠ **15 repasos en cola** tras el triage del 19/10 (12 vencidos; el más viejo, ej11 XCopy/Clock r1, del 2026-08-03). Se atacan por RIESGO, no por fecha: primero compilador vs. JVM r2 ter; el arranque lo crea `/repaso`. Regla de vuelta: tanda nueva primero, repaso solo si sobra energía. **Sharpen pág. 80-81 GRADUADO (01/10)** con el r3 bis: "concatena" y "arreglo" sin pistas; evaluar `22 < 15` salió recién con pista (mirarlo en el examen). Errores a vigilar: media consigna, "no se ejecuta" cuando revienta, no nombrar la excepción, "lista" por arreglo, hardcodear en vez de `.length`, no EVALUAR la condición con el valor real (ToDo/entregar-un-ejercicio.md).
 - SPOILERS leídos y NO explicados (retomar solo al entregarse cada ejercicio): pág. 197-199, 257, 260-263, 319-321, 388-391, 538-540 (soluciones del cap. 7), **620-624** (soluciones del cap. 8: lib29, lib30, ej19).
@@ -320,6 +320,7 @@ Ejercicios: ver EJERCICIOS.md.
 | Catch-22                         | callejón sin salida circular | Situación donde para conseguir A necesitás B y para B necesitás A (de la novela de Joseph Heller). |
 | constructor chaining             | encadenamiento de constructores | Al hacer `new` de una subclase corren TODOS los constructores del árbol de herencia: cada uno, apenas arranca, llama al de su superclase, hasta llegar a Object. |
 | super()                          | (llamada a) super() | La única forma de llamar al constructor de la superclase desde un constructor. Si no se escribe, el compilador agrega `super();` sin argumentos. |
+| first statement                  | primera instrucción | `super()` tiene que ser la primera instrucción del constructor: la parte de la superclase se termina de construir antes que la de la subclase. Java 25 permite poner antes instrucciones que no usen el objeto. |
 | pop (off the stack)              | sacar (de la pila) | Cuando un método o constructor termina, su stack frame se saca de la pila y la ejecución vuelve al que quedó abajo. Lo contrario de push (apilar). |
 
 ============================================================
@@ -327,33 +328,6 @@ Ejercicios: ver EJERCICIOS.md.
 de código, máximo ~15 líneas por sesión. Las sesiones #01 a #111 están
 en GUIA-ARCHIVO.md.)
 ============================================================
-
-SESIÓN #112 — 2026-10-04 — interfaces como ROLES y cuándo usar cada cosa (pág. 605-609, 35%)
-- Al implementar Pet, Dog DEBE escribir `beFriendly()` y `play()` con cuerpo `{ }` (el contrato); `roam()` y `eat()` son sobrescrituras normales de Animal.
-- Tipo polimórfico CLASE → solo objetos de ESE árbol (parámetro Canine acepta Wolf y Dog, no Cat ni Hippo). Tipo INTERFACE → cualquier árbol: RoboDog (extends Robot) también es un Pet. Se trata al objeto por el ROL que cumple.
-- Una clase extiende UNA clase pero implementa VARIAS interfaces: `class Dog extends Animal implements Pet, Saveable, Paintable`. La superclase dice quién sos; las interfaces, qué roles cumplís.
-- En la API: Serializable (guardar estado en archivo) y Runnable (otro hilo) se ven más adelante.
-- Decisión: clase común (no pasa ES-UN con nada) / subclase (versión MÁS ESPECÍFICA) / abstracta (plantilla con código común, no instanciable) / interface (ROL en cualquier árbol).
-- `super.runReport();` (repaso): BuzzwordsReport usa el código de Report y le AGREGA lo suyo. La pág. 609 sigue en la 610.
-- Pág. 608 no vino (cubierto igual: la 609 arranca con encabezado nuevo). Ejercicios: ninguno. Nota del profe: `default`/`static` en interfaces (Java 8), ya anotados en #100.
-- Chequeo: P1 BIEN (Pet sí, Animal no), pero dijo que implements "permite crear el objeto" (lo crea `new`; implements deja que una referencia Pet lo apunte). P2 BIEN (compila, se pierde el código del padre), pero llamó "método BuzzwordsReport" a la clase. PRÓXIMO PASO: pág. 610.
-
-SESIÓN #113 — 2026-10-04 — `super` como "la parte de la superclase" + Bullet Points del cap. 8 (pág. 612-617, 35%)
-- `super` es una referencia a la PORCIÓN de superclase dentro del objeto: `super.runReport();` corre la versión de Report aunque la subclase la haya sobrescrito. Desde AFUERA, una referencia siempre llama a la versión de la subclase (polimorfismo); solo el código de la subclase puede pedir la del padre.
-- Bullet Points: repaso de TODO el capítulo (abstract, Object, cast, ClassCastException en ejecución, ArrayList<Object>, diamante, interface/implements, varias interfaces, super). Nada nuevo salvo el adelanto de `default`/`static` (cap. 12).
-- Pregunta tonta: `ArrayList<Dog>` devuelve Dogs sin cast porque el COMPILADOR pone el cast por vos: solo te dejó meter Dogs, así que sabe que es seguro. Ventaja real: el error salta al compilar, no en ejecución. Detalle en el cap. 11 (genéricos).
-- Ejercicios: lib29 "What's the Picture?" (código → diagrama) y lib30 "What's the Declaration?" (diagrama → código), pendientes. Clave: flecha sólida = extends, punteada = implements, cursiva = interface, gris = abstracta.
-- Huecos: 610-611 y 613-614 cubierto igual (la 612 rehace el ejemplo de super; la app saltea números).
-- Chequeo: P1 BIEN (corre la de BuzzwordReport y super trae la de Report), pero sin el porqué (la JVM mira el OBJETO) y dijo "extender" un método (es sobrescribir). P2 a medias: "el compilador pone el cast" bien, pero invirtió la ventaja (el error se encuentra AL compilar) y omitió que solo deja meter Dogs. PRÓXIMO PASO: pág. 618.
-
-SESIÓN #114 — 2026-10-06 — Pool Puzzle del cap. 8 (pág. 618-620, 35%)
-- Pág. 618: cierre de "What's the Declaration?" (solo un enlace a las respuestas). Pág. 619-620: Pool Puzzle con interface, clase abstracta, arreglo y `getClass()`.
-- Bases repasadas para resolverlo: un arreglo puede ser de tipo interface (`Pet[] p = new Pet[3]` crea referencias vacías, cero objetos; `new Pet()` no compila). Una clase abstracta no se instancia con `new`.
-- `getClass()` (heredado de Object) imprime la clase del OBJETO real (`class Dog`), no la de la referencia: es la JVM la que mira el objeto.
-- Ejercicios: ej19 Pool Puzzle "Acts/Clowns/Of76", pendiente. El arranque dice "Sesión #106" para getClass(): es la #104.
-- Pág. 620 (segunda mitad) en adelante: soluciones del cap. 8 = SPOILER, sin explicar.
-- Chequeo: P1 BIEN y más fino que la pregunta (el arreglo ES un objeto; cero Pet, casillas null). P2 a medias: "lo decide la JVM" bien, pero dijo que imprime Animal (es `class Dog`: la JVM mira el OBJETO). Mismo error que el repaso compilador vs. JVM r2.
-- PRÓXIMO PASO: capítulo 9 (saltear las soluciones del cap. 8).
 
 SESIÓN #115 — 2026-10-06 — Portada del cap. 9 (pág. 621-625, 36%)
 - Pág. 621-624: soluciones del cap. 8 (What's the Picture?, What's the Declaration? y el Pool Puzzle Of76) = SPOILER, se vieron pero NO se explicaron.
@@ -481,6 +455,17 @@ SESIÓN #126 — 2026-10-09 — La pila de constructores y `super()` (pág. 674-
 - Ejercicios de la tanda: ninguno. Un pantallazo era una franja en blanco: cubierto igual.
 - Chequeo: P1 BIEN (empieza Hippo(), termina primero Object(); el porqué de la capa salió flojo). P2 MAL: dijo que compila porque el compilador "toma el único que hay". No compila: el `super()` implícito busca `Animal()` y Animal no lo tiene (definió `Animal(String)`, así que no hay default). Hay que mirar esto en la próxima tanda (`super(args)`).
 - PRÓXIMO PASO: pág. 677 abajo, "Can the child exist before the parents?" (¿puede existir el hijo antes que los padres?).
+
+SESIÓN #127 — 2026-10-23 — `super()` va primero (pág. 677-679, 39%)
+- 4 pantallazos (677, 677, 679, 679). La 677 repite lo de la #126 (Duck con `super()` explícito, `super()` implícito sin argumentos); la 678 no vino porque la app avanza de a 2 páginas: cubierto igual.
+- El hijo no nace antes que los padres: la parte de la SUPERCLASE del objeto tiene que estar completamente construida antes de construir la parte de la subclase, porque la subclase puede depender de lo que hereda.
+- Hippo() es el primero en llamarse y el último en terminar; el resto del constructor de Hippo corre recién cuando Animal() sale de la pila.
+- Regla: la llamada a `super()` tiene que ser la PRIMERA instrucción de cada constructor. Boop: `super(); size = i;` compila, y sin `super()` también compila (el compilador lo pone primero); `size = i; super();` NO compila en el Java del libro.
+- Excepción anunciada (asterisco): llamar a otro constructor sobrecargado de la misma clase (se ve en unas páginas).
+- Nota del profe: desde Java 25 (JEP 513, "flexible constructor bodies" (cuerpos de constructor flexibles)) se pueden poner instrucciones ANTES de `super(...)` si no usan el objeto en construcción (no leen sus campos, no llaman a sus métodos; sí pueden asignar campos propios sin valor inicial). Con el JDK 26 del usuario, el Boop "BAD" (MALO) puede compilar. En entrevistas: "super() va primero", y aclarar que Java 25 lo flexibilizó.
+- Ejercicios de la tanda: ninguno.
+- Chequeo: P1 BIEN (dio la analogía de los pisos y que la subclase depende de lo que hereda; impreciso: lo heredado sí existe, lo que pasa es que todavía no está inicializado). P2 MAL por 2ª vez seguida: dijo bien que el compilador agrega `super();` en la 1ª línea, pero respondió que compila. No compila: `Animal` solo tiene `Animal(String)`, no hay no-arg. Checklist: ToDo/crear-una-clase-java.md (Nivel 4).
+- PRÓXIMO PASO: pág. 680, lo que sigue al recuadro de Boop.
 
 # ============================================================
 # FORMATO DE CADA SESIÓN (referencia para Claude — copiar y llenar)
