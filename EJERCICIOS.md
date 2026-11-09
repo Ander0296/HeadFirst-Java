@@ -87,10 +87,6 @@ REPASO — CONCEPTO "herencia simple de clases, múltiple de interfaces" (r1) �
 Arranque: ejercicios/repasos/concepto-interface-vs-abstracta-r1.md (lo crea `/repaso`; caso NUEVO de clase abstracta vs. interface)
 EXAMEN 06/10 A MEDIAS: eligió interface (bien) por "solo la implementa quien vuela", pero no vio que las clases YA tenían `extends` y que una segunda superclase no compila. Mirar que mire los `extends` existentes antes de elegir.
 
-REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r2 ter) — programado: 2026-10-12 — [ ] pendiente
-Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2ter.md (lo crea `/repaso`; CORTO: 3-4 líneas, solo retorno de método, cast hacia abajo y salida de getClass)
-r2 bis A MEDIAS (09/10): 9/10 veredictos de compila/no compila BIEN y ClassCastException bien razonada. Mal: tipo de `shop.sell()` = Guitar (3ª vez el `new` de adentro), cast hacia abajo en blanco, salida con F borrada y sin `class`. ToDo/entregar-un-ejercicio.md (Nivel 3).
-
 REPASO — LIBRO Sharpen your pencil: contar el árbol Doctor (pág. 482) (r2) — programado: 2026-10-12 — [ ] pendiente
 Arranque: ejercicios/repasos/lib23-r2.md (lo crea `/repaso`)
 r1 bis BIEN 8/8 (separó variables de métodos, dijo "sobrescrito"). Mirar que escriba el NÚMERO total en cada conteo (no solo "ninguna propia + una heredada") y que en P8 diga que FamilyDoctor es HERMANO de Surgeon: la herencia baja, no va de costado.
@@ -114,6 +110,10 @@ Arranque: ejercicios/repasos/ej08-r3/ (dos archivos) (lo crea `/repaso`)
 REPASO — EJERCICIO #14 Termometro "¿dónde vive cada cosa?" (r3) — programado: 2026-10-30 — [ ] pendiente
 Arranque: ejercicios/repasos/ej14-r3/ (lo crea `/repaso`)
 ÚLTIMO DEL CICLO: si sale bien, GRADÚA. r2 BIEN (30/09): `private` resuelto. Mirar: que el método de frío/calor IMPRIMA (no devuelva), `get` en los que devuelven, y que el TestDrive pruebe LAS DOS ramas del if. ToDo/crear-una-clase-java.md (Niveles 3 y 6).
+
+REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r3) — programado: 2026-12-09 — [ ] pendiente
+Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r3.md (lo crea `/repaso`; caso NUEVO y corto)
+ÚLTIMO DEL CICLO: si sale bien, GRADÚA. r2 ter BIEN (09/11): retorno = tipo de la firma (primera vez que no toma el `new`), `class Truck` con "class", cast hacia abajo respondido. Mirar: que ESCRIBA quién detecta el error, que no diga "apunta a Vehicle" cuando el objeto es Truck, que diga "cast" y no "convertir", y que explique POR QUÉ `getClass()` da eso. ToDo/entregar-un-ejercicio.md (Nivel 3).
 
 
 # ============================================================

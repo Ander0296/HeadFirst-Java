@@ -2785,3 +2785,9 @@ Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2bis.md (Instrument/Gui
 - MAL: P2 tipo de la derecha = Guitar (error repetido del r2: tomó el `new` del cuerpo, no el retorno de la firma); D en blanco (cast hacia abajo); P3 imprimió el Afinando de F (que él mismo dijo que no compila) y "Guitar" sin "class"; P5b sin nombrar ClassCastException; P6 sin contar objetos (1).
 - Comentario del usuario: "estuve perdido, mucho es mucho". El ejercicio era largo (10 líneas + 6 preguntas): el r2 ter va corto y enfocado.
 
+REPASO — CONCEPTO "el compilador mira la referencia, la JVM mira el objeto" (r2 ter) — programado: 2026-10-12 — [x] cumplido BIEN (2026-11-09, sesión java-s152)
+Arranque: ejercicios/repasos/concepto-compilador-vs-jvm-r2ter.md (Vehicle/Truck/Garage, `Vehicle repair()`, cast hacia abajo, getClass)
+- BIEN: P1 tipo de la derecha = Vehicle y objeto Truck; P2a no compila sin cast; P2b compila y revienta al ejecutar con ClassCastException; P3 `class Truck`.
+- MEJORÓ respecto del r2 bis: ya no toma el `new` del cuerpo como tipo del retorno (cayó 3 veces), respondió el cast hacia abajo (estaba en blanco), escribió "class" y nombró la excepción (antes "no recuerdo cómo se llama").
+- A PRECISAR: no escribió "compilador"/"JVM" en P2a ni P2b (media consigna); P2a dijo "Truck apuntando a Vehicle" cuando el objeto es Truck (el freno es el tipo de `v`); "convirtiendo la referencia" (el cast no convierte nada); P3 pidió el porqué. `Type mismatch` es el texto de los IDE; javac dice `incompatible types`.
+
