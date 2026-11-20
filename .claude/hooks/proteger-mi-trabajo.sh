@@ -13,7 +13,9 @@
 
 set -u
 
-CARPETAS_PROTEGIDAS='/(ejercicios|diagramas|pruebas)/'
+# Proyectos/Java-Notas = el vault de Obsidian del usuario: Claude crea la
+# estructura (archivos nuevos), pero nunca edita una nota que ya existe.
+CARPETAS_PROTEGIDAS='/(ejercicios|diagramas|pruebas|Proyectos/Java-Notas)/'
 
 entrada=$(cat)
 herramienta=$(printf '%s' "$entrada" | jq -r '.tool_name // empty')

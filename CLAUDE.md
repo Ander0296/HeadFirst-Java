@@ -350,6 +350,27 @@ DÓNDE APUNTARLOS: cuando un ejercicio o un repaso toca un tema que ya
 tiene checklist, el archivo de arranque lo menciona al lado del
 puntero "Si te trabás" (ej: "Checklist: ToDo/crear-una-clase-java.md").
 
+### Vault de Obsidian (Java-Notas) — REGLA PERMANENTE
+
+Decidido por el usuario el 2026-11-20: un vault de Obsidian propio para
+Java, su "segundo cerebro" de lo aprendido.
+- Vive en `~/Proyectos/Java-Notas`, FUERA de este repo (este repo es
+  público; el vault no usa git, lo sincroniza Obsidian Sync si el usuario
+  lo activa). Este repo nunca copia sus notas.
+- Claude creó SOLO la estructura (carpetas, `Inicio.md` y la plantilla
+  `90 Plantillas/Concepto.md`). Las notas las escribe el usuario al 100%,
+  de memoria y con sus palabras (recuerdo activo: no se copian de la
+  guía). El candado bloquea editar cualquier archivo que ya exista ahí.
+- `/nota <ruta>`: Claude lee SOLO esa nota y corrige en el chat:
+  contenido Java, redacción, enlaces (existentes, pendientes, sección de
+  `Inicio.md`) y lo que haga falta de Obsidian. Nunca lee el vault
+  entero "para ver".
+- Flujo: 00 Bandeja (borrador) → `/nota` → el usuario corrige, pone
+  `estado: revisada` y la mueve a 10 Conceptos → la enlaza en `Inicio.md`.
+  Un tema con ~7 notas gana su propio mapa en 20 Mapas.
+- Lo de Obsidian que se enseña acá (enlaces, propiedades, callouts) se
+  explica corto: el curso completo vive en el proyecto Obsidian.
+
 ### Plan por fases — RUTA.md (REGLA PERMANENTE)
 
 - El proyecto NO termina con el libro. RUTA.md define las fases:
@@ -495,6 +516,7 @@ Viven en `.claude/commands/`. Claude los nombra por su nombre exacto:
 | `/cierre` | cerrar el día, guardar todo y subir a git |
 | `/pendientes` | triage semanal: qué se pudre, qué se salda, qué se da de baja |
 | `/examen` | examen en frío, sin material al lado |
+| `/nota` | revisar una nota del vault de Obsidian `~/Proyectos/Java-Notas` |
 
 # ============================================================
 # CUÁNDO CORTAR LA SESIÓN LO DECIDE CLAUDE — REGLA PERMANENTE
