@@ -53,3 +53,4 @@ técnica no hay compilador.
   cambia entre `length`/`[i]` y `size()`/`get(i)`, el tipo del for
   mejorado, y el `null` de las casillas vacías.
 - [leer-la-documentacion-de-java.md](leer-la-documentacion-de-java.md) — cómo encontrar y leer la ficha (javadoc) de una clase o un método sin adivinar.
+- [Configurar el vault Java-Notas](configurar-vault-java.md) — ajustes de Obsidian, Sync para el otro PC y el ciclo de cada nota.
