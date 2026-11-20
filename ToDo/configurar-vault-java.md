@@ -16,7 +16,7 @@ revisa con `/nota`.
 
 - [ ] Crear la carpeta vacía `~/Proyectos/Java-Notas` y abrirla como bóveda.
 - [ ] Ajustes → *Sync* → conectar la bóveda remota del paso 1 y esperar a que bajen los archivos.
-      Ojo: no le pidas a Claude que vuelva a crear la estructura acá: se duplicaría con lo que baja Sync.
+      Ojo: si el vault ya está en Sync, no le pidas a Claude que vuelva a crear la estructura: se duplicaría. Si NO está en Sync todavía, Claude la crea en este PC y el Sync se activa desde acá (paso 1).
 - [ ] Repetir los ajustes de *Plantillas* y *Archivos y enlaces* (algunos no se sincronizan solos).
 
 ## 3. Cada nota nueva
